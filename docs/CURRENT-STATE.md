@@ -1,5 +1,7 @@
 # Estado actual
 
+# Estado actual
+
 Fecha de actualización: 2026-09-10.
 
 ## Repositorio local
@@ -8,20 +10,14 @@ La carpeta estaba vacía antes de esta migración. No existían archivos, direct
 
 ## Conocimiento confirmado en la fuente accesible
 
-- Identidad responsable: Inmobia-360.
-- Propietario y responsable final: Juan.
-- Nombre del proyecto: Inmobia360 LATAM.
-- Mercado inicial aprobado: Perú.
-- Ciudad piloto aprobada: Lima.
-- Objetivo aprobado: crear una plataforma SaaS inmobiliaria escalable para Latinoamérica.
-- MVP aprobado: captación y centralización de leads; calificación de compradores y propietarios; seguimiento comercial; gestión básica de propiedades y demandas; matching básico; WhatsApp como canal prioritario para Perú.
-- Arquitectura aprobada: `inmobia360.com` institucional LATAM; `inmobia360.com/pe/` landing comercial Perú; `app.inmobia360.com` aplicación SaaS; `demo.inmobia360.com` demo; WordPress + Bricks para webs comerciales; Next.js separado para la aplicación.
-- Arquitectura regional prevista: futuras landings comerciales mediante `/co/`, `/mx/` y `/cl/`; `ayuda.inmobia360.com` queda reservado para documentación y soporte.
-- Principio de dominios aprobado: `inmobia360.com` será la landing institucional de presentación del negocio; los subdominios se reservarán para aplicación, demo, ayuda y futuras funciones globales validadas.
-- Skill directora construida: `latam-real-estate` versión `0.1.0`, con flujo ejecutivo, enrutamiento, derechos de decisión, puertas de calidad, admisión de externas y plantillas.
-- Skills especialistas previstas: `inmobia360-product-architecture`, `inmobia360-real-estate-data`, `inmobia360-security-privacy`, `inmobia360-country-landing`, `inmobia360-wordpress-bricks` e `inmobia360-release-guard`.
-- La identidad corporativa cuenta con un manual maestro externo incorporado como referencia operativa en `docs/brand/BRAND-CONTEXT.md`.
-- La dirección de producto contempla ahora espacio privado del agente, páginas públicas de propiedades, asistente guiado, Red Profesional y directorio/reputación como evoluciones.
+- Identidad responsable: VendoCoche360 (base previa Inmobia360 adaptada).
+- Propietario y responsable final: Juan / Dirección del proyecto.
+- Nombre del proyecto: VendoCoche360.
+- Mercado objetivo: España.
+- Enfoque: Plataforma SaaS B2B/B2B2C para freelancers de compraventa y pequeños concesionarios de vehículos de ocasión (VO).
+- MVP aprobado: captación y centralización de leads multicanal; inventario de vehículos con distintivo ambiental DGT (0/ECO/C/B), año, km y precio; fichas públicas compartibles; canal prioritario WhatsApp; matching automático demanda-vehículo; checklist de trámites legales en España (DGT, contrato y garantía mecánica de 1 año).
+- Metodología SDD aplicada: Spec 001 activa (`specs/001-dealer-digital-automocion/`) en sintaxis EARS, plan técnico, tareas T1-T5 completadas y matriz de validación comprobada.
+- Dominio local en Python puro (`local-broker/`): suite de 6 pruebas unitarias pasando al 100% (aislamiento multi-tenant, generación de enlaces WhatsApp, matching de stock y estados de expediente).
 - El contexto de producto se ha enriquecido con referencias funcionales externas sobre campañas, rendimiento de oficina, hubs de herramientas, colaboración profesional, formación y gestión de agentes; se conservan como benchmarks, no como especificaciones ni activos reutilizables.
 - Se han definido como candidatos funcionales `mk.inmobia360.com` para marketing del agente, `red.inmobia360.com` para colaboración y `academia.inmobia360.com` para formación; ninguno está activado ni aprobado para despliegue.
 - El staff propio incluye perfiles de diseño/publicidad, operaciones de broker/oficina, formación/políticas/soporte, integraciones/ecosistema y Red Profesional/colaboración.

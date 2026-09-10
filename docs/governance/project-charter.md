@@ -1,59 +1,47 @@
-# Project charter — Inmobia360 LATAM
+# Project charter — VendoCoche360
 
-Fecha de aprobación de esta versión: 2026-08-27.
+Fecha de actualización de esta versión: 2026-09-10.
 
 ## Identidad y responsabilidad
 
-- Identidad responsable: Inmobia-360.
-- Propietario y responsable final: Juan.
+- Identidad responsable: VendoCoche360 (AutoTech B2B / B2B2C).
+- Propietario y responsable final: Juan / Dirección del proyecto.
 
 ## Objetivo
 
-Crear una plataforma PropTech regional que ayude a agentes y pequeñas agencias a crear su presencia digital, gestionar propiedades y leads, mejorar su productividad, colaborar con profesionales y acompañar operaciones inmobiliarias con confianza y trazabilidad.
+Crear una plataforma SaaS especializada en la venta de vehículos de ocasión (VO) en España que ayude a compraventas independientes (freelancers) y pequeños concesionarios multimarca a gestionar su stock, centralizar leads multicanal, generar fichas públicas profesionales, operar por WhatsApp, cruzar oferta y demanda, y acompañar la venta con checklists de trámites DGT y garantía mecánica legal obligatoria.
 
 ## Mercado y piloto
 
-- Mercado inicial aprobado: Perú.
-- Ciudad piloto aprobada: Lima.
+- Mercado objetivo: España.
+- Enfoque inicial: Profesionales independientes (freelancers con 3-15 vehículos) y pequeños compraventas multimarca (campas de 15-50 vehículos).
 
-## Alcance inicial aprobado
+## Alcance inicial aprobado (MVP)
 
 El MVP validará primero:
 
-1. Captación y centralización de leads.
-2. Calificación de compradores y propietarios.
-3. Seguimiento comercial.
-4. Gestión básica de propiedades y demandas.
-5. Matching básico entre demandas y propiedades.
-6. WhatsApp como canal prioritario para Perú.
-7. Asistente guiado para reducir la barrera de entrada y la curva de aprendizaje.
+1. **Captación y centralización de leads multicanal**: Registro estructurado de prospectos procedentes de portales (Coches.net, Wallapop, Milanuncios, etc.) y formularios web.
+2. **Calificación de compradores y tasación de entrada**: Identificación de si el lead busca comprar al contado, financiar o entregar coche usado a cambio.
+3. **Gestión básica de inventario de vehículos (Stock)**: Ficha técnica completa (marca, modelo, versión, año, km, combustible, caja de cambios, potencia, distintivo ambiental DGT 0/ECO/C/B, estado ITV, garantía incluida, precio contado/financiado).
+4. **Generación de Fichas Públicas Compartibles**: URLs públicas por vehículo con galería optimizada, detalles técnicos y botón de contacto directo a WhatsApp.
+5. **WhatsApp como canal operativo prioritario**: Respuestas rápidas, envío de fichas y fotos sin fricción.
+6. **Matching automático**: Cruce entre compradores con demandas específicas y vehículos en stock propio o de la red de compraventas colaboradoras.
+7. **Asistente Dealer Digital (Patrón BROKER/DEALER)**: Recomendación de la siguiente mejor acción comercial y checklist de trámites en España (informe DGT de cargas/embargos, contrato de compraventa, transferencia telemática y póliza de garantía legal de 1 año).
 
 ## Arquitectura de superficies aprobada
 
-- `inmobia360.com`: web institucional LATAM.
-- `inmobia360.com/pe/`: landing comercial de Perú.
-- `inmobia360.com/co/`, `inmobia360.com/mx/` y `inmobia360.com/cl/`: futuras landings comerciales regionales, no publicadas en la fase inicial.
-- `app.inmobia360.com`: aplicación SaaS.
-- `demo.inmobia360.com`: entorno de demostración.
-- `ayuda.inmobia360.com`: futura documentación y soporte.
-- `red.inmobia360.com`: subdominio candidato para la Red Profesional regional; pendiente de validación y activación.
-- `agentes.inmobia360.com`: subdominio candidato para el directorio público y perfiles de agentes; pendiente de validación y activación.
-- Los nuevos subdominios solo se crearán cuando exista una función concreta, validada y documentada; no se crearán anticipadamente.
-- WordPress + Bricks: webs comerciales.
-- Next.js separado: aplicación SaaS.
+- `vendocoche360.es` (o `.com`): web institucional y captación comercial de concesionarios y compraventas.
+- `app.vendocoche360.es`: aplicación SaaS privada para los profesionales.
+- `demo.vendocoche360.es`: entorno de demostración con stock y leads sintéticos.
+- WordPress + constructor visual: webs de presentación comercial y landings de captación B2B.
+- Next.js separado: aplicación SaaS interna.
+- Motor de orquestación en Python con aislamiento estricto por concesionario/cuenta (`tenant_id`).
 
 ## Fuera de alcance inicial
 
-- Pagos reales.
-- Expansión a otros países.
-- Red regional de colaboración como producto público completo.
-- Ranking público y reputación de agentes.
-- Marca blanca completa para agencias.
-- Acompañamiento regulado hasta escritura sin definir responsables y marco legal local.
-- Automatizaciones avanzadas.
-- Integraciones costosas.
-- Datos personales reales.
+- Pasarelas de cobro de vehículos online o pagos reales.
+- Expansión fuera de España.
+- Conexión API automatizada de pago con DGT o portales sin supervisión humana.
+- Publicación automática sin revisión del compraventa.
+- Datos personales reales (uso exclusivo de datos sintéticos en pruebas).
 
-## Hipótesis
-
-La priorización de Lima y WhatsApp debe validarse con usuarios y operación real controlada, sin introducir datos personales reales durante esta fase.

@@ -1,8 +1,8 @@
-project: inmobia360-latam
-responsible_identity: Inmobia-360
+project: cochecierto-freelance
+responsible_identity: CocheCierto / VendoCoche360
 owner: Juan
-executive_skill: latam-real-estate
-communication_interface: latam-real-estate
+executive_skill: cochecierto-director
+communication_interface: cochecierto-director
 skill_location: .agents/skills
 
 allowed_statuses:
@@ -14,91 +14,49 @@ allowed_statuses:
   - blocked
 
 owned_skills:
-  - name: latam-real-estate
-    status: in-development
-    version: 0.1.0
+  - name: cochecierto-director
+    status: approved
+    version: 1.0.0
     priority: 1
-    purpose: Dirección ejecutiva, coordinación, decisiones, riesgos y calidad
+    purpose: Dirección ejecutiva, coordinación del staff, decisiones estratégicas, riesgos y puertas de calidad SDD.
 
-  - name: inmobia360-country-market-researcher
+  - name: cochecierto-stock-inspector
     status: in-development
     version: 0.1.0
     priority: 2
-    purpose: Investigación por país, puntos de dolor, herramientas, competencia y localización inmobiliaria
+    purpose: Gestión de inventario de vehículos VO, validación de ficha técnica, kilometraje, ITV, distintivo ambiental DGT (0/ECO/C/B) y tasación de entrada.
 
-  - name: inmobia360-design-advertising
+  - name: cochecierto-dgt-legal
     status: in-development
     version: 0.1.0
     priority: 3
-    purpose: Diseño gráfico y publicidad online/offline, campañas, plantillas y personalización para agentes
+    purpose: Trámites de tráfico en España, verificación de informes DGT (cargas, embargos, reservas de dominio), contratos de compraventa y garantía legal de 1 año.
 
-  - name: inmobia360-broker-office-operations
+  - name: cochecierto-leads-whatsapp
     status: in-development
     version: 0.1.0
     priority: 4
-    purpose: Operaciones de broker y oficina, agentes, equipos, rendimiento y productividad
+    purpose: Captación de prospectos multicanal (Coches.net, Wallapop, Milanuncios), respuestas ultrarrápidas por WhatsApp y motor de matching demanda-vehículo.
 
-  - name: inmobia360-knowledge-enablement
+  - name: cochecierto-marketing-multichannel
     status: in-development
     version: 0.1.0
     priority: 5
-    purpose: Formación, políticas, checklists, centro de recursos y soporte
+    purpose: Generación de fichas públicas atractivas por vehículo para móviles, formateo de fotos/vídeos y material para portales y redes.
 
-  - name: inmobia360-integrations-governance
+  - name: cochecierto-dealer-operations
     status: in-development
     version: 0.1.0
     priority: 6
-    purpose: Catálogo y gobierno de herramientas, integraciones, proveedores y dependencias
+    purpose: Soporte operativo a freelancers y pequeños concesionarios, control de días en stock (depreciación a 45-60 días), márgenes y fiscalidad REBU.
 
-  - name: inmobia360-professional-network
-    status: in-development
-    version: 0.1.0
+  - name: cochecierto-quality-guard
+    status: approved
+    version: 1.0.0
     priority: 7
-    purpose: Red Profesional, colaboración, oportunidades y referidos trazables
-
-  - name: inmobia360-business-planning
-    status: in-development
-    version: 0.1.0
-    priority: 8
-    purpose: Planes de negocio, KPI, análisis comercial, previsiones, monedas y prorrateo por agente/equipo/agencia
-
-  - name: inmobia360-onboarding-assistant
-    status: in-development
-    version: 0.1.0
-    priority: 9
-    purpose: Onboarding guiado, estados, evidencias, recordatorios, soporte y escalado por rol
-
-  - name: inmobia360-product-architecture
-    status: planned
-    priority: 10
-    purpose: Arquitectura funcional y técnica
-
-  - name: inmobia360-real-estate-data
-    status: planned
-    priority: 11
-    purpose: Modelo de datos inmobiliarios y matching
-
-  - name: inmobia360-security-privacy
-    status: planned
-    priority: 12
-    purpose: Seguridad y privacidad multipaís
-
-  - name: inmobia360-country-landing
-    status: planned
-    priority: 13
-    purpose: Landings regionales y nacionales
-
-  - name: inmobia360-wordpress-bricks
-    status: planned
-    priority: 14
-    purpose: Webs comerciales WordPress + Bricks
-
-  - name: inmobia360-release-guard
-    status: planned
-    priority: 15
-    purpose: Control de entregas, staging, rollback y producción
+    purpose: Control de calidad SDD, pruebas unitarias automatizadas, verificación de aislamiento multi-tenant y validación previa a despliegue en Hostinger.
 
 external_skills:
-  admission_policy: .agents/skills/latam-real-estate/references/external-skill-admission.md
+  admission_policy: .agents/skills/cochecierto-director/references/external-skill-admission.md
   registry: .codex/vendor-lock.yaml
   installation_allowed: false

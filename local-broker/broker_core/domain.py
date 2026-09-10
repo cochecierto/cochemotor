@@ -1,9 +1,10 @@
-"""Entidades y transiciones mínimas del expediente inmobiliario."""
+"""Entidades y transiciones del dominio automotriz para VendoCoche360 (España)."""
 
 from __future__ import annotations
 
 from dataclasses import dataclass, replace
 from enum import StrEnum
+from urllib.parse import quote
 from uuid import uuid4
 
 
@@ -20,46 +21,182 @@ class CaseState(StrEnum):
     REOPENED = "reopened"
 
 
+class DgtBadge(StrEnum):
+    ZERO = "0_emisiones"
+    ECO = "eco"
+    C = "c"
+    B = "b"
+    NONE = "sin_distintivo"
+
+
+class VehicleStatus(StrEnum):
+    AVAILABLE = "disponible"
+    RESERVED = "reservado"
+    SOLD = "vendido"
+    PREPARATION = "en_preparacion"
+
+
 class TenantIsolationError(ValueError):
-    """Indica que se intentó leer un expediente desde otro tenant."""
+    """Indica que se intentó acceder a un recurso desde otro tenant."""
 
 
 @dataclass(frozen=True)
-class Agency:
+class Dealership:
     display_name: str
     tenant_id: str
-    agency_slug: str
+    dealer_slug: str
+    phone_whatsapp: str = "34600000000"
+
+    @property
+    def agency_slug(self) -> str:
+        """Compatibilidad retroactiva."""
+        return self.dealer_slug
+
+
+# Alias de compatibilidad
+Agency = Dealership
+
+
+@dataclass(frozen=True)
+class Vehicle:
+    vehicle_id: str
+    tenant_id: str
+    brand: str
+    model: str
+    version: str
+    year: int
+    mileage_km: int
+    cash_price: float
+    dgt_badge: DgtBadge
+    status: VehicleStatus = VehicleStatus.AVAILABLE
+    public_slug: str = ""
+
+
+@dataclass(frozen=True)
+class BuyerDemand:
+    demand_id: str
+    tenant_id: str
+    budget_max: float
+    required_dgt_badge: DgtBadge | None = None
 
 
 @dataclass(frozen=True)
 class Case:
     case_id: str
     tenant_id: str
-    agency_slug: str
+    dealer_slug: str
     objective: str
     state: CaseState = CaseState.INTAKE
+    vehicle_id: str | None = None
+    dgt_checked: bool = False
+    contract_signed: bool = False
+    warranty_issued: bool = False
+
+    @property
+    def agency_slug(self) -> str:
+        """Compatibilidad retroactiva."""
+        return self.dealer_slug
 
 
-def create_demo_agency(
-    display_name: str = "Inmobiliaria Demo Broker",
-    tenant_id: str = "tenant-inmobiliaria-demo-broker",
-    agency_slug: str = "inmobiliaria-demo-broker",
-) -> Agency:
-    """Crea la identidad sintética usada por las pruebas locales."""
-    if not display_name.strip() or not tenant_id.strip() or not agency_slug.strip():
-        raise ValueError("La agencia debe tener nombre, tenant y slug no vacíos.")
-    return Agency(display_name, tenant_id, agency_slug)
+def create_demo_dealership(
+    display_name: str = "Autos Ocasión Demo España",
+    tenant_id: str = "tenant-autos-demo-es",
+    dealer_slug: str = "autos-demo-es",
+    phone_whatsapp: str = "34600112233",
+) -> Dealership:
+    """Crea la identidad sintética del concesionario o compraventa para pruebas."""
+    if not display_name.strip() or not tenant_id.strip() or not dealer_slug.strip():
+        raise ValueError("El concesionario debe tener nombre, tenant y slug no vacíos.")
+    return Dealership(display_name.strip(), tenant_id.strip(), dealer_slug.strip(), phone_whatsapp.strip())
 
 
-def create_case(agency: Agency, objective: str) -> Case:
-    """Crea un expediente asociado a una única agencia."""
+# Alias de compatibilidad
+create_demo_agency = create_demo_dealership
+
+
+def create_vehicle(
+    dealership: Dealership,
+    brand: str,
+    model: str,
+    version: str,
+    year: int,
+    mileage_km: int,
+    cash_price: float,
+    dgt_badge: DgtBadge,
+    status: VehicleStatus = VehicleStatus.AVAILABLE,
+) -> Vehicle:
+    """Registra un vehículo en el stock del concesionario."""
+    if year < 1980 or mileage_km < 0 or cash_price <= 0:
+        raise ValueError("Datos técnicos o de precio no válidos.")
+    v_id = f"veh-{uuid4().hex[:8]}"
+    slug = f"{brand.lower()}-{model.lower()}-{year}-{v_id}"
+    return Vehicle(
+        vehicle_id=v_id,
+        tenant_id=dealership.tenant_id,
+        brand=brand.strip(),
+        model=model.strip(),
+        version=version.strip(),
+        year=year,
+        mileage_km=mileage_km,
+        cash_price=cash_price,
+        dgt_badge=dgt_badge,
+        status=status,
+        public_slug=slug,
+    )
+
+
+def create_buyer_demand(
+    dealership: Dealership,
+    budget_max: float,
+    required_dgt_badge: DgtBadge | None = None,
+) -> BuyerDemand:
+    """Registra la demanda de un comprador en el concesionario."""
+    if budget_max <= 0:
+        raise ValueError("El presupuesto debe ser mayor a 0.")
+    return BuyerDemand(
+        demand_id=f"dem-{uuid4().hex[:8]}",
+        tenant_id=dealership.tenant_id,
+        budget_max=budget_max,
+        required_dgt_badge=required_dgt_badge,
+    )
+
+
+def match_vehicles_for_demand(demand: BuyerDemand, stock: list[Vehicle]) -> list[Vehicle]:
+    """Cruza la demanda con el stock del mismo tenant."""
+    matches: list[Vehicle] = []
+    for vehicle in stock:
+        if vehicle.tenant_id != demand.tenant_id:
+            continue
+        if vehicle.status != VehicleStatus.AVAILABLE:
+            continue
+        if vehicle.cash_price > demand.budget_max:
+            continue
+        if demand.required_dgt_badge is not None and vehicle.dgt_badge != demand.required_dgt_badge:
+            continue
+        matches.append(vehicle)
+    return matches
+
+
+def generate_whatsapp_vehicle_link(dealership: Dealership, vehicle: Vehicle) -> str:
+    """Genera el enlace universal de WhatsApp para contacto instantáneo con mensaje pre-rellenado."""
+    message = (
+        f"Hola, he visto en su web el {vehicle.brand} {vehicle.model} ({vehicle.year}) "
+        f"por {vehicle.cash_price:,.0f} € (Etiqueta DGT {vehicle.dgt_badge.value.upper()}). "
+        f"¿Sigue disponible para probarlo?"
+    )
+    return f"https://wa.me/{dealership.phone_whatsapp}?text={quote(message)}"
+
+
+def create_case(agency: Dealership, objective: str, vehicle_id: str | None = None) -> Case:
+    """Crea un expediente comercial asociado al concesionario."""
     if not objective.strip():
         raise ValueError("El objetivo del expediente no puede estar vacío.")
     return Case(
         case_id=f"case-{uuid4().hex}",
         tenant_id=agency.tenant_id,
-        agency_slug=agency.agency_slug,
+        dealer_slug=agency.dealer_slug,
         objective=objective.strip(),
+        vehicle_id=vehicle_id,
     )
 
 
@@ -84,8 +221,20 @@ def transition_case(case: Case, target: CaseState) -> Case:
     return replace(case, state=target)
 
 
+def verify_spanish_legal_milestones(case: Case) -> bool:
+    """Valida los hitos legales en España (DGT comprobado, contrato y garantía de 1 año)."""
+    return case.dgt_checked and case.contract_signed and case.warranty_issued
+
+
 def get_case(case: Case, tenant_id: str) -> Case:
     """Devuelve el expediente solo si pertenece al tenant solicitado."""
     if case.tenant_id != tenant_id:
         raise TenantIsolationError("El expediente pertenece a otro tenant.")
     return case
+
+
+def get_vehicle(vehicle: Vehicle, tenant_id: str) -> Vehicle:
+    """Devuelve el vehículo solo si pertenece al tenant solicitado."""
+    if vehicle.tenant_id != tenant_id:
+        raise TenantIsolationError("El vehículo pertenece a otro concesionario.")
+    return vehicle

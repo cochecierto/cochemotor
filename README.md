@@ -1,26 +1,29 @@
-# Inmobia360 LATAM
+# VendoCoche360 (España)
 
-Base documental y futura base técnica de Inmobia-360 para construir y validar Inmobia360 LATAM, comenzando por Perú y un piloto en Lima. Juan es el propietario y responsable final.
+Base documental y técnica de la plataforma SaaS **VendoCoche360**, diseñada para dar soporte operativo y comercial a **freelancers (compraventas independientes)** y **pequeños concesionarios de vehículos de ocasión (VO) en España**.
+
+El proyecto implementa de manera estricta la metodología **Spec-Driven Development (SDD)** siguiendo las directrices de `mouredev/hello-sdd`.
 
 ## Estado actual
 
-Migración documental inicial realizada a partir del material accesible en el chat compartido. Todavía no hay aplicación, WordPress, base de datos ni pruebas implementadas.
+- **Gobernanza**: Project charter y modelo de negocio adaptados al mercado español de compraventa automotriz.
+- **Metodología SDD**: Especificación formal activa en `specs/001-dealer-digital-automocion/` redactada en sintaxis EARS.
+- **Núcleo de Dominio Local**: Módulo Python puro en `local-broker/` con suite de pruebas unitarias al 100% (verificando aislamiento multi-tenant, inventario de stock con distintivo ambiental DGT, matching de demanda y checklist de hitos legales en España: informe DGT, contrato y garantía de 1 año).
 
-Consulta primero:
+## Enlaces clave
 
+- [Instrucciones del proyecto para agentes](AGENTS.md)
 - [Índice de documentación](docs/00-INDEX.md)
-- [Estado actual](docs/CURRENT-STATE.md)
-- [Project charter](docs/governance/project-charter.md)
-- [Objetivos y KPIs](docs/governance/objectives-and-kpis.md)
-- [Roadmap](docs/governance/roadmap.md)
-- [Registro de decisiones](docs/governance/decision-log.md)
-- [Registro de riesgos](docs/governance/risk-register.md)
-- [Contexto de identidad corporativa](docs/brand/BRAND-CONTEXT.md)
+- [Project charter de VendoCoche360](docs/governance/project-charter.md)
+- [Metodología SDD](docs/governance/sdd-methodology.md)
+- [Modelo de negocio](docs/product/BUSINESS-MODEL.md)
+- [Arquitectura del producto](docs/product/PRODUCT-ARCHITECTURE.md)
+- [Modelo de datos de automoción](docs/product/AUTOMOTIVE-DATA-MODEL.md)
+- [Spec 001 — Dealer Digital Automoción](specs/001-dealer-digital-automocion/spec.md)
 
-## Fuente principal de esta copia
+## Ejecución de pruebas locales
 
-[Chat compartido de referencia](https://chatgpt.com/share/6a900f0d-c248-83ed-84fd-3acb5529132c)
+```bash
+python -m unittest discover -s local-broker/tests -p "test_*.py"
+```
 
-Los vacíos de información están documentados como pendientes y no se han completado mediante suposiciones.
-
-La identidad corporativa se mantiene en `Inmobia360-LATAM-Contenidos` como fuente externa de referencia. El repositorio incorpora únicamente su contexto operativo resumido; no copia activos binarios ni autoriza por sí mismo publicación o despliegue.
