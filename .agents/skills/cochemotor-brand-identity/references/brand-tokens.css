@@ -1,0 +1,83 @@
+/**
+ * CocheMotor Design Tokens (CSS Custom Properties)
+ * Generado a partir del Brand Identity Board oficial de CocheMotor (cochemotor.es)
+ */
+
+:root {
+  /* Paleta Cromática Principal */
+  --cm-color-primary: #002D62;         /* Deep Navy Blue */
+  --cm-color-primary-rgb: 0, 45, 98;
+  --cm-color-secondary: #3C3F41;       /* Graphite Charcoal */
+  --cm-color-secondary-rgb: 60, 63, 65;
+  --cm-color-accent: #00BFFF;          /* Cyan Electric Blue */
+  --cm-color-accent-rgb: 0, 191, 255;
+  --cm-color-accent-hover: #009CD0;
+  
+  /* Superficies y Fondos */
+  --cm-color-surface: #FFFFFF;         /* Crisp White */
+  --cm-color-surface-subtle: #F4F7FB;  /* Cool Off-White */
+  --cm-color-surface-dark: #001E42;    /* Darker Navy */
+
+  /* Estados Funcionales (Semáforo) */
+  --cm-color-success: #059669;         /* Verde Verificado */
+  --cm-color-warning: #D97706;         /* Ámbar Alerta/ITV */
+  --cm-color-danger: #DC2626;          /* Rojo Cargas/Avería */
+
+  /* Tipografía */
+  --cm-font-display: 'Plus Jakarta Sans', 'Synergy Grotesk', system-ui, sans-serif;
+  --cm-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cm-font-mono: 'JetBrains Mono', monospace;
+
+  /* Escala Modular Tipográfica */
+  --cm-font-size-display: 3.5rem;      /* 56px */
+  --cm-font-size-h1: 2.25rem;          /* 36px */
+  --cm-font-size-h2: 1.875rem;         /* 30px */
+  --cm-font-size-h3: 1.5rem;           /* 24px */
+  --cm-font-size-h4: 1.25rem;          /* 20px */
+  --cm-font-size-body-lg: 1.125rem;    /* 18px */
+  --cm-font-size-body: 1rem;           /* 16px */
+  --cm-font-size-body-sm: 0.875rem;    /* 14px */
+  --cm-font-size-caption: 0.75rem;     /* 12px */
+  --cm-font-size-badge: 0.6875rem;     /* 11px */
+
+  /* Bordes Redondeados */
+  --cm-radius-sm: 4px;
+  --cm-radius-md: 8px;
+  --cm-radius-lg: 12px;
+  --cm-radius-xl: 16px;
+  --cm-radius-pill: 9999px;
+
+  /* Sombras y Profundidad */
+  --cm-shadow-sm: 0 1px 2px rgba(0, 45, 98, 0.05);
+  --cm-shadow-md: 0 4px 6px -1px rgba(0, 45, 98, 0.08), 0 2px 4px -1px rgba(0, 45, 98, 0.04);
+  --cm-shadow-lg: 0 10px 15px -3px rgba(0, 45, 98, 0.1), 0 4px 6px -2px rgba(0, 45, 98, 0.05);
+  --cm-shadow-verified: 0 0 15px rgba(0, 191, 255, 0.35);
+}
+
+/* Clases de Utilidad de Marca */
+.cm-btn-primary {
+  background-color: var(--cm-color-accent);
+  color: var(--cm-color-primary);
+  font-family: var(--cm-font-display);
+  font-weight: 700;
+  border-radius: var(--cm-radius-md);
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.cm-btn-primary:hover {
+  background-color: var(--cm-color-accent-hover);
+  box-shadow: var(--cm-shadow-verified);
+}
+
+.cm-badge-verified {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: var(--cm-color-success);
+  border: 1px solid rgba(5, 150, 105, 0.3);
+  font-size: var(--cm-font-size-badge);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--cm-radius-pill);
+}

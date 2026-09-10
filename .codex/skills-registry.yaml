@@ -1,5 +1,5 @@
-project: cochecierto-freelance
-responsible_identity: CocheCierto / VendoCoche360
+project: cochemotor
+responsible_identity: CocheMotor (cochemotor.es)
 owner: Juan
 executive_skill: cochecierto-director
 communication_interface: cochecierto-director
@@ -20,43 +20,50 @@ owned_skills:
     priority: 1
     purpose: Dirección ejecutiva, coordinación del staff, decisiones estratégicas, riesgos y puertas de calidad SDD.
 
+  - name: cochemotor-brand-identity
+    status: approved
+    version: 1.0.0
+    priority: 2
+    purpose: Dirección de arte, Brand Book, tokens de diseño CSS/Figma, accesibilidad WCAG y sellos de certificación de mecánica verificada.
+
   - name: cochecierto-stock-inspector
     status: in-development
     version: 0.1.0
-    priority: 2
+    priority: 3
     purpose: Gestión de inventario de vehículos VO, validación de ficha técnica, kilometraje, ITV, distintivo ambiental DGT (0/ECO/C/B) y tasación de entrada.
 
   - name: cochecierto-dgt-legal
     status: in-development
     version: 0.1.0
-    priority: 3
+    priority: 4
     purpose: Trámites de tráfico en España, verificación de informes DGT (cargas, embargos, reservas de dominio), contratos de compraventa y garantía legal de 1 año.
 
   - name: cochecierto-leads-whatsapp
     status: in-development
     version: 0.1.0
-    priority: 4
+    priority: 5
     purpose: Captación de prospectos multicanal (Coches.net, Wallapop, Milanuncios), respuestas ultrarrápidas por WhatsApp y motor de matching demanda-vehículo.
 
   - name: cochecierto-marketing-multichannel
     status: in-development
     version: 0.1.0
-    priority: 5
+    priority: 6
     purpose: Generación de fichas públicas atractivas por vehículo para móviles, formateo de fotos/vídeos y material para portales y redes.
 
   - name: cochecierto-dealer-operations
     status: in-development
     version: 0.1.0
-    priority: 6
+    priority: 7
     purpose: Soporte operativo a freelancers y pequeños concesionarios, control de días en stock (depreciación a 45-60 días), márgenes y fiscalidad REBU.
 
   - name: cochecierto-quality-guard
     status: approved
     version: 1.0.0
-    priority: 7
+    priority: 8
     purpose: Control de calidad SDD, pruebas unitarias automatizadas, verificación de aislamiento multi-tenant y validación previa a despliegue en Hostinger.
 
 external_skills:
   admission_policy: .agents/skills/cochecierto-director/references/external-skill-admission.md
   registry: .codex/vendor-lock.yaml
   installation_allowed: false
+

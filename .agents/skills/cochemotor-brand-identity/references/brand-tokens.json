@@ -1,0 +1,81 @@
+{
+  "name": "CocheMotor Design Tokens",
+  "version": "1.0.0",
+  "color": {
+    "brand": {
+      "primary": {
+        "value": "#002D62",
+        "type": "color",
+        "description": "Deep Navy Blue - Autoridad y seriedad institucional"
+      },
+      "secondary": {
+        "value": "#3C3F41",
+        "type": "color",
+        "description": "Graphite Charcoal - Textos de alto contraste y estructura"
+      },
+      "accent": {
+        "value": "#00BFFF",
+        "type": "color",
+        "description": "Cyan Electric Blue - Botones transaccionales y badges"
+      },
+      "accent-hover": {
+        "value": "#0099CC",
+        "type": "color",
+        "description": "Cyan oscurecido para hover accesible"
+      },
+      "surface": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Crisp White - Fondos de tarjetas y contenedores"
+      },
+      "surface-subtle": {
+        "value": "#F4F7FB",
+        "type": "color",
+        "description": "Off-white / Gris frío para fondos de sección"
+      }
+    },
+    "functional": {
+      "success": {
+        "value": "#059669",
+        "type": "color",
+        "description": "Verde Mecánica Verificada / Aprobado"
+      },
+      "warning": {
+        "value": "#D97706",
+        "type": "color",
+        "description": "Ámbar Pendiente de Revisión / ITV Próxima"
+      },
+      "danger": {
+        "value": "#DC2626",
+        "type": "color",
+        "description": "Rojo Descartado / Cargas DGT detectadas"
+      }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": "Synergy Grotesk, 'Plus Jakarta Sans', system-ui, sans-serif",
+      "body": "Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+      "mono": "'JetBrains Mono', monospace"
+    },
+    "fontSize": {
+      "display-1": "3.5rem",
+      "h1": "2.25rem",
+      "h2": "1.875rem",
+      "h3": "1.5rem",
+      "h4": "1.25rem",
+      "body-large": "1.125rem",
+      "body-base": "1rem",
+      "body-small": "0.875rem",
+      "caption": "0.75rem",
+      "data-badge": "0.6875rem"
+    }
+  },
+  "radii": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "full": "9999px"
+  }
+}

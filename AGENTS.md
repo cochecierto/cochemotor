@@ -1,13 +1,13 @@
-# VendoCoche360 — Instrucciones del proyecto
+# CocheMotor — Instrucciones del proyecto
 
 ## Identidad y responsabilidad
 
-- Identidad responsable: VendoCoche360 (anteriormente base Inmobia360 adaptada).
+- Identidad responsable: CocheMotor (`cochemotor.es`).
 - Propietario y responsable final: Juan / Dirección del proyecto.
 
 ## Estado del proyecto
 
-Esta base documental y técnica define la plataforma SaaS para el sector profesional de compraventa de vehículos de ocasión en España (freelancers y pequeños concesionarios VO). El proyecto aplica de forma estricta la metodología Spec-Driven Development (SDD) basada en `mouredev/hello-sdd`.
+Esta base documental y técnica define la plataforma digital y SaaS para el sector profesional de compraventa de vehículos de ocasión en España (freelancers, talleres mecánicos y pequeños concesionarios VO). El proyecto aplica de forma estricta la metodología Spec-Driven Development (SDD) basada en `mouredev/hello-sdd`.
 
 ## Reglas
 
@@ -32,9 +32,9 @@ Esta base documental y técnica define la plataforma SaaS para el sector profesi
 
 ## Ámbito conocido
 
-- Proyecto: VendoCoche360 (AutoTech SaaS B2B / B2B2C).
-- Mercado inicial: España (concesionarios de compraventa multimarca y compraventas autónomos/freelancers).
-- Objetivo: crear una plataforma SaaS de gestión de stock, leads y ventas asistidas para profesionales de automoción de segunda mano.
+- Proyecto: CocheMotor (AutoTech Marketplace & SaaS B2B2C).
+- Mercado inicial: España (concesionarios de compraventa multimarca, talleres mecánicos y freelancers).
+- Objetivo: crear una plataforma digital de gestión de stock peritado, certificación de mecánica verificada, leads y ventas asistidas para profesionales de automoción de segunda mano.
 - MVP aprobado:
   1. Captación y centralización de leads multicanal (Coches.net, Wallapop, Milanuncios, web propia).
   2. Calificación de compradores y de particulares que entregan coche a cambio.
