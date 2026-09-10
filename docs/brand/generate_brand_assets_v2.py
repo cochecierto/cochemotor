@@ -77,7 +77,7 @@ car_white = apply_color_to_mask(car_mask, WHITE)
 word_navy = apply_color_to_mask(word_mask, NAVY)
 word_white = apply_color_to_mask(word_mask, WHITE)
 
-print("2. Renderizando nuevo tagline español: 'Tu Marketplace Digital'...")
+print("2. Renderizando nuevo tagline: 'Marketplace Digital'...")
 # Usar tipografía del sistema (Segoe UI / Arial)
 font_candidates = [
     "C:/Windows/Fonts/segoeui.ttf",
@@ -91,7 +91,7 @@ for f in font_candidates:
 
 font_size = 42
 font = ImageFont.truetype(font_path, font_size) if font_path else ImageFont.load_default()
-tagline_text = "Tu Marketplace Digital"
+tagline_text = "Marketplace Digital"
 
 # Medir tagline
 dummy = Image.new("RGBA", (1, 1))

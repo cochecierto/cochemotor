@@ -10,7 +10,7 @@
 * **Nombre de Marca**: **CocheMotor** (`cochemotor.es`).
 * **Propósito**: Conectar a freelancers, talleres mecánicos y pequeños concesionarios con compradores particulares a través de una plataforma digital transparente, eliminando estafas, vicios ocultos y desconfianza mediante **inspección mecánica peritada y trazabilidad DGT**.
 * **Personalidad de Marca**: Técnica, rigurosa, transparente, segura, tecnológica y accesible.
-* **Tagline Oficial**: *Tu Marketplace Digital* / *Mecánica Verificada de Ocasión*.
+* **Tagline Oficial**: *Marketplace Digital* / *Mecánica Verificada de Ocasión*.
 
 ---
 
