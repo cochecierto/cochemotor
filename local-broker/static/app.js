@@ -1,7 +1,9 @@
 /**
  * CocheMotor — Interactive Application & Editorial Renderer
- * Metodologia BIG School Webs: Desacoplamiento total, toda la data viene de siteConfig.
+ * Metodología BIG School Webs & Hub SaaS B2B (Inspirado en Inmobia360)
  */
+
+let isAnnualBilling = false;
 
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof siteConfig === 'undefined') {
@@ -16,12 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
   renderChapter4Pillars();
   renderChapter5Experience();
   renderChapter6Catalog();
+  renderTestimonials();
+  renderPricing();
   renderChapter7Faq();
   renderChapter8Professional();
   renderFooter();
 
   initStockFilters();
   initVehicleModal();
+  updateLandingRoi();
 });
 
 function initBranding() {
@@ -34,7 +39,7 @@ function initBranding() {
   var pistonIcons = document.querySelectorAll('.floating-piston-img');
   pistonIcons.forEach(function(img) {
     img.src = siteConfig.brand.pistonIcon;
-    img.alt = 'Sello Mecanico CocheMotor';
+    img.alt = 'Sello Mecánico CocheMotor';
   });
 }
 
@@ -153,12 +158,12 @@ function renderStockGrid(vehicles) {
   if (!grid) return;
 
   if (vehicles.length === 0) {
-    grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--cm-text-secondary);">No hay vehiculos con los filtros seleccionados.</p>';
+    grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--cm-text-secondary);">No hay vehículos con los filtros seleccionados.</p>';
     return;
   }
 
   grid.innerHTML = vehicles.map(function(v) {
-    var waMsg = 'Hola! He visto en CocheMotor el ' + v.brand + ' ' + v.model + ' (' + v.version + ') por ' + v.price.toLocaleString('es-ES') + ' euros y me gustaria consultar la ficha de peritaje y cita para probarlo.';
+    var waMsg = 'Hola! He visto en CocheMotor el ' + v.brand + ' ' + v.model + ' (' + v.version + ') por ' + v.price.toLocaleString('es-ES') + ' € y me gustaría consultar la ficha de peritaje y cita para probarlo.';
     var waUrl = 'https://wa.me/' + siteConfig.brand.contactWhatsapp + '?text=' + encodeURIComponent(waMsg);
 
     return '<article class="vehicle-card" data-id="' + v.id + '">' +
@@ -171,7 +176,7 @@ function renderStockGrid(vehicles) {
         '<h3 class="vehicle-title">' + v.brand + ' ' + v.model + '</h3>' +
         '<div class="vehicle-version">' + v.version + '</div>' +
         '<div class="vehicle-specs-list">' +
-          '<div class="spec-cell"><strong>Ano:</strong> ' + v.year + '</div>' +
+          '<div class="spec-cell"><strong>Año:</strong> ' + v.year + '</div>' +
           '<div class="spec-cell"><strong>Km:</strong> ' + v.km + '</div>' +
           '<div class="spec-cell"><strong>Motor:</strong> ' + v.fuel + '</div>' +
           '<div class="spec-cell"><strong>Cambio:</strong> ' + v.gearbox + '</div>' +
@@ -212,6 +217,91 @@ function initStockFilters() {
       }
     });
   });
+}
+
+// NUEVO: Renderizado de Testimonios B2B
+function renderTestimonials() {
+  var grid = document.getElementById('testimonials-grid');
+  if (!grid || !siteConfig.testimonials) return;
+
+  grid.innerHTML = siteConfig.testimonials.map(function(t) {
+    return '<div class="testimonial-card">' +
+      '<div class="test-metric">' + t.metrics + '</div>' +
+      '<div class="test-quote">“' + t.quote + '”</div>' +
+      '<div class="test-author">' +
+        '<h4>' + t.author + '</h4>' +
+        '<p>' + t.role + '</p>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+// NUEVO: Renderizado de Planes B2B
+function renderPricing() {
+  var grid = document.getElementById('pricing-grid');
+  if (!grid || !siteConfig.pricing) return;
+
+  grid.innerHTML = siteConfig.pricing.map(function(p) {
+    var price = isAnnualBilling ? p.priceAnnual : p.priceMonthly;
+    var periodText = isAnnualBilling ? '/mes (facturado anual)' : '/mes';
+
+    return '<div class="price-card ' + (p.popular ? 'popular' : '') + '">' +
+      (p.popular ? '<div class="popular-ribbon">MÁS POPULAR</div>' : '') +
+      '<div class="price-header">' +
+        '<h3>' + p.name + '</h3>' +
+        '<p>' + p.tagline + '</p>' +
+      '</div>' +
+      '<div class="price-amount-box">' +
+        '<div class="price-val">' + price + ' €</div>' +
+        '<div class="price-period">' + periodText + '</div>' +
+      '</div>' +
+      '<ul class="price-features-list">' +
+        p.features.map(function(f) { return '<li>' + f + '</li>'; }).join('') +
+      '</ul>' +
+      '<a href="hub.html" class="btn ' + (p.popular ? 'btn-cyan' : 'btn-navy') + '" style="width: 100%;">' +
+        p.cta +
+      '</a>' +
+    '</div>';
+  }).join('');
+}
+
+function toggleBillingPeriod() {
+  isAnnualBilling = !isAnnualBilling;
+  var mBtn = document.getElementById('toggle-monthly');
+  var aBtn = document.getElementById('toggle-annual');
+
+  if (isAnnualBilling) {
+    mBtn.classList.remove('active');
+    aBtn.classList.add('active');
+  } else {
+    aBtn.classList.remove('active');
+    mBtn.classList.add('active');
+  }
+  renderPricing();
+}
+
+// NUEVO: Calculadora de Ahorro ROI en Landing
+function updateLandingRoi() {
+  var carsSlider = document.getElementById('roi-cars-slider');
+  var portalSlider = document.getElementById('roi-portal-slider');
+  if (!carsSlider || !portalSlider) return;
+
+  var cars = parseInt(carsSlider.value);
+  var portalCost = parseInt(portalSlider.value);
+
+  document.getElementById('roi-cars-val').textContent = cars + ' coches/mes';
+  document.getElementById('roi-portal-val').textContent = portalCost + ' €/coche';
+
+  // Ahorro anual estimado (portales tradicionales vs CocheMotor Partner + tiempo de comerciales)
+  var annualTraditionalPortalCost = cars * portalCost * 12;
+  var cochemotorPartnerCost = 99 * 12; // Plan partner taller
+  var netSavings = Math.max(0, annualTraditionalPortalCost - cochemotorPartnerCost);
+
+  // Horas ahorradas: 1.5 horas ahorradas por vehículo publicado (copys, WhatsApp, filtros)
+  var hoursSaved = Math.round(cars * 1.5 * 12);
+
+  document.getElementById('roi-res-money').textContent = netSavings.toLocaleString('es-ES') + ' €';
+  document.getElementById('roi-res-hours').textContent = hoursSaved + ' Horas';
 }
 
 function renderChapter7Faq() {
@@ -263,13 +353,13 @@ function openVehicleModal(vehicleId) {
   var modalContent = document.getElementById('modal-dynamic-content');
   if (!modalOverlay || !modalContent) return;
 
-  var waMsg = 'Hola! Me interesa la certificacion pericial del ' + v.brand + ' ' + v.model + ' (' + v.id + ') publicado en CocheMotor.';
+  var waMsg = 'Hola! Me interesa la certificación pericial del ' + v.brand + ' ' + v.model + ' (' + v.id + ') publicado en CocheMotor.';
   var waUrl = 'https://wa.me/' + siteConfig.brand.contactWhatsapp + '?text=' + encodeURIComponent(waMsg);
 
   modalContent.innerHTML = '<div class="modal-header-box">' +
     '<div class="chapter-badge">CERTIFICADO PERICIAL COCHEMOTOR</div>' +
     '<h2 class="modal-title">' + v.brand + ' ' + v.model + ' — ' + v.version + '</h2>' +
-    '<p class="modal-subtitle">' + v.dealer + ' • Matricula verificada en DGT • Score ' + v.inspectionScore + '</p>' +
+    '<p class="modal-subtitle">' + v.dealer + ' • Matrícula verificada en DGT • Score ' + v.inspectionScore + '</p>' +
   '</div>' +
   '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">' +
     '<div style="background: var(--cm-surface-subtle); padding: 16px; border-radius: var(--cm-radius-md);">' +
@@ -278,12 +368,12 @@ function openVehicleModal(vehicleId) {
       '<div style="font-size: 0.85rem; color: var(--badge-eco-bg); margin-top: 4px;">✓ Sin reservas ni embargos</div>' +
     '</div>' +
     '<div style="background: var(--cm-surface-subtle); padding: 16px; border-radius: var(--cm-radius-md);">' +
-      '<div style="font-size: 0.8rem; color: var(--cm-text-secondary);">GARANTIA Y REVISION</div>' +
+      '<div style="font-size: 0.8rem; color: var(--cm-text-secondary);">GARANTÍA Y REVISIÓN</div>' +
       '<div style="font-weight: 700; color: var(--cm-navy); font-size: 1.05rem;">' + v.warranty + '</div>' +
-      '<div style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-top: 4px;">Proxima ITV: ' + v.itvDate + '</div>' +
+      '<div style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-top: 4px;">Próxima ITV: ' + v.itvDate + '</div>' +
     '</div>' +
   '</div>' +
-  '<h4 class="modal-section-title">Puntos Clave del Peritaje Mecanico en Taller</h4>' +
+  '<h4 class="modal-section-title">Puntos Clave del Peritaje Mecánico en Taller</h4>' +
   '<div class="modal-highlights-grid">' +
     v.highlights.map(function(h) { return '<div class="highlight-tag">' + h + '</div>'; }).join('') +
   '</div>' +

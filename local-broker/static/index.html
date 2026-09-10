@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CocheMotor — Marketplace Digital de Vehículos con Mecánica Verificada</title>
-  <meta name="description" content="Compra y vende coches de segunda mano en España con certificación pericial de taller en 100 puntos y trazabilidad DGT. Cero estafas, cero vicios ocultos.">
+  <title>CocheMotor — Marketplace Digital & Plataforma SaaS de Automoción</title>
+  <meta name="description" content="La plataforma integral para talleres mecánicos, compraventas freelance y particulares en España: vehículos con certificación pericial de taller en 100 puntos, trazabilidad DGT y suite SaaS de operaciones.">
   <link rel="canonical" href="https://cochemotor.es">
 
-  <!-- Favicons oficiales sin bordes blancos -->
+  <!-- Favicons oficiales sin halos ni bordes blancos -->
   <link rel="icon" type="image/x-icon" href="assets/brand/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32x32.png">
@@ -30,15 +30,16 @@
         <img class="brand-logo-img" src="assets/brand/cochemotor_logo_azul_con_tagline.png" alt="CocheMotor - Marketplace Digital">
       </a>
       <nav class="nav-desktop">
-        <a href="#manifiesto" class="nav-link">Manifiesto</a>
-        <a href="#ingenieria" class="nav-link">Taller y Peritaje</a>
-        <a href="#pilares" class="nav-link">Los 3 Pilares</a>
         <a href="#catalogo" class="nav-link">Stock Verificado</a>
-        <a href="#faq" class="nav-link">Preguntas</a>
+        <a href="#pilares" class="nav-link">Los 3 Pilares</a>
+        <a href="#calculadora-roi" class="nav-link">Calculadora ROI</a>
+        <a href="#planes" class="nav-link">Planes B2B</a>
+        <a href="#testimonios" class="nav-link">Talleres Asociados</a>
+        <a href="#faq" class="nav-link">FAQ</a>
       </nav>
       <div class="header-actions">
-        <a href="#catalogo" class="btn btn-navy" style="padding: 10px 20px; font-size: 0.9rem;">Ver Coches</a>
-        <a href="https://wa.me/34612345678" target="_blank" rel="noopener" class="btn btn-cyan" style="padding: 10px 18px; font-size: 0.9rem;">WhatsApp</a>
+        <a href="hub.html" class="btn-nav-hub">⚡ Hub SaaS Profesional</a>
+        <a href="#catalogo" class="btn btn-navy" style="padding: 10px 18px; font-size: 0.88rem;">Ver Coches</a>
       </div>
     </div>
   </header>
@@ -49,7 +50,7 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="hero-eyebrow" id="hero-eyebrow">
-            MERCADO PROFESIONAL DE OCASIÓN EN ESPAÑA
+            MARKETPLACE & PLATAFORMA SAAS B2B DE AUTOMOCIÓN
           </div>
           <h1 class="hero-headline" id="hero-headline">
             Coches de Segunda Mano.<br>
@@ -61,7 +62,7 @@
           </p>
           <div class="hero-cta-box">
             <a href="#catalogo" class="btn btn-cyan" id="hero-cta">Explorar Stock Verificado</a>
-            <a href="#manifiesto" class="btn btn-outline">Leer Manifiesto</a>
+            <a href="hub.html" class="btn btn-outline" style="border-color: var(--cm-cyan); color: var(--cm-cyan);">Probar Panel SaaS Gratis</a>
           </div>
           <div class="hero-stats-grid" id="hero-stats-grid">
             <!-- Renderizado dinámicamente desde siteConfig -->
@@ -86,9 +87,9 @@
       <div class="container manifesto-grid">
         <div class="manifesto-header">
           <span class="chapter-badge" id="manifesto-badge">CAPÍTULO 01</span>
-          <h2 class="section-title" id="manifesto-title">La Verdad sobre Comprar Coche Usado en España</h2>
+          <h2 class="section-title" id="manifesto-title">La Verdad sobre Comprar y Vender Coche Usado en España</h2>
           <div class="manifesto-quote-box">
-            <p class="manifesto-quote" id="manifesto-quote">“Si un coche no supera la prueba de compresión de cilindros o tiene cargas registrales, jamás entra en CocheMotor.”</p>
+            <p class="manifesto-quote" id="manifesto-quote">“Si un coche no supera la diagnosis OBD de motor o tiene cargas registrales, jamás entra en CocheMotor.”</p>
           </div>
         </div>
         <div class="manifesto-content" id="manifesto-paragraphs">
@@ -107,7 +108,7 @@
           <span class="chapter-badge" id="engineering-badge">CAPÍTULO 02</span>
           <h2 class="section-title" id="engineering-title" style="color: var(--cm-white);">Ingeniería de Taller al Servicio del Comprador</h2>
           <p class="section-subtitle" id="engineering-subtitle" style="color: #cbd5e1;">
-            Diagnosis por ordenador OBD, inspección en elevador y prueba dinámica en carretera.
+            Diagnosis por ordenador OBD, inspección en elevador de 100 puntos y prueba dinámica en carretera.
           </p>
           <ul class="engineering-points">
             <li class="eng-item">
@@ -201,13 +202,102 @@
       </div>
     </section>
 
+    <!-- NUEVO: CALCULADORA DE AHORRO Y ROI B2B (Inspirado en Inmobia360) -->
+    <section class="section roi-section" id="calculadora-roi">
+      <div class="container">
+        <div class="section-header" style="text-align: center;">
+          <span class="chapter-badge">CALCULADORA DE RETORNO B2B</span>
+          <h2 class="section-title">Calcula cuánto Ahorra tu Negocio con CocheMotor</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">Proyecta las horas de gestión comercial recuperadas y el ahorro en costes de publicación respecto a portales tradicionales.</p>
+        </div>
+
+        <div class="roi-card">
+          <div>
+            <div class="roi-slider-group">
+              <div class="roi-label-val">
+                <span>Vehículos rotados al mes:</span>
+                <span id="roi-cars-val" style="color: var(--cm-cyan); font-size: 1.2rem;">8 coches/mes</span>
+              </div>
+              <input type="range" id="roi-cars-slider" class="roi-range-input" min="2" max="30" value="8" oninput="updateLandingRoi()">
+            </div>
+
+            <div class="roi-slider-group">
+              <div class="roi-label-val">
+                <span>Coste medio actual por anuncio en portales tradicionales (€):</span>
+                <span id="roi-portal-val" style="color: var(--cm-navy); font-size: 1.2rem;">45 €/coche</span>
+              </div>
+              <input type="range" id="roi-portal-slider" class="roi-range-input" min="20" max="90" value="45" oninput="updateLandingRoi()">
+            </div>
+
+            <p style="font-size: 0.88rem; color: var(--cm-text-secondary); line-height: 1.5; margin-top: 16px;">
+              Basado en tiempos reales de redacción multicanal con IA (5 minutos vs 2 horas por coche) y filtrado de leads con scoring predictivo para eliminar llamadas no cualificadas.
+            </p>
+          </div>
+
+          <div class="roi-results-box">
+            <div class="roi-stat-block">
+              <div class="roi-big-num" id="roi-res-money">3.240 €</div>
+              <div class="roi-stat-desc">Ahorro anual estimado en tarifas de publicación y marketing</div>
+            </div>
+            <div class="roi-stat-block">
+              <div class="roi-big-num" id="roi-res-hours">144 Horas</div>
+              <div class="roi-stat-desc">Horas al año recuperadas para tu taller o compraventa</div>
+            </div>
+            <div class="roi-stat-block">
+              <a href="hub.html" class="btn btn-cyan" style="width: 100%; margin-top: 8px;">
+                Probar Herramientas del Hub Gratis
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUEVO: PLANES & PRICING B2B (Inspirado en Inmobia360) -->
+    <section class="section pricing-section" id="planes">
+      <div class="container">
+        <div class="section-header" style="text-align: center;">
+          <span class="chapter-badge">PLANES & TARIFAS B2B</span>
+          <h2 class="section-title">Escala tus Ventas con el Plan Adecuado</h2>
+          <p class="section-subtitle" style="margin: 0 auto 32px;">Tarifas transparentes sin comisiones sobre ventas. Elige facturación mensual o ahorra 2 meses con facturación anual.</p>
+
+          <div class="pricing-toggle-box">
+            <span>Mensual</span>
+            <div class="pricing-toggle-btn" onclick="toggleBillingPeriod()">
+              <span id="toggle-monthly" class="active">Mes a mes</span>
+              <span id="toggle-annual">Anual <span class="discount-badge">-20% Ahorro</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-grid" id="pricing-grid">
+          <!-- Renderizado dinámicamente desde siteConfig.pricing -->
+        </div>
+      </div>
+    </section>
+
+    <!-- NUEVO: TESTIMONIOS REALES B2B (Inspirado en Inmobia360) -->
+    <section class="section testimonials-section" id="testimonios">
+      <div class="container">
+        <div class="section-header" style="text-align: center;">
+          <span class="chapter-badge">CASOS DE ÉXITO</span>
+          <h2 class="section-title">Lo que Opinan Directores y Talleres Asociados</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">Profesionales de la automoción que ya multiplican su rotación de vehículos con CocheMotor.</p>
+        </div>
+
+        <div class="testimonials-grid" id="testimonials-grid">
+          <!-- Renderizado dinámicamente desde siteConfig.testimonials -->
+        </div>
+      </div>
+    </section>
+
     <!-- CAPÍTULO 7: FAQ Editorial (Nativo Details / Summary) -->
     <section class="section faq-section" id="faq">
       <div class="container">
         <div class="section-header" style="text-align: center;">
           <span class="chapter-badge" id="faq-badge">CAPÍTULO 06</span>
           <h2 class="section-title" id="faq-title">Preguntas Frecuentes de Decisión</h2>
-          <p class="section-subtitle" style="margin: 0 auto;">Respuestas claras a las dudas más habituales sobre garantías, DGT y financiación.</p>
+          <p class="section-subtitle" style="margin: 0 auto;">Respuestas claras a las dudas más habituales sobre garantías, DGT, herramientas SaaS y financiación.</p>
         </div>
 
         <div class="faq-list" id="faq-list">
@@ -240,9 +330,14 @@
           </div>
         </div>
 
-        <a href="https://wa.me/34612345678?text=Hola!%20Tengo%20un%20taller/compraventa%20y%20quiero%20informaci%C3%B3n%20para%20anunciar%20mi%20stock%20en%20CocheMotor" target="_blank" rel="noopener" class="btn btn-cyan" style="font-size: 1.1rem; padding: 16px 36px;">
-          Solicitar Alta Profesional por WhatsApp
-        </a>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="hub.html" class="btn btn-cyan" style="font-size: 1.05rem; padding: 16px 32px;">
+            ⚡ Abrir Hub de Operaciones
+          </a>
+          <a href="https://wa.me/34612345678?text=Hola!%20Tengo%20un%20taller/compraventa%20y%20quiero%20informaci%C3%B3n%20para%20asociarme%20a%20CocheMotor" target="_blank" rel="noopener" class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 16px 32px;">
+            Solicitar Alta Partner por WhatsApp
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -253,7 +348,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/brand/cochemotor_logo_blanco_sin_tagline.png" alt="CocheMotor Logo Blanco" style="height: 38px; margin-bottom: 16px;">
-          <p>Marketplace digital para la compraventa de vehículos de ocasión con peritaje mecánico homologado y trazabilidad legal DGT en España.</p>
+          <p>Marketplace digital y suite SaaS B2B para la compraventa de vehículos de ocasión con peritaje mecánico homologado y trazabilidad legal DGT en España.</p>
         </div>
 
         <div class="footer-col">
@@ -267,12 +362,12 @@
         </div>
 
         <div class="footer-col">
-          <h4>Profesionales</h4>
+          <h4>Herramientas SaaS</h4>
           <ul>
-            <li><a href="#profesionales">Alta de Talleres</a></li>
-            <li><a href="#profesionales">Compraventas VO</a></li>
-            <li><a href="#faq">Protocolo 100 Puntos</a></li>
-            <li><a href="https://wa.me/34612345678" target="_blank">Soporte Partners</a></li>
+            <li><a href="hub.html">Generador Multicanal IA</a></li>
+            <li><a href="hub.html">Calculadora Financiera</a></li>
+            <li><a href="hub.html">Lead Scoring Predictivo</a></li>
+            <li><a href="hub.html">Cartelería con QR</a></li>
           </ul>
         </div>
 
@@ -299,12 +394,11 @@
     <div class="modal-card">
       <button class="modal-close-btn" onclick="closeVehicleModal()" aria-label="Cerrar">&times;</button>
       <div id="modal-dynamic-content">
-        <!-- Renderizado dinámicamente con openVehicleModal(id) -->
+        <!-- Renderizado dinámicamente -->
       </div>
     </div>
   </div>
 
-  <!-- Scripts: Configuración desacoplada primero, luego renderizador interactivo -->
   <script src="site-config.js"></script>
   <script src="app.js"></script>
 </body>

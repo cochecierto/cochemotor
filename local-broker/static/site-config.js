@@ -1,12 +1,13 @@
 /**
  * CocheMotor — Central Editorial & Product Configuration
  * Metodología BIG School Webs: Desacoplamiento total entre datos, copy y presentación.
+ * Módulos B2B + B2C inspirados en la arquitectura de alto impacto de Inmobia360.
  */
 
 const siteConfig = {
   metadata: {
-    title: "CocheMotor — Marketplace Digital de Vehículos con Mecánica Verificada",
-    description: "Compra y vende coches de segunda mano en España con certificación pericial de taller en 100 puntos y trazabilidad DGT. Cero estafas, cero vicios ocultos.",
+    title: "CocheMotor — Marketplace Digital & Hub SaaS para Profesionales del Motor",
+    description: "La plataforma integral para talleres mecánicos, compraventas freelance y particulares en España: stock verificado en 100 puntos, trazabilidad DGT, generador multicanal con IA y scoring de leads.",
     canonical: "https://cochemotor.es",
     domain: "cochemotor.es",
     language: "es-ES",
@@ -15,51 +16,54 @@ const siteConfig = {
   brand: {
     name: "CocheMotor",
     tagline: "Marketplace Digital",
-    promise: "Vehículos de ocasión con mecánica peritada y garantía real en España.",
+    promise: "Vehículos de ocasión con mecánica peritada y suite SaaS para profesionales.",
     contactWhatsapp: "34612345678",
-    logoLight: "assets/brand/cochemotor_logo_transparent.png",
-    logoDark: "assets/brand/cochemotor_logo_white_transparent.png",
+    logoLight: "assets/brand/cochemotor_logo_azul_con_tagline.png",
+    logoDark: "assets/brand/cochemotor_logo_blanco_sin_tagline.png",
     pistonIcon: "assets/brand/cochemotor_piston_azul_transparente.png",
     faviconSvg: "assets/brand/favicon.svg",
   },
 
   navigation: [
     { label: "Mecánica Verificada", href: "#inspeccion" },
-    { label: "Catálogo en Stock", href: "#catalogo" },
-    { label: "El Manifiesto", href: "#manifiesto" },
-    { label: "Para Talleres y Freelance", href: "#profesionales" },
+    { label: "Stock Verificado", href: "#catalogo" },
+    { label: "Hub Profesional", href: "hub.html" },
+    { label: "Calculadora ROI", href: "#calculadora-roi" },
+    { label: "Planes & Tarifas", href: "#planes" },
     { label: "Preguntas Frecuentes", href: "#faq" },
   ],
 
-  // Estructura Editorial de 8 Capítulos (BIG School Webs)
   chapters: {
     chapter1_hero: {
-      eyebrow: "MERCADO PROFESIONAL DE OCASIÓN EN ESPAÑA",
+      eyebrow: "MARKETPLACE & PLATAFORMA SAAS B2B DE AUTOMOCIÓN",
       headline: ["Coches de Segunda Mano.", "Con Mecánica Verificada.", "Sin Vicios Ocultos."],
-      subhead: "Unimos a talleres mecánicos certificados, compraventas independientes y particulares en una plataforma donde cada coche pasa por 100 puntos de control pericial antes de publicarse.",
+      subhead: "Unimos a talleres mecánicos homologados, compraventas independientes y compradores en una plataforma que combina certificación pericial en 100 puntos, trazabilidad DGT y herramientas de automatización comercial.",
       ctaLabel: "Explorar Stock Verificado",
       ctaTarget: "#catalogo",
+      ctaHubLabel: "Probar Panel SaaS Gratis",
+      ctaHubTarget: "hub.html",
       stats: [
         { value: "100", label: "Puntos de control pericial" },
         { value: "0 Cargas", label: "Informe DGT verificado" },
-        { value: "12 Meses", label: "Garantía mecánica obligatoria" },
+        { value: "12 Meses", label: "Garantía mecánica legal" },
       ],
     },
 
     chapter2_manifesto: {
       number: "CAPÍTULO 01",
-      title: "La Verdad sobre Comprar Coche Usado en España",
+      title: "La Verdad sobre Comprar y Vender Coche Usado en España",
       paragraphs: [
-        "Comprar un vehículo de segunda mano en portales tradicionales se ha convertido en una ruleta rusa: kilómetros manipulados, cajas de cambio al límite de la rotura y embargos ocultos en la DGT.",
-        "CocheMotor nace con un propósito innegociable: desterrar la desconfianza. Aquí no publican particulares anónimos con fotos engañosas. Cada vehículo es peritado por un taller mecánico profesional o un compraventa verificado antes de recibir la luz verde.",
+        "Comprar un vehículo de segunda mano en portales tradicionales se ha convertido en una ruleta rusa: cuentakilómetros manipulados, cajas de cambio al límite y embargos sorpresa en la DGT.",
+        "Para los talleres mecánicos y pequeños compraventas, la situación no es mejor: horas perdidas respondiendo a 'mareantes' y curiosos en portales saturados, costes abusivos por anuncio y desconfianza del comprador particular.",
+        "CocheMotor nace con un doble propósito innegociable: desterrar la desconfianza del comprador con mecánica certificada en 100 puntos y dotar al profesional independiente de una suite tecnológica de primer nivel.",
       ],
-      quote: "Si un coche no supera la prueba de compresión de cilindros o tiene cargas registrales, jamás entra en CocheMotor.",
+      quote: "Si un coche no supera la diagnosis OBD de motor o tiene cargas registrales, jamás entra en CocheMotor.",
     },
 
     chapter3_engineering: {
       number: "CAPÍTULO 02",
       title: "Ingeniería de Taller al Servicio del Comprador",
-      subtitle: "Diagnosis por ordenador OBD, inspección en elevador y prueba dinámica en carretera.",
+      subtitle: "Diagnosis por ordenador OBD, inspección en elevador de 100 puntos y prueba dinámica en carretera.",
     },
 
     chapter4_pillars: {
@@ -69,7 +73,7 @@ const siteConfig = {
         {
           code: "01 / PERITAJE",
           title: "100 Puntos de Control Mecánico",
-          description: "Revisión exhaustiva de compresión de motor, turbo, embrague, discos de freno, amortiguadores y lectura de kilometraje real en centralita (ECU).",
+          description: "Revisión exhaustiva de compresión de cilindros, turbo, embrague, discos de freno, amortiguadores y lectura de kilometraje real en centralita (ECU).",
         },
         {
           code: "02 / DGT",
@@ -109,6 +113,10 @@ const siteConfig = {
           a: "Cada ficha técnica indica con claridad el distintivo oficial de la DGT (0 Emisiones, ECO, C o B) y su aptitud para circular sin restricciones en Madrid, Barcelona y ciudades de más de 50.000 habitantes.",
         },
         {
+          q: "¿Qué herramientas incluye el Hub SaaS para profesionales?",
+          a: "Incluye Generador Multicanal con IA para portales (Coches.net, Wallapop, Milanuncios), Calculadora Financiera de cuota y margen, Scoring Predictivo de leads y Cartelería de Parabrisas con código QR.",
+        },
+        {
           q: "¿Puedo entregar mi coche actual como parte de pago?",
           a: "Sí. Nuestros talleres y compraventas asociados realizan tasaciones directas en el acto para descontar el valor de tu coche usado del precio final.",
         },
@@ -123,9 +131,87 @@ const siteConfig = {
       number: "CAPÍTULO 07",
       title: "¿Eres Taller Mecánico o Compraventa Independiente?",
       subtitle: "Únete a la red de CocheMotor. Anuncia tu stock verificado, recibe leads cualificados por WhatsApp y multiplica tu rotación de vehículos.",
-      formAction: "#", // Endpoint local o webhook
+      formAction: "#",
     },
   },
+
+  // Testimonios B2B (Inspirado en Inmobia360)
+  testimonials: [
+    {
+      quote: "Pasamos de perder 3 horas al día respondiendo a curiosos a cerrar ventas en 48 horas. El Generador Multicanal y el informe de 100 puntos le dan una credibilidad imbatible a nuestros coches.",
+      author: "Manuel Delgado",
+      role: "Director de Operaciones · Automoción Delgado (Madrid)",
+      metrics: "+35% de rotación de stock",
+    },
+    {
+      quote: "El Lead Scoring de compradores por WhatsApp nos ha cambiado la vida. Mis comerciales solo llaman a quienes tienen liquidez real o coche para tasar. Menos llamadas, más operaciones firmadas.",
+      author: "Carmen Navarro",
+      role: "Gerente de Ventas · Costa Cars VO (Valencia)",
+      metrics: "Ahorro de 14 h/semana",
+    },
+    {
+      quote: "Poner la ficha pericial con código QR en el parabrisas de los coches de la campa es una máquina de captar clientes que pasean por el polígono los fines de semana.",
+      author: "Javier Mendoza",
+      role: "Propietario · Taller y Compraventa SurMotor (Sevilla)",
+      metrics: "100% de coches con garantía",
+    },
+  ],
+
+  // Planes B2B (Inspirado en Inmobia360)
+  pricing: [
+    {
+      id: "plan-starter",
+      name: "Starter Freelance",
+      tagline: "Para compraventas independientes que quieren profesionalizar su venta.",
+      priceMonthly: 49,
+      priceAnnual: 39,
+      popular: false,
+      features: [
+        "Hasta 5 coches activos simultáneos",
+        "Fichas públicas con distintivo DGT",
+        "Generador multicanal para portales",
+        "Cartelería de parabrisas con QR",
+        "Checklist de trámites y contrato legal",
+        "Soporte por WhatsApp",
+      ],
+      cta: "Comenzar con Starter",
+    },
+    {
+      id: "plan-taller",
+      name: "Taller Mecánico Partner",
+      tagline: "Para talleres mecánicos que quieren vender stock propio verificado.",
+      priceMonthly: 99,
+      priceAnnual: 79,
+      popular: true,
+      features: [
+        "Hasta 15 coches activos simultáneos",
+        "Distintivo oficial 'Sello Taller Homologado'",
+        "Certificación de 100 puntos periciales",
+        "Generador Multicanal IA avanzado",
+        "Lead Scoring predictivo de compradores",
+        "Calculadora financiera para clientes",
+        "Prioridad de visibilidad en el Marketplace",
+      ],
+      cta: "Comenzar Prueba Gratuita",
+    },
+    {
+      id: "plan-concesionario",
+      name: "Concesionario Pro",
+      tagline: "Para concesionarios multimarca y redes con equipo comercial.",
+      priceMonthly: 199,
+      priceAnnual: 159,
+      popular: false,
+      features: [
+        "Stock ilimitado de vehículos",
+        "Multi-usuario para todo el equipo comercial",
+        "Gestión centralizada de leads WhatsApp",
+        "Exportación automática por feed XML",
+        "Garantías mecánicas con tarifa mayorista",
+        "Account Manager y soporte telefónico VIP",
+      ],
+      cta: "Contactar Asesoría",
+    },
+  ],
 
   // Inventario de Stock Sintético para Pruebas Locales (España)
   stock: [
