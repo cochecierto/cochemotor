@@ -56,10 +56,16 @@ owned_skills:
     priority: 7
     purpose: Soporte operativo a freelancers y pequeños concesionarios, control de días en stock (depreciación a 45-60 días), márgenes y fiscalidad REBU.
 
-  - name: cochecierto-quality-guard
+  - name: cochemotor-editorial-web
     status: approved
     version: 1.0.0
     priority: 8
+    purpose: Arquitectura y diseño web editorial de alto impacto en 8 capítulos basada en BIG School Webs, mobile-first y configuración centralizada.
+
+  - name: cochecierto-quality-guard
+    status: approved
+    version: 1.0.0
+    priority: 9
     purpose: Control de calidad SDD, pruebas unitarias automatizadas, verificación de aislamiento multi-tenant y validación previa a despliegue en Hostinger.
 
 external_skills:
