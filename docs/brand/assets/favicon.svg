@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Fondo institucional redondeado -->
+  <rect width="64" height="64" rx="16" fill="#002D62"/>
+  
+  <!-- Símbolo Pistón Mecánico CocheMotor en 45 grados -->
+  <g transform="translate(32, 32) rotate(45) translate(-32, -32)">
+    <!-- Corona / Cabeza del pistón -->
+    <rect x="22" y="10" width="20" height="14" rx="2" fill="#00BFFF"/>
+    <!-- Ranuras de compresión del pistón -->
+    <line x1="22" y1="14" x2="42" y2="14" stroke="#002D62" stroke-width="1.5"/>
+    <line x1="22" y1="18" x2="42" y2="18" stroke="#002D62" stroke-width="1.5"/>
+    
+    <!-- Pasador / Bulón -->
+    <circle cx="32" cy="20" r="2.5" fill="#FFFFFF"/>
+    
+    <!-- Biela -->
+    <path d="M30 24 L29 44 L35 44 L34 24 Z" fill="#FFFFFF"/>
+    
+    <!-- Pie de biela / Ojo del cigüeñal -->
+    <circle cx="32" cy="48" r="8" fill="#FFFFFF"/>
+    <circle cx="32" cy="48" r="4.5" fill="#002D62"/>
+  </g>
+</svg>
