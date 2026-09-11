@@ -27,6 +27,9 @@ FILES_TO_UPLOAD = [
     "demanda.html",
     "ficha.html",
     "dealer.html",
+    "aviso-legal.html",
+    "privacidad.html",
+    "terminos.html",
     ".htaccess",
 ]
 

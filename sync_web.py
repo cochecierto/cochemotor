@@ -22,6 +22,9 @@ WEB_FILES = [
     "demanda.html",
     "ficha.html",
     "dealer.html",
+    "aviso-legal.html",
+    "privacidad.html",
+    "terminos.html",
 ]
 
 def sync(source="root"):
