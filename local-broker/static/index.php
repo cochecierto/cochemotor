@@ -8,9 +8,9 @@ header('Pragma: no-cache');
 header('Expires: 0');
 header('Content-Type: text/html; charset=UTF-8');
 
- = __DIR__ . '/index.html';
-if (file_exists()) {
-    readfile();
+$htmlFile = __DIR__ . '/index.html';
+if (file_exists($htmlFile)) {
+    readfile($htmlFile);
 } else {
     echo 'Error: index.html no encontrado.';
 }
