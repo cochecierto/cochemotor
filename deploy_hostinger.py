@@ -18,6 +18,7 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 FILES_TO_UPLOAD = [
     "index.html",
+    "index.php",
     "styles.css",
     "app.js",
     "site-config.js",

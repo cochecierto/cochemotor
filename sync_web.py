@@ -13,6 +13,7 @@ STATIC_DIR = os.path.join(ROOT_DIR, "local-broker", "static")
 
 WEB_FILES = [
     "index.html",
+    "index.php",
     "styles.css",
     "app.js",
     "site-config.js",

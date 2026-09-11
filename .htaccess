@@ -4,7 +4,7 @@
 # Preview Hostinger: https://motor.cochecierto.com/
 # ==============================================================================
 
-DirectoryIndex index.html
+DirectoryIndex index.php index.html
 
 # Forzar codificación UTF-8
 AddDefaultCharset UTF-8
