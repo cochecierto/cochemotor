@@ -636,6 +636,7 @@ const CocheMotorStorage = {
     ACTIVE_USER: "cochemotor_active_user_v2",
     BUYER_REG: "cochemotor_buyer_registered_v2",
     DEAL_ROOMS: "cochemotor_deal_rooms_v1",
+    SOCIAL_POSTS: "cochemotor_social_posts_v1",
   },
 
   // Obtener definición de etapas
@@ -989,5 +990,67 @@ const CocheMotorStorage = {
   getDealRoomByTokenOrId(tokenOrId) {
     const rooms = this.getDealRooms('all');
     return rooms.find(r => r.id === tokenOrId || r.token === tokenOrId) || null;
+  },
+
+  // Centro de Publicación Social y Difusión Asistida en Grupos de Facebook (Spec 003 / Módulo 20)
+  getFacebookGroupsLibrary() {
+    return [
+      { id: "grp-1", name: "Coches Segunda Mano Madrid & Centro", members: "142.000 miembros", province: "Madrid", url: "https://facebook.com/groups/coches-segunda-mano-madrid" },
+      { id: "grp-2", name: "Compra Venta Vehículos Ocasión España", members: "215.000 miembros", province: "Nacional", url: "https://facebook.com/groups/compraventa-vehiculos-espana" },
+      { id: "grp-3", name: "Mercado Automoción & Talleres VO", members: "89.000 miembros", province: "Nacional", url: "https://facebook.com/groups/mercado-automocion-vo" },
+      { id: "grp-4", name: "Coches Ocasión Valencia y Levante", members: "68.000 miembros", province: "Comunidad Valenciana", url: "https://facebook.com/groups/coches-valencia-levante" }
+    ];
+  },
+
+  getSocialPosts(userId = null) {
+    try {
+      const stored = localStorage.getItem(this.STORAGE_KEYS.SOCIAL_POSTS);
+      if (stored) {
+        const allPosts = JSON.parse(stored);
+        const targetUserId = (userId !== null) ? userId : this.getActiveUserId();
+        if (targetUserId === 'all') return allPosts;
+        return allPosts.filter(p => (p.sellerUserId || "user-juan") === targetUserId);
+      }
+    } catch (e) {}
+
+    const defaultPosts = [
+      {
+        id: "post-101",
+        sellerUserId: "user-garcia",
+        vehicleId: "cm-001",
+        vehicleTitle: "Volkswagen Golf 2.0 TDI Advance",
+        channel: "facebook_groups",
+        groupName: "Coches Segunda Mano Madrid & Centro",
+        status: "publicado_manual",
+        publishedAt: "Hoy, 10:30",
+        clicksTracked: 14,
+        leadsTracked: 1,
+      }
+    ];
+
+    try {
+      localStorage.setItem(this.STORAGE_KEYS.SOCIAL_POSTS, JSON.stringify(defaultPosts));
+    } catch (e) {}
+    return defaultPosts;
+  },
+
+  saveAllSocialPosts(posts) {
+    try {
+      localStorage.setItem(this.STORAGE_KEYS.SOCIAL_POSTS, JSON.stringify(posts));
+    } catch (e) {}
+  },
+
+  addSocialPost(postData) {
+    const posts = this.getSocialPosts('all');
+    const newPost = {
+      id: `post-${Date.now().toString().slice(-5)}`,
+      publishedAt: new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }) + " (Hoy)",
+      clicksTracked: 0,
+      leadsTracked: 0,
+      ...postData
+    };
+    posts.unshift(newPost);
+    this.saveAllSocialPosts(posts);
+    return newPost;
   }
 };

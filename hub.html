@@ -227,13 +227,17 @@
           <span class="hub-nav-item-icon">📁</span>
           <span>8. Expedientes & Deal Room</span>
         </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-social')">
+          <span class="hub-nav-item-icon">📱</span>
+          <span>9. Difusión Redes & Grupos</span>
+        </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-referrals')">
           <span class="hub-nav-item-icon">🚀</span>
-          <span>9. Afiliados B2B</span>
+          <span>10. Afiliados B2B</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-dealer-web')">
           <span class="hub-nav-item-icon">🌐</span>
-          <span>10. Mi Web & Subdominio</span>
+          <span>11. Mi Web & Subdominio</span>
         </button>
       </nav>
 
@@ -950,6 +954,95 @@
           </div>
 
           <div id="deal-rooms-list" style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- Renderizado dinámico -->
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================================
+           PESTAÑA 9: CENTRO DE DIFUSIÓN EN REDES Y GRUPOS (COMPATIBLE CON POLÍTICAS DE META)
+           ========================================================================================= -->
+      <section id="tab-social" style="display: none;">
+        <div class="hub-header" style="margin-bottom: 24px;">
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 6px;">
+            📱 Centro de Difusión en Redes & Grupos de Facebook
+          </h2>
+          <p style="color: var(--cm-text-secondary); font-size: 0.95rem;">
+            Difusión asistida 100% legal y compatible con las directivas de Meta (Graph API v19+): sin bots invasivos ni riesgos de baneo. Genera el texto optimizado con emojis y enlaces rastreables para publicar en 1 clic.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; margin-bottom: 30px;">
+          
+          <!-- Generador de Copy para Redes -->
+          <div style="background: white; border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 24px; box-shadow: var(--cm-shadow-sm);">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 14px;">
+              ✍️ Generar Publicación de Stock
+            </h3>
+
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Selecciona el Vehículo *</label>
+              <select id="social-vehicle-select" class="form-control" onchange="generateSocialCopy()" style="font-size: 0.85rem;">
+                <!-- Dinámico -->
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Canal Objetivo</label>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button type="button" class="btn btn-cyan" id="btn-chan-fb" onclick="setSocialChannel('facebook', this)" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 700;">
+                  Facebook Grupos
+                </button>
+                <button type="button" class="btn btn-outline" id="btn-chan-insta" onclick="setSocialChannel('instagram', this)" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 700;">
+                  Instagram / Threads
+                </button>
+                <button type="button" class="btn btn-outline" id="btn-chan-wa" onclick="setSocialChannel('whatsapp', this)" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 700;">
+                  Estados de WhatsApp
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Texto Optimizado para el Canal</label>
+              <textarea id="social-copy-output" class="form-control" rows="8" style="font-size: 0.85rem; line-height: 1.6;"></textarea>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-navy" style="flex: 1; padding: 10px; font-weight: 800; font-size: 0.88rem;" onclick="copySocialCopy()">
+                📋 Copiar Texto con Enlace
+              </button>
+              <button class="btn btn-cyan" style="flex: 1; padding: 10px; font-weight: 800; font-size: 0.88rem;" onclick="recordSocialPublication()">
+                ✓ Registrar Publicación
+              </button>
+            </div>
+          </div>
+
+          <!-- Biblioteca de Grupos Recomendados -->
+          <div style="background: white; border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 24px; box-shadow: var(--cm-shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+                👥 Grupos de Automoción Autorizados
+              </h3>
+              <span style="font-size: 0.75rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 999px; font-weight: 700;">
+                Difusión Orgánica Segura
+              </span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--cm-text-secondary); margin-bottom: 16px;">
+              Abre el grupo, pega el texto generado y comparte la ficha pública de 100 puntos con trazabilidad DGT:
+            </p>
+
+            <div id="facebook-groups-list" style="display: flex; flex-direction: column; gap: 10px;">
+              <!-- Renderizado dinámico -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Registro Histórico de Publicaciones -->
+        <div style="background: white; border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 24px; box-shadow: var(--cm-shadow-sm);">
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 14px;">
+            📊 Historial de Publicaciones y Leads Atribuidos
+          </h3>
+          <div id="social-history-table" style="overflow-x: auto;">
             <!-- Renderizado dinámico -->
           </div>
         </div>

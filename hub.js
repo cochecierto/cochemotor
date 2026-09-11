@@ -68,6 +68,7 @@ function switchHubTab(tabId) {
     'tab-calculator',
     'tab-qr',
     'tab-deal-room',
+    'tab-social',
     'tab-referrals',
     'tab-dealer-web'
   ];
@@ -96,6 +97,8 @@ function switchHubTab(tabId) {
   } else if (tabId === 'tab-deal-room') {
     initDealRoomDropdowns();
     renderDealRoomsList();
+  } else if (tabId === 'tab-social') {
+    initSocialTab();
   } else if (tabId === 'tab-generator') {
     initVehicleDropdowns();
     loadVehicleForGenerator();
@@ -993,4 +996,175 @@ function previewContractDGT(roomId) {
         `GARANTÍA: ${room.warrantyMonths} meses conforme a la Ley de Consumidores y Usuarios.\n` +
         `ESTADO DGT: ${room.dgtStatus}\n\n` +
         `* Basado en la guía oficial de compraventa de la DGT (dgt.es). Documento listo para formalización telemática.`);
+}
+
+// =========================================================================================
+// MÓDULO: DIFUSIÓN EN REDES SOCIALES & GRUPOS DE FACEBOOK (SPEC 003 / MÓDULO 20)
+// =========================================================================================
+
+let currentSocialChannel = 'facebook';
+
+function initSocialTab() {
+  const socialSelect = document.getElementById('social-vehicle-select');
+  if (!socialSelect) return;
+  const stock = CocheMotorStorage.getStock();
+  socialSelect.innerHTML = stock.map(v => 
+    `<option value="${v.id}">${v.brand} ${v.model} (${v.version}) — ${v.price.toLocaleString('es-ES')} €</option>`
+  ).join('');
+
+  renderFacebookGroupsList();
+  renderSocialHistory();
+  generateSocialCopy();
+}
+
+function setSocialChannel(channel, btn) {
+  currentSocialChannel = channel;
+  ['btn-chan-fb', 'btn-chan-insta', 'btn-chan-wa'].forEach(id => {
+    const b = document.getElementById(id);
+    if (b) {
+      b.classList.remove('btn-cyan');
+      b.classList.add('btn-outline');
+    }
+  });
+  if (btn) {
+    btn.classList.remove('btn-outline');
+    btn.classList.add('btn-cyan');
+  }
+  generateSocialCopy();
+}
+
+function generateSocialCopy() {
+  const select = document.getElementById('social-vehicle-select');
+  const output = document.getElementById('social-copy-output');
+  if (!select || !output) return;
+
+  const stock = CocheMotorStorage.getStock();
+  const car = stock.find(v => v.id === select.value) || stock[0];
+  if (!car) return;
+
+  const activeUser = CocheMotorStorage.getActiveUser();
+  const url = `${window.location.origin}/ficha.html?id=${car.id}&utm_source=${currentSocialChannel}`;
+
+  if (currentSocialChannel === 'facebook') {
+    output.value = 
+`🚗 ¡NUEVA ENTRADA DISPONIBLE EN TALLER! 🚗
+------------------------------------------
+🔹 ${car.brand} ${car.model} ${car.version} (${car.year})
+🛣️ Kilometraje certificado: ${car.km}
+⛽ Motor: ${car.fuel} · ${car.gearbox || 'Manual'}
+🏷️ Distintivo ambiental DGT: Etiqueta ${car.badge}
+
+✅ 100 PUNTOS DE CONTROL MECÁNICO EN ELEVADOR
+✅ DIAGNOSIS TELEMÁTICA OBD SIN FALLOS (0 DTC)
+✅ INFORME DGT LIMPIO (Sin cargas ni embargos)
+✅ 1 AÑO DE GARANTÍA LEGAL EUROPEA INCLUIDA
+
+💶 PRECIO PROFESIONAL: ${car.price.toLocaleString('es-ES')} € (Financiación desde ${car.monthlyPrice || 'consultar'})
+📍 Ubicación: ${activeUser.businessName} (${car.location || activeUser.location})
+
+📲 Consulta la ficha completa con fotos HD y peritaje pericial:
+👉 ${url}`;
+  } else if (currentSocialChannel === 'instagram') {
+    output.value = 
+`🔥 ${car.brand} ${car.model} ${car.year} | Mecánica Certificada en 100 Puntos 🔥
+
+Buscando unidad impecable? Este ${car.model} cuenta con diagnosis OBD limpia, etiqueta DGT ${car.badge} y 12 meses de garantía europea.
+
+💶 ${car.price.toLocaleString('es-ES')} €
+📍 ${activeUser.location}
+📲 Ficha completa en el link de la bio o por DM.
+
+#CochesSegundaMano #CocheOcasión #${car.brand} #${car.model} #CocheMotor #TallerMecánico #VehículosDeOcasión`;
+  } else {
+    output.value = 
+`🚗 *${car.brand} ${car.model} (${car.year})*
+🛣️ ${car.km} · Etiqueta DGT ${car.badge}
+✅ 100 Puntos de peritaje · 12M Garantía
+💶 *${car.price.toLocaleString('es-ES')} €*
+
+Ver ficha y vídeo de motor en elevador:
+${url}`;
+  }
+}
+
+function copySocialCopy() {
+  const output = document.getElementById('social-copy-output');
+  if (!output) return;
+  output.select();
+  navigator.clipboard.writeText(output.value).then(() => {
+    alert('📋 ¡Texto optimizado copiado al portapapeles! Listo para pegar en Facebook, Instagram o WhatsApp.');
+  });
+}
+
+function recordSocialPublication() {
+  const select = document.getElementById('social-vehicle-select');
+  const stock = CocheMotorStorage.getStock();
+  const car = stock.find(v => v.id === select.value) || stock[0];
+  const activeUser = CocheMotorStorage.getActiveUser();
+
+  CocheMotorStorage.addSocialPost({
+    sellerUserId: activeUser.id,
+    vehicleId: car.id,
+    vehicleTitle: `${car.brand} ${car.model}`,
+    channel: currentSocialChannel,
+    groupName: currentSocialChannel === 'facebook' ? 'Grupos de Compraventa VO' : currentSocialChannel === 'instagram' ? 'Feed & Stories' : 'WhatsApp Status',
+    status: 'publicado_manual',
+  });
+
+  alert('✓ ¡Publicación registrada en el historial comercial!');
+  renderSocialHistory();
+}
+
+function renderFacebookGroupsList() {
+  const container = document.getElementById('facebook-groups-list');
+  if (!container) return;
+  const groups = CocheMotorStorage.getFacebookGroupsLibrary();
+
+  container.innerHTML = groups.map(g => `
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #f8fafc; border: 1px solid var(--cm-border); border-radius: 8px;">
+      <div>
+        <div style="font-weight: 700; color: var(--cm-navy); font-size: 0.88rem;">${g.name}</div>
+        <div style="font-size: 0.75rem; color: var(--cm-text-secondary);">${g.members} · Ámbito: ${g.province}</div>
+      </div>
+      <a href="${g.url}" target="_blank" class="btn btn-outline" style="padding: 6px 10px; font-size: 0.78rem; font-weight: 700; text-decoration: none;">
+        Abrir Grupo ↗
+      </a>
+    </div>
+  `).join('');
+}
+
+function renderSocialHistory() {
+  const container = document.getElementById('social-history-table');
+  if (!container) return;
+  const posts = CocheMotorStorage.getSocialPosts();
+
+  if (posts.length === 0) {
+    container.innerHTML = `<div style="text-align: center; padding: 20px; font-size: 0.85rem; color: var(--cm-text-secondary);">No hay publicaciones registradas todavía.</div>`;
+    return;
+  }
+
+  container.innerHTML = `
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--cm-border); color: var(--cm-navy);">
+          <th style="padding: 8px;">Vehículo</th>
+          <th style="padding: 8px;">Canal / Grupo</th>
+          <th style="padding: 8px;">Fecha</th>
+          <th style="padding: 8px;">Clics</th>
+          <th style="padding: 8px;">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${posts.map(p => `
+          <tr style="border-bottom: 1px solid var(--cm-border);">
+            <td style="padding: 8px; font-weight: 700;">${p.vehicleTitle}</td>
+            <td style="padding: 8px;">${p.groupName || p.channel}</td>
+            <td style="padding: 8px; color: var(--cm-text-secondary);">${p.publishedAt}</td>
+            <td style="padding: 8px; font-weight: 700; color: var(--cm-cyan);">${p.clicksTracked || 0} clics</td>
+            <td style="padding: 8px;"><span style="background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">✓ Publicado</span></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
 }
