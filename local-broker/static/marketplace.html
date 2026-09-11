@@ -325,9 +325,11 @@
                 <div class="spec-cell"><strong>Cambio:</strong> ${v.gearbox}</div>
               </div>
 
-              <div class="vehicle-dealer" style="display: flex; align-items: center; justify-content: space-between;">
-                <span>📍 ${v.location || 'España'} (${v.province || 'VO'})</span>
-                <span style="font-weight: 700; color: var(--badge-eco-bg);">🛡️ 12 Meses</span>
+              <div class="vehicle-dealer" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <a href="dealer.html?id=${v.userId || 'user-garcia'}" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline; font-size: 0.82rem;">
+                  🏪 ${v.dealer || v.sellerName || 'Taller Homologado'}
+                </a>
+                <span style="font-weight: 700; color: #16a34a; font-size: 0.82rem;">🛡️ 12M Garantía</span>
               </div>
 
               <div class="vehicle-pricing">
@@ -336,7 +338,7 @@
               </div>
 
               <div class="card-cta-group">
-                <a class="btn btn-navy" href="ficha.html?id=${v.id}">Ver Ficha & QR</a>
+                <a class="btn btn-navy" href="ficha.html?id=${v.id}" style="font-weight: 800;">Ver Landing B2C →</a>
                 <a class="btn btn-whatsapp" href="${waUrl}" target="_blank" rel="noopener">WhatsApp</a>
               </div>
             </div>

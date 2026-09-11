@@ -33,53 +33,101 @@ const siteConfig = {
     { label: "FAQ", href: "index.html#faq" },
   ],
 
-  // Cuentas de Profesionales Sintéticas para Demostración Multi-Usuario
+  // Cuentas de Profesionales Sintéticas con soporte para Web Propia / Subdominio
   users: [
     {
       id: "user-juan",
+      slug: "juan-gomez",
+      subdomain: "juangomez",
       name: "Juan Gómez",
       businessName: "Juan Gómez Automoción VO",
-      role: "Freelance Independiente",
-      location: "Madrid Capital",
+      role: "Freelance Independiente VO",
+      location: "Madrid Capital (Barrio de Salamanca)",
+      address: "Calle de Alcalá 210, 28028 Madrid",
       province: "Madrid",
       community: "Comunidad de Madrid",
       phone: "34612345678",
       email: "juan.gomez@cochemotor.es",
       avatar: "👨‍💼",
+      heroCover: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80",
+      rating: "4.9 ★ (48 reseñas)",
+      reviewsCount: 48,
       plan: "Premium (30 Días de Prueba)",
       isPremium: true,
       referralCode: "MOTOR-JUAN-2026",
+      badges: ["Freelance Verificado CocheMotor", "Mecánica 100 Puntos", "Garantía Legal 1 Año", "Gestoría DGT Telemática"],
+      bio: "Especialista en vehículos híbridos y compactos de ocasión con historial de mantenimiento íntegro en concesionario oficial. Transparencia absoluta, contratos mercantiles claros y entrega inmediata con informe DGT en mano.",
+      services: [
+        "Venta de stock peritado en 100 puntos",
+        "Aceptamos tu coche usado como parte de pago",
+        "Financiación a medida hasta 96 meses",
+        "Garantía mecánica nacional de 12 meses",
+        "Cambio de titularidad telemático en 24h"
+      ],
+      schedule: "Lunes a Viernes: 09:30 - 14:00 y 16:30 - 20:00 · Sábados: 10:00 - 14:00 (Cita previa)"
     },
     {
       id: "user-garcia",
+      slug: "talleres-garcia",
+      subdomain: "talleresgarcia",
       name: "Talleres Hnos. García",
-      businessName: "Hnos. García Taller & VO",
-      role: "Taller Mecánico Partner",
-      location: "Alcorcón, Madrid",
+      businessName: "Hnos. García Taller Mecánico & VO",
+      role: "Taller Mecánico Partner Homologado",
+      location: "Alcorcón, Madrid Sur",
+      address: "Polígono Industrial Urtinsa, C/ Mercurio 14, 28923 Alcorcón (Madrid)",
       province: "Madrid",
       community: "Comunidad de Madrid",
       phone: "34655112233",
       email: "garcia.taller@cochemotor.es",
       avatar: "🔧",
+      heroCover: "https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=1200&q=80",
+      rating: "4.8 ★ (84 reseñas)",
+      reviewsCount: 84,
       plan: "Premium (30 Días de Prueba)",
       isPremium: true,
       referralCode: "MOTOR-GARCIA-2026",
+      badges: ["Taller Homologado CocheMotor", "Diagnosis OBD Oficial", "Elevador Disponible", "Garantía de Taller"],
+      bio: "Taller mecánico con más de 25 años de experiencia en la zona sur de Madrid. Ponemos a tu disposición vehículos de ocasión totalmente revisados en nuestras propias instalaciones con diagnosis por ordenador OBD y prueba en elevador delante de ti.",
+      services: [
+        "Vehículos revisados en taller propio en 100 puntos",
+        "Revisión gratuita a los 6 meses de la compra",
+        "Tasación y compra de vehículos averiados o con golpe",
+        "Prueba en elevador antes de comprar",
+        "Garantía directa sin intermediarios"
+      ],
+      schedule: "Lunes a Viernes: 08:30 - 19:30 (Ininterrumpido) · Sábados: 09:00 - 13:30"
     },
     {
       id: "user-baviera",
+      slug: "baviera-motors",
+      subdomain: "baviera",
       name: "Baviera Motors",
-      businessName: "Baviera Motors Concesionario",
+      businessName: "Baviera Motors Concesionario Multimarca",
       role: "Concesionario Multimarca",
       location: "Zaragoza Centro",
+      address: "Avenida de Valencia 45, 50005 Zaragoza",
       province: "Zaragoza",
       community: "Aragón",
       phone: "34677990011",
       email: "contacto@bavieramotors.es",
       avatar: "🏢",
+      heroCover: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+      rating: "4.9 ★ (112 reseñas)",
+      reviewsCount: 112,
       plan: "Premium (30 Días de Prueba)",
       isPremium: true,
       referralCode: "MOTOR-BAVIERA-2026",
-    },
+      badges: ["Concesionario Oficial Partner", "Gama Premium & ECO", "Garantía Europea 12 Meses", "Envío a Domicilio"],
+      bio: "Selección exclusiva de vehículos seminuevos y de ocasión con etiqueta ECO y Cero Emisiones. Todos nuestros coches cuentan con certificación de no siniestralidad, kilometraje certificado y entrega en cualquier punto de la península.",
+      services: [
+        "Stock premium revisado y certificado",
+        "Entrega a domicilio en toda España",
+        "Financiación online inmediata con DNI",
+        "Recompra garantizada a los 3 años",
+        "Garantía europea ampliable a 24 meses"
+      ],
+      schedule: "Lunes a Viernes: 09:30 - 20:30 · Sábados: 10:00 - 14:00 y 17:00 - 20:00"
+    }
   ],
 
   chapters: {
@@ -262,7 +310,7 @@ const siteConfig = {
     },
   ],
 
-  // Inventario de Stock Sintético con Trazabilidad Geográfica por España
+  // Inventario de Stock Sintético con Trazabilidad Geográfica por España y Landing B2C
   stock: [
     {
       id: "cm-001",
@@ -272,25 +320,51 @@ const siteConfig = {
       version: "2.0 TDI Advance 150 CV",
       year: 2020,
       km: "68.000 km",
+      kmNumber: 68000,
       fuel: "Diésel",
       gearbox: "Manual 6 vel.",
+      power: "150 CV",
+      doors: 5,
+      color: "Gris Tungsteno Metalizado",
       badge: "C",
       badgeClass: "badge-c",
       price: 16900,
       monthlyPrice: "215 €/mes",
       cost: 13200,
       dealer: "Talleres Hnos. García (Madrid)",
+      dealerSlug: "talleres-garcia",
       sellerName: "Talleres Hnos. García",
       sellerPhone: "34655112233",
       location: "Alcorcón",
       province: "Madrid",
       community: "Comunidad de Madrid",
-      image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80",
+      vin: "WVWZZZAUZLW048921",
+      image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1200&q=80",
+      photos: [
+        "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80"
+      ],
       inspectionScore: "98/100",
       itvDate: "Noviembre 2025",
       warranty: "12 Meses Europea",
       dgtStatus: "Informe Limpio (Sin Cargas)",
-      highlights: ["Distribución recién cambiada", "Neumáticos Michelin nuevos", "Un solo propietario", "Historial en concesionario oficial"],
+      inspectionDetails: {
+        motor: "100% OK · Compresión de 28 bar uniforme en 4 cilindros, turbo Garrett sin holgura axial y sin fugas.",
+        transmision: "100% OK · Embrague bimasa con 85% de vida remanente, sincronizadores de caja de 6v suaves.",
+        frenos: "95% OK · Discos delanteros ventilados con 80% de grosor, pastillas Ferodo recién cambiadas.",
+        chasis: "100% OK · Sin deformaciones en torretas ni largueros, silentblocks y rótulas sin holguras.",
+        obd: "100% OK · Diagnosis VAG-COM sin averías registradas (0 fallos DTC en motor, ABS y airbags)."
+      },
+      dgtReport: {
+        cargas: "0 Cargas Registrales",
+        embargos: "Libre de Embargos y Precintos DGT",
+        reserva: "Sin Reserva de Dominio Financiera",
+        itv: "Favorable sin defectos graves",
+        titulares: "1 Único Titular Particular Anterior"
+      },
+      highlights: ["Distribución y bomba de agua cambiadas", "Neumáticos Michelin Primacy nuevos", "Un solo propietario particular", "Historial completo en servicio oficial"],
       stage: "leads_activos",
       status: "disponible",
       daysInStock: 12,
@@ -306,25 +380,51 @@ const siteConfig = {
       version: "1.5 125H Hybrid Active",
       year: 2021,
       km: "35.000 km",
+      kmNumber: 35000,
       fuel: "Híbrido (HEV)",
       gearbox: "Automático e-CVT",
+      power: "116 CV",
+      doors: 5,
+      color: "Blanco Perlado",
       badge: "ECO",
       badgeClass: "badge-eco",
       price: 15500,
       monthlyPrice: "195 €/mes",
       cost: 12800,
       dealer: "Juan Gómez Automoción (Madrid)",
+      dealerSlug: "juan-gomez",
       sellerName: "Juan Gómez (Freelance VO)",
       sellerPhone: "34612345678",
       location: "Madrid Centro",
       province: "Madrid",
       community: "Comunidad de Madrid",
-      image: "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=800&q=80",
+      vin: "VNKKHAC370A102834",
+      image: "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=1200&q=80",
+      photos: [
+        "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80"
+      ],
       inspectionScore: "100/100",
       itvDate: "Enero 2026",
       warranty: "12 Meses Toyota Relax",
       dgtStatus: "Informe Limpio (Sin Cargas)",
-      highlights: ["Etiqueta ECO sin restricciones ZBE", "Consumo medio 3.8 L/100km", "Batería híbrida certificada", "Cámara de visión trasera"],
+      inspectionDetails: {
+        motor: "100% OK · Sistema híbrido Toyota HSD impecable con test de salud de batería certificado.",
+        transmision: "100% OK · Transmisión e-CVT con engranajes planetarios sin desgaste ni tirones.",
+        frenos: "100% OK · Frenada regenerativa óptima, discos sin desgaste apreciable.",
+        chasis: "100% OK · Estructura original de fábrica, pintura original en todas las piezas metálicas.",
+        obd: "100% OK · Diagnosis oficial Toyota Techstream con 0 fallos de sistema híbrido."
+      },
+      dgtReport: {
+        cargas: "0 Cargas Registrales",
+        embargos: "Libre de Embargos y Precintos DGT",
+        reserva: "Sin Reserva de Dominio Financiera",
+        itv: "Primera ITV en 2025 superada limpia",
+        titulares: "1 Propietaria particular de Madrid"
+      },
+      highlights: ["Etiqueta ECO sin restricciones ZBE en Madrid y Barcelona", "Consumo real homologado 3.8 L/100km", "Batería híbrida con garantía Toyota Relax", "Cámara de visión trasera y Apple CarPlay / Android Auto"],
       stage: "publicado",
       status: "disponible",
       daysInStock: 5,
@@ -340,25 +440,51 @@ const siteConfig = {
       version: "1.5 BlueHDi Allure 130 CV",
       year: 2021,
       km: "52.000 km",
+      kmNumber: 52000,
       fuel: "Diésel",
       gearbox: "Automático EAT8",
+      power: "130 CV",
+      doors: 5,
+      color: "Azul Célebes Metalizado",
       badge: "C",
       badgeClass: "badge-c",
       price: 18900,
       monthlyPrice: "240 €/mes",
       cost: 15200,
       dealer: "Juan Gómez Automoción (Madrid)",
+      dealerSlug: "juan-gomez",
       sellerName: "Juan Gómez (Freelance VO)",
       sellerPhone: "34612345678",
       location: "Getafe",
       province: "Madrid",
       community: "Comunidad de Madrid",
-      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80",
+      vin: "VF3MCYHZJMS098762",
+      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80",
+      photos: [
+        "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80"
+      ],
       inspectionScore: "96/100",
       itvDate: "Mayo 2026",
       warranty: "12 Meses Completa",
       dgtStatus: "Informe Limpio (Sin Cargas)",
-      highlights: ["SUV familiar con maletero de 520 L", "i-Cockpit digital con navegador 3D", "Frenada de emergencia activa", "ITV recién pasada"],
+      inspectionDetails: {
+        motor: "96% OK · Cadena de árboles de levas de 8mm reforzada comprobada, sistema AdBlue verificado.",
+        transmision: "100% OK · Caja automática Aisin EAT8 con cambios imperceptibles y convertidor perfecto.",
+        frenos: "95% OK · Discos y pastillas delanteras al 85%, líquido de frenos DOT4 recién sustituido.",
+        chasis: "100% OK · Suspensión equilibrada en banco MAHA, amortiguadores al 90%.",
+        obd: "100% OK · Diagnosis multimarca sin errores de inyección ni de filtro de partículas FAP."
+      },
+      dgtReport: {
+        cargas: "0 Cargas Registrales",
+        embargos: "Libre de Embargos y Precintos DGT",
+        reserva: "Sin Reserva de Dominio",
+        itv: "ITV en vigor hasta Mayo 2026",
+        titulares: "1 Titular particular en España"
+      },
+      highlights: ["SUV espacioso con maletero de 520 Litros", "Peugeot i-Cockpit digital con pantalla táctil de 10 pulgadas", "Frenada de emergencia autónoma y aviso de cambio de carril", "ITV recién pasada y libro de revisiones sellado"],
       stage: "prueba_en_taller",
       status: "disponible",
       daysInStock: 34,
@@ -374,25 +500,51 @@ const siteConfig = {
       version: "320d Touring M Sport 190 CV",
       year: 2022,
       km: "42.000 km",
+      kmNumber: 42000,
       fuel: "Diésel Mild-Hybrid",
       gearbox: "Automático Steptronic 8v",
+      power: "190 CV",
+      doors: 5,
+      color: "Portimao Blau Metalizado",
       badge: "ECO",
       badgeClass: "badge-eco",
       price: 28900,
       monthlyPrice: "365 €/mes",
       cost: 23500,
       dealer: "Baviera Motors VO (Zaragoza)",
+      dealerSlug: "baviera-motors",
       sellerName: "Baviera Motors",
       sellerPhone: "34677990011",
       location: "Zaragoza Centro",
       province: "Zaragoza",
       community: "Aragón",
-      image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80",
+      vin: "WBA31DX060FP92143",
+      image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80",
+      photos: [
+        "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80"
+      ],
       inspectionScore: "99/100",
       itvDate: "Octubre 2026",
       warranty: "12 Meses Premium",
       dgtStatus: "Informe Limpio (Sin Cargas)",
-      highlights: ["Paquete aerodinámico M Sport", "Faros Láser adaptativos", "Etiqueta ECO microhíbrida", "Mantenimiento incluido"],
+      inspectionDetails: {
+        motor: "100% OK · Motor B47D20 microhíbrido de 48V impecable, cadena de distribución en cota nominal.",
+        transmision: "100% OK · Caja ZF 8HP50 con cambio rápido y fluido en perfecto estado de viscosidad.",
+        frenos: "100% OK · Frenos deportivos M con pinzas azules y discos ventilados impecables.",
+        chasis: "100% OK · Suspensión adaptativa M con dureza variable verificada telemáticamente.",
+        obd: "100% OK · Diagnosis BMW ISTA con 0 fallos de centralita ECU y batería 48V al 100%."
+      },
+      dgtReport: {
+        cargas: "0 Cargas Registrales",
+        embargos: "Libre de Embargos y Precintos DGT",
+        reserva: "Sin Reserva de Dominio Financiera",
+        itv: "Primera ITV en 2026",
+        titulares: "1 Titular corporativo de dirección"
+      },
+      highlights: ["Paquete aerodinámico M Sport exterior e interior", "Faros Láser adaptativos con asistente de luces largas", "Etiqueta ECO microhíbrida de 48V", "Mantenimiento BSI BMW pagado hasta 100.000 km"],
       stage: "publicado",
       status: "disponible",
       daysInStock: 2,
@@ -704,6 +856,21 @@ const CocheMotorStorage = {
       localStorage.setItem(this.STORAGE_KEYS.BUYER_REG, 'true');
       localStorage.setItem("cochemotor_buyer_data", JSON.stringify(userData));
     } catch (e) {}
+  },
+
+  getDealerBySlugOrId(idOrSlug) {
+    if (!idOrSlug) return this.getActiveUser();
+    const clean = idOrSlug.trim().toLowerCase();
+    return siteConfig.users.find(u => 
+      u.id.toLowerCase() === clean || 
+      (u.slug && u.slug.toLowerCase() === clean) ||
+      (u.subdomain && u.subdomain.toLowerCase() === clean)
+    ) || this.getActiveUser();
+  },
+
+  getPublicStockByDealer(userIdOrSlug) {
+    const dealer = this.getDealerBySlugOrId(userIdOrSlug);
+    return this.getStock(dealer ? dealer.id : null);
   },
 
   getReferralAccount() {

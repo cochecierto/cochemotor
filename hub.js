@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderReferralSection();
   runFinancialCalculation();
   renderWindshieldCard();
+  loadDealerWebSettings();
 });
 
 // 1. Selector de Usuario / Concesionario (Multi-Tenant)
@@ -51,6 +52,7 @@ function handleSwitchUser(newUserId) {
   renderLeadsTable();
   renderCopilotCards();
   renderReferralSection();
+  loadDealerWebSettings();
 }
 
 // 2. Navegación entre pestañas de la Sidebar
@@ -63,7 +65,8 @@ function switchHubTab(tabId) {
     'tab-orders',
     'tab-calculator',
     'tab-qr',
-    'tab-referrals'
+    'tab-referrals',
+    'tab-dealer-web'
   ];
 
   tabs.forEach(id => {
@@ -725,4 +728,73 @@ https://cochemotor.es/?ref=${ref.referralCode}`;
   navigator.clipboard.writeText(msg).then(() => {
     alert("📲 ¡Enlace de afiliado copiado al portapapeles! Listo para enviar a tus contactos de compraventa por WhatsApp.");
   });
+}
+
+
+// Función para inicializar y cargar ajustes de la Web Propia del Dealer
+function loadDealerWebSettings() {
+  const activeUser = CocheMotorStorage.getActiveUser();
+  if (!activeUser) return;
+
+  const titleEl = document.getElementById('dealer-web-title');
+  const subEl = document.getElementById('dealer-subdomain-display');
+  const urlEl = document.getElementById('dealer-url-display');
+  const btnOpen = document.getElementById('btn-open-dealer-web');
+
+  const sub = activeUser.subdomain || activeUser.slug || 'taller';
+  const fullUrl = `${window.location.origin}/dealer.html?id=${activeUser.id}`;
+
+  if (titleEl) titleEl.textContent = activeUser.businessName || activeUser.name;
+  if (subEl) subEl.textContent = `${sub}.cochemotor.es`;
+  if (urlEl) {
+    urlEl.textContent = fullUrl;
+    urlEl.href = `dealer.html?id=${activeUser.id}`;
+  }
+  if (btnOpen) {
+    btnOpen.href = `dealer.html?id=${activeUser.id}`;
+  }
+
+  // Cargar formulario
+  const nameIn = document.getElementById('setting-dealer-name');
+  const subIn = document.getElementById('setting-dealer-subdomain');
+  const phoneIn = document.getElementById('setting-dealer-phone');
+  const addrIn = document.getElementById('setting-dealer-address');
+  const schedIn = document.getElementById('setting-dealer-schedule');
+  const bioIn = document.getElementById('setting-dealer-bio');
+
+  if (nameIn) nameIn.value = activeUser.businessName || activeUser.name;
+  if (subIn) subIn.value = sub;
+  if (phoneIn) phoneIn.value = activeUser.phone || '';
+  if (addrIn) addrIn.value = activeUser.address || activeUser.location || '';
+  if (schedIn) schedIn.value = activeUser.schedule || 'Lunes a Viernes 09:00 - 19:30';
+  if (bioIn) bioIn.value = activeUser.bio || '';
+}
+
+function saveDealerSettings(event) {
+  event.preventDefault();
+  const activeUser = CocheMotorStorage.getActiveUser();
+  if (!activeUser) return;
+
+  activeUser.businessName = document.getElementById('setting-dealer-name').value.trim();
+  activeUser.subdomain = document.getElementById('setting-dealer-subdomain').value.trim().toLowerCase();
+  activeUser.phone = document.getElementById('setting-dealer-phone').value.trim();
+  activeUser.address = document.getElementById('setting-dealer-address').value.trim();
+  activeUser.schedule = document.getElementById('setting-dealer-schedule').value.trim();
+  activeUser.bio = document.getElementById('setting-dealer-bio').value.trim();
+
+  // Guardar en siteConfig
+  const userIdx = siteConfig.users.findIndex(u => u.id === activeUser.id);
+  if (userIdx >= 0) {
+    siteConfig.users[userIdx] = activeUser;
+  }
+
+  loadDealerWebSettings();
+  alert('¡Datos de tu web comercial actualizados correctamente!');
+}
+
+function copyDealerWebLink() {
+  const activeUser = CocheMotorStorage.getActiveUser();
+  const link = `${window.location.origin}/dealer.html?id=${activeUser.id}`;
+  navigator.clipboard.writeText(link);
+  alert('¡Enlace de tu web comercial copiado al portapapeles!');
 }

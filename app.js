@@ -187,15 +187,16 @@ function renderStockGrid(vehicles) {
           '<div class="spec-cell"><strong>Cambio:</strong> ' + v.gearbox + '</div>' +
         '</div>' +
         '<div class="vehicle-dealer">' +
-          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> ' +
-          (v.sellerName || v.dealer) +
+          '<a href="dealer.html?id=' + (v.userId || 'user-garcia') + '" style="color: var(--cm-navy); text-decoration: underline; font-weight: 700; font-size: 0.82rem;">' +
+          '🏪 ' + (v.sellerName || v.dealer) +
+          '</a>' +
         '</div>' +
         '<div class="vehicle-pricing">' +
           '<div class="cash-price">' + v.price.toLocaleString('es-ES') + ' €</div>' +
           '<div class="monthly-price">desde ' + v.monthlyPrice + '</div>' +
         '</div>' +
         '<div class="card-cta-group">' +
-          '<a class="btn btn-navy" href="ficha.html?id=' + v.id + '">Ver Ficha & QR</a>' +
+          '<a class="btn btn-navy" href="ficha.html?id=' + v.id + '" style="font-weight: 800;">Ver Landing B2C →</a>' +
           '<a class="btn btn-whatsapp" href="' + waUrl + '" target="_blank" rel="noopener">WhatsApp</a>' +
         '</div>' +
       '</div>' +

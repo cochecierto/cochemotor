@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Concesionario & Taller Oficial — CocheMotor</title>
+  <meta name="description" id="page-desc" content="Stock verificado con mecánica peritada en 100 puntos y 1 año de garantía oficial.">
+
+  <!-- Favicons oficiales -->
+  <link rel="icon" type="image/x-icon" href="assets/brand/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Estilos de la Web Propia del Profesional */
+    .dealer-hero {
+      position: relative;
+      background: var(--cm-navy-dark);
+      color: white;
+      border-radius: var(--cm-radius-lg);
+      overflow: hidden;
+      margin-bottom: 40px;
+      border: 1px solid var(--cm-border);
+      box-shadow: var(--cm-shadow-lg);
+    }
+    .dealer-cover-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      opacity: 0.4;
+      display: block;
+    }
+    .dealer-hero-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px 40px;
+      background: linear-gradient(to top, rgba(0, 20, 48, 0.95) 0%, rgba(0, 20, 48, 0.4) 70%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      .dealer-cover-img {
+        height: 200px;
+      }
+      .dealer-hero-body {
+        position: static;
+        background: var(--cm-navy-dark);
+        padding: 24px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .dealer-profile-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .dealer-avatar-badge {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: white;
+      color: var(--cm-navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      border: 3px solid var(--cm-cyan);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+    }
+    .dealer-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 191, 255, 0.15);
+      border: 1px solid var(--cm-cyan);
+      color: var(--cm-cyan);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    /* Barra de Contacto y Confianza */
+    .dealer-info-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      background: var(--cm-surface-subtle);
+      border: 1px solid var(--cm-border);
+      border-radius: var(--cm-radius-md);
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .dealer-info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dealer-info-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: white;
+      border: 1px solid var(--cm-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* Grilla de Coches del Concesionario */
+    .dealer-catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    /* Caja de Servicios */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .service-card {
+      background: white;
+      border: 1px solid var(--cm-border);
+      border-radius: var(--cm-radius-md);
+      padding: 22px;
+      transition: all 0.2s ease;
+    }
+    .service-card:hover {
+      border-color: var(--cm-cyan);
+      transform: translateY(-2px);
+      box-shadow: var(--cm-shadow-md);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="index.html" class="brand-link">
+          <img class="brand-logo-img" src="assets/brand/cochemotor_logo_azul_con_tagline.png" alt="CocheMotor">
+        </a>
+        <span style="font-size: 0.85rem; color: var(--cm-text-secondary); border-left: 1px solid var(--cm-border); padding-left: 14px; font-weight: 600;">
+          Red Oficial de Talleres & Concesionarios
+        </span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="marketplace.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem;">
+          ← Todo el Stock Nacional
+        </a>
+        <a href="hub.html" class="btn btn-cyan" style="padding: 8px 16px; font-size: 0.88rem;">
+          Soy Profesional (SaaS)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 32px; padding-bottom: 80px;">
+
+    <!-- Hero Propio del Taller / Concesionario -->
+    <section class="dealer-hero">
+      <img id="dealer-cover" class="dealer-cover-img" src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80" alt="Instalaciones">
+      <div class="dealer-hero-body">
+        <div class="dealer-profile-info">
+          <div id="dealer-avatar" class="dealer-avatar-badge">👨‍💼</div>
+          <div>
+            <div class="dealer-badge-tag" id="dealer-role-tag">Taller Partner Homologado</div>
+            <h1 id="dealer-name" style="font-family: var(--font-family-display); font-size: 2rem; font-weight: 800; margin: 0; color: white;">
+              Cargando profesional...
+            </h1>
+            <p id="dealer-location" style="margin: 4px 0 0; color: rgba(255,255,255,0.85); font-size: 0.95rem;">
+              Madrid, España
+            </p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button id="btn-dealer-whatsapp" class="btn btn-cyan" style="padding: 12px 22px; font-weight: 800;" onclick="openDealerWhatsApp()">
+            💬 WhatsApp Directo
+          </button>
+          <button id="btn-dealer-call" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4); padding: 12px 20px;" onclick="openDealerCall()">
+            📞 Llamar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de Información: Dirección, Horario, Garantía y Reseñas -->
+    <div class="dealer-info-bar">
+      <div class="dealer-info-item">
+        <div class="dealer-info-icon">📍</div>
+        <div>
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 800; color: var(--cm-text-secondary);">Dirección / Instalaciones</div>
+          <div id="dealer-address" style="font-size: 0.88rem; font-weight: 700; color: var(--cm-navy);">--</div>
+        </div>
+      </div>
+      <div class="dealer-info-item">
+        <div class="dealer-info-icon">⏰</div>
+        <div>
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 800; color: var(--cm-text-secondary);">Horario de Atención</div>
+          <div id="dealer-schedule" style="font-size: 0.88rem; font-weight: 700; color: var(--cm-navy);">--</div>
+        </div>
+      </div>
+      <div class="dealer-info-item">
+        <div class="dealer-info-icon">⭐</div>
+        <div>
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 800; color: var(--cm-text-secondary);">Reputación Verificada</div>
+          <div id="dealer-rating" style="font-size: 0.88rem; font-weight: 700; color: #16a34a;">4.9 ★ (48 reseñas)</div>
+        </div>
+      </div>
+      <div class="dealer-info-item">
+        <div class="dealer-info-icon">🛡️</div>
+        <div>
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 800; color: var(--cm-text-secondary);">Compromiso CocheMotor</div>
+          <div style="font-size: 0.88rem; font-weight: 700; color: var(--cm-navy);">100 Puntos + 12M Garantía</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sobre Nosotros / Bio -->
+    <section style="margin-bottom: 48px; background: white; border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 32px;">
+      <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 12px;">
+        Acerca de <span id="bio-dealer-name">nuestro negocio</span>
+      </h2>
+      <p id="dealer-bio" style="font-size: 1rem; line-height: 1.7; color: var(--cm-graphite); margin-bottom: 24px;">
+        Cargando información del profesional...
+      </p>
+
+      <div style="border-top: 1px solid var(--cm-border); padding-top: 24px;">
+        <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--cm-navy); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px;">
+          Garantías y Servicios Exclusivos de Este Centro
+        </h4>
+        <div class="services-grid" id="dealer-services-grid">
+          <!-- Renderizado dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Catálogo de Vehículos en Stock -->
+    <section id="stock-section">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span style="font-size: 0.82rem; font-weight: 800; color: var(--cm-cyan); text-transform: uppercase;">STOCK DISPONIBLE</span>
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--cm-navy); margin: 4px 0 0;">
+            Vehículos Verificados en Venta (<span id="stock-count">0</span>)
+          </h2>
+        </div>
+        <div style="font-size: 0.88rem; color: var(--cm-text-secondary);">
+          Cada coche dispone de <strong>Landing Page propia con informe pericial</strong>
+        </div>
+      </div>
+
+      <div class="dealer-catalog-grid" id="dealer-vehicles-grid">
+        <!-- Renderizado dinámicamente -->
+      </div>
+    </section>
+
+    <!-- Formulario de Contacto / Tasación para este Taller -->
+    <section style="margin-top: 60px; background: var(--cm-surface-subtle); border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 36px;">
+      <div style="max-width: 680px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 8px;">
+          ¿Buscas un coche a medida o quieres tasar el tuyo?
+        </h2>
+        <p style="font-size: 0.95rem; color: var(--cm-text-secondary); margin-bottom: 24px;">
+          Envía tu consulta directamente al equipo técnico de este centro y te responderán en menos de 15 minutos.
+        </p>
+
+        <form id="dealer-contact-form" onsubmit="handleDealerForm(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; text-align: left;">
+          <div>
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Tu Nombre *</label>
+            <input type="text" id="lead-name" class="form-control" placeholder="Ej: Alberto Gómez" required>
+          </div>
+          <div>
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Teléfono / WhatsApp *</label>
+            <input type="tel" id="lead-phone" class="form-control" placeholder="Ej: 654 321 987" required>
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">¿En qué podemos ayudarte?</label>
+            <textarea id="lead-message" class="form-control" rows="3" placeholder="Ej: Me interesa el Volkswagen Golf pero quiero entregar mi Seat Ibiza a cambio..."></textarea>
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <button type="submit" class="btn btn-navy" style="width: 100%; padding: 14px; font-weight: 800;">
+              Enviar Consulta Directa al Centro
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center;">
+      <p>&copy; 2026 CocheMotor (cochemotor.es). Web asociada de la Red Oficial de Profesionales del Motor de Segunda Mano.</p>
+    </div>
+  </footer>
+
+  <script src="site-config.js"></script>
+  <script>
+    let dealer = null;
+
+    function getParam(key) {
+      return new URLSearchParams(window.location.search).get(key);
+    }
+
+    function initDealerPage() {
+      // 1. Detectar si viene por parámetro ?id= o ?slug= o por subdominio
+      const idOrSlug = getParam('id') || getParam('slug') || 'user-garcia';
+      dealer = CocheMotorStorage.getDealerBySlugOrId(idOrSlug);
+
+      if (!dealer) {
+        dealer = siteConfig.users[0];
+      }
+
+      // Meta
+      document.getElementById('page-title').textContent = `${dealer.businessName || dealer.name} — Web Oficial · CocheMotor`;
+      document.getElementById('dealer-name').textContent = dealer.businessName || dealer.name;
+      document.getElementById('bio-dealer-name').textContent = dealer.businessName || dealer.name;
+      document.getElementById('dealer-location').textContent = `${dealer.location || dealer.province} · ${dealer.community || 'España'}`;
+      document.getElementById('dealer-role-tag').textContent = dealer.role || 'Profesional Homologado';
+      document.getElementById('dealer-avatar').textContent = dealer.avatar || '🚗';
+      document.getElementById('dealer-address').textContent = dealer.address || `${dealer.location}, España`;
+      document.getElementById('dealer-schedule').textContent = dealer.schedule || 'L-V: 09:00 - 19:30 · Sábados previa cita';
+      document.getElementById('dealer-rating').textContent = dealer.rating || '4.9 ★ (48 reseñas)';
+      document.getElementById('dealer-bio').textContent = dealer.bio || 'Profesional de automoción especializado en vehículos de ocasión verificados con certificación mecánica de 100 puntos y garantía europea.';
+
+      if (dealer.heroCover) {
+        document.getElementById('dealer-cover').src = dealer.heroCover;
+      }
+
+      // Servicios
+      const servGrid = document.getElementById('dealer-services-grid');
+      servGrid.innerHTML = '';
+      const services = dealer.services || [
+        "Revisión pericial en 100 puntos",
+        "Garantía oficial de 12 meses",
+        "Tasación y entrega de vehículo a cambio",
+        "Transferencia DGT telemática"
+      ];
+      services.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.innerHTML = `
+          <div style="font-weight: 800; color: var(--cm-navy); font-size: 0.95rem; margin-bottom: 4px;">✓ ${s}</div>
+          <div style="font-size: 0.82rem; color: var(--cm-text-secondary);">Garantizado por el centro</div>
+        `;
+        servGrid.appendChild(card);
+      });
+
+      // Stock de este concesionario
+      renderDealerStock();
+    }
+
+    function renderDealerStock() {
+      const stock = CocheMotorStorage.getStock(dealer.id);
+      document.getElementById('stock-count').textContent = stock.length;
+      const grid = document.getElementById('dealer-vehicles-grid');
+      grid.innerHTML = '';
+
+      if (stock.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 40px; background: white; border-radius: var(--cm-radius-md); border: 1px solid var(--cm-border);">
+            <h3>En este momento no hay vehículos publicados</h3>
+            <p style="color: var(--cm-text-secondary);">Nuevos coches en proceso de revisión mecánica en taller.</p>
+          </div>
+        `;
+        return;
+      }
+
+      stock.forEach(car => {
+        const card = document.createElement('div');
+        card.className = 'vehicle-card';
+        card.innerHTML = `
+          <div class="vehicle-card-img-wrap">
+            <img src="${car.image}" alt="${car.brand} ${car.model}" loading="lazy">
+            <div class="card-badge-container">
+              <span class="badge-dgt ${car.badgeClass || 'badge-c'}">DGT ${car.badge}</span>
+              <span class="badge-dgt" style="background: var(--cm-navy); color: white;">🛡️ ${car.inspectionScore || '98/100'}</span>
+            </div>
+          </div>
+          <div class="vehicle-card-body">
+            <div style="font-size: 0.8rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">
+              ${car.brand} · ${car.year}
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin: 4px 0 8px;">
+              ${car.brand} ${car.model}
+            </h3>
+            <div style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-bottom: 12px;">
+              ${car.version}
+            </div>
+
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.82rem;">
+              <span class="spec-pill" style="padding: 4px 10px;">🛣️ ${car.km}</span>
+              <span class="spec-pill" style="padding: 4px 10px;">⛽ ${car.fuel}</span>
+              <span class="spec-pill" style="padding: 4px 10px;">🛡️ 12M Garantía</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: auto; border-top: 1px solid var(--cm-border); padding-top: 14px;">
+              <div>
+                <div style="font-size: 1.45rem; font-weight: 800; color: var(--cm-navy);">${car.price.toLocaleString('es-ES')} €</div>
+                <div style="font-size: 0.8rem; color: #16a34a; font-weight: 700;">${car.monthlyPrice || 'Financiable'}</div>
+              </div>
+              <a href="ficha.html?id=${car.id}" class="btn btn-navy" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
+                Ver Landing B2C →
+              </a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openDealerWhatsApp() {
+      if (!dealer) return;
+      const msg = `¡Hola ${dealer.name}! He visto la web de vuestro centro en CocheMotor y me gustaría solicitar información sobre vuestro stock de vehículos de ocasión.`;
+      window.open(`https://wa.me/${dealer.phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function openDealerCall() {
+      if (!dealer) return;
+      window.location.href = `tel:+${dealer.phone}`;
+    }
+
+    function handleDealerForm(event) {
+      event.preventDefault();
+      const name = document.getElementById('lead-name').value.trim();
+      const phone = document.getElementById('lead-phone').value.trim();
+      const message = document.getElementById('lead-message').value.trim();
+
+      const newLead = {
+        id: `lead-dealer-${Date.now()}`,
+        sellerUserId: dealer.id,
+        vehicleId: 'general-dealer-inquiry',
+        vehicleTitle: `Consulta a ${dealer.businessName}`,
+        buyerName: name,
+        phone: phone,
+        paymentMethod: 'Por determinar',
+        tradeIn: message.toLowerCase().includes('cambio') || message.toLowerCase().includes('tasar') ? 'Sí' : 'No',
+        score: 92,
+        scoreTag: 'Caliente',
+        date: 'Ahora mismo',
+        status: 'Nuevo Lead Entrante',
+        notes: `Mensaje directo desde web del taller: ${message || 'Solicita información general'}`,
+      };
+
+      CocheMotorStorage.addLead(newLead);
+      alert(`¡Gracias ${name}! Hemos enviado tu mensaje directamente a ${dealer.businessName}. Te contactarán en breve.`);
+      event.target.reset();
+    }
+
+    window.addEventListener('DOMContentLoaded', initDealerPage);
+  </script>
+</body>
+</html>
