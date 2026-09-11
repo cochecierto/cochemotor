@@ -1,0 +1,46 @@
+# ==============================================================================
+# CocheMotor — Configuración Web para Hostinger (.htaccess)
+# Producción: https://cochemotor.es/
+# Preview Hostinger: https://teal-raccoon-907116.hostingersite.com/
+# ==============================================================================
+
+DirectoryIndex index.html
+
+# Forzar codificación UTF-8
+AddDefaultCharset UTF-8
+
+# Tipos MIME correctos para fuentes, svg y json
+<IfModule mod_mime.c>
+  AddType image/svg+xml .svg .svgz
+  AddType application/json .json
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+  AddType font/ttf .ttf
+</IfModule>
+
+# Reglas de Reescritura
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Seguridad: bloquear acceso a carpetas internas sensibles
+  RewriteRule ^\.agents - [F,L]
+  RewriteRule ^\.github - [F,L]
+  RewriteRule ^\.codex - [F,L]
+  RewriteRule ^specs - [F,L]
+  RewriteRule ^database - [F,L]
+</IfModule>
+
+# Cabeceras de Caché para Optimización de Rendimiento
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

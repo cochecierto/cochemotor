@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coches a la Carta — Marketplace de la Demanda | CocheMotor</title>
+  <meta name="description" content="Publica gratis qué coche buscas y recibe ofertas de talleres y compraventas profesionales verificados de toda España.">
+
+  <!-- Favicons oficiales -->
+  <link rel="icon" type="image/x-icon" href="assets/brand/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Encabezado & Navegación -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <img class="brand-logo-img" src="assets/brand/cochemotor_logo_azul_con_tagline.png" alt="CocheMotor">
+      </a>
+      <nav class="nav-desktop">
+        <a href="marketplace.html" class="nav-link">Marketplace VO</a>
+        <a href="demanda.html" class="nav-link" style="color: var(--cm-navy); font-weight: 800; border-bottom: 2px solid var(--cm-cyan);">Coches a la Carta</a>
+        <a href="index.html#ingenieria" class="nav-link">Mecánica Verificada</a>
+        <a href="index.html#pilares" class="nav-link">Los 3 Pilares</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="hub.html" class="btn-nav-hub" style="background: var(--cm-cyan); color: var(--cm-navy); font-weight: 800;">⚡ Hub SaaS (30 Días Gratis)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 36px; padding-bottom: 80px;">
+
+    <div style="margin-bottom: 36px;">
+      <span class="chapter-badge">MARKETPLACE INVERSO DE AUTOMOCIÓN</span>
+      <h1 style="font-family: var(--font-family-display); font-size: 2.5rem; font-weight: 800; color: var(--cm-navy); margin: 8px 0;">
+        Bolsa de la Demanda: Coches a la Carta
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--cm-text-secondary); max-width: 800px;">
+        ¿No encuentras el coche que buscas o estás cansado de buscar en portales? Publica tus requisitos exactos. Nuestra red de profesionales asociados revisará su inventario de entrada para hacerte ofertas directas con peritaje en 100 puntos y garantía de 1 año.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px;">
+      
+      <!-- Columna Izquierda: Formulario para Publicar Solicitud de Coche -->
+      <div style="background: var(--cm-white); border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 32px; box-shadow: var(--cm-shadow-md);">
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 8px;">
+          🎯 Publica tu Búsqueda sin Coste
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--cm-text-secondary); margin-bottom: 20px;">
+          Completa el formulario en 2 minutos. Solo los profesionales verificados podrán enviarte propuestas.
+        </p>
+
+        <form id="order-form" onsubmit="handleCreateOrder(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label">Tu Nombre y Apellidos *</label>
+              <input type="text" id="ord-name" class="form-control" placeholder="Ej: Marcos Serrano" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Provincia o Ciudad *</label>
+              <input type="text" id="ord-location" class="form-control" placeholder="Ej: Madrid, Sevilla, Valencia" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">¿Qué tipo de vehículo buscas? *</label>
+            <input type="text" id="ord-type" class="form-control" placeholder="Ej: SUV híbrido, Compacto diésel automático, Furgoneta" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label">Presupuesto Máximo (€) *</label>
+              <input type="number" id="ord-budget" class="form-control" placeholder="Ej: 18000" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Distintivo DGT Deseado</label>
+              <select id="ord-badge" class="form-control">
+                <option value="ECO o C">ECO o C (Recomendado)</option>
+                <option value="ECO">Solo Etiqueta ECO</option>
+                <option value="0">Solo 0 Emisiones</option>
+                <option value="Indiferente">Indiferente</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label">Kilometraje Máximo</label>
+              <select id="ord-max-km" class="form-control">
+                <option value="Menos de 60.000 km">Menos de 60.000 km</option>
+                <option value="Menos de 90.000 km" selected>Menos de 90.000 km</option>
+                <option value="Menos de 130.000 km">Menos de 130.000 km</option>
+                <option value="Indiferente">Indiferente</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Urgencia de Compra</label>
+              <select id="ord-urgency" class="form-control">
+                <option value="Inmediata (Menos de 7 días)">Inmediata (Menos de 7 días)</option>
+                <option value="A corto plazo (Menos de 30 días)" selected>A corto plazo (Menos de 30 días)</option>
+                <option value="Sondeando opciones">Sondeando opciones</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label">¿Tienes coche para entregar a cambio?</label>
+              <select id="ord-tradein" class="form-control">
+                <option value="No">No, compra limpia</option>
+                <option value="Sí, coche para tasar">Sí, coche para tasar y descontar</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Forma de Pago Prevista</label>
+              <select id="ord-payment" class="form-control">
+                <option value="Financiación mensual">Financiación mensual</option>
+                <option value="Al contado">Al contado (transferencia bancaria)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label">Teléfono / WhatsApp *</label>
+              <input type="tel" id="ord-phone" class="form-control" placeholder="612 345 678" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Correo Electrónico *</label>
+              <input type="email" id="ord-email" class="form-control" placeholder="tu@correo.com" required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-navy" style="width: 100%; padding: 14px; font-size: 1.05rem; margin-top: 10px;">
+            🚀 Publicar Solicitud de Coche a la Carta
+          </button>
+        </form>
+      </div>
+
+      <!-- Columna Derecha: Muro de Demandas Activas en España -->
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+            Búsquedas en Curso de Compradores
+          </h3>
+          <span style="font-size: 0.8rem; background: rgba(0, 191, 255, 0.15); color: var(--cm-navy); padding: 4px 10px; border-radius: 999px; font-weight: 700;">
+            Actualizado en vivo
+          </span>
+        </div>
+
+        <div id="demands-list-container">
+          <!-- Generado dinámicamente con renderDemandsList() -->
+        </div>
+
+        <!-- Banner para Profesionales -->
+        <div style="background: var(--cm-surface-subtle); border: 2px dashed var(--cm-border-strong); border-radius: var(--cm-radius-md); padding: 24px; text-align: center; margin-top: 24px;">
+          <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 6px;">
+            ¿Tienes coches en stock que encajen con estas búsquedas?
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-bottom: 14px;">
+            Accede gratis al Hub Profesional para postular tus unidades y recibir clientes listos para comprar.
+          </p>
+          <a href="hub.html" class="btn btn-cyan" style="font-size: 0.88rem; padding: 10px 20px;">
+            Abrir Bolsa de Pedidos en mi Hub
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2026 CocheMotor (cochemotor.es). Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="site-config.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderDemandsList();
+    });
+
+    function renderDemandsList() {
+      const container = document.getElementById('demands-list-container');
+      if (!container) return;
+
+      const orders = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getOrders() : siteConfig.demandOrders;
+
+      container.innerHTML = orders.map(ord => `
+        <div style="background: var(--cm-white); border: 1px solid var(--cm-border); border-radius: var(--cm-radius-md); padding: 20px; margin-bottom: 16px; box-shadow: var(--cm-shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <div>
+              <span style="font-size: 0.72rem; background: rgba(0, 150, 64, 0.12); color: var(--badge-eco-bg); font-weight: 800; padding: 2px 8px; border-radius: 999px; text-transform: uppercase;">
+                SOLICITUD VERIFICADA
+              </span>
+              <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--cm-navy); margin: 6px 0 2px 0;">
+                ${ord.requiredType}
+              </h4>
+              <div style="font-size: 0.82rem; color: var(--cm-text-secondary);">
+                📍 ${ord.location} · Presupuesto máx: <strong>${ord.budgetMax.toLocaleString('es-ES')} €</strong>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--cm-cyan); background: #f0f9ff; padding: 4px 8px; border-radius: 4px;">
+                ${ord.responsesCount || 0} Ofertas enviadas
+              </span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; font-size: 0.78rem;">
+            <span style="background: var(--cm-surface-subtle); padding: 4px 8px; border-radius: 4px;">🏷️ DGT: ${ord.requiredBadge}</span>
+            <span style="background: var(--cm-surface-subtle); padding: 4px 8px; border-radius: 4px;">🚗 Km: ${ord.maxKm}</span>
+            <span style="background: var(--cm-surface-subtle); padding: 4px 8px; border-radius: 4px;">⏱️ ${ord.urgency}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function handleCreateOrder(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('ord-name').value.trim();
+      const location = document.getElementById('ord-location').value.trim();
+      const type = document.getElementById('ord-type').value.trim();
+      const budget = parseFloat(document.getElementById('ord-budget').value);
+      const badge = document.getElementById('ord-badge').value;
+      const km = document.getElementById('ord-max-km').value;
+      const urgency = document.getElementById('ord-urgency').value;
+      const tradeIn = document.getElementById('ord-tradein').value;
+      const payment = document.getElementById('ord-payment').value;
+      const phone = document.getElementById('ord-phone').value.trim();
+      const email = document.getElementById('ord-email').value.trim();
+
+      const newOrder = {
+        id: `ord-${Date.now().toString().slice(-4)}`,
+        buyerName: name,
+        location: location,
+        requiredType: type,
+        budgetMax: budget,
+        requiredBadge: badge,
+        maxKm: km,
+        urgency: urgency,
+        paymentPlan: payment,
+        tradeIn: tradeIn,
+        buyerPhone: phone,
+        buyerEmail: email,
+        status: "Abierta",
+        responsesCount: 0,
+        date: "Recién publicado",
+      };
+
+      if (typeof CocheMotorStorage !== 'undefined') {
+        CocheMotorStorage.addOrder(newOrder);
+      }
+
+      alert(`🎉 ¡Gracias ${name}!\n\nTu solicitud de "${type}" ha sido publicada en la Bolsa de la Demanda. Los compraventas y talleres asociados de tu zona recibirán la alerta y te presentarán opciones verificadas.`);
+
+      document.getElementById('order-form').reset();
+      renderDemandsList();
+    }
+  </script>
+</body>
+</html>

@@ -11,7 +11,9 @@ import os
 import sys
 
 PORT = 8000
-DIRECTORY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
+DIRECTORY = ROOT_DIR if os.path.exists(os.path.join(ROOT_DIR, "index.html")) else STATIC_DIR
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):

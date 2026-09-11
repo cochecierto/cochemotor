@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha Oficial de Vehículo Verificado — CocheMotor</title>
+  <meta name="description" content="Vehículo de ocasión con certificación de taller en 100 puntos, informe DGT sin cargas y garantía mecánica de 1 año.">
+
+  <!-- Favicons oficiales -->
+  <link rel="icon" type="image/x-icon" href="assets/brand/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .vehicle-detail-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      margin-top: 32px;
+    }
+    @media (max-width: 900px) {
+      .vehicle-detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .main-car-photo {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--cm-radius-lg);
+      border: 1px solid var(--cm-border);
+      box-shadow: var(--cm-shadow-md);
+    }
+    .thumb-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+    .thumb-item {
+      width: 90px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: var(--cm-radius-sm);
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--cm-transition-fast);
+    }
+    .thumb-item:hover, .thumb-item.active {
+      border-color: var(--cm-cyan);
+    }
+    .spec-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--cm-surface-subtle);
+      border: 1px solid var(--cm-border);
+    }
+    .lead-box-card {
+      background: var(--cm-white);
+      border: 1px solid var(--cm-border-strong);
+      border-radius: var(--cm-radius-lg);
+      padding: 32px;
+      box-shadow: var(--cm-shadow-md);
+      position: sticky;
+      top: 24px;
+    }
+    .safe-guide-card {
+      background: #f8fafc;
+      border-left: 4px solid var(--cm-cyan);
+      padding: 24px;
+      border-radius: 0 var(--cm-radius-md) var(--cm-radius-md) 0;
+      margin-top: 36px;
+    }
+    @media print {
+      .site-header, .site-footer, .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .vehicle-detail-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabecera -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <img class="brand-logo-img" src="assets/brand/cochemotor_logo_azul_con_tagline.png" alt="CocheMotor">
+      </a>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="index.html#catalogo" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem;">
+          ← Ver Catálogo
+        </a>
+        <a href="hub.html" class="btn btn-cyan" style="padding: 8px 16px; font-size: 0.88rem;">
+          Hub Profesional SaaS
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 32px; padding-bottom: 80px;">
+
+    <!-- Barra de Estado / Alertas de Disponibilidad -->
+    <div id="availability-banner" style="display: none; padding: 14px 20px; border-radius: var(--cm-radius-md); font-weight: 700; margin-bottom: 24px;"></div>
+
+    <div class="vehicle-detail-grid">
+      <!-- Columna Izquierda: Galería y Especificaciones Técnicas -->
+      <div>
+        <img id="view-car-image" src="" alt="Vehículo" class="main-car-photo">
+        <div id="thumbs-container" class="thumb-row"></div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;">
+          <span id="view-badge" class="badge-dgt badge-c">DGT C</span>
+          <span class="spec-badge-pill" id="view-km">-- km</span>
+          <span class="spec-badge-pill" id="view-year">Año --</span>
+          <span class="spec-badge-pill" id="view-fuel">Combustible</span>
+          <span class="spec-badge-pill" id="view-gearbox">Caja de cambios</span>
+          <span class="spec-badge-pill" style="background: rgba(0, 150, 64, 0.1); color: var(--badge-eco-bg);" id="view-warranty">12 Meses Garantía</span>
+        </div>
+
+        <h1 id="view-title" style="font-family: var(--font-family-display); font-size: 2.2rem; font-weight: 800; color: var(--cm-navy); margin-top: 20px; line-height: 1.2;">
+          Cargando vehículo...
+        </h1>
+        <p id="view-version" style="font-size: 1.15rem; color: var(--cm-text-secondary); margin-top: 4px;"></p>
+
+        <!-- Certificado de Taller & 100 Puntos -->
+        <div style="background: var(--cm-surface-subtle); border-radius: var(--cm-radius-md); padding: 24px; border: 1px solid var(--cm-border); margin-top: 28px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <div style="font-weight: 800; color: var(--cm-navy); font-size: 1.05rem;">
+              🛡️ Certificación Oficial CocheMotor
+            </div>
+            <div id="view-score" style="background: var(--cm-navy); color: white; padding: 4px 12px; border-radius: 999px; font-weight: 800; font-size: 0.9rem;">
+              98/100
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.9rem;">
+            <div>✅ <strong>Inspección mecánica:</strong> 100 puntos en elevador</div>
+            <div>✅ <strong>Diagnosis electrónica OBD:</strong> Sin averías activas</div>
+            <div>✅ <strong>Informe DGT:</strong> Sin cargas ni precintos</div>
+            <div>✅ <strong>ITV en vigor:</strong> <span id="view-itv">Al día</span></div>
+          </div>
+        </div>
+
+        <!-- Puntos destacados -->
+        <div style="margin-top: 32px;">
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 12px;">
+            Aspectos Destacados por el Taller
+          </h3>
+          <ul id="view-highlights" style="padding-left: 20px; line-height: 1.8; color: var(--cm-graphite);">
+          </ul>
+        </div>
+
+        <!-- Guía de Compra Segura -->
+        <div class="safe-guide-card">
+          <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 8px;">
+            📘 Guía CocheMotor para el Comprador Exigente
+          </h4>
+          <p style="font-size: 0.9rem; color: var(--cm-graphite); line-height: 1.6; margin-bottom: 12px;">
+            Este vehículo cuenta con verificación profesional. Te recomendamos siempre:
+          </p>
+          <ul style="padding-left: 18px; font-size: 0.88rem; line-height: 1.6; color: var(--cm-text-secondary);">
+            <li>Solicitar por WhatsApp el vídeo en detalle del vano motor en marcha antes de desplazarte.</li>
+            <li>Revisar el justificante telemático del informe DGT para comprobar número de titulares anteriores.</li>
+            <li>Realizar prueba dinámica comprobando embrague, dirección y frenada suave.</li>
+            <li>Exigir contrato oficial con la garantía legal de 1 año conforme a la ley española.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Precios, Contacto, Formulario y Botones -->
+      <div>
+        <div class="lead-box-card">
+          <div style="font-size: 0.9rem; color: var(--cm-text-secondary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800;">
+            PRECIO AL CONTADO
+          </div>
+          <div style="display: flex; align-items: baseline; gap: 16px; margin-top: 4px;">
+            <div id="view-price" style="font-family: var(--font-family-display); font-size: 2.8rem; font-weight: 800; color: var(--cm-navy); line-height: 1;">
+              -- €
+            </div>
+            <div id="view-monthly" style="font-size: 1.05rem; font-weight: 700; color: var(--badge-eco-bg);">
+              --
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-top: 4px;">
+            Transferencia, revisión completa y 1 año de garantía legal incluidos.
+          </p>
+
+          <hr style="margin: 24px 0; border: 0; border-top: 1px solid var(--cm-border);">
+
+          <!-- Profesional / Vendedor -->
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px;">
+            <div style="width: 46px; height: 46px; border-radius: 50%; background: var(--cm-navy); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem;">
+              🚗
+            </div>
+            <div>
+              <div id="view-dealer" style="font-weight: 700; color: var(--cm-navy); font-size: 1rem;">Profesional Verificado</div>
+              <div id="view-location" style="font-size: 0.85rem; color: var(--cm-text-secondary);">España</div>
+            </div>
+          </div>
+
+          <!-- Acciones Principales -->
+          <div id="active-actions" class="no-print">
+            <button id="btn-whatsapp-direct" class="btn btn-cyan" style="width: 100%; padding: 14px; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px;" onclick="openDirectWhatsApp()">
+              💬 Contactar al Vendedor por WhatsApp
+            </button>
+
+            <button class="btn btn-outline" style="width: 100%; padding: 12px; font-size: 0.92rem; margin-bottom: 24px;" onclick="window.print()">
+              🖨️ Descargar Ficha en PDF / Imprimir con QR
+            </button>
+
+            <!-- Formulario para dejar solicitud / pregunta -->
+            <div style="background: var(--cm-surface-subtle); padding: 20px; border-radius: var(--cm-radius-md); border: 1px solid var(--cm-border);">
+              <h4 style="font-size: 0.98rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 6px;">
+                ¿Te interesa este coche? Te llamamos en 15 min
+              </h4>
+              <p style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-bottom: 14px;">
+                Resuelve dudas mecánicas, solicita tasación de tu coche usado o agenda cita de prueba.
+              </p>
+
+              <form id="lead-form" onsubmit="handleLeadSubmit(event)">
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label" style="font-size: 0.82rem;">Tu Nombre y Apellidos *</label>
+                  <input type="text" id="lead-name" class="form-control" placeholder="Ej: David Ruiz" required style="font-size: 0.9rem; padding: 10px;">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label" style="font-size: 0.82rem;">Teléfono / WhatsApp *</label>
+                  <input type="tel" id="lead-phone" class="form-control" placeholder="Ej: 612 345 678" required style="font-size: 0.9rem; padding: 10px;">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label" style="font-size: 0.82rem;">Forma de Pago Prevista</label>
+                  <select id="lead-payment" class="form-control" style="font-size: 0.9rem; padding: 8px;">
+                    <option value="contado">Al contado (transferencia bancaria)</option>
+                    <option value="financiado">Financiación mensual</option>
+                    <option value="coche_cambio">Tengo coche para entregar a cambio</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 16px;">
+                  <label class="form-label" style="font-size: 0.82rem;">Pregunta o Comentario (Opcional)</label>
+                  <textarea id="lead-notes" class="form-control" rows="2" placeholder="Ej: ¿Puedo pasar a probarlo el viernes por la tarde?" style="font-size: 0.9rem;"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-navy" style="width: 100%; padding: 12px; font-size: 0.95rem;">
+                  Enviar Solicitud al Vendedor
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Código QR Imprimible / Visible -->
+          <div style="text-align: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--cm-border);">
+            <div id="qr-container" style="display: inline-block; padding: 8px; background: white; border: 1px solid var(--cm-border); border-radius: 8px;">
+              <img id="qr-image" src="" alt="Código QR del coche" style="width: 130px; height: 130px;">
+            </div>
+            <div style="font-size: 0.78rem; color: var(--cm-text-secondary); margin-top: 6px;">
+              Escanea con la cámara del móvil para volver a esta ficha digital
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Banner Viral B2B al pie de la ficha -->
+  <aside style="background: var(--cm-navy); color: white; padding: 36px 0;" class="no-print">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <span class="chapter-badge" style="background: rgba(0, 191, 255, 0.2); color: var(--cm-cyan); margin-bottom: 8px;">¿ERES PROFESIONAL DEL MOTOR?</span>
+        <h3 style="font-size: 1.4rem; color: white; font-weight: 800;">Vende tus coches con fichas como esta y herramientas de IA</h3>
+        <p style="color: #cbd5e1; font-size: 0.95rem; margin-top: 4px;">Accede gratis durante 30 días al generador multicanal, embudo de ventas y cartelería con QR.</p>
+      </div>
+      <a href="hub.html" class="btn btn-cyan" style="padding: 12px 24px; font-weight: 800;">
+        Probar Hub Profesional Gratis
+      </a>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2026 CocheMotor (cochemotor.es). Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="site-config.js"></script>
+  <script>
+    let currentVehicle = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadVehicle();
+    });
+
+    function loadVehicle() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const vehicleId = urlParams.get('id') || 'cm-001';
+
+      const stock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getStock() : siteConfig.stock;
+      currentVehicle = stock.find(v => v.id === vehicleId) || stock[0];
+
+      if (!currentVehicle) {
+        document.getElementById('view-title').innerText = "Vehículo no encontrado";
+        return;
+      }
+
+      // Trazabilidad de visita / clics en el enlace
+      currentVehicle.clicksCount = (currentVehicle.clicksCount || 0) + 1;
+      if (typeof CocheMotorStorage !== 'undefined') {
+        CocheMotorStorage.saveVehicle(currentVehicle);
+      }
+
+      // Rellenar datos
+      document.title = `${currentVehicle.brand} ${currentVehicle.model} ${currentVehicle.version} — CocheMotor`;
+      document.getElementById('view-title').innerText = `${currentVehicle.brand} ${currentVehicle.model}`;
+      document.getElementById('view-version').innerText = currentVehicle.version;
+      document.getElementById('view-price').innerText = `${currentVehicle.price.toLocaleString('es-ES')} €`;
+      document.getElementById('view-monthly').innerText = currentVehicle.monthlyPrice ? `o desde ${currentVehicle.monthlyPrice}` : '';
+      document.getElementById('view-km').innerText = `🚗 ${currentVehicle.km}`;
+      document.getElementById('view-year').innerText = `📅 Año ${currentVehicle.year}`;
+      document.getElementById('view-fuel').innerText = `⛽ ${currentVehicle.fuel}`;
+      document.getElementById('view-gearbox').innerText = `⚙️ ${currentVehicle.gearbox}`;
+      document.getElementById('view-warranty').innerText = `🛡️ ${currentVehicle.warranty || '12 Meses Garantía'}`;
+      document.getElementById('view-dealer').innerText = currentVehicle.sellerName || currentVehicle.dealer;
+      document.getElementById('view-location').innerText = `📍 ${currentVehicle.location}`;
+      document.getElementById('view-itv').innerText = currentVehicle.itvDate || 'Al día';
+      document.getElementById('view-score').innerText = `${currentVehicle.inspectionScore || '98/100'} Peritaje`;
+
+      // Etiqueta DGT
+      const badgeEl = document.getElementById('view-badge');
+      badgeEl.innerText = `DGT ${currentVehicle.badge}`;
+      badgeEl.className = `badge-dgt ${currentVehicle.badgeClass || 'badge-c'}`;
+
+      // Imagen principal
+      const carImg = document.getElementById('view-car-image');
+      carImg.src = currentVehicle.image;
+      carImg.alt = `${currentVehicle.brand} ${currentVehicle.model}`;
+
+      // Galería de miniaturas sugeridas
+      const thumbs = document.getElementById('thumbs-container');
+      const photoList = currentVehicle.photos || [
+        { label: "Frontal", url: currentVehicle.image },
+        { label: "Trasera", url: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=400&q=80" },
+        { label: "Vano Motor", url: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=400&q=80" },
+        { label: "Cuadro Mandos", url: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=400&q=80" },
+      ];
+      thumbs.innerHTML = photoList.map((p, idx) => `
+        <img src="${p.url}" alt="${p.label}" class="thumb-item ${idx === 0 ? 'active' : ''}" onclick="changePhoto('${p.url}', this)" title="${p.label}">
+      `).join('');
+
+      // Puntos destacados
+      const highlightsEl = document.getElementById('view-highlights');
+      const highlights = currentVehicle.highlights || [
+        "Revisión completa de 100 puntos en taller homologado",
+        "Diagnosis electrónica OBD sin registros de fallo",
+        "Informe oficial DGT libre de cargas o reservas de dominio",
+        "Garantía mecánica obligatoria de 12 meses incluida"
+      ];
+      highlightsEl.innerHTML = highlights.map(h => `<li>${h}</li>`).join('');
+
+      // Código QR dinámico apuntando a la URL actual
+      const currentUrl = encodeURIComponent(window.location.href);
+      document.getElementById('qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${currentUrl}&color=002D62`;
+
+      // Comprobar estado de disponibilidad (Disponible / Reservado / Vendido)
+      checkAvailabilityStatus();
+    }
+
+    function changePhoto(url, thumb) {
+      document.getElementById('view-car-image').src = url;
+      document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    }
+
+    function checkAvailabilityStatus() {
+      const banner = document.getElementById('availability-banner');
+      const actions = document.getElementById('active-actions');
+
+      if (currentVehicle.status === 'vendido') {
+        banner.style.display = 'block';
+        banner.style.background = 'rgba(239, 68, 68, 0.15)';
+        banner.style.color = '#b91c1c';
+        banner.style.border = '1px solid #ef4444';
+        banner.innerHTML = '🚫 <strong>ESTE VEHÍCULO HA SIDO VENDIDO.</strong> Esta ficha se conserva como registro histórico. Consulta nuestro catálogo para ver unidades similares.';
+        if (actions) actions.style.display = 'none';
+      } else if (currentVehicle.status === 'reservado') {
+        banner.style.display = 'block';
+        banner.style.background = 'rgba(245, 158, 11, 0.15)';
+        banner.style.color = '#b45309';
+        banner.style.border = '1px solid #f59e0b';
+        banner.innerHTML = '⏳ <strong>VEHÍCULO EN PROCESO DE RESERVA.</strong> Hay una operación en curso con trámites DGT. Puedes contactar al vendedor por si la reserva quedase libre.';
+      } else {
+        banner.style.display = 'none';
+        if (actions) actions.style.display = 'block';
+      }
+    }
+
+    function openDirectWhatsApp() {
+      if (!currentVehicle) return;
+
+      // Si el comprador no está registrado, solicitar registro rápido primero
+      if (typeof CocheMotorStorage !== 'undefined' && !CocheMotorStorage.isBuyerRegistered()) {
+        openBuyerRegisterModal();
+        return;
+      }
+
+      const phone = currentVehicle.sellerPhone || "34612345678";
+      const msg = encodeURIComponent(
+        `Hola! He visto la ficha en CocheMotor del ${currentVehicle.brand} ${currentVehicle.model} (${currentVehicle.version}) por ${currentVehicle.price.toLocaleString('es-ES')} €. ¿Sigue disponible para prueba dinámica en taller?`
+      );
+      window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    }
+
+    function openBuyerRegisterModal() {
+      const modal = document.getElementById('buyer-modal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeBuyerModal() {
+      const modal = document.getElementById('buyer-modal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function handleBuyerRegister(event) {
+      event.preventDefault();
+      const name = document.getElementById('buyer-reg-name').value.trim();
+      const email = document.getElementById('buyer-reg-email').value.trim();
+      const phone = document.getElementById('buyer-reg-phone').value.trim();
+
+      if (typeof CocheMotorStorage !== 'undefined') {
+        CocheMotorStorage.setBuyerRegistered({ name, email, phone });
+        
+        // Registrar lead en el vendedor
+        CocheMotorStorage.addLead({
+          id: `lead-${Date.now()}`,
+          vehicleId: currentVehicle.id,
+          vehicleTitle: `${currentVehicle.brand} ${currentVehicle.model}`,
+          buyerName: name,
+          phone: phone,
+          email: email,
+          paymentMethod: 'Al contado / Financiado',
+          tradeIn: 'A consultar',
+          score: 95,
+          scoreTag: 'Muy Caliente',
+          date: 'Ahora mismo',
+          status: 'Nuevo Comprador Registrado',
+          notes: 'Registrado desde la ficha web para contactar por WhatsApp.',
+        });
+      }
+
+      closeBuyerModal();
+
+      const sellerPhone = currentVehicle.sellerPhone || "34612345678";
+      const msg = encodeURIComponent(
+        `Hola! Soy ${name} (${email}). He visto en CocheMotor el ${currentVehicle.brand} ${currentVehicle.model} (${currentVehicle.price.toLocaleString('es-ES')} €) y me gustaría consultar disponibilidad y probarlo.`
+      );
+      window.open(`https://wa.me/${sellerPhone}?text=${msg}`, '_blank');
+    }
+
+    function handleLeadSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('lead-name').value.trim();
+      const phone = document.getElementById('lead-phone').value.trim();
+      const payment = document.getElementById('lead-payment').value;
+      const notes = document.getElementById('lead-notes').value.trim();
+
+      const newLead = {
+        id: `lead-${Date.now()}`,
+        vehicleId: currentVehicle.id,
+        vehicleTitle: `${currentVehicle.brand} ${currentVehicle.model}`,
+        buyerName: name,
+        phone: phone,
+        email: "solicitud@web.cochemotor.es",
+        paymentMethod: payment === 'contado' ? 'Al contado' : payment === 'financiado' ? 'Financiación' : 'Entrega coche a cambio',
+        tradeIn: payment === 'coche_cambio' ? 'Sí' : 'No',
+        score: payment === 'contado' ? 95 : 85,
+        scoreTag: payment === 'contado' ? 'Muy Caliente' : 'Caliente',
+        date: 'Reciente',
+        status: 'Nuevo Lead Entrante',
+        notes: notes || "Solicitud de información desde formulario web",
+      };
+
+      if (typeof CocheMotorStorage !== 'undefined') {
+        CocheMotorStorage.addLead(newLead);
+        CocheMotorStorage.setBuyerRegistered({ name, phone });
+      }
+
+      const sellerPhone = currentVehicle.sellerPhone || "34612345678";
+      const waText = encodeURIComponent(
+        `🔔 [NUEVO INTERESADO COCHEMOTOR]\nVehículo: ${currentVehicle.brand} ${currentVehicle.model} (${currentVehicle.price.toLocaleString('es-ES')} €)\nNombre: ${name}\nTeléfono: ${phone}\nPago: ${newLead.paymentMethod}\nComentario: ${notes || 'Solicita información y cita'}`
+      );
+
+      alert(`¡Gracias ${name}! Tu solicitud ha sido registrada. Abriendo chat directo por WhatsApp con el vendedor...`);
+      window.open(`https://wa.me/${sellerPhone}?text=${waText}`, '_blank');
+    }
+  </script>
+
+  <!-- Modal de Registro Rápido de Comprador -->
+  <div class="modal-overlay" id="buyer-modal" style="display: none; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 45, 98, 0.7); z-index: 9999;">
+    <div class="modal-card" style="background: white; border-radius: var(--cm-radius-lg); padding: 32px; max-width: 480px; width: 90%; position: relative; box-shadow: var(--cm-shadow-lg);">
+      <button onclick="closeBuyerModal()" style="position: absolute; top: 16px; right: 16px; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--cm-text-secondary);">&times;</button>
+      
+      <span class="chapter-badge" style="background: rgba(0, 191, 255, 0.15); color: var(--cm-cyan); margin-bottom: 8px;">COMPRADOR VERIFICADO</span>
+      <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 8px;">
+        Acceso Directo al Vendedor
+      </h3>
+      <p style="font-size: 0.88rem; color: var(--cm-text-secondary); line-height: 1.5; margin-bottom: 20px;">
+        Para contactar por WhatsApp con el vendedor y recibir el certificado pericial completo, indícanos tus datos básicos (sin spam):
+      </p>
+
+      <form onsubmit="handleBuyerRegister(event)">
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label class="form-label" style="font-size: 0.82rem;">Tu Nombre y Apellidos *</label>
+          <input type="text" id="buyer-reg-name" class="form-control" placeholder="Ej: Marcos Serrano" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label class="form-label" style="font-size: 0.82rem;">Tu Correo Electrónico *</label>
+          <input type="email" id="buyer-reg-email" class="form-control" placeholder="tu@correo.com" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label class="form-label" style="font-size: 0.82rem;">Teléfono / WhatsApp *</label>
+          <input type="tel" id="buyer-reg-phone" class="form-control" placeholder="612 345 678" required>
+        </div>
+
+        <button type="submit" class="btn btn-cyan" style="width: 100%; padding: 12px; font-size: 0.95rem; font-weight: 800;">
+          Continuar a WhatsApp con el Vendedor 💬
+        </button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
+
