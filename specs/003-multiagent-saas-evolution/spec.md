@@ -52,3 +52,11 @@ Basado en los documentos maestros `PROMPT_MAESTRO_EQUIPO_AGENTES_IA_COCHEMOTOR.m
 
 ### Módulo 5: Registro y Gobernanza Multi-Agente
 - **EARS-007**: EL SISTEMA mantendrá en `.agents/cochemotor-agents.json` el registro formal de los 15 agentes de IA de CocheMotor con sus roles, permisos, entradas y salidas esperadas.
+
+### Módulo 6: Acta Digital de Entrega y Garantía Legal de 1 Año
+- **EARS-008**: CUANDO una operación alcance el estado de entrega en el Deal Room, EL SISTEMA generará un Acta Digital de Entrega con kilometraje y combustible verificado, doble juego de llaves, verificación de ausencia de testigos encendidos y firma/conformidad de ambas partes.
+- **EARS-009**: EL SISTEMA asociará al expediente la garantía legal de 12 meses conforme al RDL 1/2007, distinguiendo falta de conformidad frente a desgaste ordinario o mal uso.
+
+### Módulo 7: Difusión Social Asistida (Grupos de Facebook y Redes)
+- **EARS-010**: CUANDO un profesional prepare la difusión social de su inventario, EL SISTEMA proporcionará una herramienta de "Difusión Asistida" compatible con las políticas vigentes de Meta (sin bots ni automatizaciones no autorizadas), formateando texto, etiquetas y enlaces listos para publicar manualmente con registro de fecha.
+

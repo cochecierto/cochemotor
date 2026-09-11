@@ -36,6 +36,31 @@ class VehicleStatus(StrEnum):
     PREPARATION = "en_preparacion"
 
 
+class VehicleLifecycleStage(StrEnum):
+    """Las 13 etapas reglamentarias del vehículo en CocheMotor (Spec 003)."""
+    INTAKE = "captado"
+    IN_VERIFICATION = "en_verificacion"
+    IN_TUNING = "en_puesta_a_punto"
+    READY_TO_PUBLISH = "listo_para_publicar"
+    PUBLISHED = "publicado"
+    ACTIVE_LEAD = "lead_activo"
+    TEST_DRIVE = "prueba_concertada"
+    RESERVED = "reservado"
+    CONTRACT_PENDING = "contrato_pendiente"
+    SOLD = "vendido"
+    DELIVERED = "entregado"
+    POST_SALE = "en_posventa"
+    WITHDRAWN = "retirado"
+
+
+class EvidenceLevel(StrEnum):
+    """Niveles de rigor y auditabilidad probatoria."""
+    DECLARED = "declarado"
+    DOCUMENTED = "documentado"
+    VERIFIED_OBD = "verificado_obd"
+    VERIFIED_DGT = "verificado_dgt"
+
+
 class SalesPipelineStage(StrEnum):
     PREPARATION = "preparacion"
     PUBLISHED = "publicado"
@@ -375,4 +400,55 @@ def calculate_referral_benefits(partner_id: str, referral_code: str, referred_ac
         is_gold_partner=is_gold,
         has_shared_stock_access=has_shared_stock,
     )
+
+
+@dataclass(frozen=True)
+class DeliveryChecklistItem:
+    title: str
+    is_confirmed: bool = False
+
+
+@dataclass(frozen=True)
+class DeliveryAct:
+    """Acta digital de entrega de vehículo (Spec 003)."""
+    act_id: str
+    tenant_id: str
+    vehicle_id: str
+    buyer_name: str
+    mileage_at_delivery: int
+    fuel_level: str
+    keys_handed_count: int
+    warning_lights_clear: bool
+    buyer_signature_confirmed: bool
+    seller_signature_confirmed: bool
+    warranty_months: int = 12
+
+
+def create_delivery_act(
+    tenant_id: str,
+    vehicle_id: str,
+    buyer_name: str,
+    mileage_at_delivery: int,
+    fuel_level: str = "3/4 depósito",
+    keys_handed_count: int = 2,
+    warning_lights_clear: bool = True,
+    buyer_confirmed: bool = True,
+    seller_confirmed: bool = True,
+) -> DeliveryAct:
+    """Emite el acta digital de entrega con comprobaciones de integridad."""
+    if mileage_at_delivery < 0 or keys_handed_count < 1:
+        raise ValueError("Datos del acta de entrega no válidos.")
+    return DeliveryAct(
+        act_id=f"act-{uuid4().hex[:8]}",
+        tenant_id=tenant_id,
+        vehicle_id=vehicle_id,
+        buyer_name=buyer_name.strip(),
+        mileage_at_delivery=mileage_at_delivery,
+        fuel_level=fuel_level,
+        keys_handed_count=keys_handed_count,
+        warning_lights_clear=warning_lights_clear,
+        buyer_signature_confirmed=buyer_confirmed,
+        seller_signature_confirmed=seller_confirmed,
+    )
+
 

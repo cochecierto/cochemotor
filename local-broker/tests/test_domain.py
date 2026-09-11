@@ -221,7 +221,46 @@ class AutomotiveDomainTests(unittest.TestCase):
         self.assertEqual(acc5.free_months_earned, 5)
         self.assertTrue(acc5.has_shared_stock_access)
 
+    def test_vehicle_lifecycle_stages_and_evidence(self) -> None:
+        from broker_core.domain import VehicleLifecycleStage, EvidenceLevel
+        self.assertEqual(len(VehicleLifecycleStage), 13)
+        self.assertEqual(VehicleLifecycleStage.INTAKE, "captado")
+        self.assertEqual(VehicleLifecycleStage.DELIVERED, "entregado")
+        self.assertEqual(VehicleLifecycleStage.WITHDRAWN, "retirado")
+
+        self.assertEqual(EvidenceLevel.VERIFIED_OBD, "verificado_obd")
+        self.assertEqual(EvidenceLevel.VERIFIED_DGT, "verificado_dgt")
+
+    def test_create_delivery_act_validations(self) -> None:
+        from broker_core.domain import create_delivery_act
+        act = create_delivery_act(
+            tenant_id="tenant-autos-demo-es",
+            vehicle_id="cm-001",
+            buyer_name="David Muñoz",
+            mileage_at_delivery=68200,
+            fuel_level="Lleno",
+            keys_handed_count=2,
+            warning_lights_clear=True,
+            buyer_confirmed=True,
+            seller_confirmed=True,
+        )
+        self.assertTrue(act.act_id.startswith("act-"))
+        self.assertEqual(act.buyer_name, "David Muñoz")
+        self.assertEqual(act.mileage_at_delivery, 68200)
+        self.assertEqual(act.warranty_months, 12)
+        self.assertTrue(act.warning_lights_clear)
+
+        with self.assertRaises(ValueError):
+            create_delivery_act(
+                tenant_id="tenant-autos-demo-es",
+                vehicle_id="cm-001",
+                buyer_name="David Muñoz",
+                mileage_at_delivery=-10,
+                keys_handed_count=0,
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
+
 
