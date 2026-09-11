@@ -712,7 +712,7 @@ function renderReferralSection() {
   const badgeEl = document.getElementById('ref-stat-badge');
 
   if (codeEl) codeEl.innerText = ref.referralCode;
-  if (urlEl) urlEl.innerText = `https://cochemotor.es/?ref=${ref.referralCode}`;
+  if (urlEl) urlEl.innerText = `https://motor.cochecierto.com/?ref=${ref.referralCode}`;
   if (countEl) countEl.innerText = `${ref.referredCount} colegas registrados`;
   if (freeEl) freeEl.innerText = `${ref.freeMonthsEarned} meses (€ ${ref.freeMonthsEarned * 99} ahorro)`;
   if (badgeEl) badgeEl.innerText = ref.isGoldPartner ? '⭐ Gold Partner Verificado' : 'Miembro Estándar';
@@ -723,7 +723,7 @@ function copyReferralLink() {
   const msg = `¡Hola colega! Te paso la plataforma que estoy usando para publicar mis coches con fichas digitales en 100 puntos y cartelería con QR: CocheMotor.
 
 Regístrate con mi enlace de embajador para tener 60 DÍAS GRATIS (en vez de 30) de la suite completa:
-https://cochemotor.es/?ref=${ref.referralCode}`;
+https://motor.cochecierto.com/?ref=${ref.referralCode}`;
 
   navigator.clipboard.writeText(msg).then(() => {
     alert("📲 ¡Enlace de afiliado copiado al portapapeles! Listo para enviar a tus contactos de compraventa por WhatsApp.");
@@ -745,7 +745,7 @@ function loadDealerWebSettings() {
   const fullUrl = `${window.location.origin}/dealer.html?id=${activeUser.id}`;
 
   if (titleEl) titleEl.textContent = activeUser.businessName || activeUser.name;
-  if (subEl) subEl.textContent = `${sub}.cochemotor.es`;
+  if (subEl) subEl.textContent = `${sub}.motor.cochecierto.com`;
   if (urlEl) {
     urlEl.textContent = fullUrl;
     urlEl.href = `dealer.html?id=${activeUser.id}`;

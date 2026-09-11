@@ -4,8 +4,8 @@ title CocheMotor - Servidor Local
 cd /d "%~dp0"
 echo ===================================================
 echo   INICIANDO SERVIDOR LOCAL DE COCHEMOTOR
-echo   Produccion: https://cochemotor.es/
-echo   Hostinger:  https://teal-raccoon-907116.hostingersite.com/
+echo   Produccion: https://motor.cochecierto.com/
+echo   Hostinger:  https://motor.cochecierto.com/
 echo ===================================================
 echo.
 echo URL Local:      http://localhost:8000/

@@ -7,8 +7,8 @@ const siteConfig = {
   metadata: {
     title: "CocheMotor — Marketplace Digital & Hub SaaS para Profesionales del Motor",
     description: "La plataforma integral para talleres mecánicos, compraventas freelance y particulares en España: stock verificado en 100 puntos, trazabilidad DGT, generador multicanal con IA y scoring de leads.",
-    canonical: "https://cochemotor.es",
-    domain: "cochemotor.es",
+    canonical: "https://motor.cochecierto.com",
+    domain: "motor.cochecierto.com",
     language: "es-ES",
   },
 
@@ -47,7 +47,7 @@ const siteConfig = {
       province: "Madrid",
       community: "Comunidad de Madrid",
       phone: "34612345678",
-      email: "juan.gomez@cochemotor.es",
+      email: "juan.gomez@motor.cochecierto.com",
       avatar: "👨‍💼",
       heroCover: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80",
       rating: "4.9 ★ (48 reseñas)",
@@ -78,7 +78,7 @@ const siteConfig = {
       province: "Madrid",
       community: "Comunidad de Madrid",
       phone: "34655112233",
-      email: "garcia.taller@cochemotor.es",
+      email: "garcia.taller@motor.cochecierto.com",
       avatar: "🔧",
       heroCover: "https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=1200&q=80",
       rating: "4.8 ★ (84 reseñas)",
