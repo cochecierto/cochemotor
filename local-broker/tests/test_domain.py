@@ -154,6 +154,74 @@ class AutomotiveDomainTests(unittest.TestCase):
         )
         self.assertTrue(verify_spanish_legal_milestones(case_with_milestones))
 
+    def test_diagnose_vehicle_rotation_72h_alert(self) -> None:
+        from broker_core.domain import StockRotationStatus, MarketPriceStatus, diagnose_vehicle_rotation
+        car = create_vehicle(
+            dealership=self.dealer,
+            brand="Renault",
+            model="Clio",
+            version="1.0 TCe",
+            year=2021,
+            mileage_km=45000,
+            cash_price=12900.0,
+            dgt_badge=DgtBadge.C,
+        )
+        # 2 días en stock, 0 clics, 0 leads, precio alineado
+        report = diagnose_vehicle_rotation(
+            vehicle=car,
+            days_in_stock=2,
+            clicks_count=0,
+            leads_count=0,
+            estimated_market_price=13000.0,
+        )
+        self.assertEqual(report.rotation_status, StockRotationStatus.ALERT_72H)
+        self.assertEqual(report.price_status, MarketPriceStatus.FAIR_PRICE)
+        self.assertIn("Alerta 72h", report.recommended_action)
+
+    def test_diagnose_vehicle_rotation_30d_overpriced(self) -> None:
+        from broker_core.domain import StockRotationStatus, MarketPriceStatus, diagnose_vehicle_rotation
+        car = create_vehicle(
+            dealership=self.dealer,
+            brand="BMW",
+            model="Serie 3",
+            version="320d",
+            year=2019,
+            mileage_km=90000,
+            cash_price=25000.0,
+            dgt_badge=DgtBadge.C,
+        )
+        # 35 días en stock, precio alto vs mercado (21.000€ estimado)
+        report = diagnose_vehicle_rotation(
+            vehicle=car,
+            days_in_stock=35,
+            clicks_count=12,
+            leads_count=1,
+            estimated_market_price=21000.0,
+        )
+        self.assertEqual(report.rotation_status, StockRotationStatus.ALERT_30D)
+        self.assertEqual(report.price_status, MarketPriceStatus.ABOVE_MARKET)
+        self.assertIn("Alerta crítica +30 días", report.recommended_action)
+
+    def test_referral_benefits_calculation(self) -> None:
+        from broker_core.domain import calculate_referral_benefits
+        # Sin referidos
+        acc0 = calculate_referral_benefits("partner-1", "MOTOR-JUAN-2026", 0)
+        self.assertEqual(acc0.free_months_earned, 0)
+        self.assertFalse(acc0.is_gold_partner)
+        self.assertFalse(acc0.has_shared_stock_access)
+
+        # 3 referidos: 3 meses gratis y Gold Partner
+        acc3 = calculate_referral_benefits("partner-1", "MOTOR-JUAN-2026", 3)
+        self.assertEqual(acc3.free_months_earned, 3)
+        self.assertTrue(acc3.is_gold_partner)
+        self.assertFalse(acc3.has_shared_stock_access)
+
+        # 5 referidos: Acceso a red colaborativa B2B
+        acc5 = calculate_referral_benefits("partner-1", "MOTOR-JUAN-2026", 5)
+        self.assertEqual(acc5.free_months_earned, 5)
+        self.assertTrue(acc5.has_shared_stock_access)
+
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace de Vehículos de Ocasión Verificados — CocheMotor</title>
+  <meta name="description" content="Encuentra coches de segunda mano certificados en 100 puntos en toda España. Filtra por provincia, distintivo DGT, precio y ranking pericial.">
+
+  <!-- Favicons oficiales -->
+  <link rel="icon" type="image/x-icon" href="assets/brand/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .filter-panel-card {
+      background: var(--cm-white);
+      border: 1px solid var(--cm-border);
+      border-radius: var(--cm-radius-lg);
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: var(--cm-shadow-sm);
+    }
+    .filter-grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .results-count-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--cm-border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado & Navegación -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <img class="brand-logo-img" src="assets/brand/cochemotor_logo_azul_con_tagline.png" alt="CocheMotor">
+      </a>
+      <nav class="nav-desktop">
+        <a href="marketplace.html" class="nav-link" style="color: var(--cm-navy); font-weight: 800; border-bottom: 2px solid var(--cm-cyan);">Marketplace VO</a>
+        <a href="demanda.html" class="nav-link">Coches a la Carta</a>
+        <a href="index.html#ingenieria" class="nav-link">Mecánica Verificada</a>
+        <a href="index.html#pilares" class="nav-link">Los 3 Pilares</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="hub.html" class="btn-nav-hub" style="background: var(--cm-cyan); color: var(--cm-navy); font-weight: 800;">⚡ Hub SaaS (30 Días Gratis)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 36px; padding-bottom: 80px;">
+
+    <!-- Banner de Cabecera -->
+    <div style="margin-bottom: 32px;">
+      <span class="chapter-badge">CATÁLOGO NACIONAL DE OCASIÓN</span>
+      <h1 style="font-family: var(--font-family-display); font-size: 2.5rem; font-weight: 800; color: var(--cm-navy); margin: 8px 0;">
+        Vehículos de Segunda Mano con Mecánica Verificada
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--cm-text-secondary); max-width: 800px;">
+        Todos los vehículos han superado la diagnosis electrónica OBD y 100 puntos en elevador en talleres homologados. Incluyen informe DGT sin cargas y 12 meses de garantía legal por escrito.
+      </p>
+    </div>
+
+    <!-- Panel de Filtros Exhaustivos por España -->
+    <div class="filter-panel-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+          🔍 Filtros de Búsqueda y Localización
+        </h3>
+        <button class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;" onclick="resetAllFilters()">
+          Restablecer Filtros
+        </button>
+      </div>
+
+      <div class="filter-grid-layout">
+        <!-- Filtro Comunidad Autónoma -->
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" style="font-size: 0.8rem;">Comunidad Autónoma</label>
+          <select id="filter-community" class="form-control" style="font-size: 0.85rem;" onchange="handleCommunityChange()">
+            <option value="all">Toda España</option>
+            <option value="Comunidad de Madrid">Comunidad de Madrid</option>
+            <option value="Comunidad Valenciana">Comunidad Valenciana</option>
+            <option value="Andalucía">Andalucía</option>
+            <option value="Aragón">Aragón</option>
+            <option value="Cataluña">Cataluña</option>
+            <option value="Galicia">Galicia</option>
+            <option value="País Vasco">País Vasco</option>
+          </select>
+        </div>
+
+        <!-- Filtro Provincia -->
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" style="font-size: 0.8rem;">Provincia</label>
+          <select id="filter-province" class="form-control" style="font-size: 0.85rem;" onchange="applyFilters()">
+            <option value="all">Todas las provincias</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Valencia">Valencia</option>
+            <option value="Sevilla">Sevilla</option>
+            <option value="Zaragoza">Zaragoza</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Málaga">Málaga</option>
+            <option value="Alicante">Alicante</option>
+          </select>
+        </div>
+
+        <!-- Filtro Marca -->
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" style="font-size: 0.8rem;">Marca</label>
+          <select id="filter-brand" class="form-control" style="font-size: 0.85rem;" onchange="applyFilters()">
+            <option value="all">Todas las marcas</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Peugeot">Peugeot</option>
+            <option value="BMW">BMW</option>
+            <option value="Seat">Seat</option>
+            <option value="Renault">Renault</option>
+          </select>
+        </div>
+
+        <!-- Filtro Etiqueta DGT -->
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" style="font-size: 0.8rem;">Distintivo Ambiental DGT</label>
+          <select id="filter-badge" class="form-control" style="font-size: 0.85rem;" onchange="applyFilters()">
+            <option value="all">Cualquier Distintivo</option>
+            <option value="ECO">Etiqueta ECO (Híbridos / Gas)</option>
+            <option value="0">Etiqueta 0 (Eléctricos / PHEV)</option>
+            <option value="C">Etiqueta C (Verde)</option>
+            <option value="B">Etiqueta B (Amarillo)</option>
+          </select>
+        </div>
+
+        <!-- Filtro Precio Máximo -->
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" style="font-size: 0.8rem;">Precio Máximo</label>
+          <select id="filter-price" class="form-control" style="font-size: 0.85rem;" onchange="applyFilters()">
+            <option value="all">Sin límite de precio</option>
+            <option value="16000">Hasta 16.000 €</option>
+            <option value="20000">Hasta 20.000 €</option>
+            <option value="25000">Hasta 25.000 €</option>
+            <option value="30000">Hasta 30.000 €</option>
+          </select>
+        </div>
+
+        <!-- Filtro Ranking Pericial de Taller -->
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" style="font-size: 0.8rem;">Inspección en Taller</label>
+          <select id="filter-score" class="form-control" style="font-size: 0.85rem;" onchange="applyFilters()">
+            <option value="all">Todos los verificados (90+)</option>
+            <option value="98">Excelente (98+ Puntos)</option>
+            <option value="100">Impecable (100/100 Puntos)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de Conteo de Resultados -->
+    <div class="results-count-bar">
+      <div>
+        <span style="font-weight: 800; color: var(--cm-navy); font-size: 1.1rem;" id="results-count-text">
+          4 vehículos verificados disponibles
+        </span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--cm-text-secondary);">
+        <span>Ordenar por:</span>
+        <select id="sort-select" class="form-control" style="width: auto; padding: 6px 10px; font-size: 0.82rem;" onchange="applyFilters()">
+          <option value="featured">Destacados CocheMotor</option>
+          <option value="price-asc">Precio: de menor a mayor</option>
+          <option value="price-desc">Precio: de mayor a menor</option>
+          <option value="score">Mayor puntuación de peritaje</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Parrilla de Vehículos -->
+    <div class="stock-grid" id="marketplace-grid">
+      <!-- Generado dinámicamente con renderMarketplaceGrid() -->
+    </div>
+
+    <!-- Banner si no encuentra el coche buscado -->
+    <div style="background: linear-gradient(135deg, #002D62 0%, #0a3a78 100%); border-radius: var(--cm-radius-lg); padding: 36px; color: white; margin-top: 48px; text-align: center;">
+      <span class="chapter-badge" style="background: rgba(0, 191, 255, 0.2); color: var(--cm-cyan); margin-bottom: 8px;">SERVICIO A MEDIDA</span>
+      <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;">¿No has encontrado el coche exacto que buscas?</h3>
+      <p style="color: #cbd5e1; max-width: 650px; margin: 0 auto 20px auto; font-size: 0.95rem;">
+        Publica tu solicitud en "Coches a la Carta". Nuestra red de talleres y compraventas revisará sus entradas de campa y te enviará propuestas que se ajusten a tu presupuesto.
+      </p>
+      <a href="demanda.html" class="btn btn-cyan" style="font-weight: 800; padding: 12px 28px;">
+        🎯 Publicar mi Coche a la Carta Gratis
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2026 CocheMotor (cochemotor.es). Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="site-config.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      applyFilters();
+    });
+
+    function handleCommunityChange() {
+      const comm = document.getElementById('filter-community').value;
+      const provSelect = document.getElementById('filter-province');
+
+      // Ajustar provincias sugeridas
+      if (comm === 'Comunidad de Madrid') {
+        provSelect.value = 'Madrid';
+      } else if (comm === 'Comunidad Valenciana') {
+        provSelect.value = 'Valencia';
+      } else if (comm === 'Andalucía') {
+        provSelect.value = 'Sevilla';
+      } else if (comm === 'Aragón') {
+        provSelect.value = 'Zaragoza';
+      } else if (comm === 'all') {
+        provSelect.value = 'all';
+      }
+      applyFilters();
+    }
+
+    function resetAllFilters() {
+      document.getElementById('filter-community').value = 'all';
+      document.getElementById('filter-province').value = 'all';
+      document.getElementById('filter-brand').value = 'all';
+      document.getElementById('filter-badge').value = 'all';
+      document.getElementById('filter-price').value = 'all';
+      document.getElementById('filter-score').value = 'all';
+      document.getElementById('sort-select').value = 'featured';
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const comm = document.getElementById('filter-community').value;
+      const prov = document.getElementById('filter-province').value;
+      const brand = document.getElementById('filter-brand').value;
+      const badge = document.getElementById('filter-badge').value;
+      const maxPrice = document.getElementById('filter-price').value;
+      const minScore = document.getElementById('filter-score').value;
+      const sortBy = document.getElementById('sort-select').value;
+
+      const allStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getAllPublicStock() : siteConfig.stock;
+
+      let filtered = allStock.filter(v => {
+        if (comm !== 'all' && v.community && v.community !== comm) return false;
+        if (prov !== 'all' && v.province && v.province !== prov) return false;
+        if (brand !== 'all' && v.brand !== brand) return false;
+        if (badge !== 'all' && v.badge !== badge) return false;
+        if (maxPrice !== 'all' && v.price > parseInt(maxPrice)) return false;
+        if (minScore !== 'all') {
+          const scoreNum = parseInt(v.inspectionScore) || 90;
+          if (scoreNum < parseInt(minScore)) return false;
+        }
+        return true;
+      });
+
+      // Ordenar
+      if (sortBy === 'price-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortBy === 'price-desc') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortBy === 'score') {
+        filtered.sort((a, b) => (parseInt(b.inspectionScore) || 0) - (parseInt(a.inspectionScore) || 0));
+      }
+
+      renderMarketplaceGrid(filtered);
+      document.getElementById('results-count-text').innerText = `${filtered.length} vehículos verificados encontrados`;
+    }
+
+    function renderMarketplaceGrid(cars) {
+      const grid = document.getElementById('marketplace-grid');
+      if (!grid) return;
+
+      if (!cars.length) {
+        grid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: white; border-radius: var(--cm-radius-md); border: 1px solid var(--cm-border);">
+            <h3>No se encontraron vehículos con estos criterios</h3>
+            <p style="color: var(--cm-text-secondary); margin-top: 8px;">Prueba a ampliar los filtros de provincia o precio, o solicita tu Coche a la Carta.</p>
+            <button class="btn btn-navy" style="margin-top: 16px;" onclick="resetAllFilters()">Ver todos los coches</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = cars.map(v => {
+        const isSold = v.status === 'vendido';
+        const isReserved = v.status === 'reservado';
+        const waMsg = encodeURIComponent(`Hola! He visto en CocheMotor el ${v.brand} ${v.model} (${v.version}) por ${v.price.toLocaleString('es-ES')} € y me gustaría consultar disponibilidad y peritaje.`);
+        const waUrl = `https://wa.me/${v.sellerPhone || siteConfig.brand.contactWhatsapp}?text=${waMsg}`;
+
+        return `
+          <article class="vehicle-card" data-id="${v.id}">
+            <div class="vehicle-thumb-box">
+              <img class="vehicle-thumb-img" src="${v.image}" alt="${v.brand} ${v.model}" loading="lazy">
+              <span class="badge-dgt ${v.badgeClass || 'badge-c'}">${v.badge}</span>
+              <span class="badge-inspection">✓ ${v.inspectionScore || '98/100'}</span>
+              ${isSold ? '<span style="position: absolute; bottom: 10px; right: 10px; background: #b91c1c; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">VENDIDO</span>' :
+                isReserved ? '<span style="position: absolute; bottom: 10px; right: 10px; background: #d97706; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">RESERVADO</span>' : ''}
+            </div>
+
+            <div class="vehicle-info">
+              <h3 class="vehicle-title">${v.brand} ${v.model}</h3>
+              <div class="vehicle-version">${v.version}</div>
+
+              <div class="vehicle-specs-list">
+                <div class="spec-cell"><strong>Año:</strong> ${v.year}</div>
+                <div class="spec-cell"><strong>Km:</strong> ${v.km}</div>
+                <div class="spec-cell"><strong>Motor:</strong> ${v.fuel}</div>
+                <div class="spec-cell"><strong>Cambio:</strong> ${v.gearbox}</div>
+              </div>
+
+              <div class="vehicle-dealer" style="display: flex; align-items: center; justify-content: space-between;">
+                <span>📍 ${v.location || 'España'} (${v.province || 'VO'})</span>
+                <span style="font-weight: 700; color: var(--badge-eco-bg);">🛡️ 12 Meses</span>
+              </div>
+
+              <div class="vehicle-pricing">
+                <div class="cash-price">${v.price.toLocaleString('es-ES')} €</div>
+                <div class="monthly-price">desde ${v.monthlyPrice || ''}</div>
+              </div>
+
+              <div class="card-cta-group">
+                <a class="btn btn-navy" href="ficha.html?id=${v.id}">Ver Ficha & QR</a>
+                <a class="btn btn-whatsapp" href="${waUrl}" target="_blank" rel="noopener">WhatsApp</a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+  </script>
+</body>
+</html>

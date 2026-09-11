@@ -150,7 +150,8 @@ function renderChapter6Catalog() {
   var subEl = document.getElementById('catalog-subtitle');
   if (subEl) subEl.textContent = ch.subtitle;
 
-  renderStockGrid(siteConfig.stock);
+  var stock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getStock() : siteConfig.stock;
+  renderStockGrid(stock);
 }
 
 function renderStockGrid(vehicles) {
@@ -164,13 +165,17 @@ function renderStockGrid(vehicles) {
 
   grid.innerHTML = vehicles.map(function(v) {
     var waMsg = 'Hola! He visto en CocheMotor el ' + v.brand + ' ' + v.model + ' (' + v.version + ') por ' + v.price.toLocaleString('es-ES') + ' € y me gustaría consultar la ficha de peritaje y cita para probarlo.';
-    var waUrl = 'https://wa.me/' + siteConfig.brand.contactWhatsapp + '?text=' + encodeURIComponent(waMsg);
+    var waUrl = 'https://wa.me/' + (v.sellerPhone || siteConfig.brand.contactWhatsapp) + '?text=' + encodeURIComponent(waMsg);
+    var isSold = v.status === 'vendido';
+    var isReserved = v.status === 'reservado';
 
     return '<article class="vehicle-card" data-id="' + v.id + '">' +
       '<div class="vehicle-thumb-box">' +
         '<img class="vehicle-thumb-img" src="' + v.image + '" alt="' + v.brand + ' ' + v.model + ' verificado" loading="lazy">' +
-        '<span class="badge-dgt ' + v.badgeClass + '">' + v.badge + '</span>' +
-        '<span class="badge-inspection">✓ ' + v.inspectionScore + '</span>' +
+        '<span class="badge-dgt ' + (v.badgeClass || 'badge-c') + '">' + v.badge + '</span>' +
+        '<span class="badge-inspection">✓ ' + (v.inspectionScore || '98/100') + '</span>' +
+        (isSold ? '<span style="position: absolute; bottom: 10px; right: 10px; background: #b91c1c; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">VENDIDO</span>' :
+         isReserved ? '<span style="position: absolute; bottom: 10px; right: 10px; background: #d97706; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">RESERVADO</span>' : '') +
       '</div>' +
       '<div class="vehicle-info">' +
         '<h3 class="vehicle-title">' + v.brand + ' ' + v.model + '</h3>' +
@@ -183,14 +188,14 @@ function renderStockGrid(vehicles) {
         '</div>' +
         '<div class="vehicle-dealer">' +
           '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> ' +
-          v.dealer +
+          (v.sellerName || v.dealer) +
         '</div>' +
         '<div class="vehicle-pricing">' +
           '<div class="cash-price">' + v.price.toLocaleString('es-ES') + ' €</div>' +
           '<div class="monthly-price">desde ' + v.monthlyPrice + '</div>' +
         '</div>' +
         '<div class="card-cta-group">' +
-          '<button class="btn btn-navy" onclick="openVehicleModal('' + v.id + '')">Ver Peritaje</button>' +
+          '<a class="btn btn-navy" href="ficha.html?id=' + v.id + '">Ver Ficha & QR</a>' +
           '<a class="btn btn-whatsapp" href="' + waUrl + '" target="_blank" rel="noopener">WhatsApp</a>' +
         '</div>' +
       '</div>' +
@@ -205,15 +210,16 @@ function initStockFilters() {
       filterBtns.forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
 
+      var currentStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getStock() : siteConfig.stock;
       var filterType = btn.getAttribute('data-filter');
       if (filterType === 'all') {
-        renderStockGrid(siteConfig.stock);
+        renderStockGrid(currentStock);
       } else if (filterType === 'eco') {
-        renderStockGrid(siteConfig.stock.filter(function(v) { return v.badge === 'ECO' || v.badge === '0'; }));
+        renderStockGrid(currentStock.filter(function(v) { return v.badge === 'ECO' || v.badge === '0'; }));
       } else if (filterType === 'c') {
-        renderStockGrid(siteConfig.stock.filter(function(v) { return v.badge === 'C'; }));
+        renderStockGrid(currentStock.filter(function(v) { return v.badge === 'C'; }));
       } else if (filterType === 'under20k') {
-        renderStockGrid(siteConfig.stock.filter(function(v) { return v.price < 20000; }));
+        renderStockGrid(currentStock.filter(function(v) { return v.price < 20000; }));
       }
     });
   });

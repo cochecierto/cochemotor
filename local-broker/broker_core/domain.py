@@ -36,6 +36,28 @@ class VehicleStatus(StrEnum):
     PREPARATION = "en_preparacion"
 
 
+class SalesPipelineStage(StrEnum):
+    PREPARATION = "preparacion"
+    PUBLISHED = "publicado"
+    LEADS_ACTIVE = "leads_activos"
+    TEST_DRIVE = "prueba_en_taller"
+    RESERVATION_DGT = "reserva_dgt"
+    SOLD = "vendido"
+
+
+class StockRotationStatus(StrEnum):
+    FRESH = "novedad_reciente"
+    ALERT_72H = "alerta_72h_sin_traccion"
+    ACTIVE = "ritmo_saludable"
+    ALERT_30D = "alerta_critica_30_dias"
+
+
+class MarketPriceStatus(StrEnum):
+    BELOW_MARKET = "bajo_mercado"
+    FAIR_PRICE = "en_precio"
+    ABOVE_MARKET = "alto_mercado"
+
+
 class TenantIsolationError(ValueError):
     """Indica que se intentó acceder a un recurso desde otro tenant."""
 
@@ -238,3 +260,119 @@ def get_vehicle(vehicle: Vehicle, tenant_id: str) -> Vehicle:
     if vehicle.tenant_id != tenant_id:
         raise TenantIsolationError("El vehículo pertenece a otro concesionario.")
     return vehicle
+
+
+@dataclass(frozen=True)
+class PipelineLead:
+    lead_id: str
+    tenant_id: str
+    vehicle_id: str
+    buyer_name: str
+    phone: str
+    email: str
+    score: int
+    stage: SalesPipelineStage = SalesPipelineStage.LEADS_ACTIVE
+    payment_method: str = "financiado"
+    has_tradein: bool = False
+    notes: str = ""
+
+
+@dataclass(frozen=True)
+class StockRotationReport:
+    vehicle_id: str
+    days_in_stock: int
+    clicks_count: int
+    leads_count: int
+    rotation_status: StockRotationStatus
+    price_status: MarketPriceStatus
+    price_delta_percent: float
+    recommended_action: str
+
+
+def diagnose_vehicle_rotation(
+    vehicle: Vehicle,
+    days_in_stock: int,
+    clicks_count: int,
+    leads_count: int,
+    estimated_market_price: float,
+) -> StockRotationReport:
+    """Evalúa la rotación del vehículo y emite diagnóstico predictivo con recomendaciones accionables."""
+    if days_in_stock < 0 or clicks_count < 0 or leads_count < 0 or estimated_market_price <= 0:
+        raise ValueError("Valores métricos no válidos para el diagnóstico.")
+
+    # Diagnóstico de precio vs mercado
+    price_delta = ((vehicle.cash_price - estimated_market_price) / estimated_market_price) * 100.0
+    if price_delta < -8.0:
+        price_status = MarketPriceStatus.BELOW_MARKET
+    elif price_delta > 8.0:
+        price_status = MarketPriceStatus.ABOVE_MARKET
+    else:
+        price_status = MarketPriceStatus.FAIR_PRICE
+
+    # Diagnóstico de rotación y tracción comercial
+    if days_in_stock <= 3:
+        if clicks_count == 0 and leads_count == 0:
+            rotation_status = StockRotationStatus.ALERT_72H
+            recommended_action = (
+                "Alerta 72h sin interacción: Revisa la foto principal de portada, "
+                "actualiza el título en Wallapop/Milanuncios y comparte la ficha en WhatsApp."
+            )
+        else:
+            rotation_status = StockRotationStatus.FRESH
+            recommended_action = "Novedad en stock con interacciones iniciales favorables. Mantener difusión."
+    elif days_in_stock >= 30:
+        rotation_status = StockRotationStatus.ALERT_30D
+        if price_status == MarketPriceStatus.ABOVE_MARKET:
+            recommended_action = (
+                f"Alerta crítica +30 días: El precio está un {price_delta:.1f}% por encima del mercado. "
+                f"Ajustar a {estimated_market_price:,.0f} € y publicar oferta flash de fin de semana."
+            )
+        else:
+            recommended_action = (
+                "Alerta crítica +30 días: Renovar lote fotográfico en exterior con luz natural "
+                "y ofrecer campaña de 1 año de seguro incluido para acelerar rotación de campa."
+            )
+    else:
+        rotation_status = StockRotationStatus.ACTIVE
+        recommended_action = "Rotación en ciclo normal de comercialización. Seguimiento activo de leads."
+
+    return StockRotationReport(
+        vehicle_id=vehicle.vehicle_id,
+        days_in_stock=days_in_stock,
+        clicks_count=clicks_count,
+        leads_count=leads_count,
+        rotation_status=rotation_status,
+        price_status=price_status,
+        price_delta_percent=round(price_delta, 1),
+        recommended_action=recommended_action,
+    )
+
+
+@dataclass(frozen=True)
+class ReferralAccount:
+    partner_id: str
+    referral_code: str
+    referred_count: int
+    free_months_earned: int
+    is_gold_partner: bool
+    has_shared_stock_access: bool
+
+
+def calculate_referral_benefits(partner_id: str, referral_code: str, referred_active_users: int) -> ReferralAccount:
+    """Calcula los incentivos de viralidad B2B para el profesional."""
+    if referred_active_users < 0:
+        raise ValueError("El número de referidos no puede ser negativo.")
+
+    free_months = referred_active_users  # 1 mes gratis por cada referido activo
+    is_gold = referred_active_users >= 3
+    has_shared_stock = referred_active_users >= 5
+
+    return ReferralAccount(
+        partner_id=partner_id,
+        referral_code=referral_code,
+        referred_count=referred_active_users,
+        free_months_earned=free_months,
+        is_gold_partner=is_gold,
+        has_shared_stock_access=has_shared_stock,
+    )
+

@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CocheMotor Hub — Suite SaaS de Operaciones para Profesionales del Motor</title>
-  <meta name="description" content="Panel operativo para talleres mecánicos y compraventas: Generador Multicanal con IA, Calculadora Financiera, Scoring Predictivo de Leads y Cartelería con QR.">
+  <title>CocheMotor Hub — Panel SaaS para Profesionales del Motor</title>
+  <meta name="description" content="Suite operativa para compraventas y talleres: Subida asistida de stock, Embudo de ventas Kanban, Generador con IA, Copiloto de precios y Bolsa de pedidos.">
 
   <!-- Favicons oficiales -->
   <link rel="icon" type="image/x-icon" href="assets/brand/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,289 +17,591 @@
 
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body style="background: #f1f5f9; overflow-x: hidden;">
 
-  <!-- Hub Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-link">
-        <img class="brand-logo-img" src="assets/brand/cochemotor_logo_azul_con_tagline.png" alt="CocheMotor">
-      </a>
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <span class="chapter-badge" style="margin-bottom: 0;">SUITE SAAS PROFESIONAL</span>
-        <a href="index.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem; color: var(--cm-navy); border-color: var(--cm-border-strong);">
-          ← Volver al Marketplace
+  <div class="hub-app-shell">
+    
+    <!-- =========================================================================================
+         SIDEBAR LATERAL IZQUIERDA (NAVEGACIÓN PRINCIPAL)
+         ========================================================================================= -->
+    <aside class="hub-sidebar">
+      <div class="hub-sidebar-header">
+        <a href="index.html" class="brand-link" style="display: block;">
+          <img class="brand-logo-img" src="assets/brand/cochemotor_logo_blanco_sin_tagline.png" alt="CocheMotor" style="height: 52px; width: auto;">
         </a>
       </div>
-    </div>
-  </header>
 
-  <main class="container" style="padding-top: 48px; padding-bottom: 80px;">
-
-    <!-- Selector de Herramientas SaaS -->
-    <div class="hub-nav-tabs">
-      <button class="hub-tab-btn active" onclick="switchHubTab('tab-generator')">1. Generador Multicanal IA</button>
-      <button class="hub-tab-btn" onclick="switchHubTab('tab-calculator')">2. Calculadora Financiera & Margen</button>
-      <button class="hub-tab-btn" onclick="switchHubTab('tab-scoring')">3. Scoring Predictivo de Leads</button>
-      <button class="hub-tab-btn" onclick="switchHubTab('tab-qr')">4. Ficha de Parabrisas con QR</button>
-    </div>
-
-    <!-- PESTAÑA 1: Generador Multicanal IA (Inspirado en Inmobia360 Content Generator) -->
-    <section id="tab-generator" class="hub-tool-card">
-      <div class="chapter-badge">MOTOR DE REDACCIÓN COMERCIAL</div>
-      <h2 class="hub-tool-title">Generador Multicanal de Fichas de Vehículo</h2>
-      <p class="hub-tool-desc">Genera copys persuasivos en 4 formatos en segundos sin clichés para Coches.net, Wallapop, WhatsApp y guión de Reels/TikTok.</p>
-
-      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px;">
-        <div>
-          <div class="form-group">
-            <label class="form-label">Seleccionar Vehículo de tu Stock</label>
-            <select id="gen-vehicle-select" class="form-control" onchange="loadVehicleForGenerator()">
-              <!-- Poblado dinámicamente desde siteConfig.stock -->
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Tono de Comunicación</label>
-            <select id="gen-tone" class="form-control">
-              <option value="tecnico">Técnico & Rigor de Taller (Ideal para compradores exigentes)</option>
-              <option value="comercial">Comercial & Oportunidad (Ideal para Wallapop / Coches.net)</option>
-              <option value="premium">Alta Gama & Exclusividad</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Canal Objetivo</label>
-            <select id="gen-channel" class="form-control" onchange="generateVehicleCopy()">
-              <option value="portales">Portales de Anuncios (Coches.net / Milanuncios / Wallapop)</option>
-              <option value="whatsapp">Mensaje Directo para WhatsApp</option>
-              <option value="ficha">Ficha Técnica Oficial con Distintivo DGT</option>
-              <option value="video">Guión de Vídeo Corto (TikTok / Reels / YouTube Shorts)</option>
-            </select>
-          </div>
-
-          <button class="btn btn-cyan" style="width: 100%; margin-top: 12px;" onclick="generateVehicleCopy()">
-            ⚡ Generar Copy Multicanal
-          </button>
+      <!-- Selector de Usuario / Concesionario (Multi-Tenant) -->
+      <div class="hub-user-profile-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em;">MI CUENTA SAAS</span>
+          <span style="font-size: 0.68rem; background: rgba(0, 191, 255, 0.2); color: var(--cm-cyan); padding: 2px 6px; border-radius: 4px; font-weight: 800;">30 DÍAS GRATIS</span>
         </div>
-
-        <div>
-          <label class="form-label" style="display: flex; justify-content: space-between;">
-            <span>Resultado Generado:</span>
-            <span id="copy-status-badge" style="color: var(--badge-eco-bg); font-weight: 700; font-size: 0.82rem;"></span>
-          </label>
-          <div class="output-preview-box">
-            <button class="copy-output-btn" onclick="copyGeneratedText()">Copiar Texto</button>
-            <div id="gen-output-text">Selecciona un vehículo y pulsa "Generar Copy Multicanal".</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PESTAÑA 2: Calculadora Financiera & Margen (Inspirado en Inmobia360 Cap Rate) -->
-    <section id="tab-calculator" class="hub-tool-card" style="display: none;">
-      <div class="chapter-badge">SIMULADOR FINANCIERO INSTITUCIONAL</div>
-      <h2 class="hub-tool-title">Calculadora de Cuota al Comprador & Margen Comercial</h2>
-      <p class="hub-tool-desc">Modela en segundos la cuota mensual para convencer al cliente particular y calcula el retorno neto de la operación para el taller o compraventa.</p>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px;">
-        <div style="background: var(--cm-surface-subtle); padding: 28px; border-radius: var(--cm-radius-lg); border: 1px solid var(--cm-border);">
-          <h3 style="font-family: var(--font-family-display); font-size: 1.15rem; color: var(--cm-navy); margin-bottom: 20px;">Parámetros de la Operación</h3>
-
-          <div class="form-group">
-            <label class="form-label">Precio de Venta al Público (€)</label>
-            <input type="number" id="calc-price" class="form-control" value="16900" oninput="runFinancialCalculation()">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Coste de Adquisición + Acondicionamiento de Taller (€)</label>
-            <input type="number" id="calc-cost" class="form-control" value="13200" oninput="runFinancialCalculation()">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Entrada Inicial aportada por el Comprador (€)</label>
-            <input type="number" id="calc-deposit" class="form-control" value="3000" oninput="runFinancialCalculation()">
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <div class="form-group">
-              <label class="form-label">Plazo (Meses)</label>
-              <select id="calc-months" class="form-control" onchange="runFinancialCalculation()">
-                <option value="48">48 meses (4 años)</option>
-                <option value="60">60 meses (5 años)</option>
-                <option value="72" selected>72 meses (6 años)</option>
-                <option value="84">84 meses (7 años)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Tipo de Interés (T.I.N. %)</label>
-              <input type="number" id="calc-rate" class="form-control" value="7.95" step="0.05" oninput="runFinancialCalculation()">
-            </div>
-          </div>
-        </div>
-
-        <div style="background: var(--cm-navy); color: var(--cm-white); padding: 36px; border-radius: var(--cm-radius-lg); display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--cm-cyan); font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">CUOTA ESTIMADA PARA EL COMPRADOR</div>
-            <div id="calc-result-installment" style="font-family: var(--font-family-display); font-size: 3rem; font-weight: 800; color: var(--cm-white); line-height: 1;">
-              243 €<span style="font-size: 1.2rem; color: #94a3b8; font-weight: 500;">/mes</span>
-            </div>
-            <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px;">Capital financiado: <span id="calc-result-financed">13.900 €</span></p>
-          </div>
-
-          <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.15);">
-            <div style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--badge-eco-bg); font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">MARGEN COMERCIAL PARA EL VENDEDOR</div>
-            <div id="calc-result-margin" style="font-family: var(--font-family-display); font-size: 2.2rem; font-weight: 800; color: var(--cm-cyan); line-height: 1;">
-              3.700 €
-            </div>
-            <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px;">Retorno sobre Coste (ROI): <span id="calc-result-roi" style="color: var(--badge-eco-bg); font-weight: 700;">28.0%</span></p>
-          </div>
-
-          <button class="btn btn-cyan" style="width: 100%; margin-top: 24px;" onclick="copyFinancialQuote()">
-            Copiar Propuesta de Financiación para WhatsApp
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- PESTAÑA 3: Scoring Predictivo de Leads (Inspirado en Inmobia360 Lead Scoring) -->
-    <section id="tab-scoring" class="hub-tool-card" style="display: none;">
-      <div class="chapter-badge">CUALIFICACIÓN DE COMPRADORES</div>
-      <h2 class="hub-tool-title">Scoring Predictivo de Leads Automotrices</h2>
-      <p class="hub-tool-desc">Filtra compradores curiosos en menos de 1 minuto y enfoca tus llamadas donde hay alta certidumbre de cierre y liquidez.</p>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px;">
-        <div>
-          <div class="form-group">
-            <label class="form-label">1. ¿Cómo planea pagar el comprador?</label>
-            <select id="score-payment" class="form-control" onchange="runLeadScoring()">
-              <option value="30">Al contado (transferencia bancaria inmediata) [+30 pts]</option>
-              <option value="25">Financiación ya pre-aprobada por su banco [+25 pts]</option>
-              <option value="15">Requiere simular financiación en CocheMotor [+15 pts]</option>
-              <option value="5">Sin definir / Pide pagar a plazos sin nómina [+5 pts]</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">2. ¿Tiene coche para entregar como parte de pago?</label>
-            <select id="score-tradein" class="form-control" onchange="runLeadScoring()">
-              <option value="25">Sí, con ficha técnica e ITV al día (operación doble) [+25 pts]</option>
-              <option value="15">Sí, pero pendiente de tasar [+15 pts]</option>
-              <option value="20">No tiene coche a cambio (compra limpia) [+20 pts]</option>
-              <option value="0">Coche con avería grave o embargo [+0 pts]</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">3. Urgencia de Compra / Entrega</label>
-            <select id="score-urgency" class="form-control" onchange="runLeadScoring()">
-              <option value="25">Inmediata: Necesita el coche en menos de 7 días [+25 pts]</option>
-              <option value="15">A corto plazo: En los próximos 30 días [+15 pts]</option>
-              <option value="5">Solo sondeando el mercado sin prisa [+5 pts]</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">4. Disposición para ver el coche y probarlo en taller</label>
-            <select id="score-visit" class="form-control" onchange="runLeadScoring()">
-              <option value="20">Pide cita presencial para prueba dinámica hoy/mañana [+20 pts]</option>
-              <option value="15">Solicita vídeo detallado del motor por WhatsApp [+15 pts]</option>
-              <option value="5">Solo hace preguntas genéricas de precio sin responder [+5 pts]</option>
-            </select>
-          </div>
-        </div>
-
-        <div style="background: var(--cm-surface-subtle); padding: 36px; border-radius: var(--cm-radius-lg); border: 1px solid var(--cm-border); display: flex; flex-direction: column; justify-content: center;">
-          <div style="text-align: center; margin-bottom: 24px;">
-            <div style="font-size: 0.85rem; font-weight: 800; color: var(--cm-text-secondary); text-transform: uppercase;">SCORE DE CONVERSIÓN ESTIMADO</div>
-            <div id="lead-score-number" style="font-family: var(--font-family-display); font-size: 4.5rem; font-weight: 800; color: var(--cm-navy); line-height: 1; margin: 12px 0;">
-              95/100
-            </div>
-            <div id="lead-score-category" style="display: inline-block; font-weight: 800; padding: 6px 18px; border-radius: 999px; background: rgba(0, 150, 64, 0.15); color: var(--badge-eco-bg);">
-              🔥 LEAD MUY CALIENTE — PRIORIDAD ALTA
-            </div>
-          </div>
-
-          <div style="background: var(--cm-white); padding: 20px; border-radius: var(--cm-radius-md); border: 1px solid var(--cm-border);">
-            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 6px;">Siguiente Mejor Acción Comercial Recomendada:</h4>
-            <p id="lead-score-action" style="font-size: 0.9rem; color: var(--cm-graphite); line-height: 1.5;">
-              Llamar en menos de 10 minutos. Ofrecer cita para prueba dinámica en taller y enviar por WhatsApp el certificado de 100 puntos periciales para fijar reserva.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PESTAÑA 4: Ficha de Parabrisas con QR (Inspirado en Inmobia360 Landings con QR) -->
-    <section id="tab-qr" class="hub-tool-card">
-      <div class="chapter-badge">CARTELERÍA FÍSICA PARA TALLER O CAMPA</div>
-      <h2 class="hub-tool-title">Ficha de Parabrisas con Sello CocheMotor & QR</h2>
-      <p class="hub-tool-desc">Genera una ficha lista para imprimir en A4 y colocar en el parabrisas de tu vehículo en la campa o taller. Los clientes escanean el código QR y abren la ficha con certificado pericial en su móvil.</p>
-
-      <div style="display: flex; gap: 16px; margin-bottom: 24px;">
-        <select id="qr-vehicle-select" class="form-control" style="max-width: 400px;" onchange="renderWindshieldCard()">
+        <select id="hub-user-switcher" class="hub-user-select-control" onchange="handleSwitchUser(this.value)">
           <!-- Poblado dinámicamente -->
         </select>
-        <button class="btn btn-cyan" onclick="window.print()">🖨️ Imprimir Cartel A4</button>
+        <div id="hub-user-role-badge" style="font-size: 0.75rem; color: #cbd5e1; margin-top: 6px; font-weight: 600;">
+          Freelance Independiente · Madrid
+        </div>
       </div>
 
-      <!-- Contenedor Imprimible -->
-      <div id="printable-windshield-card" style="background: var(--cm-white); border: 3px solid var(--cm-navy); border-radius: var(--cm-radius-lg); padding: 36px; max-width: 800px; margin: 0 auto; box-shadow: var(--cm-shadow-md);">
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--cm-border); padding-bottom: 20px; margin-bottom: 24px;">
-          <img src="assets/brand/cochemotor_logo_azul_con_tagline.png" alt="CocheMotor" style="height: 52px;">
-          <div style="text-align: right;">
-            <div style="font-family: var(--font-family-display); font-size: 1.1rem; font-weight: 800; color: var(--cm-navy);">SELLO MECÁNICA VERIFICADA</div>
-            <div style="font-size: 0.85rem; color: var(--badge-eco-bg); font-weight: 700;">✓ 100 Puntos Periciales & DGT Limpio</div>
-          </div>
-        </div>
+      <!-- Menú Vertical de Herramientas -->
+      <nav class="hub-sidebar-nav">
+        <button class="hub-nav-item active" onclick="switchHubTab('tab-upload')">
+          <span class="hub-nav-item-icon">➕</span>
+          <span>1. Subir Vehículo</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-pipeline')">
+          <span class="hub-nav-item-icon">📊</span>
+          <span>2. Embudo de Ventas</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-generator')">
+          <span class="hub-nav-item-icon">✍️</span>
+          <span>3. Generador con IA</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-copilot')">
+          <span class="hub-nav-item-icon">🧠</span>
+          <span>4. Copiloto de Precios</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-orders')">
+          <span class="hub-nav-item-icon">🎯</span>
+          <span>5. Bolsa de Pedidos</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-calculator')">
+          <span class="hub-nav-item-icon">💶</span>
+          <span>6. Financiación & Margen</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-qr')">
+          <span class="hub-nav-item-icon">🖨️</span>
+          <span>7. Cartel Parabrisas QR</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-referrals')">
+          <span class="hub-nav-item-icon">🚀</span>
+          <span>8. Afiliados B2B</span>
+        </button>
+      </nav>
 
-        <div style="display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 32px; align-items: center;">
+      <!-- Footer de la Sidebar -->
+      <div class="hub-sidebar-footer">
+        <a href="marketplace.html" style="display: flex; align-items: center; gap: 8px; color: #cbd5e1; font-size: 0.85rem; text-decoration: none; font-weight: 700; margin-bottom: 8px;">
+          <span>🌐</span> Ver Marketplace Público
+        </a>
+        <a href="demanda.html" style="display: flex; align-items: center; gap: 8px; color: var(--cm-cyan); font-size: 0.85rem; text-decoration: none; font-weight: 700;">
+          <span>🎯</span> Coches a la Carta
+        </a>
+      </div>
+    </aside>
+
+    <!-- =========================================================================================
+         ÁREA DE CONTENIDO PRINCIPAL A LA DERECHA
+         ========================================================================================= -->
+    <main class="hub-content-area">
+
+      <!-- Barra Superior de KPIs del Profesional Seleccionado -->
+      <div class="hub-metric-bar">
+        <div class="hub-metric-item">
+          <div class="hub-metric-icon">🚗</div>
           <div>
-            <span id="ws-badge" class="badge-dgt badge-c" style="position: static; display: inline-block; margin-bottom: 12px;">ETIQUETA C</span>
-            <h1 id="ws-title" style="font-family: var(--font-family-display); font-size: 2.2rem; font-weight: 800; color: var(--cm-navy); line-height: 1.1; margin-bottom: 6px;">Volkswagen Golf</h1>
-            <div id="ws-version" style="font-size: 1.1rem; color: var(--cm-text-secondary); margin-bottom: 20px;">2.0 TDI Advance 150 CV</div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;">
-              <div style="background: var(--cm-surface-subtle); padding: 12px; border-radius: var(--cm-radius-sm);">
-                <div style="font-size: 0.75rem; color: var(--cm-text-secondary);">KILOMETRAJE</div>
-                <div id="ws-km" style="font-weight: 700; color: var(--cm-navy); font-size: 1.1rem;">68.000 km</div>
-              </div>
-              <div style="background: var(--cm-surface-subtle); padding: 12px; border-radius: var(--cm-radius-sm);">
-                <div style="font-size: 0.75rem; color: var(--cm-text-secondary);">AÑO</div>
-                <div id="ws-year" style="font-weight: 700; color: var(--cm-navy); font-size: 1.1rem;">2020</div>
-              </div>
-              <div style="background: var(--cm-surface-subtle); padding: 12px; border-radius: var(--cm-radius-sm);">
-                <div style="font-size: 0.75rem; color: var(--cm-text-secondary);">GARANTÍA</div>
-                <div id="ws-warranty" style="font-weight: 700; color: var(--cm-navy); font-size: 1.05rem;">12 Meses</div>
-              </div>
-              <div style="background: var(--cm-surface-subtle); padding: 12px; border-radius: var(--cm-radius-sm);">
-                <div style="font-size: 0.75rem; color: var(--cm-text-secondary);">SCORE PERICIAL</div>
-                <div id="ws-score" style="font-weight: 700; color: var(--cm-cyan); font-size: 1.1rem;">98/100</div>
-              </div>
-            </div>
-
-            <div style="display: flex; align-items: baseline; gap: 16px;">
-              <div id="ws-price" style="font-family: var(--font-family-display); font-size: 2.6rem; font-weight: 800; color: var(--cm-navy);">16.900 €</div>
-              <div id="ws-monthly" style="font-size: 1.1rem; color: var(--cm-text-secondary); font-weight: 600;">o desde 215 €/mes</div>
-            </div>
-          </div>
-
-          <div style="text-align: center; border: 2px dashed var(--cm-border); padding: 20px; border-radius: var(--cm-radius-md); background: var(--cm-surface-subtle);">
-            <!-- Generación de QR dinámico -->
-            <img id="ws-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cochemotor.es" alt="Código QR del coche" style="width: 160px; height: 160px; margin: 0 auto 12px;">
-            <p style="font-size: 0.78rem; font-weight: 700; color: var(--cm-navy);">ESCANEA CON TU MÓVIL</p>
-            <p style="font-size: 0.72rem; color: var(--cm-text-secondary);">Para ver las 100 pruebas de taller y contactar por WhatsApp</p>
+            <div class="hub-metric-value" id="kpi-total-cars">0</div>
+            <div class="hub-metric-label">Mis Coches en Stock</div>
           </div>
         </div>
-
-        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--cm-border); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--cm-text-secondary);">
-          <div id="ws-dealer">Vehículo en exposición: Taller Hermanos García VO</div>
-          <div>Certificado CocheMotor N.º ESP-2026-VO</div>
+        <div class="hub-metric-item">
+          <div class="hub-metric-icon">🔥</div>
+          <div>
+            <div class="hub-metric-value" id="kpi-active-leads">0</div>
+            <div class="hub-metric-label">Mis Leads Activos</div>
+          </div>
+        </div>
+        <div class="hub-metric-item">
+          <div class="hub-metric-icon">⏱️</div>
+          <div>
+            <div class="hub-metric-value" id="kpi-avg-days">0 d</div>
+            <div class="hub-metric-label">Rotación Promedio</div>
+          </div>
+        </div>
+        <div class="hub-metric-item">
+          <div class="hub-metric-icon">🎁</div>
+          <div>
+            <div class="hub-metric-value" id="kpi-referrals-free">3 meses</div>
+            <div class="hub-metric-label">Ahorro por Referidos</div>
+          </div>
         </div>
       </div>
-    </section>
 
-  </main>
+      <!-- =====================================================================================
+           PESTAÑA 1: SUBIR VEHÍCULO CON ASISTENTE FOTOGRÁFICO GUIADO
+           ===================================================================================== -->
+      <section id="tab-upload" class="hub-tool-card">
+        <div class="chapter-badge">ALTA ASISTIDA DE STOCK PRIVADO</div>
+        <h2 class="hub-tool-title">Registra tu Vehículo y Conviértelo en Anuncio</h2>
+        <p class="hub-tool-desc">
+          Sube tu coche a tu inventario privado. Sigue la guía de fotos clave para maximizar llamadas y al guardar se generarán los textos para Wallapop, WhatsApp y el cartel imprimible con QR.
+        </p>
+
+        <form id="form-upload-vehicle" onsubmit="handleCreateVehicle(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <!-- Columna A: Datos Técnicos -->
+            <div>
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 16px;">1. Ficha Técnica y Precio</h3>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Marca *</label>
+                  <input type="text" id="up-brand" class="form-control" placeholder="Ej: Seat, Audi, Ford" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Modelo *</label>
+                  <input type="text" id="up-model" class="form-control" placeholder="Ej: León, A3, Focus" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Versión y Motorización *</label>
+                <input type="text" id="up-version" class="form-control" placeholder="Ej: 1.5 TSI 130 CV Style Edition" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Año *</label>
+                  <input type="number" id="up-year" class="form-control" value="2021" min="1995" max="2026" required onchange="autoCalculateBadge()">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Kilómetros *</label>
+                  <input type="text" id="up-km" class="form-control" placeholder="Ej: 58.000 km" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Combustible *</label>
+                  <select id="up-fuel" class="form-control" onchange="autoCalculateBadge()">
+                    <option value="Gasolina">Gasolina</option>
+                    <option value="Diésel">Diésel</option>
+                    <option value="Híbrido (HEV)">Híbrido (HEV)</option>
+                    <option value="Híbrido Enchufable (PHEV)">Híbrido Enchufable (PHEV)</option>
+                    <option value="100% Eléctrico">100% Eléctrico</option>
+                    <option value="Gas GLP/GNC">Gas GLP/GNC</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Caja de Cambios</label>
+                  <select id="up-gearbox" class="form-control">
+                    <option value="Manual 6 vel.">Manual 6 vel.</option>
+                    <option value="Automático DSG / Steptronic">Automático</option>
+                    <option value="Manual 5 vel.">Manual 5 vel.</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Distintivo DGT</label>
+                  <select id="up-badge" class="form-control">
+                    <option value="C">Etiqueta C (Verde)</option>
+                    <option value="ECO">Etiqueta ECO (Verde/Azul)</option>
+                    <option value="0">Etiqueta 0 Emisiones (Azul)</option>
+                    <option value="B">Etiqueta B (Amarillo)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Precio al Contado (€) *</label>
+                  <input type="number" id="up-price" class="form-control" placeholder="Ej: 17500" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Coste de Entrada (€)</label>
+                  <input type="number" id="up-cost" class="form-control" placeholder="Ej: 14000">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">URL de Foto Principal (o deja vacío para demo HD)</label>
+                <input type="url" id="up-image-url" class="form-control" placeholder="https://images.unsplash.com/...">
+              </div>
+            </div>
+
+            <!-- Columna B: Asistente Fotográfico Guiado -->
+            <div>
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 8px;">2. Checklist Fotográfico de Confianza</h3>
+              <p style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-bottom: 14px;">
+                Fotos esenciales para certificar estado mecánico y evitar compradores desconfiados:
+              </p>
+
+              <div class="photo-guide-grid">
+                <div class="photo-slot-card has-photo">
+                  <div class="photo-slot-icon">📸</div>
+                  <div class="photo-slot-title">1. Frontal 3/4 (Portada)</div>
+                  <div class="photo-slot-desc">Ruedas rectas, luz natural exterior.</div>
+                </div>
+                <div class="photo-slot-card has-photo">
+                  <div class="photo-slot-icon">🚗</div>
+                  <div class="photo-slot-title">2. Trasera 3/4</div>
+                  <div class="photo-slot-desc">Pilotos, paragolpes y escape.</div>
+                </div>
+                <div class="photo-slot-card">
+                  <div class="photo-slot-icon">📟</div>
+                  <div class="photo-slot-title">3. Cuadro Encendido</div>
+                  <div class="photo-slot-desc">Demuestra kilómetros y sin testigos.</div>
+                </div>
+                <div class="photo-slot-card">
+                  <div class="photo-slot-icon">⚙️</div>
+                  <div class="photo-slot-title">4. Vano Motor</div>
+                  <div class="photo-slot-desc">Limpio y sin fugas visibles.</div>
+                </div>
+                <div class="photo-slot-card">
+                  <div class="photo-slot-icon">💺</div>
+                  <div class="photo-slot-title">5. Volante y Asientos</div>
+                  <div class="photo-slot-desc">Detalle del estado del cuero y pedales.</div>
+                </div>
+                <div class="photo-slot-card">
+                  <div class="photo-slot-icon">🏷️</div>
+                  <div class="photo-slot-title">6. Pegatina DGT</div>
+                  <div class="photo-slot-desc">Aptitud para circular en ZBE.</div>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 18px;">
+                <label class="form-label">Puntos Fuertes de Taller (1 por línea)</label>
+                <textarea id="up-highlights" class="form-control" rows="3" placeholder="Kit de distribución recién cambiado&#10;Neumáticos al 90%&#10;ITV en vigor hasta 2026&#10;1 Solo propietario con libro"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-cyan" style="width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 800; margin-top: 16px;">
+                🚀 Guardar Vehículo y Generar Anuncio
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- =====================================================================================
+           PESTAÑA 2: EMBUDO DE VENTAS (PIPELINE KANBAN)
+           ===================================================================================== -->
+      <section id="tab-pipeline" class="hub-tool-card" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div class="chapter-badge">CONTROL OPERATIVO DE VENTAS</div>
+            <h2 class="hub-tool-title">Mi Embudo de Ventas (Pipeline Kanban)</h2>
+            <p class="hub-tool-desc">Gestiona el ciclo comercial de tu stock: arrastra o cambia de fase en un clic.</p>
+          </div>
+          <button class="btn btn-cyan" onclick="switchHubTab('tab-upload')">
+            ➕ Subir Nuevo Coche
+          </button>
+        </div>
+
+        <!-- Tablero Kanban de 6 Fases -->
+        <div class="pipeline-board" id="pipeline-kanban-board">
+          <!-- Generado dinámicamente con renderPipelineBoard() -->
+        </div>
+
+        <!-- Registro de Leads / Contactos Recientes -->
+        <div style="margin-top: 40px; background: var(--cm-white); border: 1px solid var(--cm-border); border-radius: var(--cm-radius-md); padding: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+              Mis Leads y Consultas Recibidas
+            </h3>
+            <span style="font-size: 0.8rem; background: rgba(0, 150, 64, 0.1); color: var(--badge-eco-bg); padding: 4px 10px; border-radius: 999px; font-weight: 700;">
+              Plan Premium: Contacto Directo Activo
+            </span>
+          </div>
+          <div id="pipeline-leads-table">
+            <!-- Generado dinámicamente -->
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================================
+           PESTAÑA 3: GENERADOR MULTICANAL IA
+           ===================================================================================== -->
+      <section id="tab-generator" class="hub-tool-card" style="display: none;">
+        <div class="chapter-badge">MOTOR DE REDACCIÓN COMERCIAL</div>
+        <h2 class="hub-tool-title">Generador Multicanal de Fichas y Anuncios</h2>
+        <p class="hub-tool-desc">Copia y pega en Wallapop, Milanuncios, Coches.net, WhatsApp o Reels en segundos.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px;">
+          <div>
+            <div class="form-group">
+              <label class="form-label">Seleccionar Vehículo de tu Inventario</label>
+              <select id="gen-vehicle-select" class="form-control" onchange="loadVehicleForGenerator()">
+                <!-- Poblado dinámicamente -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Canal Objetivo</label>
+              <select id="gen-channel" class="form-control" onchange="generateVehicleCopy()">
+                <option value="portales">Portales de Anuncios (Wallapop / Milanuncios / Coches.net)</option>
+                <option value="whatsapp">Mensaje Directo para WhatsApp</option>
+                <option value="ficha">Ficha Técnica Oficial con Distintivo DGT</option>
+                <option value="video">Guión de Vídeo Corto (TikTok / Reels / Shorts)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tono de Redacción</label>
+              <select id="gen-tone" class="form-control" onchange="generateVehicleCopy()">
+                <option value="tecnico">Técnico & Rigor de Taller (Comprador que busca certidumbre)</option>
+                <option value="comercial">Comercial & Oportunidad (Ideal para Wallapop)</option>
+                <option value="premium">Premium & Confianza Total</option>
+              </select>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 24px;">
+              <button class="btn btn-navy" style="flex: 1; font-size: 0.88rem;" onclick="viewPublicVehiclePage()">
+                🌐 Ver Ficha Digital en Vivo
+              </button>
+              <button class="btn btn-outline" style="flex: 1; font-size: 0.88rem;" onclick="switchHubTab('tab-qr')">
+                🖨️ Imprimir Cartel A4
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--cm-navy); text-transform: uppercase;">Texto Generado con IA:</span>
+              <button class="copy-output-btn" onclick="copyGeneratedText()">📋 Copiar Texto</button>
+            </div>
+            <div id="gen-output-text" class="copy-output-box" style="min-height: 380px;">
+              Cargando texto...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================================
+           PESTAÑA 4: COPILOTO IA (PRECIOS Y ROTACIÓN)
+           ===================================================================================== -->
+      <section id="tab-copilot" class="hub-tool-card" style="display: none;">
+        <div class="chapter-badge">INTELIGENCIA DE PRECIOS & VELOCIDAD DE VENTA</div>
+        <h2 class="hub-tool-title">Copiloto IA: Diagnóstico de Rotación & Precios</h2>
+        <p class="hub-tool-desc">
+          Detecta a tiempo coches con más de 72h sin clics o estancados a los 30 días para proteger tu margen comercial.
+        </p>
+
+        <div id="copilot-cards-container">
+          <!-- Generado dinámicamente -->
+        </div>
+      </section>
+
+      <!-- =====================================================================================
+           PESTAÑA 5: BOLSA DE PEDIDOS (DEMANDA ACTIVA)
+           ===================================================================================== -->
+      <section id="tab-orders" class="hub-tool-card" style="display: none;">
+        <div class="chapter-badge">DEMANDA ACTIVA DE COMPRADORES</div>
+        <h2 class="hub-tool-title">Bolsa de Pedidos: Compradores Buscando Coche</h2>
+        <p class="hub-tool-desc">
+          Particulares con presupuesto real buscando coche en España. Postula una unidad de tu stock con un solo clic.
+        </p>
+
+        <div id="demand-orders-container">
+          <!-- Generado dinámicamente -->
+        </div>
+      </section>
+
+      <!-- =====================================================================================
+           PESTAÑA 6: CALCULADORA FINANCIERA & MARGEN
+           ===================================================================================== -->
+      <section id="tab-calculator" class="hub-tool-card" style="display: none;">
+        <div class="chapter-badge">SIMULADOR ECONÓMICO</div>
+        <h2 class="hub-tool-title">Calculadora Financiera & Margen de Operación</h2>
+        <p class="hub-tool-desc">Calcula la cuota mensual para tu cliente y el margen neto estimado para tu negocio.</p>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px;">
+          <div>
+            <div class="form-group">
+              <label class="form-label">Precio de Venta del Vehículo (€)</label>
+              <input type="number" id="calc-price" class="form-control" value="16900" oninput="runFinancialCalculation()">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Coste de Entrada / Adquisición (€)</label>
+              <input type="number" id="calc-cost" class="form-control" value="13200" oninput="runFinancialCalculation()">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label">Entrada del Comprador (€)</label>
+                <input type="number" id="calc-downpayment" class="form-control" value="3000" oninput="runFinancialCalculation()">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Plazo de Financiación</label>
+                <select id="calc-months" class="form-control" onchange="runFinancialCalculation()">
+                  <option value="48">48 Meses (4 años)</option>
+                  <option value="60">60 Meses (5 años)</option>
+                  <option value="72" selected>72 Meses (6 años)</option>
+                  <option value="84">84 Meses (7 años)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tipo de Interés Anual (TIN estimado %)</label>
+              <input type="number" id="calc-tin" class="form-control" value="7.9" step="0.1" oninput="runFinancialCalculation()">
+            </div>
+          </div>
+
+          <div style="background: var(--cm-navy); color: white; padding: 32px; border-radius: var(--cm-radius-lg);">
+            <div style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--cm-cyan); font-weight: 800; text-transform: uppercase;">CUOTA MENSUAL ESTIMADA</div>
+            <div id="calc-result-monthly" style="font-family: var(--font-family-display); font-size: 3.2rem; font-weight: 800; color: white; line-height: 1.1; margin: 8px 0;">
+              242 €/mes
+            </div>
+            <p style="font-size: 0.85rem; color: #94a3b8;">Impuestos, formalización e intereses calculados.</p>
+
+            <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.15);">
+              <div style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--badge-eco-bg); font-weight: 800; text-transform: uppercase;">MARGEN COMERCIAL DE LA VENTA</div>
+              <div id="calc-result-margin" style="font-family: var(--font-family-display); font-size: 2.2rem; font-weight: 800; color: var(--cm-cyan); line-height: 1;">
+                3.700 €
+              </div>
+              <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px;">Retorno sobre Coste: <span id="calc-result-roi" style="color: var(--badge-eco-bg); font-weight: 700;">28.0%</span></p>
+            </div>
+
+            <button class="btn btn-cyan" style="width: 100%; margin-top: 24px;" onclick="copyFinancialQuote()">
+              Copiar Propuesta para WhatsApp
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================================
+           PESTAÑA 7: CARTEL DE PARABRISAS CON QR
+           ===================================================================================== -->
+      <section id="tab-qr" class="hub-tool-card" style="display: none;">
+        <div class="chapter-badge">CARTELERÍA FÍSICA PARA CAMPA O TALLER</div>
+        <h2 class="hub-tool-title">Ficha de Parabrisas con Sello CocheMotor & QR</h2>
+        <p class="hub-tool-desc">
+          Imprime esta ficha en A4 para tu campa o taller. Los clientes escanean el QR y acceden a la ficha digital en su móvil.
+        </p>
+
+        <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+          <select id="qr-vehicle-select" class="form-control" style="max-width: 400px;" onchange="renderWindshieldCard()">
+            <!-- Poblado dinámicamente -->
+          </select>
+          <button class="btn btn-cyan" onclick="window.print()">🖨️ Imprimir Cartel A4</button>
+        </div>
+
+        <!-- Contenedor Imprimible -->
+        <div id="printable-windshield-card" style="background: var(--cm-white); border: 3px solid var(--cm-navy); border-radius: var(--cm-radius-lg); padding: 36px; max-width: 800px; margin: 0 auto; box-shadow: var(--cm-shadow-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--cm-border); padding-bottom: 20px; margin-bottom: 24px;">
+            <div>
+              <span class="chapter-badge" style="background: var(--cm-navy); color: white; margin-bottom: 6px;">MECÁNICA VERIFICADA</span>
+              <h2 id="qr-card-title" style="font-family: var(--font-family-display); font-size: 2.2rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+                VOLKSWAGEN GOLF
+              </h2>
+              <div id="qr-card-version" style="font-size: 1.1rem; color: var(--cm-text-secondary); font-weight: 600;">2.0 TDI Advance 150 CV</div>
+            </div>
+            <span id="qr-card-badge" class="badge-dgt badge-c" style="font-size: 1.4rem; padding: 8px 18px;">DGT C</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center;">
+            <div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px;">
+                <div style="background: var(--cm-surface-subtle); padding: 12px; border-radius: var(--cm-radius-sm);">
+                  <div style="font-size: 0.75rem; color: var(--cm-text-secondary); font-weight: 700;">AÑO</div>
+                  <div id="qr-card-year" style="font-weight: 800; color: var(--cm-navy); font-size: 1.1rem;">2020</div>
+                </div>
+                <div style="background: var(--cm-surface-subtle); padding: 12px; border-radius: var(--cm-radius-sm);">
+                  <div style="font-size: 0.75rem; color: var(--cm-text-secondary); font-weight: 700;">KILÓMETROS</div>
+                  <div id="qr-card-km" style="font-weight: 800; color: var(--cm-navy); font-size: 1.1rem;">68.000 km</div>
+                </div>
+                <div style="background: var(--cm-surface-subtle); padding: 12px; border-radius: var(--cm-radius-sm);">
+                  <div style="font-size: 0.75rem; color: var(--cm-text-secondary); font-weight: 700;">COMBUSTIBLE</div>
+                  <div id="qr-card-fuel" style="font-weight: 800; color: var(--cm-navy); font-size: 1.1rem;">Diésel</div>
+                </div>
+                <div style="background: var(--cm-surface-subtle); padding: 12px; border-radius: var(--cm-radius-sm);">
+                  <div style="font-size: 0.75rem; color: var(--cm-text-secondary); font-weight: 700;">GARANTÍA</div>
+                  <div id="qr-card-warranty" style="font-weight: 800; color: var(--badge-eco-bg); font-size: 1.1rem;">12 Meses</div>
+                </div>
+              </div>
+
+              <div style="font-size: 0.85rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 800;">PRECIO AL CONTADO</div>
+              <div id="qr-card-price" style="font-family: var(--font-family-display); font-size: 3rem; font-weight: 800; color: var(--cm-navy); line-height: 1;">
+                16.900 €
+              </div>
+            </div>
+
+            <div style="text-align: center; background: var(--cm-surface-subtle); padding: 24px; border-radius: var(--cm-radius-md); border: 1px solid var(--cm-border);">
+              <div style="font-size: 0.8rem; font-weight: 800; color: var(--cm-navy); text-transform: uppercase; margin-bottom: 8px;">
+                ESCANEÁ CON TU MÓVIL
+              </div>
+              <img id="qr-img-element" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cochemotor.es&color=002D62" alt="QR" style="width: 170px; height: 170px; border-radius: 8px; border: 2px solid white; box-shadow: var(--cm-shadow-sm);">
+              <div style="font-size: 0.78rem; color: var(--cm-text-secondary); margin-top: 8px; line-height: 1.3;">
+                Abre la ficha técnica oficial y solicita prueba por WhatsApp.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================================
+           PESTAÑA 8: PROGRAMA DE AFILIADOS B2B
+           ===================================================================================== -->
+      <section id="tab-referrals" class="hub-tool-card" style="display: none;">
+        <div class="chapter-badge">PROGRAMA DE EMBAJADORES DEL MOTOR</div>
+        <h2 class="hub-tool-title">Programa de Afiliados B2B: Crece con tus Colegas</h2>
+        <p class="hub-tool-desc">
+          Invita a otros compraventas o talleres de tu zona: ellos reciben 60 días gratis y tú acumulas meses gratis y prioridad en el Marketplace.
+        </p>
+
+        <div class="referral-box">
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center;">
+            <div>
+              <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px;">Tu Código de Embajador Profesional</h3>
+              <p style="color: #cbd5e1; font-size: 0.92rem; margin-bottom: 16px;">
+                Comparte este enlace por WhatsApp a tus contactos de compraventa:
+              </p>
+
+              <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 20px;">
+                <span class="referral-code-badge" id="ref-code-display">MOTOR-JUAN-2026</span>
+                <button class="btn btn-cyan" onclick="copyReferralLink()">
+                  📲 Copiar Enlace para WhatsApp
+                </button>
+              </div>
+
+              <div style="font-size: 0.85rem; color: #94a3b8;">
+                Enlace directo: <span id="ref-full-url" style="color: white; text-decoration: underline;">https://cochemotor.es/?ref=MOTOR-JUAN-2026</span>
+              </div>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.08); padding: 24px; border-radius: var(--cm-radius-md); border: 1px solid rgba(255, 255, 255, 0.15);">
+              <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--cm-cyan);">Tus Recompensas Acumuladas</h4>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;">
+                <span>Colegas Registrados:</span>
+                <strong style="color: white;" id="ref-stat-count">3 colegas</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;">
+                <span>Meses Gratis Acumulados:</span>
+                <strong style="color: var(--badge-eco-bg);" id="ref-stat-free">3 meses (€ 297 ahorro)</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span>Sello de Confianza:</span>
+                <strong style="color: var(--cm-cyan);" id="ref-stat-badge">⭐ Gold Partner Verificado</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+          <div style="background: var(--cm-surface-subtle); padding: 24px; border-radius: var(--cm-radius-md); border: 1px solid var(--cm-border);">
+            <div style="font-size: 1.5rem; margin-bottom: 6px;">🥉 1er Colega</div>
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 6px;">1 Mes Gratis</h4>
+            <p style="font-size: 0.85rem; color: var(--cm-text-secondary); line-height: 1.4;">Un mes de suscripción completa bonificada.</p>
+          </div>
+
+          <div style="background: #eff6ff; padding: 24px; border-radius: var(--cm-radius-md); border: 1px solid #bfdbfe;">
+            <div style="font-size: 1.5rem; margin-bottom: 6px;">⭐ 3 Colegas</div>
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 6px;">Sello Gold Partner</h4>
+            <p style="font-size: 0.85rem; color: var(--cm-text-secondary); line-height: 1.4;">Máxima visibilidad en los resultados de búsqueda del Marketplace.</p>
+          </div>
+
+          <div style="background: #f0fdf4; padding: 24px; border-radius: var(--cm-radius-md); border: 1px solid #bbf7d0;">
+            <div style="font-size: 1.5rem; margin-bottom: 6px;">🚀 5 Colegas</div>
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 6px;">Stock Compartido B2B</h4>
+            <p style="font-size: 0.85rem; color: var(--cm-text-secondary); line-height: 1.4;">Acceso a vender coches de la red con reparto de comisión pactada.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
 
   <script src="site-config.js"></script>
   <script src="hub.js"></script>
