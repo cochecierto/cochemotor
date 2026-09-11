@@ -193,10 +193,10 @@
           </div>
         </div>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <button id="btn-dealer-whatsapp" class="btn btn-cyan" style="padding: 12px 22px; font-weight: 800;" onclick="openDealerWhatsApp()">
-            💬 WhatsApp Directo
+          <button id="btn-dealer-whatsapp" class="btn btn-red" style="padding: 12px 22px; font-weight: 800;" onclick="openDealerWhatsApp()">
+            💬 Contactar por WhatsApp
           </button>
-          <button id="btn-dealer-call" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4); padding: 12px 20px;" onclick="openDealerCall()">
+          <button id="btn-dealer-call" class="btn btn-outline-white" style="padding: 12px 20px;" onclick="openDealerCall()">
             📞 Llamar
           </button>
         </div>
@@ -418,8 +418,8 @@
                 <div style="font-size: 1.45rem; font-weight: 800; color: var(--cm-navy);">${car.price.toLocaleString('es-ES')} €</div>
                 <div style="font-size: 0.8rem; color: #16a34a; font-weight: 700;">${car.monthlyPrice || 'Financiable'}</div>
               </div>
-              <a href="ficha.html?id=${car.id}" class="btn btn-navy" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
-                Ver Landing B2C →
+              <a href="ficha.html?id=${car.id}" class="btn btn-red" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
+                Ver detalles
               </a>
             </div>
           </div>

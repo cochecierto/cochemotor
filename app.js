@@ -196,8 +196,8 @@ function renderStockGrid(vehicles) {
           '<div class="monthly-price">desde ' + v.monthlyPrice + '</div>' +
         '</div>' +
         '<div class="card-cta-group">' +
-          '<a class="btn btn-navy" href="ficha.html?id=' + v.id + '" style="font-weight: 800;">Ver Landing B2C →</a>' +
-          '<a class="btn btn-whatsapp" href="' + waUrl + '" target="_blank" rel="noopener">WhatsApp</a>' +
+          '<a class="btn btn-red" href="ficha.html?id=' + v.id + '" style="font-weight: 800;">Ver detalles</a>' +
+          '<a class="btn btn-outline" href="' + waUrl + '" target="_blank" rel="noopener">WhatsApp</a>' +
         '</div>' +
       '</div>' +
     '</article>';

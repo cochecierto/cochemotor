@@ -5,19 +5,36 @@
    ========================================================================== */
 
 :root {
-  /* Brand Color Tokens */
-  --cm-navy: #002d62;
+  /* Brand Official Tokens (CocheMotor — Compra claro. Vende mejor.) */
+  --cm-navy: #002D62;
   --cm-navy-dark: #001f44;
   --cm-navy-soft: #0a3a78;
-  --cm-graphite: #3c3f41;
+  --cm-red: #D62828;
+  --cm-red-hover: #b91d1d;
+  --cm-burgundy: #8F1D2C;
+  --cm-green: #18A66A;
+  --cm-green-hover: #138855;
+  --cm-white: #FFFFFF;
+  --cm-gray: #F3F5F7;
+  --cm-graphite: #3C3F41;
   --cm-graphite-light: #5a5e62;
-  --cm-cyan: #00bfff;
-  --cm-cyan-hover: #00a3ff;
-  --cm-cyan-glow: rgba(0, 191, 255, 0.25);
+
+  /* Semantic Brand Mapping */
+  --color-primary: var(--cm-navy);
+  --color-action: var(--cm-red);
+  --color-success: var(--cm-green);
+  --color-premium: var(--cm-burgundy);
+  --color-background: var(--cm-white);
+  --color-surface: var(--cm-gray);
+  --color-text: var(--cm-graphite);
+
+  /* Legacy compatibility alias */
+  --cm-cyan: var(--cm-red);
+  --cm-cyan-hover: var(--cm-red-hover);
+  --cm-cyan-glow: rgba(214, 40, 40, 0.25);
   
   /* Neutral UI Tokens */
-  --cm-white: #ffffff;
-  --cm-surface-subtle: #f8fafc;
+  --cm-surface-subtle: var(--cm-gray);
   --cm-surface-card: #ffffff;
   --cm-border: #e2e8f0;
   --cm-border-strong: #cbd5e1;
@@ -49,7 +66,8 @@
   --cm-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
   --cm-shadow-md: 0 6px 18px rgba(0, 45, 98, 0.08);
   --cm-shadow-lg: 0 16px 36px rgba(0, 45, 98, 0.12);
-  --cm-shadow-cyan: 0 8px 24px rgba(0, 191, 255, 0.35);
+  --cm-shadow-action: 0 8px 24px rgba(214, 40, 40, 0.35);
+  --cm-shadow-cyan: var(--cm-shadow-action);
 
   --max-content-width: 1240px;
 }
@@ -123,12 +141,18 @@ button {
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--cm-cyan);
-  background: rgba(0, 191, 255, 0.1);
-  border: 1px solid rgba(0, 191, 255, 0.25);
+  color: var(--cm-navy);
+  background: var(--cm-gray);
+  border: 1px solid var(--cm-border-strong);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 16px;
+}
+
+.section-dark .chapter-badge {
+  color: #93c5fd;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .section-title {
@@ -156,7 +180,7 @@ button {
   color: #cbd5e1;
 }
 
-/* Buttons & CTAs */
+/* Buttons & CTAs — Reglas de Uso del Rojo Automoción (#D62828) */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -171,36 +195,62 @@ button {
   text-align: center;
 }
 
+.btn:focus-visible {
+  outline: 3px solid rgba(214, 40, 40, 0.5);
+  outline-offset: 2px;
+}
+
+/* Botón Principal de Acción y Conversión (Rojo Automoción) */
+.btn-action,
+.btn-red,
 .btn-cyan {
-  background-color: var(--cm-cyan);
-  color: var(--cm-navy);
-  box-shadow: var(--cm-shadow-cyan);
+  background-color: var(--cm-red);
+  color: var(--cm-white);
+  box-shadow: 0 4px 14px rgba(214, 40, 40, 0.3);
 }
 
+.btn-action:hover,
+.btn-red:hover,
 .btn-cyan:hover {
-  background-color: var(--cm-cyan-hover);
+  background-color: var(--cm-red-hover);
+  color: var(--cm-white);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 191, 255, 0.45);
+  box-shadow: 0 8px 22px rgba(214, 40, 40, 0.45);
 }
 
+/* Botón Secundario Profesional (Deep Navy) */
 .btn-navy {
   background-color: var(--cm-navy);
   color: var(--cm-white);
+  box-shadow: 0 4px 12px rgba(0, 45, 98, 0.2);
 }
 
 .btn-navy:hover {
   background-color: var(--cm-navy-soft);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 45, 98, 0.3);
 }
 
 .btn-outline {
-  border: 2px solid var(--cm-cyan);
-  color: var(--cm-cyan);
+  border: 2px solid var(--cm-navy);
+  color: var(--cm-navy);
   background: transparent;
 }
 
 .btn-outline:hover {
-  background: rgba(0, 191, 255, 0.1);
+  background: var(--cm-navy);
+  color: var(--cm-white);
+}
+
+.btn-outline-white {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: var(--cm-white);
+  background: transparent;
+}
+
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--cm-white);
   color: var(--cm-white);
 }
 
@@ -329,7 +379,7 @@ button {
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--cm-cyan);
+  color: #93c5fd;
   margin-bottom: 20px;
 }
 
@@ -340,6 +390,11 @@ button {
   line-height: 1.12;
   letter-spacing: -0.03em;
   margin-bottom: 24px;
+}
+
+.hero-headline .highlight {
+  color: var(--cm-white);
+  border-bottom: 3px solid var(--cm-red);
 }
 
 .hero-subhead {
@@ -368,7 +423,7 @@ button {
   font-family: var(--font-family-display);
   font-size: 2rem;
   font-weight: 800;
-  color: var(--cm-cyan);
+  color: var(--cm-green);
   line-height: 1;
   margin-bottom: 6px;
 }
@@ -398,10 +453,10 @@ button {
   bottom: 24px;
   left: 24px;
   right: 24px;
-  background: rgba(0, 31, 68, 0.90);
+  background: rgba(0, 45, 98, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 191, 255, 0.4);
+  border: 1px solid rgba(24, 166, 106, 0.4);
   padding: 18px 22px;
   border-radius: var(--cm-radius-md);
   display: flex;
@@ -410,8 +465,8 @@ button {
 }
 
 .floating-piston {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
 }
 
@@ -424,7 +479,8 @@ button {
 
 .floating-text p {
   font-size: 0.82rem;
-  color: var(--cm-cyan);
+  color: var(--cm-green);
+  font-weight: 600;
 }
 
 /* Chapter 2: Manifesto */
@@ -733,16 +789,17 @@ button {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: rgba(0, 45, 98, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: var(--cm-cyan);
+  color: var(--cm-green);
   font-family: var(--font-family-display);
   font-size: 0.75rem;
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 4px;
-  border: 1px solid rgba(0, 191, 255, 0.3);
+  border: 1px solid rgba(24, 166, 106, 0.35);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .vehicle-info {

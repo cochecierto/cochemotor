@@ -5,8 +5,8 @@
 
 const siteConfig = {
   metadata: {
-    title: "CocheMotor — Marketplace Digital & Hub SaaS para Profesionales del Motor",
-    description: "La plataforma integral para talleres mecánicos, compraventas freelance y particulares en España: stock verificado en 100 puntos, trazabilidad DGT, generador multicanal con IA y scoring de leads.",
+    title: "CocheMotor — Compra claro. Vende mejor.",
+    description: "Marketplace y plataforma digital para encontrar vehículos de ocasión, conectar con profesionales y comprar con más información, confianza y seguridad.",
     canonical: "https://motor.cochecierto.com",
     domain: "motor.cochecierto.com",
     language: "es-ES",
@@ -14,13 +14,25 @@ const siteConfig = {
 
   brand: {
     name: "CocheMotor",
-    tagline: "Marketplace Digital",
-    promise: "Vehículos de ocasión con mecánica peritada y suite SaaS para profesionales.",
+    tagline: "Compra claro. Vende mejor.",
+    promise: "Marketplace y plataforma digital para comprar y vender vehículos de ocasión con más confianza y control.",
     contactWhatsapp: "34612345678",
-    logoLight: "assets/brand/cochemotor_logo_azul_con_tagline.png",
-    logoDark: "assets/brand/cochemotor_logo_blanco_sin_tagline.png",
-    pistonIcon: "assets/brand/cochemotor_piston_azul_transparente.png",
+    logoLight: "assets/brand/cochemotor_logo_light.png",
+    logoDark: "assets/brand/cochemotor_logo_dark.png",
+    logoTransparent: "assets/brand/cochemotor_logo_transparent.png",
+    pistonIcon: "assets/brand/cochemotor_piston_icon.png",
+    selloVerificado: "assets/brand/cochemotor_sello_verificado.png",
+    appIcon: "assets/brand/cochemotor_app_icon.png",
     faviconSvg: "assets/brand/favicon.svg",
+    colors: {
+      navy: "#002D62",
+      red: "#D62828",
+      burgundy: "#8F1D2C",
+      green: "#18A66A",
+      white: "#FFFFFF",
+      gray: "#F3F5F7",
+      graphite: "#3C3F41"
+    }
   },
 
   navigation: [
@@ -132,17 +144,17 @@ const siteConfig = {
 
   chapters: {
     chapter1_hero: {
-      eyebrow: "MARKETPLACE & PLATAFORMA SAAS B2B DE AUTOMOCIÓN",
-      headline: ["Coches de Segunda Mano.", "Con Mecánica Verificada.", "Sin Vicios Ocultos."],
-      subhead: "Unimos a talleres mecánicos homologados, compraventas independientes y compradores en una plataforma que combina certificación pericial en 100 puntos, trazabilidad DGT y herramientas de automatización comercial.",
-      ctaLabel: "Explorar Marketplace VO",
+      eyebrow: "MARKETPLACE & HUB PROFESIONAL DE AUTOMOCIÓN",
+      headline: ["Confianza para decidir.", "Compra claro. Vende mejor.", "Mecánica verificada y control."],
+      subhead: "Vehículos de ocasión, profesionales identificados y herramientas para decidir con información clara.",
+      ctaLabel: "Explorar vehículos",
       ctaTarget: "marketplace.html",
-      ctaHubLabel: "Probar Panel SaaS Gratis",
+      ctaHubLabel: "Acceder al Hub Profesional",
       ctaHubTarget: "hub.html",
       stats: [
-        { value: "100", label: "Puntos de control pericial" },
-        { value: "0 Cargas", label: "Informe DGT verificado" },
-        { value: "12 Meses", label: "Garantía mecánica legal" },
+        { value: "100 Puntos", label: "Control mecánico verificado" },
+        { value: "0 Cargas", label: "Trazabilidad DGT telemática" },
+        { value: "12 Meses", label: "Garantía legal certificada" },
       ],
     },
 
