@@ -1,0 +1,141 @@
+"""Repositorio de persistencia SQLite nativa para CocheMotor (Spec 003 / Opción C)."""
+
+from __future__ import annotations
+
+import json
+import sqlite3
+from dataclasses import asdict
+from pathlib import Path
+from typing import Any
+
+DB_FILE = Path(__file__).parent / "cochemotor.db"
+
+
+def get_connection(db_path: Path = DB_FILE) -> sqlite3.Connection:
+    """Crea la conexión a la base de datos SQLite con modo WAL y foreign keys."""
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys = ON;")
+    return conn
+
+
+def init_db(db_path: Path = DB_FILE) -> None:
+    """Inicializa el esquema multi-tenant relacional en SQLite."""
+    conn = get_connection(db_path)
+    try:
+        conn.executescript("""
+        CREATE TABLE IF NOT EXISTS dealerships (
+            tenant_id TEXT PRIMARY KEY,
+            display_name TEXT NOT NULL,
+            dealer_slug TEXT NOT NULL UNIQUE,
+            phone_whatsapp TEXT NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS vehicles (
+            vehicle_id TEXT PRIMARY KEY,
+            tenant_id TEXT NOT NULL,
+            brand TEXT NOT NULL,
+            model TEXT NOT NULL,
+            version TEXT NOT NULL,
+            year INTEGER NOT NULL,
+            mileage_km INTEGER NOT NULL,
+            cash_price REAL NOT NULL,
+            dgt_badge TEXT NOT NULL,
+            stage TEXT NOT NULL DEFAULT 'publicado',
+            evidence_level TEXT NOT NULL DEFAULT 'verificado_obd',
+            status TEXT NOT NULL DEFAULT 'disponible',
+            public_slug TEXT NOT NULL,
+            metadata_json TEXT,
+            FOREIGN KEY (tenant_id) REFERENCES dealerships (tenant_id) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS leads (
+            lead_id TEXT PRIMARY KEY,
+            tenant_id TEXT NOT NULL,
+            vehicle_id TEXT NOT NULL,
+            buyer_name TEXT NOT NULL,
+            phone TEXT NOT NULL,
+            payment_method TEXT,
+            score INTEGER DEFAULT 90,
+            status TEXT DEFAULT 'nuevo',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (tenant_id) REFERENCES dealerships (tenant_id) ON DELETE CASCADE,
+            FOREIGN KEY (vehicle_id) REFERENCES vehicles (vehicle_id) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS deal_rooms (
+            deal_id TEXT PRIMARY KEY,
+            token TEXT NOT NULL UNIQUE,
+            tenant_id TEXT NOT NULL,
+            vehicle_id TEXT NOT NULL,
+            buyer_name TEXT NOT NULL,
+            buyer_phone TEXT NOT NULL,
+            agreed_price REAL NOT NULL,
+            deposit_amount REAL NOT NULL,
+            deposit_status TEXT,
+            status TEXT DEFAULT 'contrato_preparado',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (tenant_id) REFERENCES dealerships (tenant_id) ON DELETE CASCADE,
+            FOREIGN KEY (vehicle_id) REFERENCES vehicles (vehicle_id) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS warranty_cases (
+            case_id TEXT PRIMARY KEY,
+            tenant_id TEXT NOT NULL,
+            vehicle_id TEXT NOT NULL,
+            buyer_name TEXT NOT NULL,
+            issue_description TEXT NOT NULL,
+            issue_type TEXT NOT NULL,
+            assigned_workshop TEXT NOT NULL,
+            status TEXT DEFAULT 'abierta',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (tenant_id) REFERENCES dealerships (tenant_id) ON DELETE CASCADE,
+            FOREIGN KEY (vehicle_id) REFERENCES vehicles (vehicle_id) ON DELETE CASCADE
+        );
+        """)
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def save_dealership(conn: sqlite3.Connection, tenant_id: str, display_name: str, dealer_slug: str, phone: str) -> None:
+    conn.execute(
+        """
+        INSERT OR REPLACE INTO dealerships (tenant_id, display_name, dealer_slug, phone_whatsapp)
+        VALUES (?, ?, ?, ?)
+        """,
+        (tenant_id, display_name, dealer_slug, phone),
+    )
+
+
+def save_vehicle_record(conn: sqlite3.Connection, vehicle_dict: dict[str, Any]) -> None:
+    conn.execute(
+        """
+        INSERT OR REPLACE INTO vehicles (
+            vehicle_id, tenant_id, brand, model, version, year, mileage_km,
+            cash_price, dgt_badge, stage, evidence_level, status, public_slug, metadata_json
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            vehicle_dict["vehicle_id"],
+            vehicle_dict["tenant_id"],
+            vehicle_dict["brand"],
+            vehicle_dict["model"],
+            vehicle_dict.get("version", ""),
+            vehicle_dict["year"],
+            vehicle_dict["mileage_km"],
+            vehicle_dict["cash_price"],
+            vehicle_dict["dgt_badge"],
+            vehicle_dict.get("stage", "publicado"),
+            vehicle_dict.get("evidence_level", "verificado_obd"),
+            vehicle_dict.get("status", "disponible"),
+            vehicle_dict.get("public_slug", ""),
+            json.dumps(vehicle_dict.get("metadata", {})),
+        ),
+    )
+
+
+def get_vehicles_by_tenant(conn: sqlite3.Connection, tenant_id: str) -> list[dict[str, Any]]:
+    rows = conn.execute("SELECT * FROM vehicles WHERE tenant_id = ?", (tenant_id,)).fetchall()
+    return [dict(r) for r in rows]

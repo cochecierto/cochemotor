@@ -283,7 +283,45 @@ class AutomotiveDomainTests(unittest.TestCase):
             )
 
 
+    def test_sqlite_multitenant_repository(self) -> None:
+        import tempfile
+        from broker_core.repository import init_db, get_connection, save_dealership, save_vehicle_record, get_vehicles_by_tenant
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            test_db = Path(tmp_dir) / "test.db"
+            init_db(test_db)
+            conn = get_connection(test_db)
+
+            # 1. Registrar dos concesionarios distintos
+            save_dealership(conn, "tenant-a", "Taller A", "taller-a", "34600111111")
+            save_dealership(conn, "tenant-b", "Concesionario B", "concesionario-b", "34600222222")
+
+            # 2. Registrar vehículo para Tenant A
+            save_vehicle_record(conn, {
+                "vehicle_id": "veh-1",
+                "tenant_id": "tenant-a",
+                "brand": "Toyota",
+                "model": "Yaris",
+                "version": "Active",
+                "year": 2021,
+                "mileage_km": 35000,
+                "cash_price": 15500.0,
+                "dgt_badge": "eco",
+                "stage": "publicado",
+                "evidence_level": "verificado_obd",
+            })
+
+            # 3. Validar aislamiento estricto
+            cars_a = get_vehicles_by_tenant(conn, "tenant-a")
+            cars_b = get_vehicles_by_tenant(conn, "tenant-b")
+
+            self.assertEqual(len(cars_a), 1)
+            self.assertEqual(cars_a[0]["model"], "Yaris")
+            self.assertEqual(len(cars_b), 0)
+            conn.close()
+
+
 if __name__ == "__main__":
     unittest.main()
+
 
 
