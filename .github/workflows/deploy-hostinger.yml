@@ -1,9 +1,10 @@
-name: Despliegue Continuo a Hostinger
+name: Despliegue Continuo a Hostinger (cochemotor.es)
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -20,5 +21,18 @@ jobs:
           server: ${{ secrets.HOSTINGER_FTP_HOST }}
           username: ${{ secrets.HOSTINGER_FTP_USER }}
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-          local-dir: ./local-broker/static/
-          server-dir: ./public_html/
+          local-dir: ./
+          server-dir: ${{ secrets.HOSTINGER_REMOTE_DIR || 'public_html/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/specs/**
+            **/docs/**
+            **/.codex/**
+            **/.agents/**
+            **/tests/**
+            **/database/**
+            **/wordpress/**
+            **/references/**
+            iniciar_cochemotor.bat
+            deploy_hostinger.py

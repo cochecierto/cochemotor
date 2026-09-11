@@ -1,20 +1,35 @@
 #!/usr/bin/env python3
 """
 CocheMotor — Despliegue Automatizado a Hostinger vía FTP / SFTP
-Sube recursivamente el contenido de local-broker/static/ al directorio public_html/
+Sube los archivos web directamente al directorio public_html/ para https://cochemotor.es/
+y la URL temporal https://teal-raccoon-907116.hostingersite.com/
 """
 
 import os
 import sys
 import ftplib
+import argparse
 
-HOST = os.getenv("HOSTINGER_FTP_HOST", "")
-USER = os.getenv("HOSTINGER_FTP_USER", "")
-PASSWORD = os.getenv("HOSTINGER_FTP_PASS", "")
-REMOTE_DIR = os.getenv("HOSTINGER_REMOTE_DIR", "public_html")
-LOCAL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "local-broker", "static")
+DEFAULT_HOST = os.getenv("HOSTINGER_FTP_HOST", "")
+DEFAULT_USER = os.getenv("HOSTINGER_FTP_USER", "")
+DEFAULT_PASS = os.getenv("HOSTINGER_FTP_PASS", "")
+DEFAULT_DIR = os.getenv("HOSTINGER_REMOTE_DIR", "public_html")
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-def upload_dir(ftp, local_path, remote_path):
+FILES_TO_UPLOAD = [
+    "index.html",
+    "styles.css",
+    "app.js",
+    "site-config.js",
+    "hub.html",
+    "hub.js",
+    "marketplace.html",
+    "demanda.html",
+    "ficha.html",
+    ".htaccess",
+]
+
+def upload_dir_recursive(ftp, local_path, remote_path):
     for item in os.listdir(local_path):
         l_item = os.path.join(local_path, item)
         r_item = f"{remote_path}/{item}".replace("\\", "/")
@@ -24,38 +39,68 @@ def upload_dir(ftp, local_path, remote_path):
                 print(f"[FTP] Directorio creado: {r_item}")
             except ftplib.error_perm:
                 pass
-            upload_dir(ftp, l_item, r_item)
+            upload_dir_recursive(ftp, l_item, r_item)
         else:
             with open(l_item, "rb") as f:
                 ftp.storbinary(f"STOR {r_item}", f)
                 print(f"[FTP] Subido: {r_item}")
 
 def main():
-    if not HOST or not USER or not PASSWORD:
-        print("=" * 60)
-        print("   COCHEMOTOR — DESPLIEGUE A HOSTINGER (FTP)")
-        print("=" * 60)
-        print("Faltan las credenciales FTP. Configura las variables de entorno:")
-        print("  - HOSTINGER_FTP_HOST  (ej: ftp.tudominio.com o la IP del servidor Hostinger)")
-        print("  - HOSTINGER_FTP_USER  (usuario FTP de hPanel)")
-        print("  - HOSTINGER_FTP_PASS  (contrasena FTP)")
-        print("=" * 60)
+    parser = argparse.ArgumentParser(description="Despliegue CocheMotor a Hostinger")
+    parser.add_argument("--host", default=DEFAULT_HOST, help="Servidor FTP Hostinger")
+    parser.add_argument("--user", default=DEFAULT_USER, help="Usuario FTP Hostinger")
+    parser.add_argument("--password", default=DEFAULT_PASS, help="Contraseña FTP")
+    parser.add_argument("--dir", default=DEFAULT_DIR, help="Directorio remoto (por defecto: public_html)")
+    args = parser.parse_args()
+
+    host = args.host or input("Introduce el host FTP de Hostinger (ej. ftp.cochemotor.es o IP): ").strip()
+    user = args.user or input("Introduce el usuario FTP de Hostinger: ").strip()
+    password = args.password or input("Introduce la contraseña FTP de Hostinger: ").strip()
+    remote_dir = args.dir
+
+    if not host or not user or not password:
+        print("Error: Credenciales incompletas.")
         sys.exit(1)
 
-    print(f"[CocheMotor] Conectando a {HOST} con usuario {USER}...")
+    print("=" * 65)
+    print("   COCHEMOTOR — DESPLIEGUE A HOSTINGER")
+    print(f"   Destino: https://cochemotor.es/ | {remote_dir}")
+    print("=" * 65)
+    print(f"[FTP] Conectando a {host}...")
+
     try:
-        with ftplib.FTP(HOST, USER, PASSWORD) as ftp:
-            print("[CocheMotor] Conexión establecida con éxito.")
+        with ftplib.FTP(host, user, password) as ftp:
+            print("[FTP] Conexión establecida con éxito.")
             try:
-                ftp.cwd(REMOTE_DIR)
+                ftp.cwd(remote_dir)
             except ftplib.error_perm:
-                ftp.mkd(REMOTE_DIR)
-                ftp.cwd(REMOTE_DIR)
-            print(f"[CocheMotor] Subiendo archivos desde {LOCAL_DIR} hacia /{REMOTE_DIR}...")
-            upload_dir(ftp, LOCAL_DIR, REMOTE_DIR)
-            print("=" * 60)
+                ftp.mkd(remote_dir)
+                ftp.cwd(remote_dir)
+
+            print(f"[FTP] Subiendo archivos web a /{remote_dir}...")
+            # 1. Subir archivos principales
+            for f in FILES_TO_UPLOAD:
+                local_file = os.path.join(ROOT_DIR, f)
+                if os.path.exists(local_file):
+                    with open(local_file, "rb") as fp:
+                        ftp.storbinary(f"STOR {f}", fp)
+                        print(f"  ✓ {f} subido correctamente.")
+
+            # 2. Subir carpeta assets
+            assets_dir = os.path.join(ROOT_DIR, "assets")
+            if os.path.exists(assets_dir):
+                print("  ✓ Subiendo directorio assets/...")
+                try:
+                    ftp.mkd("assets")
+                except ftplib.error_perm:
+                    pass
+                upload_dir_recursive(ftp, assets_dir, "assets")
+
+            print("\n" + "=" * 65)
             print("   ✅ DESPLIEGUE A HOSTINGER COMPLETADO CON ÉXITO")
-            print("=" * 60)
+            print("   Producción: https://cochemotor.es/")
+            print("   Preview:    https://teal-raccoon-907116.hostingersite.com/")
+            print("=" * 65)
     except Exception as e:
         print(f"[Error FTP] {e}")
         sys.exit(1)
