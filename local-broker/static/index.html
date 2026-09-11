@@ -50,32 +50,105 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="hero-eyebrow" id="hero-eyebrow">
-            MARKETPLACE & PLATAFORMA SAAS B2B DE AUTOMOCIÓN
+            MARKETPLACE & PLATAFORMA DIGITAL DE AUTOMOCIÓN
           </div>
           <h1 class="hero-headline" id="hero-headline">
-            Coches de Segunda Mano.<br>
-            <span class="highlight">Con Mecánica Verificada.</span><br>
-            Sin Vicios Ocultos.
+            Confianza para decidir.<br>
+            <span class="highlight">Compra claro. Vende mejor.</span>
           </h1>
           <p class="hero-subhead" id="hero-subhead">
-            Unimos a talleres mecánicos certificados, compraventas independientes y particulares en una plataforma donde cada coche pasa por 100 puntos de control pericial antes de publicarse.
+            Vehículos de ocasión con certificación pericial de taller en 100 puntos, profesionales identificados y herramientas digitales para decidir con tranquilidad.
           </p>
           <div class="hero-cta-box">
             <a href="marketplace.html" class="btn btn-red" id="hero-cta">Explorar vehículos</a>
             <a href="hub.html" class="btn btn-outline-white">Acceder al Hub Profesional</a>
           </div>
-          <div class="hero-stats-grid" id="hero-stats-grid">
-            <!-- Renderizado dinámicamente desde siteConfig -->
+
+          <!-- Hero Search Box (Matching Reference Mockup) -->
+          <div class="hero-search-wrapper">
+            <div class="hero-search-tabs">
+              <button type="button" class="hero-search-tab active" onclick="switchHeroSearchTab(this, 'coches')">🚗 Coches de ocasión</button>
+              <button type="button" class="hero-search-tab" onclick="switchHeroSearchTab(this, 'profesionales')">👔 Profesionales</button>
+              <button type="button" class="hero-search-tab" onclick="switchHeroSearchTab(this, 'valoracion')">📊 Valoración</button>
+            </div>
+            <div class="hero-search-box">
+              <div class="hero-search-field">
+                <label>Marca</label>
+                <select id="hero-filter-brand" class="hero-search-select">
+                  <option value="">Todas las marcas</option>
+                  <option value="Volkswagen">Volkswagen</option>
+                  <option value="Toyota">Toyota</option>
+                  <option value="BMW">BMW</option>
+                  <option value="Peugeot">Peugeot</option>
+                  <option value="Seat">Seat</option>
+                  <option value="Renault">Renault</option>
+                </select>
+              </div>
+              <div class="hero-search-field">
+                <label>Modelo</label>
+                <select id="hero-filter-model" class="hero-search-select">
+                  <option value="">Todos los modelos</option>
+                  <option value="Golf">Golf</option>
+                  <option value="Serie 3">Serie 3</option>
+                  <option value="Corolla">Corolla</option>
+                  <option value="3008">3008</option>
+                  <option value="León">León</option>
+                  <option value="Clio">Clio</option>
+                </select>
+              </div>
+              <div class="hero-search-field">
+                <label>Precio máx.</label>
+                <select id="hero-filter-price" class="hero-search-select">
+                  <option value="">Sin límite</option>
+                  <option value="16000">Hasta 16.000 €</option>
+                  <option value="20000">Hasta 20.000 €</option>
+                  <option value="25000">Hasta 25.000 €</option>
+                  <option value="30000">Hasta 30.000 €</option>
+                </select>
+              </div>
+              <button type="button" class="hero-search-btn" onclick="executeHeroSearch()">
+                🔍 Buscar
+              </button>
+            </div>
+          </div>
+
+          <!-- Trust Bar (Matching Reference Mockup) -->
+          <div class="hero-trust-bar">
+            <div class="hero-trust-item">
+              <div class="hero-trust-icon">🛡️</div>
+              <div>
+                <div class="hero-trust-title">Vehículos verificados</div>
+                <div class="hero-trust-desc">Con informe pericial completo</div>
+              </div>
+            </div>
+            <div class="hero-trust-item">
+              <div class="hero-trust-icon">👥</div>
+              <div>
+                <div class="hero-trust-title">Compradores de confianza</div>
+                <div class="hero-trust-desc">Sin sorpresas ni intermediarios</div>
+              </div>
+            </div>
+            <div class="hero-trust-item">
+              <div class="hero-trust-icon">📈</div>
+              <div>
+                <div class="hero-trust-title">Herramientas profesionales</div>
+                <div class="hero-trust-desc">Hub SaaS de gestión y captación</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-stats-grid" id="hero-stats-grid" style="display: none;">
+            <!-- Oculto para priorizar el buscador del mockup oficial -->
           </div>
         </div>
 
         <div class="hero-visual-card">
           <img class="hero-visual-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80" alt="Vehículo verificado en CocheMotor">
           <div class="hero-floating-badge">
-            <img class="floating-piston floating-piston-img" src="assets/brand/cochemotor_sello_verificado.png" alt="Sello CocheMotor">
+            <img class="floating-piston floating-piston-img" src="assets/brand/cochemotor_sello_verificado.png" alt="Sello CocheMotor Verificado">
             <div class="floating-text">
-              <h4>Sello de Mecánica Verificada</h4>
-              <p>100 puntos periciales de taller & Trazabilidad DGT</p>
+              <h4>CocheMotor Verificado</h4>
+              <p>100 puntos de peritaje en taller & Trazabilidad DGT</p>
             </div>
           </div>
         </div>
