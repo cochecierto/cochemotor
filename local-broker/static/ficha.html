@@ -442,6 +442,104 @@
           </div>
         </div>
 
+        <!-- =========================================================================================
+             MÓDULO: ASISTENTE PRUDENTE DEL COMPRADOR (IA COCHEMOTOR - SPEC 003)
+             ========================================================================================= -->
+        <div style="background: #ffffff; border: 2px solid #00BFFF; border-radius: var(--cm-radius-lg); padding: 26px; margin-top: 32px; box-shadow: 0 6px 20px rgba(0, 191, 255, 0.12);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.6rem;">🤖</span>
+              <div>
+                <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: #0284c7; letter-spacing: 0.05em;">CO-PILOTO DE COMPRA TRANSPARENTE</span>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+                  Asistente Prudente del Comprador
+                </h3>
+              </div>
+            </div>
+            <span style="font-size: 0.75rem; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px; font-weight: 700;">
+              Ley Consumidores & DGT España
+            </span>
+          </div>
+
+          <div style="background: #f8fafc; border-left: 4px solid #00BFFF; padding: 12px 14px; border-radius: 0 6px 6px 0; margin-bottom: 18px; font-size: 0.85rem; color: var(--cm-graphite);">
+            💡 <em>"Según la información documentada por el taller, este vehículo dispone de peritaje y ausencia de embargos. Como comprador prudente, te recomendamos contrastar estas 3 comprobaciones antes de formalizar la señal."</em>
+          </div>
+
+          <!-- Selector de Pestañas del Asistente -->
+          <div style="display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--cm-border); padding-bottom: 10px; flex-wrap: wrap;">
+            <button id="btn-tab-transfer" class="btn btn-outline" style="padding: 6px 12px; font-size: 0.82rem; font-weight: 700;" onclick="switchBuyerTab('transfer')">
+              💶 Coste Transferencia DGT
+            </button>
+            <button id="btn-tab-questions" class="btn btn-outline" style="padding: 6px 12px; font-size: 0.82rem; font-weight: 700;" onclick="switchBuyerTab('questions')">
+              ❓ Qué Preguntar al Vendedor
+            </button>
+            <button id="btn-tab-checklist" class="btn btn-outline" style="padding: 6px 12px; font-size: 0.82rem; font-weight: 700;" onclick="switchBuyerTab('checklist')">
+              🚗 Checklist de Prueba Dinámica
+            </button>
+          </div>
+
+          <!-- Panel 1: Coste Real de Transferencia (Tasa DGT + ITP) -->
+          <div id="buyer-box-transfer" style="display: block;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 8px;">
+              Estimación de Gastos de Cambio de Titularidad
+            </h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 14px;">
+              <div style="background: #f1f5f9; padding: 12px; border-radius: 8px;">
+                <div style="font-size: 0.75rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">Tasa Oficial DGT 4.1</div>
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy);">55,70 €</div>
+                <div style="font-size: 0.72rem; color: #16a34a; font-weight: 600;">✓ Incluida en compra profesional</div>
+              </div>
+              <div style="background: #f1f5f9; padding: 12px; border-radius: 8px;">
+                <div style="font-size: 0.75rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">Garantía Mecánica 12 Meses</div>
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy);">0,00 €</div>
+                <div style="font-size: 0.72rem; color: #16a34a; font-weight: 600;">✓ Obligatoria por Ley (sin sobrecoste)</div>
+              </div>
+              <div style="background: #f1f5f9; padding: 12px; border-radius: 8px;">
+                <div style="font-size: 0.75rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">Gestoría Telemática DGT</div>
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy);">En 24 Horas</div>
+                <div style="font-size: 0.72rem; color: var(--cm-cyan); font-weight: 600;">Justificante oficial provisional</div>
+              </div>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--cm-text-secondary); margin: 0;">
+              * Al adquirir un vehículo a un profesional o taller asociado de CocheMotor en España, la operación está sujeta a factura mercantil con régimen de bienes usados (REBU), por lo que <strong>no se tributa por ITP autonómico</strong> como ocurre entre particulares.
+            </p>
+          </div>
+
+          <!-- Panel 2: Preguntas Clave para el Vendedor -->
+          <div id="buyer-box-questions" style="display: none;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 8px;">
+              Preguntas Recomendadas para este Modelo
+            </h4>
+            <ul style="font-size: 0.85rem; color: var(--cm-graphite); padding-left: 20px; line-height: 1.7; margin: 0;">
+              <li>¿Se entrega el historial completo de mantenimientos sellado en libro físico o registro telemático?</li>
+              <li>¿Tiene fecha confirmada del último cambio de correa/cadena de distribución y bomba de agua?</li>
+              <li>¿Se incluye el informe telemático DGT completo con fecha del mismo día de la entrega?</li>
+              <li>¿Cuáles son las coberturas específicas y talleres concertados de la garantía europea de 1 año?</li>
+            </ul>
+          </div>
+
+          <!-- Panel 3: Checklist de Prueba en Carretera -->
+          <div id="buyer-box-checklist" style="display: none;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 8px;">
+              Checklist Guiado Durante tu Visita y Prueba
+            </h4>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.84rem; color: var(--cm-graphite);">
+              <label style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" checked> Arrancar en frío: comprobar que no hay ruidos metálicos ni humo denso.
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" checked> Cuadro de mandos: verificar que el testigo de motor (Check Engine) se apaga tras el arranque.
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" checked> Frenada en recta: soltar levemente el volante para asegurar que no se desvía a ningún lado.
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" checked> Climatizador y elevalunas: probar frío/calor al máximo y todos los mandos interiores.
+              </label>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- Columna Derecha: Tarjeta de Precio, Vendedor y Formulario -->
@@ -788,7 +886,52 @@
       event.target.reset();
     }
 
-    window.addEventListener('DOMContentLoaded', initFicha);
+    function switchBuyerTab(tabKey) {
+      const tabs = ['transfer', 'questions', 'checklist'];
+      tabs.forEach(k => {
+        const box = document.getElementById(`buyer-box-${k}`);
+        const btn = document.getElementById(`btn-tab-${k}`);
+        if (box) box.style.display = (k === tabKey) ? 'block' : 'none';
+        if (btn) {
+          if (k === tabKey) {
+            btn.classList.remove('btn-outline');
+            btn.classList.add('btn-cyan');
+          } else {
+            btn.classList.remove('btn-cyan');
+            btn.classList.add('btn-outline');
+          }
+        }
+      });
+    }
+
+    // Comprobación de sala de operaciones (Deal Room Token)
+    function checkDealRoomToken() {
+      const dealToken = getParam('deal_token');
+      if (dealToken) {
+        const room = CocheMotorStorage.getDealRoomByTokenOrId(dealToken);
+        if (room) {
+          const banner = document.createElement('div');
+          banner.style.cssText = "background: #002D62; color: white; padding: 16px; border-radius: 8px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; border-left: 6px solid #00BFFF;";
+          banner.innerHTML = `
+            <div>
+              <div style="font-size: 0.75rem; text-transform: uppercase; color: #00BFFF; font-weight: 800;">EXPEDIENTE DIGITAL DE COMPRAVENTA ACTIVO</div>
+              <div style="font-size: 1.1rem; font-weight: 800;">Hola ${room.buyerName}, estás en tu Deal Room privada para este ${room.vehicleTitle}.</div>
+              <div style="font-size: 0.85rem; color: #cbd5e1;">Precio pactado: ${room.agreedPrice.toLocaleString('es-ES')} € · Señal: ${room.depositAmount} € (${room.depositStatus}) · 12 Meses de Garantía</div>
+            </div>
+            <button class="btn btn-cyan" style="padding: 8px 16px; font-weight: 800;" onclick="previewContractDGT('${room.id}')">
+              📄 Ver Contrato DGT
+            </button>
+          `;
+          const main = document.querySelector('main');
+          if (main) main.insertBefore(banner, main.firstChild);
+        }
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initFicha();
+      checkDealRoomToken();
+    });
   </script>
 </body>
 </html>

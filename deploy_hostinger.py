@@ -26,6 +26,7 @@ FILES_TO_UPLOAD = [
     "marketplace.html",
     "demanda.html",
     "ficha.html",
+    "dealer.html",
     ".htaccess",
 ]
 
@@ -84,12 +85,12 @@ def main():
                 if os.path.exists(local_file):
                     with open(local_file, "rb") as fp:
                         ftp.storbinary(f"STOR {f}", fp)
-                        print(f"  ✓ {f} subido correctamente.")
+                        print(f"  [OK] {f} subido correctamente.")
 
             # 2. Subir carpeta assets
             assets_dir = os.path.join(ROOT_DIR, "assets")
             if os.path.exists(assets_dir):
-                print("  ✓ Subiendo directorio assets/...")
+                print("  [OK] Subiendo directorio assets/...")
                 try:
                     ftp.mkd("assets")
                 except ftplib.error_perm:
@@ -97,9 +98,8 @@ def main():
                 upload_dir_recursive(ftp, assets_dir, "assets")
 
             print("\n" + "=" * 65)
-            print("   ✅ DESPLIEGUE A HOSTINGER COMPLETADO CON ÉXITO")
-            print("   Producción: https://motor.cochecierto.com/")
-            print("   Preview:    https://motor.cochecierto.com/")
+            print("   [EXITO] DESPLIEGUE A HOSTINGER COMPLETADO")
+            print("   Produccion: https://motor.cochecierto.com/")
             print("=" * 65)
     except Exception as e:
         print(f"[Error FTP] {e}")

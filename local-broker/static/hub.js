@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderReferralSection();
   runFinancialCalculation();
   renderWindshieldCard();
+  initDealRoomDropdowns();
+  renderDealRoomsList();
   loadDealerWebSettings();
 });
 
@@ -65,6 +67,7 @@ function switchHubTab(tabId) {
     'tab-orders',
     'tab-calculator',
     'tab-qr',
+    'tab-deal-room',
     'tab-referrals',
     'tab-dealer-web'
   ];
@@ -90,6 +93,9 @@ function switchHubTab(tabId) {
     renderCopilotCards();
   } else if (tabId === 'tab-orders') {
     renderDemandOrders();
+  } else if (tabId === 'tab-deal-room') {
+    initDealRoomDropdowns();
+    renderDealRoomsList();
   } else if (tabId === 'tab-generator') {
     initVehicleDropdowns();
     loadVehicleForGenerator();
@@ -174,6 +180,11 @@ function handleCreateVehicle(event) {
 
   const activeUser = CocheMotorStorage.getActiveUser();
 
+  const stageSelect = document.getElementById('up-lifecycle-stage');
+  const stage = stageSelect ? stageSelect.value : 'publicado';
+  const evidenceSelect = document.getElementById('up-evidence-level');
+  const evidenceLevel = evidenceSelect ? evidenceSelect.value : 'verificado_obd';
+
   const newVehicle = {
     id: `cm-${Date.now().toString().slice(-4)}`,
     userId: activeUser.id,
@@ -201,8 +212,9 @@ function handleCreateVehicle(event) {
     warranty: "12 Meses Legal",
     dgtStatus: "Informe Limpio (Sin Cargas)",
     highlights,
-    stage: "publicado",
-    status: "disponible",
+    stage: stage,
+    evidenceLevel: evidenceLevel,
+    status: (stage === 'vendido' || stage === 'entregado') ? 'vendido' : (stage === 'reservado' || stage === 'contrato_pendiente') ? 'reservado' : 'disponible',
     daysInStock: 0,
     clicksCount: 0,
     leadsCount: 0,
@@ -794,7 +806,191 @@ function saveDealerSettings(event) {
 
 function copyDealerWebLink() {
   const activeUser = CocheMotorStorage.getActiveUser();
-  const link = `${window.location.origin}/dealer.html?id=${activeUser.id}`;
-  navigator.clipboard.writeText(link);
-  alert('¡Enlace de tu web comercial copiado al portapapeles!');
+  const sub = activeUser.subdomain || activeUser.slug || 'taller';
+  const fullUrl = `${window.location.origin}/dealer.html?id=${activeUser.id}`;
+  navigator.clipboard.writeText(fullUrl).then(() => {
+    alert(`🌐 Enlace a tu web copiado:\n${fullUrl}\n\nPuedes pegarlo en tu perfil de Instagram, Facebook o WhatsApp Business.`);
+  });
+}
+
+// =========================================================================================
+// MÓDULO: EXPEDIENTES DIGITALES & SALA PRIVADA DE OPERACIONES (DEAL ROOM)
+// =========================================================================================
+
+function initDealRoomDropdowns() {
+  const dealSelect = document.getElementById('deal-vehicle-select');
+  if (!dealSelect) return;
+  const stock = CocheMotorStorage.getStock();
+  dealSelect.innerHTML = stock.map(v => 
+    `<option value="${v.id}">${v.brand} ${v.model} (${v.version}) — ${v.price.toLocaleString('es-ES')} €</option>`
+  ).join('');
+
+  // Sincronizar precio pactado al cambiar de coche
+  dealSelect.onchange = () => {
+    const chosen = stock.find(v => v.id === dealSelect.value);
+    if (chosen) {
+      const priceIn = document.getElementById('deal-agreed-price');
+      if (priceIn) priceIn.value = chosen.price;
+    }
+  };
+
+  if (stock.length > 0) {
+    const priceIn = document.getElementById('deal-agreed-price');
+    if (priceIn && !priceIn.value) priceIn.value = stock[0].price;
+  }
+}
+
+function handleCreateDealRoom(event) {
+  event.preventDefault();
+  const vehicleId = document.getElementById('deal-vehicle-select').value;
+  const buyerName = document.getElementById('deal-buyer-name').value.trim();
+  const buyerPhone = document.getElementById('deal-buyer-phone').value.trim();
+  const agreedPrice = parseFloat(document.getElementById('deal-agreed-price').value);
+  const deposit = parseFloat(document.getElementById('deal-deposit').value) || 500;
+
+  const stock = CocheMotorStorage.getStock();
+  const vehicle = stock.find(v => v.id === vehicleId) || stock[0];
+  const activeUser = CocheMotorStorage.getActiveUser();
+
+  const newRoom = CocheMotorStorage.createDealRoom({
+    vehicleId: vehicle.id,
+    vehicleTitle: `${vehicle.brand} ${vehicle.model} ${vehicle.version || ''}`.trim(),
+    sellerUserId: activeUser.id,
+    sellerName: activeUser.businessName || activeUser.name,
+    buyerName,
+    buyerPhone,
+    buyerEmail: `${buyerName.toLowerCase().replace(/\s+/g, '.')}@gmail.com`,
+    agreedPrice,
+    depositAmount: deposit,
+    depositStatus: "Confirmada (Señal telemática)",
+    paymentMethod: "Al contado contra entrega y contrato",
+    status: "contrato_preparado",
+    contractType: "Profesional a Particular (Conforme a DGT & Ley Consumidores)",
+    warrantyMonths: 12,
+    warrantyType: "Garantía Mecánica Europea 1 Año",
+    dgtStatus: "Informe Favorable Telemático Sin Cargas",
+  });
+
+  // Mover el vehículo en el pipeline a "reservado"
+  CocheMotorStorage.updateVehicleStage(vehicle.id, 'reservado');
+  updateKpis();
+  renderPipelineBoard();
+
+  alert(`✅ ¡Expediente Digital creado con éxito para ${buyerName}!\n\nID: ${newRoom.id}\nToken seguro generado para sala privada.`);
+  renderDealRoomsList();
+  event.target.reset();
+  initDealRoomDropdowns();
+}
+
+function renderDealRoomsList() {
+  const container = document.getElementById('deal-rooms-list');
+  const counter = document.getElementById('deal-rooms-counter');
+  if (!container) return;
+
+  const rooms = CocheMotorStorage.getDealRooms();
+  if (counter) counter.textContent = `${rooms.length} expediente(s) activo(s)`;
+
+  if (rooms.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 32px 16px; color: var(--cm-text-secondary); font-size: 0.9rem;">
+        No tienes expedientes abiertos todavía. Pulsa en "Abrir Nuevo Expediente" para preparar una venta con contrato DGT.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = rooms.map(room => {
+    const checklistHtml = (room.deliveryChecklist || []).map(ch => `
+      <label style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--cm-graphite); margin-bottom: 4px;">
+        <input type="checkbox" ${ch.checked ? 'checked' : ''} onchange="toggleChecklistItem('${room.id}', '${ch.item}', this.checked)">
+        <span>${ch.item}</span>
+      </label>
+    `).join('');
+
+    return `
+      <div style="border: 1px solid var(--cm-border); border-radius: var(--cm-radius-md); padding: 20px; background: #f8fafc;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 14px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-weight: 800; color: var(--cm-navy); font-size: 1.1rem;">${room.vehicleTitle}</span>
+              <span style="font-size: 0.72rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 999px; font-weight: 800;">
+                Exp: ${room.id}
+              </span>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-top: 4px;">
+              👤 Comprador: <strong>${room.buyerName}</strong> (${room.buyerPhone}) · Fecha: ${room.createdAt}
+            </div>
+          </div>
+
+          <div style="text-align: right;">
+            <div style="font-size: 1.3rem; font-weight: 800; color: var(--cm-navy);">
+              ${(room.agreedPrice || 0).toLocaleString('es-ES')} €
+            </div>
+            <span style="font-size: 0.78rem; color: #16a34a; font-weight: 700;">
+              Señal: ${(room.depositAmount || 500)} € (${room.depositStatus})
+            </span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; margin-top: 14px; border-top: 1px solid var(--cm-border); padding-top: 14px;">
+          <div>
+            <h5 style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: var(--cm-navy); margin-bottom: 8px;">
+              📋 Checklist de Entrega Oficial (DGT & Taller)
+            </h5>
+            ${checklistHtml}
+          </div>
+
+          <div style="background: white; border: 1px solid var(--cm-border); border-radius: 8px; padding: 14px;">
+            <div style="font-size: 0.78rem; font-weight: 800; text-transform: uppercase; color: var(--cm-text-secondary); margin-bottom: 6px;">
+              SALA PRIVADA DEL COMPRADOR (DEAL ROOM)
+            </div>
+            <div style="font-size: 0.78rem; color: var(--cm-graphite); margin-bottom: 10px;">
+              Enlace revocable con token seguro para que el comprador revise documentación y acepte condiciones.
+            </div>
+            <div style="display: flex; gap: 8px; flex-direction: column;">
+              <button class="btn btn-navy" style="padding: 8px 12px; font-size: 0.8rem; font-weight: 700;" onclick="copyDealRoomLink('${room.token}')">
+                🔗 Copiar Enlace Seguro para WhatsApp
+              </button>
+              <button class="btn btn-outline" style="padding: 8px 12px; font-size: 0.8rem; font-weight: 700;" onclick="previewContractDGT('${room.id}')">
+                📄 Ver Borrador de Contrato DGT
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleChecklistItem(roomId, itemText, isChecked) {
+  const rooms = CocheMotorStorage.getDealRooms('all');
+  const room = rooms.find(r => r.id === roomId);
+  if (room && room.deliveryChecklist) {
+    const item = room.deliveryChecklist.find(i => i.item === itemText);
+    if (item) item.checked = isChecked;
+    CocheMotorStorage.saveAllDealRooms(rooms);
+  }
+}
+
+function copyDealRoomLink(token) {
+  const url = `${window.location.origin}/ficha.html?deal_token=${token}`;
+  navigator.clipboard.writeText(url).then(() => {
+    alert(`🔐 ¡Enlace privado de la Deal Room copiado!\n\n${url}\n\nEnvíalo por WhatsApp al comprador para que consulte el expediente telemático de su compra.`);
+  });
+}
+
+function previewContractDGT(roomId) {
+  const room = CocheMotorStorage.getDealRooms('all').find(r => r.id === roomId);
+  if (!room) return;
+
+  alert(`📄 CONTRATO DE COMPRAVENTA MERCANTIL DGT\n` +
+        `----------------------------------------\n` +
+        `VENDEDOR: ${room.sellerName}\n` +
+        `COMPRADOR: ${room.buyerName} (Tel: ${room.buyerPhone})\n` +
+        `VEHÍCULO: ${room.vehicleTitle}\n` +
+        `PRECIO TOTAL: ${room.agreedPrice} €\n` +
+        `SEÑAL ENTREGADA: ${room.depositAmount} €\n` +
+        `GARANTÍA: ${room.warrantyMonths} meses conforme a la Ley de Consumidores y Usuarios.\n` +
+        `ESTADO DGT: ${room.dgtStatus}\n\n` +
+        `* Basado en la guía oficial de compraventa de la DGT (dgt.es). Documento listo para formalización telemática.`);
 }

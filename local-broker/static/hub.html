@@ -223,13 +223,17 @@
           <span class="hub-nav-item-icon">🖨️</span>
           <span>7. Cartel Parabrisas QR</span>
         </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-deal-room')">
+          <span class="hub-nav-item-icon">📁</span>
+          <span>8. Expedientes & Deal Room</span>
+        </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-referrals')">
           <span class="hub-nav-item-icon">🚀</span>
-          <span>8. Afiliados B2B</span>
+          <span>9. Afiliados B2B</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-dealer-web')">
           <span class="hub-nav-item-icon">🌐</span>
-          <span>9. Mi Web & Subdominio</span>
+          <span>10. Mi Web & Subdominio</span>
         </button>
       </nav>
 
@@ -363,6 +367,36 @@
                 <div class="form-group">
                   <label class="form-label">Coste de Entrada (€)</label>
                   <input type="number" id="up-cost" class="form-control" placeholder="Ej: 14000">
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Fase del Ciclo de Vida (13 Etapas)</label>
+                  <select id="up-lifecycle-stage" class="form-control" style="font-size: 0.85rem; font-weight: 700; color: var(--cm-navy);">
+                    <option value="publicado" selected>5. Publicado / Activo en Web</option>
+                    <option value="captado">1. Captado / Entrada en Stock</option>
+                    <option value="en_verificacion">2. En Verificación Pericial</option>
+                    <option value="en_puesta_a_punto">3. En Puesta a Punto en Taller</option>
+                    <option value="listo_para_publicar">4. Listo para Publicar</option>
+                    <option value="lead_activo">6. Con Lead Activo en Gestión</option>
+                    <option value="prueba_concertada">7. Prueba Concertada con Cliente</option>
+                    <option value="reservado">8. Reservado con Señal</option>
+                    <option value="contrato_pendiente">9. Contrato Mercantil Pendiente</option>
+                    <option value="vendido">10. Vendido</option>
+                    <option value="entregado">11. Entregado al Comprador</option>
+                    <option value="en_posventa">12. En Posventa y Garantía</option>
+                    <option value="retirado">13. Retirado de Venta</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nivel de Evidencia Mecánica</label>
+                  <select id="up-evidence-level" class="form-control" style="font-size: 0.85rem;">
+                    <option value="verificado_obd" selected>✓ Diagnosis OBD + Elevador Taller</option>
+                    <option value="documentado">📄 Documentación y Facturas aportadas</option>
+                    <option value="verificado_dgt">🛡️ Informe DGT Telemático Limpio</option>
+                    <option value="declarado">⚠️ Declarado por Vendedor (Sin peritar)</option>
+                  </select>
                 </div>
               </div>
 
@@ -841,6 +875,83 @@
               </button>
             </div>
           </form>
+        </div>
+      </section>
+
+      <!-- =========================================================================================
+           PESTAÑA 8: EXPEDIENTES DIGITALES & SALA PRIVADA DE OPERACIONES (DEAL ROOM)
+           ========================================================================================= -->
+      <section id="tab-deal-room" style="display: none;">
+        <div class="hub-header" style="margin-bottom: 24px;">
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 6px;">
+            📁 Expedientes Digitales de Venta & Deal Room Privada
+          </h2>
+          <p style="color: var(--cm-text-secondary); font-size: 0.95rem;">
+            Centraliza cada operación de compraventa: reserva telemática, contrato mercantil DGT, checklist de entrega en 5 puntos y enlace seguro revocable para el comprador.
+          </p>
+        </div>
+
+        <!-- Acciones Rápidas: Crear Nuevo Expediente -->
+        <div style="background: white; border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 24px; margin-bottom: 30px; box-shadow: var(--cm-shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+              ➕ Abrir Nuevo Expediente Digital de Operación
+            </h3>
+            <span style="font-size: 0.8rem; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px; font-weight: 700;">
+              Modelo DGT & Ley Consumidores
+            </span>
+          </div>
+
+          <form id="form-create-deal-room" onsubmit="handleCreateDealRoom(event)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: end;">
+            <div>
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Vehículo de Stock *</label>
+              <select id="deal-vehicle-select" class="form-control" required style="font-size: 0.85rem;">
+                <!-- Dinámico -->
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Nombre del Comprador *</label>
+              <input type="text" id="deal-buyer-name" class="form-control" placeholder="Ej: Marta Soler López" required style="font-size: 0.85rem;">
+            </div>
+
+            <div>
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Teléfono / WhatsApp *</label>
+              <input type="tel" id="deal-buyer-phone" class="form-control" placeholder="Ej: 612 345 678" required style="font-size: 0.85rem;">
+            </div>
+
+            <div>
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Precio Pactado (€) *</label>
+              <input type="number" id="deal-agreed-price" class="form-control" placeholder="16900" required style="font-size: 0.85rem;">
+            </div>
+
+            <div>
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Señal / Reserva (€)</label>
+              <input type="number" id="deal-deposit" class="form-control" placeholder="500" value="500" style="font-size: 0.85rem;">
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-cyan" style="width: 100%; padding: 10px; font-weight: 800; font-size: 0.9rem;">
+                🚀 Generar Sala Privada
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Listado de Expedientes Activos -->
+        <div style="background: white; border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 24px; box-shadow: var(--cm-shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+              Expedientes de este Vendedor
+            </h3>
+            <span id="deal-rooms-counter" style="font-size: 0.85rem; color: var(--cm-text-secondary); font-weight: 600;">
+              0 expedientes registrados
+            </span>
+          </div>
+
+          <div id="deal-rooms-list" style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- Renderizado dinámico -->
+          </div>
         </div>
       </section>
 

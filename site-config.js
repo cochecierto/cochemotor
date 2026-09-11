@@ -608,6 +608,23 @@ const siteConfig = {
       date: "Hoy",
     },
   ],
+
+  // Definición oficial de las 13 etapas del ciclo de vida del vehículo (Spec 003 / Documento Maestro)
+  VEHICLE_LIFECYCLE_STAGES: [
+    { key: "captado", label: "1. Captado / Entrada", icon: "📥", badgeClass: "status-gray" },
+    { key: "en_verificacion", label: "2. En Verificación", icon: "🔍", badgeClass: "status-amber" },
+    { key: "en_puesta_a_punto", label: "3. En Puesta a Punto", icon: "🔧", badgeClass: "status-amber" },
+    { key: "listo_para_publicar", label: "4. Listo para Publicar", icon: "✨", badgeClass: "status-blue" },
+    { key: "publicado", label: "5. Publicado / Activo", icon: "📢", badgeClass: "status-green" },
+    { key: "lead_activo", label: "6. Lead Activo", icon: "💬", badgeClass: "status-cyan" },
+    { key: "prueba_concertada", label: "7. Prueba Concertada", icon: "🚗", badgeClass: "status-purple" },
+    { key: "reservado", label: "8. Reservado", icon: "🔒", badgeClass: "status-amber" },
+    { key: "contrato_pendiente", label: "9. Contrato Pendiente", icon: "📄", badgeClass: "status-amber" },
+    { key: "vendido", label: "10. Vendido", icon: "🎉", badgeClass: "status-green" },
+    { key: "entregado", label: "11. Entregado", icon: "🤝", badgeClass: "status-green" },
+    { key: "en_posventa", label: "12. En Posventa", icon: "🛡️", badgeClass: "status-blue" },
+    { key: "retirado", label: "13. Retirado", icon: "📦", badgeClass: "status-gray" }
+  ],
 };
 
 // Capa de Almacenamiento Reactiva y Persistente Multi-Tenant (LocalStorage + Memoria)
@@ -618,6 +635,12 @@ const CocheMotorStorage = {
     ORDERS: "cochemotor_orders_v2",
     ACTIVE_USER: "cochemotor_active_user_v2",
     BUYER_REG: "cochemotor_buyer_registered_v2",
+    DEAL_ROOMS: "cochemotor_deal_rooms_v1",
+  },
+
+  // Obtener definición de etapas
+  getLifecycleStages() {
+    return siteConfig.VEHICLE_LIFECYCLE_STAGES;
   },
 
   getActiveUserId() {
@@ -884,4 +907,87 @@ const CocheMotorStorage = {
       hasSharedStockAccess: false,
     };
   },
+
+  // Gestión del Expediente Digital / Sala Privada de Operación (Deal Room)
+  getDealRooms(userId = null) {
+    try {
+      const stored = localStorage.getItem(this.STORAGE_KEYS.DEAL_ROOMS);
+      if (stored) {
+        const allRooms = JSON.parse(stored);
+        const targetUserId = (userId !== null) ? userId : this.getActiveUserId();
+        if (targetUserId === 'all') return allRooms;
+        return allRooms.filter(r => (r.sellerUserId || "user-juan") === targetUserId);
+      }
+    } catch (e) {}
+
+    // Expedientes iniciales de demostración
+    const defaultRooms = [
+      {
+        id: "deal-cm-901",
+        token: "tok_sec_99182a",
+        vehicleId: "cm-001",
+        vehicleTitle: "Volkswagen Golf 2.0 TDI Advance",
+        sellerUserId: "user-garcia",
+        sellerName: "Talleres Hnos. García",
+        buyerName: "David Muñoz Pérez",
+        buyerPhone: "34611223344",
+        buyerEmail: "david.m@gmail.com",
+        agreedPrice: 16900,
+        depositAmount: 500,
+        depositStatus: "Confirmada (Transferencia telemática)",
+        paymentMethod: "Al contado contra entrega",
+        status: "contrato_preparado", // borrador, reserva_pagada, contrato_preparado, firmado, entregado
+        contractType: "Profesional a Particular (Ley Consumidores y Usuarios)",
+        warrantyMonths: 12,
+        warrantyType: "Garantía Legal Europea de Taller Mecánico",
+        dgtStatus: "Informe Favorable Telemático Sin Cargas",
+        deliveryChecklist: [
+          { item: "Permiso de circulación original firmado", checked: true },
+          { item: "Ficha técnica ITV con sello favorable", checked: true },
+          { item: "Doble juego de llaves con mando", checked: true },
+          { item: "Informe pericial 100 puntos y diagnosis OBD", checked: true },
+          { item: "Justificante provisional telemático de gestoría DGT", checked: false }
+        ],
+        createdAt: "2026-09-10",
+        expiresAt: "2026-09-24",
+      }
+    ];
+
+    try {
+      localStorage.setItem(this.STORAGE_KEYS.DEAL_ROOMS, JSON.stringify(defaultRooms));
+    } catch (e) {}
+    return defaultRooms;
+  },
+
+  saveAllDealRooms(rooms) {
+    try {
+      localStorage.setItem(this.STORAGE_KEYS.DEAL_ROOMS, JSON.stringify(rooms));
+    } catch (e) {}
+  },
+
+  createDealRoom(roomData) {
+    const rooms = this.getDealRooms('all');
+    const newRoom = {
+      id: `deal-${Date.now().toString().slice(-5)}`,
+      token: `tok_${Math.random().toString(36).substring(2, 10)}`,
+      createdAt: new Date().toISOString().split('T')[0],
+      expiresAt: new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0],
+      deliveryChecklist: [
+        { item: "Permiso de circulación original firmado", checked: true },
+        { item: "Ficha técnica ITV con sello favorable", checked: true },
+        { item: "Doble juego de llaves con mando", checked: true },
+        { item: "Informe pericial 100 puntos y diagnosis OBD", checked: true },
+        { item: "Justificante provisional telemático de gestoría DGT", checked: false }
+      ],
+      ...roomData
+    };
+    rooms.unshift(newRoom);
+    this.saveAllDealRooms(rooms);
+    return newRoom;
+  },
+
+  getDealRoomByTokenOrId(tokenOrId) {
+    const rooms = this.getDealRooms('all');
+    return rooms.find(r => r.id === tokenOrId || r.token === tokenOrId) || null;
+  }
 };
