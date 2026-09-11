@@ -32,6 +32,12 @@ FILES_TO_UPLOAD = [
     "privacidad.html",
     "terminos.html",
     ".htaccess",
+    "favicon.ico",
+    "favicon-16x16.png",
+    "favicon-32x32.png",
+    "favicon-48x48.png",
+    "apple-touch-icon.png",
+    "favicon.svg",
 ]
 
 def upload_dir_recursive(ftp, local_path, remote_path):
