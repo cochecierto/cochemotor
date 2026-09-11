@@ -33,13 +33,13 @@ function initBranding() {
   var brandLogos = document.querySelectorAll('.brand-logo-img');
   brandLogos.forEach(function(img) {
     img.src = siteConfig.brand.logoLight;
-    img.alt = siteConfig.brand.name + ' - ' + siteConfig.brand.tagline;
+    img.alt = siteConfig.brand.name + ' — ' + siteConfig.brand.tagline;
   });
 
   var pistonIcons = document.querySelectorAll('.floating-piston-img');
   pistonIcons.forEach(function(img) {
-    img.src = siteConfig.brand.pistonIcon;
-    img.alt = 'Sello Mecánico CocheMotor';
+    img.src = siteConfig.brand.selloVerificado || 'assets/brand/cochemotor_sello_verificado.png';
+    img.alt = 'Sello CocheMotor Verificado';
   });
 }
 
@@ -52,7 +52,12 @@ function renderChapter1Hero() {
 
   var headlineEl = document.getElementById('hero-headline');
   if (headlineEl && Array.isArray(hero.headline)) {
-    headlineEl.innerHTML = hero.headline[0] + '<br><span class="highlight">' + hero.headline[1] + '</span><br>' + hero.headline[2];
+    var parts = hero.headline.filter(Boolean);
+    if (parts.length >= 2) {
+      headlineEl.innerHTML = parts[0] + '<br><span class="highlight">' + parts[1] + '</span>' + (parts[2] ? '<br>' + parts[2] : '');
+    } else {
+      headlineEl.textContent = parts.join(' ');
+    }
   }
 
   var subheadEl = document.getElementById('hero-subhead');
@@ -265,7 +270,7 @@ function renderPricing() {
       '<ul class="price-features-list">' +
         p.features.map(function(f) { return '<li>' + f + '</li>'; }).join('') +
       '</ul>' +
-      '<a href="hub.html" class="btn ' + (p.popular ? 'btn-cyan' : 'btn-navy') + '" style="width: 100%;">' +
+      '<a href="hub.html" class="btn ' + (p.popular ? 'btn-red' : 'btn-navy') + '" style="width: 100%;">' +
         p.cta +
       '</a>' +
     '</div>';
@@ -412,4 +417,30 @@ function initVehicleModal() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeVehicleModal();
   });
+}
+
+function switchHeroSearchTab(tabEl, mode) {
+  document.querySelectorAll('.hero-search-tab').forEach(function(t) {
+    t.classList.remove('active');
+  });
+  tabEl.classList.add('active');
+  if (mode === 'profesionales') {
+    window.location.href = 'dealer.html?id=user-garcia';
+  } else if (mode === 'valoracion') {
+    window.location.href = '#calculadora-roi';
+  }
+}
+
+function executeHeroSearch() {
+  var brandEl = document.getElementById('hero-filter-brand');
+  var modelEl = document.getElementById('hero-filter-model');
+  var priceEl = document.getElementById('hero-filter-price');
+  var brand = brandEl ? brandEl.value : '';
+  var model = modelEl ? modelEl.value : '';
+  var price = priceEl ? priceEl.value : '';
+  var params = new URLSearchParams();
+  if (brand) params.set('brand', brand);
+  if (model) params.set('model', model);
+  if (price) params.set('price', price);
+  window.location.href = 'marketplace.html' + (params.toString() ? '?' + params.toString() : '');
 }

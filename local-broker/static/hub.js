@@ -383,7 +383,7 @@ function renderLeadsTable() {
               </td>
               <td style="padding: 12px 10px; font-weight: 600;">${l.status}</td>
               <td style="padding: 12px 10px; text-align: right;">
-                <a href="https://wa.me/${l.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hola ' + l.buyerName + ', te contacto de CocheMotor por tu consulta sobre el ' + l.vehicleTitle + '. ¿Podemos hablar o agendar prueba?')}" target="_blank" class="btn btn-cyan" style="padding: 6px 12px; font-size: 0.78rem; text-decoration: none;">
+                <a href="https://wa.me/${l.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hola ' + l.buyerName + ', te contacto de CocheMotor por tu consulta sobre el ' + l.vehicleTitle + '. ¿Podemos hablar o agendar prueba?')}" target="_blank" class="btn btn-red" style="padding: 6px 12px; font-size: 0.78rem; text-decoration: none;">
                   💬 WhatsApp
                 </a>
               </td>
@@ -599,7 +599,7 @@ function renderDemandOrders() {
         </div>
 
         <div style="text-align: right;">
-          <span style="font-size: 0.82rem; font-weight: 700; color: var(--cm-cyan); background: var(--cm-surface-subtle); padding: 6px 12px; border-radius: 999px;">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--cm-navy); background: var(--cm-surface-subtle); padding: 6px 12px; border-radius: 999px;">
             ${ord.responsesCount || 0} Propuestas enviadas
           </span>
         </div>
@@ -622,7 +622,7 @@ function renderDemandOrders() {
           </select>
         </div>
 
-        <button class="btn btn-cyan" style="padding: 8px 18px; font-size: 0.88rem;" onclick="postulateVehicleToOrder('${ord.id}')" ${!stock.length ? 'disabled' : ''}>
+        <button class="btn btn-red" style="padding: 8px 18px; font-size: 0.88rem;" onclick="postulateVehicleToOrder('${ord.id}')" ${!stock.length ? 'disabled' : ''}>
           🚀 Postular Coche al Comprador
         </button>
       </div>
@@ -1111,13 +1111,13 @@ function setSocialChannel(channel, btn) {
   ['btn-chan-fb', 'btn-chan-insta', 'btn-chan-wa'].forEach(id => {
     const b = document.getElementById(id);
     if (b) {
-      b.classList.remove('btn-cyan');
+      b.classList.remove('btn-red');
       b.classList.add('btn-outline');
     }
   });
   if (btn) {
     btn.classList.remove('btn-outline');
-    btn.classList.add('btn-cyan');
+    btn.classList.add('btn-red');
   }
   generateSocialCopy();
 }
@@ -1249,7 +1249,7 @@ function renderSocialHistory() {
             <td style="padding: 8px; font-weight: 700;">${p.vehicleTitle}</td>
             <td style="padding: 8px;">${p.groupName || p.channel}</td>
             <td style="padding: 8px; color: var(--cm-text-secondary);">${p.publishedAt}</td>
-            <td style="padding: 8px; font-weight: 700; color: var(--cm-cyan);">${p.clicksTracked || 0} clics</td>
+            <td style="padding: 8px; font-weight: 700; color: var(--cm-navy);">${p.clicksTracked || 0} clics</td>
             <td style="padding: 8px;"><span style="background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">✓ Publicado</span></td>
           </tr>
         `).join('')}
@@ -1351,7 +1351,7 @@ function renderWarrantyCases() {
 
         <div style="display: flex; gap: 8px; justify-content: flex-end;">
           ${!isClosed ? `
-            <button class="btn btn-cyan" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 700;" onclick="resolveWarrantyModal('${c.id}')">
+            <button class="btn btn-red" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 700;" onclick="resolveWarrantyModal('${c.id}')">
               ✓ Registrar Reparación / Cierre
             </button>
           ` : `

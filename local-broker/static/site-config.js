@@ -145,7 +145,7 @@ const siteConfig = {
   chapters: {
     chapter1_hero: {
       eyebrow: "MARKETPLACE & HUB PROFESIONAL DE AUTOMOCIÓN",
-      headline: ["Confianza para decidir.", "Compra claro. Vende mejor.", "Mecánica verificada y control."],
+      headline: ["Confianza para decidir.", "Compra claro. Vende mejor."],
       subhead: "Vehículos de ocasión, profesionales identificados y herramientas para decidir con información clara.",
       ctaLabel: "Explorar vehículos",
       ctaTarget: "marketplace.html",

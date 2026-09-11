@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=2.5">
+  <link rel="stylesheet" href="styles.css?v=3.5">
   <style>
     /* Estilos Críticos Inalterables del Hub SaaS */
     .hub-app-shell {
@@ -180,7 +180,7 @@
     <aside class="hub-sidebar">
       <div class="hub-sidebar-header">
         <a href="index.html" class="brand-link" style="display: block;">
-          <img class="brand-logo-img" src="assets/brand/cochemotor_logo_blanco_sin_tagline.png" alt="CocheMotor" style="height: 52px; width: auto;">
+          <img class="brand-logo-img" src="assets/brand/cochemotor_logo_dark.png" alt="CocheMotor" style="height: 52px; width: auto;">
         </a>
       </div>
 
@@ -188,7 +188,7 @@
       <div class="hub-user-profile-box">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
           <span style="font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em;">MI CUENTA SAAS</span>
-          <span style="font-size: 0.68rem; background: rgba(0, 191, 255, 0.2); color: var(--cm-cyan); padding: 2px 6px; border-radius: 4px; font-weight: 800;">30 DÍAS GRATIS</span>
+          <span style="font-size: 0.68rem; background: rgba(0, 191, 255, 0.2); color: var(--cm-navy); padding: 2px 6px; border-radius: 4px; font-weight: 800;">30 DÍAS GRATIS</span>
         </div>
         <select id="hub-user-switcher" class="hub-user-select-control" onchange="handleSwitchUser(this.value)">
           <!-- Poblado dinámicamente -->
@@ -464,7 +464,7 @@
                 <textarea id="up-highlights" class="form-control" rows="3" placeholder="Kit de distribución recién cambiado&#10;Neumáticos al 90%&#10;ITV en vigor hasta 2026&#10;1 Solo propietario con libro"></textarea>
               </div>
 
-              <button type="submit" class="btn btn-cyan" style="width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 800; margin-top: 16px;">
+              <button type="submit" class="btn btn-red" style="width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 800; margin-top: 16px;">
                 🚀 Guardar Vehículo y Generar Anuncio
               </button>
             </div>
@@ -482,7 +482,7 @@
             <h2 class="hub-tool-title">Mi Embudo de Ventas (Pipeline Kanban)</h2>
             <p class="hub-tool-desc">Gestiona el ciclo comercial de tu stock: arrastra o cambia de fase en un clic.</p>
           </div>
-          <button class="btn btn-cyan" onclick="switchHubTab('tab-upload')">
+          <button class="btn btn-red" onclick="switchHubTab('tab-upload')">
             ➕ Subir Nuevo Coche
           </button>
         </div>
@@ -639,7 +639,7 @@
           </div>
 
           <div style="background: var(--cm-navy); color: white; padding: 32px; border-radius: var(--cm-radius-lg);">
-            <div style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--cm-cyan); font-weight: 800; text-transform: uppercase;">CUOTA MENSUAL ESTIMADA</div>
+            <div style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--cm-navy); font-weight: 800; text-transform: uppercase;">CUOTA MENSUAL ESTIMADA</div>
             <div id="calc-result-monthly" style="font-family: var(--font-family-display); font-size: 3.2rem; font-weight: 800; color: white; line-height: 1.1; margin: 8px 0;">
               242 €/mes
             </div>
@@ -647,13 +647,13 @@
 
             <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.15);">
               <div style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--badge-eco-bg); font-weight: 800; text-transform: uppercase;">MARGEN COMERCIAL DE LA VENTA</div>
-              <div id="calc-result-margin" style="font-family: var(--font-family-display); font-size: 2.2rem; font-weight: 800; color: var(--cm-cyan); line-height: 1;">
+              <div id="calc-result-margin" style="font-family: var(--font-family-display); font-size: 2.2rem; font-weight: 800; color: var(--cm-navy); line-height: 1;">
                 3.700 €
               </div>
               <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px;">Retorno sobre Coste: <span id="calc-result-roi" style="color: var(--badge-eco-bg); font-weight: 700;">28.0%</span></p>
             </div>
 
-            <button class="btn btn-cyan" style="width: 100%; margin-top: 24px;" onclick="copyFinancialQuote()">
+            <button class="btn btn-red" style="width: 100%; margin-top: 24px;" onclick="copyFinancialQuote()">
               Copiar Propuesta para WhatsApp
             </button>
           </div>
@@ -674,7 +674,7 @@
           <select id="qr-vehicle-select" class="form-control" style="max-width: 400px;" onchange="renderWindshieldCard()">
             <!-- Poblado dinámicamente -->
           </select>
-          <button class="btn btn-cyan" onclick="window.print()">🖨️ Imprimir Cartel A4</button>
+          <button class="btn btn-red" onclick="window.print()">🖨️ Imprimir Cartel A4</button>
         </div>
 
         <!-- Contenedor Imprimible -->
@@ -750,7 +750,7 @@
 
               <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 20px;">
                 <span class="referral-code-badge" id="ref-code-display">MOTOR-JUAN-2026</span>
-                <button class="btn btn-cyan" onclick="copyReferralLink()">
+                <button class="btn btn-red" onclick="copyReferralLink()">
                   📲 Copiar Enlace para WhatsApp
                 </button>
               </div>
@@ -761,7 +761,7 @@
             </div>
 
             <div style="background: rgba(255, 255, 255, 0.08); padding: 24px; border-radius: var(--cm-radius-md); border: 1px solid rgba(255, 255, 255, 0.15);">
-              <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--cm-cyan);">Tus Recompensas Acumuladas</h4>
+              <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--cm-navy);">Tus Recompensas Acumuladas</h4>
               <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;">
                 <span>Colegas Registrados:</span>
                 <strong style="color: white;" id="ref-stat-count">3 colegas</strong>
@@ -772,7 +772,7 @@
               </div>
               <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
                 <span>Sello de Confianza:</span>
-                <strong style="color: var(--cm-cyan);" id="ref-stat-badge">⭐ Gold Partner Verificado</strong>
+                <strong style="color: var(--cm-navy);" id="ref-stat-badge">⭐ Gold Partner Verificado</strong>
               </div>
             </div>
           </div>
@@ -814,14 +814,14 @@
         <div style="background: var(--cm-navy); color: white; border-radius: var(--cm-radius-lg); padding: 32px; margin-bottom: 32px; border: 1px solid rgba(0, 191, 255, 0.3); box-shadow: var(--cm-shadow-md);">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
             <div>
-              <span style="display: inline-block; padding: 4px 12px; border-radius: 999px; background: rgba(0, 191, 255, 0.2); color: var(--cm-cyan); font-size: 0.8rem; font-weight: 800; margin-bottom: 8px;">
+              <span style="display: inline-block; padding: 4px 12px; border-radius: 999px; background: rgba(0, 191, 255, 0.2); color: var(--cm-navy); font-size: 0.8rem; font-weight: 800; margin-bottom: 8px;">
                 ✓ WEB ACTIVA Y VERIFICADA
               </span>
               <h3 id="dealer-web-title" style="font-size: 1.6rem; font-weight: 800; margin: 0 0 6px; color: white;">
                 Juan Gómez Automoción VO
               </h3>
               <p style="font-size: 0.95rem; color: #cbd5e1; margin: 0 0 16px;">
-                Subdominio asignado: <strong id="dealer-subdomain-display" style="color: var(--cm-cyan); font-family: monospace; font-size: 1.05rem;">juangomez.motor.cochecierto.com</strong>
+                Subdominio asignado: <strong id="dealer-subdomain-display" style="color: var(--cm-navy); font-family: monospace; font-size: 1.05rem;">juangomez.motor.cochecierto.com</strong>
               </p>
               <div style="font-size: 0.85rem; color: #94a3b8;">
                 URL de acceso directo: <a id="dealer-url-display" href="#" target="_blank" style="color: white; text-decoration: underline;">https://motor.cochecierto.com/dealer.html?id=user-juan</a>
@@ -829,7 +829,7 @@
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 10px; min-width: 220px;">
-              <a id="btn-open-dealer-web" href="#" target="_blank" class="btn btn-cyan" style="text-align: center; font-weight: 800; padding: 12px 18px;">
+              <a id="btn-open-dealer-web" href="#" target="_blank" class="btn btn-red" style="text-align: center; font-weight: 800; padding: 12px 18px;">
                 Abrir Mi Web en Vivo ↗
               </a>
               <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4); padding: 10px 18px;" onclick="copyDealerWebLink()">
@@ -944,7 +944,7 @@
             </div>
 
             <div>
-              <button type="submit" class="btn btn-cyan" style="width: 100%; padding: 10px; font-weight: 800; font-size: 0.9rem;">
+              <button type="submit" class="btn btn-red" style="width: 100%; padding: 10px; font-weight: 800; font-size: 0.9rem;">
                 🚀 Generar Sala Privada
               </button>
             </div>
@@ -999,7 +999,7 @@
             <div class="form-group" style="margin-bottom: 14px;">
               <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Canal Objetivo</label>
               <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                <button type="button" class="btn btn-cyan" id="btn-chan-fb" onclick="setSocialChannel('facebook', this)" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 700;">
+                <button type="button" class="btn btn-red" id="btn-chan-fb" onclick="setSocialChannel('facebook', this)" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 700;">
                   Facebook Grupos
                 </button>
                 <button type="button" class="btn btn-outline" id="btn-chan-insta" onclick="setSocialChannel('instagram', this)" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 700;">
@@ -1020,7 +1020,7 @@
               <button class="btn btn-navy" style="flex: 1; padding: 10px; font-weight: 800; font-size: 0.88rem;" onclick="copySocialCopy()">
                 📋 Copiar Texto con Enlace
               </button>
-              <button class="btn btn-cyan" style="flex: 1; padding: 10px; font-weight: 800; font-size: 0.88rem;" onclick="recordSocialPublication()">
+              <button class="btn btn-red" style="flex: 1; padding: 10px; font-weight: 800; font-size: 0.88rem;" onclick="recordSocialPublication()">
                 ✓ Registrar Publicación
               </button>
             </div>
@@ -1109,7 +1109,7 @@
             </div>
 
             <div>
-              <button type="submit" class="btn btn-cyan" style="width: 100%; padding: 10px; font-weight: 800; font-size: 0.9rem;">
+              <button type="submit" class="btn btn-red" style="width: 100%; padding: 10px; font-weight: 800; font-size: 0.9rem;">
                 🛡️ Abrir Parte Posventa
               </button>
             </div>

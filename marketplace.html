@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=2.5">
+  <link rel="stylesheet" href="styles.css?v=3.5">
   <style>
     .filter-panel-card {
       background: var(--cm-white);
@@ -47,7 +47,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link">
-        <img class="brand-logo-img" src="assets/brand/cochemotor_logo_azul_con_tagline.png" alt="CocheMotor">
+        <img class="brand-logo-img" src="assets/brand/cochemotor_logo_light.png" alt="CocheMotor">
       </a>
       <nav class="nav-desktop">
         <a href="marketplace.html" class="nav-link" style="color: var(--cm-navy); font-weight: 800; border-bottom: 2px solid var(--cm-cyan);">Marketplace VO</a>
@@ -192,12 +192,12 @@
 
     <!-- Banner si no encuentra el coche buscado -->
     <div style="background: linear-gradient(135deg, #002D62 0%, #0a3a78 100%); border-radius: var(--cm-radius-lg); padding: 36px; color: white; margin-top: 48px; text-align: center;">
-      <span class="chapter-badge" style="background: rgba(0, 191, 255, 0.2); color: var(--cm-cyan); margin-bottom: 8px;">SERVICIO A MEDIDA</span>
+      <span class="chapter-badge" style="background: rgba(0, 191, 255, 0.2); color: var(--cm-navy); margin-bottom: 8px;">SERVICIO A MEDIDA</span>
       <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;">¿No has encontrado el coche exacto que buscas?</h3>
       <p style="color: #cbd5e1; max-width: 650px; margin: 0 auto 20px auto; font-size: 0.95rem;">
         Publica tu solicitud en "Coches a la Carta". Nuestra red de talleres y compraventas revisará sus entradas de campa y te enviará propuestas que se ajusten a tu presupuesto.
       </p>
-      <a href="demanda.html" class="btn btn-cyan" style="font-weight: 800; padding: 12px 28px;">
+      <a href="demanda.html" class="btn btn-red" style="font-weight: 800; padding: 12px 28px;">
         🎯 Publicar mi Coche a la Carta Gratis
       </a>
     </div>
@@ -210,9 +210,20 @@
     </div>
   </footer>
 
-  <script src="site-config.js?v=2.5"></script>
+  <script src="site-config.js?v=3.5"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const brandParam = urlParams.get('brand');
+      const priceParam = urlParams.get('price');
+      if (brandParam) {
+        const brandSelect = document.getElementById('filter-brand');
+        if (brandSelect) brandSelect.value = brandParam;
+      }
+      if (priceParam) {
+        const priceSelect = document.getElementById('filter-price');
+        if (priceSelect) priceSelect.value = priceParam;
+      }
       applyFilters();
     });
 
@@ -308,39 +319,43 @@
           <article class="vehicle-card" data-id="${v.id}">
             <div class="vehicle-thumb-box">
               <img class="vehicle-thumb-img" src="${v.image}" alt="${v.brand} ${v.model}" loading="lazy">
+              <button type="button" class="card-fav-btn" title="Guardar favorito" onclick="event.stopPropagation(); this.textContent = this.textContent === '❤️' ? '🤍' : '❤️';">🤍</button>
               <span class="badge-dgt ${v.badgeClass || 'badge-c'}">${v.badge}</span>
-              <span class="badge-inspection">✓ ${v.inspectionScore || '98/100'}</span>
-              ${isSold ? '<span style="position: absolute; bottom: 10px; right: 10px; background: #b91c1c; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">VENDIDO</span>' :
-                isReserved ? '<span style="position: absolute; bottom: 10px; right: 10px; background: #d97706; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">RESERVADO</span>' : ''}
+              <div class="card-verified-badge">
+                <img src="assets/brand/cochemotor_sello_verificado.png" alt="Verificado">
+                <span>CocheMotor Verificado</span>
+              </div>
+              ${isSold ? '<span style="position: absolute; bottom: 10px; left: 10px; background: #b91c1c; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">VENDIDO</span>' :
+                isReserved ? '<span style="position: absolute; bottom: 10px; left: 10px; background: #d97706; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">RESERVADO</span>' : ''}
             </div>
 
             <div class="vehicle-info">
-              <h3 class="vehicle-title">${v.brand} ${v.model}</h3>
-              <div class="vehicle-version">${v.version}</div>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
+                <h3 class="vehicle-title" style="margin: 0; font-size: 1.25rem;">${v.brand} ${v.model}</h3>
+                <div class="cash-price" style="font-size: 1.35rem; color: var(--cm-navy);">${v.price.toLocaleString('es-ES')} €</div>
+              </div>
+              <div class="vehicle-version" style="font-size: 0.82rem; color: var(--cm-text-secondary); margin-bottom: 10px;">${v.version}</div>
 
-              <div class="vehicle-specs-list">
-                <div class="spec-cell"><strong>Año:</strong> ${v.year}</div>
-                <div class="spec-cell"><strong>Km:</strong> ${v.km}</div>
-                <div class="spec-cell"><strong>Motor:</strong> ${v.fuel}</div>
-                <div class="spec-cell"><strong>Cambio:</strong> ${v.gearbox}</div>
+              <div style="font-size: 0.84rem; color: var(--cm-graphite); margin-bottom: 12px; font-weight: 500;">
+                ${v.year} &nbsp;•&nbsp; ${v.km} &nbsp;•&nbsp; ${v.fuel} &nbsp;•&nbsp; ${v.gearbox}
               </div>
 
-              <div class="vehicle-dealer" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-                <a href="dealer.html?id=${v.userId || 'user-garcia'}" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline; font-size: 0.82rem;">
+              <div class="vehicle-checks-row" style="display: flex; flex-wrap: wrap; gap: 8px 12px; margin-bottom: 14px; font-size: 0.76rem;">
+                <span style="color: var(--cm-green); font-weight: 700;">✓ Historial verificado</span>
+                <span style="color: var(--cm-navy); font-weight: 600;">🛠️ Revisión 100 pts</span>
+                <span style="color: var(--cm-graphite); font-weight: 600;">📄 Km certificado</span>
+              </div>
+
+              <div class="vehicle-dealer" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-top: 1px solid #f1f5f9; padding-top: 8px;">
+                <a href="dealer.html?id=${v.userId || 'user-garcia'}" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline; font-size: 0.8rem;">
                   🏪 ${v.dealer || v.sellerName || 'Taller Homologado'}
                 </a>
-                <span style="font-weight: 700; color: #16a34a; font-size: 0.82rem;">🛡️ 12M Garantía</span>
+                <span style="font-weight: 700; color: var(--cm-green); font-size: 0.8rem;">🛡️ 12M Garantía</span>
               </div>
 
-              <div class="vehicle-pricing">
-                <div class="cash-price">${v.price.toLocaleString('es-ES')} €</div>
-                <div class="monthly-price">desde ${v.monthlyPrice || ''}</div>
-              </div>
-
-              <div class="card-cta-group">
-                <a class="btn btn-red" href="ficha.html?id=${v.id}" style="font-weight: 800;">Ver detalles</a>
-                <a class="btn btn-outline" href="${waUrl}" target="_blank" rel="noopener">WhatsApp</a>
-              </div>
+              <a class="btn btn-red" href="ficha.html?id=${v.id}" style="font-weight: 800; width: 100%; justify-content: center; padding: 12px;">
+                Ver detalles
+              </a>
             </div>
           </article>
         `;
