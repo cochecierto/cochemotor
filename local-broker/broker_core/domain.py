@@ -452,3 +452,40 @@ def create_delivery_act(
     )
 
 
+@dataclass(frozen=True)
+class WarrantyCase:
+    """Expediente de garantía y posventa (Spec 003 / Módulo 17)."""
+    case_id: str
+    tenant_id: str
+    vehicle_id: str
+    buyer_name: str
+    issue_description: str
+    issue_type: str  # falta_conformidad, desgaste_ajuste, mal_uso
+    assigned_workshop: str
+    status: str = "abierta"
+    warranty_months: int = 12
+
+
+def create_warranty_case(
+    tenant_id: str,
+    vehicle_id: str,
+    buyer_name: str,
+    issue_description: str,
+    assigned_workshop: str,
+    issue_type: str = "desgaste_ajuste",
+) -> WarrantyCase:
+    """Abre un parte de garantía posventa con validaciones obligatorias."""
+    if not issue_description.strip() or not buyer_name.strip():
+        raise ValueError("La descripción de la avería y el comprador no pueden estar vacíos.")
+    return WarrantyCase(
+        case_id=f"gar-{uuid4().hex[:8]}",
+        tenant_id=tenant_id,
+        vehicle_id=vehicle_id,
+        buyer_name=buyer_name.strip(),
+        issue_description=issue_description.strip(),
+        issue_type=issue_type,
+        assigned_workshop=assigned_workshop.strip(),
+    )
+
+
+

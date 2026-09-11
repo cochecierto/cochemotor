@@ -928,6 +928,108 @@
       }
     }
 
+    function previewContractDGT(roomId) {
+      const room = CocheMotorStorage.getDealRooms('all').find(r => r.id === roomId);
+      if (!room) return;
+
+      const printWindow = window.open('', '_blank', 'width=850,height=950');
+      if (!printWindow) {
+        alert("Por favor, permite las ventanas emergentes para abrir el contrato formal.");
+        return;
+      }
+
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+          <meta charset="UTF-8">
+          <title>Contrato Mercantil de Compraventa — ${room.id}</title>
+          <style>
+            body { font-family: 'Segoe UI', Arial, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; font-size: 13px; }
+            .header-box { border-bottom: 2px solid #002D62; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
+            .contract-title { font-size: 18px; font-weight: 800; color: #002D62; margin: 0; }
+            .section-title { font-size: 13px; font-weight: 800; color: #002D62; text-transform: uppercase; margin-top: 20px; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; }
+            .parties-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; }
+            .party-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; }
+            .clause { margin-top: 10px; text-align: justify; }
+            .signature-box { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; text-align: center; }
+            .signature-line { border-top: 1px solid #64748b; margin-top: 60px; padding-top: 8px; font-weight: 700; font-size: 12px; }
+            @media print {
+              .no-print { display: none; }
+              body { padding: 0; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="no-print" style="margin-bottom: 20px; text-align: right;">
+            <button onclick="window.print()" style="background: #002D62; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer;">
+              🖨️ Imprimir / Guardar en PDF
+            </button>
+          </div>
+
+          <div class="header-box">
+            <div>
+              <h1 class="contract-title">CONTRATO MERCANTIL DE COMPRAVENTA DE VEHÍCULO USADO</h1>
+              <div style="font-size: 11px; color: #64748b;">Conforme a las pautas de la DGT (dgt.es) y Real Decreto Legislativo 1/2007 (Ley de Consumidores)</div>
+            </div>
+            <div style="text-align: right; font-weight: bold; color: #002D62;">
+              EXPEDIENTE: ${room.id}<br>
+              <span style="font-size: 11px; font-weight: normal; color: #64748b;">Fecha: ${room.createdAt}</span>
+            </div>
+          </div>
+
+          <div class="section-title">1. REUNIDOS Y COMPARECIENTES</div>
+          <div class="parties-grid">
+            <div class="party-card">
+              <strong style="color: #002D62;">DE UNA PARTE (VENDEDOR PROFESIONAL):</strong><br>
+              Razón Social: <strong>${room.sellerName}</strong><br>
+              Actividad: Venta de Vehículos de Ocasión / Taller Mecánico<br>
+              Régimen Fiscal: REBU (Régimen Especial Bienes Usados)
+            </div>
+            <div class="party-card">
+              <strong style="color: #002D62;">DE OTRA PARTE (COMPRADOR PARTICULAR):</strong><br>
+              Nombre: <strong>${room.buyerName}</strong><br>
+              Teléfono: ${room.buyerPhone}<br>
+              Email: ${room.buyerEmail || 'Declarado en expediente'}
+            </div>
+          </div>
+
+          <div class="section-title">2. OBJETO DE LA TRANSMISIÓN</div>
+          <p class="clause">
+            El vendedor transmite al comprador la propiedad del vehículo de ocasión: <strong>${room.vehicleTitle}</strong>, con informe telemático DGT favorable y sin cargas registrales ni reservas de dominio anotadas.
+          </p>
+
+          <div class="section-title">3. PRECIO Y FORMA DE PAGO</div>
+          <p class="clause">
+            El precio pactado asciende a la cantidad de <strong>${(room.agreedPrice || 0).toLocaleString('es-ES')} EUROS</strong>, habiéndose entregado en concepto de señal/reserva la suma de <strong>${room.depositAmount} EUROS</strong> (${room.depositStatus}), abonándose el resto mediante ${room.paymentMethod}.
+          </p>
+
+          <div class="section-title">4. GARANTÍA LEGAL Y ESTADO MECÁNICO</div>
+          <p class="clause">
+            Conforme al Real Decreto Legislativo 1/2007, el vehículo cuenta con <strong>${room.warrantyMonths} MESES DE GARANTÍA LEGAL EUROPEA</strong> frente a defectos de no conformidad no imputables a desgaste ordinario o mal uso. Se adjunta copia de la diagnosis OBD y el certificado de 100 puntos en elevador de CocheMotor.
+          </p>
+
+          <div class="section-title">5. TRÁMITES DE TRANSFERENCIA DGT</div>
+          <p class="clause">
+            La tramitación del cambio de titularidad se realiza de forma telemática en la Dirección General de Tráfico, entregándose justificante profesional provisional de gestoría válido para circular.
+          </p>
+
+          <div class="signature-box">
+            <div>
+              EL VENDEDOR
+              <div class="signature-line">${room.sellerName}</div>
+            </div>
+            <div>
+              EL COMPRADOR
+              <div class="signature-line">${room.buyerName}</div>
+            </div>
+          </div>
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       initFicha();
       checkDealRoomToken();

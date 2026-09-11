@@ -259,6 +259,29 @@ class AutomotiveDomainTests(unittest.TestCase):
                 keys_handed_count=0,
             )
 
+    def test_create_warranty_case_validations(self) -> None:
+        from broker_core.domain import create_warranty_case
+        case = create_warranty_case(
+            tenant_id="tenant-autos-demo-es",
+            vehicle_id="cm-001",
+            buyer_name="David Muñoz",
+            issue_description="Ruido en pastillas de freno en frío",
+            assigned_workshop="Talleres Hnos. García",
+            issue_type="desgaste_ajuste",
+        )
+        self.assertTrue(case.case_id.startswith("gar-"))
+        self.assertEqual(case.status, "abierta")
+        self.assertEqual(case.warranty_months, 12)
+
+        with self.assertRaises(ValueError):
+            create_warranty_case(
+                tenant_id="tenant-autos-demo-es",
+                vehicle_id="cm-001",
+                buyer_name="",
+                issue_description="",
+                assigned_workshop="Taller",
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

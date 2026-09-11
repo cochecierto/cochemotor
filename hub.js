@@ -69,6 +69,7 @@ function switchHubTab(tabId) {
     'tab-qr',
     'tab-deal-room',
     'tab-social',
+    'tab-warranty',
     'tab-referrals',
     'tab-dealer-web'
   ];
@@ -99,6 +100,8 @@ function switchHubTab(tabId) {
     renderDealRoomsList();
   } else if (tabId === 'tab-social') {
     initSocialTab();
+  } else if (tabId === 'tab-warranty') {
+    initWarrantyTab();
   } else if (tabId === 'tab-generator') {
     initVehicleDropdowns();
     loadVehicleForGenerator();
@@ -986,16 +989,102 @@ function previewContractDGT(roomId) {
   const room = CocheMotorStorage.getDealRooms('all').find(r => r.id === roomId);
   if (!room) return;
 
-  alert(`📄 CONTRATO DE COMPRAVENTA MERCANTIL DGT\n` +
-        `----------------------------------------\n` +
-        `VENDEDOR: ${room.sellerName}\n` +
-        `COMPRADOR: ${room.buyerName} (Tel: ${room.buyerPhone})\n` +
-        `VEHÍCULO: ${room.vehicleTitle}\n` +
-        `PRECIO TOTAL: ${room.agreedPrice} €\n` +
-        `SEÑAL ENTREGADA: ${room.depositAmount} €\n` +
-        `GARANTÍA: ${room.warrantyMonths} meses conforme a la Ley de Consumidores y Usuarios.\n` +
-        `ESTADO DGT: ${room.dgtStatus}\n\n` +
-        `* Basado en la guía oficial de compraventa de la DGT (dgt.es). Documento listo para formalización telemática.`);
+  const printWindow = window.open('', '_blank', 'width=850,height=950');
+  if (!printWindow) {
+    alert("Por favor, permite las ventanas emergentes para abrir el contrato formal.");
+    return;
+  }
+
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Contrato Mercantil de Compraventa — ${room.id}</title>
+      <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; font-size: 13px; }
+        .header-box { border-bottom: 2px solid #002D62; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
+        .contract-title { font-size: 18px; font-weight: 800; color: #002D62; margin: 0; }
+        .section-title { font-size: 13px; font-weight: 800; color: #002D62; text-transform: uppercase; margin-top: 20px; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; }
+        .parties-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; }
+        .party-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; }
+        .clause { margin-top: 10px; text-align: justify; }
+        .signature-box { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; text-align: center; }
+        .signature-line { border-top: 1px solid #64748b; margin-top: 60px; padding-top: 8px; font-weight: 700; font-size: 12px; }
+        @media print {
+          .no-print { display: none; }
+          body { padding: 0; }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="no-print" style="margin-bottom: 20px; text-align: right;">
+        <button onclick="window.print()" style="background: #002D62; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer;">
+          🖨️ Imprimir / Guardar en PDF
+        </button>
+      </div>
+
+      <div class="header-box">
+        <div>
+          <h1 class="contract-title">CONTRATO MERCANTIL DE COMPRAVENTA DE VEHÍCULO USADO</h1>
+          <div style="font-size: 11px; color: #64748b;">Conforme a las pautas de la DGT (dgt.es) y Real Decreto Legislativo 1/2007 (Ley de Consumidores)</div>
+        </div>
+        <div style="text-align: right; font-weight: bold; color: #002D62;">
+          EXPEDIENTE: ${room.id}<br>
+          <span style="font-size: 11px; font-weight: normal; color: #64748b;">Fecha: ${room.createdAt}</span>
+        </div>
+      </div>
+
+      <div class="section-title">1. REUNIDOS Y COMPARECIENTES</div>
+      <div class="parties-grid">
+        <div class="party-card">
+          <strong style="color: #002D62;">DE UNA PARTE (VENDEDOR PROFESIONAL):</strong><br>
+          Razón Social: <strong>${room.sellerName}</strong><br>
+          Actividad: Venta de Vehículos de Ocasión / Taller Mecánico<br>
+          Régimen Fiscal: REBU (Régimen Especial Bienes Usados)
+        </div>
+        <div class="party-card">
+          <strong style="color: #002D62;">DE OTRA PARTE (COMPRADOR PARTICULAR):</strong><br>
+          Nombre: <strong>${room.buyerName}</strong><br>
+          Teléfono: ${room.buyerPhone}<br>
+          Email: ${room.buyerEmail || 'Declarado en expediente'}
+        </div>
+      </div>
+
+      <div class="section-title">2. OBJETO DE LA TRANSMISIÓN</div>
+      <p class="clause">
+        El vendedor transmite al comprador la propiedad del vehículo de ocasión: <strong>${room.vehicleTitle}</strong>, con informe telemático DGT favorable y sin cargas registrales ni reservas de dominio anotadas.
+      </p>
+
+      <div class="section-title">3. PRECIO Y FORMA DE PAGO</div>
+      <p class="clause">
+        El precio pactado asciende a la cantidad de <strong>${(room.agreedPrice || 0).toLocaleString('es-ES')} EUROS</strong>, habiéndose entregado en concepto de señal/reserva la suma de <strong>${room.depositAmount} EUROS</strong> (${room.depositStatus}), abonándose el resto mediante ${room.paymentMethod}.
+      </p>
+
+      <div class="section-title">4. GARANTÍA LEGAL Y ESTADO MECÁNICO</div>
+      <p class="clause">
+        Conforme al Real Decreto Legislativo 1/2007, el vehículo cuenta con <strong>${room.warrantyMonths} MESES DE GARANTÍA LEGAL EUROPEA</strong> frente a defectos de no conformidad no imputables a desgaste ordinario o mal uso. Se adjunta copia de la diagnosis OBD y el certificado de 100 puntos en elevador de CocheMotor.
+      </p>
+
+      <div class="section-title">5. TRÁMITES DE TRANSFERENCIA DGT</div>
+      <p class="clause">
+        La tramitación del cambio de titularidad se realiza de forma telemática en la Dirección General de Tráfico, entregándose justificante profesional provisional de gestoría válido para circular.
+      </p>
+
+      <div class="signature-box">
+        <div>
+          EL VENDEDOR
+          <div class="signature-line">${room.sellerName}</div>
+        </div>
+        <div>
+          EL COMPRADOR
+          <div class="signature-line">${room.buyerName}</div>
+        </div>
+      </div>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
 }
 
 // =========================================================================================
@@ -1167,4 +1256,118 @@ function renderSocialHistory() {
       </tbody>
     </table>
   `;
+}
+
+// =========================================================================================
+// MÓDULO: GESTIÓN DE GARANTÍAS Y POSVENTA (SPEC 003 / MÓDULO 17)
+// =========================================================================================
+
+function initWarrantyTab() {
+  const vehicleSelect = document.getElementById('warranty-vehicle-select');
+  if (!vehicleSelect) return;
+  const stock = CocheMotorStorage.getStock();
+  vehicleSelect.innerHTML = stock.map(v => 
+    `<option value="${v.id}">${v.brand} ${v.model} (${v.version})</option>`
+  ).join('');
+
+  renderWarrantyCases();
+}
+
+function handleCreateWarrantyCase(event) {
+  event.preventDefault();
+  const vehicleId = document.getElementById('warranty-vehicle-select').value;
+  const buyerName = document.getElementById('warranty-buyer-name').value.trim();
+  const issueType = document.getElementById('warranty-issue-type').value;
+  const issueDesc = document.getElementById('warranty-issue-desc').value.trim();
+
+  const stock = CocheMotorStorage.getStock();
+  const car = stock.find(v => v.id === vehicleId) || stock[0];
+  const activeUser = CocheMotorStorage.getActiveUser();
+
+  const newCase = CocheMotorStorage.addWarrantyCase({
+    sellerUserId: activeUser.id,
+    vehicleId: car.id,
+    vehicleTitle: `${car.brand} ${car.model}`,
+    buyerName,
+    buyerPhone: "34612345678",
+    deliveryDate: new Date().toISOString().split('T')[0],
+    warrantyExpirationDate: new Date(Date.now() + 365 * 86400000).toISOString().split('T')[0],
+    claimedIssue: issueDesc,
+    issueType,
+    assignedWorkshop: activeUser.businessName,
+    resolutionNotes: "En evaluación pericial de taller",
+  });
+
+  alert(`🛡️ ¡Parte de garantía ${newCase.id} registrado correctamente!\n\nAsignado a: ${activeUser.businessName}`);
+  event.target.reset();
+  renderWarrantyCases();
+}
+
+function renderWarrantyCases() {
+  const container = document.getElementById('warranty-cases-list');
+  const counter = document.getElementById('warranty-counter');
+  if (!container) return;
+
+  const cases = CocheMotorStorage.getWarrantyCases();
+  if (counter) counter.textContent = `${cases.length} incidencia(s) registrada(s)`;
+
+  if (cases.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 24px; color: var(--cm-text-secondary); font-size: 0.88rem;">
+        No hay incidencias de garantía activas. Todas las unidades operan con normalidad.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = cases.map(c => {
+    const isClosed = c.status === 'resuelta' || c.status === 'rechazada_desgaste';
+    const typeLabel = c.issueType === 'falta_conformidad' ? '⚠️ Falta de Conformidad (Garantía Legal)' : c.issueType === 'desgaste_ajuste' ? '🔧 Desgaste / Ajuste Menor' : '❌ Mal Uso / Exclusión';
+
+    return `
+      <div style="border: 1px solid var(--cm-border); border-radius: var(--cm-radius-md); padding: 18px; background: #f8fafc;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-weight: 800; color: var(--cm-navy); font-size: 1.05rem;">${c.vehicleTitle}</span>
+              <span style="font-size: 0.72rem; background: ${isClosed ? '#dcfce7' : '#fef3c7'}; color: ${isClosed ? '#166534' : '#b45309'}; padding: 2px 8px; border-radius: 999px; font-weight: 800;">
+                ${c.status.toUpperCase()}
+              </span>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--cm-text-secondary); margin-top: 4px;">
+              👤 Comprador: <strong>${c.buyerName}</strong> (${c.buyerPhone}) · Fecha apertura: ${c.openedAt}
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; background: white; border: 1px solid var(--cm-border); padding: 4px 8px; border-radius: 6px; font-weight: 700; color: var(--cm-navy);">
+            Cobertura hasta: ${c.warrantyExpirationDate || '12 meses'}
+          </div>
+        </div>
+
+        <div style="background: white; border: 1px solid var(--cm-border); border-radius: 6px; padding: 12px; margin-bottom: 12px; font-size: 0.85rem;">
+          <div style="font-size: 0.75rem; font-weight: 700; color: #0284c7; margin-bottom: 4px;">TIPO: ${typeLabel}</div>
+          <div style="color: var(--cm-graphite);"><strong>Síntoma reportado:</strong> ${c.claimedIssue}</div>
+          ${c.resolutionNotes ? `<div style="color: #16a34a; margin-top: 6px;"><strong>Resolución:</strong> ${c.resolutionNotes}</div>` : ''}
+        </div>
+
+        <div style="display: flex; gap: 8px; justify-content: flex-end;">
+          ${!isClosed ? `
+            <button class="btn btn-cyan" style="padding: 6px 12px; font-size: 0.8rem; font-weight: 700;" onclick="resolveWarrantyModal('${c.id}')">
+              ✓ Registrar Reparación / Cierre
+            </button>
+          ` : `
+            <span style="font-size: 0.78rem; color: #16a34a; font-weight: 700;">✓ Incidencia cerrada en conformidad</span>
+          `}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function resolveWarrantyModal(caseId) {
+  const notes = prompt("Indica los trabajos de reparación realizados en el taller:");
+  if (notes) {
+    CocheMotorStorage.updateWarrantyStatus(caseId, 'resuelta', notes);
+    renderWarrantyCases();
+    alert("✓ Incidencia resuelta y registrada en el historial del expediente.");
+  }
 }

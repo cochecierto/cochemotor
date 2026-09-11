@@ -231,13 +231,17 @@
           <span class="hub-nav-item-icon">📱</span>
           <span>9. Difusión Redes & Grupos</span>
         </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-warranty')">
+          <span class="hub-nav-item-icon">🛡️</span>
+          <span>10. Garantías & Posventa</span>
+        </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-referrals')">
           <span class="hub-nav-item-icon">🚀</span>
-          <span>10. Afiliados B2B</span>
+          <span>11. Afiliados B2B</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-dealer-web')">
           <span class="hub-nav-item-icon">🌐</span>
-          <span>11. Mi Web & Subdominio</span>
+          <span>12. Mi Web & Subdominio</span>
         </button>
       </nav>
 
@@ -1043,6 +1047,82 @@
             📊 Historial de Publicaciones y Leads Atribuidos
           </h3>
           <div id="social-history-table" style="overflow-x: auto;">
+            <!-- Renderizado dinámico -->
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================================
+           PESTAÑA 10: GESTIÓN DE GARANTÍAS LEGALES & INCIDENCIAS POSVENTA (SPEC 003 / MÓDULO 17)
+           ========================================================================================= -->
+      <section id="tab-warranty" style="display: none;">
+        <div class="hub-header" style="margin-bottom: 24px;">
+          <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 6px;">
+            🛡️ Gestión de Garantías & Incidencias Posventa
+          </h2>
+          <p style="color: var(--cm-text-secondary); font-size: 0.95rem;">
+            Control de coberturas legales de 1 año (RDL 1/2007). Distingue falta de conformidad frente a desgaste ordinario, asigna taller reparador y documenta la trazabilidad para evitar litigios.
+          </p>
+        </div>
+
+        <!-- Abrir Parte de Incidencia -->
+        <div style="background: white; border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 24px; margin-bottom: 30px; box-shadow: var(--cm-shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+              ➕ Registrar Nueva Incidencia Posventa
+            </h3>
+            <span style="font-size: 0.78rem; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px; font-weight: 700;">
+              12 Meses de Cobertura Legal
+            </span>
+          </div>
+
+          <form id="form-create-warranty" onsubmit="handleCreateWarrantyCase(event)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-items: end;">
+            <div>
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Vehículo Vendido *</label>
+              <select id="warranty-vehicle-select" class="form-control" required style="font-size: 0.85rem;">
+                <!-- Dinámico -->
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Comprador *</label>
+              <input type="text" id="warranty-buyer-name" class="form-control" placeholder="Ej: David Muñoz Pérez" required style="font-size: 0.85rem;">
+            </div>
+
+            <div>
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Tipo de Incidencia *</label>
+              <select id="warranty-issue-type" class="form-control" style="font-size: 0.85rem; font-weight: 700;">
+                <option value="falta_conformidad">Falta de Conformidad (Garantía Legal)</option>
+                <option value="desgaste_ajuste" selected>Desgaste / Ajuste Menor</option>
+                <option value="mal_uso">Daño por Uso / Mantenimiento</option>
+              </select>
+            </div>
+
+            <div style="grid-column: 1 / -1;">
+              <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Descripción del Síntoma o Avería Declarada *</label>
+              <input type="text" id="warranty-issue-desc" class="form-control" placeholder="Ej: Testigo de presión de neumáticos parpadea o ruido leve en copela" required style="font-size: 0.85rem;">
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-cyan" style="width: 100%; padding: 10px; font-weight: 800; font-size: 0.9rem;">
+                🛡️ Abrir Parte Posventa
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Listado de Incidencias Registradas -->
+        <div style="background: white; border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 24px; box-shadow: var(--cm-shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+              Partes de Garantía en Curso
+            </h3>
+            <span id="warranty-counter" style="font-size: 0.85rem; color: var(--cm-text-secondary); font-weight: 600;">
+              0 incidencias registradas
+            </span>
+          </div>
+
+          <div id="warranty-cases-list" style="display: flex; flex-direction: column; gap: 16px;">
             <!-- Renderizado dinámico -->
           </div>
         </div>

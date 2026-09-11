@@ -637,6 +637,7 @@ const CocheMotorStorage = {
     BUYER_REG: "cochemotor_buyer_registered_v2",
     DEAL_ROOMS: "cochemotor_deal_rooms_v1",
     SOCIAL_POSTS: "cochemotor_social_posts_v1",
+    WARRANTY_CASES: "cochemotor_warranty_cases_v1",
   },
 
   // Obtener definición de etapas
@@ -1052,5 +1053,72 @@ const CocheMotorStorage = {
     posts.unshift(newPost);
     this.saveAllSocialPosts(posts);
     return newPost;
+  },
+
+  // Gestión de Garantías y Posventa (Spec 003 / Módulo 17)
+  getWarrantyCases(userId = null) {
+    try {
+      const stored = localStorage.getItem(this.STORAGE_KEYS.WARRANTY_CASES);
+      if (stored) {
+        const allCases = JSON.parse(stored);
+        const targetUserId = (userId !== null) ? userId : this.getActiveUserId();
+        if (targetUserId === 'all') return allCases;
+        return allCases.filter(c => (c.sellerUserId || "user-juan") === targetUserId);
+      }
+    } catch (e) {}
+
+    const defaultCases = [
+      {
+        id: "gar-001",
+        sellerUserId: "user-garcia",
+        vehicleId: "cm-001",
+        vehicleTitle: "Volkswagen Golf 2.0 TDI Advance",
+        buyerName: "David Muñoz Pérez",
+        buyerPhone: "34611223344",
+        deliveryDate: "2026-08-15",
+        warrantyExpirationDate: "2027-08-15",
+        status: "en_taller", // abierta, en_taller, resuelta, rechazada_desgaste
+        claimedIssue: "Ruido leve en pastilla delantera izquierda al frenar en frío",
+        issueType: "desgaste_ajuste", // falta_conformidad, desgaste_ajuste, mal_uso
+        assignedWorkshop: "Talleres Hnos. García (Alcorcón)",
+        resolutionNotes: "Sustitución de juego de pastillas sin coste en garantía de cortesía del taller.",
+        openedAt: "2026-09-02",
+      }
+    ];
+
+    try {
+      localStorage.setItem(this.STORAGE_KEYS.WARRANTY_CASES, JSON.stringify(defaultCases));
+    } catch (e) {}
+    return defaultCases;
+  },
+
+  saveAllWarrantyCases(cases) {
+    try {
+      localStorage.setItem(this.STORAGE_KEYS.WARRANTY_CASES, JSON.stringify(cases));
+    } catch (e) {}
+  },
+
+  addWarrantyCase(caseData) {
+    const cases = this.getWarrantyCases('all');
+    const newCase = {
+      id: `gar-${Date.now().toString().slice(-4)}`,
+      openedAt: new Date().toISOString().split('T')[0],
+      status: "abierta",
+      ...caseData
+    };
+    cases.unshift(newCase);
+    this.saveAllWarrantyCases(cases);
+    return newCase;
+  },
+
+  updateWarrantyStatus(caseId, newStatus, notes = "") {
+    const cases = this.getWarrantyCases('all');
+    const target = cases.find(c => c.id === caseId);
+    if (target) {
+      target.status = newStatus;
+      if (notes) target.resolutionNotes = notes;
+      this.saveAllWarrantyCases(cases);
+    }
+    return target;
   }
 };

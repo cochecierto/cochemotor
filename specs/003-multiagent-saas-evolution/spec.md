@@ -60,3 +60,9 @@ Basado en los documentos maestros `PROMPT_MAESTRO_EQUIPO_AGENTES_IA_COCHEMOTOR.m
 ### Módulo 7: Difusión Social Asistida (Grupos de Facebook y Redes)
 - **EARS-010**: CUANDO un profesional prepare la difusión social de su inventario, EL SISTEMA proporcionará una herramienta de "Difusión Asistida" compatible con las políticas vigentes de Meta (sin bots ni automatizaciones no autorizadas), formateando texto, etiquetas y enlaces listos para publicar manualmente con registro de fecha.
 
+### Módulo 8: Garantías e Incidencias de Posventa (Opción A)
+- **EARS-011**: CUANDO un vehículo haya sido entregado, EL SISTEMA permitirá registrar incidencias posventa en el Hub, calculando los 12 meses de cobertura legal (RDL 1/2007) y clasificando entre falta de conformidad, desgaste ordinario o daño por mal uso con asignación de taller reparador.
+
+### Módulo 9: Visor e Impresión de Contrato Mercantil Oficial DGT (Opción A)
+- **EARS-012**: CUANDO el profesional o comprador acceda al expediente digital o deal room, EL SISTEMA generará una vista formal imprimible y descargable (PDF/Print) del Contrato de Compraventa Mercantil adaptado a las directivas de la DGT con membrete del vendedor, datos del comprador, vehículo, precio, desglose de señal, cláusula legal de 1 año y casillas de firma.
+
