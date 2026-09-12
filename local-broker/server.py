@@ -40,7 +40,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         init_db(db_path)
         query = parse_qs(parsed.query)
         with get_connection(db_path) as conn:
-            self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests, update_coche_ideal_status(conn, query.get("status", [None])[0])})
+            self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
     def do_POST(self):
         if self.path != "/api/coche-ideal":
             self.send_error(404)
