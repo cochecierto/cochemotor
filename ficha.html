@@ -879,6 +879,8 @@
       };
 
       CocheMotorStorage.addLead(newLead);
+      fetch('/api/leads', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({vehicle_id: currentCar.id, tenant_id: currentCar.userId || 'public-intake', buyer_name: name, phone, payment_method: payment, score: 96})})
+        .catch(error => console.warn('No se pudo sincronizar el contacto:', error.message));
       alert(`¡Gracias ${name}! Hemos registrado tu solicitud. El vendedor te contactará de inmediato por teléfono o WhatsApp.`);
       event.target.reset();
     }

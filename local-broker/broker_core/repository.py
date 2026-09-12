@@ -142,6 +142,12 @@ def save_ad_report(conn: sqlite3.Connection, report: dict[str, Any]) -> str:
     return report["id"]
 
 
+def save_lead_record(conn: sqlite3.Connection, lead: dict[str, Any]) -> str:
+    conn.execute("INSERT INTO leads (lead_id, tenant_id, vehicle_id, buyer_name, phone, payment_method, score, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (lead["id"], lead["tenant_id"], lead["vehicle_id"], lead["buyer_name"], lead["phone"], lead.get("payment_method", ""), int(lead.get("score", 0)), "nuevo"))
+    conn.commit()
+    return lead["id"]
+
+
 def save_vehicle_record(conn: sqlite3.Connection, vehicle_dict: dict[str, Any]) -> None:
     conn.execute(
         """
