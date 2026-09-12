@@ -292,8 +292,8 @@ button {
 }
 
 .brand-logo-img {
-  height: 78px;
-  max-height: 84px;
+  height: 86px;
+  max-height: 92px;
   width: auto;
   object-fit: contain;
   transition: transform var(--cm-transition-fast);
@@ -349,7 +349,7 @@ button {
 
 @media (max-width: 1180px) and (min-width: 769px) {
   .header-inner { min-height: 92px; }
-  .brand-logo-img { height: 66px; }
+  .brand-logo-img { height: 73px; }
   .nav-desktop { gap: 14px; }
   .nav-link { font-size: 0.78rem; text-align: center; line-height: 1.2; }
   .header-actions { gap: 8px; }
