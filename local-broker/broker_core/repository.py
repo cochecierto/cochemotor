@@ -95,7 +95,7 @@ def init_db(db_path: Path = DB_FILE) -> None:
             new_status TEXT NOT NULL,
             actor TEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        ),
+        );
 
         CREATE TABLE IF NOT EXISTS warranty_cases (
             case_id TEXT PRIMARY KEY,
