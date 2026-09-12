@@ -2289,13 +2289,13 @@ button {
 .hero-section {
   min-height: 690px;
   padding: 88px 0 44px;
-  background-image: linear-gradient(90deg, rgba(2, 18, 38, .88) 0%, rgba(2, 18, 38, .62) 48%, rgba(2, 18, 38, .18) 100%), url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=88");
+  background-image: linear-gradient(90deg, rgba(2, 18, 38, .88) 0%, rgba(2, 18, 38, .62) 48%, rgba(2, 18, 38, .18) 100%), url("assets/images/hero-cochemotor-far-car.png");
   background-size: cover;
   background-position: center 62%;
 }
 .hero-section::before { display: none; }
-.hero-grid { display: block; max-width: 1180px; }
-.hero-content { max-width: 1030px; }
+.hero-grid { display: block; max-width: 1320px; }
+.hero-content { max-width: 1120px; }
 .hero-headline { max-width: 600px; font-size: clamp(2.8rem, 5vw, 4.7rem); }
 .hero-subhead { max-width: 570px; }
 .hero-cta-box { margin-bottom: 28px; }
