@@ -34,6 +34,8 @@ export const TERRITORY_SOURCE = {
   country: 'ES',
   codeSystem: 'INE',
   lastReviewed: '2026-09-12',
+  officialUrl: 'https://www.ine.es/daco/daco42/codmun/cod_ccaa_provincia.htm',
+  municipalityDatasetUrl: 'https://datos.gob.es/es/catalogo/ea0042823-relacion-de-municipios-y-sus-codigos-por-provincias',
   status: 'partial-fixture',
   updatePolicy: 'Actualizar el snapshot local antes de cada release territorial'
 };
