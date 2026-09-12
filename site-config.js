@@ -7,7 +7,7 @@ const siteConfig = {
   metadata: {
     title: "CocheMotor — Compra claro. Vende mejor.",
     description: "Marketplace y plataforma digital para encontrar vehículos de ocasión, conectar con profesionales y comprar con más información, confianza y seguridad.",
-    canonical: "https://cochemotor.es",
+    canonical: "https://motor.cochecierto.com",
     domain: "cochemotor.es",
     language: "es-ES",
   },
