@@ -52,6 +52,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         try:
             length = int(self.headers.get("Content-Length", "0"))
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
+            if not isinstance(payload, dict) or not all(isinstance(payload.get(key), dict) for key in ("vehicle", "preferences", "contact", "consent")):
+                self._json_response(400, {"ok": False, "error": "Estructura inválida"})
+                return
+            required = (payload["vehicle"].get("brand"), payload["vehicle"].get("model"), payload["preferences"].get("budgetMax"), payload["contact"].get("name"), payload["contact"].get("email"))
+            if any(value in (None, "") for value in required) or payload["consent"].get("privacy") is not True or payload["consent"].get("contact") is not True:
+                self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimientos"})
+                return
             identity = {key: value for key, value in payload.items() if key not in {"id", "createdAt", "fingerprint"}}
             raw = json.dumps(identity, sort_keys=True, ensure_ascii=False)
             fingerprint = hashlib.sha256(raw.encode("utf-8")).hexdigest()
@@ -83,6 +90,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         try:
             length = int(self.headers.get("Content-Length", "0"))
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
+            if not isinstance(payload, dict) or not all(isinstance(payload.get(key), dict) for key in ("vehicle", "preferences", "contact", "consent")):
+                self._json_response(400, {"ok": False, "error": "Estructura inválida"})
+                return
+            required = (payload["vehicle"].get("brand"), payload["vehicle"].get("model"), payload["preferences"].get("budgetMax"), payload["contact"].get("name"), payload["contact"].get("email"))
+            if any(value in (None, "") for value in required) or payload["consent"].get("privacy") is not True or payload["consent"].get("contact") is not True:
+                self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimientos"})
+                return
             if payload.get("status") not in allowed or not payload.get("id"):
                 self._json_response(400, {"ok": False, "error": "Estado o solicitud inválidos"})
                 return
