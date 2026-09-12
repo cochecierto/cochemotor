@@ -79,6 +79,15 @@ def init_db(db_path: Path = DB_FILE) -> None:
             FOREIGN KEY (vehicle_id) REFERENCES vehicles (vehicle_id) ON DELETE CASCADE
         );
 
+        CREATE TABLE IF NOT EXISTS coche_ideal_requests (
+            request_id TEXT PRIMARY KEY,
+            tenant_id TEXT NOT NULL,
+            fingerprint TEXT NOT NULL,
+            payload_json TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'nueva',
+            consent_version TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
         CREATE TABLE IF NOT EXISTS warranty_cases (
             case_id TEXT PRIMARY KEY,
             tenant_id TEXT NOT NULL,
@@ -139,3 +148,15 @@ def save_vehicle_record(conn: sqlite3.Connection, vehicle_dict: dict[str, Any]) 
 def get_vehicles_by_tenant(conn: sqlite3.Connection, tenant_id: str) -> list[dict[str, Any]]:
     rows = conn.execute("SELECT * FROM vehicles WHERE tenant_id = ?", (tenant_id,)).fetchall()
     return [dict(r) for r in rows]
+
+def save_coche_ideal_request(conn: sqlite3.Connection, request: dict[str, Any], fingerprint: str, tenant_id: str = "public-intake") -> str:
+    """Persiste una solicitud pública Coche Ideal sin registrar PII en logs."""
+    request_id = request["id"]
+    conn.execute("INSERT INTO coche_ideal_requests (request_id, tenant_id, fingerprint, payload_json, status, consent_version) VALUES (?, ?, ?, ?, ?, ?)", (request_id, tenant_id, fingerprint, json.dumps(request, ensure_ascii=False), "nueva", request.get("consentVersion", "pending")))
+    conn.commit()
+    return request_id
+
+
+def has_recent_coche_ideal_fingerprint(conn: sqlite3.Connection, fingerprint: str, days: int = 30) -> bool:
+    row = conn.execute("SELECT 1 FROM coche_ideal_requests WHERE fingerprint = ? AND created_at >= datetime('now', ?)", (fingerprint, f"-{days} days")).fetchone()
+    return row is not None

@@ -9,6 +9,12 @@ import http.server
 import socketserver
 import os
 import sys
+import json
+import hashlib
+try:
+    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint
+except ModuleNotFoundError:
+    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint
 
 PORT = 8000
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,6 +25,37 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
+    def do_POST(self):
+        if self.path != "/api/coche-ideal":
+            self.send_error(404)
+            return
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            payload = json.loads(self.rfile.read(length).decode("utf-8"))
+            raw = json.dumps(payload, sort_keys=True, ensure_ascii=False)
+            fingerprint = hashlib.sha256(raw.encode("utf-8")).hexdigest()
+            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
+            init_db(db_path)
+            with get_connection(db_path) as conn:
+                if has_recent_coche_ideal_fingerprint(conn, fingerprint):
+                    self._json_response(409, {"ok": False, "duplicate": True})
+                    return
+                request_id = payload.get("id", "ci-" + fingerprint[:12])
+                payload["id"] = request_id
+                save_coche_ideal_request(conn, payload, fingerprint)
+            self._json_response(201, {"ok": True, "id": request_id, "status": "nueva"})
+        except (ValueError, json.JSONDecodeError, KeyError):
+            self._json_response(400, {"ok": False, "error": "Solicitud inválida"})
+        except Exception:
+            self._json_response(500, {"ok": False, "error": "No se pudo guardar la solicitud"})
+
+    def _json_response(self, status, data):
+        body = json.dumps(data).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
     def log_message(self, format, *args):
         sys.stdout.write("[CocheMotor Local Server] %s - %s\n" % (self.address_string(), format % args))
         sys.stdout.flush()
