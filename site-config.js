@@ -314,7 +314,7 @@ const siteConfig = {
         "Stock ilimitado de vehículos",
         "Multi-usuario para todo el equipo",
         "Gestión centralizada de leads WhatsApp",
-        "Bolsa de pedidos (Coches a la carta)",
+        "Bolsa de pedidos (Coches Coche Ideal)",
         "Garantías mecánicas con tarifa mayorista",
         "Account Manager y soporte telefónico VIP",
       ],
@@ -566,7 +566,7 @@ const siteConfig = {
     },
   ],
 
-  // Demanda activa de particulares: "Coches a la carta" (Marketplace Inverso)
+  // Demanda activa de particulares: "Coches Coche Ideal" (Marketplace Inverso)
   demandOrders: [
     {
       id: "ord-001",
