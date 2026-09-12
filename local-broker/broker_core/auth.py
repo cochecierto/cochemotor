@@ -47,6 +47,12 @@ def init_auth_schema(conn: sqlite3.Connection) -> None:
         professional_type TEXT,
         created_at TEXT NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS professional_sessions (
+        token TEXT PRIMARY KEY,
+        user_id TEXT NOT NULL,
+        expires_at TEXT NOT NULL,
+        created_at TEXT NOT NULL
+    );
     """)
     conn.commit()
 
@@ -77,6 +83,27 @@ def authenticate_user(conn: sqlite3.Connection, email: str, password: str) -> di
     row = conn.execute("SELECT user_id, name, email, password_hash, email_verified, phone, professional_type FROM professional_users WHERE email = ?", (email.strip().lower(),)).fetchone()
     if not row or not _check_password(password, row["password_hash"]):
         raise ValueError("Correo o contraseña incorrectos")
+    return {"user_id": row["user_id"], "name": row["name"], "email": row["email"], "verified": bool(row["email_verified"]), "phone": row["phone"], "professional_type": row["professional_type"]}
+
+
+def create_session(conn: sqlite3.Connection, user_id: str) -> str:
+    token = secrets.token_urlsafe(32)
+    now = _now()
+    conn.execute("INSERT INTO professional_sessions (token, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)", (token, user_id, (now + timedelta(hours=8)).isoformat(), now.isoformat()))
+    conn.commit()
+    return token
+
+
+def validate_session(conn: sqlite3.Connection, token: str) -> dict[str, Any] | None:
+    if not token or len(token) < 20:
+        return None
+    row = conn.execute("SELECT u.user_id, u.name, u.email, u.email_verified, u.phone, u.professional_type, s.expires_at FROM professional_sessions s JOIN professional_users u ON u.user_id = s.user_id WHERE s.token = ?", (token,)).fetchone()
+    if not row:
+        return None
+    if datetime.fromisoformat(row["expires_at"]) <= _now():
+        conn.execute("DELETE FROM professional_sessions WHERE token = ?", (token,))
+        conn.commit()
+        return None
     return {"user_id": row["user_id"], "name": row["name"], "email": row["email"], "verified": bool(row["email_verified"]), "phone": row["phone"], "professional_type": row["professional_type"]}
 
 

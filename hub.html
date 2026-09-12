@@ -15,8 +15,13 @@
   <link rel="stylesheet" href="styles.css?v=4.0">
   <script>
     (function () {
-      const session = localStorage.getItem('cochemotor_local_session');
-      if (!session) window.location.replace('acceso.html?return=hub');
+      const rawSession = localStorage.getItem('cochemotor_local_session');
+      const session = rawSession ? JSON.parse(rawSession) : null;
+      if (!session?.sessionToken) window.location.replace('acceso.html?return=hub');
+      else fetch('/api/auth', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'session', session_token: session.sessionToken}) })
+        .then(response => { if (!response.ok) throw new Error('Sesión caducada'); return response.json(); })
+        .then(data => { if (!data.ok || !data.user?.verified) throw new Error('Sesión no válida'); })
+        .catch(() => { localStorage.removeItem('cochemotor_local_session'); window.location.replace('acceso.html?return=hub'); });
     }());
   </script>
   <style>
