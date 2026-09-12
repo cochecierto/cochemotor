@@ -110,6 +110,16 @@ def init_db(db_path: Path = DB_FILE) -> None:
             FOREIGN KEY (tenant_id) REFERENCES dealerships (tenant_id) ON DELETE CASCADE,
             FOREIGN KEY (vehicle_id) REFERENCES vehicles (vehicle_id) ON DELETE CASCADE
         );
+        CREATE TABLE IF NOT EXISTS ad_reports (
+            report_id TEXT PRIMARY KEY,
+            listing_reference TEXT NOT NULL,
+            reason TEXT NOT NULL,
+            description TEXT NOT NULL,
+            reporter_email TEXT,
+            privacy_consent INTEGER NOT NULL,
+            status TEXT NOT NULL DEFAULT 'nueva',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
         """)
         conn.commit()
     finally:
@@ -124,6 +134,12 @@ def save_dealership(conn: sqlite3.Connection, tenant_id: str, display_name: str,
         """,
         (tenant_id, display_name, dealer_slug, phone),
     )
+
+
+def save_ad_report(conn: sqlite3.Connection, report: dict[str, Any]) -> str:
+    conn.execute("INSERT INTO ad_reports (report_id, listing_reference, reason, description, reporter_email, privacy_consent) VALUES (?, ?, ?, ?, ?, ?)", (report["id"], report["listing_reference"], report["reason"], report["description"], report.get("email", ""), 1))
+    conn.commit()
+    return report["id"]
 
 
 def save_vehicle_record(conn: sqlite3.Connection, vehicle_dict: dict[str, Any]) -> None:

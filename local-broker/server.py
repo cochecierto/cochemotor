@@ -14,10 +14,10 @@ import hashlib
 import secrets
 from urllib.parse import urlparse, parse_qs
 try:
-    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record
+    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report
     from local_broker.broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile
 except ModuleNotFoundError:
-    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record
+    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report
     from broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile
 
 PORT = 8000
@@ -61,6 +61,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return
         if self.path == "/api/vehicles":
             self._handle_vehicle()
+            return
+        if self.path == "/api/report":
+            self._handle_report()
             return
         if self.path != "/api/coche-ideal":
             self.send_error(404)
@@ -165,6 +168,28 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._json_response(400, {"ok": False, "error": "Datos del vehículo no válidos"})
         except Exception:
             self._json_response(500, {"ok": False, "error": "No se pudo guardar el vehículo"})
+
+    def _handle_report(self):
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            if length > 12_000:
+                self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
+                return
+            payload = json.loads(self.rfile.read(length).decode("utf-8"))
+            required = (payload.get("listing_reference"), payload.get("reason"), payload.get("description"))
+            if not all(isinstance(value, str) and value.strip() for value in required) or payload.get("privacy_consent") is not True:
+                self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimiento"})
+                return
+            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
+            init_db(db_path)
+            report = {**payload, "id": "rep-" + secrets.token_hex(6)}
+            with get_connection(db_path) as conn:
+                save_ad_report(conn, report)
+            self._json_response(201, {"ok": True, "id": report["id"], "status": "nueva"})
+        except (ValueError, TypeError, json.JSONDecodeError):
+            self._json_response(400, {"ok": False, "error": "Datos de denuncia no válidos"})
+        except Exception:
+            self._json_response(500, {"ok": False, "error": "No se pudo registrar la denuncia"})
 
     def do_PUT(self):
         if urlparse(self.path).path != "/api/coche-ideal":
