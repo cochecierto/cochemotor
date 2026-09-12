@@ -11,13 +11,20 @@ from collections import defaultdict
 from pathlib import Path
 
 ALIASES = {
-    'brand': {'make','brand','manufacturer','marca'},
-    'model': {'model','commercial name','modelo'},
+    'brand': {'make','mk','brand','manufacturer','marca'},
+    'model': {'model','commercial name','cn','modelo'},
     'year': {'year','model year','registration year','ano','año'},
-    'fuel': {'fuel','fuel type','fuel type - primary','combustible'},
-    'version': {'version','trim','variant','denomination','versión','version comercial'},
+    'fuel': {'fuel','fuel type','fuel type - primary','ft','combustible'},
+    'version': {'version','ve','trim','variant','denomination','versión','version comercial'},
 }
+EXCLUDED_BRANDS = {'1', 'activity', 'air-brakes', 'allied vehicles ltd', 'avelling barford', 'divisegur catalunya', 'enaire', 'electra jacetana', 'remolques ramirez', 'sin marca', 'toth es fiai'}
+BRAND_CANONICAL = {'a.u.d.i.': 'AUDI', 'b.m.w.': 'BMW', 'bmw i': 'BMW', 'chevrolet': 'CHEVROLET', 'jaguar': 'JAGUAR', 'mercedes': 'MERCEDES-BENZ', 'mercedes amg': 'MERCEDES-AMG', 'mercedes-amg': 'MERCEDES-AMG', 'mercedes-benz': 'MERCEDES-BENZ', 'rolls royce': 'ROLLS-ROYCE', 'rolls-royce': 'ROLLS-ROYCE', 'tesla motors': 'TESLA', 'volkswagen, vw': 'VOLKSWAGEN', 'volkswagen v w': 'VOLKSWAGEN', 'volkswagen ag': 'VOLKSWAGEN'}
 def norm(s): return re.sub(r'\s+', ' ', str(s or '').strip().lower().replace('_',' '))
+def clean_brand(value):
+    raw = str(value or '').strip()
+    key = norm(raw)
+    if key in EXCLUDED_BRANDS: return ''
+    return BRAND_CANONICAL.get(key, raw.upper())
 def pick(headers, names):
     lookup = {norm(h): h for h in headers}
     for n in names:
@@ -35,7 +42,7 @@ def main():
         if missing: raise SystemExit('Faltan columnas: ' + ', '.join(missing))
         tree = defaultdict(lambda: defaultdict(lambda: {'years': set(), 'fuels': defaultdict(set)}))
         for row in rows:
-            brand, model = row[cols['brand']].strip(), row[cols['model']].strip()
+            brand, model = clean_brand(row[cols['brand']]), row[cols['model']].strip()
             fuel, version = row[cols['fuel']].strip(), row[cols['version']].strip()
             if not brand or not model or not fuel or not version: continue
             year = row[cols['year']].strip()

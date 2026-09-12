@@ -11,3 +11,6 @@ tmp/
 cochemotor-hostinger-public_html.zip
 
 cochemotor-motor-cochecierto.zip
+
+# Dataset EEA bruto (se procesa localmente, no se publica en Git)
+data.csv
