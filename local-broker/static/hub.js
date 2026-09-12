@@ -1,5 +1,5 @@
 /**
- * CocheMotor Hub — Interactive Logic & Multi-Module SaaS Core
+ * Panel profesional — Interactive Logic & Multi-Module SaaS Core
  * Con Navegación en Sidebar Lateral Izquierda y Aislamiento Multi-Usuario
  */
 

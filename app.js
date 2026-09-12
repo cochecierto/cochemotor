@@ -1,6 +1,6 @@
 /**
  * CocheMotor — Interactive Application & Editorial Renderer
- * Metodología BIG School Webs & Hub SaaS B2B (Inspirado en Inmobia360)
+ * Metodología BIG School Webs & Panel profesional B2B (Inspirado en Inmobia360)
  */
 
 let isAnnualBilling = false;
@@ -267,7 +267,7 @@ function renderTestimonials() {
   }).join('');
 }
 
-// NUEVO: Renderizado de Planes B2B
+// NUEVO: Renderizado de Planes para profesionales
 function renderPricing() {
   var grid = document.getElementById('pricing-grid');
   if (!grid || !siteConfig.pricing) return;

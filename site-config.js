@@ -36,10 +36,10 @@ const siteConfig = {
   },
 
   navigation: [
-    { label: "Marketplace VO", href: "marketplace.html" },
+    { label: "Coches de ocasión", href: "marketplace.html" },
     { label: "Coche Ideal", href: "demanda.html" },
     { label: "Mecánica Verificada", href: "index.html#ingenieria" },
-    { label: "Los 3 Pilares", href: "index.html#pilares" },
+    { label: "Cómo funciona", href: "index.html#pilares" },
     { label: "Hub Profesional", href: "hub.html" },
     { label: "Planes & Tarifas", href: "index.html#planes" },
     { label: "FAQ", href: "index.html#faq" },
@@ -177,7 +177,7 @@ const siteConfig = {
 
     chapter4_pillars: {
       number: "CAPÍTULO 03",
-      title: "Los 3 Pilares del Sello CocheMotor",
+      title: "Cómo funciona del Sello CocheMotor",
       pillars: [
         {
           code: "01 / PERITAJE",
@@ -222,7 +222,7 @@ const siteConfig = {
           a: "Cada ficha técnica indica con claridad el distintivo oficial de la DGT (0 Emisiones, ECO, C o B) y su aptitud para circular sin restricciones en Madrid, Barcelona y ciudades de más de 50.000 habitantes.",
         },
         {
-          q: "¿Qué herramientas incluye el Hub SaaS para profesionales?",
+          q: "¿Qué herramientas incluye el Panel profesional para profesionales?",
           a: "Incluye Generador Multicanal con IA para portales (Coches.net, Wallapop, Milanuncios), Embudo de Ventas Kanban, Copiloto IA de rotación y precios, Bolsa de pedidos y Cartelería de Parabrisas con código QR.",
         },
         {
@@ -266,7 +266,7 @@ const siteConfig = {
     },
   ],
 
-  // Planes B2B
+  // Planes para profesionales
   pricing: [
     {
       id: "plan-starter",
