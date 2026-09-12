@@ -2289,7 +2289,7 @@ button {
 .hero-section {
   min-height: 690px;
   padding: 88px 0 44px;
-  background-image: linear-gradient(90deg, rgba(2, 18, 38, .88) 0%, rgba(2, 18, 38, .62) 48%, rgba(2, 18, 38, .18) 100%), url("assets/images/hero-cochemotor-far-car.png");
+  background-image: linear-gradient(90deg, rgba(2, 18, 38, .88) 0%, rgba(2, 18, 38, .62) 48%, rgba(2, 18, 38, .18) 100%), url("assets/images/hero-cochemotor-anonimizado.png");
   background-size: cover;
   background-position: center 62%;
 }
