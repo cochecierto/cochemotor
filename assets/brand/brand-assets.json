@@ -15,7 +15,7 @@
     "headerLight": "logos/cochemotor-horizontal-light.png",
     "headerDark": "logos/cochemotor-horizontal-dark.png",
     "verificationSeal": "",
-    "appIcon": "icons/cochemotor-app-icon.svg",
+    "appIcon": "icons/cochemotor-app-icon.png",
     "socialPreview": "social/cochemotor-logo-final-dark-reference.png",
     "vehicleFallback": ""
   }
