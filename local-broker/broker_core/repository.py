@@ -167,6 +167,13 @@ def list_coche_ideal_requests(conn: sqlite3.Connection, status: str | None = Non
     query += " ORDER BY created_at DESC"
     rows = conn.execute(query, params).fetchall()
     return [{**json.loads(row["payload_json"]), "id": row["request_id"], "status": row["status"], "createdAt": row["created_at"], "consentVersion": row["consent_version"]} for row in rows]
+def update_coche_ideal_status(conn: sqlite3.Connection, request_id: str, status: str) -> bool:
+    row = conn.execute("SELECT 1 FROM coche_ideal_requests WHERE request_id = ?", (request_id,)).fetchone()
+    if not row:
+        return False
+    conn.execute("UPDATE coche_ideal_requests SET status = ? WHERE request_id = ?", (status, request_id))
+    conn.commit()
+    return True
 def has_recent_coche_ideal_fingerprint(conn: sqlite3.Connection, fingerprint: str, days: int = 30) -> bool:
     row = conn.execute("SELECT 1 FROM coche_ideal_requests WHERE fingerprint = ? AND created_at >= datetime('now', ?)", (fingerprint, f"-{days} days")).fetchone()
     return row is not None

@@ -14,9 +14,9 @@ import hashlib
 import secrets
 from urllib.parse import urlparse, parse_qs
 try:
-    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests
+    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, update_coche_ideal_status
 except ModuleNotFoundError:
-    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests
+    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, update_coche_ideal_status
 
 PORT = 8000
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,7 +40,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         init_db(db_path)
         query = parse_qs(parsed.query)
         with get_connection(db_path) as conn:
-            self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
+            self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests, update_coche_ideal_status(conn, query.get("status", [None])[0])})
     def do_POST(self):
         if self.path != "/api/coche-ideal":
             self.send_error(404)
@@ -66,6 +66,31 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         except Exception:
             self._json_response(500, {"ok": False, "error": "No se pudo guardar la solicitud"})
 
+    def do_PUT(self):
+        if urlparse(self.path).path != "/api/coche-ideal":
+            self.send_error(404)
+            return
+        expected = os.environ.get("COCHEMOTOR_ADVISOR_KEY")
+        provided = self.headers.get("X-Advisor-Key")
+        if not expected or not provided or not secrets.compare_digest(provided, expected):
+            self._json_response(401, {"ok": False, "error": "No autorizado"})
+            return
+        allowed = {"nueva", "en revisión", "opciones encontradas", "presentada al cliente", "aceptada", "descartada", "cerrada"}
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            payload = json.loads(self.rfile.read(length).decode("utf-8"))
+            if payload.get("status") not in allowed or not payload.get("id"):
+                self._json_response(400, {"ok": False, "error": "Estado o solicitud inválidos"})
+                return
+            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
+            init_db(db_path)
+            with get_connection(db_path) as conn:
+                if not update_coche_ideal_status(conn, payload["id"], payload["status"]):
+                    self._json_response(404, {"ok": False, "error": "Solicitud no encontrada"})
+                    return
+            self._json_response(200, {"ok": True, "id": payload["id"], "status": payload["status"]})
+        except (ValueError, json.JSONDecodeError):
+            self._json_response(400, {"ok": False, "error": "Solicitud inválida"})
     def _json_response(self, status, data):
         body = json.dumps(data).encode("utf-8")
         self.send_response(status)
