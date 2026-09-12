@@ -200,6 +200,8 @@ function handleCreateVehicle(event) {
     brand,
     model,
     version,
+    catalogId: (window.CocheMotorVehicleCatalog?.buildVehicleCatalogId || (() => ''))(brand, model, year, fuel, version),
+    catalogSource: window.CocheMotorVehicleCatalog?.VEHICLE_CATALOG_SOURCE?.primary || 'CocheMotor catálogo local',
     year,
     km,
     fuel,
