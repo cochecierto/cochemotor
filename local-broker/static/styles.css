@@ -2280,6 +2280,11 @@ button {
   font-weight: 700;
 }
 
+/* Coche Ideal — stepper accessible y responsive */
+.coche-ideal-steps { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+.coche-ideal-steps span { flex:1; min-width:110px; padding:10px 8px; border-radius:8px; background:var(--cm-surface-subtle); color:var(--cm-text-secondary); text-align:center; font-size:.78rem; font-weight:800; }
+.coche-ideal-steps span.active { background:var(--cm-navy); color:var(--cm-white); }
+@media (max-width: 640px) { .coche-ideal-steps span { min-width:0; font-size:.7rem; } }
 /* Hero marketplace — composición visual de referencia */
 .hero-section {
   min-height: 690px;

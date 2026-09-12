@@ -1,0 +1,22 @@
+{
+  "name": "CocheMotor brand asset repository",
+  "version": "1.0.0",
+  "sourceReference": "cochemotor-logo-final-dark-reference.png",
+  "palette": {
+    "deepNavy": "#002D62",
+    "automotiveRed": "#D02828",
+    "deepBurgundy": "#8F1D2C",
+    "verificationGreen": "#18A66A",
+    "white": "#FFFFFF",
+    "coolGray": "#F3F5F7",
+    "graphite": "#3C3F41"
+  },
+  "assets": {
+    "headerLight": "logos/cochemotor-horizontal-light.png",
+    "headerDark": "logos/cochemotor-horizontal-dark.png",
+    "verificationSeal": "",
+    "appIcon": "icons/cochemotor-app-icon.png",
+    "socialPreview": "social/cochemotor-logo-final-dark-reference.png",
+    "vehicleFallback": ""
+  }
+}
