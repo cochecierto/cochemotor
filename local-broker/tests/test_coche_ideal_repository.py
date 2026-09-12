@@ -1,6 +1,9 @@
 import json
 import tempfile
 import unittest
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from pathlib import Path
 from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, update_coche_ideal_status, list_coche_ideal_history
 
