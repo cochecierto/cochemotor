@@ -51,12 +51,11 @@ function initMobileNavigation() {
 function initBranding() {
   var brandLogos = document.querySelectorAll('.brand-logo-img');
   brandLogos.forEach(function(img) {
-    img.src = siteConfig.brand.logoLight;
     img.alt = siteConfig.brand.name + ' — ' + siteConfig.brand.tagline;
   });
 
-  var pistonIcons = document.querySelectorAll('.floating-piston-img');
-  pistonIcons.forEach(function(img) {
+  var verificationSeals = document.querySelectorAll('.floating-verification-seal-img');
+  verificationSeals.forEach(function(img) {
     img.src = siteConfig.brand.selloVerificado || 'assets/brand/cochemotor_sello_verificado.png';
     img.alt = 'Sello CocheMotor Verificado';
   });
