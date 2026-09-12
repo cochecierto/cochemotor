@@ -25,6 +25,21 @@ export const COMMUNITIES = [
   }
 ];
 
+// Fuente normativa de referencia para mantener esta tabla: nomenclátor y
+// códigos territoriales del INE. La app usa copias locales para no depender
+// de una API en cada búsqueda; las actualizaciones se hacen de forma versionada.
+export const TERRITORY_SOURCE = {
+  authority: 'Instituto Nacional de Estadística (INE)',
+  dataset: 'Nomenclátor: Población del Padrón Continuo por Unidad Poblacional',
+  country: 'ES',
+  codeSystem: 'INE',
+  lastReviewed: '2026-09-12',
+  status: 'partial-fixture',
+  updatePolicy: 'Actualizar el snapshot local antes de cada release territorial'
+};
+
+export function getTerritorySource() { return { ...TERRITORY_SOURCE }; }
+
 export function getCommunities() {
   return COMMUNITIES.map(c => ({ id: c.id, name: c.name }));
 }
