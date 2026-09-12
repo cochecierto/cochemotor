@@ -12,8 +12,8 @@
     "graphite": "#3C3F41"
   },
   "assets": {
-    "headerLight": "cochemotor_wordmark.svg",
-    "headerDark": "cochemotor_wordmark_white.svg",
+    "headerLight": "cochemotor_logo_azul_con_tagline.png",
+    "headerDark": "cochemotor_logo_blanco_sin_tagline.png",
     "verificationSeal": "cochemotor_sello_verificado.png",
     "appIcon": "favicon.svg",
     "socialPreview": "cochemotor-brand-master-reference.png",
