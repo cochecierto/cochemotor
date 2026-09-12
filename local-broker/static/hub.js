@@ -21,6 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDealerWebSettings();
 });
 
+async function logoutLocalSession() {
+  const session = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
+  try {
+    if (session?.sessionToken) await fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'logout', session_token: session.sessionToken})});
+  } finally {
+    localStorage.removeItem('cochemotor_local_session');
+    window.location.replace('acceso.html');
+  }
+}
+
 // 1. Selector de Usuario / Concesionario (Multi-Tenant)
 function initUserSwitcher() {
   const switcher = document.getElementById('hub-user-switcher');

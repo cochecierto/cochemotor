@@ -107,6 +107,11 @@ def validate_session(conn: sqlite3.Connection, token: str) -> dict[str, Any] | N
     return {"user_id": row["user_id"], "name": row["name"], "email": row["email"], "verified": bool(row["email_verified"]), "phone": row["phone"], "professional_type": row["professional_type"]}
 
 
+def revoke_session(conn: sqlite3.Connection, token: str) -> None:
+    conn.execute("DELETE FROM professional_sessions WHERE token = ?", (token,))
+    conn.commit()
+
+
 def update_profile(conn: sqlite3.Connection, user_id: str, phone: str, professional_type: str) -> bool:
     if len(phone.strip()) < 9 or not professional_type.strip():
         raise ValueError("Teléfono o tipo de profesional no válidos")

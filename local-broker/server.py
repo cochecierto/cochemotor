@@ -15,10 +15,10 @@ import secrets
 from urllib.parse import urlparse, parse_qs
 try:
     from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record
-    from local_broker.broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, update_profile
+    from local_broker.broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile
 except ModuleNotFoundError:
     from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record
-    from broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, update_profile
+    from broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile
 
 PORT = 8000
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -127,6 +127,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 if action == "session":
                     user = validate_session(conn, payload.get("session_token", ""))
                     self._json_response(200 if user else 401, {"ok": bool(user), "user": user})
+                    return
+                if action == "logout":
+                    revoke_session(conn, payload.get("session_token", ""))
+                    self._json_response(200, {"ok": True})
                     return
                 if action == "profile":
                     ok = update_profile(conn, payload.get("user_id", ""), payload.get("phone", ""), payload.get("professional_type", ""))
