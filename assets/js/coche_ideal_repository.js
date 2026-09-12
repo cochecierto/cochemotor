@@ -23,5 +23,18 @@
     global.localStorage.setItem(KEY, JSON.stringify(items));
     return { ok: true, request: record };
   }
-  global.CocheIdealRepository = { create, list: read, DEDUP_WINDOW_MS };
+  async function createRemote(request) {
+    try {
+      const response = await global.fetch('/api/coche-ideal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(request)
+      });
+      const data = await response.json();
+      return { ...data, remote: true, ok: response.ok };
+    } catch (_) {
+      return { ok: false, remote: true, unavailable: true };
+    }
+  }
+  global.CocheIdealRepository = { create, createRemote, list: read, DEDUP_WINDOW_MS };
 })(window);

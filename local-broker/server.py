@@ -32,7 +32,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         try:
             length = int(self.headers.get("Content-Length", "0"))
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
-            raw = json.dumps(payload, sort_keys=True, ensure_ascii=False)
+            identity = {key: value for key, value in payload.items() if key not in {"id", "createdAt", "fingerprint"}}
+            raw = json.dumps(identity, sort_keys=True, ensure_ascii=False)
             fingerprint = hashlib.sha256(raw.encode("utf-8")).hexdigest()
             db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
             init_db(db_path)
