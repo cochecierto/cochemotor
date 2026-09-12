@@ -100,13 +100,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 self._json_response(400, {"ok": False, "error": "Estructura inválida"})
                 return
             required = (payload["vehicle"].get("brand"), payload["vehicle"].get("model"), payload["preferences"].get("budgetMax"), payload["contact"].get("name"), payload["contact"].get("email"))
-            if any(value in (None, "") for value in required) or payload["consent"].get("privacy") is not True or payload["consent"].get("contact") is not True:            preferences = payload["preferences"]
+            if any(value in (None, "") for value in required) or payload["consent"].get("privacy") is not True or payload["consent"].get("contact") is not True:
+                self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimientos"})
+                return
+            preferences = payload["preferences"]
             year = payload["vehicle"].get("year")
             budget_max = preferences.get("budgetMax")
             if not isinstance(year, int) or year < 1900 or year > 2100 or not isinstance(budget_max, (int, float)) or budget_max <= 0:
                 self._json_response(400, {"ok": False, "error": "Año o presupuesto inválidos"})
-                return
-                self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimientos"})
                 return
             if payload.get("status") not in allowed or not payload.get("id"):
                 self._json_response(400, {"ok": False, "error": "Estado o solicitud inválidos"})
