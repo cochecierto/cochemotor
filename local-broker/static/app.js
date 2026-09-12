@@ -56,7 +56,7 @@ function initBranding() {
 
   var verificationSeals = document.querySelectorAll('.floating-verification-seal-img');
   verificationSeals.forEach(function(img) {
-    img.src = siteConfig.brand.selloVerificado || 'assets/brand/cochemotor_sello_verificado.png';
+    img.src = siteConfig.brand.selloVerificado || 'assets/brand/icons/cochemotor-verification-seal.png';
     img.alt = 'Sello CocheMotor Verificado';
   });
 }
