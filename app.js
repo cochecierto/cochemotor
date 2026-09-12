@@ -27,7 +27,26 @@ document.addEventListener('DOMContentLoaded', function() {
   initStockFilters();
   initVehicleModal();
   updateLandingRoi();
+  initMobileNavigation();
 });
+
+function initMobileNavigation() {
+  var toggle = document.querySelector('.nav-menu-toggle');
+  var nav = document.getElementById('site-navigation');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', function() {
+    var open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('is-open', !open);
+    toggle.setAttribute('aria-label', open ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
+  });
+  nav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-open');
+    });
+  });
+}
 
 function initBranding() {
   var brandLogos = document.querySelectorAll('.brand-logo-img');

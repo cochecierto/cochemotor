@@ -306,8 +306,12 @@ button {
 .nav-desktop {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(14px, 2vw, 28px);
+  flex: 1;
+  justify-content: center;
 }
+
+.nav-menu-toggle { display: none; }
 
 .nav-link {
   font-family: var(--font-family-display);
@@ -341,6 +345,15 @@ button {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+@media (max-width: 1180px) and (min-width: 769px) {
+  .header-inner { min-height: 78px; }
+  .brand-logo-img { height: 52px; }
+  .nav-desktop { gap: 14px; }
+  .nav-link { font-size: 0.78rem; text-align: center; line-height: 1.2; }
+  .header-actions { gap: 8px; }
+  .header-actions .btn { padding-left: 12px !important; padding-right: 12px !important; font-size: 0.78rem !important; }
 }
 
 /* Chapter 1: Hero */
@@ -1189,9 +1202,16 @@ button {
 }
 
 @media (max-width: 768px) {
-  .nav-desktop {
-    display: none;
-  }
+  .header-inner { min-height: 70px; position: relative; }
+  .brand-logo-img { height: 48px; }
+  .nav-menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--cm-border-strong); border-radius: var(--cm-radius-md); color: var(--cm-navy); background: var(--cm-white); font-size: 1.35rem; }
+  .nav-desktop { display: none; position: absolute; top: calc(100% - 1px); left: 20px; right: 20px; flex-direction: column; align-items: stretch; gap: 0; padding: 8px; background: var(--cm-white); border: 1px solid var(--cm-border); border-radius: 0 0 var(--cm-radius-md) var(--cm-radius-md); box-shadow: var(--cm-shadow-lg); }
+  .nav-desktop.is-open { display: flex; }
+  .nav-link { padding: 12px 10px; border-bottom: 1px solid var(--cm-border); }
+  .nav-link:last-child { border-bottom: 0; }
+  .header-actions { gap: 8px; }
+  .header-actions .btn:first-child { display: none; }
+  .header-actions .btn { padding: 9px 12px !important; font-size: 0.76rem !important; }
   .hero-stats-grid {
     grid-template-columns: 1fr;
     gap: 16px;
