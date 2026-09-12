@@ -14,10 +14,10 @@ import hashlib
 import secrets
 from urllib.parse import urlparse, parse_qs
 try:
-    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report, save_lead_record
+    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report, save_lead_record, list_lead_records
     from local_broker.broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile
 except ModuleNotFoundError:
-    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report, save_lead_record
+    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report, save_lead_record, list_lead_records
     from broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile
 
 PORT = 8000
@@ -40,6 +40,17 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._json_response(200 if ok else 400, {"ok": ok, "message": "Correo verificado. Ya puedes iniciar sesión." if ok else "Enlace de verificación no válido."})
             return
         if parsed.path != "/api/coche-ideal":
+            if parsed.path == "/api/leads":
+                expected = os.environ.get("COCHEMOTOR_ADVISOR_KEY")
+                provided = self.headers.get("X-Advisor-Key")
+                if not expected or not provided or not secrets.compare_digest(provided, expected):
+                    self._json_response(401, {"ok": False, "error": "No autorizado"})
+                    return
+                db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
+                init_db(db_path)
+                with get_connection(db_path) as conn:
+                    self._json_response(200, {"ok": True, "leads": list_lead_records(conn, parse_qs(parsed.query).get("tenant_id", [None])[0])})
+                return
             return super().do_GET()
         expected = os.environ.get("COCHEMOTOR_ADVISOR_KEY")
         provided = self.headers.get("X-Advisor-Key")

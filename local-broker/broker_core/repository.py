@@ -148,6 +148,16 @@ def save_lead_record(conn: sqlite3.Connection, lead: dict[str, Any]) -> str:
     return lead["id"]
 
 
+def list_lead_records(conn: sqlite3.Connection, tenant_id: str | None = None) -> list[dict[str, Any]]:
+    query = "SELECT lead_id, tenant_id, vehicle_id, buyer_name, phone, payment_method, score, status, created_at FROM leads"
+    params: tuple[str, ...] = ()
+    if tenant_id:
+        query += " WHERE tenant_id = ?"
+        params = (tenant_id,)
+    query += " ORDER BY created_at DESC"
+    return [dict(row) for row in conn.execute(query, params).fetchall()]
+
+
 def save_vehicle_record(conn: sqlite3.Connection, vehicle_dict: dict[str, Any]) -> None:
     conn.execute(
         """
