@@ -2285,3 +2285,29 @@ button {
 .coche-ideal-steps span { flex:1; min-width:110px; padding:10px 8px; border-radius:8px; background:var(--cm-surface-subtle); color:var(--cm-text-secondary); text-align:center; font-size:.78rem; font-weight:800; }
 .coche-ideal-steps span.active { background:var(--cm-navy); color:var(--cm-white); }
 @media (max-width: 640px) { .coche-ideal-steps span { min-width:0; font-size:.7rem; } }
+/* Hero marketplace — composición visual de referencia */
+.hero-section {
+  min-height: 690px;
+  padding: 88px 0 44px;
+  background-image: linear-gradient(90deg, rgba(2, 18, 38, .88) 0%, rgba(2, 18, 38, .62) 48%, rgba(2, 18, 38, .18) 100%), url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=88");
+  background-size: cover;
+  background-position: center 62%;
+}
+.hero-section::before { display: none; }
+.hero-grid { display: block; max-width: 1180px; }
+.hero-content { max-width: 1030px; }
+.hero-headline { max-width: 600px; font-size: clamp(2.8rem, 5vw, 4.7rem); }
+.hero-subhead { max-width: 570px; }
+.hero-cta-box { margin-bottom: 28px; }
+.hero-search-wrapper { max-width: 960px; margin-top: 30px; }
+.hero-search-box { grid-template-columns: repeat(3, minmax(0, 1fr)) 150px; }
+.hero-trust-bar { max-width: 900px; margin-top: 30px; }
+.hero-visual-card { display: none; }
+@media (max-width: 768px) {
+  .hero-section { min-height: auto; padding: 64px 0 34px; background-position: 66% center; }
+  .hero-headline { font-size: clamp(2.25rem, 11vw, 3.4rem); }
+  .hero-search-wrapper { margin-top: 24px; }
+  .hero-search-box { grid-template-columns: 1fr; }
+  .hero-search-tabs { overflow-x: auto; }
+  .hero-search-tab { white-space: nowrap; padding: 10px 14px; }
+}
