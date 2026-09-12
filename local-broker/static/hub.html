@@ -317,23 +317,23 @@
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                 <div class="form-group">
                   <label class="form-label">Marca *</label>
-                  <input type="text" id="up-brand" class="form-control" placeholder="Ej: Seat, Audi, Ford" required>
+                  <select id="up-brand" class="form-control" required></select>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Modelo *</label>
-                  <input type="text" id="up-model" class="form-control" placeholder="Ej: León, A3, Focus" required>
+                  <select id="up-model" class="form-control" required disabled></select>
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="form-label">Versión y Motorización *</label>
-                <input type="text" id="up-version" class="form-control" placeholder="Ej: 1.5 TSI 130 CV Style Edition" required>
+                <select id="up-version" class="form-control" required disabled></select>
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
                 <div class="form-group">
                   <label class="form-label">Año *</label>
-                  <input type="number" id="up-year" class="form-control" value="2021" min="1995" max="2026" required onchange="autoCalculateBadge()">
+                  <select id="up-year" class="form-control" required disabled></select>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Kilómetros *</label>
@@ -341,15 +341,15 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">Combustible *</label>
-                  <select id="up-fuel" class="form-control" onchange="autoCalculateBadge()">
-                    <option value="Gasolina">Gasolina</option>
-                    <option value="Diésel">Diésel</option>
-                    <option value="Híbrido (HEV)">Híbrido (HEV)</option>
-                    <option value="Híbrido Enchufable (PHEV)">Híbrido Enchufable (PHEV)</option>
-                    <option value="100% Eléctrico">100% Eléctrico</option>
-                    <option value="Gas GLP/GNC">Gas GLP/GNC</option>
-                  </select>
+                  <select id="up-fuel" class="form-control" onchange="autoCalculateBadge()" required disabled></select>
                 </div>
+              </div>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin: 22px 0 16px;">2. Ubicación del inventario</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                <div class="form-group"><label class="form-label">CCAA *</label><select id="up-community" class="form-control" required></select></div>
+                <div class="form-group"><label class="form-label">Provincia *</label><select id="up-province" class="form-control" required disabled></select></div>
+                <div class="form-group"><label class="form-label">Municipio *</label><select id="up-municipality" class="form-control" required disabled></select></div>
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
@@ -1137,6 +1137,10 @@
   </div>
 
   <script src="site-config.js"></script>
-  <script src="hub.js"></script>
+   <script type="module" src="assets/data/vehicles_catalog.js"></script>
+   <script type="module" src="assets/data/spain_territory.js"></script>
+   <script type="module" src="assets/js/inventory_selectors.js"></script>
+   <script type="module" src="assets/js/matchmaking_engine.js"></script>
+   <script type="module" src="hub.js"></script>
 </body>
 </html>

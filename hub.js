@@ -165,6 +165,9 @@ function handleCreateVehicle(event) {
   const cost = parseFloat(document.getElementById('up-cost').value) || (price * 0.82);
   const customImg = document.getElementById('up-image-url').value.trim();
   const highlightsText = document.getElementById('up-highlights').value.trim();
+  const communitySelect = document.getElementById('up-community');
+  const provinceSelect = document.getElementById('up-province');
+  const municipalitySelect = document.getElementById('up-municipality');
 
   const demoImages = [
     "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80",
@@ -210,8 +213,12 @@ function handleCreateVehicle(event) {
     sellerName: activeUser.name,
     sellerPhone: activeUser.phone,
     location: activeUser.location,
-    province: activeUser.province,
-    community: activeUser.community,
+    community: communitySelect?.selectedOptions[0]?.textContent || activeUser.community,
+    communityId: communitySelect?.value || '',
+    province: provinceSelect?.selectedOptions[0]?.textContent || activeUser.province,
+    provinceId: provinceSelect?.value || '',
+    municipality: municipalitySelect?.selectedOptions[0]?.textContent || activeUser.location,
+    municipalityId: municipalitySelect?.value || '',
     image: finalImg,
     inspectionScore: "98/100",
     itvDate: "En vigor 2026",

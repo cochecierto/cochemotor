@@ -345,6 +345,13 @@
                 </div>
               </div>
 
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin: 22px 0 16px;">2. Ubicación del inventario</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                <div class="form-group"><label class="form-label">CCAA *</label><select id="up-community" class="form-control" required></select></div>
+                <div class="form-group"><label class="form-label">Provincia *</label><select id="up-province" class="form-control" required disabled></select></div>
+                <div class="form-group"><label class="form-label">Municipio *</label><select id="up-municipality" class="form-control" required disabled></select></div>
+              </div>
+
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                 <div class="form-group">
                   <label class="form-label">Caja de Cambios</label>
@@ -1132,6 +1139,7 @@
   <script src="site-config.js"></script>
    <script type="module" src="assets/data/vehicles_catalog.js"></script>
    <script type="module" src="assets/data/spain_territory.js"></script>
+   <script type="module" src="assets/js/inventory_selectors.js"></script>
    <script type="module" src="assets/js/matchmaking_engine.js"></script>
    <script type="module" src="hub.js"></script>
 </body>
