@@ -32,3 +32,5 @@ python -m unittest discover -s local-broker/tests -p "test_*.py"
 ```
 
 
+
+- [Referencia visual de producto CocheMotor](docs/brand/COCHEMOTOR-PRODUCT-VISUAL-REFERENCE.png)

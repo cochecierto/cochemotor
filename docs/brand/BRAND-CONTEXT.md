@@ -32,3 +32,5 @@ Estado: referencia oficial aprobada según el Brand Identity Board de **CocheMot
 ## Sello de Certificación
 - **"Sello CocheMotor: Mecánica Verificada"**: Insignia circular y escudo compacto con el isotipo de biela-pistón para fotografías de vehículos, fichas de producto y distintivos físicos en talleres adheridos.
 
+
+- Referencia visual de producto aprobada: [COCHEMOTOR-PRODUCT-VISUAL-REFERENCE.png](COCHEMOTOR-PRODUCT-VISUAL-REFERENCE.png), con la nueva composición de marca, web, tarjeta de vehículo y Hub.
