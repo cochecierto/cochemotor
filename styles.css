@@ -1,7 +1,7 @@
 /* ==========================================================================
    CocheMotor — Design Tokens & Editorial Stylesheet
    Metodología BIG School Webs — 8 Capítulos Editoriales
-   Brand Identity: Deep Navy #002D62, Automotive Red #D62828, Deep Burgundy #8F1D2C, Verification Green #18A66A, White #FFFFFF, Cool Gray #F3F5F7, Graphite #3C3F41
+   Brand Identity: Deep Navy #002D62, Automotive Red #D02828, Deep Burgundy #8F1D2C, Verification Green #18A66A, White #FFFFFF, Cool Gray #F3F5F7, Graphite #3C3F41
    ========================================================================== */
 
 :root {
@@ -9,7 +9,7 @@
   --cm-navy: #002D62;
   --cm-navy-dark: #001f44;
   --cm-navy-soft: #0a3a78;
-  --cm-red: #D62828;
+  --cm-red: #D02828;
   --cm-red-hover: #b91d1d;
   --cm-burgundy: #8F1D2C;
   --cm-green: #18A66A;
@@ -180,7 +180,7 @@ button {
   color: #cbd5e1;
 }
 
-/* Buttons & CTAs — Reglas de Uso del Rojo Automoción (#D62828) */
+/* Buttons & CTAs — Reglas de Uso del Rojo Automoción (#D02828) */
 .btn {
   display: inline-flex;
   align-items: center;

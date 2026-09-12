@@ -17,7 +17,7 @@ const siteConfig = {
     tagline: "Compra claro. Vende mejor.",
     promise: "Marketplace y plataforma digital para comprar y vender vehículos de ocasión con más confianza y control.",
     contactWhatsapp: "34612345678",
-    logoLight: "assets/brand/cochemotor_logo_light.png",
+    logoLight: "assets/brand/cochemotor_logo_azul_sin_tagline.png",
     logoDark: "assets/brand/cochemotor_logo_dark.png",
     logoTransparent: "assets/brand/cochemotor_logo_transparent.png",
     pistonIcon: "assets/brand/cochemotor_piston_icon.png",
@@ -26,7 +26,7 @@ const siteConfig = {
     faviconSvg: "assets/brand/favicon.svg",
     colors: {
       navy: "#002D62",
-      red: "#D62828",
+      red: "#D02828",
       burgundy: "#8F1D2C",
       green: "#18A66A",
       white: "#FFFFFF",
