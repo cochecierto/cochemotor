@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 CocheMotor — Despliegue Automatizado a Hostinger vía FTP / SFTP
-Sube los archivos web directamente al directorio public_html/ para https://motor.cochecierto.com/
-y la URL temporal https://motor.cochecierto.com/
+Sube los archivos web directamente al directorio public_html/ para https://cochemotor.es/
+y la URL temporal https://cochemotor.es/
 """
 
 import os
@@ -64,7 +64,7 @@ def main():
     parser.add_argument("--dir", default=DEFAULT_DIR, help="Directorio remoto (por defecto: public_html)")
     args = parser.parse_args()
 
-    host = args.host or input("Introduce el host FTP de Hostinger (ej. ftp.motor.cochecierto.com o IP): ").strip()
+    host = args.host or input("Introduce el host FTP de Hostinger (ej. ftp.cochemotor.es o IP): ").strip()
     user = args.user or input("Introduce el usuario FTP de Hostinger: ").strip()
     password = args.password or input("Introduce la contraseña FTP de Hostinger: ").strip()
     remote_dir = args.dir
@@ -75,7 +75,7 @@ def main():
 
     print("=" * 65)
     print("   COCHEMOTOR — DESPLIEGUE A HOSTINGER")
-    print(f"   Destino: https://motor.cochecierto.com/ | {remote_dir}")
+    print(f"   Destino: https://cochemotor.es/ | {remote_dir}")
     print("=" * 65)
     print(f"[FTP] Conectando a {host}...")
 
@@ -109,7 +109,7 @@ def main():
 
             print("\n" + "=" * 65)
             print("   [EXITO] DESPLIEGUE A HOSTINGER COMPLETADO")
-            print("   Produccion: https://motor.cochecierto.com/")
+            print("   Produccion: https://cochemotor.es/")
             print("=" * 65)
     except Exception as e:
         print(f"[Error FTP] {e}")

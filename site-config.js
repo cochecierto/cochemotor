@@ -7,8 +7,8 @@ const siteConfig = {
   metadata: {
     title: "CocheMotor — Compra claro. Vende mejor.",
     description: "Marketplace y plataforma digital para encontrar vehículos de ocasión, conectar con profesionales y comprar con más información, confianza y seguridad.",
-    canonical: "https://motor.cochecierto.com",
-    domain: "motor.cochecierto.com",
+    canonical: "https://cochemotor.es",
+    domain: "cochemotor.es",
     language: "es-ES",
   },
 
@@ -59,7 +59,7 @@ const siteConfig = {
       province: "Madrid",
       community: "Comunidad de Madrid",
       phone: "34612345678",
-      email: "juan.gomez@motor.cochecierto.com",
+      email: "juan.gomez@cochemotor.es",
       avatar: "👨‍💼",
       heroCover: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80",
       rating: "4.9 ★ (48 reseñas)",
@@ -90,7 +90,7 @@ const siteConfig = {
       province: "Madrid",
       community: "Comunidad de Madrid",
       phone: "34655112233",
-      email: "garcia.taller@motor.cochecierto.com",
+      email: "garcia.taller@cochemotor.es",
       avatar: "🔧",
       heroCover: "https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=1200&q=80",
       rating: "4.8 ★ (84 reseñas)",

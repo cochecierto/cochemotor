@@ -1,7 +1,7 @@
 # ==============================================================================
 # CocheMotor — Configuración Web para Hostinger (.htaccess)
-# Producción: https://motor.cochecierto.com/
-# Preview Hostinger: https://motor.cochecierto.com/
+# Producción: https://cochemotor.es/
+# Preview Hostinger: https://cochemotor.es/
 # ==============================================================================
 
 DirectoryIndex index.php index.html

@@ -5,13 +5,13 @@ La arquitectura de CocheMotor se organiza por capas modulares diseñadas para ma
 
 ## Capas Funcionales
 
-1. **Espacio Privado del Compraventa / Concesionario (`app.motor.cochecierto.com`)**:
+1. **Espacio Privado del Compraventa / Concesionario (`app.cochemotor.es`)**:
    - **Gestor de Stock**: Registro ágil de vehículos por matrícula o bastidor, carga optimizada de fotos y vídeo, control de días en stock (alerta de depreciación a los 45-60 días).
    - **Bandeja de Leads y Respuestas WhatsApp**: Centralización de contactos entrantes de Coches.net, Wallapop, Milanuncios y web propia, con generación de respuestas rápidas con enlaces a fichas públicas.
    - **Cartera de Demandas de Compradores**: Registro de clientes que buscan configuraciones específicas (SUV, etiqueta ECO, etc.).
    - **Motor de Matching Stock-Demanda**: Notificación automática cuando entra un vehículo que encaja con un comprador en espera.
 
-2. **Escaparate y Fichas Públicas Compartibles (`motor.cochecierto.com/v/:slug`)**:
+2. **Escaparate y Fichas Públicas Compartibles (`cochemotor.es/v/:slug`)**:
    - Páginas web ligeras, ultra rápidas y adaptadas a móviles.
    - Galería de fotos HD con selector de detalles mecánicos e interiores.
    - Distintivo ambiental DGT visible (0 / ECO / C / B) con explicación de acceso a Zonas de Bajas Emisiones (ZBE).
