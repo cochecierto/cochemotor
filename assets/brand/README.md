@@ -14,4 +14,4 @@ La referencia visual oficial es `cochemotor-brand-master-reference.png`. Incluye
 Los nombres y usos deben mantenerse centralizados en `brand-assets.json`.
 
 
-El coche y el pistón no forman parte del logotipo ni de la identidad principal; los recursos anteriores con isotipo quedan fuera del uso de marca.
+El coche con check rojo forma parte del logotipo oficial. El pistón no forma parte de la identidad.
