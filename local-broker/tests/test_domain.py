@@ -1,4 +1,4 @@
-"""Pruebas del dominio automotriz de VendoCoche360 (Spec 001 SDD)."""
+"""Pruebas del dominio automotriz de CocheMotor (Spec 001 SDD)."""
 
 import sys
 import unittest

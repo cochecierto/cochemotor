@@ -1,4 +1,4 @@
-# Dealer Local — VendoCoche360
+# Dealer Local — CocheMotor
 
 Núcleo local inicial del asistente Dealer Digital para venta de vehículos de ocasión (VO) en España. Implementa el dominio de concesionarios, compraventas freelancers, stock con distintivos DGT, matching de demanda y expedientes de venta con trazabilidad legal española.
 

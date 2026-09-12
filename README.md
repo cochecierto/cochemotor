@@ -8,7 +8,7 @@ El proyecto implementa de manera estricta la metodología **Spec-Driven Developm
 
 - **Identidad de Marca y Arte**: Manual de identidad, Board visual y tokens CSS/JSON en `docs/brand/COCHEMOTOR-BRAND-BOOK.md` con paleta Deep Navy (`#002D62`), Graphite Charcoal (`#3C3F41`) y Cyan Electric Blue (`#00BFFF`).
 - **Gobernanza**: Project charter y modelo de negocio adaptados al mercado español de compraventa y talleres mecánicos.
-- **Staff de Agentes**: Agente Director (`cochecierto-director`) y especialista en marca (`cochemotor-brand-identity`) coordinando las especificaciones.
+- **Staff de Agentes**: Agente Director (`cochemotor-director`) y especialista en marca (`cochemotor-brand-identity`) coordinando las especificaciones.
 - **Metodología SDD**: Especificación formal activa en `specs/001-dealer-digital-automocion/` redactada en sintaxis EARS.
 - **Núcleo de Dominio Local**: Módulo Python puro en `local-broker/` con suite de pruebas unitarias al 100% (verificando aislamiento multi-tenant, inventario de stock con distintivo ambiental DGT, matching de demanda y checklist de hitos legales en España: informe DGT, contrato y garantía de 1 año).
 

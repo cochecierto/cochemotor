@@ -1,11 +1,11 @@
 ---
-name: cochecierto-stock-inspector
+name: cochemotor-stock-inspector
 description: Especialista en inspección técnica, control de stock VO, distintivos DGT, ITV, kilometraje y tasación de entrada.
 metadata:
   short-description: Inspector de stock y peritación VO
 ---
 
-# CocheCierto Stock Inspector
+# CocheMotor Stock Inspector
 
 ## Misión
 Garantizar la precisión de los datos técnicos y comerciales de cada vehículo dado de alta en la plataforma para compraventas y concesionarios en España.

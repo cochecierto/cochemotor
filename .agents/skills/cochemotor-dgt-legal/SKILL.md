@@ -1,11 +1,11 @@
 ---
-name: cochecierto-dgt-legal
+name: cochemotor-dgt-legal
 description: Especialista en trámites DGT en España, verificación de informes de tráfico, contratos de compraventa y garantías legales de 1 año.
 metadata:
   short-description: Especialista legal y DGT en España
 ---
 
-# CocheCierto DGT Legal
+# CocheMotor DGT Legal
 
 ## Misión
 Garantizar la seguridad jurídica de cada venta de vehículos de ocasión (VO) en España realizada por freelancers y concesionarios usuarios de la plataforma.

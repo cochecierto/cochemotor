@@ -2,7 +2,7 @@
 
 ## Contexto y objetivo
 
-VendoCoche360 necesita una infraestructura de asistencia para que freelancers (compraventas independientes) y pequeños concesionarios de vehículos de ocasión (VO) en España gestionen leads, vehículos en stock, demandas de compradores y operaciones de venta con trazabilidad, cumplimiento DGT y aislamiento estricto entre cuentas.
+CocheMotor necesita una infraestructura de asistencia para que freelancers (compraventas independientes) y pequeños concesionarios de vehículos de ocasión (VO) en España gestionen leads, vehículos en stock, demandas de compradores y operaciones de venta con trazabilidad, cumplimiento DGT y aislamiento estricto entre cuentas.
 
 El asistente aplica el patrón DEALER DIGITAL: ayuda al profesional con la siguiente mejor acción comercial, genera fichas compartibles para WhatsApp y guía el checklist de trámites en España (informe DGT, contrato de compraventa y garantía legal de 1 año) con supervisión humana y sin alucinaciones.
 

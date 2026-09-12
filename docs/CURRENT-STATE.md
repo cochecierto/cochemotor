@@ -10,9 +10,9 @@ La carpeta estaba vacía antes de esta migración. No existían archivos, direct
 
 ## Conocimiento confirmado en la fuente accesible
 
-- Identidad responsable: VendoCoche360 (base previa Inmobia360 adaptada).
+- Identidad responsable: CocheMotor (base previa Inmobia360 adaptada).
 - Propietario y responsable final: Juan / Dirección del proyecto.
-- Nombre del proyecto: VendoCoche360.
+- Nombre del proyecto: CocheMotor.
 - Mercado objetivo: España.
 - Enfoque: Plataforma SaaS B2B/B2B2C para freelancers de compraventa y pequeños concesionarios de vehículos de ocasión (VO).
 - MVP aprobado: captación y centralización de leads multicanal; inventario de vehículos con distintivo ambiental DGT (0/ECO/C/B), año, km y precio; fichas públicas compartibles; canal prioritario WhatsApp; matching automático demanda-vehículo; checklist de trámites legales en España (DGT, contrato y garantía mecánica de 1 año).

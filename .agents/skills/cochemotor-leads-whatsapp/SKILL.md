@@ -1,11 +1,11 @@
 ---
-name: cochecierto-leads-whatsapp
+name: cochemotor-leads-whatsapp
 description: Especialista en captación de leads multicanal, mensajería instantánea por WhatsApp y motor de matching demanda-vehículo.
 metadata:
   short-description: Especialista de leads y WhatsApp
 ---
 
-# CocheCierto Leads & WhatsApp
+# CocheMotor Leads & WhatsApp
 
 ## Misión
 Optimizar la velocidad comercial del compraventa independiente para responder en menos de 15 minutos a cualquier prospecto y cruzar compradores con vehículos en stock.

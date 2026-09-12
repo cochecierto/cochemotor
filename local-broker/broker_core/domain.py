@@ -1,4 +1,4 @@
-"""Entidades y transiciones del dominio automotriz para VendoCoche360 (España)."""
+"""Entidades y transiciones del dominio automotriz para CocheMotor (España)."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-# Modelo de Datos de Automoción — VendoCoche360 (España)
+# Modelo de Datos de Automoción — CocheMotor (España)
 
 ## 1. Entidad Vehículo (Stock)
 

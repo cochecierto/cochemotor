@@ -1,4 +1,4 @@
-# Modelo de Negocio — VendoCoche360
+# Modelo de Negocio — CocheMotor
 
 ## Visión de Negocio
 Plataforma SaaS B2B / B2B2C especializada en el mercado de vehículos de ocasión (VO) en España. El cliente pagador es el **freelancer de compraventa** y el **pequeño/mediano concesionario multimarca**. 

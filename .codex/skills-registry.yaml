@@ -1,8 +1,8 @@
 project: cochemotor
 responsible_identity: CocheMotor (cochemotor.es)
 owner: Juan
-executive_skill: cochecierto-director
-communication_interface: cochecierto-director
+executive_skill: cochemotor-director
+communication_interface: cochemotor-director
 skill_location: .agents/skills
 
 allowed_statuses:
@@ -14,7 +14,7 @@ allowed_statuses:
   - blocked
 
 owned_skills:
-  - name: cochecierto-director
+  - name: cochemotor-director
     status: approved
     version: 1.0.0
     priority: 1
@@ -26,31 +26,31 @@ owned_skills:
     priority: 2
     purpose: Dirección de arte, Brand Book, tokens de diseño CSS/Figma, accesibilidad WCAG y sellos de certificación de mecánica verificada.
 
-  - name: cochecierto-stock-inspector
+  - name: cochemotor-stock-inspector
     status: in-development
     version: 0.1.0
     priority: 3
     purpose: Gestión de inventario de vehículos VO, validación de ficha técnica, kilometraje, ITV, distintivo ambiental DGT (0/ECO/C/B) y tasación de entrada.
 
-  - name: cochecierto-dgt-legal
+  - name: cochemotor-dgt-legal
     status: in-development
     version: 0.1.0
     priority: 4
     purpose: Trámites de tráfico en España, verificación de informes DGT (cargas, embargos, reservas de dominio), contratos de compraventa y garantía legal de 1 año.
 
-  - name: cochecierto-leads-whatsapp
+  - name: cochemotor-leads-whatsapp
     status: in-development
     version: 0.1.0
     priority: 5
     purpose: Captación de prospectos multicanal (Coches.net, Wallapop, Milanuncios), respuestas ultrarrápidas por WhatsApp y motor de matching demanda-vehículo.
 
-  - name: cochecierto-marketing-multichannel
+  - name: cochemotor-marketing-multichannel
     status: in-development
     version: 0.1.0
     priority: 6
     purpose: Generación de fichas públicas atractivas por vehículo para móviles, formateo de fotos/vídeos y material para portales y redes.
 
-  - name: cochecierto-dealer-operations
+  - name: cochemotor-dealer-operations
     status: in-development
     version: 0.1.0
     priority: 7
@@ -62,14 +62,14 @@ owned_skills:
     priority: 8
     purpose: Arquitectura y diseño web editorial de alto impacto en 8 capítulos basada en BIG School Webs, mobile-first y configuración centralizada.
 
-  - name: cochecierto-quality-guard
+  - name: cochemotor-quality-guard
     status: approved
     version: 1.0.0
     priority: 9
     purpose: Control de calidad SDD, pruebas unitarias automatizadas, verificación de aislamiento multi-tenant y validación previa a despliegue en Hostinger.
 
 external_skills:
-  admission_policy: .agents/skills/cochecierto-director/references/external-skill-admission.md
+  admission_policy: .agents/skills/cochemotor-director/references/external-skill-admission.md
   registry: .codex/vendor-lock.yaml
   installation_allowed: false
 

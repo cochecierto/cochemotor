@@ -1,11 +1,11 @@
 ---
-name: cochecierto-quality-guard
+name: cochemotor-quality-guard
 description: Guardián de calidad SDD, pruebas unitarias automatizadas, aislamiento multi-tenant y control de despliegue en Hostinger.
 metadata:
   short-description: Guardián de calidad y control de despliegue
 ---
 
-# CocheCierto Quality Guard
+# CocheMotor Quality Guard
 
 ## Misión
 Garantizar que ningún cambio técnico rompa los requisitos funcionales acordados (formato EARS), el aislamiento estricto entre compraventas ni la estabilidad del entorno de pruebas en Hostinger.
