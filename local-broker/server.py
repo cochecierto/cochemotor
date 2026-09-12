@@ -64,6 +64,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return
         try:
             length = int(self.headers.get("Content-Length", "0"))
+            if length > 32_000:
+                self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
+                return
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
             if not isinstance(payload, dict) or not all(isinstance(payload.get(key), dict) for key in ("vehicle", "preferences", "contact", "consent")):
                 self._json_response(400, {"ok": False, "error": "Estructura inválida"})
@@ -169,6 +172,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         body = json.dumps(data).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("X-Frame-Options", "SAMEORIGIN")
+        self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
