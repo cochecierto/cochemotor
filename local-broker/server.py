@@ -14,10 +14,10 @@ import hashlib
 import secrets
 from urllib.parse import urlparse, parse_qs
 try:
-    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status
+    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record
     from local_broker.broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, update_profile
 except ModuleNotFoundError:
-    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status
+    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record
     from broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, update_profile
 
 PORT = 8000
@@ -58,6 +58,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
         if self.path == "/api/auth":
             self._handle_auth()
+            return
+        if self.path == "/api/vehicles":
+            self._handle_vehicle()
             return
         if self.path != "/api/coche-ideal":
             self.send_error(404)
@@ -134,6 +137,30 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._json_response(400, {"ok": False, "error": "Datos de acceso no válidos"})
         except Exception:
             self._json_response(500, {"ok": False, "error": "No se pudo completar el acceso"})
+
+    def _handle_vehicle(self):
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            if length > 32_000:
+                self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
+                return
+            payload = json.loads(self.rfile.read(length).decode("utf-8"))
+            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
+            init_db(db_path)
+            with get_connection(db_path) as conn:
+                user = validate_session(conn, payload.get("session_token", ""))
+                vehicle = payload.get("vehicle") or {}
+                if not user or not user["verified"] or not all(vehicle.get(key) not in (None, "") for key in ("id", "brand", "model", "year", "price")):
+                    self._json_response(401, {"ok": False, "error": "Sesión o vehículo no válidos"})
+                    return
+                tenant_id = user["user_id"]
+                save_dealership(conn, tenant_id, user["name"], tenant_id, user.get("phone") or "")
+                save_vehicle_record(conn, {"vehicle_id": vehicle["id"], "tenant_id": tenant_id, "brand": vehicle["brand"], "model": vehicle["model"], "version": vehicle.get("version", ""), "year": int(vehicle["year"]), "mileage_km": int(str(vehicle.get("km", "0")).replace(".", "").replace(" km", "") or 0), "cash_price": float(vehicle["price"]), "dgt_badge": vehicle.get("badge", ""), "stage": vehicle.get("stage", "publicado"), "evidence_level": vehicle.get("evidenceLevel", "declarado"), "status": vehicle.get("status", "disponible"), "public_slug": vehicle["id"], "metadata": vehicle})
+            self._json_response(201, {"ok": True, "id": vehicle["id"]})
+        except (ValueError, TypeError, json.JSONDecodeError, KeyError):
+            self._json_response(400, {"ok": False, "error": "Datos del vehículo no válidos"})
+        except Exception:
+            self._json_response(500, {"ok": False, "error": "No se pudo guardar el vehículo"})
 
     def do_PUT(self):
         if urlparse(self.path).path != "/api/coche-ideal":

@@ -275,6 +275,10 @@ async function handleCreateVehicle(event) {
   };
 
   CocheMotorStorage.saveVehicle(newVehicle);
+  const authSession = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
+  fetch('/api/vehicles', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({session_token: authSession?.sessionToken, vehicle: newVehicle}) })
+    .then(response => { if (!response.ok) throw new Error('No se pudo sincronizar el vehículo con el broker local.'); })
+    .catch(error => console.warn(error.message));
   updateKpis();
   initVehicleDropdowns();
 
