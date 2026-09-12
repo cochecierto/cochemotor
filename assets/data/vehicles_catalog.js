@@ -69,8 +69,31 @@ export const VEHICLES = {
   }
 };
 
+// Contrato estable del catálogo. Los datos ampliados se generan con
+// scripts/import_vehicle_catalog.py y conservan la fuente de cada registro.
+export const VEHICLE_CATALOG_SOURCE = {
+  primary: 'European Environment Agency (EEA) CO2 monitoring',
+  secondary: 'Dirección General de Tráfico (DGT) MATRABA',
+  updatedAt: '2026-09-12',
+  status: 'fixture-ready-for-import'
+};
+
 export function getBrands() { return Object.keys(VEHICLES); }
 export function getModels(brand) { return VEHICLES[brand] ? Object.keys(VEHICLES[brand]) : []; }
 export function getYears(brand, model) { return VEHICLES[brand] && VEHICLES[brand][model] ? VEHICLES[brand][model].years : []; }
 export function getFuels(brand, model) { return VEHICLES[brand] && VEHICLES[brand][model] ? Object.keys(VEHICLES[brand][model].fuels) : []; }
 export function getVersions(brand, model, fuel) { return (VEHICLES[brand] && VEHICLES[brand][model] && VEHICLES[brand][model].fuels[fuel]) ? VEHICLES[brand][model].fuels[fuel] : []; }
+
+export function buildVehicleCatalogId(brand, model, year, fuel, version) {
+  return [brand, model, year, fuel, version].map(value => String(value || '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')).join(':');
+}
+
+export function getVehicleOptions(brand, model, fuel, version) {
+  return { brand, model, fuel, version, years: getYears(brand, model), catalogSource: VEHICLE_CATALOG_SOURCE.primary };
+}
+
+if (typeof window !== 'undefined') {
+  window.CocheMotorVehicleCatalog = { VEHICLES, VEHICLE_CATALOG_SOURCE, buildVehicleCatalogId, getVehicleOptions };
+}

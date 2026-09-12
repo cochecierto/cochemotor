@@ -1,4 +1,4 @@
-import { getBrands, getModels, getYears, getFuels, getVersions } from '../data/vehicles_catalog.js';
+import { getBrands, getModels, getYears, getFuels, getVersions, buildVehicleCatalogId } from '../data/vehicles_catalog.js';
 import { getCommunities, getProvinces, getMunicipalities } from '../data/spain_territory.js';
 
 const $ = (id) => document.getElementById(id);
@@ -42,6 +42,8 @@ function initVehicleSelectors() {
   });
   version.addEventListener('change', () => {
     fill(year, getYears(brand.value, model.value), 'Selecciona año', false);
+    const id = buildVehicleCatalogId(brand.value, model.value, '', fuel.value, version.value);
+    version.dataset.catalogId = id;
   });
 }
 
