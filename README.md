@@ -14,6 +14,8 @@ El proyecto implementa de manera estricta la metodología **Spec-Driven Developm
 
 ## Enlaces clave
 
+- [Constitución SDD](docs/constitution.md)
+- [Prompts operativos SDD](docs/governance/sdd-prompts.md)
 - [Manual de Marca y Tokens CocheMotor](docs/brand/COCHEMOTOR-BRAND-BOOK.md)
 - [Tokens de Diseño CSS](.agents/skills/cochemotor-brand-identity/references/brand-tokens.css)
 - [Instrucciones del proyecto para agentes](AGENTS.md)
