@@ -188,7 +188,8 @@
         "python-orchestration-agent",
         "test-agent",
         "security-agent",
-        "deployment-agent"
+        "deployment-agent",
+        "cochemotor-quality-guard"
       ]
     },
     {
