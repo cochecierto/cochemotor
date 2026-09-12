@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi perfil profesional — CocheMotor</title>
+  <link rel="icon" href="assets/brand/favicons/favicon.ico?v=11.0" sizes="any"><link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-page">
+  <main class="auth-card" aria-labelledby="profile-title">
+    <a href="hub.html" class="auth-back">← Volver al espacio profesional</a>
+    <h1 id="profile-title">Completa tu perfil profesional</h1>
+    <p class="auth-intro">Necesitamos estos datos para que los contactos sepan con quién están hablando. Podrás modificarlos más adelante.</p>
+    <div id="profile-status" class="auth-status" role="status" aria-live="polite"></div>
+    <form id="profile-form">
+      <label for="profile-phone">Teléfono de contacto</label><input id="profile-phone" type="tel" autocomplete="tel" placeholder="Ej.: 600 000 000" required>
+      <label for="profile-type">Tipo de actividad</label>
+      <select id="profile-type" required><option value="">Selecciona una opción</option><option>Compraventa freelance</option><option>Taller</option><option>Pequeño concesionario</option></select>
+      <button class="btn btn-red" type="submit">Guardar perfil</button>
+    </form>
+  </main>
+  <script>
+    const session = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
+    const status = document.getElementById('profile-status');
+    if (!session?.userId || !session.verified) window.location.replace('acceso.html?return=perfil');
+    const show = (message, kind='info') => { status.textContent = message; status.dataset.kind = kind; };
+    document.getElementById('profile-form').addEventListener('submit', async event => { event.preventDefault(); const phone = document.getElementById('profile-phone').value.trim(); const professionalType = document.getElementById('profile-type').value; try { const response = await fetch('/api/auth', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'profile', user_id:session.userId, phone, professional_type:professionalType})}); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'No se pudo guardar el perfil'); localStorage.setItem('cochemotor_local_session', JSON.stringify({...session, phone, professionalType, profileComplete:true})); show('Perfil guardado. Ya puedes publicar vehículos.', 'success'); setTimeout(() => window.location.href = 'hub.html', 500); } catch (error) { show(error.message, 'error'); } });
+  </script>
+</body>
+</html>

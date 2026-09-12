@@ -159,6 +159,11 @@ function handleCreateVehicle(event) {
     window.location.href = 'acceso.html?return=hub';
     return;
   }
+  if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) {
+    alert('Completa tu perfil profesional antes de publicar un coche.');
+    window.location.href = 'perfil.html';
+    return;
+  }
 
   const brand = document.getElementById('up-brand').value.trim();
   const model = document.getElementById('up-model').value.trim();
