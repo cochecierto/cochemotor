@@ -88,6 +88,15 @@ def init_db(db_path: Path = DB_FILE) -> None:
             consent_version TEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
+        CREATE TABLE IF NOT EXISTS coche_ideal_status_history (
+            history_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            request_id TEXT NOT NULL,
+            previous_status TEXT,
+            new_status TEXT NOT NULL,
+            actor TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ),
+
         CREATE TABLE IF NOT EXISTS warranty_cases (
             case_id TEXT PRIMARY KEY,
             tenant_id TEXT NOT NULL,
@@ -167,11 +176,13 @@ def list_coche_ideal_requests(conn: sqlite3.Connection, status: str | None = Non
     query += " ORDER BY created_at DESC"
     rows = conn.execute(query, params).fetchall()
     return [{**json.loads(row["payload_json"]), "id": row["request_id"], "status": row["status"], "createdAt": row["created_at"], "consentVersion": row["consent_version"]} for row in rows]
-def update_coche_ideal_status(conn: sqlite3.Connection, request_id: str, status: str) -> bool:
+def update_coche_ideal_status(conn: sqlite3.Connection, request_id: str, status: str, actor: str = "advisor") -> bool:
     row = conn.execute("SELECT 1 FROM coche_ideal_requests WHERE request_id = ?", (request_id,)).fetchone()
     if not row:
         return False
+    previous = conn.execute("SELECT status FROM coche_ideal_requests WHERE request_id = ?", (request_id,)).fetchone()["status"]
     conn.execute("UPDATE coche_ideal_requests SET status = ? WHERE request_id = ?", (status, request_id))
+    conn.execute("INSERT INTO coche_ideal_status_history (request_id, previous_status, new_status, actor) VALUES (?, ?, ?, ?)", (request_id, previous, status, actor))
     conn.commit()
     return True
 def has_recent_coche_ideal_fingerprint(conn: sqlite3.Connection, fingerprint: str, days: int = 30) -> bool:
