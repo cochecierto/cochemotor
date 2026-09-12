@@ -150,7 +150,26 @@ function autoCalculateBadge() {
   }
 }
 
-function handleCreateVehicle(event) {
+async function compressVehicleImage(file) {
+  if (!file) return '';
+  if (!file.type.startsWith('image/')) throw new Error('Selecciona un archivo de imagen válido.');
+  if (file.size > 8 * 1024 * 1024) throw new Error('La imagen supera el máximo recomendado de 8 MB.');
+  const source = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => { const image = new Image(); image.onload = () => resolve(image); image.onerror = () => reject(new Error('No se pudo leer la imagen.')); image.src = reader.result; };
+    reader.onerror = () => reject(new Error('No se pudo leer el archivo.'));
+    reader.readAsDataURL(file);
+  });
+  const maxWidth = 1280;
+  const scale = Math.min(1, maxWidth / source.width);
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.max(1, Math.round(source.width * scale));
+  canvas.height = Math.max(1, Math.round(source.height * scale));
+  canvas.getContext('2d').drawImage(source, 0, 0, canvas.width, canvas.height);
+  return canvas.toDataURL('image/webp', 0.78);
+}
+
+async function handleCreateVehicle(event) {
   event.preventDefault();
 
   const localSession = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
@@ -176,6 +195,7 @@ function handleCreateVehicle(event) {
   const price = parseFloat(document.getElementById('up-price').value);
   const cost = parseFloat(document.getElementById('up-cost').value) || (price * 0.82);
   const customImg = document.getElementById('up-image-url').value.trim();
+  const imageFile = document.getElementById('up-image-file')?.files?.[0];
   const highlightsText = document.getElementById('up-highlights').value.trim();
   const communitySelect = document.getElementById('up-community');
   const provinceSelect = document.getElementById('up-province');
@@ -188,7 +208,13 @@ function handleCreateVehicle(event) {
     "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80",
     "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
   ];
-  const finalImg = customImg || demoImages[Math.floor(Math.random() * demoImages.length)];
+  let finalImg = customImg || demoImages[Math.floor(Math.random() * demoImages.length)];
+  try {
+    if (imageFile) finalImg = await compressVehicleImage(imageFile);
+  } catch (error) {
+    alert(error.message);
+    return;
+  }
 
   const highlights = highlightsText 
     ? highlightsText.split('\n').map(h => h.trim()).filter(Boolean)
