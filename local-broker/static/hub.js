@@ -153,6 +153,13 @@ function autoCalculateBadge() {
 function handleCreateVehicle(event) {
   event.preventDefault();
 
+  const localSession = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
+  if (!localSession?.verified) {
+    alert('Para publicar un coche debes verificar tu correo y entrar con tu cuenta profesional.');
+    window.location.href = 'acceso.html?return=hub';
+    return;
+  }
+
   const brand = document.getElementById('up-brand').value.trim();
   const model = document.getElementById('up-model').value.trim();
   const version = document.getElementById('up-version').value.trim();
@@ -240,7 +247,7 @@ function handleCreateVehicle(event) {
   updateKpis();
   initVehicleDropdowns();
 
-  alert(`✅ ¡Vehículo ${brand} ${model} guardado con éxito en tu inventario!\n\nGenerando al instante los anuncios para Wallapop, WhatsApp y ficha digital...`);
+  alert(`Vehículo ${brand} ${model} guardado con éxito en tu inventario.\n\nPreparando los anuncios y la ficha digital...`);
 
   switchHubTab('tab-generator');
   const genSelect = document.getElementById('gen-vehicle-select');
