@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "organization": "CocheMotor Virtual AI Staff",
   "version": "1.0.0",
-  "updated_at": "2026-09-11",
+  "updated_at": "2026-09-12",
   "framework": "Spec-Driven Development (SDD)",
   "agents": [
     {
@@ -181,6 +181,7 @@
       "title": "Ingeniería de Plataforma",
       "scope": "Frontend, backend, pruebas unitarias, CI/CD, sincronización y despliegue a Hostinger",
       "subagents": [
+        "cochemotor-objectives-coordinator",
         "cochemotor-web-expert",
         "frontend-agent",
         "backend-agent",
@@ -195,6 +196,7 @@
       "title": "Asistente del Comprador",
       "scope": "Asesoramiento prudente al comprador: preguntas al vendedor, costes de transferencia DGT y checklist de prueba",
       "subagents": [
+        "cochemotor-asesor-compra-ocasion",
         "buyer-onboarding-agent",
         "needs-discovery-agent",
         "budget-financing-agent",
