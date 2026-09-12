@@ -185,6 +185,9 @@ def update_coche_ideal_status(conn: sqlite3.Connection, request_id: str, status:
     conn.execute("INSERT INTO coche_ideal_status_history (request_id, previous_status, new_status, actor) VALUES (?, ?, ?, ?)", (request_id, previous, status, actor))
     conn.commit()
     return True
+def list_coche_ideal_history(conn: sqlite3.Connection, request_id: str) -> list[dict[str, Any]]:
+    rows = conn.execute("SELECT request_id, previous_status, new_status, actor, created_at FROM coche_ideal_status_history WHERE request_id = ? ORDER BY created_at ASC, history_id ASC", (request_id,)).fetchall()
+    return [dict(row) for row in rows]
 def has_recent_coche_ideal_fingerprint(conn: sqlite3.Connection, fingerprint: str, days: int = 30) -> bool:
     row = conn.execute("SELECT 1 FROM coche_ideal_requests WHERE fingerprint = ? AND created_at >= datetime('now', ?)", (fingerprint, f"-{days} days")).fetchone()
     return row is not None

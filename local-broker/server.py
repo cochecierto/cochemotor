@@ -14,9 +14,9 @@ import hashlib
 import secrets
 from urllib.parse import urlparse, parse_qs
 try:
-    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, update_coche_ideal_status
+    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status
 except ModuleNotFoundError:
-    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, update_coche_ideal_status
+    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status
 
 PORT = 8000
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,7 +40,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         init_db(db_path)
         query = parse_qs(parsed.query)
         with get_connection(db_path) as conn:
-            self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
+            request_id = query.get("id", [None])[0]
+            if request_id:
+                self._json_response(200, {"ok": True, "history": list_coche_ideal_history(conn, request_id)})
+            else:
+                self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
     def do_POST(self):
         if self.path != "/api/coche-ideal":
             self.send_error(404)
