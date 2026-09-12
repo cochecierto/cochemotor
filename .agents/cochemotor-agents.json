@@ -9,94 +9,222 @@
       "id": "cochemotor-director",
       "title": "Director General y Orquestador Maestro",
       "scope": "Gobierno estratégico, priorización de recursos, validación de riesgos y escalado",
-      "tools": ["sdd-engine", "audit-logger", "tenant-router"],
+      "tools": [
+        "sdd-engine",
+        "audit-logger",
+        "tenant-router"
+      ],
       "risk_level_allowed": "all",
-      "requires_human_approval": true
+      "requires_human_approval": true,
+      "subagents": [
+        "cocochemotor-coche-ideal"
+      ]
     },
     {
       "id": "cochemotor-operations-coordinator",
       "title": "Coordinador de Operaciones",
       "scope": "Máquina de estados de vehículos (13 etapas), SLA de respuesta y flujo de trabajo",
-      "subagents": ["operations-intake", "operations-task-manager", "operations-sla-monitor", "operations-quality-gate", "operations-incident-manager", "operations-reporting"],
-      "states_managed": ["captado", "en_verificacion", "en_puesta_a_punto", "listo_para_publicar", "publicado", "lead_activo", "prueba_concertada", "reservado", "contrato_pendiente", "vendido", "entregado", "en_posventa", "retirado"]
+      "subagents": [
+        "operations-intake",
+        "operations-task-manager",
+        "operations-sla-monitor",
+        "operations-quality-gate",
+        "operations-incident-manager",
+        "operations-reporting"
+      ],
+      "states_managed": [
+        "captado",
+        "en_verificacion",
+        "en_puesta_a_punto",
+        "listo_para_publicar",
+        "publicado",
+        "lead_activo",
+        "prueba_concertada",
+        "reservado",
+        "contrato_pendiente",
+        "vendido",
+        "entregado",
+        "en_posventa",
+        "retirado"
+      ]
     },
     {
       "id": "cochemotor-product-owner",
       "title": "Producto y Arquitectura",
       "scope": "Especificación SDD, diseño UX/UI, roadmap y criterios de aceptación",
-      "subagents": ["product-discovery", "product-requirements", "sdd-spec-writer", "ux-researcher", "ux-flow-designer", "release-manager"]
+      "subagents": [
+        "product-discovery",
+        "product-requirements",
+        "sdd-spec-writer",
+        "ux-researcher",
+        "ux-flow-designer",
+        "release-manager"
+      ]
     },
     {
       "id": "cochemotor-b2b-sales",
       "title": "Comercial B2B",
       "scope": "Adquisición, cualificación y expansión de talleres y compraventas asociados",
-      "subagents": ["prospecting-agent", "lead-enrichment-agent", "outreach-agent", "demo-agent", "qualification-agent", "proposal-agent", "renewal-expansion-agent"]
+      "subagents": [
+        "prospecting-agent",
+        "lead-enrichment-agent",
+        "outreach-agent",
+        "demo-agent",
+        "qualification-agent",
+        "proposal-agent",
+        "renewal-expansion-agent"
+      ]
     },
     {
       "id": "cochemotor-customer-success",
       "title": "Onboarding y Éxito del Cliente",
       "scope": "Configuración de cuentas SaaS, importación de stock y formación del profesional",
-      "subagents": ["account-setup-agent", "tenant-configuration-agent", "stock-import-agent", "training-agent", "health-score-agent", "churn-prevention-agent"]
+      "subagents": [
+        "account-setup-agent",
+        "tenant-configuration-agent",
+        "stock-import-agent",
+        "training-agent",
+        "health-score-agent",
+        "churn-prevention-agent"
+      ]
     },
     {
       "id": "cochemotor-inventory-manager",
       "title": "Gestor de Inventario",
       "scope": "Normalización de VIN, distintivo ambiental DGT, control de calidad de fotos y cálculo de envejecimiento",
-      "subagents": ["vehicle-intake-agent", "vin-data-agent", "vehicle-normalization-agent", "dgt-badge-agent", "document-check-agent", "stock-aging-agent", "pricing-margin-agent"]
+      "subagents": [
+        "vehicle-intake-agent",
+        "vin-data-agent",
+        "vehicle-normalization-agent",
+        "dgt-badge-agent",
+        "document-check-agent",
+        "stock-aging-agent",
+        "pricing-margin-agent"
+      ]
     },
     {
       "id": "cochemotor-mechanical-verification",
       "title": "Verificación Mecánica",
       "scope": "Asistente pericial para checklist de 100 puntos, diagnosis OBD y evidencias de taller",
-      "subagents": ["inspection-checklist-agent", "obd-evidence-agent", "engine-transmission-agent", "brakes-suspension-agent", "technician-review-agent"]
+      "subagents": [
+        "inspection-checklist-agent",
+        "obd-evidence-agent",
+        "engine-transmission-agent",
+        "brakes-suspension-agent",
+        "technician-review-agent"
+      ]
     },
     {
       "id": "cochemotor-compliance",
       "title": "Legal y Cumplimiento",
       "scope": "Regulaciones de la DGT, contratos mercantiles, garantía legal de 1 año y RGPD",
-      "subagents": ["dgt-process-agent", "contract-draft-agent", "warranty-agent", "consumer-rights-agent", "gdpr-agent", "terms-policy-agent"]
+      "subagents": [
+        "dgt-process-agent",
+        "contract-draft-agent",
+        "warranty-agent",
+        "consumer-rights-agent",
+        "gdpr-agent",
+        "terms-policy-agent"
+      ]
     },
     {
       "id": "cochemotor-crm-bdc",
       "title": "CRM y Centro de Desarrollo de Negocio (BDC)",
       "scope": "Captura multicanal, deduplicación de leads, scoring, matching y seguimiento",
-      "subagents": ["lead-capture-agent", "lead-deduplication-agent", "lead-scoring-agent", "vehicle-matching-agent", "appointment-agent", "follow-up-agent"]
+      "subagents": [
+        "lead-capture-agent",
+        "lead-deduplication-agent",
+        "lead-scoring-agent",
+        "vehicle-matching-agent",
+        "appointment-agent",
+        "follow-up-agent"
+      ]
     },
     {
       "id": "cochemotor-distribution",
       "title": "Distribución Multicanal",
       "scope": "Adaptación de contenido para Coches.net, Wallapop, WhatsApp, fichas y vídeo corto",
-      "subagents": ["listing-copy-agent", "channel-adapter-agent", "whatsapp-share-agent", "social-content-agent", "publication-approval-agent"]
+      "subagents": [
+        "listing-copy-agent",
+        "channel-adapter-agent",
+        "whatsapp-share-agent",
+        "social-content-agent",
+        "publication-approval-agent"
+      ]
     },
     {
       "id": "cochemotor-growth",
       "title": "Marketing, SEO y Marca",
       "scope": "SEO local, SEO programático de modelos VO, gobernanza de marca y copy de conversión",
-      "subagents": ["seo-local-agent", "technical-seo-agent", "programmatic-seo-agent", "brand-governance-agent", "conversion-copy-agent"]
+      "subagents": [
+        "seo-local-agent",
+        "technical-seo-agent",
+        "programmatic-seo-agent",
+        "brand-governance-agent",
+        "conversion-copy-agent"
+      ]
     },
     {
       "id": "cochemotor-finance",
       "title": "Finanzas y Negocio",
       "scope": "Márgenes comerciales por vehículo, simulación de cuotas, unit economics y planes de suscripción",
-      "subagents": ["unit-economics-agent", "vehicle-profitability-agent", "subscription-metrics-agent", "pricing-plan-agent", "fraud-anomaly-agent"]
+      "subagents": [
+        "unit-economics-agent",
+        "vehicle-profitability-agent",
+        "subscription-metrics-agent",
+        "pricing-plan-agent",
+        "fraud-anomaly-agent"
+      ]
     },
     {
       "id": "cochemotor-platform-engineering",
       "title": "Ingeniería de Plataforma",
       "scope": "Frontend, backend, pruebas unitarias, CI/CD, sincronización y despliegue a Hostinger",
-      "subagents": ["frontend-agent", "backend-agent", "python-orchestration-agent", "test-agent", "security-agent", "deployment-agent"]
+      "subagents": [
+        "frontend-agent",
+        "backend-agent",
+        "python-orchestration-agent",
+        "test-agent",
+        "security-agent",
+        "deployment-agent"
+      ]
     },
     {
       "id": "cochemotor-buyer-assistant",
       "title": "Asistente del Comprador",
       "scope": "Asesoramiento prudente al comprador: preguntas al vendedor, costes de transferencia DGT y checklist de prueba",
-      "subagents": ["buyer-onboarding-agent", "needs-discovery-agent", "budget-financing-agent", "inspection-explainer-agent", "purchase-cost-agent", "document-checklist-agent"]
+      "subagents": [
+        "buyer-onboarding-agent",
+        "needs-discovery-agent",
+        "budget-financing-agent",
+        "inspection-explainer-agent",
+        "purchase-cost-agent",
+        "document-checklist-agent"
+      ]
     },
     {
       "id": "cochemotor-executive-intelligence",
       "title": "Inteligencia Ejecutiva",
       "scope": "Briefing diario, detección de anomalías de KPIs, alertas de rotación y soporte a dirección",
-      "subagents": ["daily-briefing-agent", "weekly-business-review-agent", "kpi-anomaly-agent", "risk-register-agent", "decision-support-agent"]
+      "subagents": [
+        "daily-briefing-agent",
+        "weekly-business-review-agent",
+        "kpi-anomaly-agent",
+        "risk-register-agent",
+        "decision-support-agent"
+      ]
+    },
+    {
+      "id": "cocochemotor-coche-ideal",
+      "title": "Agente Coche Ideal",
+      "scope": "Control funcional y operativo de solicitudes B2C y su seguimiento B2B",
+      "subagents": [
+        "coche-ideal-ux",
+        "coche-ideal-validation",
+        "coche-ideal-operations",
+        "coche-ideal-privacy"
+      ],
+      "requires_human_approval": true
     }
   ]
 }

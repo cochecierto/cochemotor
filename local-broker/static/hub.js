@@ -586,7 +586,7 @@ function renderCopilotCards() {
   }).join('');
 }
 
-// 9. Bolsa de Pedidos (Coches a la Carta)
+// 9. Bolsa de Pedidos (Coche Ideal)
 function renderDemandOrders() {
   const container = document.getElementById('demand-orders-container');
   if (!container) return;

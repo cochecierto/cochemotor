@@ -37,7 +37,7 @@ const siteConfig = {
 
   navigation: [
     { label: "Marketplace VO", href: "marketplace.html" },
-    { label: "Coches a la Carta", href: "demanda.html" },
+    { label: "Coche Ideal", href: "demanda.html" },
     { label: "Mecánica Verificada", href: "index.html#ingenieria" },
     { label: "Los 3 Pilares", href: "index.html#pilares" },
     { label: "Hub Profesional", href: "hub.html" },
