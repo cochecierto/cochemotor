@@ -181,6 +181,7 @@
       "title": "Ingeniería de Plataforma",
       "scope": "Frontend, backend, pruebas unitarias, CI/CD, sincronización y despliegue a Hostinger",
       "subagents": [
+        "cochemotor-web-expert",
         "frontend-agent",
         "backend-agent",
         "python-orchestration-agent",
