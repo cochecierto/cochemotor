@@ -19,7 +19,7 @@ class CocheIdealRepositoryTests(unittest.TestCase):
                 self.assertTrue(has_recent_coche_ideal_fingerprint(conn, "fp-test"))
                 self.assertTrue(update_coche_ideal_status(conn, "ci-test-1", "en revisión", "tester"))
                 history = list_coche_ideal_history(conn, "ci-test-1")
-                conn.close()
+            conn.close()
             self.assertEqual(history[0]["previous_status"], "nueva")
             self.assertEqual(history[0]["new_status"], "en revisión")
             self.assertEqual(history[0]["actor"], "tester")
