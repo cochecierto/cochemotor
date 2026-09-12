@@ -157,6 +157,16 @@ def save_coche_ideal_request(conn: sqlite3.Connection, request: dict[str, Any], 
     return request_id
 
 
+
+def list_coche_ideal_requests(conn: sqlite3.Connection, status: str | None = None) -> list[dict[str, Any]]:
+    query = "SELECT request_id, tenant_id, payload_json, status, consent_version, created_at FROM coche_ideal_requests"
+    params: tuple[str, ...] = ()
+    if status:
+        query += " WHERE status = ?"
+        params = (status,)
+    query += " ORDER BY created_at DESC"
+    rows = conn.execute(query, params).fetchall()
+    return [{**json.loads(row["payload_json"]), "id": row["request_id"], "status": row["status"], "createdAt": row["created_at"], "consentVersion": row["consent_version"]} for row in rows]
 def has_recent_coche_ideal_fingerprint(conn: sqlite3.Connection, fingerprint: str, days: int = 30) -> bool:
     row = conn.execute("SELECT 1 FROM coche_ideal_requests WHERE fingerprint = ? AND created_at >= datetime('now', ?)", (fingerprint, f"-{days} days")).fetchone()
     return row is not None

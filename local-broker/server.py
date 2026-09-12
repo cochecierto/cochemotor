@@ -11,10 +11,12 @@ import os
 import sys
 import json
 import hashlib
+import secrets
+from urllib.parse import urlparse, parse_qs
 try:
-    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint
+    from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests
 except ModuleNotFoundError:
-    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint
+    from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests
 
 PORT = 8000
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,6 +27,20 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
+    def do_GET(self):
+        parsed = urlparse(self.path)
+        if parsed.path != "/api/coche-ideal":
+            return super().do_GET()
+        expected = os.environ.get("COCHEMOTOR_ADVISOR_KEY")
+        provided = self.headers.get("X-Advisor-Key")
+        if not expected or not provided or not secrets.compare_digest(provided, expected):
+            self._json_response(401, {"ok": False, "error": "No autorizado"})
+            return
+        db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
+        init_db(db_path)
+        query = parse_qs(parsed.query)
+        with get_connection(db_path) as conn:
+            self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
     def do_POST(self):
         if self.path != "/api/coche-ideal":
             self.send_error(404)
@@ -38,7 +54,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
             init_db(db_path)
             with get_connection(db_path) as conn:
-                if has_recent_coche_ideal_fingerprint(conn, fingerprint):
+                if has_recent_coche_ideal_fingerprint, list_coche_ideal_requests(conn, fingerprint):
                     self._json_response(409, {"ok": False, "duplicate": True})
                     return
                 request_id = payload.get("id", "ci-" + fingerprint[:12])
