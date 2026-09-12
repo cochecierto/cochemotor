@@ -15,7 +15,7 @@ Garantizar la coherencia visual, técnica y de accesibilidad de la marca **Coche
 
 - **Nombre de Marca**: CocheMotor (Wordmark: "Coche" en peso regular/medium, "Motor" en peso bold/black para equilibrar tecnología y potencia mecánica).
 - **Claim / Tagline**: *Mecánica Verificada de Ocasión* / *Tu Marketplace de Automoción Digital*.
-- **Símbolo / Isotipo**: Fusión vectorial de silueta aerodinámica de vehículo deportivo con elementos mecánicos de precisión: biela-pistón horizontal inferior y llanta dentada como engranaje.
+- **Identidad principal**: wordmark tipográfico “CocheMotor”; “Coche” en Deep Navy y “Motor” en Automotive Red, acompañado del claim “Compra claro. Vende mejor.”. El coche y el pistón no forman parte del logotipo ni del sistema principal de identidad.
 - **Paleta Cromática**:
   - `Primary (Deep Navy)`: `#002D62`
   - `Secondary (Graphite Charcoal)`: `#3C3F41`
