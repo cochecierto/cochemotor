@@ -7,9 +7,7 @@ La referencia visual oficial es `cochemotor-brand-master-reference.png`. Incluye
 - Cabecera clara: `cochemotor_wordmark.svg`.
 - Cabecera o panel oscuro: `cochemotor_wordmark_white.svg`.
 - Confianza: `cochemotor_sello_verificado.png`.
-- Favicon: `favicon.svg` y variantes PNG.
 - Redes sociales: `cochemotor-brand-master-reference.png`.
-- Imagen de respaldo: `vehicle-placeholder.svg`.
 
 Los nombres y usos deben mantenerse centralizados en `brand-assets.json`.
 

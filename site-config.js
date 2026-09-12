@@ -20,9 +20,6 @@ const siteConfig = {
     logoLight: "assets/brand/logos/cochemotor-horizontal-light.png",
     logoDark: "assets/brand/logos/cochemotor-horizontal-dark.png",
     logoTransparent: "assets/brand/logos/cochemotor-horizontal-light.png",
-    selloVerificado: "assets/brand/icons/cochemotor-verification-seal.png",
-    appIcon: "assets/brand/favicons/favicon.svg",
-    faviconSvg: "assets/brand/favicons/favicon.svg",
     colors: {
       navy: "#002D62",
       red: "#D02828",
