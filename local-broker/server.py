@@ -15,8 +15,10 @@ import secrets
 from urllib.parse import urlparse, parse_qs
 try:
     from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status
+    from local_broker.broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, update_profile
 except ModuleNotFoundError:
     from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status
+    from broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, update_profile
 
 PORT = 8000
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,6 +31,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urlparse(self.path)
+        if parsed.path == "/api/auth/verify":
+            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
+            init_db(db_path)
+            with get_connection(db_path) as conn:
+                init_auth_schema(conn)
+                ok = verify_user(conn, parse_qs(parsed.query).get("token", [""])[0])
+            self._json_response(200 if ok else 400, {"ok": ok, "message": "Correo verificado. Ya puedes iniciar sesión." if ok else "Enlace de verificación no válido."})
+            return
         if parsed.path != "/api/coche-ideal":
             return super().do_GET()
         expected = os.environ.get("COCHEMOTOR_ADVISOR_KEY")
@@ -46,6 +56,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             else:
                 self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
     def do_POST(self):
+        if self.path == "/api/auth":
+            self._handle_auth()
+            return
         if self.path != "/api/coche-ideal":
             self.send_error(404)
             return
@@ -82,6 +95,37 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self._json_response(400, {"ok": False, "error": "Solicitud inválida"})
         except Exception:
             self._json_response(500, {"ok": False, "error": "No se pudo guardar la solicitud"})
+
+    def _handle_auth(self):
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            if length > 32_000:
+                self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
+                return
+            payload = json.loads(self.rfile.read(length).decode("utf-8"))
+            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
+            init_db(db_path)
+            with get_connection(db_path) as conn:
+                init_auth_schema(conn)
+                action = payload.get("action")
+                if action == "register":
+                    user = register_user(conn, payload.get("name", ""), payload.get("email", ""), payload.get("password", ""))
+                    query = "http://localhost:%d/api/auth/verify?token=%s" % (PORT, user["verification_token"])
+                    user.pop("verification_token", None)
+                    self._json_response(201, {"ok": True, "user": user, "verification_url": query})
+                    return
+                if action == "login":
+                    self._json_response(200, {"ok": True, "user": authenticate_user(conn, payload.get("email", ""), payload.get("password", ""))})
+                    return
+                if action == "profile":
+                    ok = update_profile(conn, payload.get("user_id", ""), payload.get("phone", ""), payload.get("professional_type", ""))
+                    self._json_response(200 if ok else 404, {"ok": ok})
+                    return
+            self._json_response(400, {"ok": False, "error": "Acción de acceso no válida"})
+        except (ValueError, json.JSONDecodeError, KeyError):
+            self._json_response(400, {"ok": False, "error": "Datos de acceso no válidos"})
+        except Exception:
+            self._json_response(500, {"ok": False, "error": "No se pudo completar el acceso"})
 
     def do_PUT(self):
         if urlparse(self.path).path != "/api/coche-ideal":
