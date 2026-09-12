@@ -230,5 +230,14 @@
       ],
       "requires_human_approval": true
     }
-  ]
+  ],
+  "brand_governance": {
+    "master_asset": "assets/brand/social/cochemotor-logo-final-dark-reference.png",
+    "approved_logo_variants": [
+      "assets/brand/logos/cochemotor-final-light.png",
+      "assets/brand/logos/cochemotor-final-dark.png"
+    ],
+    "change_policy": "locked_after_user_approval",
+    "requires_explicit_reapproval": true
+  }
 }
