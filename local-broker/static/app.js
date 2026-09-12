@@ -187,7 +187,7 @@ function renderStockGrid(vehicles) {
 
     return '<article class="vehicle-card" data-id="' + v.id + '">' +
       '<div class="vehicle-thumb-box">' +
-        '<img class="vehicle-thumb-img" src="' + v.image + '" alt="' + v.brand + ' ' + v.model + ' verificado" loading="lazy">' +
+        '<img class="vehicle-thumb-img" src="' + v.image + '" alt="' + v.brand + ' ' + v.model + ' verificado" loading="lazy" decoding="async" width="640" height="360">' +
         '<span class="badge-dgt ' + (v.badgeClass || 'badge-c') + '">' + v.badge + '</span>' +
         '<span class="badge-inspection">✓ ' + (v.inspectionScore || '98/100') + '</span>' +
         (isSold ? '<span style="position: absolute; bottom: 10px; right: 10px; background: #b91c1c; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">VENDIDO</span>' :

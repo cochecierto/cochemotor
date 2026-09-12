@@ -315,7 +315,7 @@ function renderPipelineBoard() {
             </div>
           ` : carsInStage.map(car => `
             <div class="pipeline-card">
-              <img src="${car.image}" alt="${car.brand}" class="pipeline-card-img">
+              <img src="${car.image}" alt="${car.brand}" class="pipeline-card-img" loading="lazy" decoding="async" width="320" height="180">
               <div class="pipeline-card-title">${car.brand} ${car.model}</div>
               <div class="pipeline-card-price">${car.price.toLocaleString('es-ES')} €</div>
               
@@ -570,7 +570,7 @@ function renderCopilotCards() {
 
     return `
       <div class="copilot-card ${cardClass}">
-        <img src="${v.image}" alt="${v.brand}" style="width: 80px; height: 60px; object-fit: cover; border-radius: 6px;">
+        <img src="${v.image}" alt="${v.brand}" loading="lazy" decoding="async" width="80" height="60" style="width: 80px; height: 60px; object-fit: cover; border-radius: 6px;">
         
         <div>
           <div style="font-weight: 800; font-size: 1.05rem; color: var(--cm-navy);">${v.brand} ${v.model}</div>
