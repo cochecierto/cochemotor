@@ -54,7 +54,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
             init_db(db_path)
             with get_connection(db_path) as conn:
-                if has_recent_coche_ideal_fingerprint, list_coche_ideal_requests(conn, fingerprint):
+                if has_recent_coche_ideal_fingerprint(conn, fingerprint):
                     self._json_response(409, {"ok": False, "duplicate": True})
                     return
                 request_id = payload.get("id", "ci-" + fingerprint[:12])
