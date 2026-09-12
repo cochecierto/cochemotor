@@ -51,3 +51,5 @@ Cada revisión debe devolver:
 
 ## Handoff
 Devuelve al agente director o coordinador de objetivos el veredicto y la lista exacta de correcciones. Solo permite continuar al agente de despliegue cuando el veredicto sea `PASS` o exista una aprobación humana explícita para las notas documentadas.
+## Regla de identidad de marca bloqueada
+Los activos aprobados en `assets/brand` son inmutables por defecto. Una vez validados por el usuario, ningún agente puede reemplazar, redibujar, recolorear, recortar o cambiar un logo, favicon o icono. Cualquier cambio requiere aprobación explícita y una nueva validación visual antes de commit, push o despliegue. Si una variante no puede verificarse contra el maestro, el veredicto debe ser `BLOCKED`.
