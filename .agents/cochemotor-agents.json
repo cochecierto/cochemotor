@@ -161,7 +161,8 @@
         "technical-seo-agent",
         "programmatic-seo-agent",
         "brand-governance-agent",
-        "conversion-copy-agent"
+        "conversion-copy-agent",
+        "cochemotor-copy-automocion"
       ]
     },
     {
@@ -227,6 +228,22 @@
         "coche-ideal-validation",
         "coche-ideal-operations",
         "coche-ideal-privacy"
+      ],
+      "requires_human_approval": true
+    },
+    {
+      "id": "cochemotor-copy-automocion",
+      "title": "Copy y Lenguaje de Automoción",
+      "scope": "UX writing, copy B2B/B2C, glosario y mensajes de Coche Ideal en español peninsular claro",
+      "subagents": [
+        "copy-audit-agent",
+        "automotive-glossary-agent",
+        "professional-value-proposition-agent",
+        "coche-ideal-copy-agent",
+        "listing-copy-review-agent",
+        "ux-microcopy-agent",
+        "conversion-experiment-agent",
+        "copy-compliance-review-agent"
       ],
       "requires_human_approval": true
     }
