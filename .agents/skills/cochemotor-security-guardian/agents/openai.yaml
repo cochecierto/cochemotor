@@ -1,0 +1,6 @@
+interface:
+  display_name: "Guardián de seguridad CocheMotor"
+  short_description: "Audita y corrige vulnerabilidades del proyecto y su API"
+  default_prompt: "Audita CocheMotor con enfoque red-team, corrige vulnerabilidades confirmadas en código y pruebas, y entrega evidencia sin modificar infraestructura externa sin aprobación."
+policy:
+  allow_implicit_invocation: false

@@ -112,6 +112,11 @@ def revoke_session(conn: sqlite3.Connection, token: str) -> None:
     conn.commit()
 
 
+def can_update_profile(session_user: dict[str, Any] | None, requested_user_id: str) -> bool:
+    """Allow profile writes only for the user represented by the active session."""
+    return bool(session_user and requested_user_id and session_user.get("user_id") == requested_user_id)
+
+
 def update_profile(conn: sqlite3.Connection, user_id: str, phone: str, professional_type: str) -> bool:
     if len(phone.strip()) < 9 or not professional_type.strip():
         raise ValueError("Teléfono o tipo de profesional no válidos")

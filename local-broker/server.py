@@ -15,10 +15,10 @@ import secrets
 from urllib.parse import urlparse, parse_qs
 try:
     from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report, save_lead_record, list_lead_records
-    from local_broker.broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile
+    from local_broker.broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile, can_update_profile
 except ModuleNotFoundError:
     from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report, save_lead_record, list_lead_records
-    from broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile
+    from broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile, can_update_profile
 
 try:
     PORT = int(os.environ.get("COCHEMOTOR_PORT", "8000"))
@@ -162,7 +162,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     self._json_response(200, {"ok": True})
                     return
                 if action == "profile":
-                    ok = update_profile(conn, payload.get("user_id", ""), payload.get("phone", ""), payload.get("professional_type", ""))
+                    session_user = validate_session(conn, payload.get("session_token", ""))
+                    requested_user_id = payload.get("user_id", "")
+                    if not can_update_profile(session_user, requested_user_id):
+                        self._json_response(401, {"ok": False, "error": "Sesión no autorizada"})
+                        return
+                    ok = update_profile(conn, requested_user_id, payload.get("phone", ""), payload.get("professional_type", ""))
                     self._json_response(200 if ok else 404, {"ok": ok})
                     return
             self._json_response(400, {"ok": False, "error": "Acción de acceso no válida"})
