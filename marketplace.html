@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="styles.css?v=5.3">
   <style>
     .filter-panel-card {
       background: var(--cm-white);
@@ -43,7 +43,7 @@
     .quick-filter.active { background:#eaf5ff; border-color:#1768d1; color:#1768d1; }
   </style>
 </head>
-<body>
+<body class="marketplace-page">
 
   <!-- Encabezado & Navegación -->
   <header class="site-header">
@@ -51,38 +51,38 @@
       <a href="index.html" class="brand-link">
         <img class="brand-logo-img" src="assets/brand/logos/cochemotor-final-light.png?v=13.0" alt="CocheMotor">
       </a>
-      <nav class="nav-desktop">
-        <a href="marketplace.html" class="nav-link" style="color: var(--cm-navy); font-weight: 800; border-bottom: 2px solid var(--cm-cyan);">Coches de ocasión</a>
-        <a href="demanda.html" class="nav-link">Coche Ideal</a>
-        <a href="index.html#ingenieria" class="nav-link">Revisión mecánica</a>
-        <a href="index.html#pilares" class="nav-link">Cómo funciona</a>
-        <a href="index.html#faq" class="nav-link">FAQ</a>
+      <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Abrir menú de navegación">☰</button>
+      <nav class="nav-desktop" id="site-navigation" aria-label="Navegación principal">
+        <a href="marketplace.html" class="nav-link" aria-current="page">Coches de ocasión</a>
+        <a href="demanda.html" class="nav-link">Publica qué coche buscas</a>
+        <a href="profesionales.html" class="nav-link">Soy profesional</a>
+        <a href="publicar.html" class="nav-link">Vender mi coche</a>
       </nav>
       <div class="header-actions">
-        <a href="hub.html" class="btn-nav-hub" style="background: var(--cm-cyan); color: var(--cm-navy); font-weight: 800;">⚡ Probar gratis para profesionales</a>
+        <a href="publicar.html" data-auth-entry="publish" class="btn btn-navy">Publicar un coche</a>
+        <a href="acceso.html?audience=professional&amp;return=hub" class="btn btn-red">Acceso profesional</a>
       </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 36px; padding-bottom: 80px;">
+  <main class="container marketplace-main">
 
-    <!-- Banner de Cabecera -->
-    <div style="margin-bottom: 32px;">
-      <span class="chapter-badge">CATÁLOGO DE COCHES DE OCASIÓN</span>
-      <h1 style="font-family: var(--font-family-display); font-size: 2.5rem; font-weight: 800; color: var(--cm-navy); margin: 8px 0;">
-        Coches de ocasión revisados y con información clara
-      </h1>
-      <p style="font-size: 1.1rem; color: var(--cm-text-secondary); max-width: 800px;">
-        Consulta los coches disponibles, la información aportada por cada vendedor y las comprobaciones que puedes realizar en la DGT antes de comprar.
-      </p>
-    </div>
+    <section class="marketplace-hero" aria-labelledby="marketplace-title">
+      <div class="marketplace-hero-copy">
+        <span class="marketplace-kicker">ANUNCIOS DE PROFESIONALES · ESPAÑA</span>
+        <h1 id="marketplace-title">Encuentra un coche que encaje contigo.</h1>
+        <p>Compara opciones y consulta la información que aporta cada vendedor antes de contactar.</p>
+        <a class="btn btn-red" href="#marketplace-filters">Explorar coches <span aria-hidden="true">↓</span></a>
+        <p class="marketplace-hero-note">¿No aparece el que buscas? <a href="demanda.html">Publica tu búsqueda gratis <span aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
 
     <!-- Panel de Filtros Exhaustivos por España -->
-    <div class="filter-panel-card">
+    <section class="filter-panel-card" id="marketplace-filters" aria-labelledby="marketplace-filter-title">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
-          🔍 Filtros de Búsqueda y Localización
-        </h3>
+        <h2 id="marketplace-filter-title" style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
+          Encuentra tu coche
+        </h2>
         <button class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;" onclick="resetAllFilters()">
           Restablecer Filtros
         </button>
@@ -175,7 +175,7 @@
           </select>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Barra de Conteo de Resultados -->
     <div class="results-count-bar">
@@ -201,7 +201,7 @@
     </div>
 
     <!-- Banner si no encuentra el coche buscado -->
-    <div style="background: linear-gradient(135deg, #002D62 0%, #0a3a78 100%); border-radius: var(--cm-radius-lg); padding: 36px; color: white; margin-top: 48px; text-align: center;">
+    <div class="marketplace-cta" style="background: linear-gradient(135deg, #002D62 0%, #0a3a78 100%); border-radius: var(--cm-radius-lg); padding: 36px; color: white; margin-top: 48px; text-align: center;">
       <span class="chapter-badge" style="background: rgba(0, 191, 255, 0.2); color: var(--cm-navy); margin-bottom: 8px;">SERVICIO A MEDIDA</span>
       <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;">¿No has encontrado el coche exacto que buscas?</h3>
       <p style="color: #cbd5e1; max-width: 650px; margin: 0 auto 20px auto; font-size: 0.95rem;">
@@ -222,6 +222,26 @@
 
   <script src="site-config.js?v=5.0"></script>
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuButton = document.querySelector('.nav-menu-toggle');
+      const navigation = document.getElementById('site-navigation');
+      if (menuButton && navigation) {
+        menuButton.addEventListener('click', () => {
+          const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+          menuButton.setAttribute('aria-expanded', String(!isOpen));
+          menuButton.setAttribute('aria-label', isOpen ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
+          navigation.classList.toggle('is-open', !isOpen);
+        });
+        navigation.addEventListener('click', event => {
+          if (event.target.closest('a')) {
+            menuButton.setAttribute('aria-expanded', 'false');
+            menuButton.setAttribute('aria-label', 'Abrir menú de navegación');
+            navigation.classList.remove('is-open');
+          }
+        });
+      }
+    });
+
     function escapeHTML(value) { return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char])); }
     function safeImageSource(value) {
       try { const url = new URL(String(value || ''), location.href); return url.protocol === 'https:' || url.origin === location.origin ? url.href : 'assets/brand/icons/vehicle-placeholder.svg'; }
