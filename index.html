@@ -37,7 +37,7 @@
       </nav>
       <div class="header-actions">
         <a href="acceso.html?v=1.0" class="btn btn-navy" style="font-weight: 700; padding: 10px 18px; font-size: 0.88rem;">Acceso profesional</a>
-        <a href="hub.html?v=4.0" class="btn btn-red" style="padding: 10px 22px; font-size: 0.88rem; font-weight: 800;">Publicar un coche</a>
+        <a href="publicar.html" data-auth-entry="publish" class="btn btn-red" style="padding: 10px 22px; font-size: 0.88rem; font-weight: 800;">Publicar un coche</a>
       </div>
     </div>
   </header>
@@ -59,7 +59,7 @@
           </p>
           <div class="hero-cta-box">
             <a href="marketplace.html?v=4.0" class="btn btn-red" id="hero-cta">Ver coches disponibles</a>
-            <a href="acceso.html?v=1.0" class="btn btn-outline-white">Probar el panel gratis 30 días</a>
+            <a href="acceso.html?audience=professional&return=hub" data-auth-entry="professional" class="btn btn-outline-white">Probar el panel gratis 30 días</a>
           </div>
 
           <!-- Hero Search Box (Matching Reference Mockup) -->
@@ -483,9 +483,26 @@
     </div>
   </div>
 
+  <div class="modal-overlay auth-choice-overlay" id="publish-choice" hidden>
+    <div class="modal-card auth-choice-card" role="dialog" aria-modal="true" aria-labelledby="publish-choice-title">
+      <button class="modal-close-btn" type="button" data-close-publish aria-label="Cerrar">&times;</button>
+      <span class="chapter-badge">PUBLICAR EN COCHEMOTOR</span>
+      <h2 id="publish-choice-title">¿Qué quieres publicar?</h2>
+      <p>Te llevamos al formulario adecuado. Podrás completarlo antes de crear tu cuenta.</p>
+      <div class="auth-choice-actions">
+        <a class="btn btn-red" href="publicar.html">Quiero mostrar mi coche</a>
+        <a class="btn btn-navy" href="acceso.html?audience=professional&return=hub">Soy profesional</a>
+      </div>
+      <small>Para publicar necesitaremos validar tu contacto y dejar el anuncio vinculado a una cuenta.</small>
+    </div>
+  </div>
+
   <script src="site-config.js?v=5.0"></script>
   <script type="module" src="assets/js/home_catalog.js?v=3.6"></script>
   <script src="app.js?v=5.0"></script>
+  <script>
+    (() => { const modal=document.getElementById('publish-choice'); if(!modal)return; document.querySelectorAll('[data-auth-entry="publish"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();modal.hidden=false;document.body.classList.add('modal-open');})); document.querySelector('[data-close-publish]')?.addEventListener('click',()=>{modal.hidden=true;document.body.classList.remove('modal-open');}); modal.addEventListener('click',e=>{if(e.target===modal){modal.hidden=true;document.body.classList.remove('modal-open');}}); })();
+  </script>
 </body>
 </html>
 

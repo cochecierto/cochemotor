@@ -43,7 +43,7 @@
     const status = document.getElementById('auth-status');
     const params = new URLSearchParams(location.search);
     const audience = params.get('audience') === 'professional' ? 'professional' : 'buyer';
-    const allowedReturns = { hub:'hub.html', marketplace:'marketplace.html', demanda:'demanda.html' };
+    const allowedReturns = { hub:'hub.html', marketplace:'marketplace.html', demanda:'demanda.html', publish:'publicar.html' };
     const returnKey = params.get('return');
     const returnTo = allowedReturns[returnKey] || (location.hash.startsWith('#return=') ? location.hash.slice(8) : 'marketplace.html');
     const show = (message, kind='info') => { status.textContent = message; status.dataset.kind = kind; };
