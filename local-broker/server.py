@@ -49,6 +49,20 @@ def _rate_limited(scope: str, client: str, limit: int, window: int = 60) -> bool
             _RATE_LIMIT_BUCKETS.clear()
         return False
 
+
+def _advisor_session(handler: "Handler") -> dict | None:
+    """Authorize internal operations with a verified session and explicit allowlist."""
+    bearer = handler.headers.get("Authorization", "")
+    if not bearer.startswith("Bearer "):
+        return None
+    allowed = {item.strip() for item in os.environ.get("COCHEMOTOR_ADVISOR_USER_IDS", "").split(",") if item.strip()}
+    if not allowed:
+        return None
+    init_db(DB_PATH)
+    with get_connection(DB_PATH) as conn:
+        user = validate_session(conn, bearer[7:].strip())
+    return user if user and user.get("verified") and user.get("user_id") in allowed else None
+
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
@@ -67,20 +81,17 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return
         if parsed.path != "/api/coche-ideal":
             if parsed.path == "/api/leads":
-                expected = os.environ.get("COCHEMOTOR_ADVISOR_KEY")
-                provided = self.headers.get("X-Advisor-Key")
-                if not expected or not provided or not secrets.compare_digest(provided, expected):
-                    self._json_response(401, {"ok": False, "error": "No autorizado"})
+                advisor = _advisor_session(self)
+                if not advisor:
+                    self._json_response(403, {"ok": False, "error": "Panel de asesor no configurado o no autorizado"})
                     return
                 init_db(DB_PATH)
                 with get_connection(DB_PATH) as conn:
-                    self._json_response(200, {"ok": True, "leads": list_lead_records(conn, parse_qs(parsed.query).get("tenant_id", [None])[0])})
+                    self._json_response(200, {"ok": True, "leads": list_lead_records(conn, advisor["user_id"])})
                 return
             return super().do_GET()
-        expected = os.environ.get("COCHEMOTOR_ADVISOR_KEY")
-        provided = self.headers.get("X-Advisor-Key")
-        if not expected or not provided or not secrets.compare_digest(provided, expected):
-            self._json_response(401, {"ok": False, "error": "No autorizado"})
+        if not _advisor_session(self):
+            self._json_response(403, {"ok": False, "error": "Panel de asesor no configurado o no autorizado"})
             return
         init_db(DB_PATH)
         query = parse_qs(parsed.query)
@@ -295,10 +306,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         if urlparse(self.path).path != "/api/coche-ideal":
             self.send_error(404)
             return
-        expected = os.environ.get("COCHEMOTOR_ADVISOR_KEY")
-        provided = self.headers.get("X-Advisor-Key")
-        if not expected or not provided or not secrets.compare_digest(provided, expected):
-            self._json_response(401, {"ok": False, "error": "No autorizado"})
+        if not _advisor_session(self):
+            self._json_response(403, {"ok": False, "error": "Panel de asesor no configurado o no autorizado"})
             return
         allowed = {"nueva", "en revisión", "opciones encontradas", "presentada al cliente", "aceptada", "descartada", "cerrada"}
         try:
@@ -338,7 +347,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         if origin in ("https://cochemotor.es", "https://www.cochemotor.es"):
             self.send_header("Access-Control-Allow-Origin", origin)
             self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS")
-            self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Advisor-Key")
+            self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
             self.send_header("Vary", "Origin")
     def log_message(self, format, *args):
         sys.stdout.write("[CocheMotor Local Server] %s - %s\n" % (self.address_string(), format % args))
