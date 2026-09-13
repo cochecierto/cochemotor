@@ -2,3 +2,8 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [L,QSA]
+
+# La configuración contiene credenciales y solo debe cargarse desde PHP.
+<Files "config.php">
+    Require all denied
+</Files>
