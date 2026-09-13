@@ -87,11 +87,19 @@ def authenticate_user(conn: sqlite3.Connection, email: str, password: str) -> di
 
 
 def create_session(conn: sqlite3.Connection, user_id: str) -> str:
+    cleanup_expired_sessions(conn)
     token = secrets.token_urlsafe(32)
     now = _now()
     conn.execute("INSERT INTO professional_sessions (token, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)", (token, user_id, (now + timedelta(hours=8)).isoformat(), now.isoformat()))
     conn.commit()
     return token
+
+
+def cleanup_expired_sessions(conn: sqlite3.Connection) -> int:
+    """Remove expired sessions so bearer tokens are not retained indefinitely."""
+    cur = conn.execute("DELETE FROM professional_sessions WHERE expires_at <= ?", (_now().isoformat(),))
+    conn.commit()
+    return cur.rowcount
 
 
 def validate_session(conn: sqlite3.Connection, token: str) -> dict[str, Any] | None:

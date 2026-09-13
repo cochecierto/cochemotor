@@ -12,6 +12,8 @@ import sys
 import json
 import hashlib
 import secrets
+import threading
+import time
 from urllib.parse import urlparse, parse_qs
 try:
     from local_broker.broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report, save_lead_record, list_lead_records
@@ -28,6 +30,24 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
 DIRECTORY = ROOT_DIR if os.path.exists(os.path.join(ROOT_DIR, "index.html")) else STATIC_DIR
 DB_PATH = os.environ.get("COCHEMOTOR_DB_PATH", os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db"))
+_RATE_LIMIT_LOCK = threading.Lock()
+_RATE_LIMIT_BUCKETS: dict[tuple[str, str], list[float]] = {}
+
+
+def _rate_limited(scope: str, client: str, limit: int, window: int = 60) -> bool:
+    """Small process-local limiter; the reverse proxy remains the production boundary."""
+    now = time.monotonic()
+    key = (scope, client or "unknown")
+    with _RATE_LIMIT_LOCK:
+        recent = [stamp for stamp in _RATE_LIMIT_BUCKETS.get(key, []) if now - stamp < window]
+        if len(recent) >= limit:
+            _RATE_LIMIT_BUCKETS[key] = recent
+            return True
+        recent.append(now)
+        _RATE_LIMIT_BUCKETS[key] = recent
+        if len(_RATE_LIMIT_BUCKETS) > 2048:
+            _RATE_LIMIT_BUCKETS.clear()
+        return False
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -129,6 +149,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def _handle_auth(self):
         try:
+            action_hint = "auth-login" if self.command == "POST" else "auth"
+            if _rate_limited(action_hint, self.client_address[0], 10 if action_hint == "auth-login" else 30):
+                self._json_response(429, {"ok": False, "error": "Demasiadas solicitudes. Inténtalo más tarde."})
+                return
             length = int(self.headers.get("Content-Length", "0"))
             if length > 32_000:
                 self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
@@ -201,6 +225,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def _handle_report(self):
         try:
+            if _rate_limited("report", self.client_address[0], 10):
+                self._json_response(429, {"ok": False, "error": "Demasiadas solicitudes. Inténtalo más tarde."})
+                return
             length = int(self.headers.get("Content-Length", "0"))
             if length > 12_000:
                 self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
@@ -222,6 +249,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def _handle_lead(self):
         try:
+            if _rate_limited("lead", self.client_address[0], 20):
+                self._json_response(429, {"ok": False, "error": "Demasiadas solicitudes. Inténtalo más tarde."})
+                return
             length = int(self.headers.get("Content-Length", "0"))
             if length > 8_000:
                 self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
