@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-// La configuración real solo existe en el servidor y nunca se versiona.
-require_once __DIR__ . '/config.php';
+// La configuración real se guarda fuera de public_html y nunca se versiona.
+require_once dirname(__DIR__, 2) . '/cochemotor-private/config.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
