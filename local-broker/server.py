@@ -124,6 +124,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if any(value in (None, "") for value in required) or payload["consent"].get("privacy") is not True or payload["consent"].get("contact") is not True:
                 self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimientos"})
                 return
+            contact = payload["contact"]
+            if (not isinstance(contact["email"], str) or len(contact["email"].strip()) > 254 or
+                    not isinstance(contact["name"], str) or len(contact["name"].strip()) > 120 or
+                    not isinstance(contact.get("phone", ""), str) or len(contact.get("phone", "")) > 32):
+                self._json_response(400, {"ok": False, "error": "Datos de contacto demasiado largos"})
+                return
             preferences = payload["preferences"]
             year = payload["vehicle"].get("year")
             budget_max = preferences.get("budgetMax")
@@ -237,6 +243,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if not all(isinstance(value, str) and value.strip() for value in required) or payload.get("privacy_consent") is not True:
                 self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimiento"})
                 return
+            if (len(payload["listing_reference"].strip()) > 160 or len(payload["reason"].strip()) > 80 or
+                    len(payload["description"].strip()) > 2000 or
+                    (payload.get("email") and (not isinstance(payload["email"], str) or len(payload["email"].strip()) > 254))):
+                self._json_response(400, {"ok": False, "error": "Datos de denuncia demasiado largos"})
+                return
             init_db(DB_PATH)
             report = {**payload, "id": "rep-" + secrets.token_hex(6)}
             with get_connection(DB_PATH) as conn:
@@ -259,6 +270,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
             if not all(isinstance(payload.get(key), str) and payload[key].strip() for key in ("vehicle_id", "tenant_id", "buyer_name", "phone")):
                 self._json_response(400, {"ok": False, "error": "Faltan datos de contacto"})
+                return
+            limits = {"vehicle_id": 80, "tenant_id": 80, "buyer_name": 120, "phone": 32}
+            if any(len(payload[key].strip()) > limit for key, limit in limits.items()):
+                self._json_response(400, {"ok": False, "error": "Datos de contacto demasiado largos"})
                 return
             init_db(DB_PATH)
             lead = {**payload, "id": "lead-" + secrets.token_hex(6)}
