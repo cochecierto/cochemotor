@@ -41,7 +41,8 @@ try {
         $action=$data['action'] ?? ''; $pdo=db();
         if ($action==='register') {
             $name=trim((string)($data['name']??'')); $email=strtolower(trim((string)($data['email']??''))); $password=(string)($data['password']??'');
-            if (mb_strlen($name)<2 || !filter_var($email,FILTER_VALIDATE_EMAIL) || strlen($password)<10) fail(400,'Nombre, correo o contraseña no válidos');
+            $nameLength = preg_match_all('/./us', $name);
+            if ($nameLength === false || $nameLength < 2 || !filter_var($email,FILTER_VALIDATE_EMAIL) || strlen($password)<10) fail(400,'Nombre, correo o contraseña no válidos');
             $id='usr-'.bin2hex(random_bytes(8)); $verify=bin2hex(random_bytes(32));
             try { $q=$pdo->prepare('INSERT INTO professional_users(user_id,name,email,password_hash,verification_token) VALUES(?,?,?,?,?)'); $q->execute([$id,$name,password_hash($password,PASSWORD_DEFAULT),$verify]); }
             catch (PDOException $e) { if ($e->getCode()==='23000') fail(409,'Ya existe una cuenta con ese correo'); throw $e; }
