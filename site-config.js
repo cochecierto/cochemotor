@@ -53,12 +53,9 @@ const siteConfig = {
 
   navigation: [
     { label: "Coches de ocasión", href: "marketplace.html" },
-    { label: "Coche Ideal", href: "demanda.html" },
-    { label: "Revisión mecánica", href: "index.html#ingenieria" },
-    { label: "Cómo funciona", href: "index.html#pilares" },
-    { label: "Hub Profesional", href: "hub.html" },
-    { label: "Planes & Tarifas", href: "index.html#planes" },
-    { label: "FAQ", href: "index.html#faq" },
+    { label: "Publica qué coche buscas", href: "demanda.html" },
+    { label: "Soy profesional", href: "profesionales.html" },
+    { label: "Publicar un coche", href: "publicar.html" },
   ],
 
   // Cuentas de Profesionales Sintéticas con soporte para Web Propia / Subdominio
@@ -165,11 +162,11 @@ const siteConfig = {
     chapter1_hero: {
       eyebrow: "COCHES DE OCASIÓN Y HERRAMIENTAS PARA PROFESIONALES",
       headline: ["Compra o vende coches de ocasión", "con más información y confianza."],
-      subhead: "Encuentra coches revisados y consulta su información antes de decidir. Si eres profesional, publica tu inventario, organiza tus contactos y vende con menos trabajo.",
-      ctaLabel: "Ver coches disponibles",
+      subhead: "Encuentra coches anunciados por profesionales y revisa la información disponible antes de decidir. Si gestionas stock, conoce las herramientas profesionales.",
+      ctaLabel: "Buscar coches",
       ctaTarget: "marketplace.html",
-      ctaHubLabel: "Probar el panel gratis 30 días",
-      ctaHubTarget: "hub.html",
+      ctaHubLabel: "Crear cuenta beta gratis",
+      ctaHubTarget: "acceso.html?audience=professional&return=hub&mode=register",
       stats: [
         { value: "DGT", label: "Acceso a fuentes oficiales" },
         { value: "Por anuncio", label: "Información indicada por el vendedor" },
@@ -183,30 +180,30 @@ const siteConfig = {
       paragraphs: [
         "Comprar un coche usado es más fácil cuando puedes consultar su información antes de contactar con el vendedor.",
         "Los profesionales también necesitan herramientas sencillas para publicar sus coches, organizar consultas y hacer seguimiento sin perder tiempo.",
-        "CocheMotor reúne anuncios, revisiones e información administrativa en un mismo lugar. Cada anuncio muestra las comprobaciones y condiciones que corresponden a ese coche.",
+        "CocheMotor reúne anuncios e información aportada para que puedas consultarla antes de contactar. La ficha debe indicar qué documentación o revisión está disponible para cada coche.",
       ],
       quote: "Consulta la información disponible y pregunta al vendedor antes de decidir.",
     },
 
     chapter3_engineering: {
       number: "CAPÍTULO 02",
-      title: "Revisión mecánica explicada paso a paso",
-      subtitle: "Diagnosis por ordenador OBD, inspección en elevador de 100 puntos y prueba dinámica en carretera.",
+      title: "Qué información técnica consultar",
+      subtitle: "Si un anuncio incluye una revisión, consulta quién la realizó, cuándo y qué puntos se comprobaron.",
     },
 
     chapter4_pillars: {
       number: "CAPÍTULO 03",
-      title: "Qué comprobamos antes de publicar un coche",
+      title: "Qué revisar en la ficha de un coche",
       pillars: [
         {
           code: "01 / REVISIÓN",
-          title: "Revisión mecánica en 100 puntos",
-          description: "Consulta los aspectos revisados en cada anuncio y pide al vendedor cualquier detalle adicional que necesites.",
+          title: "Revisión indicada en el anuncio",
+          description: "Comprueba si la ficha incluye una revisión, quién la realizó y qué aspectos cubre. No todos los coches tienen una inspección de CocheMotor.",
         },
         {
           code: "02 / DGT",
-          title: "Informe de la DGT y situación administrativa",
-          description: "Consulta la información administrativa disponible, como ITV y posibles embargos, precintos o reserva de dominio según el informe consultado.",
+          title: "Información de la DGT",
+          description: "Los datos que aparecen en el anuncio pueden proceder del vendedor. Solicita un informe actualizado en la DGT para comprobar la situación administrativa.",
         },
         {
           code: "03 / GARANTÍA",
@@ -219,7 +216,7 @@ const siteConfig = {
     chapter5_experience: {
       number: "CAPÍTULO 04",
       title: "Consulta la información desde el móvil",
-      subtitle: "Contacta directamente con el taller o compraventa por WhatsApp en menos de 15 minutos, solicita vídeo en directo del motor y agenda tu prueba sin compromiso.",
+      subtitle: "Contacta con el vendedor, solicita la información que necesites y acuerda una visita antes de decidir.",
     },
 
     chapter6_catalog: {
@@ -233,113 +230,35 @@ const siteConfig = {
       title: "Preguntas Frecuentes de Decisión",
       items: [
         {
-          q: "¿Quién realiza la revisión mecánica de los vehículos?",
-          a: "La inspección es realizada por talleres mecánicos profesionales homologados por la red CocheMotor, siguiendo una plantilla de peritaje estandarizada de 100 puntos y diagnosis OBD.",
+          q: "¿Todos los coches incluyen una revisión mecánica?",
+          a: "No. La ficha debe indicar si incluye una revisión y quién la realizó. CocheMotor no inspecciona ni certifica automáticamente todos los vehículos publicados.",
         },
         {
           q: "¿Cómo sé si el coche tiene etiqueta para Zonas de Bajas Emisiones (ZBE)?",
-          a: "Cada ficha técnica indica con claridad el distintivo oficial de la DGT (0 Emisiones, ECO, C o B) y su aptitud para circular sin restricciones en Madrid, Barcelona y ciudades de más de 50.000 habitantes.",
+          a: "Consulta el distintivo que aparece en el anuncio y compruébalo en las fuentes oficiales. Las restricciones dependen de la normativa y la zona; CocheMotor no garantiza el acceso a una ZBE.",
         },
         {
-          q: "¿Qué herramientas incluye el Panel profesional para profesionales?",
-          a: "Incluye Generador Multicanal con IA para portales (Coches.net, Wallapop, Milanuncios), Embudo de Ventas Kanban, Copiloto IA de rotación y precios, Bolsa de pedidos y Cartelería de Parabrisas con código QR.",
+          q: "¿Qué puedes hacer en el espacio profesional?",
+          a: "La beta reúne herramientas para organizar vehículos, preparar fichas y textos, revisar consultas y usar utilidades de apoyo. La disponibilidad puede cambiar; no incluye publicación automática en portales ni automatización de WhatsApp.",
         },
         {
           q: "¿Puedo entregar mi coche actual como parte de pago?",
-          a: "Sí. Nuestros talleres y compraventas asociados realizan tasaciones directas en el acto para descontar el valor de tu coche usado del precio final.",
+          a: "Puedes enviar una solicitud desde Coche Ideal. La solicitud no es una tasación garantizada ni una oferta de compra; un profesional debe revisar la información y confirmar si puede atenderla.",
         },
         {
           q: "¿Cómo se formaliza la compra y el cambio de titularidad?",
-          a: "Todo se realiza mediante contrato mercantil transparente y transferencia telemática a través de gestoría administrativa colegiada, con justificante profesional instantáneo.",
+          a: "La compraventa y el cambio de titularidad se acuerdan entre comprador y vendedor. Comprueba los documentos y, si lo necesitas, consulta a una gestoría; CocheMotor no tramita automáticamente la transferencia.",
         },
       ],
     },
 
     chapter8_contact: {
       number: "CAPÍTULO 07",
-      title: "¿Eres Taller Mecánico o Compraventa Independiente?",
-      subtitle: "Únete a la red de CocheMotor. Publica tu stock, recibe consultas por WhatsApp y gestiona tus oportunidades desde un mismo lugar.",
+      title: "¿Trabajas con vehículos de ocasión?",
+      subtitle: "Conoce las herramientas y condiciones de la beta profesional de CocheMotor antes de crear tu cuenta.",
       formAction: "#",
     },
   },
-
-  // Testimonios B2B
-  testimonials: [
-    {
-      quote: "Pasamos de perder 3 horas al día respondiendo a curiosos a cerrar ventas en 48 horas. El Generador Multicanal y el informe de 100 puntos le dan una credibilidad imbatible a nuestros coches.",
-      author: "Manuel Delgado",
-      role: "Director de Operaciones · Automoción Delgado (Madrid)",
-      metrics: "+35% de rotación de stock",
-    },
-    {
-      quote: "El Lead Scoring de compradores por WhatsApp nos ha cambiado la vida. Mis comerciales solo llaman a quienes tienen liquidez real o coche para tasar. Menos llamadas, más operaciones firmadas.",
-      author: "Carmen Navarro",
-      role: "Gerente de Ventas · Costa Cars VO (Valencia)",
-      metrics: "Ahorro de 14 h/semana",
-    },
-    {
-      quote: "Poner la ficha pericial con código QR en el parabrisas de los coches de la campa es una máquina de captar clientes que pasean por el polígono los fines de semana.",
-      author: "Javier Mendoza",
-      role: "Propietario · Taller y Compraventa SurMotor (Sevilla)",
-      metrics: "100% de coches con garantía",
-    },
-  ],
-
-  // Planes para profesionales
-  pricing: [
-    {
-      id: "plan-starter",
-      name: "Starter Freelance",
-      tagline: "Para compraventas independientes que quieren profesionalizar su venta.",
-      priceMonthly: 49,
-      priceAnnual: 39,
-      popular: false,
-      features: [
-        "Publicación ilimitada de stock",
-        "Fichas públicas con distintivo DGT",
-        "Generador multicanal para portales",
-        "Cartelería de parabrisas con QR",
-        "Embudo de ventas y leads WhatsApp",
-        "30 Días de Prueba Gratuita Completa",
-      ],
-      cta: "Comenzar 30 Días Gratis",
-    },
-    {
-      id: "plan-taller",
-      name: "Taller Mecánico Partner",
-      tagline: "Para talleres mecánicos que quieren vender stock propio verificado.",
-      priceMonthly: 99,
-      priceAnnual: 79,
-      popular: true,
-      features: [
-        "Stock ilimitado de vehículos",
-        "Distintivo oficial 'Sello Taller Homologado'",
-        "Certificación de 100 puntos periciales",
-        "Generador Multicanal IA avanzado",
-        "Lead Scoring predictivo de compradores",
-        "Copiloto IA de rotación y precios",
-        "Prioridad de visibilidad en el Marketplace",
-      ],
-      cta: "Comenzar Prueba Gratuita",
-    },
-    {
-      id: "plan-concesionario",
-      name: "Concesionario Pro",
-      tagline: "Para concesionarios multimarca y redes con equipo comercial.",
-      priceMonthly: 199,
-      priceAnnual: 159,
-      popular: false,
-      features: [
-        "Stock ilimitado de vehículos",
-        "Multi-usuario para todo el equipo",
-        "Gestión centralizada de leads WhatsApp",
-        "Bolsa de pedidos (Coches Coche Ideal)",
-        "Garantías mecánicas con tarifa mayorista",
-        "Account Manager y soporte telefónico VIP",
-      ],
-      cta: "Contactar Asesoría",
-    },
-  ],
 
   // Inventario de Stock Sintético con Trazabilidad Geográfica por España y Landing B2C
   stock: [

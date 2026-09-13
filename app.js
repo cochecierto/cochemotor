@@ -3,8 +3,6 @@
  * Metodología BIG School Webs & Panel profesional B2B (Inspirado en Inmobia360)
  */
 
-let isAnnualBilling = false;
-
 function escapeHTML(value) {
   return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 }
@@ -36,15 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
   renderChapter4Pillars();
   renderChapter5Experience();
   renderChapter6Catalog();
-  renderTestimonials();
-  renderPricing();
   renderChapter7Faq();
   renderChapter8Professional();
   renderFooter();
 
   initStockFilters();
   initVehicleModal();
-  updateLandingRoi();
   initMobileNavigation();
 });
 
@@ -260,91 +255,6 @@ function initStockFilters() {
   });
 }
 
-// NUEVO: Renderizado de Testimonios B2B
-function renderTestimonials() {
-  var grid = document.getElementById('testimonials-grid');
-  if (!grid || !siteConfig.testimonials) return;
-
-  grid.innerHTML = siteConfig.testimonials.map(function(t) {
-    return '<div class="testimonial-card">' +
-      '<div class="test-metric">' + t.metrics + '</div>' +
-      '<div class="test-quote">“' + t.quote + '”</div>' +
-      '<div class="test-author">' +
-        '<h4>' + t.author + '</h4>' +
-        '<p>' + t.role + '</p>' +
-      '</div>' +
-    '</div>';
-  }).join('');
-}
-
-// NUEVO: Renderizado de Planes para profesionales
-function renderPricing() {
-  var grid = document.getElementById('pricing-grid');
-  if (!grid || !siteConfig.pricing) return;
-
-  grid.innerHTML = siteConfig.pricing.map(function(p) {
-    var price = isAnnualBilling ? p.priceAnnual : p.priceMonthly;
-    var periodText = isAnnualBilling ? '/mes (facturado anual)' : '/mes';
-
-    return '<div class="price-card ' + (p.popular ? 'popular' : '') + '">' +
-      (p.popular ? '<div class="popular-ribbon">MÁS POPULAR</div>' : '') +
-      '<div class="price-header">' +
-        '<h3>' + p.name + '</h3>' +
-        '<p>' + p.tagline + '</p>' +
-      '</div>' +
-      '<div class="price-amount-box">' +
-        '<div class="price-val">' + price + ' €</div>' +
-        '<div class="price-period">' + periodText + '</div>' +
-      '</div>' +
-      '<ul class="price-features-list">' +
-        p.features.map(function(f) { return '<li>' + f + '</li>'; }).join('') +
-      '</ul>' +
-      '<a href="acceso.html?audience=professional&return=hub&mode=register" data-auth-entry="professional-subscribe" class="btn ' + (p.popular ? 'btn-red' : 'btn-navy') + '" style="width: 100%;">' +
-        p.cta +
-      '</a>' +
-    '</div>';
-  }).join('');
-}
-
-function toggleBillingPeriod() {
-  isAnnualBilling = !isAnnualBilling;
-  var mBtn = document.getElementById('toggle-monthly');
-  var aBtn = document.getElementById('toggle-annual');
-
-  if (isAnnualBilling) {
-    mBtn.classList.remove('active');
-    aBtn.classList.add('active');
-  } else {
-    aBtn.classList.remove('active');
-    mBtn.classList.add('active');
-  }
-  renderPricing();
-}
-
-// NUEVO: Calculadora de Ahorro ROI en Landing
-function updateLandingRoi() {
-  var carsSlider = document.getElementById('roi-cars-slider');
-  var portalSlider = document.getElementById('roi-portal-slider');
-  if (!carsSlider || !portalSlider) return;
-
-  var cars = parseInt(carsSlider.value);
-  var portalCost = parseInt(portalSlider.value);
-
-  document.getElementById('roi-cars-val').textContent = cars + ' coches/mes';
-  document.getElementById('roi-portal-val').textContent = portalCost + ' €/coche';
-
-  // Ahorro anual estimado (portales tradicionales vs CocheMotor Partner + tiempo de comerciales)
-  var annualTraditionalPortalCost = cars * portalCost * 12;
-  var cochemotorPartnerCost = 99 * 12; // Plan partner taller
-  var netSavings = Math.max(0, annualTraditionalPortalCost - cochemotorPartnerCost);
-
-  // Horas ahorradas: 1.5 horas ahorradas por vehículo publicado (copys, WhatsApp, filtros)
-  var hoursSaved = Math.round(cars * 1.5 * 12);
-
-  document.getElementById('roi-res-money').textContent = netSavings.toLocaleString('es-ES') + ' €';
-  document.getElementById('roi-res-hours').textContent = hoursSaved + ' Horas';
-}
-
 function renderChapter7Faq() {
   var ch = siteConfig.chapters.chapter7_faq;
   if (!ch) return;
@@ -447,18 +357,6 @@ function initVehicleModal() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeVehicleModal();
   });
-}
-
-function switchHeroSearchTab(tabEl, mode) {
-  document.querySelectorAll('.hero-search-tab').forEach(function(t) {
-    t.classList.remove('active');
-  });
-  tabEl.classList.add('active');
-  if (mode === 'profesionales') {
-    window.location.href = 'dealer.html?id=user-garcia';
-  } else if (mode === 'valoracion') {
-    window.location.href = '#calculadora-roi';
-  }
 }
 
 function executeHeroSearch() {

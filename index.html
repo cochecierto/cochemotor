@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CocheMotor | Coches de ocasión y herramientas para profesionales</title>
   <link rel="icon" href="assets/brand/favicons/favicon.ico?v=10.0" sizes="any"><link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicons/favicon-16x16.png?v=10.0"><link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicons/favicon-32x32.png?v=10.0"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-light.png?v=10.0" media="(prefers-color-scheme: light)"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-dark.png?v=10.0" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" sizes="180x180" href="assets/brand/icons/apple-touch-icon.png?v=10.0"><link rel="manifest" href="site.webmanifest?v=10.0">
-  <meta name="description" content="Encuentra coches de ocasión revisados y consulta su información antes de decidir. Si eres profesional, publica coches y organiza tus contactos desde un panel sencillo.">
+  <meta name="description" content="Busca coches de ocasión y consulta la información disponible. Si eres profesional, prepara anuncios y organiza consultas con las herramientas de CocheMotor.">
   <link rel="canonical" href="https://cochemotor.es">
   <meta property="og:image" content="https://cochemotor.es/assets/brand/social/cochemotor-logo-final-dark-reference.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=5.0">
+  <link rel="stylesheet" href="styles.css?v=5.1">
 </head>
 <body>
 
@@ -28,16 +28,14 @@
       </a>
       <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Abrir menú de navegación">☰</button>
       <nav class="nav-desktop" id="site-navigation" aria-label="Navegación principal">
-        <a href="marketplace.html?v=4.0" class="nav-link" style="font-weight: 700; color: var(--cm-navy);">Coches de ocasión</a>
-        <a href="demanda.html?v=4.0" class="nav-link" style="font-weight: 700; color: var(--cm-navy);">Coche Ideal</a>
-        <a href="#profesionales" class="nav-link" style="font-weight: 600;">Para profesionales</a>
-        <a href="#ingenieria" class="nav-link">Revisión mecánica</a>
-        <a href="#pilares" class="nav-link">Cómo funciona</a>
-        <a href="#planes" class="nav-link">Planes para profesionales</a>
+        <a href="marketplace.html" class="nav-link">Coches de ocasión</a>
+        <a href="demanda.html" class="nav-link">Publica qué coche buscas</a>
+        <a href="profesionales.html" class="nav-link">Soy profesional</a>
+        <a href="publicar.html" class="nav-link">Vender mi coche</a>
       </nav>
       <div class="header-actions">
-        <a href="acceso.html?v=1.0" class="btn btn-navy" style="font-weight: 700; padding: 10px 18px; font-size: 0.88rem;">Acceso profesional</a>
-        <a href="publicar.html" data-auth-entry="publish" class="btn btn-red" style="padding: 10px 22px; font-size: 0.88rem; font-weight: 800;">Publicar un coche</a>
+        <a href="publicar.html" data-auth-entry="publish" class="btn btn-navy" style="padding: 10px 18px; font-size: 0.88rem; font-weight: 700;">Publicar un coche</a>
+        <a href="acceso.html?audience=professional&return=hub" class="btn btn-red" style="padding: 10px 22px; font-size: 0.88rem; font-weight: 800;">Acceso profesional</a>
       </div>
     </div>
   </header>
@@ -55,20 +53,15 @@
             <span class="highlight">con más información y confianza.</span>
           </h1>
           <p class="hero-subhead" id="hero-subhead">
-            Encuentra coches revisados y consulta su información antes de decidir. Si eres profesional, publica tu inventario, organiza tus contactos y vende con menos trabajo.
+            Encuentra coches anunciados por profesionales y revisa la información disponible antes de decidir. Si gestionas stock, conoce las herramientas profesionales.
           </p>
           <div class="hero-cta-box">
             <a href="marketplace.html?v=4.0" class="btn btn-red" id="hero-cta">Ver coches disponibles</a>
-            <a href="acceso.html?audience=professional&return=hub" data-auth-entry="professional" class="btn btn-outline-white">Probar el panel gratis 30 días</a>
+            <a href="profesionales.html" class="btn btn-outline-white">Soy profesional · Ver herramientas</a>
           </div>
 
           <!-- Hero Search Box (Matching Reference Mockup) -->
           <div class="hero-search-wrapper">
-            <div class="hero-search-tabs">
-              <button type="button" class="hero-search-tab active" onclick="switchHeroSearchTab(this, 'coches')">Coches de ocasión</button>
-              <button type="button" class="hero-search-tab" onclick="switchHeroSearchTab(this, 'profesionales')">Profesionales</button>
-              <button type="button" class="hero-search-tab" onclick="switchHeroSearchTab(this, 'valoracion')">Valoración</button>
-            </div>
             <div class="hero-search-box">
               <div class="hero-search-field">
                 <label>Marca</label>
@@ -106,9 +99,10 @@
                 </select>
               </div>
               <button type="button" class="hero-search-btn" onclick="executeHeroSearch()">
-                🔍 Buscar
+                Buscar coches
               </button>
             </div>
+            <a class="hero-professional-link" href="profesionales.html">¿Gestionas stock de coches? Conoce las herramientas para profesionales <span aria-hidden="true">→</span></a>
           </div>
 
           <!-- Trust Bar (Matching Reference Mockup) -->
@@ -123,15 +117,15 @@
             <div class="hero-trust-item">
               <div class="hero-trust-icon">👥</div>
               <div>
-                <div class="hero-trust-title">Compradores de confianza</div>
-                <div class="hero-trust-desc">Sin sorpresas ni intermediarios</div>
+                <div class="hero-trust-title">Contacta con quien anuncia</div>
+                <div class="hero-trust-desc">Consulta la información antes de decidir</div>
               </div>
             </div>
             <div class="hero-trust-item">
               <div class="hero-trust-icon">📈</div>
               <div>
                 <div class="hero-trust-title">Herramientas profesionales</div>
-                <div class="hero-trust-desc">Panel profesional de gestión y captación</div>
+                <div class="hero-trust-desc">Conoce las herramientas disponibles en la beta</div>
               </div>
             </div>
           </div>
@@ -173,7 +167,7 @@
     <section class="section engineering-section" id="ingenieria">
       <div class="container engineering-grid">
         <div class="engineering-visual">
-          <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1000&q=80" alt="Inspección mecánica pericial en taller de automoción">
+          <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1000&q=80" alt="Taller mecánico revisando un vehículo">
         </div>
         <div>
           <span class="chapter-badge" id="engineering-badge">CAPÍTULO 02</span>
@@ -185,22 +179,22 @@
             <li class="eng-item">
               <div class="eng-icon">01</div>
               <div class="eng-text">
-                <h4>Diagnosis Electrónica OBD</h4>
-                <p>Comprobación de fallos ocultos en centralita, historial de regeneraciones DPF y kilometraje real.</p>
+                <h4>Diagnosis electrónica</h4>
+                <p>Si se aporta una diagnosis, solicita el informe y revisa qué módulos y códigos de avería se comprobaron.</p>
               </div>
             </li>
             <li class="eng-item">
               <div class="eng-icon">02</div>
               <div class="eng-text">
-                <h4>Inspección en Elevador</h4>
-                <p>Revisión exhaustiva de rótulas, fuelles de transmisión, fugas de aceite y estado del tren de rodaje.</p>
+                <h4>Inspección visual y en elevador</h4>
+                <p>Pregunta si se revisaron fugas, neumáticos, suspensión y bajos, y quién realizó esas comprobaciones.</p>
               </div>
             </li>
             <li class="eng-item">
               <div class="eng-icon">03</div>
               <div class="eng-text">
-                <h4>Prueba Dinámica de Frenada y Transmisión</h4>
-                <p>Comprobación en carretera del tacto de embrague, caja de cambios y ausencia de vibraciones parásitas.</p>
+                <h4>Prueba de conducción</h4>
+                <p>Acuerda una prueba con el vendedor y consulta el estado indicado de frenos, embrague y transmisión.</p>
               </div>
             </li>
           </ul>
@@ -228,18 +222,18 @@
         <div class="section-header">
           <span class="chapter-badge" id="experience-badge">CAPÍTULO 04</span>
           <h2 class="section-title" id="experience-title">Consulta la información desde el móvil</h2>
-          <p class="section-subtitle" id="experience-subtitle">Contacta directamente con el taller o compraventa por WhatsApp en menos de 15 minutos, solicita vídeo en directo del motor y agenda tu prueba sin compromiso.</p>
+          <p class="section-subtitle" id="experience-subtitle">Contacta con el vendedor, solicita la información que necesites y acuerda una visita antes de decidir.</p>
         </div>
         <div class="process-steps-grid">
           <div class="step-card">
             <div class="step-number">01</div>
-            <h3>Elige y Consulta la Ficha Pericial</h3>
+            <h3>Consulta la información del anuncio</h3>
             <p>Revisa la información del anuncio y solicita al vendedor documentación reciente para comprobar ITV y situación administrativa en la DGT.</p>
           </div>
           <div class="step-card">
             <div class="step-number">02</div>
-            <h3>Habla con el Taller por WhatsApp</h3>
-            <p>Resuelve dudas técnicas al instante, pide fotos detalladas o vídeo del vano motor en marcha.</p>
+            <h3>Habla con el vendedor</h3>
+            <p>Usa los datos de contacto del anuncio para resolver dudas y pedir más información.</p>
           </div>
           <div class="step-card">
             <div class="step-number">03</div>
@@ -264,9 +258,9 @@
           <div>
             <span class="chapter-badge" style="background: rgba(255, 255, 255, 0.15); color: var(--cm-white); margin-bottom: 6px;">MARKETPLACE INVERSO</span>
             <h3 style="font-size: 1.35rem; font-weight: 800; color: white; margin: 4px 0;">¿No encuentras el coche que buscas? Publícalo en Coche Ideal</h3>
-            <p style="color: #cbd5e1; font-size: 0.92rem; margin: 0;">Publica tu búsqueda sin coste y nuestra red de talleres y compraventas asociados te presentarán ofertas que encajen con tu presupuesto.</p>
+            <p style="color: #cbd5e1; font-size: 0.92rem; margin: 0;">Publica tu búsqueda sin coste. Si un profesional puede atenderla, podrá ponerse en contacto contigo para revisar los detalles.</p>
           </div>
-          <a href="demanda.html?v=4.0" class="btn btn-red" style="white-space: nowrap; font-weight: 800; padding: 12px 24px;">
+          <a href="demanda.html?v=5.0" class="btn btn-red" style="white-space: nowrap; font-weight: 800; padding: 12px 24px;">
             Publicar mi búsqueda
           </a>
         </div>
@@ -285,91 +279,15 @@
       </div>
     </section>
 
-    <!-- NUEVO: CALCULADORA DE AHORRO Y ROI B2B (Inspirado en Inmobia360) -->
-    <section class="section roi-section" id="calculadora-roi">
-      <div class="container">
-        <div class="section-header" style="text-align: center;">
-          <span class="chapter-badge">CALCULADORA DE RETORNO B2B</span>
-          <h2 class="section-title">Calcula cuánto Ahorra tu Negocio con CocheMotor</h2>
-          <p class="section-subtitle" style="margin: 0 auto;">Proyecta las horas de gestión comercial recuperadas y el ahorro en costes de publicación respecto a portales tradicionales.</p>
-        </div>
-
-        <div class="roi-card">
-          <div>
-            <div class="roi-slider-group">
-              <div class="roi-label-val">
-                <span>Vehículos rotados al mes:</span>
-                <span id="roi-cars-val" style="color: var(--cm-navy); font-size: 1.2rem;">8 coches/mes</span>
-              </div>
-              <input type="range" id="roi-cars-slider" class="roi-range-input" min="2" max="30" value="8" oninput="updateLandingRoi()">
-            </div>
-
-            <div class="roi-slider-group">
-              <div class="roi-label-val">
-                <span>Coste medio actual por anuncio en portales tradicionales (€):</span>
-                <span id="roi-portal-val" style="color: var(--cm-navy); font-size: 1.2rem;">45 €/coche</span>
-              </div>
-              <input type="range" id="roi-portal-slider" class="roi-range-input" min="20" max="90" value="45" oninput="updateLandingRoi()">
-            </div>
-
-            <p style="font-size: 0.88rem; color: var(--cm-text-secondary); line-height: 1.5; margin-top: 16px;">
-              Basado en tiempos reales de redacción multicanal con IA (5 minutos vs 2 horas por coche) y filtrado de leads con scoring predictivo para eliminar llamadas no cualificadas.
-            </p>
-          </div>
-
-          <div class="roi-results-box">
-            <div class="roi-stat-block">
-              <div class="roi-big-num" id="roi-res-money">3.240 €</div>
-              <div class="roi-stat-desc">Ahorro anual estimado en tarifas de publicación y marketing</div>
-            </div>
-            <div class="roi-stat-block">
-              <div class="roi-big-num" id="roi-res-hours">144 Horas</div>
-              <div class="roi-stat-desc">Horas al año recuperadas para tu taller o compraventa</div>
-            </div>
-            <div class="roi-stat-block">
-              <a href="hub.html?v=4.0" class="btn btn-red" style="width: 100%; margin-top: 8px;">
-                Probar las herramientas gratis
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NUEVO: PLANES & PRICING B2B (Inspirado en Inmobia360) -->
+    <!-- Acceso claro a la oferta B2B, sin duplicar planes en la portada mixta -->
     <section class="section pricing-section" id="planes">
       <div class="container">
         <div class="section-header" style="text-align: center;">
-          <span class="chapter-badge">PLANES & TARIFAS B2B</span>
-          <h2 class="section-title">Escala tus Ventas con el Plan Adecuado</h2>
-          <p class="section-subtitle" style="margin: 0 auto 32px;">Tarifas transparentes sin comisiones sobre ventas. Elige facturación mensual o ahorra 2 meses con facturación anual.</p>
-
-          <div class="pricing-toggle-box">
-            <span>Mensual</span>
-            <div class="pricing-toggle-btn" onclick="toggleBillingPeriod()">
-              <span id="toggle-monthly" class="active">Mes a mes</span>
-              <span id="toggle-annual">Anual <span class="discount-badge">-20% Ahorro</span></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pricing-grid" id="pricing-grid">
-          <!-- Renderizado dinámicamente desde siteConfig.pricing -->
-        </div>
-      </div>
-    </section>
-
-    <!-- NUEVO: TESTIMONIOS REALES B2B (Inspirado en Inmobia360) -->
-    <section class="section testimonials-section" id="testimonios">
-      <div class="container">
-        <div class="section-header" style="text-align: center;">
-          <span class="chapter-badge">CASOS DE ÉXITO</span>
-          <h2 class="section-title">Lo que Opinan Directores y Talleres Asociados</h2>
-          <p class="section-subtitle" style="margin: 0 auto;">Profesionales de la automoción que ya multiplican su rotación de vehículos con CocheMotor.</p>
-        </div>
-
-        <div class="testimonials-grid" id="testimonials-grid">
-          <!-- Renderizado dinámicamente desde siteConfig.testimonials -->
+          <span class="chapter-badge">HERRAMIENTAS PARA PROFESIONALES</span>
+          <h2 class="section-title">Tu trabajo diario, más ordenado</h2>
+          <p class="section-subtitle" style="margin: 0 auto 24px;">Prepara anuncios, comparte fichas de vehículos y sigue las consultas desde un espacio profesional.</p>
+          <a class="btn btn-red" href="profesionales.html">Ver cómo funciona y consultar planes</a>
+          <p class="home-beta-note">La beta es gratuita. Los precios y límites mostrados en la página profesional son una propuesta comercial; no hay cobros ni cupos activos durante la beta.</p>
         </div>
       </div>
     </section>
@@ -393,33 +311,29 @@
     <section class="section pro-cta-section" id="profesionales">
       <div class="container pro-cta-box">
         <span class="chapter-badge" id="pro-badge" style="background: rgba(0, 191, 255, 0.15); border-color: rgba(0, 191, 255, 0.4);">CAPÍTULO 07</span>
-        <h2 class="section-title" id="pro-title">¿Eres Taller Mecánico o Compraventa Independiente?</h2>
+        <h2 class="section-title" id="pro-title">¿Trabajas con vehículos de ocasión?</h2>
         <p class="section-subtitle" id="pro-subtitle">
-          Únete a la red de CocheMotor. Publica tu stock, recibe consultas por WhatsApp y gestiona tus oportunidades desde un mismo lugar.
+          Descubre el espacio profesional de CocheMotor. Consulta las herramientas y condiciones de la beta antes de crear tu cuenta.
         </p>
 
         <div class="pro-features">
           <div class="pro-feat-card">
-            <h4>Cero Comisiones Abusivas</h4>
-            <p>Tarifa plana mensual sin porcentajes sobre tus ventas ni intermediación obligatoria.</p>
+            <h4>Tu inventario más claro</h4>
+            <p>Prepara y comparte fichas de vehículos con información organizada.</p>
           </div>
           <div class="pro-feat-card">
-            <h4>Contactos interesados directos por WhatsApp</h4>
-            <p>Compradores interesados contactan directamente contigo sin pasar por call centers.</p>
+            <h4>Consultas con seguimiento</h4>
+            <p>Organiza las oportunidades y retoma cada conversación con contexto.</p>
           </div>
           <div class="pro-feat-card">
-            <h4>Sello de Confianza Oficial</h4>
-            <p>Completa tus anuncios con los datos y documentos de revisión disponibles en tu negocio.</p>
+            <h4>Publicación guiada</h4>
+            <p>Una guía visual te ayuda a preparar fotos útiles para cada anuncio.</p>
           </div>
         </div>
 
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="hub.html?v=4.0" class="btn btn-red" style="font-size: 1.05rem; padding: 16px 32px;">
-            ⚡ Abrir panel profesional
-          </a>
-          <a href="https://wa.me/34612345678?text=Hola!%20Tengo%20un%20taller/compraventa%20y%20quiero%20informaci%C3%B3n%20para%20asociarme%20a%20CocheMotor" target="_blank" rel="noopener" class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 16px 32px;">
-            Solicitar Alta Partner por WhatsApp
-          </a>
+          <a href="profesionales.html" class="btn btn-red" style="font-size: 1.05rem; padding: 16px 32px;">Conocer la propuesta profesional</a>
+          <a href="acceso.html?audience=professional&return=hub&mode=register" class="btn btn-navy" style="font-size: 1.05rem; padding: 16px 32px;">Crear cuenta beta gratis</a>
         </div>
       </div>
     </section>
@@ -431,26 +345,25 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/brand/logos/cochemotor-final-light.png?v=13.0" alt="CocheMotor Logo Blanco" style="height: 38px; margin-bottom: 16px;">
-          <p>Herramienta digital para vender coches y gestionar contactos para la compraventa de vehículos de ocasión con peritaje mecánico homologado y trazabilidad legal DGT en España.</p>
+          <p>Herramientas para preparar anuncios, compartir vehículos y seguir consultas relacionadas con coches de ocasión.</p>
         </div>
 
         <div class="footer-col">
           <h4>Navegación</h4>
           <ul>
             <li><a href="#catalogo">Vehículos en Stock</a></li>
-            <li><a href="#ingenieria">Peritaje de Taller</a></li>
-            <li><a href="#pilares">Garantía 12 Meses</a></li>
-            <li><a href="#manifiesto">Manifiesto de Marca</a></li>
+            <li><a href="demanda.html">Publica qué coche buscas</a></li>
+            <li><a href="publicar.html">Vender mi coche</a></li>
+            <li><a href="profesionales.html">Soy profesional</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Herramientas SaaS</h4>
           <ul>
-            <li><a href="hub.html">Generador Multicanal IA</a></li>
-            <li><a href="hub.html">Calculadora Financiera</a></li>
-            <li><a href="hub.html">Lead Scoring Predictivo</a></li>
-            <li><a href="hub.html">Cartelería con QR</a></li>
+            <li><a href="profesionales.html#herramientas">Herramientas profesionales</a></li>
+            <li><a href="profesionales.html#planes">Planes y condiciones</a></li>
+            <li><a href="acceso.html?audience=professional&return=hub">Acceder al espacio profesional</a></li>
           </ul>
         </div>
 
@@ -492,35 +405,20 @@
       <p>Te llevamos al formulario adecuado. Podrás completarlo antes de crear tu cuenta.</p>
       <div class="auth-choice-actions">
         <a class="btn btn-red" href="publicar.html">Quiero mostrar mi coche</a>
-        <a class="btn btn-navy" href="acceso.html?audience=professional&return=hub">Soy profesional</a>
+        <a class="btn btn-navy" href="profesionales.html">Soy profesional</a>
       </div>
       <small>Para publicar necesitaremos validar tu contacto y dejar el anuncio vinculado a una cuenta.</small>
     </div>
   </div>
 
-  <div class="modal-overlay auth-choice-overlay" id="professional-subscribe" hidden>
-    <div class="modal-card auth-choice-card" role="dialog" aria-modal="true" aria-labelledby="professional-subscribe-title" aria-describedby="professional-subscribe-copy" tabindex="-1">
-      <button class="modal-close-btn" type="button" data-close-professional-subscribe aria-label="Cerrar">&times;</button>
-      <span class="chapter-badge">ESPACIO PROFESIONAL</span>
-      <h2 id="professional-subscribe-title">Empieza con CocheMotor</h2>
-      <p id="professional-subscribe-copy">Crea tu cuenta profesional para continuar. Podrás conocer las condiciones del plan antes de activar cualquier pago.</p>
-      <div class="auth-choice-actions">
-        <a class="btn btn-red" href="acceso.html?audience=professional&return=hub&mode=register">Crear cuenta profesional</a>
-        <a class="btn btn-navy" href="acceso.html?audience=professional&return=hub&mode=login">Ya tengo cuenta · Entrar</a>
-      </div>
-      <small>La cuenta no activa una suscripción ni genera cargos.</small>
-    </div>
-  </div>
-
-  <script src="site-config.js?v=6.0"></script>
+  <script src="site-config.js?v=6.1"></script>
   <script type="module" src="assets/js/home_catalog.js?v=3.6"></script>
-  <script src="app.js?v=5.1"></script>
+  <script src="app.js?v=5.2"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => populatePriceSearchSelect(document.getElementById('hero-filter-price'), 'all', 'Sin límite'));
     (() => {
       const bindings = [
-        { entry: 'publish', modalId: 'publish-choice', closeSelector: '[data-close-publish]' },
-        { entry: 'professional-subscribe', modalId: 'professional-subscribe', closeSelector: '[data-close-professional-subscribe]' }
+        { entry: 'publish', modalId: 'publish-choice', closeSelector: '[data-close-publish]' }
       ];
       bindings.forEach(({ entry, modalId, closeSelector }) => {
         const modal = document.getElementById(modalId);

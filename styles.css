@@ -2049,40 +2049,26 @@ button {
   width: 100%;
 }
 
-.hero-search-tabs {
-  display: flex;
-  gap: 6px;
+.hero-professional-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 0 0 4px;
+  color: #e5edf5;
+  font-size: .84rem;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,.45);
+  text-underline-offset: 4px;
 }
-
-.hero-search-tab {
-  background: rgba(255, 255, 255, 0.16);
-  color: #e2e8f0;
-  border: none;
-  padding: 10px 20px;
-  font-family: var(--font-family-display);
-  font-size: 0.9rem;
-  font-weight: 700;
-  border-radius: var(--cm-radius-md) var(--cm-radius-md) 0 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(8px);
-}
-
-.hero-search-tab:hover {
-  background: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-}
-
-.hero-search-tab.active {
-  background: #ffffff;
-  color: var(--cm-navy);
-  font-weight: 800;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
-}
+.hero-professional-link:hover { color: #fff; text-decoration-color: #fff; }
+.home-beta-note { max-width: 720px; margin: 16px auto 0; color: var(--cm-text-secondary); font-size: .78rem; line-height: 1.6; }
+.plan-consult-link { display: block; margin-top: 10px; color: var(--cm-navy); font-size: .76rem; font-weight: 700; text-align: center; text-decoration: underline; text-underline-offset: 3px; }
+.plan-consult-link:hover { color: var(--cm-red); }
 
 .hero-search-box {
   background: #ffffff;
-  border-radius: 0 var(--cm-radius-md) var(--cm-radius-md) var(--cm-radius-md);
+  border-radius: var(--cm-radius-md);
   padding: 16px 20px;
   box-shadow: 0 16px 36px rgba(0, 20, 50, 0.28);
   display: grid;
@@ -2095,9 +2081,6 @@ button {
   .hero-search-box {
     grid-template-columns: 1fr;
     border-radius: var(--cm-radius-md);
-  }
-  .hero-search-tab.active {
-    border-radius: var(--cm-radius-sm);
   }
 }
 
@@ -2419,6 +2402,4 @@ button {
   .hero-headline { font-size: clamp(2.25rem, 11vw, 3.4rem); }
   .hero-search-wrapper { margin-top: 24px; }
   .hero-search-box { grid-template-columns: 1fr; }
-  .hero-search-tabs { overflow-x: auto; }
-  .hero-search-tab { white-space: nowrap; padding: 10px 14px; }
 }
