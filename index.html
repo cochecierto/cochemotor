@@ -501,7 +501,7 @@
   <script type="module" src="assets/js/home_catalog.js?v=3.6"></script>
   <script src="app.js?v=5.0"></script>
   <script>
-    (() => { const modal=document.getElementById('publish-choice'); if(!modal)return; document.querySelectorAll('[data-auth-entry="publish"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();modal.hidden=false;document.body.classList.add('modal-open');})); document.querySelector('[data-close-publish]')?.addEventListener('click',()=>{modal.hidden=true;document.body.classList.remove('modal-open');}); modal.addEventListener('click',e=>{if(e.target===modal){modal.hidden=true;document.body.classList.remove('modal-open');}}); })();
+    (() => { const modal=document.getElementById('publish-choice'); if(!modal)return; const close=()=>{modal.hidden=true;modal.classList.remove('open');document.body.classList.remove('modal-open');}; document.querySelectorAll('[data-auth-entry="publish"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();modal.hidden=false;modal.classList.add('open');document.body.classList.add('modal-open');})); document.querySelector('[data-close-publish]')?.addEventListener('click',close); modal.addEventListener('click',e=>{if(e.target===modal)close();}); })();
   </script>
 </body>
 </html>
