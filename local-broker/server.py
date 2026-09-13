@@ -20,10 +20,14 @@ except ModuleNotFoundError:
     from broker_core.repository import get_connection, init_db, save_coche_ideal_request, has_recent_coche_ideal_fingerprint, list_coche_ideal_requests, list_coche_ideal_history, update_coche_ideal_status, save_dealership, save_vehicle_record, save_ad_report, save_lead_record, list_lead_records
     from broker_core.auth import init_auth_schema, register_user, verify_user, authenticate_user, create_session, validate_session, revoke_session, update_profile
 
-PORT = 8000
+try:
+    PORT = int(os.environ.get("COCHEMOTOR_PORT", "8000"))
+except ValueError:
+    PORT = 8000
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
 DIRECTORY = ROOT_DIR if os.path.exists(os.path.join(ROOT_DIR, "index.html")) else STATIC_DIR
+DB_PATH = os.environ.get("COCHEMOTOR_DB_PATH", os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db"))
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -31,10 +35,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urlparse(self.path)
+        if parsed.path == "/api/health":
+            self._json_response(200, {"ok": True, "service": "cochemotor-broker"})
+            return
         if parsed.path == "/api/auth/verify":
-            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
-            init_db(db_path)
-            with get_connection(db_path) as conn:
+            init_db(DB_PATH)
+            with get_connection(DB_PATH) as conn:
                 init_auth_schema(conn)
                 ok = verify_user(conn, parse_qs(parsed.query).get("token", [""])[0])
             self._json_response(200 if ok else 400, {"ok": ok, "message": "Correo verificado. Ya puedes iniciar sesión." if ok else "Enlace de verificación no válido."})
@@ -46,9 +52,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 if not expected or not provided or not secrets.compare_digest(provided, expected):
                     self._json_response(401, {"ok": False, "error": "No autorizado"})
                     return
-                db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
-                init_db(db_path)
-                with get_connection(db_path) as conn:
+                init_db(DB_PATH)
+                with get_connection(DB_PATH) as conn:
                     self._json_response(200, {"ok": True, "leads": list_lead_records(conn, parse_qs(parsed.query).get("tenant_id", [None])[0])})
                 return
             return super().do_GET()
@@ -57,10 +62,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         if not expected or not provided or not secrets.compare_digest(provided, expected):
             self._json_response(401, {"ok": False, "error": "No autorizado"})
             return
-        db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
-        init_db(db_path)
+        init_db(DB_PATH)
         query = parse_qs(parsed.query)
-        with get_connection(db_path) as conn:
+        with get_connection(DB_PATH) as conn:
             request_id = query.get("id", [None])[0]
             if request_id:
                 self._json_response(200, {"ok": True, "history": list_coche_ideal_history(conn, request_id)})
@@ -104,9 +108,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             identity = {key: value for key, value in payload.items() if key not in {"id", "createdAt", "fingerprint"}}
             raw = json.dumps(identity, sort_keys=True, ensure_ascii=False)
             fingerprint = hashlib.sha256(raw.encode("utf-8")).hexdigest()
-            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
-            init_db(db_path)
-            with get_connection(db_path) as conn:
+            init_db(DB_PATH)
+            with get_connection(DB_PATH) as conn:
                 if has_recent_coche_ideal_fingerprint(conn, fingerprint):
                     self._json_response(409, {"ok": False, "duplicate": True})
                     return
@@ -126,14 +129,18 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
                 return
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
-            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
-            init_db(db_path)
-            with get_connection(db_path) as conn:
+            init_db(DB_PATH)
+            with get_connection(DB_PATH) as conn:
                 init_auth_schema(conn)
                 action = payload.get("action")
                 if action == "register":
                     user = register_user(conn, payload.get("name", ""), payload.get("email", ""), payload.get("password", ""))
-                    query = "http://localhost:%d/api/auth/verify?token=%s" % (PORT, user["verification_token"])
+                    public_base = os.environ.get("COCHEMOTOR_PUBLIC_BASE_URL", "").rstrip("/")
+                    if not public_base:
+                        forwarded_proto = self.headers.get("X-Forwarded-Proto", "http").split(",")[0].strip()
+                        forwarded_host = self.headers.get("X-Forwarded-Host") or self.headers.get("Host") or ("localhost:%d" % PORT)
+                        public_base = "%s://%s" % (forwarded_proto, forwarded_host)
+                    query = "%s/api/auth/verify?token=%s" % (public_base, user["verification_token"])
                     user.pop("verification_token", None)
                     self._json_response(201, {"ok": True, "user": user, "verification_url": query})
                     return
@@ -166,9 +173,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
                 return
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
-            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
-            init_db(db_path)
-            with get_connection(db_path) as conn:
+            init_db(DB_PATH)
+            with get_connection(DB_PATH) as conn:
                 user = validate_session(conn, payload.get("session_token", ""))
                 vehicle = payload.get("vehicle") or {}
                 if not user or not user["verified"] or not all(vehicle.get(key) not in (None, "") for key in ("id", "brand", "model", "year", "price")):
@@ -194,10 +200,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if not all(isinstance(value, str) and value.strip() for value in required) or payload.get("privacy_consent") is not True:
                 self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimiento"})
                 return
-            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
-            init_db(db_path)
+            init_db(DB_PATH)
             report = {**payload, "id": "rep-" + secrets.token_hex(6)}
-            with get_connection(db_path) as conn:
+            with get_connection(DB_PATH) as conn:
                 save_ad_report(conn, report)
             self._json_response(201, {"ok": True, "id": report["id"], "status": "nueva"})
         except (ValueError, TypeError, json.JSONDecodeError):
@@ -215,15 +220,18 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if not all(isinstance(payload.get(key), str) and payload[key].strip() for key in ("vehicle_id", "tenant_id", "buyer_name", "phone")):
                 self._json_response(400, {"ok": False, "error": "Faltan datos de contacto"})
                 return
-            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
-            init_db(db_path)
+            init_db(DB_PATH)
             lead = {**payload, "id": "lead-" + secrets.token_hex(6)}
-            with get_connection(db_path) as conn:
+            with get_connection(DB_PATH) as conn:
+                owner = conn.execute("SELECT tenant_id FROM vehicles WHERE vehicle_id = ?", (lead["vehicle_id"],)).fetchone()
+                if owner:
+                    lead["tenant_id"] = owner["tenant_id"]
                 save_lead_record(conn, lead)
             self._json_response(201, {"ok": True, "id": lead["id"]})
         except (ValueError, TypeError, json.JSONDecodeError):
             self._json_response(400, {"ok": False, "error": "Datos de contacto no válidos"})
-        except Exception:
+        except Exception as error:
+            print("[CocheMotor] Error registrando lead: %s" % error)
             self._json_response(500, {"ok": False, "error": "No se pudo registrar el contacto"})
 
     def do_PUT(self):
@@ -255,9 +263,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if payload.get("status") not in allowed or not payload.get("id"):
                 self._json_response(400, {"ok": False, "error": "Estado o solicitud inválidos"})
                 return
-            db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cochemotor.db")
-            init_db(db_path)
-            with get_connection(db_path) as conn:
+            init_db(DB_PATH)
+            with get_connection(DB_PATH) as conn:
                 if not update_coche_ideal_status(conn, payload["id"], payload["status"]):
                     self._json_response(404, {"ok": False, "error": "Solicitud no encontrada"})
                     return

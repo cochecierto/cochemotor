@@ -6,8 +6,9 @@ const $ = (id) => document.getElementById(id);
 function fill(select, items, placeholder, disabled = false) {
   if (!select) return;
   select.innerHTML = `<option value="">${placeholder}</option>` + items.map(item => {
-    const value = typeof item === 'string' ? item : item.id;
-    const label = typeof item === 'string' ? item : item.name;
+    const primitive = typeof item === 'string' || typeof item === 'number';
+    const value = primitive ? item : item.id;
+    const label = primitive ? item : item.name;
     return `<option value="${value}">${label}</option>`;
   }).join('');
   select.disabled = disabled || items.length === 0;

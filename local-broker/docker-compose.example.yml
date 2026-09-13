@@ -1,0 +1,18 @@
+services:
+  cochemotor-broker:
+    build:
+      context: ..
+      dockerfile: local-broker/Dockerfile
+    restart: unless-stopped
+    environment:
+      COCHEMOTOR_PORT: "8000"
+      COCHEMOTOR_DB_PATH: /data/cochemotor.db
+      COCHEMOTOR_PUBLIC_BASE_URL: https://api.example.invalid
+      COCHEMOTOR_ADVISOR_KEY: replace-before-deploy
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - cochemotor-data:/data
+
+volumes:
+  cochemotor-data:
