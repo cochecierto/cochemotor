@@ -234,8 +234,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             lead = {**payload, "id": "lead-" + secrets.token_hex(6)}
             with get_connection(DB_PATH) as conn:
                 owner = conn.execute("SELECT tenant_id FROM vehicles WHERE vehicle_id = ?", (lead["vehicle_id"],)).fetchone()
-                if owner:
-                    lead["tenant_id"] = owner["tenant_id"]
+                if not owner:
+                    self._json_response(404, {"ok": False, "error": "Vehículo no encontrado"})
+                    return
+                lead["tenant_id"] = owner["tenant_id"]
                 save_lead_record(conn, lead)
             self._json_response(201, {"ok": True, "id": lead["id"]})
         except (ValueError, TypeError, json.JSONDecodeError):
@@ -256,21 +258,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         allowed = {"nueva", "en revisión", "opciones encontradas", "presentada al cliente", "aceptada", "descartada", "cerrada"}
         try:
             length = int(self.headers.get("Content-Length", "0"))
+            if length > 8_000:
+                self._json_response(413, {"ok": False, "error": "Solicitud demasiado grande"})
+                return
             payload = json.loads(self.rfile.read(length).decode("utf-8"))
-            if not isinstance(payload, dict) or not all(isinstance(payload.get(key), dict) for key in ("vehicle", "preferences", "contact", "consent")):
-                self._json_response(400, {"ok": False, "error": "Estructura inválida"})
-                return
-            required = (payload["vehicle"].get("brand"), payload["vehicle"].get("model"), payload["preferences"].get("budgetMax"), payload["contact"].get("name"), payload["contact"].get("email"))
-            if any(value in (None, "") for value in required) or payload["consent"].get("privacy") is not True or payload["consent"].get("contact") is not True:
-                self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimientos"})
-                return
-            preferences = payload["preferences"]
-            year = payload["vehicle"].get("year")
-            budget_max = preferences.get("budgetMax")
-            if not isinstance(year, int) or year < 1900 or year > 2100 or not isinstance(budget_max, (int, float)) or budget_max <= 0:
-                self._json_response(400, {"ok": False, "error": "Año o presupuesto inválidos"})
-                return
-            if payload.get("status") not in allowed or not payload.get("id"):
+            if not isinstance(payload, dict) or not isinstance(payload.get("id"), str) or not payload["id"].strip() or payload.get("status") not in allowed or not set(payload).issubset({"id", "status"}):
                 self._json_response(400, {"ok": False, "error": "Estado o solicitud inválidos"})
                 return
             init_db(DB_PATH)
