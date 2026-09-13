@@ -7,6 +7,14 @@ services:
     environment:
       COCHEMOTOR_PORT: "8000"
       COCHEMOTOR_DB_PATH: /data/cochemotor.db
+      # Producción: el backend debe seleccionar el adaptador MySQL y recibir
+      # estos valores desde secretos del proveedor, nunca desde el frontend.
+      # COCHEMOTOR_DB_BACKEND: mysql
+      # COCHEMOTOR_DB_HOST: srv1746.hstgr.io
+      # COCHEMOTOR_DB_PORT: "3306"
+      # COCHEMOTOR_DB_NAME: u560645602_cochemotor
+      # COCHEMOTOR_DB_USER: u560645602_cochemotor_app
+      # COCHEMOTOR_DB_PASSWORD: replace-with-secret
       COCHEMOTOR_PUBLIC_BASE_URL: https://api.example.invalid
       COCHEMOTOR_ADVISOR_KEY: replace-before-deploy
     ports:
