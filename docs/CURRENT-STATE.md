@@ -81,5 +81,30 @@ Estos datos son un inventario informado. No implican autorización para acceder,
   el backend, dentro de `local-broker/`. La Tarea 2 será el siguiente paso y
   aún no existe código implementado.
 - La Tarea 2 de la Spec 001 está completada con el dominio inicial de agencia,
-  tenant y expediente en `local-broker/`; sus 5 pruebas pasan. T3 es el
-  siguiente paso y todavía no existe orquestación BROKER implementada.
+tenant y expediente en `local-broker/`; sus 5 pruebas pasan. T3 es el
+siguiente paso y todavía no existe orquestación BROKER implementada.
+
+## Actualización CocheMotor — 2026-09-13
+
+- Dirección aprobó la Spec 007 para una landing profesional independiente y
+  la presentación de la propuesta de monetización adjunta.
+- La cuenta beta continúa sin cargos; precios, importes anuales y cupos se
+  presentan como propuesta comercial. No hay checkout ni enforcement
+  automático de los límites durante la beta.
+- Los servicios opcionales son referencias sujetas a alcance y disponibilidad;
+  pagos, suscripciones e integraciones externas siguen fuera de alcance.
+- Se implementa localmente una landing progresiva para publicar búsquedas Coche
+  Ideal por necesidad de movilidad. La taxonomía sugiere tipos compatibles con
+  imágenes de categoría; marca/modelo son opcionales y el backend valida los
+  tipos enviados. Se persisten `need`, `matchedCategories` y `rules-v1` como
+  señales preparadas para matching de demanda/oferta. No existe integración LLM
+  conectada. La conexión MySQL efectiva y el despliegue quedan pendientes de
+  comprobar en el entorno remoto.
+
+- Se aprueba la Spec 008: ruta independiente de demo profesional con datos
+  sintéticos, interacciones solo en memoria y CTA al registro beta gratuito.
+  No se conecta al API ni al panel real ni inicia pagos. Hostinger confirma SSH
+  activo y conexión SFTP de solo lectura comprobada; la ruta raíz y secretos
+  públicos de conexión ya están configurados. Falta guardar la clave privada
+  dedicada como secreto en GitHub Actions y ejecutar el despliegue manual. La
+  ruta pública seguirá en 404 hasta completar ese paso.
