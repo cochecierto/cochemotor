@@ -17,8 +17,13 @@ function body(): array { $data=json_decode(file_get_contents('php://input'), tru
 function db(): PDO {
     static $pdo;
     if ($pdo instanceof PDO) return $pdo;
-    $host=getenv('COCHEMOTOR_DB_HOST') ?: 'localhost'; $port=getenv('COCHEMOTOR_DB_PORT') ?: '3306';
-    $name=getenv('COCHEMOTOR_DB_NAME'); $user=getenv('COCHEMOTOR_DB_USER'); $pass=getenv('COCHEMOTOR_DB_PASSWORD');
+    $env = static function (string $key): ?string {
+        $value = getenv($key);
+        if ($value !== false && $value !== '') return $value;
+        return defined($key) ? (string) constant($key) : null;
+    };
+    $host=$env('COCHEMOTOR_DB_HOST') ?: 'localhost'; $port=$env('COCHEMOTOR_DB_PORT') ?: '3306';
+    $name=$env('COCHEMOTOR_DB_NAME'); $user=$env('COCHEMOTOR_DB_USER'); $pass=$env('COCHEMOTOR_DB_PASSWORD');
     if (!$name || !$user || !$pass) fail(503,'Servicio de datos no configurado');
     try { $pdo=new PDO("mysql:host=$host;port=$port;dbname=$name;charset=utf8mb4",$user,$pass,[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]); return $pdo; }
     catch (Throwable $e) { fail(503,'No se pudo conectar con el servicio de datos'); }
