@@ -30,6 +30,10 @@ RewriteRule ^api/(.*)$ api/index.php [L,QSA]
   RewriteRule ^\.codex - [F,L]
   RewriteRule ^specs - [F,L]
   RewriteRule ^database - [F,L]
+  RewriteRule ^(docs|scripts|tests|local-broker|wordpress|references|app)(/|$) - [F,L,NC]
+  RewriteRule ^(\.git|\.env(?:\..*)?)(/|$) - [F,L,NC]
+  RewriteRule ^(AGENTS\.md|README\.md|deploy_hostinger\.py|sync_web\.py|\.gitignore)$ - [F,L,NC]
+  RewriteRule (^|/)[^/]+\.(zip|py|db|sqlite|sqlite3|sql)$ - [F,L,NC]
 </IfModule>
 
 # Cabeceras de Caché para Optimización de Rendimiento
