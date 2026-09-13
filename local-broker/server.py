@@ -67,9 +67,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         with get_connection(DB_PATH) as conn:
             request_id = query.get("id", [None])[0]
             if request_id:
-            self._json_response(200, {"ok": True, "history": list_coche_ideal_history(conn, request_id)})
+                self._json_response(200, {"ok": True, "history": list_coche_ideal_history(conn, request_id)})
             else:
-            self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
+                self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
 
     def do_OPTIONS(self):
         self.send_response(204)
