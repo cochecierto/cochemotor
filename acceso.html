@@ -50,6 +50,7 @@
     function showAuth(mode) { const login = mode === 'login'; document.getElementById('login-panel').hidden = !login; document.getElementById('register-panel').hidden = login; document.querySelectorAll('.auth-tab').forEach(tab => { const active = tab.id === (login ? 'login-tab' : 'register-tab'); tab.classList.toggle('active', active); tab.setAttribute('aria-selected', String(active)); }); }
     function setAudience(next) { document.querySelectorAll('[data-audience]').forEach(button => button.classList.toggle('active', button.dataset.audience === next)); document.getElementById('auth-intro').textContent = next === 'professional' ? 'Accede para publicar coches, organizar tus contactos y seguir cada oportunidad.' : 'Accede para guardar búsquedas, pedir ayuda o hablar con un vendedor.'; }
     setAudience(audience);
+    if (params.get('mode') === 'register' || params.get('mode') === 'login') showAuth(params.get('mode'));
     document.querySelectorAll('[data-audience]').forEach(button => button.addEventListener('click', () => setAudience(button.dataset.audience)));
     document.querySelectorAll('[data-show-auth]').forEach(button => button.addEventListener('click', () => showAuth(button.dataset.showAuth)));
     document.getElementById('login-tab').addEventListener('click', () => showAuth('login'));

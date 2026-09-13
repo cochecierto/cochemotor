@@ -281,7 +281,7 @@ function renderPricing() {
       '<ul class="price-features-list">' +
         p.features.map(function(f) { return '<li>' + f + '</li>'; }).join('') +
       '</ul>' +
-      '<a href="hub.html" class="btn ' + (p.popular ? 'btn-red' : 'btn-navy') + '" style="width: 100%;">' +
+      '<a href="acceso.html?audience=professional&return=hub&mode=register" data-auth-entry="professional-subscribe" class="btn ' + (p.popular ? 'btn-red' : 'btn-navy') + '" style="width: 100%;">' +
         p.cta +
       '</a>' +
     '</div>';

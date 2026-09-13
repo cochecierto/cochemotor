@@ -497,11 +497,55 @@
     </div>
   </div>
 
+  <div class="modal-overlay auth-choice-overlay" id="professional-subscribe" hidden>
+    <div class="modal-card auth-choice-card" role="dialog" aria-modal="true" aria-labelledby="professional-subscribe-title" aria-describedby="professional-subscribe-copy" tabindex="-1">
+      <button class="modal-close-btn" type="button" data-close-professional-subscribe aria-label="Cerrar">&times;</button>
+      <span class="chapter-badge">ESPACIO PROFESIONAL</span>
+      <h2 id="professional-subscribe-title">Empieza con CocheMotor</h2>
+      <p id="professional-subscribe-copy">Crea tu cuenta profesional para continuar. Podrás conocer las condiciones del plan antes de activar cualquier pago.</p>
+      <div class="auth-choice-actions">
+        <a class="btn btn-red" href="acceso.html?audience=professional&return=hub&mode=register">Crear cuenta profesional</a>
+        <a class="btn btn-navy" href="acceso.html?audience=professional&return=hub&mode=login">Ya tengo cuenta · Entrar</a>
+      </div>
+      <small>La cuenta no activa una suscripción ni genera cargos.</small>
+    </div>
+  </div>
+
   <script src="site-config.js?v=5.0"></script>
   <script type="module" src="assets/js/home_catalog.js?v=3.6"></script>
   <script src="app.js?v=5.0"></script>
   <script>
-    (() => { const modal=document.getElementById('publish-choice'); if(!modal)return; const close=()=>{modal.hidden=true;modal.classList.remove('open');document.body.classList.remove('modal-open');}; document.querySelectorAll('[data-auth-entry="publish"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();modal.hidden=false;modal.classList.add('open');document.body.classList.add('modal-open');})); document.querySelector('[data-close-publish]')?.addEventListener('click',close); modal.addEventListener('click',e=>{if(e.target===modal)close();}); })();
+    (() => {
+      const bindings = [
+        { entry: 'publish', modalId: 'publish-choice', closeSelector: '[data-close-publish]' },
+        { entry: 'professional-subscribe', modalId: 'professional-subscribe', closeSelector: '[data-close-professional-subscribe]' }
+      ];
+      bindings.forEach(({ entry, modalId, closeSelector }) => {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+        let previousFocus = null;
+        const close = () => {
+          modal.hidden = true;
+          modal.classList.remove('open');
+          document.body.classList.remove('modal-open');
+          previousFocus?.focus();
+        };
+        document.addEventListener('click', event => {
+          const link = event.target.closest(`[data-auth-entry="${entry}"]`);
+          if (!link) return;
+          event.preventDefault();
+          previousFocus = link;
+          modal.hidden = false;
+          modal.classList.add('open');
+          document.body.classList.add('modal-open');
+          modal.querySelector('[role="dialog"]')?.focus();
+          modal.querySelector(closeSelector)?.focus();
+        });
+        modal.querySelector(closeSelector)?.addEventListener('click', close);
+        modal.addEventListener('click', event => { if (event.target === modal) close(); });
+        modal.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
+      });
+    })();
   </script>
 </body>
 </html>
