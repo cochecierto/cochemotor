@@ -20,7 +20,9 @@ AddDefaultCharset UTF-8
 
 # Reglas de Reescritura
 <IfModule mod_rewrite.c>
-  RewriteEngine On
+RewriteEngine On
+RewriteRule ^api/auth/verify$ api/index.php [L,QSA]
+RewriteRule ^api/(.*)$ api/index.php [L,QSA]
 
   # Seguridad: bloquear acceso a carpetas internas sensibles
   RewriteRule ^\.agents - [F,L]
