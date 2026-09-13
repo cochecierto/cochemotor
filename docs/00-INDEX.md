@@ -66,3 +66,4 @@
 - [Validación Spec 001 — Dealer Digital Automoción](../specs/001-dealer-digital-automocion/validation.md)
 - [Spec 001 — Histórico inmobiliario](../specs/001-broker-digital-inmobiliario/spec.md)
 - [Spec 005 — Referencias DGT y trazabilidad del catálogo](../specs/005-dgt-reference-and-catalogue/spec.md)
+- [Spec 006 — Publicación guiada de fotografías del vehículo](../specs/006-guided-vehicle-photo-publishing/spec.md)

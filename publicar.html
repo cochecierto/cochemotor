@@ -8,43 +8,173 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="publish-page">
+  <header class="publish-topbar">
+    <a class="publish-brand" href="index.html" aria-label="CocheMotor, volver al inicio"><img src="assets/brand/logos/cochemotor-horizontal-light.png" alt="CocheMotor"></a>
+    <a class="publish-back-link" href="index.html"><span aria-hidden="true">←</span> Volver al inicio</a>
+  </header>
   <main class="publish-shell">
-    <a class="auth-brand" href="index.html"><img class="auth-logo" src="assets/brand/logos/cochemotor-horizontal-dark.png" alt="CocheMotor"></a>
-    <span class="chapter-badge">PUBLICAR UN COCHE</span>
-    <h1>Muéstralo con información clara</h1>
-    <p>Completa estos datos. No necesitas registrarte hasta el momento de publicar.</p>
-    <p class="form-hint">¿No sabes qué distintivo ambiental tiene? <a href="https://sede.dgt.gob.es/es/vehiculos/informacion-de-vehiculos/distintivo-ambiental/index.html" target="_blank" rel="noopener noreferrer" aria-label="Consultar distintivo ambiental en la DGT (se abre en una pestaña nueva)">Consúltalo en la DGT</a>. La consulta se hace en la web oficial; CocheMotor no verifica matrículas automáticamente.</p>
-    <p class="form-hint">Puedes consultar también la <a href="https://www.dgt.es/nuestros-servicios/tu-vehiculo/vas-a-comprar-o-vender-un-vehiculo-de-segunda-mano/vender-un-vehiculo-de-segunda-mano/" target="_blank" rel="noopener noreferrer" aria-label="Guía de la DGT para vender un vehículo usado (se abre en una pestaña nueva)">guía oficial para vender un vehículo usado</a>.</p>
+    <section class="publish-hero" aria-labelledby="publish-title">
+      <div class="publish-hero-copy">
+        <span class="publish-eyebrow"><span aria-hidden="true"></span> PUBLICA TU COCHE</span>
+        <h1 id="publish-title">Prepara tu anuncio <span>paso a paso.</span></h1>
+        <p>Cuéntanos lo esencial, añade algunas fotos y deja tus datos de contacto. Crearás o usarás tu cuenta al enviar.</p>
+      </div>
+      <ol class="publish-step-nav" aria-label="Pasos para preparar el anuncio">
+        <li><span>01</span> Datos del coche</li>
+        <li><span>02</span> Fotos</li>
+        <li><span>03</span> Contacto</li>
+      </ol>
+    </section>
     <form id="public-listing-form" class="publish-form">
-      <label>Marca<input name="brand" required placeholder="Ejemplo: Toyota"></label>
-      <label>Modelo<input name="model" required placeholder="Ejemplo: Corolla"></label>
-      <label>Año<input name="year" type="number" min="1950" max="2030" required></label>
-      <label>Kilómetros<input name="km" required placeholder="Ejemplo: 85.000 km"></label>
-      <label>Precio orientativo (€)<input name="price" type="number" min="0" required></label>
-      <label>Localidad<input name="location" required></label>
-      <label class="publish-images" for="listing-images">Fotos del coche <span id="image-count">(0/10)</span>
-        <input name="images" id="listing-images" type="file" accept="image/jpeg,image/png,image/webp" multiple>
-        <small>Hasta 10 fotos. Recomendamos frontal, trasera, laterales, interior, cuadro y posibles desperfectos.</small>
-      </label>
-      <p id="image-help" class="form-hint" aria-live="polite">Las fotos ayudan a generar confianza y acelerar los contactos.</p>
-      <label>Nombre de contacto<input name="name" autocomplete="name" required></label>
-      <label>Correo electrónico<input name="email" type="email" autocomplete="email" required></label>
-      <label>Teléfono o WhatsApp<input name="phone" type="tel" autocomplete="tel" required></label>
-      <label class="publish-check"><input name="consent" type="checkbox" required> Acepto que CocheMotor use estos datos para validar y gestionar la publicación.</label>
-      <button class="btn btn-red" type="submit">Guardar y continuar</button>
+      <section class="publish-step-section" aria-labelledby="vehicle-details-title">
+        <div class="publish-section-heading"><span class="publish-section-number" aria-hidden="true">01</span><div><h2 id="vehicle-details-title">Datos del coche</h2><p>Lo básico para que la gente sepa qué estás vendiendo.</p></div></div>
+        <div class="publish-fields-grid">
+          <label>Marca<input name="brand" required placeholder="Ejemplo: Toyota" autocomplete="off"></label>
+          <label>Modelo<input name="model" required placeholder="Ejemplo: Corolla" autocomplete="off"></label>
+          <label>Año<input name="year" type="number" min="1950" max="2030" inputmode="numeric" required placeholder="Ejemplo: 2019"></label>
+          <label>Kilómetros<input name="km" required placeholder="Ejemplo: 85.000 km" inputmode="numeric"></label>
+          <label>Precio orientativo (€)<input name="price" type="number" min="0" inputmode="decimal" required placeholder="Ejemplo: 12.500"></label>
+          <label>Localidad<input name="location" required placeholder="Ejemplo: Valencia" autocomplete="address-level2"></label>
+        </div>
+        <details class="publish-help">
+          <summary>¿Necesitas ayuda con algún dato?</summary>
+          <div class="publish-help-content"><p>Consulta el distintivo en la <a href="https://sede.dgt.gob.es/es/vehiculos/informacion-de-vehiculos/distintivo-ambiental/index.html" target="_blank" rel="noopener noreferrer">web oficial de la DGT</a>. CocheMotor no comprueba matrículas automáticamente.</p><p>También puedes leer la <a href="https://www.dgt.es/nuestros-servicios/tu-vehiculo/vas-a-comprar-o-vender-un-vehiculo-de-segunda-mano/vender-un-vehiculo-de-segunda-mano/" target="_blank" rel="noopener noreferrer">guía para vender un vehículo usado</a>.</p></div>
+        </details>
+      </section>
+      <section class="publish-step-section publish-photo-section" aria-labelledby="photo-guide-title">
+        <div class="publish-photo-heading">
+          <span class="publish-section-number" aria-hidden="true">02</span>
+          <div class="publish-photo-title"><h2 id="photo-guide-title">Fotos que enseñan bien tu coche <span id="image-count">0/10</span></h2>
+            <p id="image-help">Elige las que tengas. La guía te orienta, pero no hace falta completar las diez.</p></div>
+          <span class="photo-limit-note">Hasta 10 fotos</span>
+        </div>
+        <div id="photo-guide" class="publish-photo-guide" aria-describedby="image-help"></div>
+        <p id="photo-guide-status" class="photo-guide-status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="publish-step-section" aria-labelledby="contact-details-title">
+        <div class="publish-section-heading"><span class="publish-section-number" aria-hidden="true">03</span><div><h2 id="contact-details-title">Datos de contacto</h2><p>Los usaremos para validar la publicación y avisarte sobre ella.</p></div></div>
+        <div class="publish-contact-grid">
+          <label>Nombre de contacto<input name="name" autocomplete="name" required placeholder="Tu nombre"></label>
+          <label>Correo electrónico<input name="email" type="email" autocomplete="email" required placeholder="nombre@correo.com"></label>
+          <label>Teléfono o WhatsApp<input name="phone" type="tel" autocomplete="tel" required placeholder="Tu teléfono" inputmode="tel"></label>
+        </div>
+        <label class="publish-check"><input name="consent" type="checkbox" required> Acepto que CocheMotor use estos datos para validar y gestionar la publicación.</label>
+      </section>
+      <div class="publish-form-footer"><p>Antes de mostrar el anuncio, revisaremos tus datos de contacto.</p><button class="btn btn-red" type="submit">Guardar y continuar</button></div>
     </form>
     <p id="publish-status" class="auth-status" role="status" aria-live="polite"></p>
   </main>
-  <script>
+  <script src="api-config.js"></script><script>
     (() => {
       const form = document.getElementById('public-listing-form');
       const status = document.getElementById('publish-status');
-      const imageInput = document.getElementById('listing-images');
       const imageCount = document.getElementById('image-count');
-      const draft = JSON.parse(localStorage.getItem('cochemotor_public_draft') || 'null');
-      if (draft) Object.entries(draft).forEach(([key, value]) => { const field = form.elements[key]; if (field && field.type !== 'checkbox' && field.type !== 'file') field.value = value; });
-      imageInput.addEventListener('change', () => { const count = imageInput.files.length; imageCount.textContent = `(${count}/10)`; imageInput.setCustomValidity(count > 10 ? 'Un anuncio puede tener como máximo 10 imágenes.' : ''); status.textContent = count > 10 ? 'Selecciona 10 imágenes como máximo.' : ''; });
-      form.addEventListener('submit', (event) => { event.preventDefault(); if (!form.reportValidity()) return; const data = Object.fromEntries(new FormData(form)); delete data.consent; data.imageCount = imageInput.files.length; localStorage.setItem('cochemotor_public_draft', JSON.stringify(data)); const session = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null'); if (!session?.verified) { location.href = 'acceso.html?audience=buyer&return=publish'; return; } status.dataset.kind = 'success'; status.textContent = 'Tus datos están guardados. Validaremos tu contacto antes de publicar el anuncio.'; });
+      const guide = document.getElementById('photo-guide');
+      const guideStatus = document.getElementById('photo-guide-status');
+      const maxBytes = 8 * 1024 * 1024;
+      const draftKey = 'cochemotor_public_draft';
+      const draftIdKey = 'cochemotor_public_draft_id';
+      const dbName = 'cochemotor-publish-drafts';
+      const dbVersion = 1;
+      const now = Date.now();
+      function newDraftId(){const bytes=new Uint8Array(16);if(window.crypto?.getRandomValues)window.crypto.getRandomValues(bytes);else for(let i=0;i<bytes.length;i++)bytes[i]=Math.floor(Math.random()*256);return `pub-${Array.from(bytes,value=>value.toString(16).padStart(2,'0')).join('')}`;}
+      let draftId=newDraftId();
+      try{const old=JSON.parse(localStorage.getItem(draftIdKey)||'null');if(old?.expiresAt>Date.now()&&/^pub-[a-f0-9]{32}$/.test(old.id))draftId=old.id;localStorage.setItem(draftIdKey,JSON.stringify({id:draftId,expiresAt:Date.now()+7*24*60*60*1000}));}catch(_){}
+      const slots = [
+        {key:'front-right',title:'3/4 frontal derecho',short:'Foto principal',image:'assets/brand/photo-guide/front-right.webp',tip:'Gira un poco el coche para enseñar el frontal y el lateral derecho.'},
+        {key:'rear',title:'Trasera',image:'assets/brand/photo-guide/rear.webp',tip:'Muestra el coche completo desde atrás, con buena luz.'},
+        {key:'left-side',title:'Lateral izquierdo',image:'assets/brand/photo-guide/left-side.webp',tip:'Mantén el lateral entero dentro del encuadre.'},
+        {key:'right-side',title:'Lateral derecho',image:'assets/brand/photo-guide/right-side.webp',tip:'Busca un lugar despejado y evita cortar los extremos.'},
+        {key:'front-interior',title:'Interior delantero',image:'assets/brand/photo-guide/front-interior.webp',tip:'Enseña asientos, volante y salpicadero con luz.'},
+        {key:'rear-interior',title:'Interior trasero',image:'assets/brand/photo-guide/rear-interior.webp',tip:'Fotografía las plazas traseras y su estado general.'},
+        {key:'dashboard-km',title:'Cuadro y kilómetros',image:'assets/brand/photo-guide/dashboard-km.webp',tip:'Enciende el cuadro para que se vean los kilómetros.'},
+        {key:'engine',title:'Motor',image:'assets/brand/photo-guide/engine.webp',tip:'Abre el capó y fotografía el motor sin acercarte a piezas calientes.'},
+        {key:'trunk',title:'Maletero',image:'assets/brand/photo-guide/trunk.webp',tip:'Muestra el espacio y el estado del maletero.'},
+        {key:'tire-or-detail',title:'Neumáticos o detalle',image:'assets/brand/photo-guide/tire.webp',tip:'Puedes enseñar los neumáticos o usar este espacio para un desperfecto o detalle importante.',free:true}
+      ];
+      let db;
+      let photos = new Map();
+      const urls = new Map();
+      const openDb = () => new Promise((resolve,reject) => {
+        if (!('indexedDB' in window)) return reject(new Error('Este navegador no permite guardar fotos temporalmente.'));
+        const request = indexedDB.open(dbName,dbVersion);
+        request.onupgradeneeded = () => { if (!request.result.objectStoreNames.contains('photos')) request.result.createObjectStore('photos',{keyPath:'slot'}); };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+      const savePhoto = record => new Promise((resolve,reject) => { const tx=db.transaction('photos','readwrite'); tx.objectStore('photos').put(record); tx.oncomplete=resolve; tx.onerror=()=>reject(tx.error); });
+      const deletePhoto = key => new Promise((resolve,reject) => { const tx=db.transaction('photos','readwrite'); tx.objectStore('photos').delete(key); tx.oncomplete=resolve; tx.onerror=()=>reject(tx.error); });
+      const listPhotos = () => new Promise((resolve,reject) => { const request=db.transaction('photos').objectStore('photos').getAll(); request.onsuccess=()=>resolve(request.result); request.onerror=()=>reject(request.error); });
+      function saveFields() {
+        const fields={};
+        for (const key of ['brand','model','year','km','price','location','name','email','phone']) fields[key]=form.elements[key]?.value || '';
+        try { localStorage.setItem(draftKey,JSON.stringify({updatedAt:Date.now(),fields})); } catch (_) { status.dataset.kind='error'; status.textContent='No se pudo guardar el borrador en este navegador.'; }
+      }
+      function restoreFields() {
+        try { const saved=JSON.parse(localStorage.getItem(draftKey)||'null'); if(!saved)return; if(saved.updatedAt&&Date.now()-saved.updatedAt>7*24*60*60*1000){localStorage.removeItem(draftKey);return;} const fields=saved.fields||saved; Object.entries(fields).forEach(([key,value])=>{if(form.elements[key])form.elements[key].value=value;}); } catch (_) { localStorage.removeItem(draftKey); }
+      }
+      function photoCount(){return photos.size;}
+      function render(){
+        imageCount.textContent=`${photoCount()}/10`;
+        guide.innerHTML=slots.map(slot=>{
+          const record=photos.get(slot.key); const preview=record?urls.get(slot.key):'';
+          return `<article class="publish-photo-card${record?' has-photo':''}" data-photo-slot="${slot.key}">
+            <div class="publish-photo-visual">${record?`<img class="publish-photo-preview" src="${preview}" alt="Foto añadida: ${slot.title}">`:`<img class="publish-photo-reference" src="${slot.image}" alt="Ejemplo de ${slot.title}" loading="lazy">`}<span class="publish-photo-tag">${record?'Foto añadida':(slot.key==='front-right'?'Principal sugerida':'Ejemplo')}</span></div>
+            <div class="publish-photo-copy"><h3>${slot.title}</h3><p>${slot.tip}</p></div>
+            <div class="publish-photo-actions"><label class="publish-photo-add" for="photo-${slot.key}">${record?'Cambiar foto':'Añadir foto'}<input id="photo-${slot.key}" class="publish-photo-input" type="file" accept="image/jpeg,image/png,image/webp" aria-label="${record?'Cambiar foto':'Añadir foto'}: ${slot.title}"></label>${record?`<button type="button" class="publish-photo-remove" data-remove-photo="${slot.key}">Quitar</button>`:''}</div>
+          </article>`;
+        }).join('');
+      }
+      async function toWebp(file){
+        const bitmap=await createImageBitmap(file);
+        try {
+          if(bitmap.width*bitmap.height>24000000) throw new Error('La imagen tiene demasiada resolución. Elige otra más pequeña.');
+          const scale=Math.min(1,1800/Math.max(bitmap.width,bitmap.height));
+          const canvas=document.createElement('canvas'); canvas.width=Math.max(1,Math.round(bitmap.width*scale)); canvas.height=Math.max(1,Math.round(bitmap.height*scale));
+          canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);
+          const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/webp',.82));
+          return blob&&blob.type==='image/webp'?blob:file;
+        } finally {bitmap.close?.();}
+      }
+      async function choosePhoto(input,slot){
+        const file=input.files?.[0]; input.value=''; if(!file)return;
+        if(!['image/jpeg','image/png','image/webp'].includes(file.type)){guideStatus.textContent='Elige una foto JPG, PNG o WebP.';return;}
+        if(file.size>30*1024*1024){guideStatus.textContent='La foto original supera 30 MB. Elige una imagen más ligera.';return;}
+        try {
+          const blob=await toWebp(file); if(blob.size>maxBytes) throw new Error('La foto sigue ocupando más de 8 MB. Elige una imagen más pequeña.');
+          const record={slot:slot.key,blob,name:`${slot.key}.webp`,type:blob.type,updatedAt:Date.now(),expiresAt:Date.now()+7*24*60*60*1000};
+          let persisted=Boolean(db); if(db)try{await savePhoto(record);}catch(_){persisted=false;} photos.set(slot.key,record); if(urls.has(slot.key))URL.revokeObjectURL(urls.get(slot.key)); urls.set(slot.key,URL.createObjectURL(blob)); guideStatus.textContent=persisted?`Foto añadida: ${slot.title}.`:`Foto añadida: ${slot.title}. No cierres esta página; el navegador no pudo guardar una copia temporal.`; render();
+        } catch(error){guideStatus.textContent=error.message||'No se pudo abrir esa imagen. Prueba con otra foto.';}
+      }
+      function gatherVehicle(){
+        const km=String(form.elements.km.value).replace(/\D/g,'');
+        return {brand:form.elements.brand.value.trim(),model:form.elements.model.value.trim(),year:Number(form.elements.year.value),km:Number(km),price:Number(form.elements.price.value),location:form.elements.location.value.trim(),contact:{name:form.elements.name.value.trim(),email:form.elements.email.value.trim(),phone:form.elements.phone.value.trim(),consent:form.elements.consent.checked}};
+      }
+      async function submitVehicle(){
+        let session=null;try{session=JSON.parse(localStorage.getItem('cochemotor_local_session')||'null');}catch(_){}
+        if(!session?.verified||!session.sessionToken){saveFields();location.href='acceso.html?audience=professional&return=publish';return;}
+        const payload={...gatherVehicle(),id:draftId}; const body=new FormData(); body.append('vehicle',JSON.stringify(payload));
+        slots.forEach((slot,index)=>{const record=photos.get(slot.key);if(record){body.append('images[]',record.blob,`${slot.key}.webp`);body.append('slots[]',JSON.stringify({key:slot.key,sort_order:index}));}});
+        status.dataset.kind='info';status.textContent='Guardando el anuncio y sus fotos…';
+        try {
+          const response=await fetch((window.COCHEMOTOR_API_BASE||'')+'/api/vehicles',{method:'POST',headers:{Authorization:`Bearer ${session.sessionToken}`},body});
+          const result=await response.json().catch(()=>null);
+          if(response.status===401){location.href='acceso.html?audience=professional&return=publish&mode=login';return;}
+          if(!response.ok) throw new Error(result?.error||'No se pudo guardar. Tus datos y fotos siguen guardados para que puedas reintentarlo.');
+          localStorage.removeItem(draftKey); localStorage.removeItem(draftIdKey); if(db)db.transaction('photos','readwrite').objectStore('photos').clear(); photos.clear(); urls.forEach(url=>URL.revokeObjectURL(url)); urls.clear();render();
+          status.dataset.kind='success';status.textContent='Hemos recibido tu anuncio. Revisaremos tus datos de contacto antes de publicarlo.';
+        } catch(error){status.dataset.kind='error';status.textContent=error.message||'No se pudo conectar. Tus datos y fotos siguen guardados; vuelve a intentarlo.';}
+      }
+      form.addEventListener('input',saveFields);
+      guide.addEventListener('change',event=>{const input=event.target.closest('.publish-photo-input');if(!input)return;const slot=slots.find(item=>input.id===`photo-${item.key}`);if(slot)choosePhoto(input,slot);});
+      guide.addEventListener('click',async event=>{const button=event.target.closest('[data-remove-photo]');if(!button)return;const key=button.dataset.removePhoto;if(db)await deletePhoto(key);photos.delete(key);if(urls.has(key)){URL.revokeObjectURL(urls.get(key));urls.delete(key);}guideStatus.textContent='Foto quitada. Puedes añadir otra cuando quieras.';render();});
+      form.addEventListener('submit',async event=>{event.preventDefault();if(!form.reportValidity())return;saveFields();await submitVehicle();});
+      (async()=>{
+        form.elements.year.max=String(new Date().getFullYear()+1);
+        restoreFields();
+        try {db=await openDb();for(const record of await listPhotos()){if(record.expiresAt<now){await deletePhoto(record.slot);continue;}photos.set(record.slot,record);urls.set(record.slot,URL.createObjectURL(record.blob));}render();}
+        catch(_){guideStatus.textContent='No se pueden conservar las fotos si sales de esta página. Puedes continuar, pero evita cerrar o recargar antes de terminar.';render();}
+      })();
     })();
   </script>
 </body>
