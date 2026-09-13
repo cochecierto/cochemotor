@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+// La configuración real solo existe en el servidor y nunca se versiona.
+require_once __DIR__ . '/config.php';
+
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 header('X-Content-Type-Options: nosniff');
