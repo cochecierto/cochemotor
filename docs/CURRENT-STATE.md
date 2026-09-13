@@ -104,8 +104,7 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
 - Se aprueba la Spec 008: ruta independiente de demo profesional con datos
   sintéticos, interacciones solo en memoria y CTA al registro beta gratuito.
   No se conecta al API ni al panel real ni inicia pagos. Hostinger confirma SSH
-  activo y conexión SFTP de solo lectura comprobada; la ruta raíz y secretos
-  públicos de conexión ya están configurados. Falta guardar la clave privada
-  dedicada como secreto en GitHub Actions para habilitar futuros despliegues
-  desde Actions. La demo ya se publicó directamente por SFTP y responde en
-  `https://cochemotor.es/demo-profesional.html`.
+  activo y conexión SFTP verificada. La demo ya se publicó y se volvió a
+  desplegar por GitHub Actions manual (validación y publicación exitosas); la
+  clave privada está guardada como secreto cifrado, fuera del repositorio. La
+  URL pública es `https://cochemotor.es/demo-profesional.html`.

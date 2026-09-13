@@ -7,5 +7,5 @@
 - [x] T5. Validar aislamiento, navegación, responsive, accesibilidad básica y smoke HTTP. Hecho cuando: RF-1..RF-8 tienen evidencia en validation.md.
 - [x] T6. Actualizar índice y registros de CocheMotor. Hecho cuando: ruta, límites de demo y estado se documentan sin alterar otros cambios locales.
 - [x] T7. Preparar workflow manual SFTP con validación previa y transferencia acotada sin borrado remoto. Hecho cuando: el workflow solo publica los cinco archivos de esta iniciativa y hace smoke test.
-- [x] T8. Dar de alta la clave pública de despliegue en Hostinger y configurar los secretos no privados de Actions (host, usuario, raíz web y `known_hosts`). Hostinger acepta la clave y SFTP de solo lectura confirma el acceso. Pendiente: que Dirección guarde `HOSTINGER_SSH_PRIVATE_KEY` desde el archivo local de forma segura; el valor privado no se copia mediante un canal que pueda registrarlo.
+- [x] T8. Dar de alta la clave pública dedicada en Hostinger y configurar los secretos SFTP de Actions (host, usuario, raíz, `known_hosts` y clave privada cifrada). La conexión y el workflow completo se comprobaron correctamente.
 - [x] T9. Publicación manual por SFTP realizada y verificada: demo, estilos, script y landing profesional responden HTTP 200; CTA y navegación/filtro comprobados en la página pública. La demo solo usa información sintética y en memoria.

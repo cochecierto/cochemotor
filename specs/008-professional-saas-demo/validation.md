@@ -18,7 +18,7 @@
 - La raíz SFTP se verificó como `domains/cochemotor.es/public_html`; conexión SFTP de solo lectura correcta. La clave pública dedicada está en Hostinger y GitHub contiene host, usuario, raíz y `known_hosts` como secretos.
 - Publicación comprobada por HTTPS: demo HTML, CSS, JS, `profesionales.html` y `profesionales.css` responden 200; el HTML contiene el título esperado y el aviso de datos sintéticos.
 - Recorrido público: entró al inventario; el filtro “Reservados” mostró un solo resultado.
-- Pendiente opcional para futuros despliegues desde GitHub Actions: guardar `HOSTINGER_SSH_PRIVATE_KEY` en el secreto del repositorio. Esta entrega se publicó directamente desde el entorno local mediante SFTP; el job sigue manual y no se ejecuta en cada push.
+- GitHub Actions run `34775250465`: los jobs `Validar demo antes de publicar` y `Publicar demo y acceso profesional por SFTP` finalizaron con `success`. El despliegue queda disponible bajo ejecución manual; los pushes siguen sin publicar automáticamente.
 
 ## Checks
 
@@ -27,4 +27,4 @@
 - `git diff --check` para los archivos de esta iniciativa: correcto.
 - Navegador local: ruta cargó; filtros, navegación, cambio de fase, contadores, cálculo, generador y previsualización verificados.
 - Nota: el navegador de esta sesión no permitió cambiar la ventana a un tamaño móvil; los breakpoints móviles se comprobaron por inspección estática, queda pendiente una pasada visual real en 390×844.
-- No hay suite automatizada de navegador ni dependencias añadidas. Publicación SFTP completada; Actions valida en push y requiere su secreto SSH privado para futuros despliegues manuales.
+- No hay suite automatizada de navegador ni dependencias añadidas. Publicación SFTP y ejecución manual de Actions completadas; el deploy continúa protegido por el trigger manual y la validación previa.
