@@ -60,6 +60,132 @@ $path=parse_url($_SERVER['REQUEST_URI'] ?? '/',PHP_URL_PATH); $route=preg_replac
 $contentType=strtolower($_SERVER['CONTENT_TYPE']??'');
 $data=str_starts_with($contentType,'multipart/form-data')?[]:body();
 if($method==='POST'&&$route==='/api/vehicles'&&str_starts_with($contentType,'multipart/form-data')&&(int)($_SERVER['CONTENT_LENGTH']??0)>0&&!$_POST&&!$_FILES)fail(413,'La carga supera el límite del servidor. Prueba con menos fotos o imágenes más pequeñas.');
+if ($method === 'POST' && $route === '/api/coche-ideal') {
+    $length = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
+    if ($length < 2 || $length > 16000) fail($length > 16000 ? 413 : 400, 'No se pudieron leer los datos de la búsqueda.');
+    $request = $data;
+    if (trim((string)($request['website'] ?? '')) !== '') fail(400, 'No se pudo enviar la búsqueda.');
+    $vehicle = is_array($request['vehicle'] ?? null) ? $request['vehicle'] : [];
+    $preferences = is_array($request['preferences'] ?? null) ? $request['preferences'] : [];
+    $contact = is_array($request['contact'] ?? null) ? $request['contact'] : [];
+    $consent = is_array($request['consent'] ?? null) ? $request['consent'] : [];
+    $brand = trim((string)($vehicle['brand'] ?? ''));
+    $model = trim((string)($vehicle['model'] ?? ''));
+    $name = trim((string)($contact['name'] ?? ''));
+    $email = strtolower(trim((string)($contact['email'] ?? '')));
+    $phone = trim((string)($contact['phone'] ?? ''));
+    $channels = $contact['channels'] ?? null;
+    $schedule = trim((string)($contact['schedule'] ?? ''));
+    $preferredTime = trim((string)($contact['preferredTime'] ?? ''));
+    $budgetMax = $preferences['budgetMax'] ?? null;
+    $budgetMin = $preferences['budgetMin'] ?? null;
+    $year = $preferences['minYear'] ?? ($vehicle['year'] ?? null);
+    $fuelValue = trim((string)($preferences['fuel'] ?? 'Indiferente'));
+    $gearboxValue = trim((string)($preferences['gearbox'] ?? 'Indiferente'));
+    $bodyValue = trim((string)($preferences['bodyType'] ?? ''));
+    $need = is_array($preferences['need'] ?? null) ? $preferences['need'] : [];
+    $needId = trim((string)($need['id'] ?? ''));
+    $needLabel = trim((string)($need['label'] ?? ''));
+    $matchedCategories = $preferences['matchedCategories'] ?? null;
+    $allowedNeeds = ['city', 'family', 'travel', 'adventure', 'work', 'leisure', 'camper', 'motorcycle'];
+    $allowedCategories = ['urban', 'fastback', 'family', 'suv', 'coupe4x4', 'offroad', 'convertible', 'minivan', 'van', 'pickup', 'camper', 'motorcycle'];
+    $needCategoryMap = [
+        'city' => ['urban'], 'family' => ['family', 'minivan', 'suv'],
+        'travel' => ['fastback', 'family', 'suv'], 'adventure' => ['suv', 'offroad', 'coupe4x4'],
+        'work' => ['van', 'pickup'], 'leisure' => ['convertible', 'fastback', 'coupe4x4'],
+        'camper' => ['camper'], 'motorcycle' => ['motorcycle']
+    ];
+    $communityId = trim((string)($preferences['communityId'] ?? ''));
+    $provinceId = trim((string)($preferences['provinceId'] ?? ''));
+    $allowedFuel = ['Indiferente', 'Gasolina', 'Diésel', 'Híbrido', 'Híbrido enchufable', 'Eléctrico'];
+    $allowedGearbox = ['Indiferente', 'Manual', 'Automático'];
+    $allowedChannels = ['email', 'whatsapp', 'call'];
+    $validChannels = is_array($channels) && count($channels) >= 1 && count($channels) <= 3 &&
+        count(array_filter($channels, static fn($channel): bool => !is_string($channel))) === 0 &&
+        count(array_unique($channels)) === count($channels) && !array_diff($channels, $allowedChannels);
+    $validSchedule = in_array($schedule, ['flexible', 'preferred'], true) &&
+        (($schedule === 'preferred' && in_array($preferredTime, ['morning', 'midday', 'afternoon'], true)) ||
+         ($schedule === 'flexible' && $preferredTime === ''));
+    if (textLength($brand) > 80 || textLength($model) > 120 ||
+        !in_array($needId, $allowedNeeds, true) || textLength($needLabel) < 2 || textLength($needLabel) > 80 ||
+        !is_array($matchedCategories) || count($matchedCategories) < 1 || count($matchedCategories) > 4 ||
+        count(array_filter($matchedCategories, static fn($category): bool => !is_string($category))) > 0 ||
+        count(array_unique($matchedCategories)) !== count($matchedCategories) ||
+        array_diff($matchedCategories, $allowedCategories) || array_diff($matchedCategories, $needCategoryMap[$needId] ?? []) || ($preferences['matchingStrategy'] ?? null) !== 'rules-v1' ||
+        !is_numeric($budgetMax) || (float)$budgetMax < 500 || (float)$budgetMax > 1000000 ||
+        ($budgetMin !== null && (!is_numeric($budgetMin) || (float)$budgetMin < 0 || (float)$budgetMin > (float)$budgetMax)) ||
+        ($year !== null && $year !== '' && (!is_numeric($year) || (int)$year < 1950 || (int)$year > (int)gmdate('Y') + 1)) ||
+        !in_array($fuelValue, $allowedFuel, true) || !in_array($gearboxValue, $allowedGearbox, true) || textLength($bodyValue) > 80 ||
+        textLength($communityId) > 8 || textLength($provinceId) > 8 ||
+        textLength($name) < 2 || textLength($name) > 120 || !filter_var($email, FILTER_VALIDATE_EMAIL) ||
+        textLength($email) > 254 || textLength($phone) > 32 || !$validChannels || !$validSchedule ||
+        ((in_array('whatsapp', $channels ?? [], true) || in_array('call', $channels ?? [], true)) && textLength($phone) < 6) ||
+        ($consent['privacy'] ?? null) !== true || ($consent['contact'] ?? null) !== true) {
+        fail(400, 'Revisa el coche, el presupuesto, tus datos y los consentimientos.');
+    }
+    $clean = [
+        'vehicle' => [
+            'brand' => $brand,
+            'model' => $model,
+            'version' => '',
+            'year' => ($year !== null && $year !== '') ? (int)$year : null,
+            'fuel' => $fuelValue
+        ],
+        'preferences' => [
+            'budgetMin' => ($budgetMin !== null && $budgetMin !== '') ? (float)$budgetMin : null,
+            'budgetMax' => (float)$budgetMax,
+            'fuel' => $fuelValue,
+            'gearbox' => $gearboxValue,
+            'minYear' => ($year !== null && $year !== '') ? (int)$year : null,
+            'need' => ['id' => $needId, 'label' => $needLabel],
+            'matchedCategories' => array_values($matchedCategories),
+            'matchingStrategy' => 'rules-v1',
+            'bodyType' => $bodyValue,
+            'timing' => 'Indiferente',
+            'communityId' => $communityId,
+            'community' => trim((string)($preferences['community'] ?? '')),
+            'provinceId' => $provinceId,
+            'province' => trim((string)($preferences['province'] ?? '')),
+            'acceptsNearby' => ($preferences['acceptsNearby'] ?? false) === true
+        ],
+        'contact' => [
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone,
+            'channels' => array_values($channels),
+            'schedule' => $schedule,
+            'preferredTime' => $preferredTime,
+            'communityId' => trim((string)($contact['communityId'] ?? '')),
+            'provinceId' => trim((string)($contact['provinceId'] ?? '')),
+            'province' => trim((string)($contact['province'] ?? '')),
+            'municipalityId' => ''
+        ],
+        'consent' => ['privacy' => true, 'contact' => true],
+        'consentVersion' => 'coche-ideal-v4'
+    ];
+    $fingerprint = hash('sha256', bin2hex(random_bytes(32)));
+    $requestId = 'ci-' . bin2hex(random_bytes(16));
+    $pdo = db();
+    try {
+        $pdo->beginTransaction();
+        $duplicate = $pdo->prepare("SELECT request_id FROM coche_ideal_requests WHERE created_at >= DATE_SUB(UTC_TIMESTAMP(), INTERVAL 30 DAY) AND LOWER(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.contact.email'))) = ? AND JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.preferences.need.id')) = ? AND JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.preferences.matchedCategories')) = ? AND CAST(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.preferences.budgetMax')) AS DECIMAL(12,2)) = ? AND LOWER(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.preferences.fuel'))) = ? AND LOWER(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.preferences.gearbox'))) = ? AND COALESCE(JSON_UNQUOTE(JSON_EXTRACT(payload_json, '$.preferences.provinceId')), '') = ? LIMIT 1");
+        $duplicate->execute([$email, $needId, json_encode(array_values($matchedCategories), JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR), (float)$budgetMax, strtolower($clean['preferences']['fuel']), strtolower($clean['preferences']['gearbox']), $clean['preferences']['provinceId']]);
+        $existingId = $duplicate->fetchColumn();
+        if ($existingId) {
+            $pdo->rollBack();
+            jsonResponse(['ok' => false, 'duplicate' => true], 409);
+        }
+        $insert = $pdo->prepare("INSERT INTO coche_ideal_requests(request_id,tenant_id,fingerprint,payload_json,status,consent_version) VALUES(?, 'public-intake', ?, ?, 'nueva', ?)");
+        $insert->execute([$requestId, $fingerprint, json_encode($clean, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR), $clean['consentVersion']]);
+        $history = $pdo->prepare("INSERT INTO coche_ideal_status_history(request_id,previous_status,new_status,actor) VALUES(?,NULL,'nueva','public-intake')");
+        $history->execute([$requestId]);
+        $pdo->commit();
+        jsonResponse(['ok' => true, 'id' => $requestId, 'status' => 'nueva'], 201);
+    } catch (Throwable $e) {
+        if ($pdo->inTransaction()) $pdo->rollBack();
+        fail(503, 'No se pudo guardar la búsqueda ahora. Vuelve a intentarlo en unos minutos.');
+    }
+}
 try {
     if ($route==='/api/health' && $method==='GET') { db()->query('SELECT 1'); jsonResponse(['ok'=>true,'service'=>'cochemotor']); }
     if ($route==='/api/auth/verify' && $method==='GET') { $q=db()->prepare("UPDATE professional_users SET email_verified=1,verification_token='' WHERE verification_token=?"); $q->execute([$_GET['token']??'']); jsonResponse(['ok'=>$q->rowCount()===1]); }

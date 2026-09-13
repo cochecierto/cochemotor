@@ -17,24 +17,33 @@ Permitir que un particular registre una necesidad de vehículo cuando no encuent
 
 ## Flujo funcional
 
-### Paso 1 — Definición del vehículo
+### Paso 1 — Necesidad y tipos que encajan
 
-El sistema solicitará marca, modelo y acabado o versión. Marca incluirá `Otra marca`; cuando se seleccione, aparecerá un campo de texto obligatorio para especificarla. El modelo dependerá de la marca y el acabado será texto libre u opción del catálogo cuando exista.
+El sistema preguntará primero qué necesidad quiere resolver la persona: ciudad, familia/espacio, viajes frecuentes, campo/aventura, trabajo/carga, ocio/conducción, camper o moto. Mostrará una propuesta de categorías asociadas en tarjetas con imágenes. La persona podrá quitar alternativas, pero debe mantener al menos una. Marca y modelo serán preferencias opcionales; no bloquearán una búsqueda por necesidad.
+
+La taxonomía inicial será: ciudad→urbano/utilitario; familia→familiar, monovolumen y SUV/crossover; viajes→fastback, familiar y SUV; aventura→SUV, todoterreno y coupé deportivo 4x4; trabajo/carga→furgoneta y pickup; ocio→descapotable, fastback y coupé deportivo 4x4; camper→autocaravana/camper; moto→moto. La furgoneta/pickup no se sugerirá en necesidades genéricas de coche.
 
 ### Paso 2 — Presupuesto y preferencias
 
 Campos: presupuesto mínimo y máximo (o rango equivalente), combustible (`indiferente`, `gasolina`, `diésel`, `híbrido`, `híbrido enchufable`, `eléctrico`), cambio (`indiferente`, `manual`, `automático`), año mínimo y plazo (`lo antes posible`, `1–2 meses`, `3–6 meses`, `solo informativo`).
 
-### Paso 3 — Datos del solicitante
+### Paso 3 — Contacto y alertas
 
-Campos obligatorios: nombre y apellidos, teléfono, correo electrónico, provincia y aceptación verificable de la política de privacidad y del contacto relacionado con la solicitud. No se usarán nombres, teléfonos ni correos reales en fixtures, demos o pruebas.
+Nombre y correo son obligatorios; teléfono solo si se elige WhatsApp o llamada. Se podrá elegir uno o varios canales (correo, WhatsApp, llamadas o todos), más horario libre o preferente (mañana, mediodía o tarde). La política de privacidad y el permiso explícito para compartir los canales seleccionados son consentimientos independientes. Sin los dos permisos no se activa ni envía la búsqueda. Los datos de contacto no forman parte de la ficha pública.
+
+### Paso 4 — Revisión y publicación
+
+Antes de enviar, la persona verá por separado la ficha que recibirán los profesionales y sus datos privados/canales elegidos. Podrá volver atrás y editar. El backend vuelve a validar permisos, canales, horario y teléfono condicionado antes de guardar.
 
 ## Interacción
 
-- Indicador visible de 3 pasos y paso actual.
+- La landing abre con una pregunta directa y el primer grupo corto de campos; las preferencias secundarias aparecen de forma progresiva.
+- La landing usa una escena inspiradora ilustrativa de entrega de llaves (no oferta ni garantía de disponibilidad). La ficha tiene su propia imagen orientativa, que comienza con una silueta genérica y cambia a la categoría preferente marcada (incluyendo cambios de selección), junto con etiqueta accesible. La vista previa se actualiza con necesidad, marca/modelo, presupuesto y zona.
+- La solicitud transmite la necesidad, categorías marcadas y `matchingStrategy: rules-v1`; el matching inicial es transparente por reglas y no se describe como LLM.
+- Indicador visible de 4 pasos y paso actual.
 - Botones `Continuar` y `Atrás`.
 - Los datos se conservan al retroceder y ante errores de validación.
-- El último paso muestra un resumen editable antes del envío.
+- El último paso muestra la ficha y los datos de contacto en bloques separados; se puede editar retrocediendo antes del envío.
 - El envío muestra confirmación visual con identificador ficticio o no sensible y el estado `nueva`.
 - El sistema debe gestionar campos inválidos, solicitud duplicada, sesión caducada y fallo de persistencia sin perder silenciosamente los datos.
 
@@ -69,9 +78,17 @@ El módulo será mobile-first, con una columna en móvil, controles táctiles, f
 - Cuando un visitante inicia el módulo, el sistema mostrará el paso 1 y el indicador de progreso 1/3.
 - Cuando el visitante complete un paso válido, el sistema permitirá avanzar y conservará sus datos.
 - Cuando falte un campo obligatorio o tenga formato inválido, el sistema impedirá avanzar y mostrará un error comprensible sin borrar lo introducido.
-- Cuando el visitante elija `Otra marca`, el sistema exigirá el nombre de la marca alternativa.
+- Cuando el visitante cambie de necesidad, el sistema propondrá exclusivamente las categorías permitidas para ese uso.
+- Cuando el visitante no indique marca o modelo, el sistema permitirá continuar si ha elegido una necesidad, al menos una categoría y presupuesto.
+- Mientras el visitante complete la solicitud, el sistema actualizará una ficha ilustrativa sin presentar la imagen como un vehículo disponible.
+- Cuando cambie la necesidad o desmarque el tipo sugerido, la ficha mostrará la imagen de la primera categoría compatible que siga seleccionada; si no hay selección, mantendrá una imagen genérica. La imagen se identificará como orientativa.
+- Cuando el visitante no indique una preferencia secundaria, el sistema la tratará como indiferente y no impedirá avanzar.
 - Cuando el visitante retroceda, el sistema restaurará los valores introducidos.
 - Cuando se alcance el resumen, el sistema mostrará todas las preferencias y datos antes del envío.
+- Cuando se elija WhatsApp o llamada, el sistema exigirá teléfono; si se elige solo correo, el teléfono será opcional.
+- Cuando se seleccione horario preferente, el sistema exigirá una franja horaria válida; el horario libre no requiere franja.
+- Cuando falte alguno de los consentimientos o el servidor reciba canales u horarios no permitidos, el sistema rechazará la solicitud sin activar el contacto.
+- En la ficha para profesionales nunca aparecerán nombre, correo o teléfono; compartir canales de contacto requiere permiso explícito.
 - Cuando se envíe una solicitud con consentimiento válido, el sistema registrará una solicitud `nueva`, mostrará confirmación y notificará al asesor responsable.
 - Cuando exista una solicitud duplicada según la política configurada, el sistema informará al usuario y ofrecerá continuar o revisar la solicitud existente sin crear duplicados silenciosos.
 - Cuando falle el envío o la persistencia, el sistema mostrará un error accionable y conservará el borrador local de forma temporal.
@@ -85,10 +102,11 @@ El módulo será mobile-first, con una columna en móvil, controles táctiles, f
 - Scraping o integración de fuentes sin autorización.
 - Uso de datos personales reales en fixtures, demos o pruebas.
 - Promesa de encontrar exactamente la unidad solicitada.
+- Exponer como pública una solicitud incompleta o antes de confirmar su persistencia en el backend.
 
 ## Decisiones pendientes
 
-- [NECESITA ACLARACIÓN: backend persistente concreto y contrato API].
+- El endpoint público de captura persistirá solicitudes en la tabla `coche_ideal_requests`; no devolverá ni expondrá datos personales públicamente.
 - [NECESITA ACLARACIÓN: política exacta de deduplicación y ventana temporal].
 - [NECESITA ACLARACIÓN: canal interno de notificación al asesor].
 - [NECESITA ACLARACIÓN: dominio final de la landing B2C y canonical SEO].

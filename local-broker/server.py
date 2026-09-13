@@ -131,20 +131,53 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if not isinstance(payload, dict) or not all(isinstance(payload.get(key), dict) for key in ("vehicle", "preferences", "contact", "consent")):
                 self._json_response(400, {"ok": False, "error": "Estructura inválida"})
                 return
-            required = (payload["vehicle"].get("brand"), payload["vehicle"].get("model"), payload["preferences"].get("budgetMax"), payload["contact"].get("name"), payload["contact"].get("email"))
+            if str(payload.pop("website", "")).strip():
+                self._json_response(400, {"ok": False, "error": "Solicitud inválida"})
+                return
+            required = (payload["preferences"].get("budgetMax"), payload["preferences"].get("need"), payload["contact"].get("name"), payload["contact"].get("email"))
             if any(value in (None, "") for value in required) or payload["consent"].get("privacy") is not True or payload["consent"].get("contact") is not True:
                 self._json_response(400, {"ok": False, "error": "Faltan datos obligatorios o consentimientos"})
                 return
+            need = payload["preferences"].get("need")
+            need_categories = {
+                "city": {"urban"}, "family": {"family", "minivan", "suv"},
+                "travel": {"fastback", "family", "suv"}, "adventure": {"suv", "offroad", "coupe4x4"},
+                "work": {"van", "pickup"}, "leisure": {"convertible", "fastback", "coupe4x4"},
+                "camper": {"camper"}, "motorcycle": {"motorcycle"}
+            }
+            selected_categories = payload["preferences"].get("matchedCategories")
+            if (not isinstance(need, dict) or not isinstance(need.get("id"), str) or need.get("id") not in need_categories or
+                    not isinstance(need.get("label"), str) or not 2 <= len(need["label"].strip()) <= 80 or
+                    not isinstance(selected_categories, list) or not 1 <= len(selected_categories) <= 4 or
+                    any(not isinstance(category, str) for category in selected_categories) or
+                    len(set(selected_categories)) != len(selected_categories) or
+                    any(category not in need_categories[need["id"]] for category in selected_categories) or
+                    payload["preferences"].get("matchingStrategy") != "rules-v1"):
+                self._json_response(400, {"ok": False, "error": "La necesidad o los tipos de vehículo no son válidos"})
+                return
             contact = payload["contact"]
-            if (not isinstance(contact["email"], str) or len(contact["email"].strip()) > 254 or
+            if (not isinstance(contact["email"], str) or len(contact["email"].strip()) > 254 or "@" not in contact["email"] or
                     not isinstance(contact["name"], str) or len(contact["name"].strip()) > 120 or
                     not isinstance(contact.get("phone", ""), str) or len(contact.get("phone", "")) > 32):
                 self._json_response(400, {"ok": False, "error": "Datos de contacto demasiado largos"})
                 return
+            channels = contact.get("channels")
+            schedule = contact.get("schedule")
+            preferred_time = contact.get("preferredTime", "")
+            allowed_channels = {"email", "whatsapp", "call"}
+            if (not isinstance(channels, list) or not 1 <= len(channels) <= 3 or
+                    any(not isinstance(channel, str) or channel not in allowed_channels for channel in channels) or
+                    len(set(channels)) != len(channels) or
+                    schedule not in {"flexible", "preferred"} or
+                    (schedule == "preferred" and preferred_time not in {"morning", "midday", "afternoon"}) or
+                    (schedule == "flexible" and preferred_time != "") or
+                    (any(channel in {"whatsapp", "call"} for channel in channels) and len(contact.get("phone", "").strip()) < 6)):
+                self._json_response(400, {"ok": False, "error": "Revisa cómo prefieres que te contactemos"})
+                return
             preferences = payload["preferences"]
             year = payload["vehicle"].get("year")
             budget_max = preferences.get("budgetMax")
-            if not isinstance(year, int) or year < 1900 or year > 2100 or not isinstance(budget_max, (int, float)) or budget_max <= 0:
+            if (year is not None and (not isinstance(year, int) or year < 1950 or year > 2100)) or not isinstance(budget_max, (int, float)) or budget_max < 500 or budget_max > 1_000_000:
                 self._json_response(400, {"ok": False, "error": "Año o presupuesto inválidos"})
                 return
             identity = {key: value for key, value in payload.items() if key not in {"id", "createdAt", "fingerprint"}}
