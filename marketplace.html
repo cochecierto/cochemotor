@@ -36,6 +36,11 @@
       padding-bottom: 12px;
       border-bottom: 1px solid var(--cm-border);
     }
+    .market-search { display:flex; gap:10px; margin:18px 0 14px; }
+    .market-search input { flex:1; min-width:0; padding:13px 15px; border:1px solid var(--cm-border); border-radius:12px; font:inherit; }
+    .quick-filters { display:flex; flex-wrap:wrap; gap:8px; }
+    .quick-filter { border:1px solid var(--cm-border); background:#fff; color:var(--cm-navy); border-radius:999px; padding:8px 12px; font:inherit; font-size:.8rem; font-weight:700; cursor:pointer; }
+    .quick-filter.active { background:#eaf5ff; border-color:#1768d1; color:#1768d1; }
   </style>
 </head>
 <body>
@@ -81,6 +86,13 @@
         <button class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;" onclick="resetAllFilters()">
           Restablecer Filtros
         </button>
+      </div>
+      <div class="market-search"><input id="filter-free-text" type="search" placeholder="Busca: SUV híbrido, Toyota automático, menos de 20.000 €" aria-label="Buscar coches por texto"><button class="btn btn-navy" type="button" onclick="applyFilters()">Buscar</button></div>
+      <div class="quick-filters" aria-label="Filtros rápidos">
+        <button type="button" class="quick-filter" data-quick="automatic" onclick="toggleQuickFilter(this,'automatic')">Automático</button>
+        <button type="button" class="quick-filter" data-quick="eco" onclick="toggleQuickFilter(this,'eco')">ECO o CERO</button>
+        <button type="button" class="quick-filter" data-quick="warranty" onclick="toggleQuickFilter(this,'warranty')">Con garantía</button>
+        <button type="button" class="quick-filter" data-quick="under20" onclick="toggleQuickFilter(this,'under20')">Hasta 20.000 €</button>
       </div>
 
       <div class="filter-grid-layout">
@@ -213,6 +225,7 @@
       const urlParams = new URLSearchParams(window.location.search);
       const brandParam = urlParams.get('brand');
       const priceParam = urlParams.get('price');
+      const queryParam = urlParams.get('q');
       if (brandParam) {
         const brandSelect = document.getElementById('filter-brand');
         if (brandSelect) brandSelect.value = brandParam;
@@ -221,6 +234,7 @@
         const priceSelect = document.getElementById('filter-price');
         if (priceSelect) priceSelect.value = priceParam;
       }
+      if (queryParam) document.getElementById('filter-free-text').value = queryParam;
       applyFilters();
     });
 
@@ -251,6 +265,8 @@
       document.getElementById('filter-price').value = 'all';
       document.getElementById('filter-score').value = 'all';
       document.getElementById('sort-select').value = 'featured';
+      document.getElementById('filter-free-text').value = '';
+      document.querySelectorAll('.quick-filter').forEach(b => b.classList.remove('active'));
       applyFilters();
     }
 
@@ -262,10 +278,14 @@
       const maxPrice = document.getElementById('filter-price').value;
       const minScore = document.getElementById('filter-score').value;
       const sortBy = document.getElementById('sort-select').value;
+      const query = document.getElementById('filter-free-text').value.trim().toLowerCase();
+      const quick = new Set([...document.querySelectorAll('.quick-filter.active')].map(b => b.dataset.quick));
 
       const allStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getAllPublicStock() : siteConfig.stock;
 
       let filtered = allStock.filter(v => {
+        const haystack = [v.brand,v.model,v.version,v.fuel,v.gearbox,v.bodyType,v.location,v.province].filter(Boolean).join(' ').toLowerCase();
+        if (query && !haystack.includes(query) && !(query.includes('híbrido') && !String(v.fuel).toLowerCase().includes('híbr')) && !(query.includes('automático') && !String(v.gearbox).toLowerCase().includes('autom'))) return false;
         if (comm !== 'all' && v.community && v.community !== comm) return false;
         if (prov !== 'all' && v.province && v.province !== prov) return false;
         if (brand !== 'all' && v.brand !== brand) return false;
@@ -275,6 +295,10 @@
           const scoreNum = parseInt(v.inspectionScore) || 90;
           if (scoreNum < parseInt(minScore)) return false;
         }
+        if (quick.has('automatic') && !String(v.gearbox).toLowerCase().includes('autom')) return false;
+        if (quick.has('eco') && !['ECO','0'].includes(v.badge)) return false;
+        if (quick.has('warranty') && !v.warranty) return false;
+        if (quick.has('under20') && Number(v.price) > 20000) return false;
         return true;
       });
 
@@ -289,7 +313,10 @@
 
       renderMarketplaceGrid(filtered);
       document.getElementById('results-count-text').innerText = `${filtered.length} vehículos verificados encontrados`;
+      const params = new URLSearchParams(); if(query) params.set('q',query); if(brand !== 'all') params.set('brand',brand); if(maxPrice !== 'all') params.set('price',maxPrice); history.replaceState(null,'',`${location.pathname}${params.toString()?'?'+params.toString():''}`);
     }
+
+    function toggleQuickFilter(button) { button.classList.toggle('active'); applyFilters(); }
 
     function renderMarketplaceGrid(cars) {
       const grid = document.getElementById('marketplace-grid');
