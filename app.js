@@ -5,6 +5,24 @@
 
 let isAnnualBilling = false;
 
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+}
+
+function safeImageSource(value) {
+  try {
+    const url = new URL(String(value || ''), window.location.href);
+    return url.protocol === 'https:' || url.origin === window.location.origin ? url.href : 'assets/brand/icons/vehicle-placeholder.svg';
+  } catch (_) {
+    return 'assets/brand/icons/vehicle-placeholder.svg';
+  }
+}
+
+function normalizeWhatsAppPhone(value) {
+  const digits = String(value || '').replace(/\D/g, '');
+  return /^\d{8,15}$/.test(digits) ? digits : '';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof siteConfig === 'undefined') {
     console.error('CocheMotor: siteConfig no encontrado.');
@@ -166,7 +184,7 @@ function renderChapter6Catalog() {
   var subEl = document.getElementById('catalog-subtitle');
   if (subEl) subEl.textContent = ch.subtitle;
 
-  var stock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getStock() : siteConfig.stock;
+  var stock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getStock() : siteConfig.stock.map(function(v) { return Object.assign({}, v, { isDemo: true }); });
   renderStockGrid(stock);
 }
 
@@ -180,40 +198,40 @@ function renderStockGrid(vehicles) {
   }
 
   grid.innerHTML = vehicles.map(function(v) {
-    var waMsg = 'Hola. He visto en CocheMotor el ' + v.brand + ' ' + v.model + ' (' + v.version + ') por ' + v.price.toLocaleString('es-ES') + ' €. Me gustaría consultar la revisión y saber cómo puedo probarlo.';
-    var waUrl = 'https://wa.me/' + (v.sellerPhone || siteConfig.brand.contactWhatsapp) + '?text=' + encodeURIComponent(waMsg);
+    var waMsg = 'Hola. He visto en CocheMotor el ' + v.brand + ' ' + v.model + ' (' + v.version + ') por ' + v.price.toLocaleString('es-ES') + ' €. Me gustaría consultar la información del anuncio.';
+    var phone = normalizeWhatsAppPhone(v.sellerPhone) || normalizeWhatsAppPhone(siteConfig.brand.contactWhatsapp);
+    var waUrl = phone ? 'https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg) : '#';
+    var badgeClass = ['badge-b', 'badge-c', 'badge-eco', 'badge-zero'].includes(v.badgeClass) ? v.badgeClass : 'badge-c';
     var isSold = v.status === 'vendido';
     var isReserved = v.status === 'reservado';
+    var sellerMarkup = v.isDemo ? '<span>🏪 Vendedor de demostración</span>' :
+      '<a href="dealer.html?id=' + encodeURIComponent(v.userId || 'user-juan') + '" style="color: var(--cm-navy); text-decoration: underline; font-weight: 700; font-size: 0.82rem;">🏪 ' + escapeHTML(v.sellerName || v.dealer) + '</a>';
 
-    return '<article class="vehicle-card" data-id="' + v.id + '">' +
+    return '<article class="vehicle-card" data-id="' + escapeHTML(v.id) + '">' +
       '<div class="vehicle-thumb-box">' +
-        '<img class="vehicle-thumb-img" src="' + v.image + '" alt="' + v.brand + ' ' + v.model + ' verificado" loading="lazy" decoding="async" width="640" height="360">' +
-        '<span class="badge-dgt ' + (v.badgeClass || 'badge-c') + '">' + v.badge + '</span>' +
-        '<span class="badge-inspection">✓ ' + (v.inspectionScore || '98/100') + '</span>' +
+        '<img class="vehicle-thumb-img" src="' + escapeHTML(safeImageSource(v.image)) + '" alt="' + escapeHTML(v.brand) + ' ' + escapeHTML(v.model) + ' anunciado en CocheMotor" loading="lazy" decoding="async" width="640" height="360">' +
+        '<span class="badge-dgt ' + badgeClass + '" title="Distintivo indicado en el anuncio; compruébalo en la DGT.">' + escapeHTML(v.badge) + ' · indicado</span>' +
+        (v.isDemo ? '<span class="badge-inspection">EJEMPLO · NO DISPONIBLE</span>' : '<span class="badge-inspection">' + (v.inspectionScore ? 'Revisión indicada · ' + escapeHTML(v.inspectionScore) : 'Revisión no indicada') + '</span>') +
         (isSold ? '<span style="position: absolute; bottom: 10px; right: 10px; background: #b91c1c; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">VENDIDO</span>' :
          isReserved ? '<span style="position: absolute; bottom: 10px; right: 10px; background: #d97706; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">RESERVADO</span>' : '') +
       '</div>' +
       '<div class="vehicle-info">' +
-        '<h3 class="vehicle-title">' + v.brand + ' ' + v.model + '</h3>' +
-        '<div class="vehicle-version">' + v.version + '</div>' +
+        '<h3 class="vehicle-title">' + escapeHTML(v.brand) + ' ' + escapeHTML(v.model) + '</h3>' +
+        '<div class="vehicle-version">' + escapeHTML(v.version) + '</div>' +
         '<div class="vehicle-specs-list">' +
-          '<div class="spec-cell"><strong>Año:</strong> ' + v.year + '</div>' +
-          '<div class="spec-cell"><strong>Km:</strong> ' + v.km + '</div>' +
-          '<div class="spec-cell"><strong>Motor:</strong> ' + v.fuel + '</div>' +
-          '<div class="spec-cell"><strong>Cambio:</strong> ' + v.gearbox + '</div>' +
+          '<div class="spec-cell"><strong>Año:</strong> ' + escapeHTML(v.year) + '</div>' +
+          '<div class="spec-cell"><strong>Km:</strong> ' + escapeHTML(v.km) + '</div>' +
+          '<div class="spec-cell"><strong>Motor:</strong> ' + escapeHTML(v.fuel) + '</div>' +
+          '<div class="spec-cell"><strong>Cambio:</strong> ' + escapeHTML(v.gearbox) + '</div>' +
         '</div>' +
-        '<div class="vehicle-dealer">' +
-          '<a href="dealer.html?id=' + (v.userId || 'user-garcia') + '" style="color: var(--cm-navy); text-decoration: underline; font-weight: 700; font-size: 0.82rem;">' +
-          '🏪 ' + (v.sellerName || v.dealer) +
-          '</a>' +
-        '</div>' +
+        '<div class="vehicle-dealer">' + sellerMarkup + '</div>' +
         '<div class="vehicle-pricing">' +
           '<div class="cash-price">' + v.price.toLocaleString('es-ES') + ' €</div>' +
-          '<div class="monthly-price">desde ' + v.monthlyPrice + '</div>' +
+          '<div class="monthly-price">desde ' + escapeHTML(v.monthlyPrice) + '</div>' +
         '</div>' +
         '<div class="card-cta-group">' +
-          '<a class="btn btn-red" href="ficha.html?id=' + v.id + '" style="font-weight: 800;">Ver detalles</a>' +
-          '<a class="btn btn-outline" href="' + waUrl + '" target="_blank" rel="noopener">WhatsApp</a>' +
+          '<a class="btn btn-red" href="ficha.html?id=' + encodeURIComponent(v.id) + '" style="font-weight: 800;">Ver detalles</a>' +
+          (v.isDemo ? '<span class="btn btn-outline" aria-label="Anuncio de demostración; contacto desactivado">Ejemplo (sin contacto)</span>' : '<a class="btn btn-outline" href="' + escapeHTML(waUrl) + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>') +
         '</div>' +
       '</div>' +
     '</article>';
@@ -227,7 +245,7 @@ function initStockFilters() {
       filterBtns.forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
 
-      var currentStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getStock() : siteConfig.stock;
+      var currentStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getStock() : siteConfig.stock.map(function(v) { return Object.assign({}, v, { isDemo: true }); });
       var filterType = btn.getAttribute('data-filter');
       if (filterType === 'all') {
         renderStockGrid(currentStock);
@@ -376,33 +394,34 @@ function openVehicleModal(vehicleId) {
   var modalContent = document.getElementById('modal-dynamic-content');
   if (!modalOverlay || !modalContent) return;
 
-  var waMsg = 'Hola! Me interesa la certificación pericial del ' + v.brand + ' ' + v.model + ' (' + v.id + ') publicado en CocheMotor.';
-  var waUrl = 'https://wa.me/' + siteConfig.brand.contactWhatsapp + '?text=' + encodeURIComponent(waMsg);
+  var waMsg = 'Hola! Me interesa la información del ' + v.brand + ' ' + v.model + ' (' + v.id + ') publicado en CocheMotor.';
+  var phone = normalizeWhatsAppPhone(v.sellerPhone) || normalizeWhatsAppPhone(siteConfig.brand.contactWhatsapp);
+  var waUrl = phone ? 'https://wa.me/' + phone + '?text=' + encodeURIComponent(waMsg) : '#';
 
   modalContent.innerHTML = '<div class="modal-header-box">' +
-    '<div class="chapter-badge">CERTIFICADO PERICIAL COCHEMOTOR</div>' +
-    '<h2 class="modal-title">' + v.brand + ' ' + v.model + ' — ' + v.version + '</h2>' +
-    '<p class="modal-subtitle">' + v.dealer + ' • Matrícula verificada en DGT • Score ' + v.inspectionScore + '</p>' +
+    '<div class="chapter-badge">INFORMACIÓN DEL ANUNCIO</div>' +
+    '<h2 class="modal-title">' + escapeHTML(v.brand) + ' ' + escapeHTML(v.model) + ' — ' + escapeHTML(v.version) + '</h2>' +
+    '<p class="modal-subtitle">' + escapeHTML(v.isDemo ? 'Anuncio de demostración; no disponible para compra.' : (v.dealer + ' • Datos del anuncio pendientes de comprobación oficial')) + '</p>' +
   '</div>' +
   '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">' +
     '<div style="background: var(--cm-surface-subtle); padding: 16px; border-radius: var(--cm-radius-md);">' +
-      '<div style="font-size: 0.8rem; color: var(--cm-text-secondary);">ESTADO LEGAL DGT</div>' +
-      '<div style="font-weight: 700; color: var(--cm-navy); font-size: 1.05rem;">' + v.dgtStatus + '</div>' +
-      '<div style="font-size: 0.85rem; color: var(--badge-eco-bg); margin-top: 4px;">✓ Sin reservas ni embargos</div>' +
+      '<div style="font-size: 0.8rem; color: var(--cm-text-secondary);">INFORMACIÓN DGT DEL ANUNCIO</div>' +
+      '<div style="font-weight: 700; color: var(--cm-navy); font-size: 1.05rem;">Distintivo indicado: ' + escapeHTML(v.badge) + '</div>' +
+      '<div style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-top: 4px;">Solicita un informe reciente para comprobar cargas e ITV.</div>' +
     '</div>' +
     '<div style="background: var(--cm-surface-subtle); padding: 16px; border-radius: var(--cm-radius-md);">' +
       '<div style="font-size: 0.8rem; color: var(--cm-text-secondary);">GARANTÍA Y REVISIÓN</div>' +
-      '<div style="font-weight: 700; color: var(--cm-navy); font-size: 1.05rem;">' + v.warranty + '</div>' +
-      '<div style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-top: 4px;">Próxima ITV: ' + v.itvDate + '</div>' +
+      '<div style="font-weight: 700; color: var(--cm-navy); font-size: 1.05rem;">' + escapeHTML(v.warranty) + '</div>' +
+      '<div style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-top: 4px;">Fecha indicada en el anuncio; pendiente de comprobación.</div>' +
     '</div>' +
   '</div>' +
   '<h4 class="modal-section-title">Lo más importante de la revisión mecánica</h4>' +
   '<div class="modal-highlights-grid">' +
-    v.highlights.map(function(h) { return '<div class="highlight-tag">' + h + '</div>'; }).join('') +
+    (Array.isArray(v.highlights) ? v.highlights : []).map(function(h) { return '<div class="highlight-tag">' + escapeHTML(h) + '</div>'; }).join('') +
   '</div>' +
   '<div style="margin-top: 32px; display: flex; gap: 16px; justify-content: flex-end;">' +
     '<button class="btn btn-outline" onclick="closeVehicleModal()" style="color: var(--cm-navy); border-color: var(--cm-border-strong);">Cerrar Ficha</button>' +
-    '<a class="btn btn-whatsapp" href="' + waUrl + '" target="_blank" rel="noopener">Contactar por WhatsApp</a>' +
+    (v.isDemo ? '<span class="btn btn-outline" aria-label="Anuncio de demostración; contacto desactivado">Ejemplo (sin contacto)</span>' : '<a class="btn btn-whatsapp" href="' + escapeHTML(waUrl) + '" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>') +
   '</div>';
 
   modalOverlay.classList.add('open');
@@ -452,6 +471,6 @@ function executeHeroSearch() {
   var params = new URLSearchParams();
   if (brand) params.set('brand', brand);
   if (model) params.set('model', model);
-  if (price) params.set('price', price);
+  if (price && price !== 'all') params.set('price', price);
   window.location.href = 'marketplace.html' + (params.toString() ? '?' + params.toString() : '');
 }

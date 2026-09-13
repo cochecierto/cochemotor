@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-"""Importa filas EEA/DGT a un catálogo jerárquico consumible por CocheMotor.
+"""Importa un CSV de vehículos a un catálogo jerárquico de CocheMotor.
 
 Uso: python scripts/import_vehicle_catalog.py entrada.csv salida.js
 Acepta CSV separado por coma o punto y coma. Son válidas columnas con nombres
-EEA/DGT equivalentes: make/brand, model, year, fuel, version/trim.
+Aliases aceptados: make/brand, model, year, fuel, version/trim. La aceptación
+de un alias no implica que el conjunto DGT esté autorizado o sea compatible.
 """
 from __future__ import annotations
-import csv, json, re, sys
+import argparse, csv, json, re
 from collections import defaultdict
+from datetime import date, timezone, datetime
 from pathlib import Path
+from urllib.parse import urlparse
 
 ALIASES = {
     'brand': {'make','mk','brand','manufacturer','marca'},
@@ -30,9 +33,34 @@ def pick(headers, names):
     for n in names:
         if n in lookup: return lookup[n]
     return None
+
+def build_provenance(source_label=None, source_url=None, source_data_as_of=None, source_license=None):
+    complete = bool(source_label and source_data_as_of and source_license)
+    return {
+        'sourceLabel': source_label or 'unknown',
+        'sourceUrl': source_url,
+        'sourceDataAsOf': source_data_as_of.isoformat() if source_data_as_of else None,
+        'license': source_license,
+        'generatedAt': datetime.now(timezone.utc).date().isoformat(),
+        'provenanceStatus': 'declared-not-verified' if complete else 'incomplete',
+    }
+
+def https_url(value):
+    parsed = urlparse(value)
+    if parsed.scheme != 'https' or not parsed.netloc:
+        raise argparse.ArgumentTypeError('La URL de procedencia debe usar HTTPS.')
+    return value
+
 def main():
-    if len(sys.argv) != 3: raise SystemExit('Uso: python scripts/import_vehicle_catalog.py entrada.csv salida.js')
-    src, dst = map(Path, sys.argv[1:])
+    parser = argparse.ArgumentParser(description='Importa un CSV de vehículos y conserva la procedencia declarada.')
+    parser.add_argument('input_csv', type=Path)
+    parser.add_argument('output_js', type=Path)
+    parser.add_argument('--source-label', default=None, help='Nombre exacto de la fuente; si se omite queda unknown.')
+    parser.add_argument('--source-url', type=https_url, default=None, help='URL pública HTTPS de la fuente, si procede.')
+    parser.add_argument('--source-data-as-of', type=date.fromisoformat, default=None, help='Fecha de referencia de los datos (AAAA-MM-DD), no fecha de importación.')
+    parser.add_argument('--license', dest='source_license', default=None, help='Licencia o condiciones documentadas del conjunto.')
+    args = parser.parse_args()
+    src, dst = args.input_csv, args.output_js
     with src.open(encoding='utf-8-sig', newline='') as f:
         sample = f.read(4096); f.seek(0)
         dialect = csv.Sniffer().sniff(sample, delimiters=',;\t')
@@ -53,13 +81,9 @@ def main():
         out[brand] = {}
         for model, item in sorted(models.items()):
             out[brand][model] = {'years': sorted(item['years']), 'fuels': {f: sorted(v) for f,v in sorted(item['fuels'].items())}}
+    provenance = build_provenance(args.source_label, args.source_url, args.source_data_as_of, args.source_license)
     suffix = '''
-export const VEHICLE_CATALOG_SOURCE = {
-  primary: 'European Environment Agency (EEA) CO2 monitoring',
-  secondary: 'Dirección General de Tráfico (DGT) MATRABA',
-  updatedAt: new Date().toISOString().slice(0, 10),
-  status: 'imported-snapshot'
-};
+export const VEHICLE_CATALOG_SOURCE = %s;
 export function getBrands() { return Object.keys(VEHICLES); }
 export function getModels(brand) { return VEHICLES[brand] ? Object.keys(VEHICLES[brand]) : []; }
 export function getYears(brand, model) { return VEHICLES[brand]?.[model]?.years || []; }
@@ -70,7 +94,7 @@ export function buildVehicleCatalogId(brand, model, year, fuel, version) {
     .normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')).join(':');
 }
-'''
+''' % json.dumps(provenance, ensure_ascii=False, indent=2)
     dst.write_text('export const VEHICLES = ' + json.dumps(out, ensure_ascii=False, indent=2) + ';\n' + suffix, encoding='utf-8')
     print(f'Generado {dst}: {len(out)} marcas, {sum(len(v) for v in out.values())} modelos')
 if __name__ == '__main__': main()

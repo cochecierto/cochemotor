@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coches de ocasión con información clara — CocheMotor</title>
   <link rel="icon" href="assets/brand/favicons/favicon.ico?v=10.0" sizes="any"><link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicons/favicon-16x16.png?v=10.0"><link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicons/favicon-32x32.png?v=10.0"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-light.png?v=10.0" media="(prefers-color-scheme: light)"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-dark.png?v=10.0" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" sizes="180x180" href="assets/brand/icons/apple-touch-icon.png?v=10.0"><link rel="manifest" href="site.webmanifest?v=10.0">
-  <meta name="description" content="Encuentra coches de segunda mano certificados en 100 puntos en toda España. Filtra por provincia, distintivo DGT, precio y ranking pericial.">
+  <meta name="description" content="Encuentra coches de segunda mano en España. Consulta la información indicada por cada vendedor y verifica los datos oficiales en la DGT.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +54,7 @@
       <nav class="nav-desktop">
         <a href="marketplace.html" class="nav-link" style="color: var(--cm-navy); font-weight: 800; border-bottom: 2px solid var(--cm-cyan);">Coches de ocasión</a>
         <a href="demanda.html" class="nav-link">Coche Ideal</a>
-        <a href="index.html#ingenieria" class="nav-link">Mecánica Verificada</a>
+        <a href="index.html#ingenieria" class="nav-link">Revisión mecánica</a>
         <a href="index.html#pilares" class="nav-link">Cómo funciona</a>
         <a href="index.html#faq" class="nav-link">FAQ</a>
       </nav>
@@ -73,7 +73,7 @@
         Coches de ocasión revisados y con información clara
       </h1>
       <p style="font-size: 1.1rem; color: var(--cm-text-secondary); max-width: 800px;">
-        Consulta los coches disponibles, su revisión mecánica, el informe de la DGT y la garantía indicada por el vendedor. Las comprobaciones pueden variar según cada anuncio.
+        Consulta los coches disponibles, la información aportada por cada vendedor y las comprobaciones que puedes realizar en la DGT antes de comprar.
       </p>
     </div>
 
@@ -154,13 +154,14 @@
 
         <!-- Filtro Precio Máximo -->
         <div class="form-group" style="margin: 0;">
-          <label class="form-label" style="font-size: 0.8rem;">Precio Máximo</label>
+          <label class="form-label" style="font-size: 0.8rem;">Rango de precio</label>
           <select id="filter-price" class="form-control" style="font-size: 0.85rem;" onchange="applyFilters()">
             <option value="all">Sin límite de precio</option>
-            <option value="16000">Hasta 16.000 €</option>
+            <option value="5000">Hasta 5.000 €</option>
+            <option value="10000">Hasta 10.000 €</option>
+            <option value="15000">Hasta 15.000 €</option>
             <option value="20000">Hasta 20.000 €</option>
-            <option value="25000">Hasta 25.000 €</option>
-            <option value="30000">Hasta 30.000 €</option>
+            <option value="over25000">Más de 25.000 €</option>
           </select>
         </div>
 
@@ -168,9 +169,9 @@
         <div class="form-group" style="margin: 0;">
           <label class="form-label" style="font-size: 0.8rem;">Inspección en Taller</label>
           <select id="filter-score" class="form-control" style="font-size: 0.85rem;" onchange="applyFilters()">
-            <option value="all">Todos los verificados (90+)</option>
-            <option value="98">Excelente (98+ Puntos)</option>
-            <option value="100">Impecable (100/100 Puntos)</option>
+            <option value="all">Todas las puntuaciones indicadas</option>
+            <option value="98">98 puntos o más (indicados)</option>
+            <option value="100">100 puntos (indicados)</option>
           </select>
         </div>
       </div>
@@ -180,7 +181,7 @@
     <div class="results-count-bar">
       <div>
         <span style="font-weight: 800; color: var(--cm-navy); font-size: 1.1rem;" id="results-count-text">
-          4 vehículos verificados disponibles
+          Vehículos disponibles
         </span>
       </div>
       <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--cm-text-secondary);">
@@ -219,20 +220,22 @@
     </div>
   </footer>
 
-  <script src="site-config.js?v=4.0"></script>
+  <script src="site-config.js?v=5.0"></script>
   <script>
+    function escapeHTML(value) { return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char])); }
+    function safeImageSource(value) {
+      try { const url = new URL(String(value || ''), location.href); return url.protocol === 'https:' || url.origin === location.origin ? url.href : 'assets/brand/icons/vehicle-placeholder.svg'; }
+      catch (_) { return 'assets/brand/icons/vehicle-placeholder.svg'; }
+    }
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const brandParam = urlParams.get('brand');
       const priceParam = urlParams.get('price');
       const queryParam = urlParams.get('q');
+      populatePriceSearchSelect(document.getElementById('filter-price'), priceParam || 'all');
       if (brandParam) {
         const brandSelect = document.getElementById('filter-brand');
         if (brandSelect) brandSelect.value = brandParam;
-      }
-      if (priceParam) {
-        const priceSelect = document.getElementById('filter-price');
-        if (priceSelect) priceSelect.value = priceParam;
       }
       if (queryParam) document.getElementById('filter-free-text').value = queryParam;
       applyFilters();
@@ -281,7 +284,7 @@
       const query = document.getElementById('filter-free-text').value.trim().toLowerCase();
       const quick = new Set([...document.querySelectorAll('.quick-filter.active')].map(b => b.dataset.quick));
 
-      const allStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getAllPublicStock() : siteConfig.stock;
+      const allStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getAllPublicStock() : siteConfig.stock.map(vehicle => ({ ...vehicle, isDemo: true }));
 
       let filtered = allStock.filter(v => {
         const haystack = [v.brand,v.model,v.version,v.fuel,v.gearbox,v.bodyType,v.location,v.province].filter(Boolean).join(' ').toLowerCase();
@@ -290,7 +293,7 @@
         if (prov !== 'all' && v.province && v.province !== prov) return false;
         if (brand !== 'all' && v.brand !== brand) return false;
         if (badge !== 'all' && v.badge !== badge) return false;
-        if (maxPrice !== 'all' && v.price > parseInt(maxPrice)) return false;
+        if (!matchesPriceSearchRange(v.price, maxPrice)) return false;
         if (minScore !== 'all') {
           const scoreNum = parseInt(v.inspectionScore) || 90;
           if (scoreNum < parseInt(minScore)) return false;
@@ -312,7 +315,7 @@
       }
 
       renderMarketplaceGrid(filtered);
-      document.getElementById('results-count-text').innerText = `${filtered.length} vehículos verificados encontrados`;
+      document.getElementById('results-count-text').innerText = `${filtered.length} vehículos encontrados`;
       const params = new URLSearchParams(); if(query) params.set('q',query); if(brand !== 'all') params.set('brand',brand); if(maxPrice !== 'all') params.set('price',maxPrice); history.replaceState(null,'',`${location.pathname}${params.toString()?'?'+params.toString():''}`);
     }
 
@@ -336,47 +339,46 @@
       grid.innerHTML = cars.map(v => {
         const isSold = v.status === 'vendido';
         const isReserved = v.status === 'reservado';
-        const waMsg = encodeURIComponent(`Hola! He visto en CocheMotor el ${v.brand} ${v.model} (${v.version}) por ${v.price.toLocaleString('es-ES')} € y me gustaría consultar disponibilidad y peritaje.`);
-        const waUrl = `https://wa.me/${v.sellerPhone || siteConfig.brand.contactWhatsapp}?text=${waMsg}`;
+        const badgeClass = ['badge-b', 'badge-c', 'badge-eco', 'badge-zero'].includes(v.badgeClass) ? v.badgeClass : 'badge-c';
+        const disclosure = v.isDemo ? '<span class="badge-inspection">EJEMPLO · NO DISPONIBLE</span>' : '';
+        const sellerMarkup = v.isDemo
+          ? '<span>🏪 Vendedor de demostración</span>'
+          : `<a href="dealer.html?id=${encodeURIComponent(v.userId || 'user-juan')}" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline; font-size: 0.8rem;">🏪 ${escapeHTML(v.dealer || v.sellerName || 'Profesional')}</a>`;
 
         return `
-          <article class="vehicle-card" data-id="${v.id}">
+          <article class="vehicle-card" data-id="${escapeHTML(v.id)}">
             <div class="vehicle-thumb-box">
-              <img class="vehicle-thumb-img" src="${v.image}" alt="${v.brand} ${v.model}" loading="lazy">
+              <img class="vehicle-thumb-img" src="${escapeHTML(safeImageSource(v.image))}" alt="${escapeHTML(v.brand)} ${escapeHTML(v.model)}" loading="lazy">
+              ${disclosure}
               <button type="button" class="card-fav-btn" title="Guardar favorito" onclick="event.stopPropagation(); this.textContent = this.textContent === '❤️' ? '🤍' : '❤️';">🤍</button>
-              <span class="badge-dgt ${v.badgeClass || 'badge-c'}">${v.badge}</span>
-              <div class="card-verified-badge">
-                <span>CocheMotor Verificado</span>
-              </div>
+              <span class="badge-dgt ${badgeClass}" title="Distintivo indicado en el anuncio; compruébalo en la DGT." aria-label="Distintivo ${escapeHTML(v.badge)}, indicado en el anuncio">${escapeHTML(v.badge)} · indicado</span>
               ${isSold ? '<span style="position: absolute; bottom: 10px; left: 10px; background: #b91c1c; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">VENDIDO</span>' :
                 isReserved ? '<span style="position: absolute; bottom: 10px; left: 10px; background: #d97706; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 800; font-size: 0.75rem;">RESERVADO</span>' : ''}
             </div>
 
             <div class="vehicle-info">
               <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
-                <h3 class="vehicle-title" style="margin: 0; font-size: 1.25rem;">${v.brand} ${v.model}</h3>
+                <h3 class="vehicle-title" style="margin: 0; font-size: 1.25rem;">${escapeHTML(v.brand)} ${escapeHTML(v.model)}</h3>
                 <div class="cash-price" style="font-size: 1.35rem; color: var(--cm-navy);">${v.price.toLocaleString('es-ES')} €</div>
               </div>
-              <div class="vehicle-version" style="font-size: 0.82rem; color: var(--cm-text-secondary); margin-bottom: 10px;">${v.version}</div>
+              <div class="vehicle-version" style="font-size: 0.82rem; color: var(--cm-text-secondary); margin-bottom: 10px;">${escapeHTML(v.version)}</div>
 
               <div style="font-size: 0.84rem; color: var(--cm-graphite); margin-bottom: 12px; font-weight: 500;">
-                ${v.year} &nbsp;•&nbsp; ${v.km} &nbsp;•&nbsp; ${v.fuel} &nbsp;•&nbsp; ${v.gearbox}
+                ${escapeHTML(v.year)} &nbsp;•&nbsp; ${escapeHTML(v.km)} &nbsp;•&nbsp; ${escapeHTML(v.fuel)} &nbsp;•&nbsp; ${escapeHTML(v.gearbox)}
               </div>
 
               <div class="vehicle-checks-row" style="display: flex; flex-wrap: wrap; gap: 8px 12px; margin-bottom: 14px; font-size: 0.76rem;">
-                <span style="color: var(--cm-green); font-weight: 700;">✓ Historial verificado</span>
-                <span style="color: var(--cm-navy); font-weight: 600;">🛠️ Revisión 100 pts</span>
-                <span style="color: var(--cm-graphite); font-weight: 600;">📄 Km certificado</span>
+                <span style="color: var(--cm-graphite); font-weight: 600;">📄 Solicita informe DGT</span>
+                <span style="color: var(--cm-graphite); font-weight: 600;">🛠️ Revisión según anuncio</span>
+                <span style="color: var(--cm-graphite); font-weight: 600;">📍 Kilómetros indicados</span>
               </div>
 
               <div class="vehicle-dealer" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-top: 1px solid #f1f5f9; padding-top: 8px;">
-                <a href="dealer.html?id=${v.userId || 'user-garcia'}" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline; font-size: 0.8rem;">
-                  🏪 ${v.dealer || v.sellerName || 'Taller Homologado'}
-                </a>
-                <span style="font-weight: 700; color: var(--cm-green); font-size: 0.8rem;">🛡️ 12M Garantía</span>
+                ${sellerMarkup}
+                ${v.warranty ? `<span style="font-weight: 700; color: var(--cm-green); font-size: 0.8rem;">Garantía indicada: ${escapeHTML(v.warranty)}</span>` : ''}
               </div>
 
-              <a class="btn btn-red" href="ficha.html?id=${v.id}" style="font-weight: 800; width: 100%; justify-content: center; padding: 12px;">
+              <a class="btn btn-red" href="ficha.html?id=${encodeURIComponent(v.id)}" style="font-weight: 800; width: 100%; justify-content: center; padding: 12px;">
                 Ver detalles
               </a>
             </div>

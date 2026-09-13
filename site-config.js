@@ -13,6 +13,15 @@ if (window.location.hostname === 'cochemotor.es' || window.location.hostname ===
  */
 
 const siteConfig = {
+  priceSearchRanges: [
+    { value: "all", label: "Sin límite de precio" },
+    { value: "5000", label: "Hasta 5.000 €" },
+    { value: "10000", label: "Hasta 10.000 €" },
+    { value: "15000", label: "Hasta 15.000 €" },
+    { value: "20000", label: "Hasta 20.000 €" },
+    { value: "over25000", label: "Más de 25.000 €" }
+  ],
+
   metadata: {
     title: "CocheMotor — Compra claro. Vende mejor.",
     description: "Marketplace y plataforma digital para encontrar vehículos de ocasión, conectar con profesionales y comprar con más información, confianza y seguridad.",
@@ -45,7 +54,7 @@ const siteConfig = {
   navigation: [
     { label: "Coches de ocasión", href: "marketplace.html" },
     { label: "Coche Ideal", href: "demanda.html" },
-    { label: "Mecánica Verificada", href: "index.html#ingenieria" },
+    { label: "Revisión mecánica", href: "index.html#ingenieria" },
     { label: "Cómo funciona", href: "index.html#pilares" },
     { label: "Hub Profesional", href: "hub.html" },
     { label: "Planes & Tarifas", href: "index.html#planes" },
@@ -56,6 +65,7 @@ const siteConfig = {
   users: [
     {
       id: "user-juan",
+      isDemo: true,
       slug: "juan-gomez",
       subdomain: "juangomez",
       name: "Juan Gómez",
@@ -74,7 +84,7 @@ const siteConfig = {
       plan: "Premium (30 Días de Prueba)",
       isPremium: true,
       referralCode: "MOTOR-JUAN-2026",
-      badges: ["Freelance Verificado CocheMotor", "Mecánica 100 Puntos", "Garantía Legal 1 Año", "Gestoría DGT Telemática"],
+      badges: ["Perfil profesional", "Información aportada por el vendedor", "Consulta documentación e ITV", "Enlaces a trámites oficiales DGT"],
       bio: "Especialista en vehículos híbridos y compactos de ocasión con historial de mantenimiento íntegro en concesionario oficial. Transparencia absoluta, contratos mercantiles claros y entrega inmediata con informe DGT en mano.",
       services: [
         "Venta de stock peritado en 100 puntos",
@@ -87,6 +97,7 @@ const siteConfig = {
     },
     {
       id: "user-garcia",
+      isDemo: true,
       slug: "talleres-garcia",
       subdomain: "talleresgarcia",
       name: "Talleres Hnos. García",
@@ -118,6 +129,7 @@ const siteConfig = {
     },
     {
       id: "user-baviera",
+      isDemo: true,
       slug: "baviera-motors",
       subdomain: "baviera",
       name: "Baviera Motors",
@@ -159,9 +171,9 @@ const siteConfig = {
       ctaHubLabel: "Probar el panel gratis 30 días",
       ctaHubTarget: "hub.html",
       stats: [
-        { value: "100 Puntos", label: "Control mecánico verificado" },
-        { value: "0 Cargas", label: "Trazabilidad DGT telemática" },
-        { value: "12 Meses", label: "Garantía legal certificada" },
+        { value: "DGT", label: "Acceso a fuentes oficiales" },
+        { value: "Por anuncio", label: "Información indicada por el vendedor" },
+        { value: "Antes de comprar", label: "Solicita y comprueba la documentación" },
       ],
     },
 
@@ -212,8 +224,8 @@ const siteConfig = {
 
     chapter6_catalog: {
       number: "CAPÍTULO 05",
-      title: "Coches disponibles con información clara",
-      subtitle: "Vehículos listos para entrega inmediata con distintivo ambiental DGT.",
+      title: "Vehículos publicados por profesionales",
+      subtitle: "Consulta disponibilidad y confirma el distintivo ambiental en la DGT.",
     },
 
     chapter7_faq: {
@@ -246,7 +258,7 @@ const siteConfig = {
     chapter8_contact: {
       number: "CAPÍTULO 07",
       title: "¿Eres Taller Mecánico o Compraventa Independiente?",
-      subtitle: "Únete a la red de CocheMotor. Anuncia tu stock verificado, recibe leads cualificados por WhatsApp y multiplica tu rotación de vehículos.",
+      subtitle: "Únete a la red de CocheMotor. Publica tu stock, recibe consultas por WhatsApp y gestiona tus oportunidades desde un mismo lugar.",
       formAction: "#",
     },
   },
@@ -365,10 +377,10 @@ const siteConfig = {
         "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80",
         "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80"
       ],
-      inspectionScore: "98/100",
-      itvDate: "Noviembre 2025",
-      warranty: "12 Meses Europea",
-      dgtStatus: "Informe Limpio (Sin Cargas)",
+      inspectionScore: "",
+      itvDate: "",
+      warranty: "",
+      dgtStatus: "No consultado",
       inspectionDetails: {
         motor: "100% OK · Compresión de 28 bar uniforme en 4 cilindros, turbo Garrett sin holgura axial y sin fugas.",
         transmision: "100% OK · Embrague bimasa con 85% de vida remanente, sincronizadores de caja de 6v suaves.",
@@ -425,10 +437,10 @@ const siteConfig = {
         "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=1200&q=80",
         "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80"
       ],
-      inspectionScore: "100/100",
-      itvDate: "Enero 2026",
-      warranty: "12 Meses Toyota Relax",
-      dgtStatus: "Informe Limpio (Sin Cargas)",
+      inspectionScore: "",
+      itvDate: "",
+      warranty: "",
+      dgtStatus: "No consultado",
       inspectionDetails: {
         motor: "100% OK · Sistema híbrido Toyota HSD impecable con test de salud de batería certificado.",
         transmision: "100% OK · Transmisión e-CVT con engranajes planetarios sin desgaste ni tirones.",
@@ -485,10 +497,10 @@ const siteConfig = {
         "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80",
         "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80"
       ],
-      inspectionScore: "96/100",
-      itvDate: "Mayo 2026",
-      warranty: "12 Meses Completa",
-      dgtStatus: "Informe Limpio (Sin Cargas)",
+      inspectionScore: "",
+      itvDate: "",
+      warranty: "",
+      dgtStatus: "No consultado",
       inspectionDetails: {
         motor: "96% OK · Cadena de árboles de levas de 8mm reforzada comprobada, sistema AdBlue verificado.",
         transmision: "100% OK · Caja automática Aisin EAT8 con cambios imperceptibles y convertidor perfecto.",
@@ -545,10 +557,10 @@ const siteConfig = {
         "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
         "https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80"
       ],
-      inspectionScore: "99/100",
-      itvDate: "Octubre 2026",
-      warranty: "12 Meses Premium",
-      dgtStatus: "Informe Limpio (Sin Cargas)",
+      inspectionScore: "",
+      itvDate: "",
+      warranty: "",
+      dgtStatus: "No consultado",
       inspectionDetails: {
         motor: "100% OK · Motor B47D20 microhíbrido de 48V impecable, cadena de distribución en cota nominal.",
         transmision: "100% OK · Caja ZF 8HP50 con cambio rápido y fluido en perfecto estado de viscosidad.",
@@ -646,6 +658,39 @@ const siteConfig = {
   ],
 };
 
+function populatePriceSearchSelect(select, selectedValue = "all", noLimitLabel) {
+  if (!select || !Array.isArray(siteConfig.priceSearchRanges)) return;
+  const ranges = siteConfig.priceSearchRanges.map(range => ({ ...range }));
+  if (noLimitLabel) ranges[0].label = noLimitLabel;
+
+  // Keep existing shared links with numeric price thresholds working.
+  const legacyValue = String(selectedValue || "all");
+  if (legacyValue !== "all" && legacyValue !== "over25000" &&
+      /^\d+$/.test(legacyValue) && !ranges.some(range => range.value === legacyValue)) {
+    ranges.splice(ranges.length - 1, 0, {
+      value: legacyValue,
+      label: `Hasta ${Number(legacyValue).toLocaleString("es-ES")} €`
+    });
+  }
+
+  select.replaceChildren(...ranges.map(range => {
+    const option = document.createElement("option");
+    option.value = range.value;
+    option.textContent = range.label;
+    return option;
+  }));
+  select.value = ranges.some(range => range.value === legacyValue) ? legacyValue : "all";
+}
+
+function matchesPriceSearchRange(price, range) {
+  const amount = Number(price);
+  if (!Number.isFinite(amount)) return false;
+  if (range === "all" || range === "") return true;
+  if (range === "over25000") return amount > 25000;
+  const maximum = Number(range);
+  return Number.isFinite(maximum) && maximum > 0 && amount <= maximum;
+}
+
 // Capa de Almacenamiento Reactiva y Persistente Multi-Tenant (LocalStorage + Memoria)
 const CocheMotorStorage = {
   STORAGE_KEYS: {
@@ -688,11 +733,15 @@ const CocheMotorStorage = {
     try {
       const stored = localStorage.getItem(this.STORAGE_KEYS.STOCK);
       if (stored) {
-        return JSON.parse(stored);
+        const saved = JSON.parse(stored);
+        if (Array.isArray(saved)) {
+          const demoIds = new Set(siteConfig.stock.map(vehicle => vehicle.id));
+          return saved.map(vehicle => demoIds.has(vehicle.id) ? { ...vehicle, isDemo: true } : vehicle);
+        }
       }
     } catch (e) {}
-    // Inicializar con todo el stock
-    const initial = siteConfig.stock.slice();
+    // El inventario embebido es sintético y debe seguir identificado como demo.
+    const initial = siteConfig.stock.map(vehicle => ({ ...vehicle, isDemo: true }));
     this.saveAllStock(initial);
     return initial;
   },
@@ -935,9 +984,12 @@ const CocheMotorStorage = {
       const stored = localStorage.getItem(this.STORAGE_KEYS.DEAL_ROOMS);
       if (stored) {
         const allRooms = JSON.parse(stored);
+        // Retirar datos de demostración heredados que podían parecer operaciones reales.
+        const cleanedRooms = allRooms.filter(r => r.id !== 'deal-cm-901');
+        if (cleanedRooms.length !== allRooms.length) this.saveAllDealRooms(cleanedRooms);
         const targetUserId = (userId !== null) ? userId : this.getActiveUserId();
-        if (targetUserId === 'all') return allRooms;
-        return allRooms.filter(r => (r.sellerUserId || "user-juan") === targetUserId);
+        if (targetUserId === 'all') return cleanedRooms;
+        return cleanedRooms.filter(r => (r.sellerUserId || "user-juan") === targetUserId);
       }
     } catch (e) {}
 
@@ -945,28 +997,29 @@ const CocheMotorStorage = {
     const defaultRooms = [
       {
         id: "deal-cm-901",
-        token: "tok_sec_99182a",
+        token: "demo-only",
+        isDemo: true,
         vehicleId: "cm-001",
         vehicleTitle: "Volkswagen Golf 2.0 TDI Advance",
         sellerUserId: "user-garcia",
         sellerName: "Talleres Hnos. García",
-        buyerName: "David Muñoz Pérez",
-        buyerPhone: "34611223344",
-        buyerEmail: "david.m@gmail.com",
+        buyerName: "Comprador de demostración",
+        buyerPhone: "",
+        buyerEmail: "",
         agreedPrice: 16900,
         depositAmount: 500,
-        depositStatus: "Confirmada (Transferencia telemática)",
+        depositStatus: "Ejemplo — no es un pago real",
         paymentMethod: "Al contado contra entrega",
         status: "contrato_preparado", // borrador, reserva_pagada, contrato_preparado, firmado, entregado
         contractType: "Profesional a Particular (Ley Consumidores y Usuarios)",
-        warrantyMonths: 12,
-        warrantyType: "Garantía Legal Europea de Taller Mecánico",
-        dgtStatus: "Informe Favorable Telemático Sin Cargas",
+        warrantyMonths: null,
+        warrantyType: "Condiciones no especificadas (expediente de demostración)",
+        dgtStatus: "No consultado",
         deliveryChecklist: [
-          { item: "Permiso de circulación original firmado", checked: true },
-          { item: "Ficha técnica ITV con sello favorable", checked: true },
-          { item: "Doble juego de llaves con mando", checked: true },
-          { item: "Informe pericial 100 puntos y diagnosis OBD", checked: true },
+          { item: "Permiso de circulación original firmado", checked: false },
+          { item: "Ficha técnica ITV; revisar fecha y resultado", checked: false },
+          { item: "Doble juego de llaves con mando", checked: false },
+          { item: "Informe de revisión/diagnosis disponible", checked: false },
           { item: "Justificante provisional telemático de gestoría DGT", checked: false }
         ],
         createdAt: "2026-09-10",
@@ -994,10 +1047,10 @@ const CocheMotorStorage = {
       createdAt: new Date().toISOString().split('T')[0],
       expiresAt: new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0],
       deliveryChecklist: [
-        { item: "Permiso de circulación original firmado", checked: true },
-        { item: "Ficha técnica ITV con sello favorable", checked: true },
-        { item: "Doble juego de llaves con mando", checked: true },
-        { item: "Informe pericial 100 puntos y diagnosis OBD", checked: true },
+        { item: "Permiso de circulación original firmado", checked: false },
+        { item: "Ficha técnica ITV; revisar fecha y resultado", checked: false },
+        { item: "Doble juego de llaves con mando", checked: false },
+        { item: "Informe de revisión/diagnosis disponible", checked: false },
         { item: "Justificante provisional telemático de gestoría DGT", checked: false }
       ],
       ...roomData

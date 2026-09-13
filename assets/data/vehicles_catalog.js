@@ -192058,10 +192058,12 @@ export const VEHICLES = {
 };
 
 export const VEHICLE_CATALOG_SOURCE = {
-  primary: 'European Environment Agency (EEA) CO2 monitoring',
-  secondary: 'Dirección General de Tráfico (DGT) MATRABA',
-  updatedAt: new Date().toISOString().slice(0, 10),
-  status: 'imported-snapshot'
+  sourceLabel: 'unknown — local snapshot; original source metadata not recorded',
+  sourceUrl: null,
+  sourceDataAsOf: null,
+  license: null,
+  generatedAt: null,
+  provenanceStatus: 'incomplete'
 };
 export function getBrands() { return Object.keys(VEHICLES); }
 export function getModels(brand) { return VEHICLES[brand] ? Object.keys(VEHICLES[brand]) : []; }

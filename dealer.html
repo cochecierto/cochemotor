@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Concesionario & Taller Oficial — CocheMotor</title>
-  <meta name="description" id="page-desc" content="Stock verificado con mecánica peritada en 100 puntos y 1 año de garantía oficial.">
+  <meta name="description" id="page-desc" content="Consulta vehículos publicados por profesionales y pregunta por la documentación, revisión e ITV.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -179,7 +179,7 @@
         <div class="dealer-profile-info">
           <div id="dealer-avatar" class="dealer-avatar-badge">👨‍💼</div>
           <div>
-            <div class="dealer-badge-tag" id="dealer-role-tag">Taller Partner Homologado</div>
+            <div class="dealer-badge-tag" id="dealer-role-tag">Perfil pendiente de validar</div>
             <h1 id="dealer-name" style="font-family: var(--font-family-display); font-size: 2rem; font-weight: 800; margin: 0; color: white;">
               Cargando profesional...
             </h1>
@@ -188,11 +188,12 @@
             </p>
           </div>
         </div>
+        <p id="dealer-demo-notice" class="demo-notice" role="note">El contacto se habilita cuando el perfil profesional está cargado y validado. Algunos perfiles visibles pueden ser demostraciones.</p>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <button id="btn-dealer-whatsapp" class="btn btn-red" style="padding: 12px 22px; font-weight: 800;" onclick="openDealerWhatsApp()">
+          <button id="btn-dealer-whatsapp" class="btn btn-red" style="padding: 12px 22px; font-weight: 800;" onclick="openDealerWhatsApp()" hidden>
             💬 Contactar por WhatsApp
           </button>
-          <button id="btn-dealer-call" class="btn btn-outline-white" style="padding: 12px 20px;" onclick="openDealerCall()">
+          <button id="btn-dealer-call" class="btn btn-outline-white" style="padding: 12px 20px;" onclick="openDealerCall()" hidden>
             📞 Llamar
           </button>
         </div>
@@ -218,15 +219,15 @@
       <div class="dealer-info-item">
         <div class="dealer-info-icon">⭐</div>
         <div>
-          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 800; color: var(--cm-text-secondary);">Reputación Verificada</div>
-          <div id="dealer-rating" style="font-size: 0.88rem; font-weight: 700; color: #16a34a;">4.9 ★ (48 reseñas)</div>
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 800; color: var(--cm-text-secondary);">Valoración indicada</div>
+          <div id="dealer-rating" style="font-size: 0.88rem; font-weight: 700; color: #16a34a;">No disponible</div>
         </div>
       </div>
       <div class="dealer-info-item">
         <div class="dealer-info-icon">🛡️</div>
         <div>
           <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 800; color: var(--cm-text-secondary);">Compromiso CocheMotor</div>
-          <div style="font-size: 0.88rem; font-weight: 700; color: var(--cm-navy);">100 Puntos + 12M Garantía</div>
+          <div style="font-size: 0.88rem; font-weight: 700; color: var(--cm-navy);">Consulta la documentación al vendedor</div>
         </div>
       </div>
     </div>
@@ -279,7 +280,7 @@
           Envía tu consulta directamente al equipo técnico de este centro y te responderán en menos de 15 minutos.
         </p>
 
-        <form id="dealer-contact-form" onsubmit="handleDealerForm(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; text-align: left;">
+        <form id="dealer-contact-form" onsubmit="handleDealerForm(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; text-align: left;" hidden>
           <div>
             <label class="form-label" style="font-size: 0.82rem; font-weight: 700;">Tu Nombre *</label>
             <input type="text" id="lead-name" class="form-control" placeholder="Ej: Alberto Gómez" required>
@@ -313,6 +314,21 @@
   <script>
     let dealer = null;
 
+    function escapeHTML(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      })[char]);
+    }
+
+    function safeImageURL(value) {
+      try {
+        const url = new URL(String(value || ''), window.location.href);
+        return (url.protocol === 'https:' || url.origin === window.location.origin) ? url.href : 'assets/brand/logos/cochemotor-final-light.png';
+      } catch (_) {
+        return 'assets/brand/logos/cochemotor-final-light.png';
+      }
+    }
+
     function getParam(key) {
       return new URLSearchParams(window.location.search).get(key);
     }
@@ -335,8 +351,22 @@
       document.getElementById('dealer-avatar').textContent = dealer.avatar || '🚗';
       document.getElementById('dealer-address').textContent = dealer.address || `${dealer.location}, España`;
       document.getElementById('dealer-schedule').textContent = dealer.schedule || 'L-V: 09:00 - 19:30 · Sábados previa cita';
-      document.getElementById('dealer-rating').textContent = dealer.rating || '4.9 ★ (48 reseñas)';
-      document.getElementById('dealer-bio').textContent = dealer.bio || 'Profesional de automoción especializado en vehículos de ocasión verificados con certificación mecánica de 100 puntos y garantía europea.';
+      document.getElementById('dealer-rating').textContent = dealer.isDemo ? 'Sin reseñas reales (demostración)' : (dealer.rating || 'Sin valoraciones publicadas');
+      document.getElementById('dealer-bio').textContent = dealer.bio || 'Profesional de automoción especializado en vehículos de ocasión. Consulta directamente las condiciones y la documentación disponible.';
+
+      if (dealer.isDemo) {
+        document.getElementById('dealer-demo-notice').textContent = 'Perfil de demostración: datos y anuncios ficticios. No es un profesional real y no se pueden enviar consultas.';
+        document.getElementById('dealer-address').textContent = 'No disponible — perfil de demostración';
+        document.getElementById('dealer-schedule').textContent = 'No disponible — perfil de demostración';
+        document.getElementById('btn-dealer-whatsapp').hidden = true;
+        document.getElementById('btn-dealer-call').hidden = true;
+        document.getElementById('dealer-contact-form').hidden = true;
+      } else {
+        document.getElementById('dealer-demo-notice').hidden = true;
+        document.getElementById('btn-dealer-whatsapp').hidden = !dealer.phone;
+        document.getElementById('btn-dealer-call').hidden = !dealer.phone;
+        document.getElementById('dealer-contact-form').hidden = !dealer.phone;
+      }
 
       if (dealer.heroCover) {
         document.getElementById('dealer-cover').src = dealer.heroCover;
@@ -345,19 +375,21 @@
       // Servicios
       const servGrid = document.getElementById('dealer-services-grid');
       servGrid.innerHTML = '';
-      const services = dealer.services || [
-        "Revisión pericial en 100 puntos",
-        "Garantía oficial de 12 meses",
+      const services = dealer.isDemo ? ['Perfil profesional ficticio; servicios no disponibles para contratación.'] : (dealer.services || [
+        "Información del vehículo facilitada por el vendedor",
+        "Información de garantía según cada anuncio",
         "Tasación y entrega de vehículo a cambio",
-        "Transferencia DGT telemática"
-      ];
+      ]);
       services.forEach(s => {
         const card = document.createElement('div');
         card.className = 'service-card';
-        card.innerHTML = `
-          <div style="font-weight: 800; color: var(--cm-navy); font-size: 0.95rem; margin-bottom: 4px;">✓ ${s}</div>
-          <div style="font-size: 0.82rem; color: var(--cm-text-secondary);">Garantizado por el centro</div>
-        `;
+        const label = document.createElement('div');
+        label.style.cssText = 'font-weight: 800; color: var(--cm-navy); font-size: 0.95rem; margin-bottom: 4px;';
+        label.textContent = `✓ ${String(s)}`;
+        const note = document.createElement('div');
+        note.style.cssText = 'font-size: 0.82rem; color: var(--cm-text-secondary);';
+        note.textContent = 'Servicio indicado por el profesional; consulta sus condiciones.';
+        card.append(label, note);
         servGrid.appendChild(card);
       });
 
@@ -386,35 +418,35 @@
         card.className = 'vehicle-card';
         card.innerHTML = `
           <div class="vehicle-card-img-wrap">
-            <img src="${car.image}" alt="${car.brand} ${car.model}" loading="lazy">
+            <img src="${escapeHTML(safeImageURL(car.image))}" alt="${escapeHTML(car.brand)} ${escapeHTML(car.model)}" loading="lazy">
             <div class="card-badge-container">
-              <span class="badge-dgt ${car.badgeClass || 'badge-c'}">DGT ${car.badge}</span>
-              <span class="badge-dgt" style="background: var(--cm-navy); color: white;">🛡️ ${car.inspectionScore || '98/100'}</span>
+              <span class="badge-dgt ${['badge-0','badge-eco','badge-c','badge-b'].includes(car.badgeClass) ? car.badgeClass : 'badge-c'}">Distintivo indicado: ${escapeHTML(car.badge)}</span>
+              ${car.inspectionScore ? `<span class="badge-dgt" style="background: var(--cm-navy); color: white;">Revisión indicada: ${escapeHTML(car.inspectionScore)}</span>` : ''}
             </div>
           </div>
           <div class="vehicle-card-body">
             <div style="font-size: 0.8rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">
-              ${car.brand} · ${car.year}
+              ${escapeHTML(car.brand)} · ${escapeHTML(car.year)}
             </div>
             <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin: 4px 0 8px;">
-              ${car.brand} ${car.model}
+              ${escapeHTML(car.brand)} ${escapeHTML(car.model)}
             </h3>
             <div style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-bottom: 12px;">
-              ${car.version}
+              ${escapeHTML(car.version)}
             </div>
 
             <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.82rem;">
-              <span class="spec-pill" style="padding: 4px 10px;">🛣️ ${car.km}</span>
-              <span class="spec-pill" style="padding: 4px 10px;">⛽ ${car.fuel}</span>
-              <span class="spec-pill" style="padding: 4px 10px;">🛡️ 12M Garantía</span>
+              <span class="spec-pill" style="padding: 4px 10px;">🛣️ ${escapeHTML(car.km)}</span>
+              <span class="spec-pill" style="padding: 4px 10px;">⛽ ${escapeHTML(car.fuel)}</span>
+              ${car.warranty ? `<span class="spec-pill" style="padding: 4px 10px;">Garantía indicada: ${escapeHTML(car.warranty)}</span>` : ''}
             </div>
 
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: auto; border-top: 1px solid var(--cm-border); padding-top: 14px;">
               <div>
-                <div style="font-size: 1.45rem; font-weight: 800; color: var(--cm-navy);">${car.price.toLocaleString('es-ES')} €</div>
-                <div style="font-size: 0.8rem; color: #16a34a; font-weight: 700;">${car.monthlyPrice || 'Financiable'}</div>
+                <div style="font-size: 1.45rem; font-weight: 800; color: var(--cm-navy);">${Number(car.price || 0).toLocaleString('es-ES')} €</div>
+                <div style="font-size: 0.8rem; color: #16a34a; font-weight: 700;">${escapeHTML(car.monthlyPrice || 'Consulta financiación')}</div>
               </div>
-              <a href="ficha.html?id=${car.id}" class="btn btn-red" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
+              <a href="ficha.html?id=${encodeURIComponent(String(car.id || ''))}" class="btn btn-red" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
                 Ver detalles
               </a>
             </div>
@@ -425,18 +457,19 @@
     }
 
     function openDealerWhatsApp() {
-      if (!dealer) return;
+      if (!dealer || dealer.isDemo || !dealer.phone) return;
       const msg = `¡Hola ${dealer.name}! He visto la web de vuestro centro en CocheMotor y me gustaría solicitar información sobre vuestro stock de vehículos de ocasión.`;
       window.open(`https://wa.me/${dealer.phone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function openDealerCall() {
-      if (!dealer) return;
+      if (!dealer || dealer.isDemo || !dealer.phone) return;
       window.location.href = `tel:+${dealer.phone}`;
     }
 
     function handleDealerForm(event) {
       event.preventDefault();
+      if (!dealer || dealer.isDemo) return;
       const name = document.getElementById('lead-name').value.trim();
       const phone = document.getElementById('lead-phone').value.trim();
       const message = document.getElementById('lead-message').value.trim();

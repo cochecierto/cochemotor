@@ -34,5 +34,17 @@ jobs:
             **/database/**
             **/wordpress/**
             **/references/**
+            **/local-broker/**
+            **/scripts/**
+            **/app/**
+            **/*.zip
+            **/*.db
+            **/*.sqlite
+            **/*.sqlite3
+            **/*.py
+            **/README.md
+            .gitignore
+            AGENTS.md
+            api/config.template.php
             iniciar_cochemotor.bat
             deploy_hostinger.py

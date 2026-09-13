@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="page-title">Ficha Oficial de Vehículo Verificado — CocheMotor</title>
-  <meta name="description" id="meta-desc" content="Vehículo de ocasión con certificación de taller en 100 puntos, informe DGT sin cargas y garantía mecánica de 1 año.">
+  <title id="page-title">Ficha de vehículo de ocasión — CocheMotor</title>
+  <meta name="description" id="meta-desc" content="Consulta los datos del vehículo y accede a las comprobaciones oficiales de la DGT antes de comprar.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,7 +128,7 @@
       top: 24px;
     }
 
-    /* Pestañas de Inspección 100 Puntos */
+    /* Pestañas para consultar la información de revisión indicada en el anuncio */
     .inspection-box {
       background: var(--cm-surface-subtle);
       border-radius: var(--cm-radius-lg);
@@ -262,8 +262,8 @@
       <nav class="nav-desktop">
         <a href="marketplace.html" class="nav-link" style="font-weight: 700;">Coches de ocasión</a>
         <a href="demanda.html" class="nav-link" style="font-weight: 700; color: var(--cm-navy);">🎯 Coche Ideal</a>
-        <a href="index.html#ingenieria" class="nav-link">Mecánica Verificada</a>
-        <a href="index.html#pilares" class="nav-link">Garantía 12 Meses</a>
+        <a href="index.html#ingenieria" class="nav-link">Revisión mecánica</a>
+        <a href="index.html#pilares" class="nav-link">Información para comprar</a>
       </nav>
       <div style="display: flex; align-items: center; gap: 12px;">
         <a href="marketplace.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem;">
@@ -293,13 +293,13 @@
     <div id="availability-banner" style="display: none; padding: 14px 20px; border-radius: var(--cm-radius-md); font-weight: 700; margin-bottom: 24px;"></div>
 
     <div class="vehicle-detail-grid">
-      <!-- Columna Izquierda: Galería, Desglose 100 Puntos, DGT y Calculadora -->
+      <!-- Columna Izquierda: Galería, información del vehículo, DGT y Calculadora -->
       <div>
         <div class="gallery-container">
           <div class="gallery-badge-overlay">
-            <span id="view-badge" class="badge-dgt badge-c">DGT C</span>
-            <span id="view-inspection-score" class="badge-dgt" style="background: var(--cm-navy); color: white; border: 1px solid rgba(255,255,255,0.2);">🛡️ 98/100 Revisión</span>
-            <span style="background: rgba(0, 150, 64, 0.9); color: white; padding: 4px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 800;">✓ 12 Meses Garantía</span>
+            <span id="view-badge" class="badge-dgt badge-c" title="Distintivo indicado en el anuncio; compruébalo en la web oficial de la DGT.">DGT C · indicado</span>
+            <span id="view-inspection-score" class="badge-dgt" style="background: var(--cm-navy); color: white; border: 1px solid rgba(255,255,255,0.2);">Revisión no indicada</span>
+            <span id="view-warranty" class="badge-dgt" title="Condiciones indicadas por el vendedor; solicita el detalle contractual." hidden></span>
           </div>
           <img id="view-car-image" src="" alt="Vehículo en Venta" class="main-car-photo">
         </div>
@@ -318,32 +318,33 @@
         <h1 id="view-title" style="font-family: var(--font-family-display); font-size: 2.3rem; font-weight: 800; color: var(--cm-navy); margin-top: 20px; line-height: 1.15;">
           Cargando vehículo...
         </h1>
+        <p id="demo-listing-notice" hidden role="status" style="padding:12px 14px;border:1px solid #f59e0b;background:#fffbeb;color:#78350f;border-radius:8px;">Anuncio de demostración: este vehículo, sus datos y el contacto son ficticios; no está disponible para compra.</p>
         <p id="view-version" style="font-size: 1.18rem; color: var(--cm-text-secondary); margin-top: 4px; font-weight: 500;"></p>
 
         <!-- Bloque de Puntos Destacados -->
         <div style="margin-top: 28px;">
           <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 12px;">
-            Aspectos Mecánicos Destacados por el Taller
+            Información destacada en el anuncio
           </h3>
           <ul id="view-highlights" style="padding-left: 20px; line-height: 1.8; color: var(--cm-graphite);">
           </ul>
         </div>
 
-        <!-- Módulo: Informe Pericial de 100 Puntos Desplegable -->
+        <!-- La información de inspección es declarada mientras no exista evidencia asociada. -->
         <div class="inspection-box">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
             <div>
-              <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; color: var(--cm-navy);">DIAGNOSIS OFICIAL DE TALLER</span>
+              <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; color: var(--cm-navy);">INFORMACIÓN DE REVISIÓN</span>
               <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy); margin: 2px 0 0;">
-                Certificado Pericial de 100 Puntos CocheMotor
+                Revisión indicada en el anuncio
               </h3>
             </div>
-            <div id="score-circle" style="width: 52px; height: 52px; border-radius: 50%; background: var(--cm-navy); color: var(--cm-navy); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.05rem; border: 2px solid var(--cm-navy);">
-              100
+            <div id="score-circle" aria-label="Puntuación de revisión indicada" style="width: 52px; height: 52px; border-radius: 50%; background: var(--cm-navy); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.05rem; border: 2px solid var(--cm-navy);">
+              —
             </div>
           </div>
           <p style="font-size: 0.9rem; color: var(--cm-text-secondary); margin-bottom: 16px;">
-            Inspección profesional realizada en elevador hidráulico y comprobada mediante diagnosis telemática por ordenador (OBD).
+            La información de esta sección procede del anuncio y no constituye una certificación de CocheMotor. Solicita al vendedor el informe o justificante de la revisión.
           </p>
 
           <div class="inspection-tabs no-print">
@@ -358,30 +359,26 @@
           </div>
         </div>
 
-        <!-- Módulo: Informe Oficial DGT sin Cargas -->
-        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: var(--cm-radius-lg); padding: 24px; margin-top: 32px;">
+        <!-- Comprobaciones oficiales: CocheMotor no simula consultas a la DGT. -->
+        <div id="dgt" style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: var(--cm-radius-lg); padding: 24px; margin-top: 32px;">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
             <div style="width: 38px; height: 38px; background: #002D62; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 0.9rem;">
               DGT
             </div>
             <div>
-              <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--cm-navy); margin: 0;">
-                Trazabilidad Telemática DGT Verificada
-              </h4>
-              <p style="font-size: 0.85rem; color: var(--cm-text-secondary); margin: 0;">
-                Número de Bastidor VIN: <strong id="view-vin" style="font-family: monospace; letter-spacing: 0.05em;">--</strong>
-              </p>
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--cm-navy); margin: 0;">Comprueba la información en la DGT</h4>
+              <p style="font-size: 0.85rem; color: var(--cm-text-secondary); margin: 0;">La etiqueta y los datos del anuncio no equivalen a un informe oficial verificado.</p>
             </div>
           </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 0.9rem; margin-top: 12px;">
-            <div style="color: #16a34a; font-weight: 600;">✓ <span id="dgt-cargas" style="color: var(--cm-graphite);">Sin embargos, precintos ni reserva de dominio según el informe consultado</span></div>
-            <div style="color: #16a34a; font-weight: 600;">✓ <span id="dgt-embargos" style="color: var(--cm-graphite);">Libre de embargos y precintos</span></div>
-            <div style="color: #16a34a; font-weight: 600;">✓ <span id="dgt-reserva" style="color: var(--cm-graphite);">Sin reserva de dominio bancaria</span></div>
-            <div style="color: #16a34a; font-weight: 600;">✓ <span id="dgt-itv" style="color: var(--cm-graphite);">ITV en vigor</span></div>
-          </div>
-          <p style="font-size: 0.82rem; color: var(--cm-text-secondary); margin-top: 14px; margin-bottom: 0;">
-            El justificante oficial de la Dirección General de Tráfico se entrega adjunto al contrato de compraventa mercantil.
+          <p id="dgt-source-note" style="font-size: 0.9rem; color: var(--cm-graphite); margin: 12px 0;">
+            Antes de cerrar la compra, solicita al vendedor un informe reciente y contrasta matrícula, cargas e ITV. CocheMotor no consulta ni valida matrículas automáticamente.
           </p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">
+            <a href="https://www.dgt.es/nuestros-servicios/tu-vehiculo/tus-vehiculos/informe-de-un-vehiculo/" target="_blank" rel="noopener noreferrer" aria-label="Solicitar informe del vehículo en la DGT (se abre en una pestaña nueva)" class="btn btn-primary">Solicitar informe del vehículo en la DGT</a>
+            <a href="https://sede.dgt.gob.es/es/vehiculos/informacion-de-vehiculos/distintivo-ambiental/index.html" target="_blank" rel="noopener noreferrer" aria-label="Consultar distintivo ambiental (se abre en una pestaña nueva)">Consultar distintivo ambiental</a>
+            <a href="https://www.dgt.es/muevete-con-seguridad/vehiculos-seguros/llamadas-a-revision/" target="_blank" rel="noopener noreferrer" aria-label="Consultar llamadas a revisión de la DGT (se abre en una pestaña nueva)">Consultar llamadas a revisión</a>
+            <a href="https://www.dgt.es/nuestros-servicios/tu-vehiculo/vas-a-comprar-o-vender-un-vehiculo-de-segunda-mano/comprar-un-vehiculo-de-segunda-mano/" target="_blank" rel="noopener noreferrer" aria-label="Consejos de la DGT para comprar un vehículo usado (se abre en una pestaña nueva)">Consejos DGT para comprar</a>
+          </div>
         </div>
 
         <!-- Módulo: Calculadora de Financiación Interactiva -->
@@ -481,19 +478,19 @@
             </h4>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 14px;">
               <div style="background: #f1f5f9; padding: 12px; border-radius: 8px;">
-                <div style="font-size: 0.75rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">Tasa Oficial DGT 4.1</div>
-                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy);">55,70 €</div>
-                <div style="font-size: 0.72rem; color: #16a34a; font-weight: 600;">✓ Incluida en compra profesional</div>
+                <div style="font-size: 0.75rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">Tasas y trámites</div>
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy);">Consultar</div>
+                <div style="font-size: 0.72rem; color: var(--cm-text-secondary); font-weight: 600;">Confirma importe y responsable antes de la compra.</div>
               </div>
               <div style="background: #f1f5f9; padding: 12px; border-radius: 8px;">
-                <div style="font-size: 0.75rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">Garantía Mecánica 12 Meses</div>
-                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy);">0,00 €</div>
-                <div style="font-size: 0.72rem; color: #16a34a; font-weight: 600;">✓ Obligatoria por Ley (sin sobrecoste)</div>
+                <div style="font-size: 0.75rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">Garantía y condiciones</div>
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy);">Consultar anuncio</div>
+                <div style="font-size: 0.72rem; color: var(--cm-text-secondary); font-weight: 600;">Pide las condiciones aplicables por escrito.</div>
               </div>
               <div style="background: #f1f5f9; padding: 12px; border-radius: 8px;">
                 <div style="font-size: 0.75rem; color: var(--cm-text-secondary); text-transform: uppercase; font-weight: 700;">Gestoría Telemática DGT</div>
-                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy);">En 24 Horas</div>
-                <div style="font-size: 0.72rem; color: var(--cm-navy); font-weight: 600;">Justificante oficial provisional</div>
+                <div style="font-size: 1.25rem; font-weight: 800; color: var(--cm-navy);">Según gestión</div>
+                <div style="font-size: 0.72rem; color: var(--cm-navy); font-weight: 600;">Confirma plazos y justificantes con el responsable.</div>
               </div>
             </div>
             <p style="font-size: 0.78rem; color: var(--cm-text-secondary); margin: 0;">
@@ -553,7 +550,7 @@
             </div>
           </div>
           <p style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-top: 6px;">
-            Incluye transferencia DGT telemática, diagnosis completa de taller y 12 meses de garantía legal europea.
+            Solicita al vendedor las condiciones de garantía, la documentación y los justificantes de cualquier revisión.
           </p>
 
           <hr style="margin: 22px 0; border: 0; border-top: 1px solid var(--cm-border);">
@@ -565,12 +562,12 @@
                 🚗
               </div>
               <div style="flex: 1;">
-                <div id="view-dealer" style="font-weight: 800; color: var(--cm-navy); font-size: 1rem;">Profesional Verificado</div>
+                <div id="view-dealer" style="font-weight: 800; color: var(--cm-navy); font-size: 1rem;">Profesional anunciante</div>
                 <div id="view-location" style="font-size: 0.84rem; color: var(--cm-text-secondary);">Madrid, España</div>
               </div>
             </div>
             <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem;">
-              <span id="dealer-badge-text" style="color: #16a34a; font-weight: 700;">★ Taller Homologado</span>
+              <span id="dealer-badge-text" style="color: #16a34a; font-weight: 700;">Perfil profesional</span>
               <a id="dealer-website-link" href="#" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline;">
                 Ver su página y coches disponibles →
               </a>
@@ -646,7 +643,7 @@
     <div style="display: flex; align-items: baseline; gap: 12px;">
       <span id="sticky-price" style="font-size: 1.4rem; font-weight: 800; color: var(--cm-white);">-- €</span>
       <span id="sticky-monthly" style="font-size: 0.92rem; color: #a7f3d0; font-weight: 700;">--</span>
-      <span class="price-subtext" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">· 12M Garantía & DGT</span>
+      <span id="sticky-trust-note" class="price-subtext" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">· Información aportada por el vendedor</span>
     </div>
     <div style="display: flex; gap: 10px;">
       <button class="btn btn-red" style="padding: 10px 20px; font-size: 0.92rem; font-weight: 800;" onclick="openDirectWhatsApp()">
@@ -660,7 +657,7 @@
 
   <footer class="site-footer no-print">
     <div class="container" style="text-align: center;">
-      <p>&copy; 2026 CocheMotor (cochemotor.es). Todos los derechos reservados. Mecánica Verificada en 100 Puntos.</p>
+      <p>&copy; 2026 CocheMotor (cochemotor.es). Todos los derechos reservados. Solicita documentación antes de comprar.</p>
     </div>
   </footer>
 
@@ -719,24 +716,36 @@
 
       // Badges
       const badgeEl = document.getElementById('view-badge');
-      badgeEl.textContent = `DGT ${currentCar.badge}`;
-      badgeEl.className = `badge-dgt ${currentCar.badgeClass || 'badge-c'}`;
+      badgeEl.textContent = `DGT ${currentCar.badge} · indicado`;
+      badgeEl.title = 'Distintivo indicado en el anuncio; compruébalo en la web oficial de la DGT.';
+      badgeEl.setAttribute('aria-label', `Distintivo DGT ${currentCar.badge}, indicado en el anuncio y no verificado por CocheMotor`);
+      const safeBadgeClass = ['badge-b', 'badge-c', 'badge-eco', 'badge-zero'].includes(currentCar.badgeClass) ? currentCar.badgeClass : 'badge-c';
+      badgeEl.className = `badge-dgt ${safeBadgeClass}`;
 
       document.getElementById('view-km').textContent = `🛣️ ${currentCar.km}`;
       document.getElementById('view-year').textContent = `📅 Año ${currentCar.year}`;
       document.getElementById('view-fuel').textContent = `⛽ ${currentCar.fuel}`;
-      document.getElementById('view-gearbox').textContent = `🕹️ ${currentCar.gearbox || 'Manual'}`;
-      document.getElementById('view-power').textContent = `⚡ ${currentCar.power || '150 CV'}`;
-      document.getElementById('view-color').textContent = `🎨 ${currentCar.color || 'Metalizado'}`;
+      document.getElementById('view-gearbox').textContent = `🕹️ ${currentCar.gearbox || 'No indicado'}`;
+      document.getElementById('view-power').textContent = `⚡ ${currentCar.power || 'No indicada'}`;
+      document.getElementById('view-color').textContent = `🎨 ${currentCar.color || 'No indicado'}`;
 
       document.getElementById('view-title').textContent = `${currentCar.brand} ${currentCar.model}`;
       document.getElementById('view-version').textContent = currentCar.version;
       document.getElementById('view-price').textContent = `${currentCar.price.toLocaleString('es-ES')} €`;
       document.getElementById('sticky-price').textContent = `${currentCar.price.toLocaleString('es-ES')} €`;
+      if (currentCar.isDemo) {
+        document.getElementById('demo-listing-notice').hidden = false;
+        document.getElementById('active-actions').hidden = true;
+        document.getElementById('dealer-website-link').hidden = true;
+        document.getElementById('dgt-source-note').textContent = 'Datos ficticios de demostración: no describen un vehículo real ni han sido consultados en la DGT.';
+      }
 
       const monthlyText = currentCar.monthlyPrice || `Desde ${(Math.round(currentCar.price / 72 * 1.15))} €/mes`;
       document.getElementById('view-monthly').textContent = monthlyText;
       document.getElementById('sticky-monthly').textContent = monthlyText;
+      const warrantyLabel = document.getElementById('view-warranty');
+      warrantyLabel.hidden = !currentCar.warranty;
+      warrantyLabel.textContent = currentCar.warranty ? `Garantía indicada: ${currentCar.warranty}` : '';
 
       // Puntos destacados
       const highlightsUl = document.getElementById('view-highlights');
@@ -748,25 +757,20 @@
       });
 
       // Puntuación
-      const score = currentCar.inspectionScore || "98/100";
-      document.getElementById('view-inspection-score').textContent = `🛡️ ${score} Peritaje`;
-      document.getElementById('score-circle').textContent = score.split('/')[0];
+      const score = currentCar.inspectionScore || '';
+      const scoreLabel = document.getElementById('view-inspection-score');
+      scoreLabel.textContent = score ? `Revisión indicada: ${score}` : 'Revisión no indicada';
+      scoreLabel.title = 'Dato incluido en el anuncio; no es una certificación de CocheMotor.';
+      document.getElementById('score-circle').textContent = score ? score.split('/')[0] : '—';
 
-      // DGT Report
-      document.getElementById('view-vin').textContent = currentCar.vin || "WVWZZZAUZLW04****";
-      if (currentCar.dgtReport) {
-        document.getElementById('dgt-cargas').textContent = currentCar.dgtReport.cargas || "0 Cargas registrales";
-        document.getElementById('dgt-embargos').textContent = currentCar.dgtReport.embargos || "Libre de embargos";
-        document.getElementById('dgt-reserva').textContent = currentCar.dgtReport.reserva || "Sin reserva de dominio";
-        document.getElementById('dgt-itv').textContent = `ITV en vigor (${currentCar.itvDate || 'Al día'})`;
-      }
+      // No se muestran VIN ni estados registrales/ITV sin evidencia oficial verificable.
 
       // Inspección tab inicial (Motor)
       switchInspectTab('motor', document.querySelector('.inspection-tab-btn'));
 
       // Datos de Vendedor & Web propia
       if (currentDealer) {
-        document.getElementById('view-dealer').textContent = currentDealer.businessName || currentDealer.name;
+        document.getElementById('view-dealer').textContent = currentCar.isDemo ? 'Vendedor de demostración' : (currentDealer.businessName || currentDealer.name);
         document.getElementById('view-location').textContent = currentDealer.location || currentDealer.province;
         document.getElementById('dealer-avatar').textContent = currentDealer.avatar || "🚗";
         document.getElementById('dealer-website-link').href = `dealer.html?id=${currentDealer.id}`;
@@ -782,22 +786,16 @@
       if (btn) btn.classList.add('active');
 
       const contentBox = document.getElementById('inspection-content');
-      const details = currentCar.inspectionDetails || {};
-
-      switch(tab) {
-        case 'motor':
-          contentBox.innerHTML = `<strong>🔧 Motor & Diagnosis OBD:</strong><br>${details.motor || 'Compresión de cilindros correcta, turbo comprobado, diagnosis OBD sin errores DTC activos.'}`;
-          break;
-        case 'transmision':
-          contentBox.innerHTML = `<strong>⚙️ Caja de Cambios & Transmisión:</strong><br>${details.transmision || 'Embrague en vida útil óptima, sincronizadores suaves y fluido de transmisión revisado.'}`;
-          break;
-        case 'frenos':
-          contentBox.innerHTML = `<strong>🛑 Sistema de Frenado & Amortiguación:</strong><br>${details.frenos || 'Discos y pastillas por encima del 80% de vida, suspensión equilibrada sin holguras.'}`;
-          break;
-        case 'chasis':
-          contentBox.innerHTML = `<strong>🛡️ Carrocería & Estructura:</strong><br>${details.chasis || 'Sin daños estructurales en bancada ni largueros, comprobación de grosor de pintura en micras.'}`;
-          break;
-      }
+      const sections = {
+        motor: ['🔧 Motor & Diagnosis OBD', currentCar.isDemo ? '' : currentCar.inspectionDetails?.motor],
+        transmision: ['⚙️ Caja de Cambios & Transmisión', currentCar.isDemo ? '' : currentCar.inspectionDetails?.transmision],
+        frenos: ['🛑 Sistema de Frenado & Amortiguación', currentCar.isDemo ? '' : currentCar.inspectionDetails?.frenos],
+        chasis: ['🛡️ Carrocería & Estructura', currentCar.isDemo ? '' : currentCar.inspectionDetails?.chasis],
+      };
+      const [heading, detail] = sections[tab] || ['Revisión', ''];
+      const title = document.createElement('strong');
+      title.textContent = `${heading}:`;
+      contentBox.replaceChildren(title, document.createElement('br'), document.createTextNode(detail || 'El vendedor no ha indicado información para este apartado.'));
     }
 
     function initLoanCalc() {
@@ -911,16 +909,24 @@
         if (room) {
           const banner = document.createElement('div');
           banner.style.cssText = "background: #002D62; color: white; padding: 16px; border-radius: 8px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; border-left: 6px solid #00BFFF;";
-          banner.innerHTML = `
-            <div>
-              <div style="font-size: 0.75rem; text-transform: uppercase; color: #00BFFF; font-weight: 800;">EXPEDIENTE DIGITAL DE COMPRAVENTA ACTIVO</div>
-              <div style="font-size: 1.1rem; font-weight: 800;">Hola ${room.buyerName}, estás en tu Deal Room privada para este ${room.vehicleTitle}.</div>
-              <div style="font-size: 0.85rem; color: #cbd5e1;">Precio pactado: ${room.agreedPrice.toLocaleString('es-ES')} € · Señal: ${room.depositAmount} € (${room.depositStatus}) · 12 Meses de Garantía</div>
-            </div>
-            <button class="btn btn-red" style="padding: 8px 16px; font-weight: 800;" onclick="previewContractDGT('${room.id}')">
-              📄 Ver Contrato DGT
-            </button>
-          `;
+          const summary = document.createElement('div');
+          const label = document.createElement('div');
+          label.style.cssText = 'font-size: 0.75rem; text-transform: uppercase; color: #00BFFF; font-weight: 800;';
+          label.textContent = 'EXPEDIENTE DIGITAL DE COMPRAVENTA';
+          const greeting = document.createElement('div');
+          greeting.style.cssText = 'font-size: 1.1rem; font-weight: 800;';
+          greeting.textContent = `Hola ${room.buyerName || 'cliente'}, estás en tu Deal Room para ${room.vehicleTitle || 'el vehículo indicado'}.`;
+          const dealDetails = document.createElement('div');
+          dealDetails.style.cssText = 'font-size: 0.85rem; color: #cbd5e1;';
+          dealDetails.textContent = `Precio pactado: ${Number(room.agreedPrice || 0).toLocaleString('es-ES')} € · Señal: ${room.depositAmount || 0} € (${room.depositStatus || 'pendiente'})`;
+          summary.append(label, greeting, dealDetails);
+          const contractButton = document.createElement('button');
+          contractButton.type = 'button';
+          contractButton.className = 'btn btn-red';
+          contractButton.style.cssText = 'padding: 8px 16px; font-weight: 800;';
+          contractButton.textContent = '📄 Ver contrato de ejemplo';
+          contractButton.addEventListener('click', () => previewContractDGT(room.id));
+          banner.append(summary, contractButton);
           const main = document.querySelector('main');
           if (main) main.insertBefore(banner, main.firstChild);
         }
@@ -930,6 +936,8 @@
     function previewContractDGT(roomId) {
       const room = CocheMotorStorage.getDealRooms('all').find(r => r.id === roomId);
       if (!room) return;
+
+      const safeText = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 
       const printWindow = window.open('', '_blank', 'width=850,height=950');
       if (!printWindow) {
@@ -942,7 +950,7 @@
         <html lang="es">
         <head>
           <meta charset="UTF-8">
-          <title>Contrato Mercantil de Compraventa — ${room.id}</title>
+          <title>Contrato de ejemplo — ${safeText(room.id)}</title>
   <link rel="icon" href="assets/brand/favicons/favicon.ico?v=10.0" sizes="any"><link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicons/favicon-16x16.png?v=10.0"><link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicons/favicon-32x32.png?v=10.0"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-light.png?v=10.0" media="(prefers-color-scheme: light)"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-dark.png?v=10.0" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" sizes="180x180" href="assets/brand/icons/apple-touch-icon.png?v=10.0"><link rel="manifest" href="site.webmanifest?v=10.0">
           <style>
             body { font-family: 'Segoe UI', Arial, sans-serif; padding: 40px; color: #1e293b; line-height: 1.6; font-size: 13px; }
@@ -973,8 +981,8 @@
               <div style="font-size: 11px; color: #64748b;">Conforme a las pautas de la DGT (dgt.es) y Real Decreto Legislativo 1/2007 (Ley de Consumidores)</div>
             </div>
             <div style="text-align: right; font-weight: bold; color: #002D62;">
-              EXPEDIENTE: ${room.id}<br>
-              <span style="font-size: 11px; font-weight: normal; color: #64748b;">Fecha: ${room.createdAt}</span>
+              EXPEDIENTE: ${safeText(room.id)}<br>
+              <span style="font-size: 11px; font-weight: normal; color: #64748b;">Fecha: ${safeText(room.createdAt)}</span>
             </div>
           </div>
 
@@ -982,31 +990,31 @@
           <div class="parties-grid">
             <div class="party-card">
               <strong style="color: #002D62;">DE UNA PARTE (VENDEDOR PROFESIONAL):</strong><br>
-              Razón Social: <strong>${room.sellerName}</strong><br>
+              Razón Social: <strong>${safeText(room.sellerName)}</strong><br>
               Actividad: Venta de Vehículos de Ocasión / Taller Mecánico<br>
               Régimen Fiscal: REBU (Régimen Especial Bienes Usados)
             </div>
             <div class="party-card">
               <strong style="color: #002D62;">DE OTRA PARTE (COMPRADOR PARTICULAR):</strong><br>
-              Nombre: <strong>${room.buyerName}</strong><br>
-              Teléfono: ${room.buyerPhone}<br>
-              Email: ${room.buyerEmail || 'Declarado en expediente'}
+              Nombre: <strong>${safeText(room.buyerName)}</strong><br>
+              Teléfono: ${safeText(room.buyerPhone)}<br>
+              Email: ${safeText(room.buyerEmail || 'Declarado en expediente')}
             </div>
           </div>
 
           <div class="section-title">2. OBJETO DE LA TRANSMISIÓN</div>
           <p class="clause">
-            El vendedor transmite al comprador la propiedad del vehículo de ocasión: <strong>${room.vehicleTitle}</strong>, con informe telemático DGT favorable y sin cargas registrales ni reservas de dominio anotadas.
+            El vendedor transmite al comprador la propiedad del vehículo de ocasión: <strong>${safeText(room.vehicleTitle)}</strong>. La situación administrativa y registral debe comprobarse mediante un informe reciente de la DGT antes de formalizar la operación. Este documento de ejemplo no acredita por sí mismo cargas, titularidad ni estado del vehículo.
           </p>
 
           <div class="section-title">3. PRECIO Y FORMA DE PAGO</div>
           <p class="clause">
-            El precio pactado asciende a la cantidad de <strong>${(room.agreedPrice || 0).toLocaleString('es-ES')} EUROS</strong>, habiéndose entregado en concepto de señal/reserva la suma de <strong>${room.depositAmount} EUROS</strong> (${room.depositStatus}), abonándose el resto mediante ${room.paymentMethod}.
+            El precio pactado asciende a la cantidad de <strong>${Number(room.agreedPrice || 0).toLocaleString('es-ES')} EUROS</strong>, habiéndose entregado en concepto de señal/reserva la suma de <strong>${Number(room.depositAmount || 0).toLocaleString('es-ES')} EUROS</strong> (${safeText(room.depositStatus)}) y el resto mediante ${safeText(room.paymentMethod)}.
           </p>
 
           <div class="section-title">4. GARANTÍA LEGAL Y ESTADO MECÁNICO</div>
           <p class="clause">
-            Conforme al Real Decreto Legislativo 1/2007, el vehículo cuenta con <strong>${room.warrantyMonths} MESES DE GARANTÍA LEGAL EUROPEA</strong> frente a defectos de no conformidad no imputables a desgaste ordinario o mal uso. Se adjunta copia de la diagnosis OBD y el certificado de 100 puntos en elevador de CocheMotor.
+            La garantía aplicable, su duración y la documentación de revisión que, en su caso, se adjunte deberán identificarse expresamente en la documentación final de la operación.
           </p>
 
           <div class="section-title">5. TRÁMITES DE TRANSFERENCIA DGT</div>
@@ -1017,11 +1025,11 @@
           <div class="signature-box">
             <div>
               EL VENDEDOR
-              <div class="signature-line">${room.sellerName}</div>
+              <div class="signature-line">${safeText(room.sellerName)}</div>
             </div>
             <div>
               EL COMPRADOR
-              <div class="signature-line">${room.buyerName}</div>
+              <div class="signature-line">${safeText(room.buyerName)}</div>
             </div>
           </div>
         </body>

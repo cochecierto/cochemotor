@@ -47,6 +47,7 @@
 
 ## Conocimiento de fuentes
 
+- [Revisión de fuentes oficiales DGT y datos de vehículos](knowledge/DGT-DATA-REVIEW-2026-09-13.md)
 - [Registro de la fuente compartida](knowledge/SOURCE-CHAT-2026-08-27.md)
 - [Auditoría de la web publicada](knowledge/PUBLISHED-WEB-AUDIT-2026-09-10.md)
 - [Auditoría del repositorio broker](knowledge/BROKER-REPOSITORY-AUDIT-2026-09-10.md)
@@ -64,3 +65,4 @@
 - [Plan Spec 001 — Dealer Digital Automoción](../specs/001-dealer-digital-automocion/plan.md)
 - [Validación Spec 001 — Dealer Digital Automoción](../specs/001-dealer-digital-automocion/validation.md)
 - [Spec 001 — Histórico inmobiliario](../specs/001-broker-digital-inmobiliario/spec.md)
+- [Spec 005 — Referencias DGT y trazabilidad del catálogo](../specs/005-dgt-reference-and-catalogue/spec.md)

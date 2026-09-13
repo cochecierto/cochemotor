@@ -257,10 +257,7 @@ async function handleCreateVehicle(event) {
   const highlights = highlightsText 
     ? highlightsText.split('\n').map(h => h.trim()).filter(Boolean)
     : [
-        "Revisión mecánica en 100 puntos",
-        "Diagnosis electrónica OBD sin fallos en centralita",
-        "Informe telemático DGT sin cargas ni reservas de dominio",
-        "Garantía legal de 12 meses incluida en contrato"
+        "Consulta al vendedor por el estado y la documentación del vehículo"
       ];
 
   const activeUser = CocheMotorStorage.getActiveUser();
@@ -299,10 +296,10 @@ async function handleCreateVehicle(event) {
     municipalityId: municipalitySelect?.value || '',
     image: finalImg,
     images: vehicleImages.length ? vehicleImages : [finalImg],
-    inspectionScore: "98/100",
-    itvDate: "En vigor 2026",
-    warranty: "12 Meses Legal",
-    dgtStatus: "Informe Limpio (Sin Cargas)",
+    inspectionScore: "",
+    itvDate: "",
+    warranty: "",
+    dgtStatus: "No consultado",
     highlights,
     stage: stage,
     evidenceLevel: evidenceLevel,
@@ -513,12 +510,11 @@ function generateVehicleCopy() {
     text = `🚗 ${v.brand.toUpperCase()} ${v.model.toUpperCase()} — ${v.version} (${v.year})
 📍 ${v.km} | ${v.fuel} | ${v.gearbox} | Distintivo DGT: ${v.badge}
 
-✅ CERTIFICACIÓN MECÁNICA COCHEMOTOR (100 Puntos Periciales):
-- Revisión en elevador: Compresión, amortiguadores, frenos y estado de neumáticos superados (${v.inspectionScore || '98/100'}).
-- Diagnosis electrónica OBD: Centralita limpia sin códigos de avería.
-- Informe oficial DGT: ${v.dgtStatus}. Libre de embargos y cargas.
-- ITV al día: ${v.itvDate || 'En vigor'}.
-- Garantía mecánica legal: ${v.warranty || '12 Meses Europea incluida en contrato'}.
+ℹ️ INFORMACIÓN DEL VEHÍCULO:
+- Revisión mecánica: ${v.inspectionScore || 'No indicada en el anuncio'}.
+- Informe DGT: ${v.dgtStatus || 'No consultado'}; solicita y revisa el informe oficial antes de comprar.
+- ITV: ${v.itvDate || 'No indicada en el anuncio'}.
+- Garantía: ${v.warranty || 'Consulta las condiciones con el vendedor'}.
 
 🔧 PUNTOS DESTACADOS:
 ${(v.highlights || []).map(h => `• ${h}`).join('\n')}
@@ -536,11 +532,11 @@ ${publicFichaUrl}
     text = `Hola! Te comparto los detalles del ${v.brand} ${v.model} (${v.version}) que tenemos listo para entrega en campa:
 
 • Año: ${v.year} | Kilómetros: ${v.km}
-• Distintivo DGT: Etiqueta ${v.badge} (Apto Zonas Bajas Emisiones)
+• Distintivo ambiental indicado: ${v.badge} (comprueba la clasificación y las restricciones aplicables en la web oficial de la DGT)
 • Precio al contado: ${v.price.toLocaleString('es-ES')} € (o desde ${v.monthlyPrice})
-• Garantía: ${v.warranty || '12 Meses completa'}
+• Garantía indicada: ${v.warranty || 'No especificada; consulta las condiciones al vendedor'}
 
-El coche pasó 100 puntos de control mecánico y la diagnosis electrónica de motor sin fallos.
+La información sobre revisiones, ITV e informe DGT debe confirmarse con el vendedor y documentación oficial vigente.
 
 Puedes ver la ficha técnica interactiva y las fotos detalladas aquí:
 ${publicFichaUrl}
@@ -558,9 +554,9 @@ DISTINTIVO AMBIENTAL: DGT ${v.badge}
 COMBUSTIBLE: ${v.fuel} | TRANSMISIÓN: ${v.gearbox}
 
 AUDITORÍA DE ESTADO:
-- Puntuación pericial de taller: ${v.inspectionScore || '98/100'}
-- Trazabilidad DGT: Telemáticamente verificado (Sin cargas)
-- Cobertura legal: 12 Meses según Ley Consumidores y Usuarios
+- Revisión mecánica: ${v.inspectionScore || 'No indicada en el anuncio'}
+- Informe DGT: ${v.dgtStatus || 'No consultado; compruébalo en fuente oficial'}
+- ITV: ${v.itvDate || 'No indicada en el anuncio'}
 
 PRECIO DE VENTA: ${v.price.toLocaleString('es-ES')} €
 URL OFICIAL COMPARTIBLE: ${publicFichaUrl}`;
@@ -574,11 +570,11 @@ VOZ EN OFF: "Si estás buscando un ${v.brand} ${v.model} que no te deje tirado a
 
 [0:04 - 0:15] VALOR Y RIGOR TÉCNICO:
 (Plano del coche en elevador y mostrando los neumáticos nuevos).
-VOZ EN OFF: "Acaba de entrar esta unidad del ${v.year}. Tiene ${v.km} certificados, etiqueta DGT ${v.badge} para entrar al centro sin multas y diagnosis OBD limpia en centralita."
+VOZ EN OFF: "Esta unidad es del ${v.year}. Los datos del anuncio los facilita el vendedor; consulta el distintivo y las condiciones de circulación en fuentes oficiales."
 
 [0:16 - 0:25] PRECIO Y GARANTÍA:
 (Plano del interior impecable y pantalla multimedia).
-VOZ EN OFF: "Se entrega con 1 año de garantía mecánica legal por escrito y transferencia incluida por ${v.price.toLocaleString('es-ES')} € o desde ${v.monthlyPrice}."
+VOZ EN OFF: "Pregunta por la documentación disponible y las condiciones de garantía por escrito. Precio anunciado: ${v.price.toLocaleString('es-ES')} €."
 
 [0:26 - 0:30] LLAMADA A LA ACCIÓN:
 (Muestra el cartel de parabrisas con QR).
@@ -626,14 +622,14 @@ function renderCopilotCards() {
     if (days <= 3 && clicks === 0 && leads === 0) {
       cardClass = 'alert-72h';
       alertBadge = '<span style="color: #b45309; font-weight: 800;">🟡 Alerta 72h Sin Clics</span>';
-      actionTip = '<strong>Acción recomendada:</strong> Cambia la foto principal por una toma frontal exterior con luz natural y añade en el título de Wallapop "Etiqueta ' + v.badge + ' + Garantía 1 Año".';
+      actionTip = '<strong>Acción recomendada:</strong> Cambia la foto principal por una toma frontal exterior con luz natural y usa un título claro con el distintivo indicado' + (v.warranty ? ' y la garantía indicada: ' + v.warranty : '') + '.';
     } else if (days >= 30) {
       cardClass = 'alert-30d';
       alertBadge = '<span style="color: #b91c1c; font-weight: 800;">🔴 Alerta Crítica (+30 Días)</span>';
       if (delta > 5) {
         actionTip = `<strong>Próximo paso:</strong> El precio está un <strong>${delta}% por encima</strong> de coches similares en tu provincia. Puedes probar con <strong>${Math.round(marketPrice).toLocaleString('es-ES')} €</strong> y revisar la respuesta de los compradores.`;
       } else {
-        actionTip = '<strong>Acción de choque:</strong> El precio está en rango pero falta interés. Graba un vídeo corto de prueba dinámica para Reels/TikTok y ofrece 1 año de mantenimiento gratuito.';
+        actionTip = '<strong>Acción recomendada:</strong> El precio está en rango pero falta interés. Mejora las fotos y añade información verificable sobre estado, mantenimiento y documentación disponible.';
       }
     }
 
@@ -773,8 +769,8 @@ function copyFinancialQuote() {
 • Precio del coche: ${Number(price).toLocaleString('es-ES')} €
 • Entrada: ${Number(downpayment).toLocaleString('es-ES')} €
 • Plazo: ${months} cuotas
-• Cuota estimada: ${monthly} (Garantía legal de 1 año y transferencia incluidas).
-¿Te preparo la simulación formal con tu DNI y última nómina?`;
+• Cuota orientativa: ${monthly} (simulación no vinculante; gastos, garantía y transferencia no incluidos salvo indicación expresa).
+Para una oferta formal, solicita condiciones directamente a la entidad financiera. No compartas DNI ni nóminas por este mensaje.`;
 
   navigator.clipboard.writeText(msg).then(() => {
     alert("📋 ¡Propuesta de financiación copiada para WhatsApp!");
@@ -797,7 +793,7 @@ function renderWindshieldCard() {
   document.getElementById('qr-card-year').innerText = v.year;
   document.getElementById('qr-card-km').innerText = v.km;
   document.getElementById('qr-card-fuel').innerText = v.fuel;
-  document.getElementById('qr-card-warranty').innerText = v.warranty || '12 Meses';
+  document.getElementById('qr-card-warranty').innerText = v.warranty || 'Consultar condiciones';
   document.getElementById('qr-card-price').innerText = `${v.price.toLocaleString('es-ES')} €`;
 
   const badgeEl = document.getElementById('qr-card-badge');
@@ -955,16 +951,16 @@ function handleCreateDealRoom(event) {
     sellerName: activeUser.businessName || activeUser.name,
     buyerName,
     buyerPhone,
-    buyerEmail: `${buyerName.toLowerCase().replace(/\s+/g, '.')}@gmail.com`,
+    buyerEmail: '',
     agreedPrice,
     depositAmount: deposit,
-    depositStatus: "Confirmada (Señal telemática)",
+    depositStatus: "Pendiente de confirmación fuera de la plataforma",
     paymentMethod: "Al contado contra entrega y contrato",
     status: "contrato_preparado",
     contractType: "Profesional a Particular (Conforme a DGT & Ley Consumidores)",
-    warrantyMonths: 12,
-    warrantyType: "Garantía Mecánica Europea 1 Año",
-    dgtStatus: "Informe Favorable Telemático Sin Cargas",
+    warrantyMonths: null,
+    warrantyType: "Consultar condiciones documentadas con el vendedor",
+    dgtStatus: "No consultado; pendiente de comprobación en informe oficial",
   });
 
   // Mover el vehículo en el pipeline a "reservado"
@@ -1143,17 +1139,17 @@ function previewContractDGT(roomId) {
 
       <div class="section-title">2. OBJETO DE LA TRANSMISIÓN</div>
       <p class="clause">
-        El vendedor transmite al comprador la propiedad del vehículo de ocasión: <strong>${room.vehicleTitle}</strong>, con informe telemático DGT favorable y sin cargas registrales ni reservas de dominio anotadas.
+        El vendedor transmite al comprador la propiedad del vehículo de ocasión: <strong>${room.vehicleTitle}</strong>. La situación registral, titularidad, ITV y demás datos deben comprobarse mediante documentación oficial actualizada antes de formalizar la transmisión.
       </p>
 
       <div class="section-title">3. PRECIO Y FORMA DE PAGO</div>
       <p class="clause">
-        El precio pactado asciende a la cantidad de <strong>${(room.agreedPrice || 0).toLocaleString('es-ES')} EUROS</strong>, habiéndose entregado en concepto de señal/reserva la suma de <strong>${room.depositAmount} EUROS</strong> (${room.depositStatus}), abonándose el resto mediante ${room.paymentMethod}.
+        El precio pactado asciende a <strong>${(room.agreedPrice || 0).toLocaleString('es-ES')} EUROS</strong>. El importe, pago y estado de cualquier señal/reserva, así como el medio de pago del resto, deberán reflejarse con su justificante y confirmación por las partes. Estado indicado en este expediente: ${room.depositStatus}.
       </p>
 
       <div class="section-title">4. GARANTÍA LEGAL Y ESTADO MECÁNICO</div>
       <p class="clause">
-        Conforme al Real Decreto Legislativo 1/2007, el vehículo cuenta con <strong>${room.warrantyMonths} MESES DE GARANTÍA LEGAL EUROPEA</strong> frente a defectos de no conformidad no imputables a desgaste ordinario o mal uso. Se adjunta copia de la diagnosis OBD y el certificado de 100 puntos en elevador de CocheMotor.
+        Las condiciones de garantía aplicables deberán constar expresamente en la documentación firmada. Adjunta únicamente informes de diagnosis o revisión que hayan sido realizados y estén disponibles para las partes.
       </p>
 
       <div class="section-title">5. TRÁMITES DE TRANSFERENCIA DGT</div>
@@ -1233,21 +1229,19 @@ function generateSocialCopy() {
 ⛽ Motor: ${car.fuel} · ${car.gearbox || 'Manual'}
 🏷️ Distintivo ambiental DGT: Etiqueta ${car.badge}
 
-✅ 100 PUNTOS DE CONTROL MECÁNICO EN ELEVADOR
-✅ DIAGNOSIS TELEMÁTICA OBD SIN FALLOS (0 DTC)
-✅ INFORME DGT LIMPIO (Sin cargas ni embargos)
-✅ 1 AÑO DE GARANTÍA LEGAL EUROPEA INCLUIDA
+ℹ️ La información del anuncio es facilitada por el vendedor.
+ℹ️ Comprueba el informe DGT, la ITV y las condiciones de garantía antes de comprar.
 
 💶 PRECIO PROFESIONAL: ${car.price.toLocaleString('es-ES')} € (Financiación desde ${car.monthlyPrice || 'consultar'})
 📍 Ubicación: ${activeUser.businessName} (${car.location || activeUser.location})
 
-📲 Consulta la ficha completa con fotos HD y peritaje pericial:
+📲 Consulta la ficha completa y pregunta al vendedor por la documentación disponible:
 👉 ${url}`;
   } else if (currentSocialChannel === 'instagram') {
     output.value = 
-`🔥 ${car.brand} ${car.model} ${car.year} | Mecánica Certificada en 100 Puntos 🔥
+`🚗 ${car.brand} ${car.model} ${car.year}
 
-Buscando unidad impecable? Este ${car.model} cuenta con diagnosis OBD limpia, etiqueta DGT ${car.badge} y 12 meses de garantía europea.
+Consulta al vendedor el estado, la documentación y las condiciones de garantía de esta unidad. Distintivo ambiental indicado: ${car.badge}.
 
 💶 ${car.price.toLocaleString('es-ES')} €
 📍 ${activeUser.location}
@@ -1258,7 +1252,7 @@ Buscando unidad impecable? Este ${car.model} cuenta con diagnosis OBD limpia, et
     output.value = 
 `🚗 *${car.brand} ${car.model} (${car.year})*
 🛣️ ${car.km} · Etiqueta DGT ${car.badge}
-✅ 100 Puntos de peritaje · 12M Garantía
+ℹ️ Revisión, ITV e informe DGT: consulta la información disponible al vendedor.
 💶 *${car.price.toLocaleString('es-ES')} €*
 
 Ver ficha y vídeo de motor en elevador:

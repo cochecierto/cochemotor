@@ -27,3 +27,7 @@ validación aporta evidencia requisito por requisito.
 - No se cambia el alcance aprobado sin actualizar primero la spec y registrar
   la decisión correspondiente.
 - Las plantillas están en `specs/_template/`.
+
+## CocheMotor
+
+- [Spec 005 — Referencias DGT y trazabilidad del catálogo](005-dgt-reference-and-catalogue/spec.md)
