@@ -19,7 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
   initDealRoomDropdowns();
   renderDealRoomsList();
   loadDealerWebSettings();
+  initVehiclePhotoGuide();
 });
+
+const MAX_VEHICLE_IMAGES = 10;
+
+function initVehiclePhotoGuide() {
+  const input = document.getElementById('up-image-file');
+  const count = document.getElementById('up-image-count');
+  if (!input || !count) return;
+  input.addEventListener('change', () => {
+    const selected = Array.from(input.files || []);
+    if (selected.length > MAX_VEHICLE_IMAGES) {
+      input.value = '';
+      count.textContent = `Has seleccionado demasiadas fotos. El máximo es ${MAX_VEHICLE_IMAGES}.`;
+      count.style.color = 'var(--cm-red)';
+      return;
+    }
+    count.textContent = `${selected.length}/${MAX_VEHICLE_IMAGES} fotos seleccionadas. La primera será la portada.`;
+    count.style.color = 'var(--cm-text-secondary)';
+  });
+}
 
 async function logoutLocalSession() {
   const session = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
@@ -205,7 +225,11 @@ async function handleCreateVehicle(event) {
   const price = parseFloat(document.getElementById('up-price').value);
   const cost = parseFloat(document.getElementById('up-cost').value) || (price * 0.82);
   const customImg = document.getElementById('up-image-url').value.trim();
-  const imageFile = document.getElementById('up-image-file')?.files?.[0];
+  const imageFiles = Array.from(document.getElementById('up-image-file')?.files || []);
+  if (imageFiles.length > MAX_VEHICLE_IMAGES) {
+    alert(`Un anuncio puede tener como máximo ${MAX_VEHICLE_IMAGES} fotos.`);
+    return;
+  }
   const highlightsText = document.getElementById('up-highlights').value.trim();
   const communitySelect = document.getElementById('up-community');
   const provinceSelect = document.getElementById('up-province');
@@ -219,8 +243,12 @@ async function handleCreateVehicle(event) {
     "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
   ];
   let finalImg = customImg || demoImages[Math.floor(Math.random() * demoImages.length)];
+  let vehicleImages = customImg ? [customImg] : [];
   try {
-    if (imageFile) finalImg = await compressVehicleImage(imageFile);
+    if (imageFiles.length) {
+      vehicleImages = await Promise.all(imageFiles.map(compressVehicleImage));
+      finalImg = vehicleImages[0];
+    }
   } catch (error) {
     alert(error.message);
     return;
@@ -229,7 +257,7 @@ async function handleCreateVehicle(event) {
   const highlights = highlightsText 
     ? highlightsText.split('\n').map(h => h.trim()).filter(Boolean)
     : [
-        "Revisión completa de 100 puntos en taller homologado",
+        "Revisión mecánica en 100 puntos",
         "Diagnosis electrónica OBD sin fallos en centralita",
         "Informe telemático DGT sin cargas ni reservas de dominio",
         "Garantía legal de 12 meses incluida en contrato"
@@ -270,6 +298,7 @@ async function handleCreateVehicle(event) {
     municipality: municipalitySelect?.selectedOptions[0]?.textContent || activeUser.location,
     municipalityId: municipalitySelect?.value || '',
     image: finalImg,
+    images: vehicleImages.length ? vehicleImages : [finalImg],
     inspectionScore: "98/100",
     itvDate: "En vigor 2026",
     warranty: "12 Meses Legal",
@@ -360,8 +389,8 @@ function renderPipelineBoard() {
               <div class="pipeline-card-price">${car.price.toLocaleString('es-ES')} €</div>
               
               <div class="pipeline-card-meta">
-                <span>⏱️ ${car.daysInStock || 0} d en campa</span>
-                <span>🔥 ${car.leadsCount || 0} leads</span>
+        <span>⏱️ ${car.daysInStock || 0} días publicado</span>
+        <span>🔥 ${car.leadsCount || 0} contactos</span>
               </div>
 
               ${car.daysInStock <= 3 && (!car.clicksCount && !car.leadsCount) ? `
@@ -409,7 +438,7 @@ function renderLeadsTable() {
 
   const leads = CocheMotorStorage.getLeads();
   if (!leads.length) {
-    tableEl.innerHTML = '<p style="color: var(--cm-text-secondary); font-size: 0.9rem; padding: 12px 0;">No tienes leads recibidos en tus coches por el momento.</p>';
+      tableEl.innerHTML = '<p style="color: var(--cm-text-secondary); font-size: 0.9rem; padding: 12px 0;">Todavía no has recibido consultas sobre tus coches.</p>';
     return;
   }
 
@@ -592,7 +621,7 @@ function renderCopilotCards() {
 
     let cardClass = 'healthy';
     let alertBadge = '<span style="color: var(--badge-eco-bg); font-weight: 800;">🟢 Ritmo Saludable</span>';
-    let actionTip = 'Rotación adecuada. Continúa respondiendo a los leads entrantes por WhatsApp.';
+    let actionTip = 'La respuesta es buena. Sigue atendiendo las consultas por WhatsApp.';
 
     if (days <= 3 && clicks === 0 && leads === 0) {
       cardClass = 'alert-72h';
@@ -602,7 +631,7 @@ function renderCopilotCards() {
       cardClass = 'alert-30d';
       alertBadge = '<span style="color: #b91c1c; font-weight: 800;">🔴 Alerta Crítica (+30 Días)</span>';
       if (delta > 5) {
-        actionTip = `<strong>Acción de choque:</strong> El precio está un <strong>${delta}% por encima</strong> de vehículos similares en tu provincia. Ajustar a <strong>${Math.round(marketPrice).toLocaleString('es-ES')} €</strong> y publicar oferta de fin de semana para desbloquear campa.`;
+        actionTip = `<strong>Próximo paso:</strong> El precio está un <strong>${delta}% por encima</strong> de coches similares en tu provincia. Puedes probar con <strong>${Math.round(marketPrice).toLocaleString('es-ES')} €</strong> y revisar la respuesta de los compradores.`;
       } else {
         actionTip = '<strong>Acción de choque:</strong> El precio está en rango pero falta interés. Graba un vídeo corto de prueba dinámica para Reels/TikTok y ofrece 1 año de mantenimiento gratuito.';
       }

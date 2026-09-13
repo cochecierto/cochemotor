@@ -180,7 +180,7 @@ function renderStockGrid(vehicles) {
   }
 
   grid.innerHTML = vehicles.map(function(v) {
-    var waMsg = 'Hola! He visto en CocheMotor el ' + v.brand + ' ' + v.model + ' (' + v.version + ') por ' + v.price.toLocaleString('es-ES') + ' € y me gustaría consultar la ficha de peritaje y cita para probarlo.';
+    var waMsg = 'Hola. He visto en CocheMotor el ' + v.brand + ' ' + v.model + ' (' + v.version + ') por ' + v.price.toLocaleString('es-ES') + ' €. Me gustaría consultar la revisión y saber cómo puedo probarlo.';
     var waUrl = 'https://wa.me/' + (v.sellerPhone || siteConfig.brand.contactWhatsapp) + '?text=' + encodeURIComponent(waMsg);
     var isSold = v.status === 'vendido';
     var isReserved = v.status === 'reservado';
@@ -396,7 +396,7 @@ function openVehicleModal(vehicleId) {
       '<div style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-top: 4px;">Próxima ITV: ' + v.itvDate + '</div>' +
     '</div>' +
   '</div>' +
-  '<h4 class="modal-section-title">Puntos Clave del Peritaje Mecánico en Taller</h4>' +
+  '<h4 class="modal-section-title">Lo más importante de la revisión mecánica</h4>' +
   '<div class="modal-highlights-grid">' +
     v.highlights.map(function(h) { return '<div class="highlight-tag">' + h + '</div>'; }).join('') +
   '</div>' +

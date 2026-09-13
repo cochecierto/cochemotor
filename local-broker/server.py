@@ -231,6 +231,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 if not user or not user["verified"] or not all(vehicle.get(key) not in (None, "") for key in ("id", "brand", "model", "year", "price")):
                     self._json_response(401, {"ok": False, "error": "Sesión o vehículo no válidos"})
                     return
+                images = vehicle.get("images", [])
+                if not isinstance(images, list) or len(images) > 10:
+                    self._json_response(400, {"ok": False, "error": "Un anuncio puede tener como máximo 10 imágenes."})
+                    return
                 tenant_id = user["user_id"]
                 save_dealership(conn, tenant_id, user["name"], tenant_id, user.get("phone") or "")
                 save_vehicle_record(conn, {"vehicle_id": vehicle["id"], "tenant_id": tenant_id, "brand": vehicle["brand"], "model": vehicle["model"], "version": vehicle.get("version", ""), "year": int(vehicle["year"]), "mileage_km": int(str(vehicle.get("km", "0")).replace(".", "").replace(" km", "") or 0), "cash_price": float(vehicle["price"]), "dgt_badge": vehicle.get("badge", ""), "stage": vehicle.get("stage", "publicado"), "evidence_level": vehicle.get("evidenceLevel", "declarado"), "status": vehicle.get("status", "disponible"), "public_slug": vehicle["id"], "metadata": vehicle})

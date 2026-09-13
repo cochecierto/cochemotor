@@ -151,12 +151,12 @@ const siteConfig = {
 
   chapters: {
     chapter1_hero: {
-      eyebrow: "MARKETPLACE & HUB PROFESIONAL DE AUTOMOCIÓN",
-      headline: ["Confianza para decidir.", "Compra claro. Vende mejor."],
-      subhead: "Vehículos de ocasión, profesionales identificados y herramientas para decidir con información clara.",
-      ctaLabel: "Explorar vehículos",
+      eyebrow: "COCHES DE OCASIÓN Y HERRAMIENTAS PARA PROFESIONALES",
+      headline: ["Compra o vende coches de ocasión", "con más información y confianza."],
+      subhead: "Encuentra coches revisados y consulta su información antes de decidir. Si eres profesional, publica tu inventario, organiza tus contactos y vende con menos trabajo.",
+      ctaLabel: "Ver coches disponibles",
       ctaTarget: "marketplace.html",
-      ctaHubLabel: "Acceder al Hub Profesional",
+      ctaHubLabel: "Probar el panel gratis 30 días",
       ctaHubTarget: "hub.html",
       stats: [
         { value: "100 Puntos", label: "Control mecánico verificado" },
@@ -167,52 +167,52 @@ const siteConfig = {
 
     chapter2_manifesto: {
       number: "CAPÍTULO 01",
-      title: "La Verdad sobre Comprar y Vender Coche Usado en España",
+      title: "Comprar y vender un coche de ocasión debería ser más sencillo",
       paragraphs: [
-        "Comprar un vehículo de segunda mano en portales tradicionales se ha convertido en una ruleta rusa: cuentakilómetros manipulados, cajas de cambio al límite y embargos sorpresa en la DGT.",
-        "Para los talleres mecánicos y pequeños compraventas, la situación no es mejor: horas perdidas respondiendo a 'mareantes' y curiosos en portales saturados, costes abusivos por anuncio y desconfianza del comprador particular.",
-        "CocheMotor nace con un doble propósito innegociable: desterrar la desconfianza del comprador con mecánica certificada en 100 puntos y dotar al profesional independiente de una suite tecnológica de primer nivel.",
+        "Comprar un coche usado es más fácil cuando puedes consultar su información antes de contactar con el vendedor.",
+        "Los profesionales también necesitan herramientas sencillas para publicar sus coches, organizar consultas y hacer seguimiento sin perder tiempo.",
+        "CocheMotor reúne anuncios, revisiones e información administrativa en un mismo lugar. Cada anuncio muestra las comprobaciones y condiciones que corresponden a ese coche.",
       ],
-      quote: "Si un coche no supera la diagnosis OBD de motor o tiene cargas registrales, jamás entra en CocheMotor.",
+      quote: "Consulta la información disponible y pregunta al vendedor antes de decidir.",
     },
 
     chapter3_engineering: {
       number: "CAPÍTULO 02",
-      title: "Ingeniería de Taller al Servicio del Comprador",
+      title: "Revisión mecánica explicada paso a paso",
       subtitle: "Diagnosis por ordenador OBD, inspección en elevador de 100 puntos y prueba dinámica en carretera.",
     },
 
     chapter4_pillars: {
       number: "CAPÍTULO 03",
-      title: "Cómo funciona del Sello CocheMotor",
+      title: "Qué comprobamos antes de publicar un coche",
       pillars: [
         {
-          code: "01 / PERITAJE",
-          title: "100 Puntos de Control Mecánico",
-          description: "Revisión exhaustiva de compresión de cilindros, turbo, embrague, discos de freno, amortiguadores y lectura de kilometraje real en centralita (ECU).",
+          code: "01 / REVISIÓN",
+          title: "Revisión mecánica en 100 puntos",
+          description: "Consulta los aspectos revisados en cada anuncio y pide al vendedor cualquier detalle adicional que necesites.",
         },
         {
           code: "02 / DGT",
-          title: "Trazabilidad Telemática DGT",
-          description: "Informe oficial de la DGT emitido para cada coche: ausencia de embargos, precintos, reserva de dominio bancaria y verificación de ITV en vigor.",
+          title: "Informe de la DGT y situación administrativa",
+          description: "Consulta la información administrativa disponible, como ITV y posibles embargos, precintos o reserva de dominio según el informe consultado.",
         },
         {
           code: "03 / GARANTÍA",
-          title: "12 Meses de Cobertura Legal Real",
-          description: "Garantía mecánica obligatoria conforme a la Ley de Consumidores y Usuarios, respaldada por talleres asociados y pólizas certificadas.",
+          title: "Garantía indicada en cada anuncio",
+          description: "Revisa la duración y las condiciones de la garantía que ofrece el vendedor antes de comprar.",
         },
       ],
     },
 
     chapter5_experience: {
       number: "CAPÍTULO 04",
-      title: "Transparencia Total desde tu Móvil",
+      title: "Consulta la información desde el móvil",
       subtitle: "Contacta directamente con el taller o compraventa por WhatsApp en menos de 15 minutos, solicita vídeo en directo del motor y agenda tu prueba sin compromiso.",
     },
 
     chapter6_catalog: {
       number: "CAPÍTULO 05",
-      title: "Stock Disponible con Mecánica Verificada",
+      title: "Coches disponibles con información clara",
       subtitle: "Vehículos listos para entrega inmediata con distintivo ambiental DGT.",
     },
 

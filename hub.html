@@ -195,8 +195,8 @@
       <!-- Selector de Usuario / Concesionario (Multi-Tenant) -->
       <div class="hub-user-profile-box">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-          <span style="font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em;">MI CUENTA SAAS</span>
-          <span style="font-size: 0.68rem; background: var(--cm-red); color: #ffffff; padding: 3px 7px; border-radius: 4px; font-weight: 600;">30 DÍAS GRATIS</span>
+        <span style="font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em;">MI PANEL PROFESIONAL</span>
+          <span style="font-size: 0.68rem; background: var(--cm-red); color: #ffffff; padding: 3px 7px; border-radius: 4px; font-weight: 600;">30 días de prueba gratis</span>
         </div>
         <select id="hub-user-switcher" class="hub-user-select-control" onchange="handleSwitchUser(this.value)">
           <!-- Poblado dinámicamente -->
@@ -212,11 +212,11 @@
       <nav class="hub-sidebar-nav">
         <button class="hub-nav-item active" onclick="switchHubTab('tab-upload')">
           <span class="hub-nav-item-icon" aria-hidden="true">+</span>
-          <span>1. Subir Vehículo</span>
+          <span>1. Añadir coche</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-pipeline')">
           <span class="hub-nav-item-icon" aria-hidden="true">▥</span>
-          <span>2. Embudo de Ventas</span>
+          <span>2. Seguimiento de contactos</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-generator')">
           <span class="hub-nav-item-icon" aria-hidden="true">A</span>
@@ -228,11 +228,11 @@
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-orders')">
           <span class="hub-nav-item-icon" aria-hidden="true">◎</span>
-          <span>5. Bolsa de Pedidos</span>
+          <span>5. Solicitudes de compradores</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-calculator')">
           <span class="hub-nav-item-icon" aria-hidden="true">€</span>
-          <span>6. Financiación & Margen</span>
+          <span>6. Cuotas y margen</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-qr')">
           <span class="hub-nav-item-icon" aria-hidden="true">▤</span>
@@ -240,15 +240,15 @@
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-deal-room')">
           <span class="hub-nav-item-icon" aria-hidden="true">□</span>
-          <span>8. Expedientes & Deal Room</span>
+          <span>8. Documentación de operaciones</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-social')">
           <span class="hub-nav-item-icon" aria-hidden="true">▦</span>
-          <span>9. Difusión Redes & Grupos</span>
+          <span>9. Publicar en redes y grupos</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-warranty')">
           <span class="hub-nav-item-icon" aria-hidden="true">◇</span>
-          <span>10. Garantías & Posventa</span>
+          <span>10. Garantías y seguimiento posventa</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-referrals')">
           <span class="hub-nav-item-icon" aria-hidden="true">↗</span>
@@ -256,7 +256,7 @@
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-dealer-web')">
           <span class="hub-nav-item-icon" aria-hidden="true">○</span>
-          <span>12. Mi Web & Subdominio</span>
+          <span>12. Mi página profesional</span>
         </button>
       </nav>
 
@@ -312,8 +312,8 @@
            PESTAÑA 1: SUBIR VEHÍCULO CON ASISTENTE FOTOGRÁFICO GUIADO
            ===================================================================================== -->
       <section id="tab-upload" class="hub-tool-card">
-        <div class="chapter-badge">ALTA ASISTIDA DE STOCK PRIVADO</div>
-        <h2 class="hub-tool-title">Registra tu Vehículo y Conviértelo en Anuncio</h2>
+        <div class="chapter-badge">AÑADIR UN COCHE AL INVENTARIO</div>
+        <h2 class="hub-tool-title">Añade un coche y crea su anuncio</h2>
         <p class="hub-tool-desc">
           Sube tu coche a tu inventario privado. Sigue la guía de fotos clave para maximizar llamadas y al guardar se generarán los textos para Wallapop, WhatsApp y el cartel imprimible con QR.
         </p>
@@ -424,11 +424,11 @@
               </div>
 
               <div class="form-group">
-                <label class="form-label">URL de Foto Principal (o deja vacío para demo HD)</label>
+                <label class="form-label">Fotos del coche <span style="color:var(--cm-red);">*</span></label>
                 <input type="url" id="up-image-url" class="form-control" placeholder="https://images.unsplash.com/...">
-                <label class="form-label" for="up-image-file" style="margin-top:10px;">O selecciona una foto del dispositivo</label>
-                <input type="file" id="up-image-file" class="form-control" accept="image/jpeg,image/png,image/webp">
-                <small style="display:block;margin-top:6px;color:var(--cm-text-secondary);">Se reduce en el navegador y se guarda como WebP. Máximo recomendado: 8 MB.</small>
+                <label class="form-label" for="up-image-file" style="margin-top:10px;">O selecciona hasta 10 fotos del dispositivo</label>
+                <input type="file" id="up-image-file" class="form-control" accept="image/jpeg,image/png,image/webp" multiple>
+                <small id="up-image-count" style="display:block;margin-top:6px;color:var(--cm-text-secondary);">0/10 fotos seleccionadas. La primera será la portada.</small>
               </div>
             </div>
 
@@ -470,6 +470,10 @@
                   <div class="photo-slot-title">6. Pegatina DGT</div>
                   <div class="photo-slot-desc">Aptitud para circular en ZBE.</div>
                 </div>
+                <div class="photo-slot-card"><div class="photo-slot-icon">🚗</div><div class="photo-slot-title">7. Lateral completo</div><div class="photo-slot-desc">Coche entero, sin recortes.</div></div>
+                <div class="photo-slot-card"><div class="photo-slot-icon">🛞</div><div class="photo-slot-title">8. Neumáticos y llantas</div><div class="photo-slot-desc">Dibujo y posibles daños.</div></div>
+                <div class="photo-slot-card"><div class="photo-slot-icon">🔎</div><div class="photo-slot-title">9. Desperfectos</div><div class="photo-slot-desc">Muestra cualquier marca o daño.</div></div>
+                <div class="photo-slot-card"><div class="photo-slot-icon">🧳</div><div class="photo-slot-title">10. Maletero</div><div class="photo-slot-desc">Espacio y estado interior.</div></div>
               </div>
 
               <div class="form-group" style="margin-top: 18px;">
@@ -492,7 +496,7 @@
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
           <div>
             <div class="chapter-badge">CONTROL OPERATIVO DE VENTAS</div>
-            <h2 class="hub-tool-title">Mi Embudo de Ventas (Pipeline Kanban)</h2>
+            <h2 class="hub-tool-title">Seguimiento de contactos</h2>
             <p class="hub-tool-desc">Gestiona el ciclo comercial de tu stock: arrastra o cambia de fase en un clic.</p>
           </div>
           <button class="btn btn-red" onclick="switchHubTab('tab-upload')">
@@ -599,7 +603,7 @@
            ===================================================================================== -->
       <section id="tab-orders" class="hub-tool-card" style="display: none;">
         <div class="chapter-badge">DEMANDA ACTIVA DE COMPRADORES</div>
-        <h2 class="hub-tool-title">Bolsa de Pedidos: Compradores Buscando Coche</h2>
+            <h2 class="hub-tool-title">Solicitudes de compradores</h2>
         <p class="hub-tool-desc">
           Particulares con presupuesto real buscando coche en España. Postula una unidad de tu stock con un solo clic.
         </p>
@@ -614,7 +618,7 @@
            ===================================================================================== -->
       <section id="tab-calculator" class="hub-tool-card" style="display: none;">
         <div class="chapter-badge">SIMULADOR ECONÓMICO</div>
-        <h2 class="hub-tool-title">Calculadora Financiera & Margen de Operación</h2>
+          <h2 class="hub-tool-title">Cuotas y margen de la operación</h2>
         <p class="hub-tool-desc">Calcula la cuota mensual para tu cliente y el margen neto estimado para tu negocio.</p>
 
         <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px;">
@@ -678,7 +682,7 @@
            ===================================================================================== -->
       <section id="tab-qr" class="hub-tool-card" style="display: none;">
         <div class="chapter-badge">CARTELERÍA FÍSICA PARA CAMPA O TALLER</div>
-        <h2 class="hub-tool-title">Ficha de Parabrisas con Sello CocheMotor & QR</h2>
+          <h2 class="hub-tool-title">Cartel para el coche con código QR</h2>
         <p class="hub-tool-desc">
           Imprime esta ficha en A4 para tu campa o taller. Los clientes escanean el QR y acceden a la ficha digital en su móvil.
         </p>
@@ -1062,7 +1066,7 @@
         <!-- Registro Histórico de Publicaciones -->
         <div style="background: white; border: 1px solid var(--cm-border); border-radius: var(--cm-radius-lg); padding: 24px; box-shadow: var(--cm-shadow-sm);">
           <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 14px;">
-            📊 Historial de Publicaciones y Leads Atribuidos
+            📊 Historial de publicaciones y contactos recibidos
           </h3>
           <div id="social-history-table" style="overflow-x: auto;">
             <!-- Renderizado dinámico -->
@@ -1076,7 +1080,7 @@
       <section id="tab-warranty" style="display: none;">
         <div class="hub-header" style="margin-bottom: 24px;">
           <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--cm-navy); margin-bottom: 6px;">
-            🛡️ Gestión de Garantías & Incidencias Posventa
+            🛡️ Garantías y seguimiento posventa
           </h2>
           <p style="color: var(--cm-text-secondary); font-size: 0.95rem;">
             Control de coberturas legales de 1 año (RDL 1/2007). Distingue falta de conformidad frente a desgaste ordinario, asigna taller reparador y documenta la trazabilidad para evitar litigios.
