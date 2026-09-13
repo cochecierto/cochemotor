@@ -1,1 +1,49 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publicar un coche | CocheMotor</title><link rel="icon" href="assets/brand/favicons/favicon.ico"><link rel="stylesheet" href="styles.css"></head><body class="publish-page"><main class="publish-shell"><a class="auth-brand" href="index.html"><img class="auth-logo" src="assets/brand/logos/cochemotor-horizontal-dark.png" alt="CocheMotor"></a><span class="chapter-badge">PUBLICAR UN COCHE</span><h1>Muéstralo con información clara</h1><p>Completa estos datos. No necesitas registrarte hasta el momento de publicar.</p><form id="public-listing-form" class="publish-form"><label>Marca<input name="brand" required placeholder="Ejemplo: Toyota"></label><label>Modelo<input name="model" required placeholder="Ejemplo: Corolla"></label><label>Año<input name="year" type="number" min="1950" max="2030" required></label><label>Kilómetros<input name="km" required placeholder="Ejemplo: 85.000 km"></label><label>Precio orientativo (€)<input name="price" type="number" min="0" required></label><label>Localidad<input name="location" required></label><label>Nombre de contacto<input name="name" autocomplete="name" required></label><label>Correo electrónico<input name="email" type="email" autocomplete="email" required></label><label>Teléfono o WhatsApp<input name="phone" type="tel" autocomplete="tel" required></label><label class="publish-check"><input name="consent" type="checkbox" required> Acepto que CocheMotor use estos datos para validar y gestionar la publicación.</label><button class="btn btn-red" type="submit">Guardar y continuar</button></form><p id="publish-status" class="auth-status" role="status" aria-live="polite"></p></main><script>const form=document.getElementById('public-listing-form'),status=document.getElementById('publish-status');const saved=JSON.parse(localStorage.getItem('cochemotor_public_draft')||'null');if(saved)Object.entries(saved).forEach(([k,v])=>{const el=form.elements[k];if(el&&el.type!=='checkbox')el.value=v});form.addEventListener('submit',e=>{e.preventDefault();const data=Object.fromEntries(new FormData(form));delete data.consent;localStorage.setItem('cochemotor_public_draft',JSON.stringify(data));const session=JSON.parse(localStorage.getItem('cochemotor_local_session')||'null');if(!session?.verified){location.href='acceso.html?audience=buyer&return=publish';return;}status.dataset.kind='success';status.textContent='Tus datos están guardados. Validaremos tu contacto antes de publicar el anuncio.';});</script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Publicar un coche | CocheMotor</title>
+  <link rel="icon" href="assets/brand/favicons/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="publish-page">
+  <main class="publish-shell">
+    <a class="auth-brand" href="index.html"><img class="auth-logo" src="assets/brand/logos/cochemotor-horizontal-dark.png" alt="CocheMotor"></a>
+    <span class="chapter-badge">PUBLICAR UN COCHE</span>
+    <h1>Muéstralo con información clara</h1>
+    <p>Completa estos datos. No necesitas registrarte hasta el momento de publicar.</p>
+    <form id="public-listing-form" class="publish-form">
+      <label>Marca<input name="brand" required placeholder="Ejemplo: Toyota"></label>
+      <label>Modelo<input name="model" required placeholder="Ejemplo: Corolla"></label>
+      <label>Año<input name="year" type="number" min="1950" max="2030" required></label>
+      <label>Kilómetros<input name="km" required placeholder="Ejemplo: 85.000 km"></label>
+      <label>Precio orientativo (€)<input name="price" type="number" min="0" required></label>
+      <label>Localidad<input name="location" required></label>
+      <label class="publish-images" for="listing-images">Fotos del coche <span id="image-count">(0/10)</span>
+        <input name="images" id="listing-images" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+        <small>Hasta 10 fotos. Recomendamos frontal, trasera, laterales, interior, cuadro y posibles desperfectos.</small>
+      </label>
+      <p id="image-help" class="form-hint" aria-live="polite">Las fotos ayudan a generar confianza y acelerar los contactos.</p>
+      <label>Nombre de contacto<input name="name" autocomplete="name" required></label>
+      <label>Correo electrónico<input name="email" type="email" autocomplete="email" required></label>
+      <label>Teléfono o WhatsApp<input name="phone" type="tel" autocomplete="tel" required></label>
+      <label class="publish-check"><input name="consent" type="checkbox" required> Acepto que CocheMotor use estos datos para validar y gestionar la publicación.</label>
+      <button class="btn btn-red" type="submit">Guardar y continuar</button>
+    </form>
+    <p id="publish-status" class="auth-status" role="status" aria-live="polite"></p>
+  </main>
+  <script>
+    (() => {
+      const form = document.getElementById('public-listing-form');
+      const status = document.getElementById('publish-status');
+      const imageInput = document.getElementById('listing-images');
+      const imageCount = document.getElementById('image-count');
+      const draft = JSON.parse(localStorage.getItem('cochemotor_public_draft') || 'null');
+      if (draft) Object.entries(draft).forEach(([key, value]) => { const field = form.elements[key]; if (field && field.type !== 'checkbox' && field.type !== 'file') field.value = value; });
+      imageInput.addEventListener('change', () => { const count = imageInput.files.length; imageCount.textContent = `(${count}/10)`; imageInput.setCustomValidity(count > 10 ? 'Un anuncio puede tener como máximo 10 imágenes.' : ''); status.textContent = count > 10 ? 'Selecciona 10 imágenes como máximo.' : ''; });
+      form.addEventListener('submit', (event) => { event.preventDefault(); if (!form.reportValidity()) return; const data = Object.fromEntries(new FormData(form)); delete data.consent; data.imageCount = imageInput.files.length; localStorage.setItem('cochemotor_public_draft', JSON.stringify(data)); const session = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null'); if (!session?.verified) { location.href = 'acceso.html?audience=buyer&return=publish'; return; } status.dataset.kind = 'success'; status.textContent = 'Tus datos están guardados. Validaremos tu contacto antes de publicar el anuncio.'; });
+    })();
+  </script>
+</body>
+</html>
