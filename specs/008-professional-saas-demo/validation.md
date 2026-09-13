@@ -13,10 +13,12 @@
 
 ## Publicación
 
-- Estado comprobado el 2026-09-13: `https://cochemotor.es/demo-profesional.html` devuelve “This Page Does Not Exist”; la ruta aún no está publicada.
+- Estado comprobado el 2026-09-13: publicada en `https://cochemotor.es/demo-profesional.html` mediante SFTP local con clave dedicada y host key fijada.
 - El workflow de `main` valida en push/PR; solo despliega con ejecución manual, clave SFTP y `known_hosts` fijado. Transfiere cinco archivos y no borra ni sincroniza el resto del sitio.
 - La raíz SFTP se verificó como `domains/cochemotor.es/public_html`; conexión SFTP de solo lectura correcta. La clave pública dedicada está en Hostinger y GitHub contiene host, usuario, raíz y `known_hosts` como secretos.
-- Falta guardar `HOSTINGER_SSH_PRIVATE_KEY` desde el archivo local de clave privada, ejecutar el workflow y verificar la URL pública. El dominio sigue devolviendo 404 hasta completar esa configuración y el despliegue.
+- Publicación comprobada por HTTPS: demo HTML, CSS, JS, `profesionales.html` y `profesionales.css` responden 200; el HTML contiene el título esperado y el aviso de datos sintéticos.
+- Recorrido público: entró al inventario; el filtro “Reservados” mostró un solo resultado.
+- Pendiente opcional para futuros despliegues desde GitHub Actions: guardar `HOSTINGER_SSH_PRIVATE_KEY` en el secreto del repositorio. Esta entrega se publicó directamente desde el entorno local mediante SFTP; el job sigue manual y no se ejecuta en cada push.
 
 ## Checks
 
@@ -25,4 +27,4 @@
 - `git diff --check` para los archivos de esta iniciativa: correcto.
 - Navegador local: ruta cargó; filtros, navegación, cambio de fase, contadores, cálculo, generador y previsualización verificados.
 - Nota: el navegador de esta sesión no permitió cambiar la ventana a un tamaño móvil; los breakpoints móviles se comprobaron por inspección estática, queda pendiente una pasada visual real en 390×844.
-- No hay suite automatizada de navegador ni dependencias añadidas. Push y despliegue quedan pendientes de guardar la clave privada en GitHub Actions.
+- No hay suite automatizada de navegador ni dependencias añadidas. Publicación SFTP completada; Actions valida en push y requiere su secreto SSH privado para futuros despliegues manuales.

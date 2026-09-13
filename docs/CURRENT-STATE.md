@@ -2,7 +2,7 @@
 
 # Estado actual
 
-Fecha de actualización: 2026-09-10.
+Fecha de actualización: 2026-09-13.
 
 ## Repositorio local
 
@@ -106,5 +106,6 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
   No se conecta al API ni al panel real ni inicia pagos. Hostinger confirma SSH
   activo y conexión SFTP de solo lectura comprobada; la ruta raíz y secretos
   públicos de conexión ya están configurados. Falta guardar la clave privada
-  dedicada como secreto en GitHub Actions y ejecutar el despliegue manual. La
-  ruta pública seguirá en 404 hasta completar ese paso.
+  dedicada como secreto en GitHub Actions para habilitar futuros despliegues
+  desde Actions. La demo ya se publicó directamente por SFTP y responde en
+  `https://cochemotor.es/demo-profesional.html`.
