@@ -1,50 +1,127 @@
-name: Despliegue Continuo a Hostinger (cochemotor.es)
+name: CocheMotor · Validación y despliegue SFTP
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+    paths:
+      - "demo-profesional.html"
+      - "demo-profesional.css"
+      - "demo-profesional.js"
+      - "profesionales.html"
+      - "profesionales.css"
+      - "tests/**"
+      - ".github/workflows/deploy-hostinger.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "demo-profesional.html"
+      - "demo-profesional.css"
+      - "demo-profesional.js"
+      - "profesionales.html"
+      - "profesionales.css"
+      - "tests/**"
+      - ".github/workflows/deploy-hostinger.yml"
   workflow_dispatch:
 
-jobs:
-  deploy:
-    name: Desplegar a Hostinger public_html
-    runs-on: ubuntu-latest
+permissions:
+  contents: read
 
+concurrency:
+  group: cochemotor-demo-production
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validar demo antes de publicar
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout del Repositorio
+      - name: Obtener código
         uses: actions/checkout@v4
 
-      - name: Desplegar vía FTP a Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.HOSTINGER_FTP_HOST }}
-          username: ${{ secrets.HOSTINGER_FTP_USER }}
-          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: ${{ secrets.HOSTINGER_REMOTE_DIR || 'public_html/' }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/specs/**
-            **/docs/**
-            **/.codex/**
-            **/.agents/**
-            **/tests/**
-            **/database/**
-            **/wordpress/**
-            **/references/**
-            **/local-broker/**
-            **/scripts/**
-            **/app/**
-            **/*.zip
-            **/*.db
-            **/*.sqlite
-            **/*.sqlite3
-            **/*.py
-            **/README.md
-            .gitignore
-            AGENTS.md
-            api/config.template.php
-            iniciar_cochemotor.bat
-            deploy_hostinger.py
+      - name: Ejecutar pruebas del proyecto
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+
+      - name: Comprobar sintaxis JavaScript
+        run: node --check demo-profesional.js
+
+  deploy:
+    name: Publicar demo y acceso profesional por SFTP
+    if: github.event_name == 'workflow_dispatch'
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener código
+        uses: actions/checkout@v4
+
+      - name: Validar configuración y preparar cliente SFTP
+        shell: bash
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_SSH_KNOWN_HOSTS }}
+          SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
+        run: |
+          missing=()
+          for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY SSH_KNOWN_HOSTS SSH_WEB_ROOT; do
+            if [[ -z "${!name}" ]]; then missing+=("$name"); fi
+          done
+          if (( ${#missing[@]} )); then
+            echo "::error::Faltan secretos de despliegue: ${missing[*]}. Configúralos en GitHub Actions antes de ejecutar el despliegue."
+            exit 1
+          fi
+          if [[ ! "$SSH_WEB_ROOT" =~ ^[A-Za-z0-9_./-]+$ || "$SSH_WEB_ROOT" == /* || "$SSH_WEB_ROOT" == *..* ]]; then
+            echo "::error::HOSTINGER_SSH_WEB_ROOT debe ser una ruta relativa segura, sin espacios ni segmentos '..'."
+            exit 1
+          fi
+          mkdir -m 700 -p "$RUNNER_TEMP/cochemotor-ssh"
+          printf '%s\n' "$SSH_PRIVATE_KEY" > "$RUNNER_TEMP/cochemotor-ssh/id_ed25519"
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > "$RUNNER_TEMP/cochemotor-ssh/known_hosts"
+          chmod 600 "$RUNNER_TEMP/cochemotor-ssh/id_ed25519" "$RUNNER_TEMP/cochemotor-ssh/known_hosts"
+          ssh-keygen -F "[$SSH_HOST]:65002" -f "$RUNNER_TEMP/cochemotor-ssh/known_hosts" >/dev/null || {
+            echo "::error::HOSTINGER_SSH_KNOWN_HOSTS no contiene la clave fijada para este host y puerto."
+            exit 1
+          }
+
+      - name: Publicar solo la demo y su acceso por SFTP
+        shell: bash
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
+        run: |
+          set -euo pipefail
+          stage=".cochemotor-demo-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          sftp -b - -P 65002 \
+            -i "$RUNNER_TEMP/cochemotor-ssh/id_ed25519" \
+            -o IdentitiesOnly=yes \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            -o "UserKnownHostsFile=$RUNNER_TEMP/cochemotor-ssh/known_hosts" \
+            "$SSH_USER@$SSH_HOST" <<SFTP
+          cd $SSH_WEB_ROOT
+          mkdir $stage
+          cd $stage
+          put demo-profesional.css
+          put demo-profesional.js
+          put profesionales.css
+          put demo-profesional.html
+          put profesionales.html
+          cd ..
+          rename $stage/demo-profesional.css demo-profesional.css
+          rename $stage/demo-profesional.js demo-profesional.js
+          rename $stage/profesionales.css profesionales.css
+          rename $stage/demo-profesional.html demo-profesional.html
+          rename $stage/profesionales.html profesionales.html
+          rmdir $stage
+          SFTP
+
+      - name: Smoke test de producción
+        shell: bash
+        run: |
+          set -euo pipefail
+          page="$(curl --fail --silent --show-error --retry 5 --retry-delay 2 https://cochemotor.es/demo-profesional.html)"
+          grep -q "Demo profesional | CocheMotor" <<< "$page"
+          curl --fail --silent --show-error --retry 5 --retry-delay 2 --output /dev/null https://cochemotor.es/demo-profesional.css
+          curl --fail --silent --show-error --retry 5 --retry-delay 2 --output /dev/null https://cochemotor.es/demo-profesional.js
+          echo "Demo, estilos y script responden correctamente en producción."

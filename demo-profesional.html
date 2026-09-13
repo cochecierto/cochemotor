@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <meta name="description" content="Explora el espacio profesional de CocheMotor con datos sintéticos y sin conectar con cuentas reales.">
+  <title>Demo profesional | CocheMotor</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=5.2">
+  <link rel="stylesheet" href="demo-profesional.css?v=1.0">
+</head>
+<body class="cm-demo-page">
+  <a class="demo-skip-link" href="#demo-workspace">Saltar a la demostración</a>
+  <header class="demo-topbar">
+    <a class="demo-brand" href="profesionales.html" aria-label="CocheMotor, volver a la página profesional">
+      <img src="assets/brand/logos/cochemotor-horizontal-light.png" alt="CocheMotor">
+    </a>
+    <p class="demo-topbar-label"><span aria-hidden="true"></span> DEMO INTERACTIVA</p>
+    <a class="demo-topbar-back" href="profesionales.html">Ver propuesta profesional</a>
+    <a class="demo-topbar-cta" href="acceso.html?audience=professional&amp;return=hub&amp;mode=register">Crear cuenta beta gratis <span aria-hidden="true">→</span></a>
+  </header>
+
+  <main id="demo-workspace" class="demo-page-shell">
+    <div class="demo-safety-note" role="note">
+      <span class="demo-safety-icon" aria-hidden="true">i</span>
+      <p><strong>Estás en una demostración.</strong> Todo lo que ves son datos sintéticos. Puedes explorar y probar los controles: nada se publica, se guarda ni se envía a nadie.</p>
+      <span class="demo-synthetic-tag">SIN CUENTA REAL</span>
+    </div>
+
+    <div class="demo-intro">
+      <div>
+        <p class="demo-eyebrow">ESPACIO PROFESIONAL · VISTA DE PRUEBA</p>
+        <h1>Un vistazo a tu día,<br><span>con todo en su sitio.</span></h1>
+        <p>Prueba el inventario, organiza consultas y prepara una ficha. Esta sesión es temporal y solo ocurre en tu navegador.</p>
+      </div>
+      <a class="demo-main-cta" href="acceso.html?audience=professional&amp;return=hub&amp;mode=register">Quiero probar la beta gratis <span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="demo-app-layout">
+      <aside class="demo-sidebar" aria-label="Navegación de la demostración">
+        <div class="demo-profile-card">
+          <span class="demo-avatar" aria-hidden="true">DM</span>
+          <span><strong>Demo Motor</strong><small>Cuenta ficticia</small></span>
+          <span class="demo-account-tag">DEMO</span>
+        </div>
+        <nav class="demo-nav" aria-label="Secciones del panel de demostración">
+          <button type="button" class="demo-nav-item is-active" data-view="overview" aria-controls="view-overview" aria-current="page"><span aria-hidden="true">⌂</span>Resumen</button>
+          <button type="button" class="demo-nav-item" data-view="inventory" aria-controls="view-inventory"><span aria-hidden="true">▣</span>Inventario <b>4</b></button>
+          <button type="button" class="demo-nav-item" data-view="contacts" aria-controls="view-contacts"><span aria-hidden="true">◎</span>Contactos <b>3</b></button>
+          <button type="button" class="demo-nav-item" data-view="tools" aria-controls="view-tools"><span aria-hidden="true">⌘</span>Herramientas</button>
+          <button type="button" class="demo-nav-item" data-view="publish" aria-controls="view-publish"><span aria-hidden="true">＋</span>Preparar anuncio</button>
+        </nav>
+        <div class="demo-sidebar-foot">
+          <span class="demo-live-dot" aria-hidden="true"></span>
+          <p>Modo seguro<br><strong>Sin conexión a datos reales</strong></p>
+        </div>
+        <a class="demo-sidebar-cta" href="acceso.html?audience=professional&amp;return=hub&amp;mode=register">Crear cuenta beta gratis <span aria-hidden="true">→</span></a>
+      </aside>
+
+      <div class="demo-content">
+        <section class="demo-view" id="view-overview" data-panel="overview" aria-labelledby="overview-title">
+          <div class="demo-view-heading">
+            <div><p class="demo-kicker">RESUMEN DE ACTIVIDAD · EJEMPLO</p><h2 id="overview-title" tabindex="-1">Buenos días, Alex</h2><p>Este es un resumen de ejemplo de la actividad del negocio.</p></div>
+            <span class="demo-date-chip">Semana de demostración</span>
+          </div>
+          <div class="demo-metrics" aria-label="Indicadores sintéticos">
+            <article class="demo-metric"><span class="demo-metric-icon blue" aria-hidden="true">▣</span><div><p>Vehículos en stock</p><strong>12</strong><small>4 en esta demo</small></div><span class="demo-metric-trend">+2 <small>este mes</small></span></article>
+            <article class="demo-metric"><span class="demo-metric-icon red" aria-hidden="true">◎</span><div><p>Consultas abiertas</p><strong>8</strong><small>3 ejemplos aquí</small></div><span class="demo-metric-trend">3 <small>por responder</small></span></article>
+            <article class="demo-metric"><span class="demo-metric-icon green" aria-hidden="true">✓</span><div><p>Anuncios completos</p><strong>75%</strong><small>según este ejemplo</small></div><span class="demo-metric-trend">9 <small>listos</small></span></article>
+          </div>
+
+          <div class="demo-overview-grid">
+            <section class="demo-panel demo-overview-stock" aria-labelledby="overview-stock-title">
+              <div class="demo-panel-heading"><div><h3 id="overview-stock-title">Vehículos recientes</h3><p>Ejemplos de fichas de inventario</p></div><button type="button" class="demo-text-action" data-go-view="inventory">Ver inventario <span aria-hidden="true">→</span></button></div>
+              <div id="overview-vehicle-list" class="demo-mini-list"></div>
+            </section>
+            <section class="demo-panel demo-activity" aria-labelledby="overview-activity-title">
+              <div class="demo-panel-heading"><div><h3 id="overview-activity-title">Actividad de ejemplo</h3><p>Movimientos simulados</p></div><span class="demo-synthetic-label">FICTICIA</span></div>
+              <ol class="demo-activity-list">
+                <li><span class="demo-activity-mark red" aria-hidden="true">↗</span><div><strong>Nueva consulta sobre el Toyota Corolla</strong><small>Hace 18 min · Contacto de ejemplo</small></div></li>
+                <li><span class="demo-activity-mark blue" aria-hidden="true">✓</span><div><strong>Ficha del SEAT León completada</strong><small>Hoy · Acción simulada</small></div></li>
+                <li><span class="demo-activity-mark green" aria-hidden="true">＋</span><div><strong>Vehículo añadido al inventario</strong><small>Ayer · Datos sintéticos</small></div></li>
+              </ol>
+            </section>
+          </div>
+          <div class="demo-inline-hint"><span aria-hidden="true">✦</span><p><strong>¿Quieres probarlo?</strong> Filtra el inventario, mueve una consulta de fase o prepara una ficha desde el menú. Los cambios se reinician al recargar.</p><button type="button" data-go-view="inventory">Explorar inventario</button></div>
+        </section>
+
+        <section class="demo-view" id="view-inventory" data-panel="inventory" aria-labelledby="inventory-title" hidden>
+          <div class="demo-view-heading"><div><p class="demo-kicker">VEHÍCULOS · MUESTRA LOCAL</p><h2 id="inventory-title" tabindex="-1">Tu inventario, de un vistazo</h2><p>Busca por modelo o filtra por estado. Las fichas son ejemplos, no vehículos disponibles.</p></div><button type="button" class="demo-primary-button" data-go-view="publish">Preparar anuncio <span aria-hidden="true">＋</span></button></div>
+          <div class="demo-panel demo-inventory-panel">
+            <div class="demo-inventory-tools"><label class="demo-search"><span aria-hidden="true">⌕</span><span class="visually-hidden">Buscar en el inventario de ejemplo</span><input id="demo-vehicle-search" type="search" placeholder="Busca marca o modelo" autocomplete="off"></label><div class="demo-filter-group" role="group" aria-label="Filtrar vehículos por estado"><button type="button" data-demo-filter="all" aria-pressed="true">Todos <span>4</span></button><button type="button" data-demo-filter="available" aria-pressed="false">En venta <span>2</span></button><button type="button" data-demo-filter="reserved" aria-pressed="false">Reservados <span>1</span></button><button type="button" data-demo-filter="draft" aria-pressed="false">Borradores <span>1</span></button></div></div>
+            <div id="demo-vehicle-list" class="demo-vehicle-grid" aria-live="polite"></div>
+            <p id="demo-inventory-status" class="demo-status" role="status" aria-live="polite">4 vehículos sintéticos de ejemplo.</p>
+          </div>
+        </section>
+
+        <section class="demo-view" id="view-contacts" data-panel="contacts" aria-labelledby="contacts-title" hidden>
+          <div class="demo-view-heading"><div><p class="demo-kicker">SEGUIMIENTO · DATOS INVENTADOS</p><h2 id="contacts-title" tabindex="-1">Cada consulta, en su fase</h2><p>Cambia el estado de una oportunidad para probar el seguimiento. No se contacta a nadie.</p></div><span class="demo-date-chip">3 contactos sintéticos</span></div>
+          <div class="demo-pipeline-summary"><span><i class="pipeline-dot new"></i>Nuevo <b data-phase-count="new">1</b></span><span><i class="pipeline-dot active"></i>En conversación <b data-phase-count="active">1</b></span><span><i class="pipeline-dot visit"></i>Visita propuesta <b data-phase-count="visit">1</b></span><span><i class="pipeline-dot"></i>Cerrado <b data-phase-count="closed">0</b></span></div>
+          <div id="demo-contact-list" class="demo-contact-list"></div>
+          <p id="demo-contact-status" class="demo-status" role="status" aria-live="polite">Puedes cambiar la fase; solo afecta a esta vista temporal.</p>
+        </section>
+
+        <section class="demo-view" id="view-tools" data-panel="tools" aria-labelledby="tools-title" hidden>
+          <div class="demo-view-heading"><div><p class="demo-kicker">UTILIDADES · CÁLCULOS LOCALES</p><h2 id="tools-title" tabindex="-1">Herramientas para avanzar</h2><p>Prueba un borrador de anuncio o calcula una cuota aproximada con números de ejemplo.</p></div></div>
+          <div class="demo-tools-grid">
+            <section class="demo-panel demo-tool-card" aria-labelledby="copy-tool-title"><span class="demo-tool-symbol red" aria-hidden="true">Aa</span><p class="demo-kicker">GENERADOR DE BORRADOR</p><h3 id="copy-tool-title">Prepara el texto de un anuncio</h3><p>El resultado se crea en esta página y no se publica ni se envía.</p><div class="demo-field"><label for="demo-copy-car">Vehículo de ejemplo</label><input id="demo-copy-car" value="Toyota Corolla 1.8 Hybrid" maxlength="80"></div><div class="demo-field"><label for="demo-copy-detail">Un detalle que quieras destacar</label><input id="demo-copy-detail" value="Revisión al día, un solo propietario" maxlength="120"></div><button type="button" id="demo-generate-copy" class="demo-primary-button">Generar borrador <span aria-hidden="true">→</span></button><div class="demo-generated-output" aria-live="polite"><p class="demo-kicker">BORRADOR LOCAL</p><p id="demo-copy-output">Completa los datos y genera un texto orientativo.</p></div></section>
+            <section class="demo-panel demo-tool-card" aria-labelledby="finance-tool-title"><span class="demo-tool-symbol blue" aria-hidden="true">€</span><p class="demo-kicker">SIMULADOR ORIENTATIVO</p><h3 id="finance-tool-title">Calcula una cuota de ejemplo</h3><p>Ajusta precio, entrada y plazo. No es una oferta ni una aprobación financiera.</p><div class="demo-field"><label for="demo-finance-price">Precio de ejemplo (€)</label><input id="demo-finance-price" type="number" inputmode="numeric" min="1000" max="150000" step="500" value="18900"></div><div class="demo-field"><label for="demo-finance-down">Entrada (€)</label><input id="demo-finance-down" type="number" inputmode="numeric" min="0" max="149000" step="500" value="3000"></div><div class="demo-field"><label for="demo-finance-months">Plazo</label><select id="demo-finance-months"><option value="36">36 meses</option><option value="48" selected>48 meses</option><option value="60">60 meses</option><option value="72">72 meses</option></select></div><div class="demo-finance-result"><span>Cuota mensual aproximada</span><strong id="demo-finance-output" aria-live="polite">—</strong><small>Ejercicio ilustrativo con un 8,9 % TAE estimado.</small></div></section>
+          </div>
+        </section>
+
+        <section class="demo-view" id="view-publish" data-panel="publish" aria-labelledby="publish-title" hidden>
+          <div class="demo-view-heading"><div><p class="demo-kicker">PUBLICACIÓN · SOLO PREVISUALIZACIÓN</p><h2 id="publish-title" tabindex="-1">Prepara una ficha de ejemplo</h2><p>Completa unos datos y comprueba cómo podría verse el anuncio. No se publica.</p></div><span class="demo-date-chip">Paso de demostración</span></div>
+          <div class="demo-publish-grid">
+            <section class="demo-panel demo-publish-form" aria-label="Datos ficticios del vehículo">
+              <div class="demo-field-row"><div class="demo-field"><label for="demo-publish-brand">Marca</label><input id="demo-publish-brand" value="SEAT" maxlength="40"></div><div class="demo-field"><label for="demo-publish-model">Modelo</label><input id="demo-publish-model" value="León" maxlength="50"></div></div>
+              <div class="demo-field-row"><div class="demo-field"><label for="demo-publish-year">Año</label><input id="demo-publish-year" type="number" min="1990" max="2026" value="2021"></div><div class="demo-field"><label for="demo-publish-km">Kilómetros</label><input id="demo-publish-km" type="number" min="0" max="999999" step="1000" value="52400"></div></div>
+              <div class="demo-field-row"><div class="demo-field"><label for="demo-publish-price">Precio orientativo (€)</label><input id="demo-publish-price" type="number" min="0" max="500000" step="100" value="19500"></div><div class="demo-field"><label for="demo-publish-fuel">Combustible</label><select id="demo-publish-fuel"><option>Gasolina</option><option>Diésel</option><option selected>Híbrido</option><option>Eléctrico</option></select></div></div>
+              <p class="demo-form-note"><span aria-hidden="true">i</span> Estos datos solo se usan para actualizar la tarjeta de esta demo. No se guardan.</p>
+              <button type="button" id="demo-preview-button" data-demo-preview class="demo-primary-button">Actualizar previsualización <span aria-hidden="true">→</span></button>
+              <p id="demo-preview-status" class="demo-status" role="status" aria-live="polite">La ficha muestra valores de ejemplo.</p>
+            </section>
+            <article class="demo-panel demo-listing-preview" aria-label="Vista previa ficticia del anuncio">
+              <div class="demo-preview-label"><span aria-hidden="true">◉</span> VISTA PREVIA · NO PUBLICADA</div>
+              <div class="demo-preview-art" aria-hidden="true"><img src="assets/brand/icons/vehicle-placeholder.svg" alt=""></div>
+              <div class="demo-preview-copy"><p class="demo-kicker" id="demo-preview-fuel">HÍBRIDO · 2021</p><h3 id="demo-preview-title">SEAT León</h3><p id="demo-preview-specs">52.400 km · Combustible híbrido</p><strong id="demo-preview-price">19.500 €</strong><span class="demo-preview-pill">EJEMPLO SINTÉTICO</span></div>
+            </article>
+          </div>
+        </section>
+
+        <footer class="demo-content-footer"><span>Demo sintética · Cambios no persistentes</span><a href="profesionales.html">Volver a la propuesta profesional</a><a class="demo-content-register" href="acceso.html?audience=professional&amp;return=hub&amp;mode=register">Crear cuenta beta gratis →</a></footer>
+      </div>
+    </div>
+  </main>
+  <script src="demo-profesional.js?v=1.0" defer></script>
+</body>
+</html>
