@@ -8,7 +8,7 @@
   <title>Demo profesional | CocheMotor</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=5.2">
-  <link rel="stylesheet" href="demo-profesional.css?v=1.0">
+  <link rel="stylesheet" href="demo-profesional.css?v=1.3">
 </head>
 <body class="cm-demo-page">
   <a class="demo-skip-link" href="#demo-workspace">Saltar a la demostración</a>
@@ -45,11 +45,20 @@
           <span class="demo-account-tag">DEMO</span>
         </div>
         <nav class="demo-nav" aria-label="Secciones del panel de demostración">
-          <button type="button" class="demo-nav-item is-active" data-view="overview" aria-controls="view-overview" aria-current="page"><span aria-hidden="true">⌂</span>Resumen</button>
-          <button type="button" class="demo-nav-item" data-view="inventory" aria-controls="view-inventory"><span aria-hidden="true">▣</span>Inventario <b>4</b></button>
-          <button type="button" class="demo-nav-item" data-view="contacts" aria-controls="view-contacts"><span aria-hidden="true">◎</span>Contactos <b>3</b></button>
-          <button type="button" class="demo-nav-item" data-view="tools" aria-controls="view-tools"><span aria-hidden="true">⌘</span>Herramientas</button>
-          <button type="button" class="demo-nav-item" data-view="publish" aria-controls="view-publish"><span aria-hidden="true">＋</span>Preparar anuncio</button>
+          <button type="button" class="demo-nav-item is-active" data-view="overview" data-panel="overview" aria-controls="view-overview" aria-current="page"><span aria-hidden="true">⌂</span>Resumen</button>
+          <button type="button" class="demo-nav-item" data-view="publish" data-panel="publish" aria-controls="view-publish"><span aria-hidden="true">＋</span>Añadir coche</button>
+          <button type="button" class="demo-nav-item" data-view="contacts" data-panel="contacts" aria-controls="view-contacts"><span aria-hidden="true">▥</span>Seguimiento de contactos <b>3</b></button>
+          <button type="button" class="demo-nav-item" data-view="generator" data-panel="tools" aria-controls="view-tools"><span aria-hidden="true">A</span>Generador con IA</button>
+          <button type="button" class="demo-nav-item" data-view="copilot" data-panel="module-preview" data-module="copilot" aria-controls="view-module-preview"><span aria-hidden="true">◉</span>Copiloto de Precios</button>
+          <button type="button" class="demo-nav-item" data-view="orders" data-panel="module-preview" data-module="orders" aria-controls="view-module-preview"><span aria-hidden="true">◎</span>Solicitudes de compradores</button>
+          <button type="button" class="demo-nav-item" data-view="calculator" data-panel="tools" aria-controls="view-tools"><span aria-hidden="true">€</span>Cuotas y margen</button>
+          <button type="button" class="demo-nav-item" data-view="qr" data-panel="module-preview" data-module="qr" aria-controls="view-module-preview"><span aria-hidden="true">▤</span>Cartel Parabrisas QR</button>
+          <button type="button" class="demo-nav-item" data-view="deal-room" data-panel="module-preview" data-module="deal-room" aria-controls="view-module-preview"><span aria-hidden="true">□</span>Documentación de operaciones</button>
+          <button type="button" class="demo-nav-item" data-view="social" data-panel="module-preview" data-module="social" aria-controls="view-module-preview"><span aria-hidden="true">▦</span>Publicar en redes y grupos</button>
+          <button type="button" class="demo-nav-item" data-view="warranty" data-panel="module-preview" data-module="warranty" aria-controls="view-module-preview"><span aria-hidden="true">◇</span>Garantías y seguimiento posventa</button>
+          <button type="button" class="demo-nav-item" data-view="referrals" data-panel="module-preview" data-module="referrals" aria-controls="view-module-preview"><span aria-hidden="true">↗</span>Afiliados B2B</button>
+          <button type="button" class="demo-nav-item" data-view="dealer-web" data-panel="module-preview" data-module="dealer-web" aria-controls="view-module-preview"><span aria-hidden="true">○</span>Mi página profesional</button>
+          <button type="button" class="demo-nav-item" data-view="inventory" data-panel="inventory" aria-controls="view-inventory"><span aria-hidden="true">▣</span>Inventario de muestra <b>4</b></button>
         </nav>
         <div class="demo-sidebar-foot">
           <span class="demo-live-dot" aria-hidden="true"></span>
@@ -104,10 +113,11 @@
         </section>
 
         <section class="demo-view" id="view-tools" data-panel="tools" aria-labelledby="tools-title" hidden>
-          <div class="demo-view-heading"><div><p class="demo-kicker">UTILIDADES · CÁLCULOS LOCALES</p><h2 id="tools-title" tabindex="-1">Herramientas para avanzar</h2><p>Prueba un borrador de anuncio o calcula una cuota aproximada con números de ejemplo.</p></div></div>
+          <div class="demo-view-heading"><div><p class="demo-kicker">HERRAMIENTAS · EJEMPLOS LOCALES</p><h2 id="tools-title" tabindex="-1">Herramientas para avanzar</h2><p>Prueba un texto orientativo y cálculos de muestra. Esta vista no utiliza IA ni ofrece financiación.</p></div></div>
           <div class="demo-tools-grid">
-            <section class="demo-panel demo-tool-card" aria-labelledby="copy-tool-title"><span class="demo-tool-symbol red" aria-hidden="true">Aa</span><p class="demo-kicker">GENERADOR DE BORRADOR</p><h3 id="copy-tool-title">Prepara el texto de un anuncio</h3><p>El resultado se crea en esta página y no se publica ni se envía.</p><div class="demo-field"><label for="demo-copy-car">Vehículo de ejemplo</label><input id="demo-copy-car" value="Toyota Corolla 1.8 Hybrid" maxlength="80"></div><div class="demo-field"><label for="demo-copy-detail">Un detalle que quieras destacar</label><input id="demo-copy-detail" value="Revisión al día, un solo propietario" maxlength="120"></div><button type="button" id="demo-generate-copy" class="demo-primary-button">Generar borrador <span aria-hidden="true">→</span></button><div class="demo-generated-output" aria-live="polite"><p class="demo-kicker">BORRADOR LOCAL</p><p id="demo-copy-output">Completa los datos y genera un texto orientativo.</p></div></section>
+            <section class="demo-panel demo-tool-card" aria-labelledby="copy-tool-title"><span class="demo-tool-symbol red" aria-hidden="true">Aa</span><p class="demo-kicker">VISTA DE EJEMPLO · SIN IA</p><h3 id="copy-tool-title">Prepara el texto de un anuncio</h3><p>El borrador se compone con una plantilla local; no usa IA ni se publica o envía.</p><div class="demo-field"><label for="demo-copy-car">Vehículo de ejemplo</label><input id="demo-copy-car" value="Toyota Corolla 1.8 Hybrid" maxlength="80"></div><div class="demo-field"><label for="demo-copy-detail">Un detalle que quieras destacar</label><input id="demo-copy-detail" value="Revisión al día, un solo propietario" maxlength="120"></div><button type="button" id="demo-generate-copy" class="demo-primary-button">Generar borrador <span aria-hidden="true">→</span></button><div class="demo-generated-output" aria-live="polite"><p class="demo-kicker">BORRADOR LOCAL</p><p id="demo-copy-output">Completa los datos y genera un texto orientativo.</p></div></section>
             <section class="demo-panel demo-tool-card" aria-labelledby="finance-tool-title"><span class="demo-tool-symbol blue" aria-hidden="true">€</span><p class="demo-kicker">SIMULADOR ORIENTATIVO</p><h3 id="finance-tool-title">Calcula una cuota de ejemplo</h3><p>Ajusta precio, entrada y plazo. No es una oferta ni una aprobación financiera.</p><div class="demo-field"><label for="demo-finance-price">Precio de ejemplo (€)</label><input id="demo-finance-price" type="number" inputmode="numeric" min="1000" max="150000" step="500" value="18900"></div><div class="demo-field"><label for="demo-finance-down">Entrada (€)</label><input id="demo-finance-down" type="number" inputmode="numeric" min="0" max="149000" step="500" value="3000"></div><div class="demo-field"><label for="demo-finance-months">Plazo</label><select id="demo-finance-months"><option value="36">36 meses</option><option value="48" selected>48 meses</option><option value="60">60 meses</option><option value="72">72 meses</option></select></div><div class="demo-finance-result"><span>Cuota mensual aproximada</span><strong id="demo-finance-output" aria-live="polite">—</strong><small>Ejercicio ilustrativo con un 8,9 % TAE estimado.</small></div></section>
+            <section class="demo-panel demo-tool-card" aria-labelledby="margin-tool-title"><span class="demo-tool-symbol blue" aria-hidden="true">↗</span><p class="demo-kicker">CÁLCULO LOCAL DE EJEMPLO</p><h3 id="margin-tool-title">Estima el margen bruto</h3><p>Resta el coste de adquisición al precio de venta. No incluye gastos, impuestos ni otros costes.</p><div class="demo-field"><label for="demo-margin-cost">Coste de adquisición (€)</label><input id="demo-margin-cost" type="number" inputmode="numeric" min="0" max="500000" step="100" value="14500"></div><div class="demo-field"><label for="demo-margin-sale">Precio de venta previsto (€)</label><input id="demo-margin-sale" type="number" inputmode="numeric" min="0" max="500000" step="100" value="18900"></div><div class="demo-finance-result"><span>Margen bruto estimado</span><strong id="demo-margin-output" aria-live="polite">—</strong><small id="demo-margin-note">Cálculo ilustrativo; no incluye otros costes.</small></div></section>
           </div>
         </section>
 
@@ -130,10 +140,22 @@
           </div>
         </section>
 
+        <section class="demo-view" id="view-module-preview" data-panel="module-preview" aria-labelledby="module-preview-title" hidden>
+          <div class="demo-view-heading"><div><p class="demo-kicker">PANEL PROFESIONAL · VISTA INFORMATIVA</p><h2 id="module-preview-title" tabindex="-1">Explora esta herramienta</h2><p id="module-preview-description"></p></div><span class="demo-date-chip">No conectada en la demo</span></div>
+          <section class="demo-panel demo-module-preview" aria-live="polite">
+            <span class="demo-tool-symbol blue" aria-hidden="true" id="module-preview-icon">i</span>
+            <p class="demo-kicker">QUÉ INCLUYE EL PANEL PROFESIONAL</p>
+            <h3 id="module-preview-heading"></h3>
+            <p id="module-preview-detail"></p>
+            <div class="demo-module-preview-note"><strong>En esta demostración</strong><span id="module-preview-boundary"></span></div>
+            <a class="demo-primary-button demo-module-register" href="acceso.html?audience=professional&amp;return=hub&amp;mode=register">Crear cuenta profesional <span aria-hidden="true">→</span></a>
+          </section>
+        </section>
+
         <footer class="demo-content-footer"><span>Demo sintética · Cambios no persistentes</span><a href="profesionales.html">Volver a la propuesta profesional</a><a class="demo-content-register" href="acceso.html?audience=professional&amp;return=hub&amp;mode=register">Crear cuenta beta gratis →</a></footer>
       </div>
     </div>
   </main>
-  <script src="demo-profesional.js?v=1.0" defer></script>
+  <script src="demo-profesional.js?v=1.2" defer></script>
 </body>
 </html>

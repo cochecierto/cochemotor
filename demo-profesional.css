@@ -37,7 +37,7 @@ body.cm-demo-page { margin: 0; min-height: 100vh; color: var(--demo-ink); backgr
 .demo-intro h1 span { color: var(--demo-red); }
 .demo-intro > div > p:last-child { max-width: 650px; margin: 12px 0 0; color: #5b6f85; font-size: .94rem; line-height: 1.6; }
 .demo-main-cta { min-height: 48px; margin-bottom: 3px; padding: 12px 17px; }
-.demo-app-layout { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 20px; align-items: start; }
+.demo-app-layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 20px; align-items: start; }
 .demo-sidebar, .demo-panel { border: 1px solid var(--demo-line); border-radius: 13px; background: #fff; box-shadow: 0 5px 22px rgba(20,48,80,.035); }
 .demo-sidebar { position: sticky; top: 14px; overflow: hidden; padding: 13px; }
 .demo-profile-card { display: flex; align-items: center; gap: 9px; padding: 10px 8px 15px; border-bottom: 1px solid #edf1f5; }
@@ -110,6 +110,15 @@ body.cm-demo-page { margin: 0; min-height: 100vh; color: var(--demo-ink); backgr
 .demo-content-footer { display: flex; justify-content: space-between; gap: 14px; margin-top: 18px; padding: 13px 3px 0; border-top: 1px solid #e1e8f0; color: #8290a0; font-size: .62rem; }
 .demo-content-footer a { color: #526e8a; font-weight: 700; text-decoration: none; }
 .demo-content-footer .demo-content-register { color: #b3272e; font-weight: 800; }
+.demo-nav { max-height: min(68vh, 690px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.demo-module-preview { max-width: 760px; padding: clamp(22px, 4vw, 38px); }
+.demo-module-preview h3 { margin: 0 0 9px; color: var(--demo-navy); font-family: var(--font-family-display, Inter, Arial, sans-serif); font-size: clamp(1.35rem, 2.4vw, 1.8rem); }
+.demo-module-preview > p:not(.demo-kicker) { max-width: 620px; color: #536b84; line-height: 1.6; }
+.demo-module-preview-note { display: grid; gap: 5px; margin: 22px 0; padding: 15px 17px; border: 1px solid #d9e8f9; border-radius: 9px; background: #f5f9ff; color: #536b84; line-height: 1.55; }
+.demo-module-preview-note strong { color: var(--demo-navy); }
+.demo-module-register { width: fit-content; text-decoration: none; }
+.cm-demo-page a.demo-primary-button { color: #fff; }
+.cm-demo-page a.demo-primary-button:hover { color: #fff; background: #124c8d; }
 .demo-inventory-panel { padding: 15px; }
 .demo-inventory-tools { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 15px; }
 .demo-search { display: flex; min-width: min(100%, 230px); min-height: 38px; align-items: center; gap: 8px; padding: 0 10px; border: 1px solid #dce4ed; border-radius: 7px; color: #8190a0; }
@@ -188,7 +197,7 @@ body.cm-demo-page { margin: 0; min-height: 100vh; color: var(--demo-ink); backgr
 
 @media (max-width: 1050px) {
   .demo-page-shell { padding-inline: 22px; }
-  .demo-app-layout { grid-template-columns: 200px minmax(0,1fr); gap: 14px; }
+  .demo-app-layout { grid-template-columns: 240px minmax(0,1fr); gap: 14px; }
   .demo-topbar { padding-inline: 22px; }
   .demo-sidebar { padding: 10px; }
   .demo-overview-grid { grid-template-columns: 1fr; }
@@ -251,6 +260,74 @@ body.cm-demo-page { margin: 0; min-height: 100vh; color: var(--demo-ink); backgr
   .demo-listing-preview { padding: 0; }
   .demo-content-footer { font-size: .59rem; }
 }
+
+/* Contrast and hierarchy pass for small labels and secondary copy. */
+.demo-app-layout { grid-template-columns: 300px minmax(0, 1fr); }
+.demo-preview-label, .demo-content-footer, .demo-panel-heading p,
+.demo-mini-car-copy small, .demo-metric small, .demo-activity-list small,
+.demo-vehicle-copy > p, .demo-vehicle-meta, .demo-status,
+.demo-contact-info small, .demo-contact-action label, .demo-finance-result small,
+.demo-preview-copy > p:not(.demo-kicker) { color: #536981; }
+.demo-view-heading > div > p:last-child, .demo-tool-card > p:not(.demo-kicker),
+.demo-form-note, .demo-filter-group button, .demo-pipeline-summary > span,
+.demo-search, .demo-search input { color: #536981; }
+.demo-filter-group button span { color: #526981; }
+.demo-empty-state { color: #536981; }
+.demo-metric-trend small { color: #3f6557; }
+.demo-status-pill.reserved { color: #79500e; }
+.cm-demo-page .demo-primary-button { color: #fff; }
+.cm-demo-page .demo-primary-button:hover { color: #fff; background: #124c8d; }
+.cm-demo-page a.demo-primary-button, .cm-demo-page a.demo-primary-button:visited,
+.cm-demo-page a.demo-primary-button:hover, .cm-demo-page a.demo-primary-button:focus-visible { color: #fff; }
+
+@media (max-width: 1050px) {
+  .demo-app-layout { grid-template-columns: 240px minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .demo-app-layout { grid-template-columns: 1fr; }
+  .demo-sidebar { width: 100%; }
+}
 @media (prefers-reduced-motion: reduce) {
   .demo-topbar-cta, .demo-main-cta, .demo-sidebar-cta { transition: none; }
+}
+
+/* Demo reading scale: keep utility labels compact, but comfortably legible. */
+.demo-topbar-label { font-size: .75rem; }
+.demo-topbar-back { font-size: .9rem; }
+.demo-topbar-cta, .demo-main-cta, .demo-sidebar-cta { font-size: .9rem; }
+.demo-safety-note p, .demo-intro > div > p:last-child { font-size: .95rem; }
+.demo-synthetic-tag, .demo-synthetic-label, .demo-eyebrow, .demo-kicker,
+.demo-preview-copy .demo-kicker, .demo-generated-output .demo-kicker { font-size: .75rem; }
+.demo-profile-card strong { font-size: .9rem; }
+.demo-profile-card small, .demo-account-tag, .demo-nav-item b { font-size: .75rem; }
+.demo-nav-item { font-size: .9rem; }
+.demo-sidebar-foot p, .demo-sidebar-foot strong { font-size: .8rem; }
+.demo-view-heading > div > p:last-child { font-size: .95rem; }
+.demo-date-chip { font-size: .8rem; }
+.demo-metric p, .demo-metric-trend, .demo-panel-heading p, .demo-text-action,
+.demo-mini-car-copy small, .demo-status-pill, .demo-activity-list small,
+.demo-inline-hint button, .demo-search input, .demo-filter-group button,
+.demo-vehicle-copy > p, .demo-vehicle-meta, .demo-status,
+.demo-pipeline-summary > span, .demo-contact-info small, .demo-contact-action label,
+.demo-field label, .demo-primary-button, .demo-finance-result > span,
+.demo-form-note, .demo-preview-label, .demo-preview-copy > p:not(.demo-kicker),
+.demo-preview-pill, .demo-content-footer { font-size: .8rem; }
+.demo-metric small, .demo-metric-trend small, .demo-panel-heading h3,
+.demo-mini-car-copy strong, .demo-activity-list strong, .demo-inline-hint p,
+.demo-vehicle-title-row h3, .demo-contact-info strong,
+.demo-generated-output > p:last-child, .demo-finance-result small { font-size: .88rem; }
+.demo-contact-action select, .demo-field input, .demo-field select,
+.demo-search input { font-size: .92rem; }
+
+@media (max-width: 760px) {
+  .demo-topbar-label { font-size: .7rem; }
+  .demo-topbar-cta { font-size: .82rem; }
+  .demo-safety-note p { font-size: .88rem; }
+  .demo-nav-item { min-height: 44px; font-size: .88rem; }
+  .demo-date-chip, .demo-pipeline-summary > span { font-size: .78rem; }
+  .demo-content-footer { font-size: .82rem; }
+}
+@media (max-width: 420px) {
+  .demo-topbar-label { font-size: .68rem; }
+  .demo-topbar-cta { font-size: .78rem; }
 }

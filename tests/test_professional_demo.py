@@ -38,12 +38,43 @@ class ProfessionalDemoTests(unittest.TestCase):
 
     def test_demo_has_synthetic_disclaimer_and_interactive_sections(self):
         self.assertIn("datos sintéticos", self.page.lower())
-        for view in ("overview", "inventory", "contacts", "tools", "publish"):
+        for view in ("overview", "inventory", "contacts", "publish"):
             self.assertIn(f'data-view="{view}"', self.page)
             self.assertIn(f'id="view-{view}"', self.page)
+        self.assertIn('data-view="generator" data-panel="tools"', self.page)
+        self.assertIn('data-view="calculator" data-panel="tools"', self.page)
         self.assertIn("demoLeadStatus", self.script)
         self.assertIn("data-demo-filter", self.script)
         self.assertIn("data-demo-preview", self.page)
+
+    def test_demo_exposes_real_hub_modules_and_marks_unimplemented_previews(self):
+        labels = (
+            "Añadir coche", "Seguimiento de contactos", "Generador con IA",
+            "Copiloto de Precios", "Solicitudes de compradores", "Cuotas y margen",
+            "Cartel Parabrisas QR", "Documentación de operaciones",
+            "Publicar en redes y grupos", "Garantías y seguimiento posventa",
+            "Afiliados B2B", "Mi página profesional",
+        )
+        for label in labels:
+            self.assertIn(label, self.page)
+        self.assertIn("No conectada en la demo", self.page)
+        self.assertIn("modulePreviews", self.script)
+        self.assertIn("no se consultan anuncios ni datos de mercado en directo", self.script)
+        self.assertIn("no se conecta a redes sociales", self.script)
+        self.assertIn("Esta vista no utiliza IA ni ofrece financiación", self.page)
+        self.assertIn("id=\"demo-margin-output\"", self.page)
+        self.assertIn("function updateMargin()", self.script)
+
+    def test_demo_uses_readable_font_scale_and_scrollable_module_navigation(self):
+        self.assertIn(".demo-nav-item { font-size: .9rem;", self.styles)
+        self.assertIn(".demo-safety-note p, .demo-intro > div > p:last-child { font-size: .95rem;", self.styles)
+        self.assertIn("max-height: min(68vh, 690px); overflow-y: auto", self.styles)
+
+    def test_demo_sidebar_width_and_action_text_contrast_are_explicit(self):
+        self.assertIn("grid-template-columns: 300px minmax(0, 1fr)", self.styles)
+        self.assertIn("grid-template-columns: 1fr", self.styles)
+        self.assertIn(".cm-demo-page a.demo-primary-button, .cm-demo-page a.demo-primary-button:visited", self.styles)
+        self.assertIn("color: #fff", self.styles)
 
     def test_interactive_controls_are_explicit_buttons(self):
         self.assertIsNone(re.search(r'<button(?![^>]*\btype=)', self.page, re.IGNORECASE))
