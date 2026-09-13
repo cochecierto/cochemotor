@@ -6,19 +6,19 @@ El proyecto usa SQLite para desarrollo local y pruebas. Para producción se ha p
 
 1. Usar la base nueva `u560645602_cochemotor` y el usuario dedicado `u560645602_cochemotor_app`.
 2. Ejecutar desde phpMyAdmin, en orden, `migrations/001_cochemotor_mysql.sql`, `002_search_and_engagement_mysql.sql` y `003_auth_and_publication_mysql.sql`.
-4. Guardar las credenciales únicamente como variables de entorno del API:
+3. Guardar las credenciales únicamente como variables de entorno del API:
 
 ```text
 COCHEMOTOR_DB_BACKEND=mysql
 COCHEMOTOR_DB_HOST=srv1746.hstgr.io
 COCHEMOTOR_DB_PORT=3306
-COCHEMOTOR_DB_NAME=...
-COCHEMOTOR_DB_USER=...
+COCHEMOTOR_DB_NAME=u560645602_cochemotor
+COCHEMOTOR_DB_USER=u560645602_cochemotor_app
 COCHEMOTOR_DB_PASSWORD=...
 ```
 
-5. Hacer una copia de la base SQLite antes de migrar datos.
-6. Migrar primero en una base de ensayo y verificar recuentos de vehículos, usuarios, solicitudes y contactos.
+4. Hacer una copia de la base SQLite antes de migrar datos.
+5. Migrar primero en una base de ensayo y verificar recuentos de vehículos, usuarios, solicitudes y contactos.
 
 La aplicación no debe recibir estas credenciales desde el navegador ni incluirlas en GitHub. La activación de runtime requiere configurar estas variables en el entorno que ejecuta `api.cochemotor.es`.
 
