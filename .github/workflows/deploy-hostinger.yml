@@ -9,6 +9,7 @@ on:
       - "demo-profesional.js"
       - "profesionales.html"
       - "profesionales.css"
+      - "docs/CURRENT-STATE.md"
       - "tests/**"
       - ".github/workflows/deploy-hostinger.yml"
   pull_request:
@@ -19,6 +20,7 @@ on:
       - "demo-profesional.js"
       - "profesionales.html"
       - "profesionales.css"
+      - "docs/CURRENT-STATE.md"
       - "tests/**"
       - ".github/workflows/deploy-hostinger.yml"
   workflow_dispatch:
