@@ -67,9 +67,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         with get_connection(DB_PATH) as conn:
             request_id = query.get("id", [None])[0]
             if request_id:
-                self._json_response(200, {"ok": True, "history": list_coche_ideal_history(conn, request_id)})
+            self._json_response(200, {"ok": True, "history": list_coche_ideal_history(conn, request_id)})
             else:
-                self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
+            self._json_response(200, {"ok": True, "requests": list_coche_ideal_requests(conn, query.get("status", [None])[0])})
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self._cors_headers()
+        self.end_headers()
     def do_POST(self):
         if self.path == "/api/auth":
             self._handle_auth()
@@ -279,9 +284,18 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("X-Frame-Options", "SAMEORIGIN")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
+        self._cors_headers()
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+
+    def _cors_headers(self):
+        origin = self.headers.get("Origin")
+        if origin in ("https://cochemotor.es", "https://www.cochemotor.es"):
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS")
+            self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Advisor-Key")
+            self.send_header("Vary", "Origin")
     def log_message(self, format, *args):
         sys.stdout.write("[CocheMotor Local Server] %s - %s\n" % (self.address_string(), format % args))
         sys.stdout.flush()

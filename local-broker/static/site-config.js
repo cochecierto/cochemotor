@@ -1,3 +1,12 @@
+if (window.location.hostname === 'cochemotor.es' || window.location.hostname === 'www.cochemotor.es') {
+  window.COCHEMOTOR_API_BASE = 'https://api.cochemotor.es';
+  const nativeFetch = window.fetch.bind(window);
+  window.fetch = (input, init) => {
+    if (typeof input === 'string' && input.startsWith('/api/')) input = window.COCHEMOTOR_API_BASE + input;
+    return nativeFetch(input, init);
+  };
+}
+
 /**
  * CocheMotor — Central Editorial, Product & Multi-User SaaS Configuration
  * Metodología BIG School Webs & Arquitectura Multi-Tenant Aislada
