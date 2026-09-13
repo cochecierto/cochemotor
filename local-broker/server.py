@@ -311,6 +311,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("X-Frame-Options", "SAMEORIGIN")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
+        self.send_header("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+        self.send_header("Permissions-Policy", "camera=(), microphone=(), geolocation=()")
         self._cors_headers()
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
