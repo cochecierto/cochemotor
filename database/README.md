@@ -4,9 +4,8 @@ El proyecto usa SQLite para desarrollo local y pruebas. Para producción se ha p
 
 ## Activación recomendada
 
-1. Seleccionar una base existente y sin uso en Hostinger.
-2. Crear un usuario con permisos sobre esa base, sin permisos globales.
-3. Ejecutar `migrations/001_cochemotor_mysql.sql` desde phpMyAdmin.
+1. Usar la base nueva `u560645602_cochemotor` y el usuario dedicado `u560645602_cochemotor_app`.
+2. Ejecutar desde phpMyAdmin, en orden, `migrations/001_cochemotor_mysql.sql`, `002_search_and_engagement_mysql.sql` y `003_auth_and_publication_mysql.sql`.
 4. Guardar las credenciales únicamente como variables de entorno del API:
 
 ```text
@@ -21,6 +20,6 @@ COCHEMOTOR_DB_PASSWORD=...
 5. Hacer una copia de la base SQLite antes de migrar datos.
 6. Migrar primero en una base de ensayo y verificar recuentos de vehículos, usuarios, solicitudes y contactos.
 
-La aplicación no debe recibir estas credenciales desde el navegador ni incluirlas en GitHub. La migración de runtime se activará después de confirmar la base concreta y el entorno que ejecuta `api.cochemotor.es`.
+La aplicación no debe recibir estas credenciales desde el navegador ni incluirlas en GitHub. La activación de runtime requiere configurar estas variables en el entorno que ejecuta `api.cochemotor.es`.
 
-Las migraciones deben ejecutarse en orden: primero `migrations/001_cochemotor_mysql.sql` y después `migrations/002_search_and_engagement_mysql.sql`. La segunda añade búsquedas guardadas, favoritos, alertas por email y eventos analíticos sin almacenar el historial de navegación completo.
+Las migraciones deben ejecutarse en orden. La segunda añade búsquedas guardadas, favoritos, alertas por email y eventos analíticos; la tercera añade autenticación, contactos de publicación e imágenes con límite de aplicación de 10 por anuncio.
