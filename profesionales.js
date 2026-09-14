@@ -62,38 +62,6 @@
     grid.innerHTML = plans.map(planCard).join('');
   }
 
-  function updateCostScenario() {
-    const vehicles = document.getElementById('pro-cost-vehicles');
-    const portal = document.getElementById('pro-cost-portal');
-    if (!vehicles || !portal) return;
-    const vehicleCount = Number.parseInt(vehicles.value, 10);
-    const portalCost = Number.parseInt(portal.value, 10);
-    const plan = vehicleCount <= 10 ? { name: 'Inicio', price: 59 }
-      : vehicleCount <= 35 ? { name: 'Profesional', price: 129 }
-      : vehicleCount <= 75 ? { name: 'Concesionario', price: 199 }
-      : { name: 'Red (desde)', price: 299 };
-    const annualDifference = (vehicleCount * portalCost - plan.price) * 12;
-    const diffLabel = `${annualDifference > 0 ? '+' : annualDifference < 0 ? '−' : ''}${euro(Math.abs(annualDifference))} €`;
-    const vehiclesOutput = document.getElementById('pro-cost-vehicles-value');
-    const portalOutput = document.getElementById('pro-cost-portal-value');
-    const differenceOutput = document.getElementById('pro-cost-difference');
-    const detailOutput = document.getElementById('pro-cost-result-detail');
-    if (vehiclesOutput) vehiclesOutput.value = String(vehicleCount);
-    if (portalOutput) portalOutput.value = `${portalCost} €`;
-    if (differenceOutput) {
-      differenceOutput.textContent = diffLabel;
-      differenceOutput.style.color = annualDifference >= 0 ? '#267051' : '#a14637';
-    }
-    if (detailOutput) detailOutput.textContent = `Plan de referencia: ${plan.name} · ${euro(plan.price)} €/mes`;
-  }
-
-  function initCostScenario() {
-    ['pro-cost-vehicles', 'pro-cost-portal'].forEach((id) => {
-      document.getElementById(id)?.addEventListener('input', updateCostScenario);
-    });
-    updateCostScenario();
-  }
-
   function initBilling() {
     document.querySelectorAll('[data-billing]').forEach((button) => {
       button.addEventListener('click', () => {
@@ -133,6 +101,5 @@
     initBilling();
     initNavigation();
     renderPlans();
-    initCostScenario();
   });
 }());

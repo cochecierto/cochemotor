@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <title>Comentarios sobre la beta | CocheMotor</title>
+  <meta name="description" content="Cuéntanos si la beta de CocheMotor te resulta útil y qué mejorarías.">
+  <link rel="icon" href="assets/brand/favicons/favicon.ico?v=12.0" sizes="any">
+  <link rel="stylesheet" href="styles.css?v=5.3">
+  <style>
+    .beta-feedback { width: min(100% - 32px, 720px); margin: clamp(38px, 8vw, 90px) auto; padding: clamp(22px, 5vw, 44px); border: 1px solid #dce4eb; border-radius: 14px; background: #fff; box-shadow: 0 16px 42px rgba(16,41,66,.08); }
+    .beta-feedback h1 { margin: 0; color: #002d62; font-size: clamp(1.8rem, 6vw, 2.7rem); line-height: 1.12; }
+    .beta-feedback > p { color: #53677b; line-height: 1.65; }
+    .beta-feedback fieldset { display: grid; gap: 12px; margin: 26px 0; padding: 0; border: 0; }
+    .beta-feedback legend { margin-bottom: 12px; color: #102942; font-weight: 750; }
+    .beta-feedback label { line-height: 1.5; }
+    .beta-feedback fieldset label { display: flex; align-items: flex-start; gap: 10px; }
+    .beta-feedback input[type="radio"] { flex: 0 0 auto; margin-top: 4px; accent-color: #c8272d; }
+    .beta-feedback textarea { display: block; width: 100%; min-height: 150px; margin-top: 9px; padding: 12px; border: 1px solid #aebdca; border-radius: 8px; font: inherit; line-height: 1.5; resize: vertical; }
+    .beta-feedback textarea:focus-visible, .beta-feedback input:focus-visible, .beta-feedback a:focus-visible, .beta-feedback button:focus-visible { outline: 3px solid #e3a93b; outline-offset: 3px; }
+    .beta-feedback .feedback-submit { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; margin-top: 18px; padding: 12px 18px; border: 0; border-radius: 7px; background: #c8272d; color: #fff; font: inherit; font-weight: 750; cursor: pointer; }
+    .beta-feedback .feedback-privacy { margin-top: 20px; padding-top: 17px; border-top: 1px solid #dce4eb; font-size: .88rem; }
+    .beta-feedback .feedback-fallback { margin-top: 14px; font-size: .9rem; }
+    @media (max-width: 390px) { .beta-feedback { width: min(100% - 22px, 720px); } .beta-feedback .feedback-submit { width: 100%; } }
+  </style>
+</head>
+<body>
+  <main id="contenido" class="beta-feedback">
+    <p class="pro-eyebrow">BETA COCHEMOTOR</p>
+    <h1>¿Te está resultando útil?</h1>
+    <p>Tu opinión nos ayuda a decidir qué mejorar. No incluyas contraseñas, matrículas, datos de clientes ni otra información sensible.</p>
+    <form id="beta-feedback-form">
+      <fieldset>
+        <legend>¿Cómo te está resultando la beta?</legend>
+        <label><input type="radio" name="usefulness" value="Sí, me resulta útil" required> Sí, me resulta útil</label>
+        <label><input type="radio" name="usefulness" value="En parte"> En parte</label>
+        <label><input type="radio" name="usefulness" value="Todavía no me resulta útil"> Todavía no me resulta útil</label>
+      </fieldset>
+      <label for="feedback-comment"><strong>¿Qué mejorarías?</strong> <span>(opcional)</span></label>
+      <textarea id="feedback-comment" name="comment" maxlength="1200" placeholder="Cuéntanos qué te ha servido o qué te ha resultado difícil."></textarea>
+      <button class="feedback-submit" type="submit">Revisar comentario en mi correo</button>
+    </form>
+    <p class="feedback-privacy">Al enviar el correo, tu dirección remitente será visible para CocheMotor. El formulario no guarda ni envía tus respuestas desde esta web; primero abrirá un borrador para que lo revises.</p>
+    <p class="feedback-fallback">¿No se abre el correo? <a id="feedback-direct-link" href="mailto:hola@cochemotor.es?subject=Comentario%20sobre%20la%20beta%20de%20CocheMotor">Escríbenos directamente</a>.</p>
+    <p><a href="index.html">Volver a CocheMotor</a></p>
+  </main>
+  <script src="feedback-beta.js?v=1.0" defer></script>
+</body>
+</html>

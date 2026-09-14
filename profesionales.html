@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=5.1">
-  <link rel="stylesheet" href="profesionales.css?v=1.0">
+  <link rel="stylesheet" href="profesionales.css?v=1.1">
 </head>
 <body class="pro-site">
   <a class="pro-skip-link" href="#contenido">Saltar al contenido</a>
@@ -27,7 +27,7 @@
       <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="pro-navigation" aria-label="Abrir menú">☰</button>
       <nav class="nav-desktop pro-nav" id="pro-navigation" aria-label="Navegación principal">
         <a href="#herramientas" class="nav-link">Herramientas</a>
-        <a href="#planes" class="nav-link">Planes</a>
+        <a href="#planes" class="nav-link">Beta y planes</a>
         <a href="#preguntas" class="nav-link">Preguntas frecuentes</a>
         <a href="marketplace.html" class="nav-link pro-buyer-link">Buscar coches</a>
       </nav>
@@ -48,7 +48,7 @@
           <div class="pro-hero-actions">
             <a class="btn btn-red" href="acceso.html?audience=professional&return=hub&mode=register">Crear cuenta beta gratis <span aria-hidden="true">→</span></a>
             <a class="btn pro-demo-cta" href="demo-profesional.html">Explorar demo interactiva <span aria-hidden="true">↗</span></a>
-            <a class="pro-text-link" href="#planes">Ver planes y precios</a>
+            <a class="pro-text-link" href="#planes">Condiciones de la beta</a>
           </div>
           <ul class="pro-hero-facts" aria-label="Condiciones de la beta">
             <li><strong>Sin cobros</strong><span>durante la beta</span></li>
@@ -101,33 +101,27 @@
       </div>
     </section>
 
-    <section class="pro-cost-check" aria-labelledby="pro-cost-title">
-      <div class="container pro-cost-grid">
-        <div class="pro-cost-intro"><p class="pro-eyebrow">HAZ TU PROPIO ESCENARIO</p><h2 id="pro-cost-title">Compara las cuotas, con tus cifras.</h2><p>Indica cuántos coches tienes activos y el coste mensual que pagas por anuncio. El resultado usa el plan previsto para ese volumen.</p><a class="pro-text-link" href="#planes">Consultar todos los planes <span aria-hidden="true">→</span></a></div>
-        <div class="pro-cost-card">
-          <div class="pro-cost-input"><label for="pro-cost-vehicles">Vehículos activos en tu stock <output id="pro-cost-vehicles-value" for="pro-cost-vehicles">8</output></label><input type="range" id="pro-cost-vehicles" min="2" max="100" step="1" value="8"></div>
-          <div class="pro-cost-input"><label for="pro-cost-portal">Coste mensual por anuncio <output id="pro-cost-portal-value" for="pro-cost-portal">45 €</output></label><input type="range" id="pro-cost-portal" min="20" max="90" step="1" value="45"></div>
-          <div class="pro-cost-result" aria-live="polite"><span>Diferencia anual estimada</span><strong id="pro-cost-difference">+3.612 €</strong><p id="pro-cost-result-detail">Plan de referencia: Inicio · 59 €/mes</p></div>
-          <p class="pro-cost-disclaimer">El coste de 45 € es solo un valor inicial editable, no una tarifa universal. La operación no compara prestaciones equivalentes ni incluye IVA, descuentos u otros costes. No es una promesa de ahorro ni de ventas.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="pro-plans" id="planes">
       <div class="container">
         <header class="pro-section-heading pro-plans-heading">
-          <p class="pro-eyebrow pro-eyebrow-light">PROPUESTA COMERCIAL</p>
-          <h2>Elige según el tamaño<br>de tu inventario.</h2>
-          <p>Estos son los planes de referencia para después de la beta: cuota fija y sin comisión sobre ventas. Puedes crear una cuenta gratis; no se activa una tarifa ni un pago.</p>
+          <p class="pro-eyebrow pro-eyebrow-light">DURANTE LA BETA</p>
+          <h2>Acceso gratuito mientras dure la beta.</h2>
+          <p>No hay fecha de finalización anunciada. Los precios y límites previstos no se aplican ahora y no se activará ningún cargo. Te informaremos de las condiciones y pediremos tu aceptación antes de cualquier plan de pago.</p>
         </header>
+        <details class="pro-plan-disclosure">
+          <summary>Consultar la propuesta de planes y precios para después de la beta</summary>
+          <div class="pro-plan-disclosure-content">
+        <p class="pro-future-plan-note">Esta propuesta es orientativa y está sujeta a revisión. No constituye una oferta activa ni una contratación; los precios y cupos no se aplican durante la beta.</p>
         <div class="pro-billing" role="group" aria-label="Periodo de facturación">
           <button type="button" class="is-selected" data-billing="monthly" aria-pressed="true">Mes a mes</button>
           <button type="button" data-billing="annual" aria-pressed="false">Anual <span>2 meses de referencia sin coste</span></button>
         </div>
-        <p class="pro-tax-note">Precios sin IVA. La opción anual equivale a pagar 10 meses y usar 12. No hay pagos ni suscripciones activos desde esta web.</p>
+        <p class="pro-tax-note">Importes orientativos sin IVA. La opción anual propuesta equivale a pagar 10 meses y usar 12. No hay pagos ni suscripciones activos desde esta web.</p>
         <div class="pro-plan-grid" id="pro-plan-grid" aria-live="polite"></div>
         <div class="pro-plan-terms"><strong>Cómo se cuentan los vehículos:</strong> el cupo propuesto considera activo un coche publicado, reservado o en venta. Durante la beta estos cupos son solo una referencia: todavía no se aplican automáticamente a la cuenta. Confirmaremos por escrito funciones, límites y condiciones antes de activar un plan.</div>
         <details class="pro-addons"><summary>Servicios opcionales de referencia (sujetos a disponibilidad)</summary><div class="pro-addons-grid"><p><strong>Vehículo adicional</strong><span>2–3 €/mes</span></p><p><strong>Usuario adicional</strong><span>9 €/mes</span></p><p><strong>Migración de inventario</strong><span>99–199 €</span></p><p><strong>Página personalizada</strong><span>199–499 €</span></p><p><strong>Revisión básica / completa</strong><span>19–29 € / 39–69 €</span></p><p><strong>Revisión premium con fotos y OBD</strong><span>69–99 €</span></p><p><strong>Fotografía y vídeo profesional</strong><span>Servicio independiente</span></p><p><strong>Publicación asistida en portales</strong><span>29–59 €/mes</span></p><p><strong>Gestión de campañas</strong><span>Desde 149 €/mes</span></p><p><strong>Marca blanca</strong><span>Desde 399 €/mes</span></p><p><strong>WhatsApp Business API</strong><span>Proveedor + gestión</span></p></div><p class="pro-addon-disclaimer">Importes orientativos del modelo propuesto, sin IVA y sujetos a alcance, proveedor y disponibilidad. No se pueden contratar ni pagar desde esta web. La inspección física y las integraciones requieren confirmación previa; WhatsApp API no está conectado.</p></details>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -150,8 +144,8 @@
     </section>
   </main>
 
-  <footer class="site-footer pro-footer"><div class="container pro-footer-inner"><a href="index.html"><img src="assets/brand/logos/cochemotor-horizontal-dark.png" alt="CocheMotor"></a><p>Información clara para profesionales y compradores de vehículos de ocasión.</p><nav aria-label="Enlaces legales"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="terminos.html">Condiciones</a><a href="index.html">Inicio CocheMotor</a></nav><small>© <span id="pro-year"></span> CocheMotor</small></div></footer>
+  <footer class="site-footer pro-footer"><div class="container pro-footer-inner"><a href="index.html"><img src="assets/brand/logos/cochemotor-final-dark.png" alt="CocheMotor"></a><p>Información clara para profesionales y compradores de vehículos de ocasión.</p><nav aria-label="Enlaces"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="terminos.html">Condiciones</a><a href="index.html">Inicio CocheMotor</a><a href="feedback-beta.html?from=professionals">Feedback beta</a></nav><small>© <span id="pro-year"></span> CocheMotor</small></div></footer>
   <script src="planes-profesionales.js?v=1.0"></script>
-  <script src="profesionales.js?v=1.0"></script>
+  <script src="profesionales.js?v=1.1"></script>
 </body>
 </html>

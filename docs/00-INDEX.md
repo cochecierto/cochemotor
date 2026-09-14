@@ -73,3 +73,4 @@
 - [Spec 009 — Páginas públicas indexables y base SEO](../specs/009-public-seo-foundation/spec.md)
 - [Spec 004 — Coche Ideal: solicitud y ficha de búsqueda](../specs/004-coche-ideal/spec.md)
 - [Spec 010 — Acciones de ficha pública de vehículo](../specs/010-public-vehicle-sheet-actions/spec.md)
+- [Spec 011 — Preparación de experiencia para la beta profesional](../specs/011-beta-feedback-readiness/spec.md)

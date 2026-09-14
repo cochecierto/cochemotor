@@ -388,3 +388,12 @@ Todas las decisiones de esta versión están fechadas el 2026-08-27.
 - Fecha: 2026-09-13.
 - Decisión: la guía prioriza el enlace a coches disponibles y ofrece, como alternativa secundaria, el flujo existente para crear una búsqueda gratuita según necesidad.
 - Restricciones: no se captura información nueva desde la guía, no se agregan píxeles ni se atribuyen conversiones sin medición consentida.
+
+## D-043 — Presentación de beta profesional y comentarios
+
+- Estado: aprobado e implementado localmente el 2026-09-14; validación responsive completa y publicación pendientes.
+- Decisión: mantener el acceso gratuito durante toda la beta sin anunciar fecha de finalización; dejar precios, anualidad, cupos y extras como propuesta orientativa secundaria dentro de un desplegable cerrado. Retirar la calculadora de ahorro de la ruta profesional.
+- Feedback: ofrecer un formulario que crea un borrador editable en el correo del usuario hacia `hola@cochemotor.es`; no guardar ni transmitir automáticamente comentarios, no crear endpoint ni incorporar tracking. Aclarar que el remitente será visible al enviar y pedir que no se incluyan datos sensibles.
+- Marca: usar la variante existente `cochemotor-final-dark.png` en el footer principal sobre fondo oscuro.
+- Alcance: enlaces desde footers públicos y navegación del hub profesional. La publicación en producción requiere autorización separada.
+- Motivo: comunicar de forma inequívoca las condiciones beta y habilitar feedback voluntario con control del usuario.

@@ -139,4 +139,21 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
   emulación de impresión confirma que se excluyen controles y aparece la URL.
   No se abrió el diálogo de impresión ni el selector nativo de compartir.
 - Las suites web (52), dominio local (18) y específicas (5), la sintaxis JS y
-  `git diff --check` pasan. Los cambios siguen locales; no se ha desplegado.
+  `git diff --check` pasan. El commit `edbf787` de esta Spec 010 llegó a `main`
+  y el auto-deploy de Hostinger se verificó como completado. La URL pública
+  `https://cochemotor.es/ficha.html?id=cm-001` se comprobó con las acciones.
+
+## Actualización CocheMotor — Spec 011, 2026-09-14
+
+- Dirección aprobó mantener precios y cupos como propuesta futura secundaria,
+  cerrada por defecto. La beta seguirá indicada como gratuita mientras dure,
+  sin anunciar una fecha de finalización. Se retira la calculadora de ahorro
+  de la landing profesional.
+- Se añade un formulario de feedback que prepara un borrador de correo editable;
+  no guarda respuestas ni las transmite automáticamente. Se añade acceso desde
+  los footers públicos y el espacio profesional, y se reutiliza el logo existente
+  para fondos oscuros en el footer de inicio.
+- La implementación de Spec 011 no se ha desplegado a producción. El alta profesional
+  completa, la verificación del correo, privacidad y el aislamiento de cuentas
+  siguen pendientes de una revisión integral independiente; esta iniciativa no
+  los cambia ni certifica por sí sola la preparación total para lanzar.
