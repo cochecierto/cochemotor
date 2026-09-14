@@ -39,9 +39,10 @@
       gap: 40px;
       align-items: start;
     }
+    .vehicle-detail-grid > * { min-width: 0; }
     @media (max-width: 960px) {
       .vehicle-detail-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 28px;
       }
     }
@@ -206,6 +207,31 @@
       margin-top: 32px;
     }
 
+    .vehicle-share-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .vehicle-share-actions .btn { min-width: 0; padding: 10px; font-size: 0.82rem; }
+    .vehicle-share-actions .btn:last-child { grid-column: 1 / -1; }
+    .share-status {
+      min-height: 1.25em;
+      margin: 8px 0 0;
+      color: var(--cm-text-secondary);
+      font-size: 0.82rem;
+    }
+    .print-only { display: none; }
+    .vehicle-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .vehicle-header-actions .btn { white-space: nowrap; flex-shrink: 0; }
+
     /* Sticky Bottom Bar de Conversión en Móvil */
     .sticky-cta-bar {
       position: fixed;
@@ -222,19 +248,34 @@
       z-index: 99;
       gap: 16px;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 994px) {
       .sticky-cta-bar {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 12px 16px;
-        gap: 8px;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        gap: 10px;
       }
+      .sticky-cta-bar > div:first-child { display: none !important; }
+      .sticky-cta-actions { display: grid !important; grid-template-columns: 1fr 1fr; width: 100%; gap: 8px; }
+      .sticky-cta-bar .btn { flex: 1; padding: 11px 8px !important; font-size: 0.86rem !important; }
+      .sticky-cta-bar .btn-outline-white:not(.mobile-share-button) { display: none; }
       .sticky-cta-bar .price-subtext {
         display: none;
       }
     }
+    @media (max-width: 600px) {
+      .vehicle-share-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 430px) {
+      .vehicle-share-actions { grid-template-columns: minmax(0, 1fr); }
+      .vehicle-share-actions .btn:last-child { grid-column: auto; }
+    }
+    @media (max-width: 600px) {
+      .vehicle-header-actions { gap: 8px; }
+      .vehicle-header-actions .btn { padding: 8px 10px !important; font-size: 0.78rem !important; }
+      .vehicle-header-actions .btn-red { display: none; }
+    }
 
     @media print {
+      @page { margin: 14mm; }
       .site-header, .site-footer, .no-print, .sticky-cta-bar {
         display: none !important;
       }
@@ -249,6 +290,9 @@
         box-shadow: none !important;
         border: 1px solid #ccc !important;
       }
+      .print-only { display: block !important; }
+      .vehicle-share-actions, .share-status, .lead-box-card form,
+      .lead-box-card > a, .sticky-cta-bar { display: none !important; }
     }
   </style>
 </head>
@@ -266,7 +310,7 @@
         <a href="index.html#ingenieria" class="nav-link">Revisión mecánica</a>
         <a href="index.html#pilares" class="nav-link">Información para comprar</a>
       </nav>
-      <div style="display: flex; align-items: center; gap: 12px;">
+      <div class="vehicle-header-actions">
         <a href="marketplace.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem;">
           ← Volver al Stock
         </a>
@@ -621,18 +665,16 @@
               </form>
             </div>
             <a href="denuncia.html" style="display:block;margin-top:14px;color:var(--cm-text-secondary);font-size:.8rem;text-align:center;text-decoration:underline;">Informar de un problema con este anuncio</a>
-
-            <!-- Botones de Compartir y Descargar PDF con QR -->
-            <div style="display: flex; gap: 10px; margin-top: 18px;">
-              <button class="btn btn-outline" style="flex: 1; padding: 10px; font-size: 0.82rem;" onclick="copyVehicleLink()">
-                🔗 Copiar Enlace
-              </button>
-              <button class="btn btn-outline" style="flex: 1; padding: 10px; font-size: 0.82rem;" onclick="window.print()">
-                🖨️ Imprimir con QR
-              </button>
-            </div>
-
           </div>
+
+          <div class="vehicle-share-actions no-print" aria-label="Compartir o guardar ficha">
+            <button id="btn-share-native" class="btn btn-outline" type="button" onclick="shareVehicle()">↗️ Compartir ficha</button>
+            <button class="btn btn-outline" type="button" onclick="copyVehicleLink()">🔗 Copiar enlace</button>
+            <button id="btn-download-pdf" class="btn btn-outline" type="button" onclick="printVehicleSheet()">🖨️ Guardar / imprimir PDF</button>
+          </div>
+          <p id="share-status" class="share-status no-print" role="status" aria-live="polite"></p>
+          <p id="print-vehicle-url" class="print-only"></p>
+
         </div>
       </div>
     </div>
@@ -646,10 +688,13 @@
       <span id="sticky-monthly" style="font-size: 0.92rem; color: #a7f3d0; font-weight: 700;">--</span>
       <span id="sticky-trust-note" class="price-subtext" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">· Información aportada por el vendedor</span>
     </div>
-    <div style="display: flex; gap: 10px;">
+    <div class="sticky-cta-actions" style="display: flex; gap: 10px;">
       <button class="btn btn-red" style="padding: 10px 20px; font-size: 0.92rem; font-weight: 800;" onclick="openDirectWhatsApp()">
         💬 WhatsApp Inmediato
       </button>
+      <span class="sticky-cta-share" style="display: contents;">
+        <button class="btn btn-outline-white mobile-share-button" style="padding: 10px 16px; font-size: 0.92rem;" onclick="shareVehicle()">↗️ Compartir</button>
+      </span>
       <button class="btn btn-outline-white" style="padding: 10px 16px; font-size: 0.92rem;" onclick="openCallModal()">
         📞 Llamar
       </button>
@@ -691,6 +736,7 @@
       // Meta & Título
       const fullTitle = `${currentCar.brand} ${currentCar.model} ${currentCar.year} · ${currentCar.price.toLocaleString('es-ES')} €`;
       document.getElementById('page-title').textContent = `${fullTitle} — CocheMotor`;
+      document.getElementById('print-vehicle-url').textContent = `Ficha y fotos: ${window.location.href}`;
       document.getElementById('breadcrumb-brand').textContent = currentCar.brand;
       document.getElementById('breadcrumb-model').textContent = currentCar.model;
 
@@ -707,6 +753,7 @@
         thumb.src = photoUrl;
         thumb.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
         thumb.alt = `Foto ${idx + 1}`;
+        thumb.addEventListener('error', () => thumb.remove(), { once: true });
         thumb.onclick = () => {
           mainImg.src = photoUrl;
           document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
@@ -839,9 +886,62 @@
       window.location.href = `tel:+${sellerPhone}`;
     }
 
-    function copyVehicleLink() {
-      navigator.clipboard.writeText(window.location.href);
-      alert('¡Enlace de la ficha copiado al portapapeles!');
+    function getVehicleShareData() {
+      if (!currentCar) return null;
+      const title = `${currentCar.brand} ${currentCar.model} (${currentCar.year}) · CocheMotor`;
+      return {
+        title,
+        text: `Mira este ${currentCar.brand} ${currentCar.model} (${currentCar.year}) anunciado por ${currentCar.price.toLocaleString('es-ES')} € en CocheMotor.`,
+        url: window.location.href
+      };
+    }
+
+    function setShareStatus(message) {
+      const status = document.getElementById('share-status');
+      if (status) status.textContent = message;
+    }
+
+    async function copyVehicleLink() {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(window.location.href);
+        } else {
+          const input = document.createElement('textarea');
+          input.value = window.location.href;
+          input.setAttribute('readonly', '');
+          input.style.position = 'fixed';
+          input.style.opacity = '0';
+          document.body.appendChild(input);
+          input.select();
+          const copied = document.execCommand('copy');
+          input.remove();
+          if (!copied) throw new Error('No se pudo copiar');
+        }
+        setShareStatus('Enlace copiado. Ya puedes pegarlo donde quieras.');
+      } catch (error) {
+        setShareStatus('No se pudo copiar automáticamente. Copia la dirección desde la barra del navegador.');
+      }
+    }
+
+    async function shareVehicle() {
+      const data = getVehicleShareData();
+      if (!data) return;
+      if (navigator.share) {
+        try {
+          await navigator.share(data);
+          setShareStatus('Ficha compartida.');
+        } catch (error) {
+          if (error.name !== 'AbortError') setShareStatus('No se pudo abrir el menú para compartir. Puedes copiar el enlace.');
+        }
+        return;
+      }
+      await copyVehicleLink();
+    }
+
+    function printVehicleSheet() {
+      if (!currentCar) return;
+      setShareStatus('En el diálogo de impresión, elige «Guardar como PDF» para descargar la ficha.');
+      window.print();
     }
 
     function sendTradeInInterest() {

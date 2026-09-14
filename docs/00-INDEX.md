@@ -72,3 +72,4 @@
 - [Spec 008 — Demo interactiva del espacio profesional](../specs/008-professional-saas-demo/spec.md)
 - [Spec 009 — Páginas públicas indexables y base SEO](../specs/009-public-seo-foundation/spec.md)
 - [Spec 004 — Coche Ideal: solicitud y ficha de búsqueda](../specs/004-coche-ideal/spec.md)
+- [Spec 010 — Acciones de ficha pública de vehículo](../specs/010-public-vehicle-sheet-actions/spec.md)

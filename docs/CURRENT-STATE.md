@@ -124,3 +124,19 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
   Browser lista herramientas y carpetas de desarrollo dentro de `public_html`;
   el `.htaccess` local refuerza su bloqueo, pero su efecto remoto no se ha
   probado.
+
+## Actualización CocheMotor — 2026-09-14
+
+- Se implementa localmente la Spec 010 en `ficha.html`: compartir mediante el
+  menú nativo del dispositivo, copia de enlace con alternativa compatible,
+  WhatsApp editable y vista para imprimir o guardar como PDF desde el navegador.
+- En móvil, la barra fija prioriza WhatsApp y compartir; la ficha ofrece llamada
+  y solicitud de información por separado. No se integra publicación social ni
+  se añade captura de datos personales. Las miniaturas que fallen al cargar se
+  retiran de la galería para evitar iconos rotos.
+- Edge local verificó la ficha a 320, 390, 768, 1024 y 1440 px, y en los cortes
+  de sus breakpoints: no hay scroll horizontal ni solape de acciones fijas. La
+  emulación de impresión confirma que se excluyen controles y aparece la URL.
+  No se abrió el diálogo de impresión ni el selector nativo de compartir.
+- Las suites web (52), dominio local (18) y específicas (5), la sintaxis JS y
+  `git diff --check` pasan. Los cambios siguen locales; no se ha desplegado.

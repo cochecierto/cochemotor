@@ -36,3 +36,4 @@ validación aporta evidencia requisito por requisito.
 - [Spec 007 — Conversión profesional y monetización](007-professional-conversion-monetization/spec.md)
 - [Spec 008 — Demo interactiva del espacio profesional](008-professional-saas-demo/spec.md)
 - [Spec 009 — Páginas públicas indexables y base SEO](009-public-seo-foundation/spec.md)
+- [Spec 010 — Acciones de ficha pública de vehículo](010-public-vehicle-sheet-actions/spec.md)
