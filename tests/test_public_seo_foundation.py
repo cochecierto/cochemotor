@@ -96,6 +96,12 @@ class PublicSeoFoundationTests(unittest.TestCase):
         self.assertIn("true,301", redirects)
         self.assertIn("X-Robots-Tag: noindex, follow", redirects)
 
+    def test_root_level_seo_routes_load_private_config_from_domain_parent(self):
+        expected = "dirname(__DIR__) . '/cochemotor-private/config.php'"
+        for filename in ("seo-public.php", "seo-legacy-redirect.php", "sitemap-public.php"):
+            with self.subTest(filename=filename):
+                self.assertIn(expected, (ROOT / filename).read_text(encoding="utf-8"))
+
     def test_hosting_rules_block_repository_and_development_artifacts(self):
         rules = (ROOT / ".htaccess").read_text(encoding="utf-8")
         self.assertIn("RewriteRule ^\\.git", rules)
@@ -123,6 +129,7 @@ class PublicSeoFoundationTests(unittest.TestCase):
         self.assertIn("rename $stage/.htaccess .htaccess", workflow)
         self.assertIn("Google necesita leer noindex", workflow)
         self.assertIn("/asesor-leads.html", workflow)
+        self.assertNotRegex(workflow, r"curl [^\n]+\|\s*grep")
         self.assertNotIn("--delete", workflow)
         self.assertNotIn("put database/", workflow)
 

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once dirname(__DIR__, 2) . '/cochemotor-private/config.php';
+require_once dirname(__DIR__) . '/cochemotor-private/config.php';
 
 const CM_ORIGIN = 'https://cochemotor.es';
 function cmDb(): PDO {
