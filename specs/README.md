@@ -38,3 +38,4 @@ validación aporta evidencia requisito por requisito.
 - [Spec 009 — Páginas públicas indexables y base SEO](009-public-seo-foundation/spec.md)
 - [Spec 010 — Acciones de ficha pública de vehículo](010-public-vehicle-sheet-actions/spec.md)
 - [Spec 011 — Preparación de experiencia para la beta profesional](011-beta-feedback-readiness/spec.md)
+- [Spec 012 — Skills internas de SEO, copy y privacidad web](012-growth-compliance-skills/spec.md)

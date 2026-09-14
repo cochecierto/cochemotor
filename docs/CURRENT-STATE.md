@@ -157,3 +157,20 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
   completa, la verificación del correo, privacidad y el aislamiento de cuentas
   siguen pendientes de una revisión integral independiente; esta iniciativa no
   los cambia ni certifica por sí sola la preparación total para lanzar.
+
+## Actualización CocheMotor — Spec 012, 2026-09-14
+
+- Se refuerza el perfil de copy de automoción con controles de evidencia,
+  claims, claridad y experimentación responsable.
+- Se incorporan perfiles internos para SEO/descubribilidad en buscadores con IA
+  y para revisión técnica/documental de privacidad y cookies en UE/España.
+- Se revisaron las skills comunitarias solicitadas. Sus prácticas útiles de
+  SEO/copy se adaptan; `cookie-sync` se excluye porque exporta cookies Chrome a
+  Browserbase, `lgpd` se excluye por ser legislación brasileña y no se adopta
+  la recomendación de aceptación implícita de la skill similar de política de
+  cookies.
+- No se han añadido paquetes, scripts de terceros, CMP ni cambios en la web;
+  tampoco se ha desplegado ni publicado en GitHub esta actualización local.
+- El perfil de privacidad cita AEPD, LSSI-CE, ePrivacy y RGPD y no certifica
+  cumplimiento. Para una conclusión real aún hace falta inventario actualizado
+  de cookies, etiquetas, proveedores y comportamiento antes/después de elegir.

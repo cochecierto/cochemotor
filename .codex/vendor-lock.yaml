@@ -1,7 +1,42 @@
-version: 1
+version: 2
 policy: .agents/skills/latam-real-estate/references/external-skill-admission.md
 approved_skills: []
 pending_review: []
+reviewed_sources:
+  - name: coreyhaines31/marketingskills
+    skills: [ai-seo, seo-audit, copywriting]
+    source: https://github.com/coreyhaines31/marketingskills
+    reviewed_commit: 5b2c0007766c6a1cf1d53fd8fc73e979e0821022
+    reviewed: 2026-09-14
+    popularity_snapshot: "skills.sh: seo-audit ~206.5K; copywriting ~199.5K; ai-seo ~124.5K"
+    license: MIT
+    decision: adapted-internal-only
+    scope: "Heurísticas de auditoría, claridad y contenido útil; sin copiar claims/estadísticas ni promesas de ranking o conversión."
+    implementation: [".agents/skills/cochemotor-seo/SKILL.md", ".agents/skills/cochemotor-copy-automocion/SKILL.md"]
+  - name: Sushegaad/Claude-Skills-Governance-Risk-and-Compliance
+    skills: [lgpd]
+    source: https://github.com/Sushegaad/Claude-Skills-Governance-Risk-and-Compliance
+    reviewed_commit: f47afba773c01222b69296be8f6701657dedb9f0
+    reviewed: 2026-09-14
+    decision: rejected-jurisdiction-mismatch
+    scope: "LGPD Brasil; no usar como criterio legal UE/España."
+  - name: browserbase/skills
+    skills: [cookie-sync]
+    source: https://github.com/browserbase/skills/tree/main/skills/cookie-sync
+    reviewed_commit: 6811ca31163332d9d60309cff48e77f09de37a17
+    reviewed: 2026-09-14
+    license: MIT
+    decision: rejected-credential-exfiltration-risk
+    scope: "Exporta cookies Chrome a un contexto cloud persistente; no relacionado con consentimiento web."
+  - name: kostja94/marketing-skills
+    skills: [cookie-policy-page-generator]
+    source: https://github.com/kostja94/marketing-skills
+    reviewed_commit: 70987bad4ebe9dce1f74858c1c64f3f8810f18e4
+    reviewed: 2026-09-14
+    license: MIT
+    decision: rejected-slug-and-legal-guidance
+    scope: "El slug pedido no existe; la skill similar promueve aceptación implícita de analítica, criterio no admitido."
+    internal_alternative: .agents/skills/cochemotor-privacy-cookies/SKILL.md
 
 # No hay skills externas aprobadas. Cada entrada futura debe incluir fuente,
 # commit/hash, auditorías, revisión de archivos, alcance permitido y aprobación.

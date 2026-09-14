@@ -58,6 +58,9 @@
 - [Skill directora](../.agents/skills/latam-real-estate/SKILL.md)
 - [Registro de skills](../.codex/skills-registry.yaml)
 - [Política de admisión externa](../.agents/skills/latam-real-estate/references/external-skill-admission.md)
+- [Evaluación de fuentes comunitarias SEO, copy y cookies](../.agents/skills/vendor-reviewed/cochemotor-source-review-2026-09.md)
+- [Agente SEO CocheMotor](../.agents/skills/cochemotor-seo/SKILL.md)
+- [Agente privacidad y cookies UE/España](../.agents/skills/cochemotor-privacy-cookies/SKILL.md)
 
 ## Especificaciones SDD
 
@@ -74,3 +77,4 @@
 - [Spec 004 — Coche Ideal: solicitud y ficha de búsqueda](../specs/004-coche-ideal/spec.md)
 - [Spec 010 — Acciones de ficha pública de vehículo](../specs/010-public-vehicle-sheet-actions/spec.md)
 - [Spec 011 — Preparación de experiencia para la beta profesional](../specs/011-beta-feedback-readiness/spec.md)
+- [Spec 012 — Skills internas de SEO, copy y privacidad web](../specs/012-growth-compliance-skills/spec.md)

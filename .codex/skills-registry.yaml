@@ -68,6 +68,24 @@ owned_skills:
     priority: 9
     purpose: Control de calidad SDD, pruebas unitarias automatizadas, verificación de aislamiento multi-tenant y validación previa a despliegue en Hostinger.
 
+  - name: cochemotor-seo
+    status: approved
+    version: 1.0.0
+    priority: 10
+    purpose: Auditoría SEO técnica, local y editorial y descubribilidad en buscadores/IA con evidencia verificable y sin promesas de ranking.
+
+  - name: cochemotor-copy-automocion
+    status: approved
+    version: 1.1.0
+    priority: 11
+    purpose: UX writing y copy automoción B2B/B2C con claims probados, claridad y experimentación responsable.
+
+  - name: cochemotor-privacy-cookies
+    status: approved
+    version: 1.0.0
+    priority: 12
+    purpose: Revisión técnica/documental de privacidad y cookies UE/España con evidencia y fuentes oficiales; no certifica cumplimiento legal.
+
 external_skills:
   admission_policy: .agents/skills/cochemotor-director/references/external-skill-admission.md
   registry: .codex/vendor-lock.yaml

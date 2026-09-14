@@ -156,10 +156,15 @@
       "id": "cochemotor-growth",
       "title": "Marketing, SEO y Marca",
       "scope": "SEO local, SEO programático de modelos VO, gobernanza de marca y copy de conversión",
+      "skills": [
+        ".agents/skills/cochemotor-seo/SKILL.md",
+        ".agents/skills/cochemotor-copy-automocion/SKILL.md"
+      ],
       "subagents": [
         "seo-local-agent",
         "technical-seo-agent",
         "programmatic-seo-agent",
+        "cochemotor-seo",
         "brand-governance-agent",
         "conversion-copy-agent",
         "cochemotor-copy-automocion"
@@ -233,6 +238,19 @@
       "requires_human_approval": true
     },
     {
+      "id": "cochemotor-privacy-cookies",
+      "title": "Privacidad web y Cookies UE/España",
+      "scope": "Inventario técnico, consentimiento y evaluación documental de cookies conforme a fuentes oficiales UE/España; no emite certificación jurídica",
+      "subagents": [
+        "cookie-inventory-agent",
+        "consent-flow-review-agent",
+        "privacy-policy-evidence-agent",
+        "cochemotor-security-guardian"
+      ],
+      "skill": ".agents/skills/cochemotor-privacy-cookies/SKILL.md",
+      "requires_human_approval": true
+    },
+    {
       "id": "cochemotor-copy-automocion",
       "title": "Copy y Lenguaje de Automoción",
       "scope": "UX writing, copy B2B/B2C, glosario y mensajes de Coche Ideal en español peninsular claro",
@@ -246,6 +264,7 @@
         "conversion-experiment-agent",
         "copy-compliance-review-agent"
       ],
+      "skill": ".agents/skills/cochemotor-copy-automocion/SKILL.md",
       "requires_human_approval": true
     }
   ],

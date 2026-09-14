@@ -397,3 +397,13 @@ Todas las decisiones de esta versión están fechadas el 2026-08-27.
 - Marca: usar la variante existente `cochemotor-final-dark.png` en el footer principal sobre fondo oscuro.
 - Alcance: enlaces desde footers públicos y navegación del hub profesional. La publicación en producción requiere autorización separada.
 - Motivo: comunicar de forma inequívoca las condiciones beta y habilitar feedback voluntario con control del usuario.
+
+## D-044 — Skills internas de crecimiento y privacidad web
+
+- Estado: aprobadas e implementadas documentalmente.
+- Fecha: 2026-09-14.
+- Decisión: mantener el agente de copy existente y reforzarlo; incorporar perfiles propios de SEO y privacidad/cookies para España y UE. Utilizar skills comunitarias solo como referencias revisadas y registrar su procedencia y límites.
+- Admisión: no copiar íntegramente las fuentes externas. Se rechaza `cookie-sync` por exportar cookies de sesión a Browserbase, la skill `lgpd` por jurisdicción brasileña y la skill semejante de política de cookies por el consejo de aceptación implícita de analítica y la discrepancia de slug. El trabajo SEO/copy se adapta sin afirmaciones no sustentadas.
+- Fuentes legales: AEPD, artículo 22.2 LSSI-CE y Directiva ePrivacy/RGPD. La skill de privacidad no certifica cumplimiento; cada auditoría requiere inventario técnico real y revisión de vigencia.
+- Restricciones: no crear CMP, editar páginas/código ejecutable, guardar cookies/credenciales, desplegar ni publicar esta documentación a GitHub en esta iniciativa.
+- Evidencia: petición explícita de Juan, Spec 012, `.codex/vendor-lock.yaml` y `cochemotor-source-review-2026-09.md`.
