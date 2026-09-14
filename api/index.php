@@ -268,6 +268,18 @@ try {
         }
         jsonResponse(['vehicles'=>$items]);
     }
+    if ($route==='/api/vehicles' && $method==='GET') {
+        $u=requireUser();
+        $q=db()->prepare('SELECT vehicle_id,tenant_id,brand,model,version,year,mileage_km,cash_price,dgt_badge,stage,evidence_level,status,public_slug,metadata_json FROM vehicles WHERE tenant_id=? ORDER BY updated_at DESC LIMIT 200');
+        $q->execute([$u['user_id']]); $items=[];
+        foreach($q->fetchAll() as $row){
+            $metadata=json_decode((string)($row['metadata_json']??''),true);if(!is_array($metadata))$metadata=[];
+            $imageQuery=db()->prepare('SELECT image_url FROM vehicle_images WHERE vehicle_id=? ORDER BY sort_order LIMIT 10');$imageQuery->execute([$row['vehicle_id']]);
+            $images=array_values(array_filter(array_map(static function($path){$path=(string)$path;return preg_match('#^uploads/vehicles/[a-f0-9]{40}\.webp$#',$path)?'/'.$path:null;},$imageQuery->fetchAll(PDO::FETCH_COLUMN))));
+            $items[]=['id'=>$row['vehicle_id'],'userId'=>$u['user_id'],'brand'=>$row['brand'],'model'=>$row['model'],'version'=>$row['version'],'year'=>(int)$row['year'],'km'=>number_format((int)$row['mileage_km'],0,',','.').' km','price'=>(float)$row['cash_price'],'badge'=>$row['dgt_badge'],'stage'=>$row['stage'],'status'=>$row['status'],'evidenceLevel'=>$row['evidence_level'],'public_slug'=>$row['public_slug'],'fuel'=>(string)($metadata['fuel']??''),'gearbox'=>(string)($metadata['gearbox']??''),'location'=>(string)($metadata['location']??''),'province'=>(string)($metadata['province']??''),'images'=>$images,'image'=>$images[0]??'assets/brand/icons/vehicle-placeholder.svg','isDemo'=>false];
+        }
+        jsonResponse(['vehicles'=>$items]);
+    }
     if ($route==='/api/health' && $method==='GET') { db()->query('SELECT 1'); jsonResponse(['ok'=>true,'service'=>'cochemotor']); }
     if ($route==='/api/auth/verify' && $method==='GET') {
         $verificationToken=(string)($_GET['token']??'');
@@ -283,9 +295,11 @@ try {
         if ($action==='register') {
             $name=trim((string)($data['name']??'')); $email=strtolower(trim((string)($data['email']??''))); $password=(string)($data['password']??'');
             $nameLength = preg_match_all('/./us', $name);
-            if ($nameLength === false || $nameLength < 2 || $nameLength > 120 || !filter_var($email,FILTER_VALIDATE_EMAIL) || strlen($password)<10) fail(400,'Nombre, correo o contraseña no válidos');
+            $privacyNoticeRead=($data['privacy_notice_read']??null)===true;
+            $termsAccepted=($data['terms_accepted']??null)===true;
+            if ($nameLength === false || $nameLength < 2 || $nameLength > 120 || !filter_var($email,FILTER_VALIDATE_EMAIL) || strlen($password)<10 || !$privacyNoticeRead || !$termsAccepted || ($data['privacy_notice_version']??null)!=='privacy-v1' || ($data['terms_version']??null)!=='beta-terms-v1') fail(400,'Revisa tus datos y confirma la Política de privacidad y los Términos del Servicio.');
             $id='usr-'.bin2hex(random_bytes(8)); $verify=bin2hex(random_bytes(32));
-            try { $q=$pdo->prepare('INSERT INTO professional_users(user_id,name,email,password_hash,verification_token) VALUES(?,?,?,?,?)'); $q->execute([$id,$name,$email,password_hash($password,PASSWORD_DEFAULT),$verify]); }
+            try { $q=$pdo->prepare('INSERT INTO professional_users(user_id,name,email,password_hash,verification_token,privacy_notice_version,terms_version,notice_acknowledged_at) VALUES(?,?,?,?,?,?,?,UTC_TIMESTAMP())'); $q->execute([$id,$name,$email,password_hash($password,PASSWORD_DEFAULT),$verify,'privacy-v1','beta-terms-v1']); }
             catch (PDOException $e) { if ($e->getCode()==='23000') fail(409,'Ya existe una cuenta con ese correo'); throw $e; }
             if (!sendVerificationEmail($email, $name, $verify)) {
                 $cleanup=$pdo->prepare('DELETE FROM professional_users WHERE user_id=? AND email_verified=0');
@@ -295,9 +309,9 @@ try {
             jsonResponse(['ok'=>true,'user'=>['user_id'=>$id,'name'=>$name,'email'=>$email,'verified'=>false],'message'=>'Te enviamos un enlace para verificar tu correo. Revisa también la carpeta de correo no deseado.'],201);
         }
         if ($action==='verify') { $q=$pdo->prepare("UPDATE professional_users SET email_verified=1,verification_token='' WHERE verification_token=?"); $q->execute([(string)($data['token']??'')]); jsonResponse(['ok'=>$q->rowCount()===1]); }
-        if ($action==='login') { $q=$pdo->prepare('SELECT * FROM professional_users WHERE email=?'); $q->execute([strtolower(trim((string)($data['email']??'')))]); $row=$q->fetch(); if (!$row || !password_verify((string)($data['password']??''),$row['password_hash'])) fail(401,'Correo o contraseña incorrectos'); $t=bin2hex(random_bytes(32)); $q=$pdo->prepare('INSERT INTO professional_sessions(token,user_id,expires_at) VALUES(?,?,DATE_ADD(UTC_TIMESTAMP(),INTERVAL 8 HOUR))'); $q->execute([$t,$row['user_id']]); jsonResponse(['ok'=>true,'user'=>['user_id'=>$row['user_id'],'name'=>$row['name'],'email'=>$row['email'],'verified'=>(bool)$row['email_verified'],'phone'=>$row['phone'],'professional_type'=>$row['professional_type']],'session_token'=>$t]); }
-        if ($action==='session') { $u=user(); jsonResponse(['ok'=>(bool)$u,'user'=>$u],$u?200:401); }
-        if ($action==='logout') { $q=$pdo->prepare('DELETE FROM professional_sessions WHERE token=?'); $q->execute([(string)($data['session_token']??'')]); jsonResponse(['ok'=>true]); }
+        if ($action==='login') { $q=$pdo->prepare('SELECT * FROM professional_users WHERE email=?'); $q->execute([strtolower(trim((string)($data['email']??'')))]); $row=$q->fetch(); if (!$row || !password_verify((string)($data['password']??''),$row['password_hash'])) fail(401,'Correo o contraseña incorrectos'); if(!(bool)$row['email_verified']) fail(403,'Verifica tu correo antes de iniciar sesión.'); $t=bin2hex(random_bytes(32)); $q=$pdo->prepare('INSERT INTO professional_sessions(token,user_id,expires_at) VALUES(?,?,DATE_ADD(UTC_TIMESTAMP(),INTERVAL 8 HOUR))'); $q->execute([$t,$row['user_id']]); jsonResponse(['ok'=>true,'user'=>['user_id'=>$row['user_id'],'name'=>$row['name'],'email'=>$row['email'],'verified'=>true,'phone'=>$row['phone'],'professional_type'=>$row['professional_type']],'session_token'=>$t]); }
+        if ($action==='session') { $u=user(); $sessionUser=$u?['user_id'=>$u['user_id'],'name'=>$u['name'],'email'=>$u['email'],'verified'=>(bool)$u['email_verified'],'phone'=>$u['phone'],'professional_type'=>$u['professional_type']]:null; jsonResponse(['ok'=>(bool)$u,'user'=>$sessionUser],$u?200:401); }
+        if ($action==='logout') { $u=requireUser(); $q=$pdo->prepare('DELETE FROM professional_sessions WHERE token=? AND user_id=?'); $q->execute([token(),$u['user_id']]); jsonResponse(['ok'=>true]); }
         if ($action==='profile_details') { $u=requireUser(); $q=$pdo->prepare('SELECT display_name,public_description,dealer_slug,public_profile FROM dealerships WHERE tenant_id=? LIMIT 1'); $q->execute([$u['user_id']]); $profile=$q->fetch()?:[]; jsonResponse(['ok'=>true,'profile'=>['business_name'=>$profile['display_name']??'','public_description'=>$profile['public_description']??'','public_slug'=>$profile['dealer_slug']??'','public_profile'=>(bool)($profile['public_profile']??false)]]); }
         if ($action==='profile') {
             $u=requireUser();
@@ -339,8 +353,8 @@ try {
         $contact=is_array($v['contact']??null)?$v['contact']:[];
         foreach(['brand','model','year','km','price','location','id'] as $field)if(!isset($v[$field])||!is_scalar($v[$field]))fail(400,'Revisa los datos obligatorios del vehículo.');
         foreach(['name','email','phone'] as $field)if(!isset($contact[$field])||!is_scalar($contact[$field]))fail(400,'Revisa los datos de contacto.');
-        $brand=trim((string)$v['brand']); $model=trim((string)$v['model']); $yearValue=$v['year']; $kmValue=$v['km']; $priceValue=$v['price']; $year=(int)$yearValue; $km=(int)$kmValue; $price=(float)$priceValue; $contactName=trim((string)$contact['name']); $contactEmail=strtolower(trim((string)$contact['email'])); $contactPhone=trim((string)$contact['phone']); $location=trim((string)$v['location']);
-        if($brand===''||textLength($brand)>80||$model===''||textLength($model)>120||!is_numeric($yearValue)||$year<1950||$year>(int)gmdate('Y')+1||!is_numeric($kmValue)||$km<0||!is_numeric($priceValue)||$price<0||$location===''||textLength($location)>160||$contactName===''||textLength($contactName)>120||!filter_var($contactEmail,FILTER_VALIDATE_EMAIL)||$contactPhone===''||textLength($contactPhone)>32||($contact['consent']??null)!==true) fail(400,'Revisa los datos obligatorios y acepta el uso de datos para gestionar la publicación.');
+        $brand=trim((string)$v['brand']); $model=trim((string)$v['model']); $version=trim((string)($v['version']??'')); $yearValue=$v['year']; $kmValue=$v['km']; $priceValue=$v['price']; $year=(int)$yearValue; $km=(int)$kmValue; $price=(float)$priceValue; $contactName=trim((string)$contact['name']); $contactEmail=strtolower(trim((string)$contact['email'])); $contactPhone=trim((string)$contact['phone']); $location=trim((string)$v['location']); $fuel=trim((string)($v['fuel']??'')); $gearbox=trim((string)($v['gearbox']??'')); $dgtBadge=(string)($v['badge']??'');
+        if($brand===''||textLength($brand)>80||$model===''||textLength($model)>120||textLength($version)>180||!is_numeric($yearValue)||$year<1950||$year>(int)gmdate('Y')+1||!is_numeric($kmValue)||$km<0||!is_numeric($priceValue)||$price<0||$location===''||textLength($location)>160||textLength($fuel)>60||textLength($gearbox)>60||!in_array($dgtBadge,['','B','C','ECO','0'],true)||$contactName===''||textLength($contactName)>120||!filter_var($contactEmail,FILTER_VALIDATE_EMAIL)||$contactPhone===''||textLength($contactPhone)>32||($contact['consent']??null)!==true) fail(400,'Revisa los datos obligatorios y acepta el uso de datos para gestionar la publicación.');
         $id=(string)($v['id']??''); if(!preg_match('/^pub-[a-f0-9]{32}$/',$id))fail(400,'El borrador de publicación no es válido. Recarga la página e inténtalo de nuevo.');
         $pdo=db(); $existing=$pdo->prepare('SELECT vehicle_id FROM vehicles WHERE vehicle_id=? AND tenant_id=?');$existing->execute([$id,$u['user_id']]);if($existing->fetchColumn())jsonResponse(['ok'=>true,'id'=>$id,'status'=>'pendiente_validacion_contacto','already_saved'=>true],200);
         $files=$_FILES['images']??null;if($files!==null&&(!is_array($files)||!is_array($files['name']??null)||!is_array($files['tmp_name']??null)||!is_array($files['error']??null)||!is_array($files['size']??null)))fail(400,'El formato de las fotos no es válido.');$names=$files['name']??[];if(count($names)>10) fail(400,'Un anuncio puede tener como máximo 10 imágenes.');
@@ -348,23 +362,51 @@ try {
         $allowedSlots=['front-right','rear','left-side','right-side','front-interior','rear-interior','dashboard-km','engine','trunk','tire-or-detail']; $slots=[];
         foreach($slotRows as $i=>$rawSlot){$slot=json_decode((string)$rawSlot,true);$key=(string)($slot['key']??'');$order=(int)($slot['sort_order']??-1);if(!in_array($key,$allowedSlots,true)||$order<0||$order>9||in_array($key,array_column($slots,'key'),true)||in_array($order,array_column($slots,'sort_order'),true))fail(400,'Una de las fotos no corresponde a una toma válida.');$slots[]=['key'=>$key,'sort_order'=>$order];}
         if($files){foreach($names as $i=>$name){$file=['name'=>$name,'type'=>$files['type'][$i]??'','tmp_name'=>$files['tmp_name'][$i]??'','error'=>$files['error'][$i]??UPLOAD_ERR_NO_FILE,'size'=>$files['size'][$i]??0];if(($file['error']??0)!==UPLOAD_ERR_OK)fail(400,'Una foto no llegó completa. Prueba con imágenes más pequeñas y vuelve a intentarlo.');if((int)$file['size']>8*1024*1024)fail(400,'Cada foto debe ocupar como máximo 8 MB.');}}
-        $publicSlug=publicSlug($brand.'-'.$model.'-'.$year,bin2hex(random_bytes(8))); $directory=dirname(__DIR__).'/uploads/vehicles'; $stored=[];
+        $slug=publicSlug($brand.'-'.$model.'-'.$year,bin2hex(random_bytes(8)));
+        if(!preg_match('/^[a-z0-9][a-z0-9-]{2,179}$/',$slug))fail(400,'No se pudo crear una dirección pública válida para el anuncio.');
+        $publicSlug=$slug;
+        $directory=dirname(__DIR__).'/uploads/vehicles'; $stored=[];
         try {
             foreach($names as $i=>$name){$file=['name'=>$name,'type'=>$files['type'][$i]??'','tmp_name'=>$files['tmp_name'][$i]??'','error'=>$files['error'][$i]??UPLOAD_ERR_NO_FILE,'size'=>$files['size'][$i]??0];$stored[$i]=storeVehiclePhoto($file,$directory);}
             $imageMetadata=[]; foreach($slots as $i=>$slot){$slot['image_url']='uploads/vehicles/'.$stored[$i];$imageMetadata[]=$slot;}
-            $metadata=['location'=>$location,'photo_slots'=>$imageMetadata,'publication_state'=>'pending_contact_review'];
+            $metadata=['location'=>$location,'fuel'=>$fuel,'gearbox'=>$gearbox,'photo_slots'=>$imageMetadata,'publication_state'=>'pending_contact_review','evidence_level'=>'declarado'];
             $pdo->beginTransaction();
             $q=$pdo->prepare('INSERT INTO dealerships(tenant_id,display_name,dealer_slug,phone_whatsapp) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE display_name=VALUES(display_name),phone_whatsapp=VALUES(phone_whatsapp)');$q->execute([$u['user_id'],$u['name'],$u['user_id'],trim((string)($contact['phone']??''))]);
-            $q=$pdo->prepare("INSERT INTO vehicles(vehicle_id,tenant_id,brand,model,version,year,mileage_km,cash_price,dgt_badge,stage,status,public_slug,metadata_json) VALUES(?,?,?,?,?,?,?,?,?,'pendiente_validacion_contacto','pendiente_revision',?,?)");
-            $q->execute([$id,$u['user_id'],$brand,$model,'',$year,$km,$price,'',$publicSlug,json_encode($metadata,JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR)]);
+            $q=$pdo->prepare("INSERT INTO vehicles(vehicle_id,tenant_id,brand,model,version,year,mileage_km,cash_price,dgt_badge,evidence_level,stage,status,public_slug,metadata_json) VALUES(?,?,?,?,?,?,?,?,?,'declarado','pendiente_validacion_contacto','pendiente_revision',?,?)");
+            $q->execute([$id,$u['user_id'],$brand,$model,$version,$year,$km,$price,$dgtBadge,$publicSlug,json_encode($metadata,JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR)]);
             foreach($slots as $i=>$slot){$q=$pdo->prepare('INSERT INTO vehicle_images(image_id,vehicle_id,image_url,sort_order) VALUES(?,?,?,?)');$q->execute([$id.'-img-'.$i,$id,'uploads/vehicles/'.$stored[$i],$slot['sort_order']]);}
             $q=$pdo->prepare('INSERT INTO publication_contacts(contact_id,vehicle_id,user_id,name,email,phone,whatsapp_opt_in,contact_verified,consent_version) VALUES(?,?,?,?,?,?,0,0,?)');$q->execute(['contact-'.bin2hex(random_bytes(8)),$id,$u['user_id'],$contactName,$contactEmail,$contactPhone,'publish-v1']);
             $pdo->commit(); jsonResponse(['ok'=>true,'id'=>$id,'status'=>'pendiente_validacion_contacto'],201);
         } catch(Throwable $e) { if($pdo->inTransaction())$pdo->rollBack();foreach($stored as $filename)@unlink($directory.'/'.$filename);if($e instanceof ApiFailure)fail($e->status,$e->getMessage());throw $e; }
     }
-    if ($route==='/api/vehicles' && $method==='POST') { $u=requireUser(); if (!(bool)$u['email_verified']) fail(403,'Debes verificar tu correo'); $v=$data['vehicle']??[]; $images=$v['images']??[]; if (!is_array($images)||count($images)>10) fail(400,'Un anuncio puede tener como máximo 10 imágenes.'); $id=(string)($v['id']??''); if (!$id||empty($v['brand'])||empty($v['model'])) fail(400,'Datos del vehículo no válidos'); $pdo=db(); $pdo->beginTransaction(); $q=$pdo->prepare('INSERT INTO dealerships(tenant_id,display_name,dealer_slug,phone_whatsapp) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE display_name=VALUES(display_name),phone_whatsapp=VALUES(phone_whatsapp)'); $q->execute([$u['user_id'],$u['name'],$u['user_id'],$u['phone']??'']); $q=$pdo->prepare('INSERT INTO vehicles(vehicle_id,tenant_id,brand,model,version,year,mileage_km,cash_price,dgt_badge,public_slug,metadata_json) VALUES(?,?,?,?,?,?,?,?,?,?,?)'); $slug=isset($v['public_slug'])?(string)$v['public_slug']:'vehiculo-'.bin2hex(random_bytes(8)); if(!preg_match('/^[a-z0-9][a-z0-9-]{2,179}$/',$slug))fail(400,'El identificador público del vehículo no es válido.'); $q->execute([$id,$u['user_id'],$v['brand'],$v['model'],$v['version']??'',(int)($v['year']??0),(int)($v['km']??0),(float)($v['price']??0),$v['badge']??'',$slug,json_encode($v,JSON_UNESCAPED_UNICODE)]); foreach($images as $i=>$url){$q=$pdo->prepare('INSERT INTO vehicle_images(image_id,vehicle_id,image_url,sort_order) VALUES(?,?,?,?)');$q->execute([$id.'-img-'.$i,$id,(string)$url,$i]);} $pdo->commit(); jsonResponse(['ok'=>true,'id'=>$id],201); }
+    if ($route==='/api/vehicles' && $method==='POST') fail(415,'Usa el formulario guiado para publicar el anuncio y sus fotos de forma segura.');
     if ($route==='/api/report' && $method==='POST') { if (empty($data['listing_reference'])||empty($data['reason'])||empty($data['description'])||$data['privacy_consent']!==true) fail(400,'Faltan datos obligatorios'); $id='rep-'.bin2hex(random_bytes(6)); $q=db()->prepare('INSERT INTO ad_reports(report_id,listing_reference,reason,description,reporter_email,privacy_consent) VALUES(?,?,?,?,?,1)'); $q->execute([$id,$data['listing_reference'],$data['reason'],$data['description'],$data['email']??null]); jsonResponse(['ok'=>true,'id'=>$id],201); }
-    if ($route==='/api/leads' && $method==='GET') { $u=requireUser(); $q=db()->prepare('SELECT lead_id,tenant_id,vehicle_id,buyer_name,phone,payment_method,score,created_at FROM leads WHERE tenant_id=? ORDER BY created_at DESC LIMIT 100'); $q->execute([$u['user_id']]); jsonResponse(['leads'=>$q->fetchAll()]); }
-    if ($route==='/api/leads' && $method==='POST') { $data['tenant_id']=(string)(db()->query("SELECT tenant_id FROM vehicles WHERE vehicle_id=".db()->quote((string)($data['vehicle_id']??'')))->fetchColumn()?:''); if (!$data['tenant_id']) fail(404,'Vehículo no encontrado'); $id='lead-'.bin2hex(random_bytes(6)); $q=db()->prepare('INSERT INTO leads(lead_id,tenant_id,vehicle_id,buyer_name,phone,payment_method,score) VALUES(?,?,?,?,?,?,?)'); $q->execute([$id,$data['tenant_id'],$data['vehicle_id'],$data['buyer_name'],$data['phone'],$data['payment_method']??'',(int)($data['score']??0)]); jsonResponse(['ok'=>true,'id'=>$id],201); }
+    if ($route==='/api/leads' && $method==='GET') { $u=requireUser(); $q=db()->prepare('SELECT lead_id,tenant_id,vehicle_id,buyer_name,phone,payment_method,created_at FROM leads WHERE tenant_id=? ORDER BY created_at DESC LIMIT 100'); $q->execute([$u['user_id']]); jsonResponse(['leads'=>$q->fetchAll()]); }
+    if ($route==='/api/leads' && $method==='POST') {
+        $contentLength=(int)($_SERVER['CONTENT_LENGTH']??0);
+        if($contentLength<2||$contentLength>4096)fail($contentLength>4096?413:400,'No se pudieron leer los datos de contacto.');
+        if(trim((string)($data['website']??''))!=='')fail(400,'No se pudo enviar la solicitud.');
+        $vehicleId=trim((string)($data['vehicle_id']??''));
+        $buyerName=trim((string)($data['buyer_name']??''));
+        $phoneInput=trim((string)($data['phone']??''));
+        $phoneDigits=preg_replace('/\D/','',$phoneInput)??'';
+        $paymentMethod=(string)($data['payment_method']??'');
+        $contactRequested=($data['contact_requested']??null)===true;
+        $noticeVersion=(string)($data['privacy_notice_version']??'');
+        $allowedPaymentMethods=['','cash','finance','trade_cash','trade_finance'];
+        if(!preg_match('/^[A-Za-z0-9_-]{1,80}$/',$vehicleId)||textLength($buyerName)<2||textLength($buyerName)>120||!preg_match('/^\+?[0-9 ()-]{8,32}$/',$phoneInput)||strlen($phoneDigits)<8||strlen($phoneDigits)>15||!in_array($paymentMethod,$allowedPaymentMethods,true)||!$contactRequested||$noticeVersion!=='lead-contact-v1')fail(400,'Revisa tus datos, la solicitud de contacto y la Política de privacidad.');
+        $phone=(str_starts_with($phoneInput,'+')?'+':'').$phoneDigits;
+        $pdo=db();
+        $q=$pdo->prepare("SELECT v.tenant_id FROM vehicles v JOIN professional_users u ON u.user_id=v.tenant_id WHERE v.vehicle_id=? AND v.status='disponible' AND v.stage='publicado' AND u.email_verified=1 AND EXISTS (SELECT 1 FROM publication_contacts pc WHERE pc.vehicle_id=v.vehicle_id AND pc.contact_verified=1) LIMIT 1");
+        $q->execute([$vehicleId]); $tenantId=(string)($q->fetchColumn()?:'');
+        if($tenantId==='')fail(404,'Este anuncio ya no está disponible para recibir solicitudes.');
+        $q=$pdo->prepare('SELECT COUNT(*) FROM leads WHERE vehicle_id=? AND phone=? AND created_at>=DATE_SUB(UTC_TIMESTAMP(),INTERVAL 10 MINUTE)');
+        $q->execute([$vehicleId,$phone]);
+        if((int)$q->fetchColumn()>=3)fail(429,'Ya hemos recibido varias solicitudes con este teléfono para este anuncio. Inténtalo más tarde.');
+        $id='lead-'.bin2hex(random_bytes(6));
+        $q=$pdo->prepare('INSERT INTO leads(lead_id,tenant_id,vehicle_id,buyer_name,phone,payment_method,contact_requested_at,privacy_notice_version) VALUES(?,?,?,?,?,?,UTC_TIMESTAMP(),?)');
+        $q->execute([$id,$tenantId,$vehicleId,$buyerName,$phone,$paymentMethod?:null,$noticeVersion]);
+        jsonResponse(['ok'=>true,'id'=>$id],201);
+    }
     fail(404,'Ruta no encontrada');
 } catch (Throwable $e) { if (db()->inTransaction()) db()->rollBack(); fail(500,'No se pudo completar la operación'); }

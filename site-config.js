@@ -612,6 +612,10 @@ function matchesPriceSearchRange(price, range) {
 
 // Capa de Almacenamiento Reactiva y Persistente Multi-Tenant (LocalStorage + Memoria)
 const CocheMotorStorage = {
+  authenticatedStockUserId: null,
+  authenticatedStock: [],
+  authenticatedLeadsUserId: null,
+  authenticatedLeads: [],
   STORAGE_KEYS: {
     STOCK: "cochemotor_stock_v2",
     LEADS: "cochemotor_leads_v2",
@@ -629,6 +633,7 @@ const CocheMotorStorage = {
   },
 
   getActiveUserId() {
+    if (window.COCHEMOTOR_AUTH_USER?.user_id) return window.COCHEMOTOR_AUTH_USER.user_id;
     try {
       const stored = localStorage.getItem(this.STORAGE_KEYS.ACTIVE_USER);
       if (stored) return stored;
@@ -637,6 +642,7 @@ const CocheMotorStorage = {
   },
 
   setActiveUserId(userId) {
+    if (window.COCHEMOTOR_AUTH_USER?.user_id) return window.COCHEMOTOR_AUTH_USER.user_id;
     try {
       localStorage.setItem(this.STORAGE_KEYS.ACTIVE_USER, userId);
     } catch (e) {}
@@ -644,6 +650,8 @@ const CocheMotorStorage = {
   },
 
   getActiveUser() {
+    const authenticated = window.COCHEMOTOR_AUTH_USER;
+    if (authenticated?.user_id) return { id:authenticated.user_id, name:authenticated.name||'', businessName:authenticated.name||'', role:'Profesional', avatar:'CM', phone:authenticated.phone||'', email:authenticated.email||'', professionalType:authenticated.professional_type||'', location:'España', province:'', community:'' };
     const uid = this.getActiveUserId();
     return siteConfig.users.find(u => u.id === uid) || siteConfig.users[0];
   },
@@ -655,7 +663,7 @@ const CocheMotorStorage = {
         const saved = JSON.parse(stored);
         if (Array.isArray(saved)) {
           const demoIds = new Set(siteConfig.stock.map(vehicle => vehicle.id));
-          return saved.map(vehicle => demoIds.has(vehicle.id) ? { ...vehicle, isDemo: true } : vehicle);
+          return saved.filter(vehicle => vehicle.isDemo || demoIds.has(vehicle.id)).map(vehicle => demoIds.has(vehicle.id) ? { ...vehicle, isDemo: true } : vehicle);
         }
       }
     } catch (e) {}
@@ -666,10 +674,27 @@ const CocheMotorStorage = {
   },
 
   getStock(userId = null) {
+    const authenticatedId = window.COCHEMOTOR_AUTH_USER?.user_id;
+    if (authenticatedId) {
+      const target = userId !== null ? userId : authenticatedId;
+      return target === authenticatedId && this.authenticatedStockUserId === authenticatedId ? this.authenticatedStock : [];
+    }
     const all = this.getAllPublicStock();
     const targetUserId = (userId !== null) ? userId : this.getActiveUserId();
     if (targetUserId === 'all') return all;
     return all.filter(v => (v.userId || "user-juan") === targetUserId);
+  },
+
+  setAuthenticatedStock(userId, stock) {
+    if (userId !== window.COCHEMOTOR_AUTH_USER?.user_id || !Array.isArray(stock)) return;
+    this.authenticatedStockUserId = userId;
+    this.authenticatedStock = stock.map(vehicle => ({ ...vehicle, userId, isDemo:false }));
+  },
+
+  setAuthenticatedLeads(userId, leads) {
+    if (userId !== window.COCHEMOTOR_AUTH_USER?.user_id || !Array.isArray(leads)) return;
+    this.authenticatedLeadsUserId = userId;
+    this.authenticatedLeads = leads;
   },
 
   saveAllStock(stockList) {
@@ -679,6 +704,15 @@ const CocheMotorStorage = {
   },
 
   saveVehicle(vehicle) {
+    const authenticatedId = window.COCHEMOTOR_AUTH_USER?.user_id;
+    if (authenticatedId) {
+      const stock = this.getStock(authenticatedId);
+      const index = stock.findIndex(item => item.id === vehicle.id);
+      if (index >= 0) stock[index] = { ...stock[index], ...vehicle };
+      else stock.unshift(vehicle);
+      this.setAuthenticatedStock(authenticatedId, stock);
+      return vehicle;
+    }
     const stock = this.getAllPublicStock();
     const activeUser = this.getActiveUser();
     
@@ -704,6 +738,7 @@ const CocheMotorStorage = {
   },
 
   getVehicleById(id) {
+    if (window.COCHEMOTOR_AUTH_USER?.user_id) return this.getStock().find(v => v.id === id) || null;
     return this.getAllPublicStock().find(v => v.id === id) || null;
   },
 
@@ -725,6 +760,11 @@ const CocheMotorStorage = {
   },
 
   getLeads(userId = null) {
+    const authenticatedId = window.COCHEMOTOR_AUTH_USER?.user_id;
+    if (authenticatedId) {
+      const target = userId !== null ? userId : authenticatedId;
+      return target === authenticatedId && this.authenticatedLeadsUserId === authenticatedId ? this.authenticatedLeads : [];
+    }
     try {
       const stored = localStorage.getItem(this.STORAGE_KEYS.LEADS);
       if (stored) {
@@ -801,6 +841,7 @@ const CocheMotorStorage = {
   },
 
   addLead(lead) {
+    if (window.COCHEMOTOR_AUTH_USER?.user_id) return lead;
     let allLeads = [];
     try {
       const stored = localStorage.getItem(this.STORAGE_KEYS.LEADS);

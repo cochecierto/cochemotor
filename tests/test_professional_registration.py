@@ -13,16 +13,17 @@ class ProfessionalRegistrationTests(unittest.TestCase):
 
     def test_registration_binds_one_value_for_each_insert_column(self):
         insert = re.search(
-            r"prepare\('INSERT INTO professional_users\(([^)]*)\) VALUES\(([^)]*)\)'\)",
+            r"prepare\('INSERT INTO professional_users\(([^)]*)\) VALUES\((.*?)\)'\)",
             self.api,
         )
         self.assertIsNotNone(insert, "Registration INSERT must be present")
         columns = [column.strip() for column in insert.group(1).split(",")]
-        placeholders = insert.group(2).split(",")
-        self.assertEqual(len(columns), len(placeholders))
+        bound_placeholders = insert.group(2).count("?")
+        self.assertEqual(len(columns), bound_placeholders + 1)  # notice_acknowledged_at uses UTC_TIMESTAMP()
         self.assertEqual(
             columns,
-            ["user_id", "name", "email", "password_hash", "verification_token"],
+            ["user_id", "name", "email", "password_hash", "verification_token",
+             "privacy_notice_version", "terms_version", "notice_acknowledged_at"],
         )
 
         registration_block = self.api[insert.end():self.api.index("catch (PDOException", insert.end())]
@@ -30,7 +31,7 @@ class ProfessionalRegistrationTests(unittest.TestCase):
         self.assertIsNotNone(execute, "Registration must bind values to the prepared query")
         self.assertEqual(
             execute.group(1),
-            "$id,$name,$email,password_hash($password,PASSWORD_DEFAULT),$verify",
+            "$id,$name,$email,password_hash($password,PASSWORD_DEFAULT),$verify,'privacy-v1','beta-terms-v1'",
         )
 
 

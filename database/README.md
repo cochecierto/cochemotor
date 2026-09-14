@@ -5,7 +5,7 @@ El proyecto usa SQLite para desarrollo local y pruebas. Para producción se ha p
 ## Activación recomendada
 
 1. Usar la base nueva `u560645602_cochemotor` y el usuario dedicado `u560645602_cochemotor_app`.
-2. Para una base vacía, ejecutar desde phpMyAdmin las migraciones `001`–`006` en orden. Para la base existente `u560645602_cochemotor`, **no volver a ejecutar 001–003**: inspeccionar estructura y aplicar únicamente las migraciones pendientes, ahora identificadas como 004–006.
+2. Para una base vacía, ejecutar desde phpMyAdmin las migraciones `001`–`007` en orden. Para la base existente `u560645602_cochemotor`, **no volver a ejecutar 001–003 ni migraciones ya aplicadas**: inspeccionar estructura y ejecutar únicamente las pendientes.
 3. Guardar las credenciales únicamente como variables de entorno del API:
 
 ```text
@@ -41,6 +41,8 @@ HAVING COUNT(*) > 1;
 ```
 
 Si devuelve filas, no ejecutar la 006 todavía: resolver cada colisión y conservar una redirección 301 por slug antiguo que ya haya sido público. Si no devuelve filas, aplicar 006 una sola vez y verificar que aparece el índice único `uq_vehicles_public_slug`. No usar `IF NOT EXISTS` para ocultar una aplicación parcial; comparar primero la estructura real.
+
+La séptima añade versión/fecha de lectura de avisos al alta, trazabilidad de la solicitud de contacto, un índice para limitar reenvíos repetidos y cambia el valor predeterminado de evidencia mecánica a `declarado`. No cambia los registros históricos. Antes de desplegar la nueva API, verificar por separado las columnas e índice; el formulario público de contacto requiere la 007.
 
 ## Preflight de las migraciones SEO en la base existente
 

@@ -427,3 +427,11 @@ Todas las decisiones de esta versión están fechadas el 2026-08-27.
 - Fuente externa: revisar `designed-by-ai/skills` solo como benchmark; no instalar `design-mobile-apps` porque la skill opera en Sleek, requiere clave API y permite cambios remotos; además declara un único host pero indica llamadas externas a Iconify/Google Fonts.
 - Restricciones: no crear cuenta, clave, proyecto remoto, gasto ni llamada Sleek. No crear app nativa ni modificar la web en esta iniciativa.
 - Evidencia: solicitud de Juan, Spec 013, evaluación de fuente y enlaces oficiales WCAG/Apple.
+
+## D-047 — Corrección local de flujos web y preparación de release
+
+- Estado: spec y plan aprobados; implementación local en curso. Publicación pendiente de autorización separada.
+- Fecha: 2026-09-14.
+- Decisión: implementar RF-1..RF-8 de Spec 014 para corregir autenticación, filtros del marketplace, solicitud de contacto persistida, información de alta, carga del catálogo, respuestas de rutas inexistentes y consistencia verificable de los activos de release.
+- Límites: no crear datos reales ni inventario sintético presentado como real; no reutilizar credenciales de producción; no publicar a GitHub, ejecutar migraciones o desplegar a Hostinger bajo esta aprobación.
+- Evidencia: solicitud explícita de Dirección y aprobación del 2026-09-14 en la conversación; Spec 014, clarificación y plan.

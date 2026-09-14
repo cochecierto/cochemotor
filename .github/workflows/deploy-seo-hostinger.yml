@@ -9,6 +9,9 @@ on:
       - "sitemap.xml"
       - "sitemap-public.php"
       - "seo-public.php"
+      - "site-config.js"
+      - "hub.js"
+      - "acceso.html"
       - "seo-legacy-redirect.php"
       - "index.html"
       - "marketplace.html"
@@ -26,6 +29,10 @@ on:
       - "asesor.html"
       - "asesor-leads.html"
       - "styles.css"
+      - "assets/js/home_catalog.js"
+      - "assets/js/public-lead-form.js"
+      - "assets/data/vehicles_catalog.js"
+      - "database/migrations/007_lead_and_registration_notice_mysql.sql"
       - "api/index.php"
       - "guias/comprar-coche-usado.html"
       - "tests/**"
@@ -38,6 +45,9 @@ on:
       - "sitemap.xml"
       - "sitemap-public.php"
       - "seo-public.php"
+      - "site-config.js"
+      - "hub.js"
+      - "acceso.html"
       - "seo-legacy-redirect.php"
       - "index.html"
       - "marketplace.html"
@@ -55,6 +65,10 @@ on:
       - "asesor.html"
       - "asesor-leads.html"
       - "styles.css"
+      - "assets/js/home_catalog.js"
+      - "assets/js/public-lead-form.js"
+      - "assets/data/vehicles_catalog.js"
+      - "database/migrations/007_lead_and_registration_notice_mysql.sql"
       - "api/index.php"
       - "guias/comprar-coche-usado.html"
       - "tests/**"
@@ -67,7 +81,7 @@ on:
         type: boolean
         default: false
       seo_migrations_ready:
-        description: "He aplicado 004, 005 y 006 en CocheMotor, revisado duplicados de public_slug y conservado las redirecciones necesarias."
+        description: "He aplicado 004–007 en CocheMotor, revisado duplicados de public_slug y probado registro, vehículos y leads contra el esquema actualizado."
         required: true
         type: boolean
         default: false
@@ -89,6 +103,13 @@ jobs:
 
       - name: Ejecutar pruebas del proyecto
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+
+      - name: Comprobar sintaxis JavaScript
+        run: |
+          node --check hub.js
+          node --check site-config.js
+          node --check assets/js/home_catalog.js
+          node --check assets/js/public-lead-form.js
 
       - name: Comprobar sintaxis PHP
         run: |
@@ -116,7 +137,7 @@ jobs:
             exit 1
           fi
           if [[ "$SEO_MIGRATIONS_READY" != "true" ]]; then
-            echo "::error::Despliegue detenido. Aplica y verifica las migraciones 004, 005 y 006, incluidos los slugs duplicados, y vuelve a ejecutar confirmando la casilla."
+            echo "::error::Despliegue detenido. Aplica y verifica las migraciones 004–007, incluidos los slugs duplicados, los consentimientos versionados y los campos de solicitudes de contacto, y vuelve a ejecutar confirmando la casilla."
             exit 1
           fi
 
@@ -175,6 +196,8 @@ jobs:
           mkdir $stage/guias
           mkdir $stage/assets
           mkdir $stage/assets/images
+          mkdir $stage/assets/js
+          mkdir $stage/assets/data
           put .htaccess $stage/.htaccess
           put robots.txt $stage/robots.txt
           put sitemap.xml $stage/sitemap.xml
@@ -183,6 +206,9 @@ jobs:
           put seo-legacy-redirect.php $stage/seo-legacy-redirect.php
           put index.html $stage/index.html
           put styles.css $stage/styles.css
+          put site-config.js $stage/site-config.js
+          put hub.js $stage/hub.js
+          put acceso.html $stage/acceso.html
           put marketplace.html $stage/marketplace.html
           put demanda.html $stage/demanda.html
           put profesionales.html $stage/profesionales.html
@@ -198,11 +224,16 @@ jobs:
           put asesor.html $stage/asesor.html
           put asesor-leads.html $stage/asesor-leads.html
           put api/index.php $stage/api/index.php
+          put assets/js/home_catalog.js $stage/assets/js/home_catalog.js
+          put assets/js/public-lead-form.js $stage/assets/js/public-lead-form.js
+          put assets/data/vehicles_catalog.js $stage/assets/data/vehicles_catalog.js
           put guias/comprar-coche-usado.html $stage/guias/comprar-coche-usado.html
           put assets/images/inspeccion-taller-cochemotor.png $stage/assets/images/inspeccion-taller-cochemotor.png
           -mkdir guias
           -mkdir assets
           -mkdir assets/images
+          -mkdir assets/js
+          -mkdir assets/data
           rename $stage/sitemap-public.php sitemap-public.php
           rename $stage/seo-public.php seo-public.php
           rename $stage/seo-legacy-redirect.php seo-legacy-redirect.php
@@ -210,6 +241,9 @@ jobs:
           rename $stage/sitemap.xml sitemap.xml
           rename $stage/index.html index.html
           rename $stage/styles.css styles.css
+          rename $stage/site-config.js site-config.js
+          rename $stage/hub.js hub.js
+          rename $stage/acceso.html acceso.html
           rename $stage/marketplace.html marketplace.html
           rename $stage/demanda.html demanda.html
           rename $stage/profesionales.html profesionales.html
@@ -226,12 +260,17 @@ jobs:
           rename $stage/asesor-leads.html asesor-leads.html
           rename api/index.php api/index.php.seo-backup-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
           rename $stage/api/index.php api/index.php
+          rename $stage/assets/js/home_catalog.js assets/js/home_catalog.js
+          rename $stage/assets/js/public-lead-form.js assets/js/public-lead-form.js
+          rename $stage/assets/data/vehicles_catalog.js assets/data/vehicles_catalog.js
           rename $stage/guias/comprar-coche-usado.html guias/comprar-coche-usado.html
           rename $stage/assets/images/inspeccion-taller-cochemotor.png assets/images/inspeccion-taller-cochemotor.png
           rename $stage/.htaccess .htaccess
           rmdir $stage/api
           rmdir $stage/guias
           rmdir $stage/assets/images
+          rmdir $stage/assets/js
+          rmdir $stage/assets/data
           rmdir $stage/assets
           rmdir $stage
           SFTP
@@ -259,3 +298,16 @@ jobs:
           grep -F 'application/ld+json' "$RUNNER_TEMP/cochemotor-home.html"
           curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/guias/comprar-coche-usado.html -o "$RUNNER_TEMP/cochemotor-guide.html"
           grep -F "Cómo revisar un coche de segunda mano antes de comprar" "$RUNNER_TEMP/cochemotor-guide.html"
+
+      - name: Verificar que los activos publicados coinciden con este commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          for asset in site-config.js hub.js styles.css assets/js/home_catalog.js assets/js/public-lead-form.js assets/data/vehicles_catalog.js; do
+            local_hash="$(sha256sum "$asset" | cut -d' ' -f1)"
+            remote_hash="$(curl --fail --silent --show-error --retry 4 --retry-delay 2 "https://cochemotor.es/$asset?release=$GITHUB_SHA" | sha256sum | cut -d' ' -f1)"
+            if [[ "$local_hash" != "$remote_hash" ]]; then
+              echo "::error::El activo publicado no coincide con el commit para $asset (local=$local_hash remoto=$remote_hash)."
+              exit 1
+            fi
+          done

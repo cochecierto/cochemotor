@@ -13,17 +13,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="styles.css?v=20260914.1">
   <script>
-    (function () {
-      const rawSession = localStorage.getItem('cochemotor_local_session');
-      const session = rawSession ? JSON.parse(rawSession) : null;
-      if (!session?.sessionToken) window.location.replace('acceso.html?return=hub');
-      else fetch('/api/auth', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'session', session_token: session.sessionToken}) })
-        .then(response => { if (!response.ok) throw new Error('Sesión caducada'); return response.json(); })
-        .then(data => { if (!data.ok || !data.user?.verified) throw new Error('Sesión no válida'); })
-        .catch(() => { localStorage.removeItem('cochemotor_local_session'); window.location.replace('acceso.html?return=hub'); });
-    }());
+    window.COCHEMOTOR_AUTH_READY = (async () => {
+      let session = null;
+      try { session = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null'); } catch (_) {}
+      if (!session?.sessionToken) { window.location.replace('acceso.html?audience=professional&return=hub'); return null; }
+      try {
+        const response = await fetch('/api/auth', { method: 'POST', headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${session.sessionToken}`}, body: JSON.stringify({action: 'session'}) });
+        const data = await response.json().catch(() => null);
+        if (!response.ok || !data?.ok || !data.user?.verified) throw new Error('Sesión caducada');
+        const user = data.user;
+        window.COCHEMOTOR_AUTH_USER = user;
+        localStorage.setItem('cochemotor_local_session', JSON.stringify({...session, userId:user.user_id, name:user.name, email:user.email, phone:user.phone||'', professionalType:user.professional_type||'', profileComplete:Boolean(user.phone&&user.professional_type), verified:true}));
+        return user;
+      } catch (_) {
+        localStorage.removeItem('cochemotor_local_session');
+        window.location.replace('acceso.html?audience=professional&return=hub&mode=login');
+        return null;
+      }
+    })();
   </script>
   <style>
     /* Estilos Críticos Inalterables del Panel profesional */
@@ -398,40 +407,18 @@
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group"><span class="form-label">Estado inicial</span><p>El anuncio quedará pendiente de revisión del contacto antes de mostrarse a compradores.</p></div>
                 <div class="form-group">
-                  <label class="form-label">Fase del Ciclo de Vida (13 Etapas)</label>
-                  <select id="up-lifecycle-stage" class="form-control" style="font-size: 0.85rem; font-weight: 700; color: var(--cm-navy);">
-                    <option value="publicado" selected>5. Publicado / Activo en Web</option>
-                    <option value="captado">1. Captado / Entrada en Stock</option>
-                    <option value="en_verificacion">2. En Verificación Pericial</option>
-                    <option value="en_puesta_a_punto">3. En Puesta a Punto en Taller</option>
-                    <option value="listo_para_publicar">4. Listo para Publicar</option>
-                    <option value="lead_activo">6. Con Lead Activo en Gestión</option>
-                    <option value="prueba_concertada">7. Prueba Concertada con Cliente</option>
-                    <option value="reservado">8. Reservado con Señal</option>
-                    <option value="contrato_pendiente">9. Contrato Mercantil Pendiente</option>
-                    <option value="vendido">10. Vendido</option>
-                    <option value="entregado">11. Entregado al Comprador</option>
-                    <option value="en_posventa">12. En Posventa y Garantía</option>
-                    <option value="retirado">13. Retirado de Venta</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Nivel de Evidencia Mecánica</label>
+                  <label class="form-label">Estado de la información mecánica</label>
                   <select id="up-evidence-level" class="form-control" style="font-size: 0.85rem;">
-                    <option value="verificado_obd" selected>✓ Diagnosis OBD + Elevador Taller</option>
-                    <option value="documentado">📄 Documentación y Facturas aportadas</option>
-                    <option value="verificado_dgt">🛡️ Informe DGT Telemático Limpio</option>
-                    <option value="declarado">⚠️ Declarado por Vendedor (Sin peritar)</option>
+                    <option value="declarado" selected>Declarado por el vendedor; pendiente de verificación independiente</option>
                   </select>
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Fotos del coche <span style="color:var(--cm-red);">*</span></label>
-                <input type="url" id="up-image-url" class="form-control" placeholder="https://images.unsplash.com/...">
-                <label class="form-label" for="up-image-file" style="margin-top:10px;">O selecciona hasta 10 fotos del dispositivo</label>
-                <input type="file" id="up-image-file" class="form-control" accept="image/jpeg,image/png,image/webp" multiple>
+                <label class="form-label" for="up-image-file">Fotos reales del coche <span style="color:var(--cm-red);">*</span></label>
+                <input type="file" id="up-image-file" class="form-control" accept="image/jpeg,image/png,image/webp" multiple required>
                 <small id="up-image-count" style="display:block;margin-top:6px;color:var(--cm-text-secondary);">0/10 fotos seleccionadas. La primera será la portada.</small>
               </div>
             </div>
@@ -485,8 +472,10 @@
                 <textarea id="up-highlights" class="form-control" rows="3" placeholder="Kit de distribución recién cambiado&#10;Neumáticos al 90%&#10;ITV en vigor hasta 2026&#10;1 Solo propietario con libro"></textarea>
               </div>
 
+              <label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:.9rem"><input id="up-contact-consent" type="checkbox" required><span>Autorizo el uso de estos datos de contacto para revisar y gestionar la publicación. Consulta la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.</span></label>
+              <p id="vehicle-submit-status" role="status" aria-live="polite" style="margin-top:10px"></p>
               <button type="submit" class="btn btn-red" style="width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 800; margin-top: 16px;">
-                🚀 Guardar Vehículo y Generar Anuncio
+                🚀 Enviar anuncio a revisión
               </button>
             </div>
           </div>
@@ -1157,12 +1146,12 @@
     </main>
   </div>
 
-  <script src="site-config.js"></script>
+  <script src="site-config.js?v=20260914.1"></script>
    <script type="module" src="assets/data/vehicles_catalog.js"></script>
    <script type="module" src="assets/data/spain_territory.js"></script>
    <script type="module" src="assets/js/inventory_selectors.js?v=2"></script>
    <script type="module" src="assets/js/matchmaking_engine.js"></script>
-   <script src="hub.js?v=2"></script>
+   <script src="hub.js?v=20260914.1"></script>
 </body>
 </html>
 

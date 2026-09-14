@@ -3,8 +3,16 @@
  * Con Navegación en Sidebar Lateral Izquierda y Aislamiento Multi-Usuario
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   if (typeof CocheMotorStorage === 'undefined' && typeof siteConfig === 'undefined') return;
+
+  const authenticatedUser = await (window.COCHEMOTOR_AUTH_READY || Promise.resolve(null));
+  if (!authenticatedUser) return;
+  const apiResults=await Promise.allSettled([loadProfessionalVehicles(),loadProfessionalLeads()]);
+  if(apiResults.some(result=>result.status==='rejected')){
+    const table=document.getElementById('pipeline-leads-table');
+    if(table)table.innerHTML='<p role="status">No se pudieron cargar todos los datos de tu cuenta. Comprueba la conexión y recarga el panel.</p>';
+  }
 
   initUserSwitcher();
   initVehicleDropdowns();
@@ -24,6 +32,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const MAX_VEHICLE_IMAGES = 10;
 
+function getProfessionalSession() {
+  try { return JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null'); }
+  catch (_) { return null; }
+}
+
+function professionalAuthHeaders(headers = {}) {
+  const session = getProfessionalSession();
+  return session?.sessionToken
+    ? { ...headers, Authorization: `Bearer ${session.sessionToken}` }
+    : headers;
+}
+
+async function loadProfessionalVehicles() {
+  const response = await fetch('/api/vehicles', { headers: professionalAuthHeaders({'Accept':'application/json'}) });
+  if (response.status === 401) { localStorage.removeItem('cochemotor_local_session'); window.location.replace('acceso.html?audience=professional&return=hub&mode=login'); return; }
+  if (!response.ok) throw new Error('No se pudo cargar el inventario de tu cuenta.');
+  const data = await response.json();
+  CocheMotorStorage.setAuthenticatedStock(window.COCHEMOTOR_AUTH_USER.user_id, Array.isArray(data.vehicles) ? data.vehicles : []);
+}
+
+async function loadProfessionalLeads() {
+  const response = await fetch('/api/leads', { headers: professionalAuthHeaders({'Accept':'application/json'}) });
+  if (response.status === 401) { localStorage.removeItem('cochemotor_local_session'); window.location.replace('acceso.html?audience=professional&return=hub&mode=login'); return; }
+  if (!response.ok) throw new Error('No se pudieron cargar las consultas de tu cuenta.');
+  const data = await response.json();
+  const vehicles = CocheMotorStorage.getStock(window.COCHEMOTOR_AUTH_USER.user_id);
+  const paymentLabels = {cash:'Al contado',finance:'Financiado',trade_cash:'Entrega de coche + contado',trade_finance:'Entrega de coche + financiado'};
+  const leads = (Array.isArray(data.leads) ? data.leads : []).map(lead => {
+    const vehicle = vehicles.find(item => item.id === lead.vehicle_id);
+    return {id:lead.lead_id, sellerUserId:lead.tenant_id, vehicleId:lead.vehicle_id, vehicleTitle:vehicle ? `${vehicle.brand} ${vehicle.model}` : 'Vehículo del inventario', buyerName:lead.buyer_name, phone:lead.phone, paymentMethod:paymentLabels[lead.payment_method] || 'Sin indicar', tradeIn:String(lead.payment_method||'').startsWith('trade_')?'Sí':'No', score:null, scoreTag:'Pendiente de calificar', date:lead.created_at, status:'Nueva consulta'};
+  });
+  CocheMotorStorage.setAuthenticatedLeads(window.COCHEMOTOR_AUTH_USER.user_id, leads);
+}
+
 function initVehiclePhotoGuide() {
   const input = document.getElementById('up-image-file');
   const count = document.getElementById('up-image-count');
@@ -42,9 +84,9 @@ function initVehiclePhotoGuide() {
 }
 
 async function logoutLocalSession() {
-  const session = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
+  const session = getProfessionalSession();
   try {
-    if (session?.sessionToken) await fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'logout', session_token: session.sessionToken})});
+    if (session?.sessionToken) await fetch('/api/auth', {method: 'POST', headers: professionalAuthHeaders({'Content-Type': 'application/json'}), body: JSON.stringify({action: 'logout'})});
   } finally {
     localStorage.removeItem('cochemotor_local_session');
     window.location.replace('acceso.html');
@@ -55,6 +97,12 @@ async function logoutLocalSession() {
 function initUserSwitcher() {
   const switcher = document.getElementById('hub-user-switcher');
   const roleBadge = document.getElementById('hub-user-role-badge');
+  const authenticated = window.COCHEMOTOR_AUTH_USER;
+  if (authenticated?.user_id) {
+    if (switcher) { switcher.replaceChildren(new Option(authenticated.name || authenticated.email, authenticated.user_id)); switcher.disabled = true; }
+    if (roleBadge) roleBadge.innerText = authenticated.professional_type || 'Cuenta profesional';
+    return;
+  }
   if (!switcher || !siteConfig.users) return;
 
   const activeUserId = CocheMotorStorage.getActiveUserId();
@@ -182,7 +230,7 @@ function autoCalculateBadge() {
 
 async function compressVehicleImage(file) {
   if (!file) return '';
-  if (!file.type.startsWith('image/')) throw new Error('Selecciona un archivo de imagen válido.');
+  if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) throw new Error('Selecciona una foto JPG, PNG o WebP.');
   if (file.size > 8 * 1024 * 1024) throw new Error('La imagen supera el máximo recomendado de 8 MB.');
   const source = await new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -196,63 +244,36 @@ async function compressVehicleImage(file) {
   canvas.width = Math.max(1, Math.round(source.width * scale));
   canvas.height = Math.max(1, Math.round(source.height * scale));
   canvas.getContext('2d').drawImage(source, 0, 0, canvas.width, canvas.height);
-  return canvas.toDataURL('image/webp', 0.78);
+  return await new Promise((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('No se pudo preparar una de las fotos.')), 'image/webp', 0.78));
 }
 
 async function handleCreateVehicle(event) {
   event.preventDefault();
-
-  const localSession = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
-  if (!localSession?.verified) {
-    alert('Para publicar un coche debes verificar tu correo y entrar con tu cuenta profesional.');
-    window.location.href = 'acceso.html?return=hub';
-    return;
-  }
-  if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) {
-    alert('Completa tu perfil profesional antes de publicar un coche.');
-    window.location.href = 'perfil.html';
-    return;
-  }
+  const form=event.currentTarget, status=document.getElementById('vehicle-submit-status'), submit=form.querySelector('button[type="submit"]');
+  const localSession=getProfessionalSession();
+  if (!localSession?.verified || !localSession.sessionToken) { window.location.href='acceso.html?audience=professional&return=hub&mode=login'; return; }
+  if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) { window.location.href='perfil.html'; return; }
+  if(!form.reportValidity())return;
 
   const brand = document.getElementById('up-brand').value.trim();
   const model = document.getElementById('up-model').value.trim();
   const version = document.getElementById('up-version').value.trim();
-  const year = parseInt(document.getElementById('up-year').value);
-  const km = document.getElementById('up-km').value.trim();
+  const year = Number(document.getElementById('up-year').value);
+  const km = Number(document.getElementById('up-km').value.replace(/\D/g, ''));
   const fuel = document.getElementById('up-fuel').value;
   const gearbox = document.getElementById('up-gearbox').value;
   const badge = document.getElementById('up-badge').value;
-  const price = parseFloat(document.getElementById('up-price').value);
+  const price = Number(document.getElementById('up-price').value);
   const cost = parseFloat(document.getElementById('up-cost').value) || (price * 0.82);
-  const customImg = document.getElementById('up-image-url').value.trim();
   const imageFiles = Array.from(document.getElementById('up-image-file')?.files || []);
-  if (imageFiles.length > MAX_VEHICLE_IMAGES) {
-    alert(`Un anuncio puede tener como máximo ${MAX_VEHICLE_IMAGES} fotos.`);
-    return;
-  }
+  if (!imageFiles.length) { status.textContent='Añade al menos una foto real del vehículo.'; return; }
+  if (imageFiles.length > MAX_VEHICLE_IMAGES) { status.textContent=`Un anuncio puede tener como máximo ${MAX_VEHICLE_IMAGES} fotos.`; return; }
   const highlightsText = document.getElementById('up-highlights').value.trim();
   const communitySelect = document.getElementById('up-community');
   const provinceSelect = document.getElementById('up-province');
   const municipalitySelect = document.getElementById('up-municipality');
 
-  const demoImages = [
-    "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
-  ];
-  let finalImg = customImg || demoImages[Math.floor(Math.random() * demoImages.length)];
-  let vehicleImages = customImg ? [customImg] : [];
-  try {
-    if (imageFiles.length) {
-      vehicleImages = await Promise.all(imageFiles.map(compressVehicleImage));
-      finalImg = vehicleImages[0];
-    }
-  } catch (error) {
-    alert(error.message);
-    return;
-  }
+  const vehicleImages = await Promise.all(imageFiles.map(compressVehicleImage));
 
   const highlights = highlightsText 
     ? highlightsText.split('\n').map(h => h.trim()).filter(Boolean)
@@ -262,13 +283,12 @@ async function handleCreateVehicle(event) {
 
   const activeUser = CocheMotorStorage.getActiveUser();
 
-  const stageSelect = document.getElementById('up-lifecycle-stage');
-  const stage = stageSelect ? stageSelect.value : 'publicado';
   const evidenceSelect = document.getElementById('up-evidence-level');
   const evidenceLevel = evidenceSelect ? evidenceSelect.value : 'verificado_obd';
+  const vehicleId = `pub-${crypto.randomUUID().replace(/-/g, '')}`;
 
   const newVehicle = {
-    id: `cm-${Date.now().toString().slice(-4)}`,
+    id: vehicleId,
     userId: activeUser.id,
     brand,
     model,
@@ -294,38 +314,41 @@ async function handleCreateVehicle(event) {
     provinceId: provinceSelect?.value || '',
     municipality: municipalitySelect?.selectedOptions[0]?.textContent || activeUser.location,
     municipalityId: municipalitySelect?.value || '',
-    image: finalImg,
-    images: vehicleImages.length ? vehicleImages : [finalImg],
+    image: 'assets/brand/icons/vehicle-placeholder.svg',
+    images: [],
     inspectionScore: "",
     itvDate: "",
     warranty: "",
     dgtStatus: "No consultado",
     highlights,
-    stage: stage,
+    stage: 'pendiente_validacion_contacto',
     evidenceLevel: evidenceLevel,
-    status: (stage === 'vendido' || stage === 'entregado') ? 'vendido' : (stage === 'reservado' || stage === 'contrato_pendiente') ? 'reservado' : 'disponible',
+    status: 'pendiente_revision',
     daysInStock: 0,
     clicksCount: 0,
     leadsCount: 0,
     estimatedMarketPrice: price,
   };
 
-  CocheMotorStorage.saveVehicle(newVehicle);
-  const authSession = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
-  fetch('/api/vehicles', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({session_token: authSession?.sessionToken, vehicle: newVehicle}) })
-    .then(response => { if (!response.ok) throw new Error('No se pudo sincronizar el vehículo con el broker local.'); })
-    .catch(error => console.warn(error.message));
-  updateKpis();
-  initVehicleDropdowns();
-
-  alert(`Vehículo ${brand} ${model} guardado con éxito en tu inventario.\n\nPreparando los anuncios y la ficha digital...`);
-
-  switchHubTab('tab-generator');
-  const genSelect = document.getElementById('gen-vehicle-select');
-  if (genSelect) {
-    genSelect.value = newVehicle.id;
-    loadVehicleForGenerator();
-  }
+  const location=municipalitySelect?.selectedOptions[0]?.textContent?.trim()||'';
+  const contact={name:localSession.name,email:localSession.email,phone:localSession.phone,consent:document.getElementById('up-contact-consent').checked};
+  const payload={...newVehicle,km,location,contact};
+  const body=new FormData(); body.append('vehicle',JSON.stringify(payload));
+  const slotKeys=['front-right','rear','left-side','right-side','front-interior','rear-interior','dashboard-km','engine','trunk','tire-or-detail'];
+  vehicleImages.forEach((photo,index)=>{body.append('images[]',photo,`${slotKeys[index]}.webp`);body.append('slots[]',JSON.stringify({key:slotKeys[index],sort_order:index}));});
+  submit.disabled=true; status.textContent='Enviando el anuncio y las fotos a revisión…';
+  try {
+    const response=await fetch('/api/vehicles',{method:'POST',headers:professionalAuthHeaders(),body});
+    const result=await response.json().catch(()=>null);
+    if(response.status===401){localStorage.removeItem('cochemotor_local_session');window.location.href='acceso.html?audience=professional&return=hub&mode=login';return;}
+    if(!response.ok||!result?.ok)throw new Error(result?.error||'No se pudo guardar. Conservamos los datos del formulario para que puedas reintentarlo.');
+    newVehicle.id=result.id;newVehicle.stage=result.status;newVehicle.status='pendiente_revision';newVehicle.location=location;newVehicle.km=`${km.toLocaleString('es-ES')} km`;
+    CocheMotorStorage.saveVehicle(newVehicle);updateKpis();initVehicleDropdowns();
+    status.dataset.kind='success';status.textContent='Anuncio recibido. Revisaremos el contacto antes de publicarlo; todavía no está visible para compradores.';
+    form.reset();
+  } catch(error) {
+    status.dataset.kind='error';status.textContent=error instanceof Error?error.message:'No se pudo enviar el anuncio. Conservamos los datos del formulario para que puedas reintentarlo.';
+  } finally {submit.disabled=false;}
 }
 
 // 5. Inicializar Selectores de Coches
@@ -448,7 +471,7 @@ function renderLeadsTable() {
             <th style="padding: 10px;">Vehículo</th>
             <th style="padding: 10px;">Pago Previsto</th>
             <th style="padding: 10px;">Coche a Cambio</th>
-            <th style="padding: 10px;">Score IA</th>
+            <th style="padding: 10px;">Calificación</th>
             <th style="padding: 10px;">Estado</th>
             <th style="padding: 10px; text-align: right;">Acción Directa</th>
           </tr>
@@ -465,7 +488,7 @@ function renderLeadsTable() {
               <td style="padding: 12px 10px;">${l.tradeIn}</td>
               <td style="padding: 12px 10px;">
                 <span style="background: rgba(0, 150, 64, 0.12); color: var(--badge-eco-bg); font-weight: 800; padding: 3px 8px; border-radius: 999px; font-size: 0.78rem;">
-                  🔥 ${l.score}/100 (${l.scoreTag})
+                  ${Number.isFinite(l.score) ? `${l.score}/100` : 'Pendiente de calificar'}
                 </span>
               </td>
               <td style="padding: 12px 10px; font-weight: 600;">${l.status}</td>

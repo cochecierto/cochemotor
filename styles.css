@@ -2301,6 +2301,9 @@ button {
 .auth-tab.active { color: var(--cm-navy); background: #fff; box-shadow: 0 3px 10px rgba(0,45,98,.1); }
 .auth-card form { display: grid; gap: 8px; }
 .auth-card label { color: var(--cm-navy); font-size: .88rem; font-weight: 700; margin-top: 8px; }
+.auth-card label.auth-consent { display:flex; align-items:flex-start; gap:9px; margin-top:7px; line-height:1.45; font-weight:500; }
+.auth-card .auth-consent input { width:auto; flex:0 0 auto; margin:3px 0 0; }
+.auth-card .auth-consent a { text-decoration:underline; text-underline-offset:2px; }
 .auth-label-row { display: flex; justify-content: space-between; align-items: end; gap: 10px; }
 .auth-label-row label { margin-bottom: 0; }
 .auth-label-row a { color: #1768d1; font-size: .78rem; font-weight: 700; text-decoration: none; }

@@ -181,6 +181,22 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
   cumplimiento. Para una conclusión real aún hace falta inventario actualizado
   de cookies, etiquetas, proveedores y comportamiento antes/después de elegir.
 
+## Actualización CocheMotor — Spec 014, 2026-09-14
+
+- Dirección aprueba la corrección local de RF-1..RF-8 para los flujos de
+  sesión/panel, marketplace, solicitud de contacto, alta profesional, carga
+  del catálogo y consistencia de release. La respuesta 404 de fichas inexistentes
+  se incluye en el requisito del marketplace.
+- La auditoría de línea base encontró contratos Bearer inconsistentes, carga de
+  inventario de demostración en el panel, riesgo de falsos éxitos en leads y
+  catálogo inicial de 4,214,640 bytes. Esos flujos se corrigieron localmente en
+  la Spec 014; su validación de código pasó, pero requiere una BD de ensayo y un
+  navegador para certificar runtime.
+- La rama de trabajo no se ha publicado. No se emplearon datos personales,
+  altas ni leads productivos; tampoco se aplicó la migración 007 en Hostinger.
+  La matriz de Spec 014 separa el resultado local de la validación pendiente de
+  despliegue y producción.
+
 ## Actualización CocheMotor — Spec 013, 2026-09-14
 
 - Se crea localmente `cochemotor-mobile-app-ux`, centrado en flujos móviles
