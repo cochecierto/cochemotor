@@ -1,0 +1,257 @@
+name: CocheMotor · Despliegue SEO SFTP
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".htaccess"
+      - "robots.txt"
+      - "sitemap.xml"
+      - "sitemap-public.php"
+      - "seo-public.php"
+      - "seo-legacy-redirect.php"
+      - "index.html"
+      - "marketplace.html"
+      - "demanda.html"
+      - "profesionales.html"
+      - "profesionales.css"
+      - "aviso-legal.html"
+      - "privacidad.html"
+      - "terminos.html"
+      - "ficha.html"
+      - "dealer.html"
+      - "perfil.html"
+      - "publicar.html"
+      - "hub.html"
+      - "asesor.html"
+      - "asesor-leads.html"
+      - "styles.css"
+      - "api/index.php"
+      - "guias/comprar-coche-usado.html"
+      - "tests/**"
+      - ".github/workflows/deploy-seo-hostinger.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - ".htaccess"
+      - "robots.txt"
+      - "sitemap.xml"
+      - "sitemap-public.php"
+      - "seo-public.php"
+      - "seo-legacy-redirect.php"
+      - "index.html"
+      - "marketplace.html"
+      - "demanda.html"
+      - "profesionales.html"
+      - "profesionales.css"
+      - "aviso-legal.html"
+      - "privacidad.html"
+      - "terminos.html"
+      - "ficha.html"
+      - "dealer.html"
+      - "perfil.html"
+      - "publicar.html"
+      - "hub.html"
+      - "asesor.html"
+      - "asesor-leads.html"
+      - "styles.css"
+      - "api/index.php"
+      - "guias/comprar-coche-usado.html"
+      - "tests/**"
+      - ".github/workflows/deploy-seo-hostinger.yml"
+  workflow_dispatch:
+    inputs:
+      seo_backup_ready:
+        description: "He creado y verificado una copia de seguridad reciente de la base de CocheMotor antes de aplicar DDL."
+        required: true
+        type: boolean
+        default: false
+      seo_migrations_ready:
+        description: "He aplicado 004, 005 y 006 en CocheMotor, revisado duplicados de public_slug y conservado las redirecciones necesarias."
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cochemotor-seo-production
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validar rutas SEO antes de publicar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener código
+        uses: actions/checkout@v4
+
+      - name: Ejecutar pruebas del proyecto
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+
+      - name: Comprobar sintaxis PHP
+        run: |
+          php -l api/index.php
+          php -l seo-public.php
+          php -l sitemap-public.php
+          php -l seo-legacy-redirect.php
+
+      - name: Validar sitemap estático
+        run: python3 -c "import xml.etree.ElementTree as ET; root=ET.parse('sitemap.xml').getroot(); assert root.tag.endswith('urlset') and len(root)>0"
+
+  deploy:
+    name: Publicar páginas SEO por SFTP
+    if: github.event_name == 'workflow_dispatch'
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirmar migraciones aplicadas antes de tocar producción
+        env:
+          SEO_BACKUP_READY: ${{ inputs.seo_backup_ready }}
+          SEO_MIGRATIONS_READY: ${{ inputs.seo_migrations_ready }}
+        run: |
+          if [[ "$SEO_BACKUP_READY" != "true" ]]; then
+            echo "::error::Despliegue detenido. Crea y verifica una copia reciente de la base antes de aplicar cambios de esquema o publicar."
+            exit 1
+          fi
+          if [[ "$SEO_MIGRATIONS_READY" != "true" ]]; then
+            echo "::error::Despliegue detenido. Aplica y verifica las migraciones 004, 005 y 006, incluidos los slugs duplicados, y vuelve a ejecutar confirmando la casilla."
+            exit 1
+          fi
+
+      - name: Obtener código
+        uses: actions/checkout@v4
+
+      - name: Validar secretos y host key SFTP
+        shell: bash
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_SSH_KNOWN_HOSTS }}
+          SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
+        run: |
+          missing=()
+          for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY SSH_KNOWN_HOSTS SSH_WEB_ROOT; do
+            if [[ -z "${!name}" ]]; then missing+=("$name"); fi
+          done
+          if (( ${#missing[@]} )); then
+            echo "::error::Faltan secretos de despliegue SFTP: ${missing[*]}."
+            exit 1
+          fi
+          if [[ ! "$SSH_WEB_ROOT" =~ ^[A-Za-z0-9_./-]+$ || "$SSH_WEB_ROOT" == /* || "$SSH_WEB_ROOT" == *..* ]]; then
+            echo "::error::HOSTINGER_SSH_WEB_ROOT debe ser una ruta relativa segura."
+            exit 1
+          fi
+          mkdir -m 700 -p "$RUNNER_TEMP/cochemotor-seo-ssh"
+          printf '%s\n' "$SSH_PRIVATE_KEY" > "$RUNNER_TEMP/cochemotor-seo-ssh/id_ed25519"
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > "$RUNNER_TEMP/cochemotor-seo-ssh/known_hosts"
+          chmod 600 "$RUNNER_TEMP/cochemotor-seo-ssh/id_ed25519" "$RUNNER_TEMP/cochemotor-seo-ssh/known_hosts"
+          ssh-keygen -F "[$SSH_HOST]:65002" -f "$RUNNER_TEMP/cochemotor-seo-ssh/known_hosts" >/dev/null || {
+            echo "::error::La clave de host fijada no corresponde al servidor SFTP y puerto configurados."
+            exit 1
+          }
+
+      - name: Subir a staging y promover solo archivos SEO permitidos
+        shell: bash
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
+        run: |
+          set -euo pipefail
+          stage=".cochemotor-seo-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          sftp -b - -P 65002 \
+            -i "$RUNNER_TEMP/cochemotor-seo-ssh/id_ed25519" \
+            -o IdentitiesOnly=yes \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            -o "UserKnownHostsFile=$RUNNER_TEMP/cochemotor-seo-ssh/known_hosts" \
+            "$SSH_USER@$SSH_HOST" <<SFTP
+          cd $SSH_WEB_ROOT
+          mkdir $stage
+          mkdir $stage/api
+          mkdir $stage/guias
+          mkdir $stage/assets
+          mkdir $stage/assets/images
+          put .htaccess $stage/.htaccess
+          put robots.txt $stage/robots.txt
+          put sitemap.xml $stage/sitemap.xml
+          put sitemap-public.php $stage/sitemap-public.php
+          put seo-public.php $stage/seo-public.php
+          put seo-legacy-redirect.php $stage/seo-legacy-redirect.php
+          put index.html $stage/index.html
+          put styles.css $stage/styles.css
+          put marketplace.html $stage/marketplace.html
+          put demanda.html $stage/demanda.html
+          put profesionales.html $stage/profesionales.html
+          put profesionales.css $stage/profesionales.css
+          put aviso-legal.html $stage/aviso-legal.html
+          put privacidad.html $stage/privacidad.html
+          put terminos.html $stage/terminos.html
+          put ficha.html $stage/ficha.html
+          put dealer.html $stage/dealer.html
+          put perfil.html $stage/perfil.html
+          put publicar.html $stage/publicar.html
+          put hub.html $stage/hub.html
+          put asesor.html $stage/asesor.html
+          put asesor-leads.html $stage/asesor-leads.html
+          put api/index.php $stage/api/index.php
+          put guias/comprar-coche-usado.html $stage/guias/comprar-coche-usado.html
+          put assets/images/inspeccion-taller-cochemotor.png $stage/assets/images/inspeccion-taller-cochemotor.png
+          -mkdir guias
+          -mkdir assets
+          -mkdir assets/images
+          rename $stage/sitemap-public.php sitemap-public.php
+          rename $stage/seo-public.php seo-public.php
+          rename $stage/seo-legacy-redirect.php seo-legacy-redirect.php
+          rename $stage/robots.txt robots.txt
+          rename $stage/sitemap.xml sitemap.xml
+          rename $stage/index.html index.html
+          rename $stage/styles.css styles.css
+          rename $stage/marketplace.html marketplace.html
+          rename $stage/demanda.html demanda.html
+          rename $stage/profesionales.html profesionales.html
+          rename $stage/profesionales.css profesionales.css
+          rename $stage/aviso-legal.html aviso-legal.html
+          rename $stage/privacidad.html privacidad.html
+          rename $stage/terminos.html terminos.html
+          rename $stage/ficha.html ficha.html
+          rename $stage/dealer.html dealer.html
+          rename $stage/perfil.html perfil.html
+          rename $stage/publicar.html publicar.html
+          rename $stage/hub.html hub.html
+          rename $stage/asesor.html asesor.html
+          rename $stage/asesor-leads.html asesor-leads.html
+          rename api/index.php api/index.php.seo-backup-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          rename $stage/api/index.php api/index.php
+          rename $stage/guias/comprar-coche-usado.html guias/comprar-coche-usado.html
+          rename $stage/assets/images/inspeccion-taller-cochemotor.png assets/images/inspeccion-taller-cochemotor.png
+          rename $stage/.htaccess .htaccess
+          rmdir $stage/api
+          rmdir $stage/guias
+          rmdir $stage/assets/images
+          rmdir $stage/assets
+          rmdir $stage
+          SFTP
+
+      - name: Verificar sitemap, robots y guía en producción
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/robots.txt -o "$RUNNER_TEMP/cochemotor-robots.txt"
+          grep -F "Sitemap: https://cochemotor.es/sitemap.xml" "$RUNNER_TEMP/cochemotor-robots.txt"
+          grep -F "Disallow: /api/" "$RUNNER_TEMP/cochemotor-robots.txt"
+          for route in acceso.html hub.html asesor.html asesor-leads.html; do
+            if grep -F "Disallow: /$route" "$RUNNER_TEMP/cochemotor-robots.txt"; then
+              echo "::error::/$route no debe bloquearse en robots.txt; Google necesita leer noindex."
+              exit 1
+            fi
+            curl --fail --silent --show-error --retry 4 --retry-delay 2 "https://cochemotor.es/$route" | grep -Eiq '<meta name="robots" content="noindex,follow">'
+          done
+          curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/sitemap.xml -o "$RUNNER_TEMP/cochemotor-sitemap.xml"
+          python3 -c "import xml.etree.ElementTree as ET; root=ET.parse(r'$RUNNER_TEMP/cochemotor-sitemap.xml').getroot(); urls=[e.text for e in root if e.tag.endswith('loc')]; excluded=('/publicar.html','/acceso.html','/hub.html','/asesor.html','/asesor-leads.html'); assert any(u.endswith('/guias/comprar-coche-usado.html') for u in urls); assert not any(u.endswith(excluded) for u in urls)"
+          curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/ | grep -F '<link rel="canonical" href="https://cochemotor.es/">'
+          curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/ | grep -F 'application/ld+json'
+          curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/guias/comprar-coche-usado.html | grep -F "Cómo revisar un coche de segunda mano antes de comprar"

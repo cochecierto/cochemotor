@@ -51,6 +51,7 @@
 - [Registro de la fuente compartida](knowledge/SOURCE-CHAT-2026-08-27.md)
 - [Auditoría de la web publicada](knowledge/PUBLISHED-WEB-AUDIT-2026-09-10.md)
 - [Auditoría del repositorio broker](knowledge/BROKER-REPOSITORY-AUDIT-2026-09-10.md)
+- [Operación SEO y medición en Search Console](knowledge/SEO-OPERATIONS.md)
 
 ## Sistema de skills
 
@@ -67,3 +68,7 @@
 - [Spec 001 — Histórico inmobiliario](../specs/001-broker-digital-inmobiliario/spec.md)
 - [Spec 005 — Referencias DGT y trazabilidad del catálogo](../specs/005-dgt-reference-and-catalogue/spec.md)
 - [Spec 006 — Publicación guiada de fotografías del vehículo](../specs/006-guided-vehicle-photo-publishing/spec.md)
+- [Spec 007 — Conversión profesional y monetización](../specs/007-professional-conversion-monetization/spec.md)
+- [Spec 008 — Demo interactiva del espacio profesional](../specs/008-professional-saas-demo/spec.md)
+- [Spec 009 — Páginas públicas indexables y base SEO](../specs/009-public-seo-foundation/spec.md)
+- [Spec 004 — Coche Ideal: solicitud y ficha de búsqueda](../specs/004-coche-ideal/spec.md)

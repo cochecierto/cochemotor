@@ -108,3 +108,19 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
   desplegar por GitHub Actions manual (validación y publicación exitosas); la
   clave privada está guardada como secreto cifrado, fuera del repositorio. La
   URL pública es `https://cochemotor.es/demo-profesional.html`.
+
+- La Spec 009 implementa en el árbol local fichas y perfiles SEO renderizados en
+  servidor, sitemap dinámico, canonical/JSON-LD y guía editorial. Las 46 pruebas
+  automatizadas pasan. El 2026-09-14 se creó un backup manual de archivos y base
+  de datos en hPanel, y se aplicaron las migraciones 004–006 en MySQL; se
+  verificaron los campos de consentimiento y contacto, la tabla de auditoría y
+  el índice único de `vehicles.public_slug`. Antes de la migración no había
+  slugs duplicados y `vehicles` estaba vacía. No se ha probado PDO contra la
+  base remota ni Apache extremo a extremo.
+  El código SEO aún no se ha publicado: `/sitemap.xml` y `/robots.txt` daban el
+  error de Hostinger y `/ficha.html?id=cm-002` servía la ficha sintética en la
+  inspección del 2026-09-13. No remitir sitemap a Google hasta publicar y
+  comprobar las rutas. Search Console y baseline siguen pendientes. El File
+  Browser lista herramientas y carpetas de desarrollo dentro de `public_html`;
+  el `.htaccess` local refuerza su bloqueo, pero su efecto remoto no se ha
+  probado.

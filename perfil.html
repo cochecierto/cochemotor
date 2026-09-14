@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi perfil profesional — CocheMotor</title>
+  <title>Mi perfil profesional — CocheMotor</title><meta name="robots" content="noindex,nofollow">
   <link rel="icon" href="assets/brand/favicons/favicon.ico?v=11.0" sizes="any"><link rel="stylesheet" href="styles.css"><script src="api-config.js"></script>
 </head>
 <body class="auth-page">
@@ -15,6 +15,12 @@
       <label for="profile-phone">Teléfono de contacto</label><input id="profile-phone" type="tel" autocomplete="tel" placeholder="Ej.: 600 000 000" required>
       <label for="profile-type">Tipo de actividad</label>
       <select id="profile-type" required><option value="">Selecciona una opción</option><option>Compraventa freelance</option><option>Taller</option><option>Pequeño concesionario</option></select>
+      <label for="profile-business-name">Nombre comercial (opcional)</label><input id="profile-business-name" type="text" maxlength="160" autocomplete="organization" placeholder="Ej.: Automóviles Bedoya">
+      <label for="profile-public-description">Descripción pública (opcional)</label><textarea id="profile-public-description" maxlength="2000" rows="5" placeholder="Explica qué vehículos trabajas, dónde prestas servicio y qué puede esperar una persona al contactar."></textarea>
+      <div style="margin:16px 0;padding:14px;border:1px solid #d6e0ec;border-radius:12px;background:#f4f7fb">
+        <label for="profile-public-optin" style="display:flex;gap:10px;align-items:flex-start;font-weight:600"><input id="profile-public-optin" type="checkbox" style="margin-top:4px"><span>Quiero mostrar mi perfil profesional en CocheMotor y permitir que los buscadores lo indexen. Se mostrarán el nombre comercial, actividad, descripción y mis anuncios publicados. Mi correo y teléfono no se publicarán.</span></label>
+        <p style="font-size:.82rem;color:#52657b;line-height:1.5;margin:10px 0 0">Puedes retirar este permiso desmarcando la casilla y guardando. Un perfil público requiere una descripción de al menos 80 caracteres y una cuenta verificada.</p>
+      </div>
       <button class="btn btn-red" type="submit">Guardar perfil</button>
     </form>
   </main>
@@ -23,7 +29,8 @@
     const status = document.getElementById('profile-status');
     if (!session?.userId || !session.verified) window.location.replace('acceso.html?return=perfil');
     const show = (message, kind='info') => { status.textContent = message; status.dataset.kind = kind; };
-    document.getElementById('profile-form').addEventListener('submit', async event => { event.preventDefault(); const phone = document.getElementById('profile-phone').value.trim(); const professionalType = document.getElementById('profile-type').value; try { const response = await fetch('/api/auth', {method:'POST', headers:{'Content-Type':'application/json', 'Authorization':`Bearer ${session.sessionToken}`}, body:JSON.stringify({action:'profile', user_id:session.userId, phone, professional_type:professionalType})}); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'No se pudo guardar el perfil'); localStorage.setItem('cochemotor_local_session', JSON.stringify({...session, phone, professionalType, profileComplete:true})); show('Perfil guardado. Ya puedes publicar vehículos.', 'success'); setTimeout(() => window.location.href = 'hub.html', 500); } catch (error) { show(error.message, 'error'); } });
+    (async()=>{try{const response=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${session.sessionToken}`},body:JSON.stringify({action:'profile_details'})});if(!response.ok)return;const data=await response.json();const profile=data.profile||{};document.getElementById('profile-business-name').value=profile.business_name||'';document.getElementById('profile-public-description').value=profile.public_description||'';document.getElementById('profile-public-optin').checked=profile.public_profile===true;}catch(_){}})();
+    document.getElementById('profile-form').addEventListener('submit', async event => { event.preventDefault(); const phone = document.getElementById('profile-phone').value.trim(); const professionalType = document.getElementById('profile-type').value; const publicProfile=document.getElementById('profile-public-optin').checked; const payload={action:'profile', user_id:session.userId, phone, professional_type:professionalType, business_name:document.getElementById('profile-business-name').value.trim(), public_description:document.getElementById('profile-public-description').value.trim(), public_profile:publicProfile, public_profile_consent:publicProfile}; try { const response = await fetch('/api/auth', {method:'POST', headers:{'Content-Type':'application/json', 'Authorization':`Bearer ${session.sessionToken}`}, body:JSON.stringify(payload)}); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'No se pudo guardar el perfil'); localStorage.setItem('cochemotor_local_session', JSON.stringify({...session, phone, professionalType, profileComplete:true})); show('Perfil guardado. Ya puedes publicar vehículos.', 'success'); setTimeout(() => window.location.href = 'hub.html', 500); } catch (error) { show(error.message, 'error'); } });
   </script>
 </body>
 </html>

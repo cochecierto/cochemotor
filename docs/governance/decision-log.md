@@ -252,3 +252,139 @@ Todas las decisiones de esta versión están fechadas el 2026-08-27.
   MCP ni infraestructura de producción.
 - Evidencia: aprobación de Juan del backend local y de la interfaz web local,
   y cierre de la Tarea 1 del plan SDD.
+
+## D-030 — Landing profesional y propuesta comercial durante la beta
+
+- Estado: aprobado para presentación informativa en la web.
+- Fecha: 2026-09-13.
+- Decisión: publicar una ruta profesional separada y mostrar la propuesta de
+  cinco paquetes de monetización adjunta: Inicio (59 €), Taller Partner
+  (79 €), Profesional (129 €), Concesionario (199 €) y Red (desde 299 €),
+  con los límites y precios anuales definidos en Spec 007.
+- Condiciones: precios sin IVA; cuenta beta gratuita; ningún clic activa un
+  plan, cobro o suscripción. Los límites de usuarios/vehículos son referencia
+  comercial y no se aplican automáticamente durante la beta.
+- No permanencia ni comisión por ventas: propuesta comercial; sus condiciones
+  finales se informarán y aceptarán antes de cualquier contratación.
+- Servicios opcionales de la propuesta: solo orientativos, a consultar y
+  sujetos a alcance/disponibilidad; no existe compra en línea.
+- Restricciones: pasarela de pagos, suscripciones reales, enforcement de cupos,
+  servicios de inspección e integraciones externas quedan fuera de esta entrega.
+- Evidencia: aprobación expresa de Dirección para implementar los cambios y
+  el informe de monetización adjunto.
+
+## D-031 — Captación de búsquedas Coche Ideal
+
+- Estado: aprobada para implementación local.
+- Fecha: 2026-09-13.
+- Decisión: rediseñar `demanda.html` como landing sencilla y progresiva para
+  compradores, con una ficha ilustrativa que se actualiza con sus preferencias
+  y una captura pública persistida en `coche_ideal_requests`.
+- Condiciones: nombre y correo obligatorios, teléfono opcional, consentimientos
+  explícitos y datos personales no visibles en la ficha pública. La ilustración
+  no representa disponibilidad ni una unidad real.
+- Restricciones: no alterar infraestructura o datos remotos, desplegar ni
+  confirmar conexión real MySQL hasta la validación en el entorno autorizado.
+- Evidencia: petición explícita de crear una landing de baja fricción y tomar
+  como referencias funcionales CocheCierto y Coches.net.
+
+## D-032 — Búsqueda por necesidad y matching de categorías
+
+- Estado: aprobada para implementación local.
+- Fecha: 2026-09-13.
+- Decisión: iniciar la búsqueda por necesidad de movilidad; sugerir categorías
+  con las imágenes entregadas; guardar necesidad, categorías aceptadas y la
+  estrategia `rules-v1` para relacionar demanda con ofertas.
+- Reglas visibles: familia ofrece familiar/monovolumen/SUV; ciudad ofrece
+  urbano/utilitario; furgoneta y pickup se reservan a trabajo/carga. Marca y
+  modelo quedan como filtros opcionales, nunca bloqueo.
+- Restricciones: matching por reglas solamente; no existe proveedor LLM
+  configurado. No afirmar que hay IA semántica ni conexión LLM activa. Sin
+  push ni despliegue en esta tarea.
+- Evidencia: nueva petición sobre `cochemotor-mi-coche-ideal-categorias-v1`.
+
+## D-033 — Preferencias de contacto y revisión de búsqueda
+
+- Estado: aprobada para implementación local.
+- Fecha: 2026-09-13.
+- Decisión: permitir alertas por correo, WhatsApp, llamadas o todas; horario libre o franja preferente. El teléfono/franja se exige solo cuando corresponde.
+- Privacidad: no exponer datos personales en la ficha para profesionales. La activación requiere aceptación de privacidad y autorización separada para compartir los canales elegidos, y el backend los vuelve a validar (`coche-ideal-v4`).
+- UX: separar en cuatro pasos y presentar una revisión previa editable antes de publicar/enviar.
+- Restricciones: no push ni despliegue en esta tarea; la conexión real de producción requiere validación aparte.
+- Evidencia: petición del usuario para elegir alertas, expresar consentimiento y revisar la ficha antes de confirmar.
+
+## D-034 — Imagen de vehículo sincronizada con la búsqueda
+
+- Estado: aprobada para implementación local.
+- Fecha: 2026-09-13.
+- Decisión: la tarjeta en vivo y la revisión mostrarán la imagen de la primera categoría compatible que permanezca seleccionada; antes de elegir, usarán una ilustración genérica propia.
+- UX: mantener una imagen separada de entrega de llaves como inspiración; la imagen de categoría es orientativa, tiene texto alternativo y no representa una oferta.
+- Referencias de interacción: orientación progresiva por pasos del valorador de CocheCierto y entrada de compra más asistencia conversacional de Coches.net; no copiar marcas/copy ni afirmar una integración LLM.
+- Restricciones: sin push ni despliegue en esta tarea.
+
+## D-035 — Demo aislada del espacio profesional
+
+- Estado: aprobada para implementación local.
+- Fecha: 2026-09-13.
+- Decisión: crear una ruta pública de demostración separada del panel autenticado, con datos sintéticos y acciones simuladas únicamente en memoria.
+- Conversión: ofrecer registro profesional beta gratuito mediante el flujo existente; el CTA no contratará un plan ni iniciará pagos.
+- Restricciones de la demo: no API, persistencia, analítica, contacto con terceros, publicación, impresión, clipboard ni integraciones. La simulación permanece aislada aunque la ruta esté en producción.
+- Evidencia: petición explícita de Dirección de permitir al profesional explorar y probar la herramienta de forma segura antes de registrarse.
+
+## D-036 — Despliegue limitado de la demo profesional por SFTP
+
+- Estado: aprobado para preparar el flujo; despliegue público pendiente de credenciales SSH dedicadas.
+- Fecha: 2026-09-13.
+- Decisión: sustituir el envío de esta iniciativa por FTP sin cifrar por SFTP/OpenSSH, con validación previa y publicación manual.
+- Alcance remoto: solo `demo-profesional.html`, `demo-profesional.css`, `demo-profesional.js`, `profesionales.html` y `profesionales.css`; no borrar/sincronizar otros ficheros del sitio.
+- Seguridad: clave privada y `known_hosts` fuera de Git; el workflow exige verificación de host estricta y no muestra secretos. No despliega automáticamente en cada push.
+- Condición: Dirección confirmó “Sí, configúrala” para la clave de despliegue exclusiva de Hostinger/GitHub Actions.
+- Evidencia: verificación del dominio confirmó que `/demo-profesional.html` aún devuelve 404; el hPanel muestra SSH activo y el último despliegue del sitio fue anterior a esta demo.
+
+## D-037 — Base de SEO orgánico para vehículos y profesionales
+
+- Estado: aprobada para implementación local; migración y publicación en producción pendientes.
+- Fecha: 2026-09-13.
+- Decisión: crear rutas renderizadas en servidor para vehículos y perfiles públicos, canonical y sitemap dinámicos, marcado estructurado veraz, una guía editorial con fuentes oficiales y un procedimiento de medición en Search Console.
+- Privacidad: los perfiles quedan privados por defecto y requieren consentimiento expreso, correo verificado y descripción suficiente. Un coche solo se expone si su anuncio está publicado/disponible y tanto la cuenta como el contacto están verificados. No se muestran correos, teléfonos ni datos sensibles.
+- Migración: añadir columnas de perfil público mediante `004_public_seo_profiles_mysql.sql`; la ejecución remota debe preceder al despliegue de los endpoints.
+- Restricciones: los coches de demostración siguen con `noindex`; no se inventan reseñas, controles DGT, garantías ni métricas; no se ejecuta la migración ni se despliega sin autorización específica.
+- Evidencia: petición expresa de iniciar la ruta SEO priorizada y las reglas de elegibilidad documentadas en Spec 009.
+
+## D-038 — Moderación manual previa a indexar anuncios
+
+- Estado: implementada localmente; activación en producción pendiente de migración y secretos privados.
+- Fecha: 2026-09-13.
+- Decisión: añadir `POST /api/moderation/vehicles` para aprobar o retirar anuncios con credencial separada, cuenta profesional verificada y anotación de auditoría. Aprobar implica que un moderador comprobó el contacto por un canal independiente; no se activa nada automáticamente al desplegar.
+- Privacidad y seguridad: secreto de mínimo 32 caracteres y actor se configuran fuera de Git; la ruta queda deshabilitada si faltan. Las notas no deben incluir datos personales. La migración 005 registra fecha de verificación y transiciones.
+- Motivo: las páginas indexables requieren anuncio y contacto verificados, pero el flujo de alta solo genera publicaciones pendientes; sin transición autorizada el objetivo SEO no era operable.
+- Restricciones: no ejecutar migración, configurar secreto, aprobar registros ni desplegar desde este paso local.
+
+## D-039 — Separar rendimiento de búsqueda y conversión onsite
+
+- Estado: aplicada a la documentación operativa; instrumentación de conversiones pendiente.
+- Fecha: 2026-09-13.
+- Decisión: Search Console será la fuente de impresiones, clics, CTR, posición e indexación en Google. No se le atribuirán conversiones onsite.
+- Medición pendiente: las páginas SEO aún no tienen CTA de consulta medible y la tabla `analytics_events` no está conectada a dichas páginas. Antes de medir conversiones, definir CTA y evento first-party, revisar la finalidad/retención/consentimiento y evitar PII o identificadores persistentes.
+- Evidencia: revisión del código actual y la matriz de preparación UE/ES; no se encontró CMP/consentimiento analítico activo.
+
+## D-040 — Requisito de imagen para indexar fichas de vehículo
+
+- Estado: aplicado localmente en las páginas y el sitemap.
+- Fecha: 2026-09-13.
+- Decisión: una ficha de vehículo sin al menos una imagen propia normalizada sigue visible para uso del producto, pero responde `X-Robots-Tag: noindex, follow` y no se incluye en el sitemap.
+- Alcance: no exigir las diez fotos sugeridas ni bloquear la publicación por SEO. Los perfiles públicos mantienen su criterio de consentimiento, descripción suficiente y al menos un anuncio real disponible con una foto propia normalizada; los vehículos sin foto siguen fuera del índice y sitemap.
+- Motivo: no presentar como página de búsqueda útil una ficha visualmente vacía ni usar un placeholder como si fuera fotografía del vehículo.
+
+## D-041 — Guía editorial de compra basada en requisitos DGT vigentes
+
+- Estado: aplicada localmente; validación de fuentes revisada el 2026-09-13.
+- Decisión: ampliar la guía de compra con pasos sobre informe reducido/completo, posibles impedimentos de transferencia, contrato, ITP, titularidad, ITV y seguro. Cada paso remite a páginas oficiales DGT y no se presenta como servicio de verificación de CocheMotor.
+- Evidencia: páginas oficiales DGT consultadas; requisitos de compra actualizados el 2026-04-30 y página de informes de vehículo consultada el 2026-09-13.
+
+## D-042 — CTA editorial a inventario y búsqueda por necesidad
+
+- Estado: aplicado localmente.
+- Fecha: 2026-09-13.
+- Decisión: la guía prioriza el enlace a coches disponibles y ofrece, como alternativa secundaria, el flujo existente para crear una búsqueda gratuita según necesidad.
+- Restricciones: no se captura información nueva desde la guía, no se agregan píxeles ni se atribuyen conversiones sin medición consentida.

@@ -22,3 +22,4 @@ Fecha de revisión: 2026-08-27.
 | R-016 | Confusión entre herramienta tecnológica y servicio inmobiliario o regulado | Abierto | Definir responsabilidades, partners autorizados y límites por país antes de acompañar operaciones hasta escritura. |
 | R-017 | Complejidad prematura por escala regional y marca blanca | Abierto | Validar primero el flujo individual en Lima y diseñar un núcleo común con adaptadores por país. |
 | R-018 | Identidad corporativa aplicada sin activos maestros o QA | Abierto | Usar el manual como referencia, custodiar maestros y validar accesibilidad, rendimiento, contenido y aprobación de marca. |
+| R-019 | indexar inventario sintético, incompleto o sin permiso verificable | Abierto | Mantener fixtures `noindex`, privacidad por defecto, validar publicación/cuenta/contacto y construir sitemap con los mismos criterios; la aprobación exige moderador configurado y auditoría; comprobar en Hostinger antes de solicitar rastreo. |

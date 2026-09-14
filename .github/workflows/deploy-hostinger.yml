@@ -9,6 +9,7 @@ on:
       - "demo-profesional.js"
       - "profesionales.html"
       - "profesionales.css"
+      - "api/index.php"
       - "docs/CURRENT-STATE.md"
       - "tests/**"
       - ".github/workflows/deploy-hostinger.yml"
@@ -20,6 +21,7 @@ on:
       - "demo-profesional.js"
       - "profesionales.html"
       - "profesionales.css"
+      - "api/index.php"
       - "docs/CURRENT-STATE.md"
       - "tests/**"
       - ".github/workflows/deploy-hostinger.yml"
@@ -46,8 +48,11 @@ jobs:
       - name: Comprobar sintaxis JavaScript
         run: node --check demo-profesional.js
 
+      - name: Comprobar sintaxis PHP de la API
+        run: php -l api/index.php
+
   deploy:
-    name: Publicar demo y acceso profesional por SFTP
+    name: Publicar demo, acceso profesional y API por SFTP
     if: github.event_name == 'workflow_dispatch'
     needs: validate
     runs-on: ubuntu-latest
@@ -85,7 +90,7 @@ jobs:
             exit 1
           }
 
-      - name: Publicar solo la demo y su acceso por SFTP
+      - name: Publicar demo, acceso y endpoint de registro por SFTP
         shell: bash
         env:
           SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
@@ -93,7 +98,7 @@ jobs:
           SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
         run: |
           set -euo pipefail
-          stage=".cochemotor-demo-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          stage=".cochemotor-deploy-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           sftp -b - -P 65002 \
             -i "$RUNNER_TEMP/cochemotor-ssh/id_ed25519" \
             -o IdentitiesOnly=yes \
@@ -109,12 +114,15 @@ jobs:
           put profesionales.css
           put demo-profesional.html
           put profesionales.html
+          put api/index.php index.php
           cd ..
           rename $stage/demo-profesional.css demo-profesional.css
           rename $stage/demo-profesional.js demo-profesional.js
           rename $stage/profesionales.css profesionales.css
           rename $stage/demo-profesional.html demo-profesional.html
           rename $stage/profesionales.html profesionales.html
+          rename api/index.php api/index.php.backup-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
+          rename $stage/index.php api/index.php
           rmdir $stage
           SFTP
 

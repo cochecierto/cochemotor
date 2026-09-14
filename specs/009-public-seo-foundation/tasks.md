@@ -1,0 +1,21 @@
+# Tareas — Spec 009
+
+- [x] T1. Inspeccionar inventario, perfiles, API, persistencia, estados de publicación, sitemap/robots y despliegue existente. Hecho cuando: se confirma que el catálogo frontend es sintético y la publicación API queda pendiente.
+- [x] T2. Documentar requisitos, privacidad, reglas de elegibilidad y plan técnico. Hecho cuando: RF-1..RF-8 y límites están trazados en spec/plan/clarification.
+- [x] T3. Añadir migración y consentimiento explícito de perfil indexable, privado por defecto.
+- [x] T4. Implementar fichas y perfiles SEO server-rendered, URLs canónicas y 404/noindex.
+- [x] T5. Implementar sitemap dinámico y enlaces desde inventario real; conservar demos noindex.
+- [x] T6. Añadir marcado estructurado veraz y guía editorial con fuentes oficiales.
+- [x] T7. Ejecutar pruebas PHP, automatizadas, XML, privacidad, diff y actualizar la matriz de validación.
+- [x] T8. Documentar preparación de Search Console y dependencias de despliegue/migración. Hecho cuando: `docs/knowledge/SEO-OPERATIONS.md` especifica alta, baseline e indicadores; Search Console, migración y despliegue efectivos quedan pendientes de acceso y ejecución remota.
+- [x] T9. Alinear URLs estáticas del sitemap con canonical y robots: excluir la ruta de conversión `publicar.html`, declararla `noindex,follow` y evitar que fallos de DB devuelvan un sitemap dinámico incompleto como si fuera válido.
+- [x] T10. Añadir transición server-side de moderación manual, cerrada por defecto, con auditoría y verificación explícita de la cuenta/contacto; producción requiere migración 005 y secretos fuera de Git.
+- [x] T11. Corregir la definición de medición: Search Console cubre rendimiento de búsqueda, no conversiones web; documentar las dependencias de CTA, first-party y privacidad antes de atribuir leads.
+- [x] T12. Verificar la medición contra las capacidades realmente activas y dejar claro que `analytics_events` no registra aún eventos SEO; no presentar métricas hipotéticas como resultados.
+- [x] T13. Evitar indexar fichas sin imágenes reales: mantenerlas accesibles y publicadas, marcarlas `noindex` y excluirlas del sitemap/perfiles indexables sin exigir completar las diez sugerencias.
+- [x] T14. Revisar la guía editorial contra la información actual de la DGT y ampliar pasos concretos de informe, cargas, contrato, ITP y transferencia con enlaces directos oficiales.
+- [x] T15. Conectar la guía a los dos siguientes pasos existentes —inventario y búsqueda por necesidad— sin instalar tracking ni añadir formularios redundantes.
+- [x] T16. Garantizar que cada anuncio tenga un slug público válido y único: validar el formato en la ruta JSON heredada y añadir una migración de índice único sin borrar datos.
+- [x] T17. Preparar un workflow SFTP SEO separado, manual y con compuerta explícita para las migraciones 004–006; transferir solo archivos públicos de la iniciativa y validar sitemap, robots, canonical, datos estructurados y guía tras promover.
+- [x] T18. Alinear la ficha de coche con la recomendación vigente de Google para marcar coches como `Product` y `Car`, y hacer visible su condición de vehículo de ocasión; no inventar reviews/rating ni prometer rich results.
+- [x] T19. Exigir que un perfil profesional indexable y su sitemap tengan al menos un vehículo que también sea indexable por fotografía propia normalizada; listar en el perfil solo vehículos que cumplen ese mismo criterio.

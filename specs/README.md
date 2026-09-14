@@ -30,5 +30,9 @@ validación aporta evidencia requisito por requisito.
 
 ## CocheMotor
 
+- [Spec 004 — Coche Ideal: búsqueda por necesidad y categorías](004-coche-ideal/spec.md)
 - [Spec 005 — Referencias DGT y trazabilidad del catálogo](005-dgt-reference-and-catalogue/spec.md)
 - [Spec 006 — Publicación guiada de fotografías del vehículo](006-guided-vehicle-photo-publishing/spec.md)
+- [Spec 007 — Conversión profesional y monetización](007-professional-conversion-monetization/spec.md)
+- [Spec 008 — Demo interactiva del espacio profesional](008-professional-saas-demo/spec.md)
+- [Spec 009 — Páginas públicas indexables y base SEO](009-public-seo-foundation/spec.md)

@@ -6,6 +6,7 @@
   <title>Coches de ocasión con información clara — CocheMotor</title>
   <link rel="icon" href="assets/brand/favicons/favicon.ico?v=10.0" sizes="any"><link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicons/favicon-16x16.png?v=10.0"><link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicons/favicon-32x32.png?v=10.0"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-light.png?v=10.0" media="(prefers-color-scheme: light)"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-dark.png?v=10.0" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" sizes="180x180" href="assets/brand/icons/apple-touch-icon.png?v=10.0"><link rel="manifest" href="site.webmanifest?v=10.0">
   <meta name="description" content="Encuentra coches de segunda mano en España. Consulta la información indicada por cada vendedor y verifica los datos oficiales en la DGT.">
+  <link rel="canonical" href="https://cochemotor.es/marketplace.html">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -216,12 +217,13 @@
 
   <footer class="site-footer">
     <div class="container footer-bottom">
-      <p>© 2026 CocheMotor (cochemotor.es). Todos los derechos reservados.</p>
+      <p>© 2026 CocheMotor (cochemotor.es). Todos los derechos reservados. · <a href="guias/comprar-coche-usado.html">Guía de compra</a></p>
     </div>
   </footer>
 
   <script src="site-config.js?v=5.0"></script>
   <script>
+    let publishedVehicles = [];
     document.addEventListener('DOMContentLoaded', () => {
       const menuButton = document.querySelector('.nav-menu-toggle');
       const navigation = document.getElementById('site-navigation');
@@ -247,7 +249,7 @@
       try { const url = new URL(String(value || ''), location.href); return url.protocol === 'https:' || url.origin === location.origin ? url.href : 'assets/brand/icons/vehicle-placeholder.svg'; }
       catch (_) { return 'assets/brand/icons/vehicle-placeholder.svg'; }
     }
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       const urlParams = new URLSearchParams(window.location.search);
       const brandParam = urlParams.get('brand');
       const priceParam = urlParams.get('price');
@@ -258,6 +260,10 @@
         if (brandSelect) brandSelect.value = brandParam;
       }
       if (queryParam) document.getElementById('filter-free-text').value = queryParam;
+      try {
+        const response=await fetch('/api/public/vehicles',{headers:{'Accept':'application/json'},credentials:'same-origin'});
+        if(response.ok){const data=await response.json();publishedVehicles=Array.isArray(data.vehicles)?data.vehicles:[];}
+      } catch (_) { /* El catálogo de demostración sigue disponible si el servicio público no responde. */ }
       applyFilters();
     });
 
@@ -304,7 +310,8 @@
       const query = document.getElementById('filter-free-text').value.trim().toLowerCase();
       const quick = new Set([...document.querySelectorAll('.quick-filter.active')].map(b => b.dataset.quick));
 
-      const allStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getAllPublicStock() : siteConfig.stock.map(vehicle => ({ ...vehicle, isDemo: true }));
+      const demoStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getAllPublicStock() : siteConfig.stock.map(vehicle => ({ ...vehicle, isDemo: true }));
+      const allStock = [...publishedVehicles, ...demoStock.filter(demo=>!publishedVehicles.some(vehicle=>vehicle.id===demo.id))];
 
       let filtered = allStock.filter(v => {
         const haystack = [v.brand,v.model,v.version,v.fuel,v.gearbox,v.bodyType,v.location,v.province].filter(Boolean).join(' ').toLowerCase();
@@ -316,7 +323,7 @@
         if (!matchesPriceSearchRange(v.price, maxPrice)) return false;
         if (minScore !== 'all') {
           const scoreNum = parseInt(v.inspectionScore) || 90;
-          if (scoreNum < parseInt(minScore)) return false;
+          if (!v.inspectionScore || scoreNum < parseInt(minScore)) return false;
         }
         if (quick.has('automatic') && !String(v.gearbox).toLowerCase().includes('autom')) return false;
         if (quick.has('eco') && !['ECO','0'].includes(v.badge)) return false;
@@ -363,7 +370,7 @@
         const disclosure = v.isDemo ? '<span class="badge-inspection">EJEMPLO · NO DISPONIBLE</span>' : '';
         const sellerMarkup = v.isDemo
           ? '<span>🏪 Vendedor de demostración</span>'
-          : `<a href="dealer.html?id=${encodeURIComponent(v.userId || 'user-juan')}" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline; font-size: 0.8rem;">🏪 ${escapeHTML(v.dealer || v.sellerName || 'Profesional')}</a>`;
+          : (v.publicDealerSlug ? `<a href="/profesionales/${encodeURIComponent(v.publicDealerSlug)}" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline; font-size: 0.8rem;">🏪 ${escapeHTML(v.dealer || v.sellerName || 'Profesional')}</a>` : `<span>🏪 ${escapeHTML(v.dealer || v.sellerName || 'Profesional')}</span>`);
 
         return `
           <article class="vehicle-card" data-id="${escapeHTML(v.id)}">
@@ -398,7 +405,7 @@
                 ${v.warranty ? `<span style="font-weight: 700; color: var(--cm-green); font-size: 0.8rem;">Garantía indicada: ${escapeHTML(v.warranty)}</span>` : ''}
               </div>
 
-              <a class="btn btn-red" href="ficha.html?id=${encodeURIComponent(v.id)}" style="font-weight: 800; width: 100%; justify-content: center; padding: 12px;">
+              <a class="btn btn-red" href="${v.isDemo ? `ficha.html?id=${encodeURIComponent(v.id)}` : escapeHTML(v.publicUrl)}" style="font-weight: 800; width: 100%; justify-content: center; padding: 12px;">
                 Ver detalles
               </a>
             </div>
