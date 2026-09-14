@@ -52,6 +52,7 @@
 - [Auditoría de la web publicada](knowledge/PUBLISHED-WEB-AUDIT-2026-09-10.md)
 - [Auditoría del repositorio broker](knowledge/BROKER-REPOSITORY-AUDIT-2026-09-10.md)
 - [Operación SEO y medición en Search Console](knowledge/SEO-OPERATIONS.md)
+- [Auditoría SEO y flujos E2E en producción — 2026-09-14](knowledge/AUDITORIA-SEO-E2E-PRODUCCION-2026-09-14.md)
 
 ## Sistema de skills
 
