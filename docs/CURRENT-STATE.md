@@ -169,8 +169,13 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
   Browserbase, `lgpd` se excluye por ser legislación brasileña y no se adopta
   la recomendación de aceptación implícita de la skill similar de política de
   cookies.
-- No se han añadido paquetes, scripts de terceros, CMP ni cambios en la web;
-  tampoco se ha desplegado ni publicado en GitHub esta actualización local.
+- No se han añadido paquetes, scripts de terceros ni CMP. El commit
+  `6f6f6f2dcbf8eb2c6cf64554c3e9515149e98c10` ya está en `main`; las 56 pruebas,
+  la sintaxis JavaScript/PHP y el workflow de validación de GitHub pasaron.
+- El job SFTP automático quedó omitido (`workflow_dispatch` manual). La
+  publicación de archivos web está pendiente de confirmación en la UI; ese
+  workflow incluye demo, acceso profesional y API, además de los cambios web
+  pendientes de la Spec 011.
 - El perfil de privacidad cita AEPD, LSSI-CE, ePrivacy y RGPD y no certifica
   cumplimiento. Para una conclusión real aún hace falta inventario actualizado
   de cookies, etiquetas, proveedores y comportamiento antes/después de elegir.

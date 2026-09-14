@@ -407,3 +407,13 @@ Todas las decisiones de esta versión están fechadas el 2026-08-27.
 - Fuentes legales: AEPD, artículo 22.2 LSSI-CE y Directiva ePrivacy/RGPD. La skill de privacidad no certifica cumplimiento; cada auditoría requiere inventario técnico real y revisión de vigencia.
 - Restricciones: no crear CMP, editar páginas/código ejecutable, guardar cookies/credenciales, desplegar ni publicar esta documentación a GitHub en esta iniciativa.
 - Evidencia: petición explícita de Juan, Spec 012, `.codex/vendor-lock.yaml` y `cochemotor-source-review-2026-09.md`.
+
+## D-045 — Publicación GitHub de Spec 012 y despliegue web manual
+
+- Estado: commit publicado y validado; despliegue Hostinger pendiente de confirmación en la interfaz.
+- Fecha: 2026-09-14.
+- Commit en `main`: `6f6f6f2dcbf8eb2c6cf64554c3e9515149e98c10`.
+- Validación local: 56 pruebas Python, `node --check demo-profesional.js`, `php -l api/index.php`, JSON de agentes y `git diff --check` correctos.
+- GitHub Actions: run 34887101765, validación correcta; el job de publicación SFTP quedó omitido porque la ejecución por push solo valida.
+- Alcance de publicación manual: demo, acceso profesional y API; incluye cambios de `profesionales.html` y `profesionales.css` pendientes de la Spec 011.
+- Decisión: no se lanzó desde automatización UI sin confirmación inmediatamente antes de la acción, según la política de Computer Use para publicar cambios web.
