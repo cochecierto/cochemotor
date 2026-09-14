@@ -172,10 +172,11 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
 - No se han añadido paquetes, scripts de terceros ni CMP. El commit
   `6f6f6f2dcbf8eb2c6cf64554c3e9515149e98c10` ya está en `main`; las 56 pruebas,
   la sintaxis JavaScript/PHP y el workflow de validación de GitHub pasaron.
-- El job SFTP automático quedó omitido (`workflow_dispatch` manual). La
-  publicación de archivos web está pendiente de confirmación en la UI; ese
-  workflow incluye demo, acceso profesional y API, además de los cambios web
-  pendientes de la Spec 011.
+- El job SFTP automático quedó omitido al hacer push (`workflow_dispatch`
+  manual). Dirección autorizó la publicación: el run 34888240791 en GitHub
+  Actions completó validación, SFTP y smoke test con éxito para demo, acceso
+  profesional y API, incluyendo cambios web pendientes de la Spec 011. GET
+  públicos comprobaron HTTP 200 en demo, profesionales, CSS y JavaScript.
 - El perfil de privacidad cita AEPD, LSSI-CE, ePrivacy y RGPD y no certifica
   cumplimiento. Para una conclusión real aún hace falta inventario actualizado
   de cookies, etiquetas, proveedores y comportamiento antes/después de elegir.
@@ -190,5 +191,6 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
   Sleek, requiere `SLEEK_API_KEY`, contempla operaciones cloud/créditos y
   declara un host restringido mientras también indica llamadas a otros hosts.
 - El perfil interno no requiere claves, dependencias ni servicios externos y
-  no crea una app nativa ni modifica la web. Los cambios de Spec 013 siguen
-  locales, no publicados en GitHub ni desplegados.
+  no crea una app nativa ni modifica la web. Está publicado en `main` mediante
+  `a380382`; el despliegue Hostinger del mismo commit ejecutó el workflow de
+  demo/acceso/API existente. La Spec 013 no añade activos web publicables.

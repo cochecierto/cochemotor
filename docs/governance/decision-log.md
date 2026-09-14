@@ -410,13 +410,14 @@ Todas las decisiones de esta versión están fechadas el 2026-08-27.
 
 ## D-045 — Publicación GitHub de Spec 012 y despliegue web manual
 
-- Estado: commit publicado y validado; despliegue Hostinger pendiente de confirmación en la interfaz.
+- Estado: commit publicado y validado; publicación manual SFTP completada en Hostinger.
 - Fecha: 2026-09-14.
 - Commit en `main`: `6f6f6f2dcbf8eb2c6cf64554c3e9515149e98c10`.
 - Validación local: 56 pruebas Python, `node --check demo-profesional.js`, `php -l api/index.php`, JSON de agentes y `git diff --check` correctos.
 - GitHub Actions: run 34887101765, validación correcta; el job de publicación SFTP quedó omitido porque la ejecución por push solo valida.
 - Alcance de publicación manual: demo, acceso profesional y API; incluye cambios de `profesionales.html` y `profesionales.css` pendientes de la Spec 011.
-- Decisión: no se lanzó desde automatización UI sin confirmación inmediatamente antes de la acción, según la política de Computer Use para publicar cambios web.
+- Despliegue manual autorizado por Dirección y ejecutado con el workflow SFTP de GitHub Actions en `main`, commit `a38038294734c3192d982c92887bbeefc1342857`; run 34888240791 completado correctamente.
+- El smoke test de producción pasó para la demo y sus recursos. GET público el 2026-09-14 devolvió HTTP 200 para `demo-profesional.html`, `profesionales.html`, `demo-profesional.css` y `demo-profesional.js`.
 
 ## D-046 — Agente interno de experiencia móvil
 
