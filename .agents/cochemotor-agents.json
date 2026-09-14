@@ -165,6 +165,7 @@
         "technical-seo-agent",
         "programmatic-seo-agent",
         "cochemotor-seo",
+        "cochemotor-mobile-app-ux",
         "brand-governance-agent",
         "conversion-copy-agent",
         "cochemotor-copy-automocion"
@@ -235,6 +236,21 @@
         "coche-ideal-operations",
         "coche-ideal-privacy"
       ],
+      "requires_human_approval": true
+    },
+    {
+      "id": "cochemotor-mobile-app-ux",
+      "title": "Experiencia de Usuario Móvil",
+      "scope": "Flujos y tareas móviles B2B/B2C de CocheMotor, touch UX, accesibilidad y validación entre dispositivos; no asume app nativa ni altera el producto sin aprobación",
+      "subagents": [
+        "mobile-flow-audit-agent",
+        "touch-accessibility-review-agent",
+        "mobile-test-matrix-agent",
+        "cochemotor-web-expert",
+        "cochemotor-brand-identity",
+        "cochemotor-quality-guard"
+      ],
+      "skill": ".agents/skills/cochemotor-mobile-app-ux/SKILL.md",
       "requires_human_approval": true
     },
     {

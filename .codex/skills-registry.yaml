@@ -86,6 +86,12 @@ owned_skills:
     priority: 12
     purpose: Revisión técnica/documental de privacidad y cookies UE/España con evidencia y fuentes oficiales; no certifica cumplimiento legal.
 
+  - name: cochemotor-mobile-app-ux
+    status: approved
+    version: 1.0.0
+    priority: 13
+    purpose: UX de flujos móviles B2B/B2C, accesibilidad táctil, patrones de plataforma y pruebas en dispositivos sin cambiar arquitectura o producto sin aprobación.
+
 external_skills:
   admission_policy: .agents/skills/cochemotor-director/references/external-skill-admission.md
   registry: .codex/vendor-lock.yaml

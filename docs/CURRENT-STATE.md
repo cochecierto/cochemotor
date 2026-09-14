@@ -179,3 +179,16 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
 - El perfil de privacidad cita AEPD, LSSI-CE, ePrivacy y RGPD y no certifica
   cumplimiento. Para una conclusión real aún hace falta inventario actualizado
   de cookies, etiquetas, proveedores y comportamiento antes/después de elegir.
+
+## Actualización CocheMotor — Spec 013, 2026-09-14
+
+- Se crea localmente `cochemotor-mobile-app-ux`, centrado en flujos móviles
+  B2B/B2C, controles táctiles, accesibilidad y pruebas por dispositivo, en
+  coordinación con el agente web existente.
+- La skill comunitaria `design-mobile-apps` se revisó en el commit
+  `bd6696bb2db7c874ebd8d68431c1642e7d2283bd`; no se instaló porque se limita a
+  Sleek, requiere `SLEEK_API_KEY`, contempla operaciones cloud/créditos y
+  declara un host restringido mientras también indica llamadas a otros hosts.
+- El perfil interno no requiere claves, dependencias ni servicios externos y
+  no crea una app nativa ni modifica la web. Los cambios de Spec 013 siguen
+  locales, no publicados en GitHub ni desplegados.

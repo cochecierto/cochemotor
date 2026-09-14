@@ -417,3 +417,12 @@ Todas las decisiones de esta versión están fechadas el 2026-08-27.
 - GitHub Actions: run 34887101765, validación correcta; el job de publicación SFTP quedó omitido porque la ejecución por push solo valida.
 - Alcance de publicación manual: demo, acceso profesional y API; incluye cambios de `profesionales.html` y `profesionales.css` pendientes de la Spec 011.
 - Decisión: no se lanzó desde automatización UI sin confirmación inmediatamente antes de la acción, según la política de Computer Use para publicar cambios web.
+
+## D-046 — Agente interno de experiencia móvil
+
+- Estado: aprobado e implementado documentalmente.
+- Fecha: 2026-09-14.
+- Decisión: crear `cochemotor-mobile-app-ux` para evaluar tareas móviles B2B/B2C en web/app según la plataforma real, respetando accesibilidad, sistema visual, SDD y stack existente.
+- Fuente externa: revisar `designed-by-ai/skills` solo como benchmark; no instalar `design-mobile-apps` porque la skill opera en Sleek, requiere clave API y permite cambios remotos; además declara un único host pero indica llamadas externas a Iconify/Google Fonts.
+- Restricciones: no crear cuenta, clave, proyecto remoto, gasto ni llamada Sleek. No crear app nativa ni modificar la web en esta iniciativa.
+- Evidencia: solicitud de Juan, Spec 013, evaluación de fuente y enlaces oficiales WCAG/Apple.

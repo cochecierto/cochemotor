@@ -37,6 +37,16 @@ reviewed_sources:
     decision: rejected-slug-and-legal-guidance
     scope: "El slug pedido no existe; la skill similar promueve aceptación implícita de analítica, criterio no admitido."
     internal_alternative: .agents/skills/cochemotor-privacy-cookies/SKILL.md
+  - name: designed-by-ai/skills
+    skills: [design-mobile-apps]
+    source: https://github.com/designed-by-ai/skills/tree/main/skills/design-mobile-apps
+    reviewed_commit: bd6696bb2db7c874ebd8d68431c1642e7d2283bd
+    reviewed: 2026-09-14
+    license: MIT
+    popularity_snapshot: "skills.sh: 184.1K installs; Gen, Agent Trust Hub, Socket, Snyk: Pass"
+    decision: not-installed-scope-and-host-mismatch
+    scope: "Integración Sleek con SLEEK_API_KEY, operaciones cloud de proyectos/chat/screenshots y orientación de pago; incompatibilidad entre host declarado y llamadas a Iconify/Google Fonts."
+    internal_alternative: .agents/skills/cochemotor-mobile-app-ux/SKILL.md
 
 # No hay skills externas aprobadas. Cada entrada futura debe incluir fuente,
 # commit/hash, auditorías, revisión de archivos, alcance permitido y aprobación.

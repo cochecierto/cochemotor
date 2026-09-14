@@ -61,6 +61,8 @@
 - [Evaluación de fuentes comunitarias SEO, copy y cookies](../.agents/skills/vendor-reviewed/cochemotor-source-review-2026-09.md)
 - [Agente SEO CocheMotor](../.agents/skills/cochemotor-seo/SKILL.md)
 - [Agente privacidad y cookies UE/España](../.agents/skills/cochemotor-privacy-cookies/SKILL.md)
+- [Agente de experiencia móvil](../.agents/skills/cochemotor-mobile-app-ux/SKILL.md)
+- [Revisión de design-mobile-apps/Sleek](../.agents/skills/vendor-reviewed/cochemotor-mobile-source-review-2026-09.md)
 
 ## Especificaciones SDD
 
@@ -78,3 +80,4 @@
 - [Spec 010 — Acciones de ficha pública de vehículo](../specs/010-public-vehicle-sheet-actions/spec.md)
 - [Spec 011 — Preparación de experiencia para la beta profesional](../specs/011-beta-feedback-readiness/spec.md)
 - [Spec 012 — Skills internas de SEO, copy y privacidad web](../specs/012-growth-compliance-skills/spec.md)
+- [Spec 013 — Agente de experiencia móvil CocheMotor](../specs/013-mobile-app-ux/spec.md)
