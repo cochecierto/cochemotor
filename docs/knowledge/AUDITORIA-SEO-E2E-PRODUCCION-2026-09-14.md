@@ -80,7 +80,7 @@ No se envió el formulario, correctamente, porque la ficha revisada es un fixtur
 - GitHub `main`: `06ce8bece08ecd158dcca8c99fcac0aad02df587` (`docs: record SEO and production E2E audit`).
 - Checkout local: rama `codex/014-web-flows-production-readiness`, `HEAD 06ce8bece08ecd158dcca8c99fcac0aad02df587`.
 - El workflow SEO SFTP `34899405644` terminó `success`: validó rutas, sintaxis, sitemap, secretos/host key, promoción por staging, sitemap/robots/guía públicos y hashes de activos contra ese SHA.
-- Las 65 pruebas locales pasan, pero no cubren correo ni conexión PDO a la base Hostinger. La Spec 014 aún marca T11 (release y hashes productivos) sin completar.
+- Las 65 pruebas locales pasan, pero no cubren correo ni conexión PDO a la base Hostinger. La Spec 014 quedó publicada con release y hashes verificados; las pruebas de correo y conexión productiva siguen fuera de alcance.
 - En `u560645602_cochemotor` se verificaron los campos de la migración 007, el índice `idx_leads_vehicle_phone_created`, el índice único `uq_vehicles_public_slug` y el valor por defecto `vehicles.evidence_level='declarado'`; no se crearon cuentas ni leads reales.
 
 ## Plan de salida verificable
@@ -102,3 +102,4 @@ No se envió el formulario, correctamente, porque la ficha revisada es un fixtur
 ## Límites
 
 No es auditoría de penetración ni dictamen jurídico. No se accedió a Search Console, correo, base de producción, logs, métricas del servidor o historial de indexación. La inspección de páginas no equivale a medir código HTTP si no se obtuvo la respuesta de red. Las credenciales facilitadas no se guardan en este informe.
+
