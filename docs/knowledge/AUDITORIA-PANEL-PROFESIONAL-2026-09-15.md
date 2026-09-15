@@ -27,3 +27,10 @@ Revisión del panel `hub.html` en producción (`https://cochemotor.es/hub.html`)
 ## Veredicto
 
 **PASS WITH NOTES.** El flujo de interfaz del panel está preparado para producción y no presenta fallos reproducibles en navegación o consola. Queda como comprobación operativa separada una prueba de escritura con datos de ensayo (alta de vehículo, lead y publicación) y la monitorización de API en producción.
+
+## Prueba controlada con datos sintéticos — 2026-09-15
+
+- Se completó el perfil mínimo de Bedoya con datos sintéticos y se mantuvo desactivada la indexación pública del perfil.
+- Se enviaron a revisión dos anuncios sintéticos: un Toyota Corolla (2020, 58.000 km, Madrid) y una Ford Transit Custom (2022, 112.000 km, València), con imágenes de referencia del proyecto y textos marcados como prueba.
+- El panel confirmó ambos envíos con el mensaje de revisión pendiente y mostró `2` en «Mis coches en stock».
+- No se hicieron públicos los anuncios ni se generaron leads; el panel indica que deben revisarse antes de ser visibles para compradores.
