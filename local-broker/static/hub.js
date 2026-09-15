@@ -330,6 +330,7 @@ function renderPipelineBoard() {
   const stock = CocheMotorStorage.getStock();
 
   const stages = [
+    { key: "pendiente_validacion_contacto", label: "0. Pendiente de revisión", icon: "🕒" },
     { key: "preparacion", label: "1. En Puesta a Punto", icon: "🔧" },
     { key: "publicado", label: "2. Publicado / Activo", icon: "📢" },
     { key: "leads_activos", label: "3. Leads Activos", icon: "💬" },
