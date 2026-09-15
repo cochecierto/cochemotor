@@ -34,3 +34,12 @@ Revisión del panel `hub.html` en producción (`https://cochemotor.es/hub.html`)
 - Se enviaron a revisión dos anuncios sintéticos: un Toyota Corolla (2020, 58.000 km, Madrid) y una Ford Transit Custom (2022, 112.000 km, València), con imágenes de referencia del proyecto y textos marcados como prueba.
 - El panel confirmó ambos envíos con el mensaje de revisión pendiente y mostró `2` en «Mis coches en stock».
 - No se hicieron públicos los anuncios ni se generaron leads; el panel indica que deben revisarse antes de ser visibles para compradores.
+
+## Corrección detectada durante la prueba
+
+Los anuncios nuevos usaban `stage: pendiente_validacion_contacto`, pero el
+Kanban no contemplaba esa fase y los ocultaba aunque el KPI contabilizara el
+stock. Se añadió la columna «0. Pendiente de revisión», se versionó la carga de
+`hub.js` para evitar caché y se verificó en producción que muestra los dos
+anuncios sintéticos con su ficha y selector de fases. Corrección publicada en
+`859dc0f` y servida tras `5868129`.
