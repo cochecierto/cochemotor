@@ -210,3 +210,10 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
   no crea una app nativa ni modifica la web. Está publicado en `main` mediante
   `a380382`; el despliegue Hostinger del mismo commit ejecutó el workflow de
   demo/acceso/API existente. La Spec 013 no añade activos web publicables.
+
+## Actualización CocheMotor — publicación E2E, 2026-09-15
+
+- `main` y el checkout local están alineados en `06ce8bece08ecd158dcca8c99fcac0aad02df587`.
+- El workflow SEO SFTP `34899405644` terminó correctamente y verificó staging/promoción, sitemap, robots, rutas no indexables y hashes de activos en `https://cochemotor.es`.
+- En la base Hostinger `u560645602_cochemotor` se verificó la migración 007: avisos versionados de profesionales, campos de contacto/privacidad e índice de leads; también se confirmó `evidence_level` con valor por defecto `declarado` y ausencia de slugs duplicados.
+- No se generaron datos personales, cuentas ni leads de prueba en producción. Correo, restauración de backup, métricas SEO y revisión jurídica siguen siendo comprobaciones separadas.

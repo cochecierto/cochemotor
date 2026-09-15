@@ -6,7 +6,7 @@ Tipo: revisión técnica y de contenido; no es certificación legal, SEO ni de d
 
 ## Dictamen
 
-**NO-GO para afirmar que el recorrido esté validado de extremo a extremo o para operar con leads reales.** La producción revisada sirve una versión anterior a los cambios locales de preparación. Hay una ruta pública que presenta un vehículo de demostración con datos y acciones de contacto que parecen reales, y el registro profesional publicado no muestra avisos/aceptaciones de privacidad y condiciones. La cuenta/API, persistencia, envío de correo y contacto no han sido verificados integralmente contra producción.
+**La línea base histórica era NO-GO; el release posterior quedó publicado con las puertas técnicas satisfechas, pero no certifica por sí solo la operación con leads reales ni el cumplimiento legal.** La revisión inicial detectó una ficha demo con acciones de contacto y un alta sin avisos versionados. Después se publicó `06ce8be` mediante el workflow SEO SFTP `34899405644`, que pasó validación, migraciones, smoke HTTP y comparación de hashes. La operación con datos reales, el correo y la revisión jurídica siguen fuera de esta auditoría.
 
 Una auditoría no puede garantizar posiciones SEO, conversiones ni disponibilidad futura. Sí puede fijar puertas de salida y evidencia verificable; las pendientes se detallan abajo.
 
@@ -77,11 +77,11 @@ No se envió el formulario, correctamente, porque la ficha revisada es un fixtur
 
 ## Sincronización y estado del release
 
-- GitHub `main`: `c183f4bf0dc101ebc5ef9b2a36e5b5c87b8af997` (`docs: record mobile UX release and Hostinger deploy`).
-- Checkout local: rama `codex/014-web-flows-production-readiness`, `HEAD 50ffdcf0a3a7ff2e97e17c8375c847096df376f7` (`feat: harden authenticated web flows and release validation`).
-- El conector de GitHub informa permiso `push: false`; no se publicó el commit local. Hostinger sirve contenido de alta/API coincidente con el antiguo contrato de `main`, no con la versión local corregida.
+- GitHub `main`: `06ce8bece08ecd158dcca8c99fcac0aad02df587` (`docs: record SEO and production E2E audit`).
+- Checkout local: rama `codex/014-web-flows-production-readiness`, `HEAD 06ce8bece08ecd158dcca8c99fcac0aad02df587`.
+- El workflow SEO SFTP `34899405644` terminó `success`: validó rutas, sintaxis, sitemap, secretos/host key, promoción por staging, sitemap/robots/guía públicos y hashes de activos contra ese SHA.
 - Las 65 pruebas locales pasan, pero no cubren correo ni conexión PDO a la base Hostinger. La Spec 014 aún marca T11 (release y hashes productivos) sin completar.
-- No hay evidencia en esta auditoría de respaldo restaurable reciente, de migración 007 aplicada/verificada o de hash de despliegue correspondiente al commit local.
+- En `u560645602_cochemotor` se verificaron los campos de la migración 007, el índice `idx_leads_vehicle_phone_created`, el índice único `uq_vehicles_public_slug` y el valor por defecto `vehicles.evidence_level='declarado'`; no se crearon cuentas ni leads reales.
 
 ## Plan de salida verificable
 

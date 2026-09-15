@@ -99,7 +99,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Obtener código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Ejecutar pruebas del proyecto
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
@@ -142,7 +142,7 @@ jobs:
           fi
 
       - name: Obtener código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Validar secretos y host key SFTP
         shell: bash
