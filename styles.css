@@ -1738,7 +1738,7 @@ button {
 /* Checklist Fotográfico Guiado */
 .photo-guide-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 16px;
 }
@@ -2833,6 +2833,7 @@ button {
 .hero-trust-bar { max-width: 900px; margin-top: 30px; }
 .hero-visual-card { display: none; }
 @media (max-width: 768px) {
+  .photo-guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero-section { min-height: auto; padding: 64px 0 34px; background-position: 66% center; }
   .hero-headline { font-size: clamp(2.25rem, 11vw, 3.4rem); }
   .hero-search-wrapper { margin-top: 24px; }
