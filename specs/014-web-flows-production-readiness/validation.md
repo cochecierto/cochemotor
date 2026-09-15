@@ -34,3 +34,21 @@ del release se necesita copia reciente de BD, aplicar/verificar 007 tras las
 migraciones anteriores, probar en staging con datos sintéticos, publicar el
 commit y revisar los hashes y flujos reales. El workflow bloquea release si
 no se marcan backup y esquema listos; no ejecuta migraciones automáticamente.
+
+## Evidencia adicional en producción — 2026-09-15
+
+El panel profesional publicado en `https://cochemotor.es/hub.html` se revisó
+con el navegador integrado sobre la cuenta profesional ya disponible, sin
+enviar formularios ni crear datos. Las 12 pestañas cambiaron al único panel
+esperado; los enlaces laterales abrieron `index.html`, `perfil.html`,
+`marketplace.html`, `demanda.html`, `feedback-beta.html`, `privacidad.html` y
+`dealer.html` con títulos coherentes; el checklist mostró sus 10 imágenes de
+referencia; y la consola no registró errores ni avisos. `node --check hub.js`
+y las 18 pruebas locales pasan.
+
+Esta evidencia eleva la navegación y la interfaz del panel a **PASS**. RF-1,
+RF-2 y RF-4–RF-6 siguen siendo **PASS WITH NOTES** porque una prueba de
+escritura contra API/BD de ensayo (sesión, alta de vehículo, lead y publicación)
+no debe ejecutarse en producción sin autorización específica. La ruta directa
+`/api/vehicles` quedó bloqueada por el cliente del navegador, por lo que no se
+usa como prueba de lectura remota.
