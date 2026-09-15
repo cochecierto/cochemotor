@@ -743,7 +743,8 @@ const CocheMotorStorage = {
   },
 
   updateVehicleStage(vehicleId, newStage) {
-    const stock = this.getAllPublicStock();
+    const authenticatedId = window.COCHEMOTOR_AUTH_USER?.user_id;
+    const stock = authenticatedId ? this.getStock(authenticatedId) : this.getAllPublicStock();
     const v = stock.find(item => item.id === vehicleId);
     if (v) {
       v.stage = newStage;
@@ -754,7 +755,8 @@ const CocheMotorStorage = {
       } else {
         v.status = "disponible";
       }
-      this.saveAllStock(stock);
+      if (authenticatedId) this.setAuthenticatedStock(authenticatedId, stock);
+      else this.saveAllStock(stock);
     }
     return v;
   },
