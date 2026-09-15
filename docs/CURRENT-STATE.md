@@ -217,3 +217,8 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
 - El workflow SEO SFTP `34899405644` terminó correctamente y verificó staging/promoción, sitemap, robots, rutas no indexables y hashes de activos en `https://cochemotor.es`.
 - En la base Hostinger `u560645602_cochemotor` se verificó la migración 007: avisos versionados de profesionales, campos de contacto/privacidad e índice de leads; también se confirmó `evidence_level` con valor por defecto `declarado` y ausencia de slugs duplicados.
 - No se generaron datos personales, cuentas ni leads de prueba en producción. Correo, restauración de backup, métricas SEO y revisión jurídica siguen siendo comprobaciones separadas.
+
+## Actualización CocheMotor — checklist fotográfico del panel, 2026-09-15
+
+- La tarjeta «Checklist Fotográfico de Confianza» de `hub.html` muestra ahora las diez imágenes de referencia de «PUBLICA TU COCHE», con miniaturas responsivas, textos alternativos y carga diferida.
+- Se mantiene el flujo de selección múltiple y se sincroniza también la copia `local-broker/static`.

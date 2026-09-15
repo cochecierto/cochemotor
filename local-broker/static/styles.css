@@ -1741,9 +1741,10 @@ button {
   background: var(--cm-surface-subtle);
   border: 2px dashed var(--cm-border-strong);
   border-radius: var(--cm-radius-md);
-  padding: 14px;
+  padding: 0 0 14px;
   text-align: center;
   position: relative;
+  overflow: hidden;
   transition: var(--cm-transition-fast);
 }
 .photo-slot-card.has-photo {
@@ -1751,9 +1752,16 @@ button {
   border-color: var(--badge-eco-bg);
   background: #f0fdf4;
 }
-.photo-slot-icon {
-  font-size: 1.6rem;
-  margin-bottom: 4px;
+.photo-slot-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #e8eef5;
+  border-bottom: 1px solid var(--cm-border);
+}
+.photo-slot-copy {
+  padding: 10px 10px 0;
 }
 .photo-slot-title {
   font-size: 0.88rem;
