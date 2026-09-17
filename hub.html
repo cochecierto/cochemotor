@@ -432,7 +432,9 @@
                   <div><strong id="intake-price-title">Precio recomendado</strong><span id="up-price-recommendation">Completa marca, modelo y año para estimarlo.</span></div>
                   <button type="button" class="pipeline-action-btn" id="up-apply-recommended-price">Aplicar</button>
                 </div>
-                <div class="intake-finance-preview"><span>Cuota orientativa</span><strong id="up-monthly-preview">Completa precio y entrada</strong><small>Estimación a 48 meses · TIN 7,9%</small></div>
+                <div class="intake-finance-preview"><span>Cuota orientativa</span><strong id="up-monthly-preview">Completa precio y entrada</strong><small>Estimación según plazo y entrada</small></div>
+                <details class="intake-finance-details"><summary>Configurar cuota y margen</summary><div class="intake-finance-fields"><label>Entrada (€)<input type="number" id="up-downpayment" class="form-control" value="0" min="0"></label><label>Plazo<select id="up-months" class="form-control"><option value="36">36 meses</option><option value="48" selected>48 meses</option><option value="60">60 meses</option></select></label></div></details>
+                <div class="intake-quality" role="status"><strong>Calidad del anuncio</strong><span id="up-quality-score">Completa los datos para obtener una puntuación.</span></div>
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
@@ -450,7 +452,7 @@
                 <div class="form-group">
                   <label class="form-label" for="up-image-file">Fotos del coche <span style="color:var(--cm-red);">*</span></label>
                   <input type="file" id="up-image-file" class="form-control" accept="image/jpeg,image/png,image/webp" multiple required>
-                  <small id="up-image-count" style="display:block;margin-top:6px;color:var(--cm-text-secondary);">0/10 fotos seleccionadas. La primera será la portada.</small>
+                  <small id="up-image-count" style="display:block;margin-top:6px;color:var(--cm-text-secondary);">0/10 fotos seleccionadas · Recomendadas: 5. La primera será la portada.</small>
                 </div>
               </details>
             </div>
