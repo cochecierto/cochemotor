@@ -2099,6 +2099,9 @@ button {
   width: 100%;
 }
 .pipeline-pending-note { margin: 8px 0 0; padding: 8px 9px; border: 1px solid #f2d39a; border-radius: 7px; color: #805b10; background: #fff8e7; font-size: .72rem; line-height: 1.35; }
+.pipeline-card-actions { display:flex; gap:6px; margin-top:8px; }
+.pipeline-action-btn { flex:1; min-height:32px; border:1px solid #c9d9e8; border-radius:7px; background:#f7fbff; color:var(--cm-navy); font-size:.68rem; font-weight:750; cursor:pointer; }
+.pipeline-action-btn:hover, .pipeline-action-btn:focus-visible { border-color:#1771b8; background:#eaf5ff; outline:none; }
 
 .hero-professional-link {
   display: inline-flex;

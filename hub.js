@@ -507,6 +507,10 @@ function renderPipelineBoard() {
                   Ver Ficha ↗
                 </a>
               </div>
+              <div class="pipeline-card-actions" aria-label="Acciones para ${car.brand} ${car.model}">
+                <button type="button" class="pipeline-action-btn" onclick="openVehicleAction('tab-generator','${car.id}')">Mejorar anuncio</button>
+                <button type="button" class="pipeline-action-btn" onclick="openVehicleAction('tab-qr','${car.id}')">Generar QR</button>
+              </div>
             </div>
           `).join('')}
         </div>
@@ -806,6 +810,12 @@ function renderDemandOrders() {
       </div>
     </div>
   `).join('');
+}
+
+function openVehicleAction(tabId, vehicleId) {
+  switchHubTab(tabId);
+  const select = tabId === 'tab-generator' ? document.getElementById('gen-vehicle-select') : document.getElementById('qr-vehicle-select');
+  if (select && vehicleId) { select.value = vehicleId; select.dispatchEvent(new Event('change', { bubbles: true })); }
 }
 
 function isVehicleCompatible(vehicle, order) {
