@@ -39,6 +39,16 @@ class VehicleCatalogImportTests(unittest.TestCase):
         with self.assertRaises(argparse.ArgumentTypeError):
             validate_url('http://example.org/data')
 
+    def test_fuel_normalization_uses_peninsular_labels(self):
+        clean_fuel = self.importer_namespace()['clean_fuel']
+        self.assertEqual(clean_fuel('PETROL'), 'Gasolina')
+        self.assertEqual(clean_fuel('Diesel-electric'), 'Híbrido diésel')
+        self.assertEqual(clean_fuel('LPG'), 'GLP (autogás)')
+
+    def test_optional_category_filter_is_available(self):
+        namespace = self.importer_namespace()
+        self.assertIn('category', namespace['ALIASES'])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -19,6 +19,7 @@ ALIASES = {
     'year': {'year','model year','registration year','ano','año'},
     'fuel': {'fuel','fuel type','fuel type - primary','ft','combustible'},
     'version': {'version','ve','trim','variant','denomination','versión','version comercial'},
+    'category': {'category','vehicle category','body category','categoria','categoría','segment'},
 }
 EXCLUDED_BRANDS = {'1', 'activity', 'air-brakes', 'allied vehicles ltd', 'avelling barford', 'divisegur catalunya', 'enaire', 'electra jacetana', 'remolques ramirez', 'sin marca', 'toth es fiai'}
 BRAND_CANONICAL = {'a.u.d.i.': 'AUDI', 'b.m.w.': 'BMW', 'bmw i': 'BMW', 'chevrolet': 'CHEVROLET', 'jaguar': 'JAGUAR', 'mercedes': 'MERCEDES-BENZ', 'mercedes amg': 'MERCEDES-AMG', 'mercedes-amg': 'MERCEDES-AMG', 'mercedes-benz': 'MERCEDES-BENZ', 'rolls royce': 'ROLLS-ROYCE', 'rolls-royce': 'ROLLS-ROYCE', 'tesla motors': 'TESLA', 'volkswagen, vw': 'VOLKSWAGEN', 'volkswagen v w': 'VOLKSWAGEN', 'volkswagen ag': 'VOLKSWAGEN'}
@@ -28,6 +29,18 @@ def clean_brand(value):
     key = norm(raw)
     if key in EXCLUDED_BRANDS: return ''
     return BRAND_CANONICAL.get(key, raw.upper())
+
+FUEL_CANONICAL = {
+    'petrol':'Gasolina','gasoline':'Gasolina','gasolina':'Gasolina',
+    'diesel':'Diésel','diésel':'Diésel',
+    'electric':'Eléctrico','electricity':'Eléctrico','bev':'Eléctrico',
+    'petrol-electric':'Híbrido gasolina','petrol/electric':'Híbrido gasolina','hybrid petrol':'Híbrido gasolina',
+    'diesel-electric':'Híbrido diésel','diesel/electric':'Híbrido diésel','hybrid diesel':'Híbrido diésel',
+    'lpg':'GLP (autogás)','autogas':'GLP (autogás)','cng':'GNC (gas natural)',
+}
+def clean_fuel(value):
+    raw = re.sub(r'\s+', ' ', str(value or '').strip())
+    return FUEL_CANONICAL.get(norm(raw), raw)
 def pick(headers, names):
     lookup = {norm(h): h for h in headers}
     for n in names:
@@ -59,6 +72,7 @@ def main():
     parser.add_argument('--source-url', type=https_url, default=None, help='URL pública HTTPS de la fuente, si procede.')
     parser.add_argument('--source-data-as-of', type=date.fromisoformat, default=None, help='Fecha de referencia de los datos (AAAA-MM-DD), no fecha de importación.')
     parser.add_argument('--license', dest='source_license', default=None, help='Licencia o condiciones documentadas del conjunto.')
+    parser.add_argument('--include-commercial', action='store_true', help='Incluye categorías comerciales además de turismos M1.')
     args = parser.parse_args()
     src, dst = args.input_csv, args.output_js
     with src.open(encoding='utf-8-sig', newline='') as f:
@@ -66,13 +80,16 @@ def main():
         dialect = csv.Sniffer().sniff(sample, delimiters=',;\t')
         rows = csv.DictReader(f, dialect=dialect)
         cols = {k: pick(rows.fieldnames or [], v) for k,v in ALIASES.items()}
-        missing = [k for k,v in cols.items() if not v]
+        missing = [k for k,v in cols.items() if not v and k != 'category']
         if missing: raise SystemExit('Faltan columnas: ' + ', '.join(missing))
         tree = defaultdict(lambda: defaultdict(lambda: {'years': set(), 'fuels': defaultdict(set)}))
         for row in rows:
             brand, model = clean_brand(row[cols['brand']]), row[cols['model']].strip()
-            fuel, version = row[cols['fuel']].strip(), row[cols['version']].strip()
+            fuel, version = clean_fuel(row[cols['fuel']]), row[cols['version']].strip()
             if not brand or not model or not fuel or not version: continue
+            if cols.get('category') and not args.include_commercial:
+                category = norm(row[cols['category']])
+                if category and category not in {'m1','passenger car','passenger cars','turismo','turismos'}: continue
             year = row[cols['year']].strip()
             item = tree[brand][model]; item['fuels'][fuel].add(version)
             if year.isdigit(): item['years'].add(int(year))
