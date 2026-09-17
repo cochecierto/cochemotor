@@ -44,6 +44,19 @@ Si devuelve filas, no ejecutar la 006 todavía: resolver cada colisión y conser
 
 La séptima añade versión/fecha de lectura de avisos al alta, trazabilidad de la solicitud de contacto, un índice para limitar reenvíos repetidos y cambia el valor predeterminado de evidencia mecánica a `declarado`. No cambia los registros históricos. Antes de desplegar la nueva API, verificar por separado las columnas e índice; el formulario público de contacto requiere la 007.
 
+## Catálogo europeo
+
+El snapshot que consume el formulario se genera desde un fichero estructurado EEA filtrado a país `ES` y categoría `M1`. No se editan a mano sus 210 marcas ni sus versiones. Para regenerarlo:
+
+```text
+python scripts/import_vehicle_catalog.py data.csv tmp/vehicles_catalog_eea.js \
+  --country ES --source-label "EEA CO2 cars and vans" \
+  --source-url https://co2cars.apps.eea.europa.eu/ \
+  --source-data-as-of AAAA-MM-DD --license "Revisar metadatos del paquete EEA"
+```
+
+Antes de reemplazar `assets/data/vehicles_catalog.js`, revisar el manifiesto de procedencia, el número de marcas/modelos/entradas, duplicados de combustible y la licencia del paquete. El estado `declared-not-verified` impide presentar la fuente como verificada hasta completar esa revisión. La migración `008_vehicle_catalog_mysql.sql` crea el almacenamiento canónico para futuras importaciones; no debe ejecutarse en producción sin copia de seguridad y comprobación de migraciones pendientes.
+
 ## Preflight de las migraciones SEO en la base existente
 
 1. Crear/confirmar una copia de seguridad de `u560645602_cochemotor` en Hostinger antes de DDL y no guardar exportaciones con datos reales en el repositorio.

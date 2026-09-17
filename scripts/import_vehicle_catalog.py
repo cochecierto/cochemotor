@@ -40,7 +40,14 @@ FUEL_CANONICAL = {
     'lpg':'GLP (autogás)','autogas':'GLP (autogás)','cng':'GNC (gas natural)',
 }
 def clean_fuel(value):
-    raw = re.sub(r'\s+', ' ', str(value or '').strip())
+    raw = re.sub(r'[^\x20-\x7EÀ-ÿ]+', ' ', str(value or '').strip())
+    raw = re.sub(r'["\']+', ' ', raw)
+    raw = re.sub(r'\s+', ' ', raw).strip()
+    # Algunos paquetes EEA arrastran texto de la columna siguiente en filas corruptas.
+    if 'eléctric' in norm(raw) or 'electric' in norm(raw):
+        if 'diesel' in norm(raw): return 'Híbrido diésel'
+        if 'petrol' in norm(raw) or 'gasolin' in norm(raw): return 'Híbrido gasolina'
+        return 'Eléctrico'
     return FUEL_CANONICAL.get(norm(raw), raw)
 def pick(headers, names):
     lookup = {norm(h): h for h in headers}
@@ -102,6 +109,11 @@ def main():
         for model, item in sorted(models.items()):
             out[brand][model] = {'years': sorted(item['years']), 'fuels': {f: sorted(v) for f,v in sorted(item['fuels'].items())}}
     provenance = build_provenance(args.source_label, args.source_url, args.source_data_as_of, args.source_license)
+    provenance.update({
+        'brandCount': len(tree),
+        'modelCount': sum(len(models) for models in tree.values()),
+        'entryCount': sum(len(versions) for models in tree.values() for item in models.values() for versions in item['fuels'].values()),
+    })
     suffix = '''
 export const VEHICLE_CATALOG_SOURCE = %s;
 export function getBrands() { return Object.keys(VEHICLES); }
