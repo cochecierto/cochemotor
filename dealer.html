@@ -125,6 +125,10 @@
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 28px;
     }
+    .dealer-stock-tools { display:flex; gap:10px; flex-wrap:wrap; margin:0 0 18px; }
+    .dealer-stock-tools input,.dealer-stock-tools select { min-height:42px; padding:0 12px; border:1px solid var(--cm-border); border-radius:9px; background:#fff; color:var(--cm-navy); }
+    .dealer-stock-tools input { flex:1 1 240px; }
+    @media(max-width:600px){ .dealer-stock-tools input,.dealer-stock-tools select{width:100%;} }
 
     /* Caja de Servicios */
     .services-grid {
@@ -261,10 +265,11 @@
             Vehículos Verificados en Venta (<span id="stock-count">0</span>)
           </h2>
         </div>
-        <div style="font-size: 0.88rem; color: var(--cm-text-secondary);">
+      <div style="font-size: 0.88rem; color: var(--cm-text-secondary);">
           Cada coche dispone de <strong>Landing Page propia con informe pericial</strong>
         </div>
       </div>
+      <div class="dealer-stock-tools" aria-label="Filtros de stock"><input id="dealer-stock-search" type="search" placeholder="Buscar marca o modelo" aria-label="Buscar en el stock"><select id="dealer-stock-fuel" aria-label="Filtrar por combustible"><option value="">Cualquier combustible</option><option value="gasolina">Gasolina</option><option value="diésel">Diésel</option><option value="híbrido">Híbrido</option><option value="eléctrico">Eléctrico</option></select><select id="dealer-stock-badge" aria-label="Filtrar por distintivo DGT"><option value="">Cualquier DGT</option><option value="B">B</option><option value="C">C</option><option value="ECO">ECO</option><option value="0">0</option></select></div>
 
       <div class="dealer-catalog-grid" id="dealer-vehicles-grid">
         <!-- Renderizado dinámicamente -->
@@ -416,6 +421,7 @@
 
       stock.forEach(car => {
         const card = document.createElement('div');
+        card.dataset.search = `${car.brand} ${car.model} ${car.version} ${car.fuel} ${car.badge}`.toLowerCase();
         card.className = 'vehicle-card';
         card.innerHTML = `
           <div class="vehicle-card-img-wrap">
@@ -447,7 +453,7 @@
                 <div style="font-size: 1.45rem; font-weight: 800; color: var(--cm-navy);">${Number(car.price || 0).toLocaleString('es-ES')} €</div>
                 <div style="font-size: 0.8rem; color: #16a34a; font-weight: 700;">${escapeHTML(car.monthlyPrice || 'Consulta financiación')}</div>
               </div>
-              <a href="/ficha?id=${encodeURIComponent(String(car.id || ''))}" class="btn btn-red" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
+              <a href="/ficha?id=${encodeURIComponent(String(car.id || ''))}" target="_blank" rel="noopener" class="btn btn-red" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
                 Ver detalles
               </a>
             </div>
@@ -455,6 +461,8 @@
         `;
         grid.appendChild(card);
       });
+      const applyFilters = () => { const q=(document.getElementById('dealer-stock-search')?.value||'').toLowerCase(); const fuel=(document.getElementById('dealer-stock-fuel')?.value||'').toLowerCase(); const badge=document.getElementById('dealer-stock-badge')?.value||''; let visible=0; grid.querySelectorAll('.vehicle-card').forEach(card=>{ const ok=(!q||card.dataset.search.includes(q))&&(!fuel||card.dataset.search.includes(fuel))&&(!badge||card.dataset.search.includes(badge.toLowerCase())); card.hidden=!ok; if(ok)visible++; }); document.getElementById('stock-count').textContent=visible; };
+      ['dealer-stock-search','dealer-stock-fuel','dealer-stock-badge'].forEach(id=>document.getElementById(id)?.addEventListener('input',applyFilters));
     }
 
     function openDealerWhatsApp() {
