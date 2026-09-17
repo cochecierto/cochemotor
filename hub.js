@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   loadDealerWebSettings();
   initVehiclePhotoGuide();
   initPublishProgress();
+  switchHubTab('tab-home');
 });
 
 const MAX_VEHICLE_IMAGES = 10;
@@ -169,6 +170,7 @@ function handleSwitchUser(newUserId) {
 // 2. Navegación entre pestañas de la Sidebar
 function switchHubTab(tabId) {
   const tabs = [
+    'tab-home',
     'tab-upload',
     'tab-pipeline',
     'tab-generator',
@@ -239,6 +241,9 @@ function updateKpis() {
     refFreeEl.innerText = `${ref.freeMonthsEarned} meses`;
   }
   updateRecommendedAction(stock, leads);
+  const homeStock = document.getElementById('home-stock-summary'); const homeAttention = document.getElementById('home-attention-summary');
+  if (homeStock) homeStock.textContent = `${stock.length} vehículo(s) en tu inventario`;
+  if (homeAttention) homeAttention.textContent = `${stock.filter(v => v.stage === 'pendiente_validacion_contacto').length + leads.length} tarea(s) requieren atención`;
 }
 
 function updateRecommendedAction(stock, leads) {

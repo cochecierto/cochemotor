@@ -211,6 +211,7 @@
       <!-- Menú Vertical de Herramientas -->
       <div class="hub-nav-section-label">Ruta operativa</div>
       <nav class="hub-sidebar-nav">
+        <button class="hub-nav-item active" onclick="switchHubTab('tab-home')"><span class="hub-nav-item-icon" aria-hidden="true">⌂</span><span>Inicio</span></button>
         <button class="hub-nav-item active" onclick="switchHubTab('tab-upload')">
           <span class="hub-nav-item-icon" aria-hidden="true">+</span>
           <span>1. Subir Vehículo</span>
@@ -315,7 +316,10 @@
       <!-- =====================================================================================
            PESTAÑA 1: SUBIR VEHÍCULO CON ASISTENTE FOTOGRÁFICO GUIADO
            ===================================================================================== -->
-      <section id="tab-upload" class="hub-tool-card">
+      <section id="tab-home" class="hub-tool-card hub-home-card">
+        <div class="chapter-badge">CENTRO OPERATIVO</div><h2 class="hub-tool-title">Tu día de ventas, de un vistazo</h2><p class="hub-tool-desc">Empieza por la tarea que desbloquea tu siguiente venta. El inventario, los contactos y las operaciones comparten la misma ficha de vehículo.</p><div class="hub-home-actions"><button class="btn btn-red" onclick="switchHubTab('tab-upload')">Añadir vehículo</button><button class="btn btn-outline" onclick="switchHubTab('tab-pipeline')">Ver contactos y fases</button><button class="btn btn-outline" onclick="switchHubTab('tab-generator')">Preparar un anuncio</button></div><div class="hub-home-grid"><div><strong>Inventario</strong><span id="home-stock-summary">Cargando…</span></div><div><strong>Atención hoy</strong><span id="home-attention-summary">Cargando…</span></div><div><strong>Siguiente paso</strong><span>Usa la recomendación superior para avanzar.</span></div></div>
+      </section>
+      <section id="tab-upload" class="hub-tool-card" style="display: none;">
         <div class="chapter-badge">ALTA ASISTIDA DE STOCK PRIVADO</div>
         <h2 class="hub-tool-title">Registra tu Vehículo y Conviértelo en Anuncio</h2>
         <p class="hub-tool-desc">

@@ -1747,6 +1747,11 @@ button {
 .hub-next-action h2 { margin:3px 0 4px; color:var(--cm-navy); font-size:1.05rem; }
 .hub-next-action p { margin:0; color:var(--cm-text-secondary); font-size:.86rem; }
 .hub-next-action-kicker { color:#1771b8; font-size:.67rem; font-weight:800; letter-spacing:.08em; }
+.hub-home-actions { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0; }
+.hub-home-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.hub-home-grid > div { display:flex; flex-direction:column; gap:5px; padding:15px; border:1px solid #e1e8f0; border-radius:10px; background:#f8fbff; color:var(--cm-text-secondary); font-size:.82rem; line-height:1.35; }
+.hub-home-grid strong { color:var(--cm-navy); font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; }
+@media(max-width:600px){.hub-home-grid{grid-template-columns:1fr}.hub-home-actions .btn{width:100%}}
 .publish-progress { margin:12px 0 16px; padding:9px 12px; border:1px solid #d8e4ef; border-radius:8px; color:#52647a; background:#f8fbff; font-size:.78rem; font-weight:650; }
 .form-help { display:block; margin:-5px 0 7px; color:#64748b; font-size:.74rem; line-height:1.35; }
 .margin-preview { display:block; margin-top:6px; color:#176b45; font-size:.78rem; font-weight:750; }
