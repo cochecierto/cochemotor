@@ -1762,6 +1762,7 @@ button {
 @media(max-width:600px){.upload-stepper strong{display:none}.upload-stepper li:not(:last-child)::after{margin:0 5px}.upload-stepper{margin-right:0}}
 .form-help { display:block; margin:-5px 0 7px; color:#64748b; font-size:.74rem; line-height:1.35; }
 .margin-preview { display:block; margin-top:6px; color:#176b45; font-size:.78rem; font-weight:750; }
+.intake-price-assistant,.intake-finance-preview{display:flex;align-items:center;justify-content:space-between;gap:10px;grid-column:1/-1;margin:-4px 0 10px;padding:11px 13px;border:1px solid #cfe0f1;border-radius:9px;background:linear-gradient(110deg,#f3f9ff,#fff);color:var(--cm-navy);font-size:.78rem}.intake-price-assistant div{display:flex;flex-direction:column;gap:3px}.intake-price-assistant span,.intake-finance-preview span,.intake-finance-preview small{color:#64748b;font-size:.72rem}.intake-price-assistant .pipeline-action-btn{flex:0 0 auto;padding:6px 12px}.intake-finance-preview{display:flex;flex-direction:column;align-items:flex-start;background:#f8fbff;border-color:#e1e8f0}.intake-finance-preview strong{font-size:.95rem}.intake-finance-preview small{font-size:.7rem}
 .hub-flow-roadmap { margin:0 0 24px; padding:16px 20px; border:1px solid #e1e8f0; border-radius:14px; background:#fff; }
 .hub-flow-roadmap-head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .hub-flow-roadmap-head h2 { margin:3px 0 0; color:var(--cm-navy); font-size:1rem; }

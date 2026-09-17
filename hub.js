@@ -53,9 +53,19 @@ function initPublishProgress() {
   };
   ids.forEach(id => document.getElementById(id)?.addEventListener('change', update));
   ['up-price','up-cost','up-km'].forEach(id => document.getElementById(id)?.addEventListener('input', update));
+  ['up-brand','up-model','up-year','up-price','up-cost'].forEach(id => document.getElementById(id)?.addEventListener('change', updatePriceAssistant));
+  ['up-price','up-cost'].forEach(id => document.getElementById(id)?.addEventListener('input', updatePriceAssistant));
+  document.getElementById('up-apply-recommended-price')?.addEventListener('click', () => { const recommendation = document.getElementById('up-price-recommendation')?.dataset.value; if (recommendation) { document.getElementById('up-price').value = recommendation; update(); updatePriceAssistant(); } });
   document.getElementById('up-image-file')?.addEventListener('change', update);
   document.getElementById('up-contact-consent')?.addEventListener('change', update);
   update();
+  updatePriceAssistant();
+}
+
+function updatePriceAssistant() {
+  const year = Number(document.getElementById('up-year')?.value || 0), cost = Number(document.getElementById('up-cost')?.value || 0), price = Number(document.getElementById('up-price')?.value || 0), recommendation = document.getElementById('up-price-recommendation');
+  if (recommendation) { const value = year ? Math.max(6500, Math.round((cost || 18000) * (year >= 2021 ? 1.22 : year >= 2018 ? 1.12 : 1.02) / 100) * 100) : 0; recommendation.dataset.value = value || ''; recommendation.textContent = value ? `${value.toLocaleString('es-ES')} € · estimación inicial según año y coste` : 'Completa marca, modelo y año para estimarlo.'; }
+  const monthly = document.getElementById('up-monthly-preview'); if (monthly) { const base = price || (cost ? Math.round(cost * 1.12) : 0); monthly.textContent = base ? `${Math.round((base * 0.024) / (1 - Math.pow(1.024, -48))).toLocaleString('es-ES')} €/mes aprox.` : 'Completa precio y entrada'; }
 }
 
 function getProfessionalSession() {
