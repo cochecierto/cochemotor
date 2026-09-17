@@ -15,7 +15,7 @@ function fill(select, items, placeholder, disabled = false) {
 }
 
 function fuelLabel(value) {
-  return { Petrol: 'Gasolina', PETROL: 'Gasolina', Diesel: 'Diésel', DIESEL: 'Diésel', electric: 'Eléctrico', Electric: 'Eléctrico', LPG: 'GLP (autogás)', CNG: 'GNC (gas natural)', 'Diesel-electric': 'Híbrido diésel', 'Diesel/Electric': 'Híbrido diésel', 'Petrol-electric': 'Híbrido gasolina', 'PETROL/ELECTRIC': 'Híbrido gasolina' }[value] || value;
+  return { Petrol: 'Gasolina', petrol: 'Gasolina', PETROL: 'Gasolina', Diesel: 'Diésel', diesel: 'Diésel', DIESEL: 'Diésel', electric: 'Eléctrico', Electric: 'Eléctrico', ELECTRIC: 'Eléctrico', LPG: 'GLP (autogás)', lpg: 'GLP (autogás)', CNG: 'GNC (gas natural)', cng: 'GNC (gas natural)', 'Diesel-electric': 'Híbrido diésel', 'Diesel/Electric': 'Híbrido diésel', 'Petrol-electric': 'Híbrido gasolina', 'PETROL/ELECTRIC': 'Híbrido gasolina' }[value] || value;
 }
 
 function versionLabel(code, brand, model, fuel) {
