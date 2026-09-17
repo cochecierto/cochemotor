@@ -1754,6 +1754,10 @@ button {
 @media(max-width:600px){.hub-home-grid{grid-template-columns:1fr}.hub-home-actions .btn{width:100%}}
 .publish-progress { margin:12px 0 16px; padding:9px 12px; border:1px solid #d8e4ef; border-radius:8px; color:#52647a; background:#f8fbff; font-size:.78rem; font-weight:650; }
 .upload-stepper { display:flex; align-items:center; gap:0; margin:18px 0 8px; padding:0; list-style:none; max-width:760px; }
+.real-photos-details { margin-top:14px; border:1px solid #d8e4ef; border-radius:9px; background:#f8fbff; }
+.real-photos-details summary { padding:10px 12px; color:var(--cm-navy); font-size:.78rem; font-weight:750; cursor:pointer; }
+.real-photos-details[open] { padding:0 12px; }
+.real-photos-details[open] summary { margin:0 -12px 12px; border-bottom:1px solid #d8e4ef; }
 .upload-stepper li { display:flex; align-items:center; gap:7px; color:#7b8da1; font-size:.74rem; font-weight:650; flex:1; }
 .upload-stepper li:not(:last-child)::after { content:""; height:1px; background:#d8e4ef; flex:1; margin:0 10px; }
 .upload-stepper span { display:grid; place-items:center; width:25px; height:25px; border:1px solid #c8d7e5; border-radius:50%; background:#fff; color:#65788d; font-size:.72rem; }

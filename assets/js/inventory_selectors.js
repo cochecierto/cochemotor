@@ -15,7 +15,7 @@ function fill(select, items, placeholder, disabled = false) {
 }
 
 function fuelLabel(value) {
-  return { Petrol: 'Gasolina', PETROL: 'Gasolina', Diesel: 'Diésel', DIESEL: 'Diésel', electric: 'Eléctrico', Electric: 'Eléctrico' }[value] || value;
+  return { Petrol: 'Gasolina', PETROL: 'Gasolina', Diesel: 'Diésel', DIESEL: 'Diésel', electric: 'Eléctrico', Electric: 'Eléctrico', LPG: 'GLP (autogás)', CNG: 'GNC (gas natural)', 'Diesel-electric': 'Híbrido diésel', 'Diesel/Electric': 'Híbrido diésel', 'Petrol-electric': 'Híbrido gasolina', 'PETROL/ELECTRIC': 'Híbrido gasolina' }[value] || value;
 }
 
 function versionLabel(code, brand, model, fuel) {
@@ -43,7 +43,7 @@ function initVehicleSelectors() {
   model.addEventListener('change', () => {
     resetVehicleFrom('up-version');
     const fuels = getFuels(brand.value, model.value);
-    fill(fuel, fuels, 'Selecciona combustible', false);
+    fill(fuel, fuels.map(value => ({ id:value, name:fuelLabel(value) })), 'Selecciona combustible', false);
     fill(version, [], 'Selecciona combustible', true);
   });
   fuel.addEventListener('change', () => {
