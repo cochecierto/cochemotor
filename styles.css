@@ -2058,9 +2058,22 @@ button {
 .hub-content-area {
   flex: 1;
   min-width: 0;
+  width: 100%;
   padding: 32px 44px 80px 44px;
   overflow-y: auto;
 }
+
+/* El panel es una consola operativa a todo lo ancho: cada bloque debe usar
+   el espacio disponible sin quedar encajonado en una columna estrecha. */
+.hub-content-area > .hub-tool-card,
+.hub-content-area > .hub-next-action,
+.hub-content-area > .hub-flow-roadmap,
+.hub-content-area > .hub-metric-bar {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+.hub-tool-card { min-width: 0; }
 
 @media (max-width: 960px) {
   .hub-app-shell {

@@ -1156,3 +1156,7 @@ const CocheMotorStorage = {
     return target;
   }
 };
+
+// Exponer la capa de datos para módulos y diagnósticos del panel. Mantiene
+// compatibilidad con el código legado que consulta la API desde `window`.
+window.CocheMotorStorage = CocheMotorStorage;
