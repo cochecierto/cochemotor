@@ -678,13 +678,13 @@ function renderDemandOrders() {
         <div style="display: flex; align-items: center; gap: 10px;">
           <label style="font-size: 0.85rem; font-weight: 700; color: var(--cm-navy);">Ofrecer de mi stock:</label>
           <select id="order-car-select-${ord.id}" class="form-control" style="font-size: 0.85rem; padding: 6px 12px; width: auto;">
-            ${stock.length ? stock.map(s => `
+            ${stock.filter(s => isVehicleCompatible(s, ord)).length ? stock.filter(s => isVehicleCompatible(s, ord)).map(s => `
               <option value="${s.id}">${s.brand} ${s.model} (${s.price.toLocaleString('es-ES')} € - Etiqueta ${s.badge})</option>
             `).join('') : '<option value="">No tienes coches compatibles</option>'}
           </select>
         </div>
 
-        <button class="btn btn-red" style="padding: 8px 18px; font-size: 0.88rem;" onclick="postulateVehicleToOrder('${ord.id}')" ${!stock.length ? 'disabled' : ''}>
+        <button class="btn btn-red" style="padding: 8px 18px; font-size: 0.88rem;" onclick="postulateVehicleToOrder('${ord.id}')" ${!stock.some(s => isVehicleCompatible(s, ord)) ? 'disabled' : ''}>
           🚀 Postular Coche al Comprador
         </button>
       </div>
