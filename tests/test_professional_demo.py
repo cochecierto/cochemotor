@@ -21,8 +21,8 @@ class ProfessionalDemoTests(unittest.TestCase):
         self.assertIn('assets/brand/logos/cochemotor-horizontal-light.png', self.page)
 
     def test_demo_routes_only_to_beta_registration_or_professional_landing(self):
-        self.assertIn("acceso.html?audience=professional&amp;return=hub&amp;mode=register", self.page)
-        self.assertIn('href="profesionales.html"', self.page)
+        self.assertIn("/acceso?audience=professional&amp;return=hub&amp;mode=register", self.page)
+        self.assertRegex(self.page, r'href="(?:/)?profesionales(?:\.html)?"')
         self.assertNotRegex(self.page, r'href="https?://')
         self.assertNotRegex(self.page, r'href="(?:hub|dealer|ficha)\.html')
 

@@ -143,10 +143,10 @@ class PublicSeoFoundationTests(unittest.TestCase):
 
     def test_static_sitemap_only_lists_canonical_entry_pages(self):
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
-        for filename in ("marketplace.html", "demanda.html", "profesionales.html", "guias/comprar-coche-usado.html", "aviso-legal.html", "privacidad.html", "terminos.html"):
+        for filename, path in (("marketplace.html", "marketplace"), ("demanda.html", "demanda"), ("profesionales.html", "profesionales"), ("guias/comprar-coche-usado.html", "guias/comprar-coche-usado.html"), ("aviso-legal.html", "aviso-legal"), ("privacidad.html", "privacidad"), ("terminos.html", "terminos")):
             page = (ROOT / filename).read_text(encoding="utf-8")
-            self.assertIn("https://cochemotor.es/" + filename, sitemap)
-            self.assertIn('rel="canonical" href="https://cochemotor.es/' + filename + '"', page)
+            self.assertIn("https://cochemotor.es/" + path, sitemap)
+            self.assertIn('rel="canonical" href="https://cochemotor.es/' + path + '"', page)
         self.assertNotIn("publicar.html", sitemap)
         self.assertRegex((ROOT / "publicar.html").read_text(encoding="utf-8"), r'<meta name="robots" content="noindex,follow">')
 

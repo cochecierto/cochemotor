@@ -35,9 +35,9 @@ class BetaFeedbackReadinessTests(unittest.TestCase):
         for name in pages:
             with self.subTest(page=name):
                 page = (ROOT / name).read_text(encoding="utf-8")
-                self.assertIn('href="feedback-beta.html', page)
+                self.assertRegex(page, r'href="(?:/)?feedback-beta(?:\.html)?')
         hub = (ROOT / "hub.html").read_text(encoding="utf-8")
-        self.assertIn('href="feedback-beta.html', hub)
+        self.assertRegex(hub, r'href="(?:/)?feedback-beta(?:\.html)?')
 
     def test_dark_footer_uses_approved_dark_background_logo(self):
         home = (ROOT / "index.html").read_text(encoding="utf-8")

@@ -58,8 +58,8 @@ class WebFlowReliabilityTests(unittest.TestCase):
 
     def test_registration_requires_privacy_acknowledgement_and_links_current_notices(self):
         form = self.access.split('id="register-form"', 1)[1].split("</form>", 1)[0]
-        self.assertIn("privacidad.html", form)
-        self.assertIn("terminos.html", form)
+        self.assertRegex(form, r'(?:/privacidad|privacidad\.html)')
+        self.assertRegex(form, r'(?:/terminos|terminos\.html)')
         self.assertRegex(form, r"type=['\"]checkbox['\"]")
         self.assertIn("privacy_notice_version", self.api)
 
