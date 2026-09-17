@@ -99399,7 +99399,4808 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Diésel": [
- " [
+          "AGAAA6A5AAAA"
+        ]
+      }
+    },
+    "COLT": {
+      "years": [
+        2010,
+        2011,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "AFDDA5A5*"
+        ],
+        "GLP (autogás)": [
+          "MT6WA3JA52KB"
+        ],
+        "Gasolina": [
+          "AAAAA5A4D",
+          "AAAAA5A5*",
+          "ABBBA5A5*",
+          "AEDEA5A5D",
+          "AFEFA5A5*",
+          "AGFGA5A5*",
+          "AK1KA5B5E",
+          "ALJLA5B5E",
+          "ANLNA5B5E",
+          "APMPA5B5E",
+          "APMPA5B5EAAA",
+          "MG5WA2HA50K0",
+          "MT6WA2GA52K0",
+          "MT6WA2GA52KB",
+          "MT6WA2GA53K0",
+          "MT6WA2GA53KB",
+          "N69WA3VA52K0",
+          "N69WA3VA53K0",
+          "N84WA3VA52K0",
+          "N84WA3VA53K0",
+          "N84WA3VA53KB"
+        ]
+      }
+    },
+    "ECLIPSE": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "ADCAA8B5CAAA"
+        ],
+        "Gasolina": [
+          "AAAAM6A5AAAA",
+          "AAAAM6B5CAAA",
+          "AAAAM6C5DAAA",
+          "ABBACCA5BAAA",
+          "ABBACCB5CAAA",
+          "ACBACCA5BAAA",
+          "ACBACCB5CAAA"
+        ],
+        "Híbrido gasolina": [
+          "AEDBRRB5EAAA"
+        ]
+      }
+    },
+    "ECLIPSE CROSS 150T CVT": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ABBACCB5CAAA",
+          "ACBACCB5CAAA"
+        ]
+      }
+    },
+    "ECLIPSE CROSS 150T MOT": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AAAAM6B5CAAA"
+        ]
+      }
+    },
+    "ECLIPSE CROSS 150T SPI": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AAAAM6B5CAAA"
+        ]
+      }
+    },
+    "GRANDIS": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Diésel": [
+          "AJBBA6A7"
+        ]
+      }
+    },
+    "I MIEV": {
+      "years": [
+        2012,
+        2013,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "AAAAAAA4AAAA"
+        ],
+        "Híbrido gasolina": [
+          "AAAAAAA4AAAA"
+        ]
+      }
+    },
+    "I-MIEV": {
+      "years": [
+        2011
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "AAAAAAA4AAAA"
+        ]
+      }
+    },
+    "L 200": {
+      "years": [
+        2012,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "AA2AAA5NJ",
+          "AA2MAAA5LE2AAAA",
+          "AB3MEAM6AC4AAAA",
+          "AG1MAAA5NJ5AAAA",
+          "AV1NA5NJ5AAAA",
+          "AV1NAA5NJ5AAAA"
+        ]
+      }
+    },
+    "LANCER": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "ACBBA6A5*",
+          "ACBBA6A5A",
+          "ACBBA6B5*",
+          "AGFFA6B5CAAA",
+          "AHKKA6B5CAAA",
+          "AIFFA6A5A",
+          "AIFFA6B5C",
+          "IFFA6B5C"
+        ],
+        "Gasolina": [
+          "AAAAA5A5",
+          "AAAAA5A5A",
+          "ABAAB6A5A",
+          "AECCCCB5*",
+          "AGEEA5A5A",
+          "AJGGA5B5C",
+          "AKGGCCB5C"
+        ]
+      }
+    },
+    "LANCER EVOLUTION": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AAAAA5A5",
+          "AAAAA5A5A",
+          "ABAAB6A5A"
+        ]
+      }
+    },
+    "MITSUBISHI SPACE STAR": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ACBBA5C5CAAA"
+        ]
+      }
+    },
+    "MONTERO": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2014,
+        2015,
+        2016,
+        2017,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "ABABA5A5B",
+          "ABABA5B5B",
+          "ACABA5A5BAAA",
+          "ACABA5A5BAGA",
+          "ACABA5B5CAGA",
+          "ADABB5A5BAAA",
+          "ADABB5A5BAGA",
+          "ADABB5B5CAAA",
+          "ADABB5B5CAGA",
+          "ADABB5B5CAGG",
+          "AEABA5B5C",
+          "AEABB5B5B",
+          "AGABB5B5C",
+          "APABA5A5B",
+          "BDCDA5A5A",
+          "BFCDB5A7A",
+          "BICDA5A7B",
+          "BICDA5A7BAAA",
+          "BJCDA5A7BAAA",
+          "BJCDA5B7CAAA",
+          "BKCDB5A7BAAA",
+          "BKCDB5B7CAAA",
+          "BKCDB5B7CAAG",
+          "BKCDB5B7CZZZ",
+          "BLCDA5B7C",
+          "BNCDB5B7C",
+          "BQCDA5A5B",
+          "LOOCDA137",
+          "SFFABA135"
+        ],
+        "Gasolina": [
+          "AAAAB5A5A",
+          "BCBCB5A7A"
+        ]
+      }
+    },
+    "MONTERO M-PRO": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Diésel": [
+          "ABABA5A5B"
+        ]
+      }
+    },
+    "MONTERO SPIRIT": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Diésel": [
+          "ACABA5A5BAAA"
+        ]
+      }
+    },
+    "Mitsubishi Eclipse Cross": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "AEDBRRB5EAAA"
+        ]
+      }
+    },
+    "Mitsubishi Outlander": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "ABCCA6A5BAAA"
+        ]
+      }
+    },
+    "OUTLANDER": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "AAAAA6B5*",
+          "AAAAA6B5C",
+          "AAACA6A6AAAJ",
+          "AAACA6A7AAAJ",
+          "AACAA6A5AAAA",
+          "AACAA6B5BAAA",
+          "ABAAA6A**",
+          "ABACA6A6AAAJ",
+          "ABACA6A7AAAJ",
+          "ADCCA6",
+          "ADCCA6A7AAAA",
+          "ADCGA6A7AAAA",
+          "AHACA6A5B",
+          "AIACA6A7*",
+          "AJAAA6B5C",
+          "AKACC6A6AAAJ",
+          "AKACC6A7",
+          "AKACC6A7*",
+          "AKACC6A7AAAJ",
+          "ALCC6A7AAAA",
+          "ALCCC6A7AAAA",
+          "ALCGC6A7AAAA",
+          "AMCCA6A7AAAA",
+          "AMCCA6B7BAAA",
+          "APBDA6A5B",
+          "BERLINA"
+        ],
+        "GLP (autogás)": [
+          "AFDDBCA5AAAA"
+        ],
+        "Gasolina": [
+          "1EABCA5",
+          "A5BEA5A5AAAJ",
+          "ACABA5A5A",
+          "AFDCBCC5DAAA",
+          "AFDDBCA5AAAA",
+          "AGDEBCC7DAAA",
+          "AGDFBCA7AAAA",
+          "AGDFBCB7BAAA",
+          "AHACA6A5B",
+          "AKDHBCC7DAAA",
+          "ATABRRA5AAAA",
+          "AUBEA5A5A",
+          "AUBEA5A5AAAJ"
+        ],
+        "Híbrido gasolina": [
+          "ARABRRA5AAAA",
+          "ARABRRA5AACA",
+          "ARABRRA5AAVA",
+          "ATABRRA5AAAA",
+          "ATABRRA5AACA",
+          "ATBRRA5AAAA",
+          "AVEJRRC5DAAA"
+        ]
+      }
+    },
+    "OUTLANDER 200 MPI CHAL": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AUBEA5A5AAAJ"
+        ]
+      }
+    },
+    "OUTLANDER 200 MPI CVT": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AFDCBCC5DAAA",
+          "AGDEBCC7DAAA"
+        ]
+      }
+    },
+    "OUTLANDER 220 DI-D MOT": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Diésel": [
+          "AAACA6A6AAAJ",
+          "ABACA6A6AAAJ"
+        ]
+      }
+    },
+    "OUTLANDER 220 DI-D SST": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Diésel": [
+          "AKACC6A6AAAJ"
+        ]
+      }
+    },
+    "OUTLANDER PHEV KAITEKI": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "AVEJRRA5BAAA",
+          "AVEJRRC5DAAA"
+        ]
+      }
+    },
+    "OUTLANDER PHEV MOTION": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "AVEJRRA5BAAA",
+          "AVEJRRC5DAAA"
+        ]
+      }
+    },
+    "OUTLANDER220DIDKAITEKI": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Diésel": [
+          "ALCGC6A7AAAA"
+        ]
+      }
+    },
+    "PAJERO": {
+      "years": [
+        2011,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "ACABA5A5BAAA",
+          "ACABA5A5BAGA",
+          "ACABA5B5CAGA",
+          "ADABB5B5CAGA",
+          "BICDA5A5BAAA",
+          "BICDA5A7B",
+          "BICDA5B7CAAA",
+          "BJCDA5A7BAAA",
+          "BJCDA5B7CAAA",
+          "BKCDB5B7CAAA",
+          "BKCDB5B7CAAG",
+          "BLCDA5B7C",
+          "BNCDB5B7C"
+        ]
+      }
+    },
+    "PAJERO/MONT": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "ACABA5A5BAGA",
+          "ACABA5B5CAGA",
+          "ADABB5B5CAGA",
+          "BJCDA5A7BAAA",
+          "BJCDA5B7CAAA",
+          "BKCDB5B7CAAA"
+        ]
+      }
+    },
+    "SPACE": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AAAA5B5CAAA",
+          "AAAAA5A5AAAA",
+          "AAAAA5B5CAAA",
+          "AABBA5A5AAAA",
+          "AABBA5A5BAAA",
+          "AABBA5A5BAAAA",
+          "ABBCCCA5BAAA",
+          "ACBBA5A5AAAA",
+          "ACBBA5A5BAAA",
+          "ACBBA5B5BAAA",
+          "ACBBA5C5CAAA",
+          "AEBCCCB5BAAA",
+          "AEBCCCC5CAAA"
+        ]
+      }
+    }
+  },
+  "MITSUBISHI MOTORS (THAILAND)": {
+    "Mitsubishi Space Star": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ACBBA5A5AAAA",
+          "ACBBA5C5CAAA",
+          "AEBCCCC5CAAA",
+          "AFBBA5A5AAAA"
+        ]
+      }
+    }
+  },
+  "MITSUBISHI MOTORS (THAILAND) C": {
+    "MITSUBISHI SPACE STAR": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ACBBA5A5AAAA",
+          "ACBBA5C5CAAA",
+          "AEBCCCC5CAAA",
+          "AFBBA5A5AAAA"
+        ]
+      }
+    }
+  },
+  "MITSUBISHI MOTORS CORPORATION": {
+    "MITSUBISHI ECLIPSE CROSS": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "AEDBRRB5EAAA"
+        ]
+      }
+    }
+  },
+  "MITSUBISHI MOTORS THAILAND": {
+    "MITSUBISHI SPACE STAR": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ACBBA5A5AAAA",
+          "ACBBA5C5CAAA",
+          "AEBCCCC5CAAA",
+          "AFBBA5A5AAAA"
+        ]
+      }
+    }
+  },
+  "MITSUBISHI MOTORS THAILAND LTD.": {
+    "Mitsubishi Space Star": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AAAAA5A5AAAA"
+        ]
+      }
+    }
+  },
+  "MOBILIZE": {
+    "LIMO": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "1Y5EA2M00000"
+        ]
+      }
+    }
+  },
+  "MOBILVETTA": {
+    "ADMIRAL K 5.1": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "DUR14"
+        ]
+      }
+    }
+  },
+  "MOBILVETTA DESIGN": {
+    "ADMIRAL K 5.1": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "DUR1"
+        ]
+      }
+    },
+    "ADMIRAL K 6.3": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "DVR1"
+        ]
+      }
+    },
+    "ADMIRAL K 6.5": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "DWR1"
+        ]
+      }
+    },
+    "K YACHT 85 TEKNO DEISG": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "79HM4A1"
+        ]
+      }
+    },
+    "K YACHT TEKNO LINE 86": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "EMBH214"
+        ]
+      }
+    },
+    "K-YACHT 85 TEKNO DESIG": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "79HM4A1"
+        ]
+      }
+    },
+    "K-YACHT TEKNO LINE 86": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "EMBH214"
+        ]
+      }
+    },
+    "K-YACHT TEKNO LINE 90": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "EABJ213",
+          "EABJ214",
+          "EMBJ214"
+        ]
+      }
+    },
+    "K-YATCH TEKNO LINE 86": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "EMBH214"
+        ]
+      }
+    },
+    "KEA I 86": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "EANG214",
+          "EMNG214"
+        ]
+      }
+    },
+    "KEA I 90": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "EMNH214"
+        ]
+      }
+    },
+    "KEA P 71": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BAPP214"
+        ]
+      }
+    },
+    "KEA P 86": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BMNC214"
+        ]
+      }
+    },
+    "KEA P71": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BMPP214"
+        ]
+      }
+    },
+    "KEA P90": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BMND214"
+        ]
+      }
+    },
+    "KROSSER 86": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BMLA214"
+        ]
+      }
+    },
+    "KROSSER 90": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BMGY214"
+        ]
+      }
+    }
+  },
+  "MOBILVETTA DESING": {
+    "KEA P 86": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BMNC214"
+        ]
+      }
+    }
+  },
+  "MORELO": {
+    "HOME 82M": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "IDIMI11P1SAGCDA8"
+        ]
+      }
+    }
+  },
+  "MORGAN": {
+    "4/4": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "W12"
+        ]
+      }
+    },
+    "PLUS": {
+      "years": [
+        2014,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "15W4",
+          "A2",
+          "CA15W",
+          "CA15WSP",
+          "CA19ST"
+        ]
+      }
+    },
+    "PLUS 4": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "W62"
+        ]
+      }
+    },
+    "PLUS FOUR": {
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CA15ASP",
+          "CA15W",
+          "CA16WST",
+          "CM15WST"
+        ]
+      }
+    },
+    "PLUS SIX": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CA18ST"
+        ]
+      }
+    },
+    "PULS": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CA18"
+        ]
+      }
+    },
+    "ROADSTER": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "15W2"
+        ]
+      }
+    }
+  },
+  "MOTO STAR": {
+    "ECOSPORT": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "5AAPENAPMEW"
+        ]
+      }
+    },
+    "FIESTA": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "5CDHRNA5ADA",
+          "5CDHTNA5ADB",
+          "5CDPRNA5ADZ"
+        ]
+      }
+    },
+    "FOCUS": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "5APCENA5IBS",
+          "5ARCENA4MBS"
+        ]
+      }
+    },
+    "KUGA": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "555BJNA2IAA",
+          "555BJNA2JAA",
+          "555BKNA2JAS",
+          "555BLNA2JAS"
+        ]
+      }
+    },
+    "MUSTANG MACH-E": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "5AAAZNALWAB"
+        ]
+      }
+    },
+    "PUMA": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "5CCHTNA5SBX",
+          "5CFHTNA5QAX",
+          "5CFPTNA5QAC"
+        ]
+      }
+    },
+    "S-MAX": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "5TIBZNA1ZFA",
+          "7TIBLNA1ZFG"
+        ]
+      }
+    },
+    "TRANSIT": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "W9WTASABCATBAB"
+        ]
+      }
+    },
+    "TRANSIT CONNECT": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "E5BBBSAEDAZ3J"
+        ]
+      }
+    },
+    "TRANSIT CUSTOM": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "S6AGASAFCAWRE",
+          "S9WRASAEDAWQC",
+          "S9WRASAEDAWVC"
+        ]
+      }
+    }
+  },
+  "NIESMANN BISCHOFF": {
+    "FLAIR 880LE": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "IFH3H/AR6DH24NB88LE"
+        ]
+      }
+    },
+    "ISMOVE 6.9E": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "FIH2F/AR2AH14NB69EX",
+          "FIH3F/AR2AL24NB69EX"
+        ]
+      }
+    }
+  },
+  "NISSAN": {
+    "350Z": {
+      "years": [
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A02"
+        ]
+      }
+    },
+    "370Z": {
+      "years": [
+        2012,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A01",
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13",
+          "A14",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B07",
+          "B08"
+        ]
+      }
+    },
+    "370Z COUPE": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ND"
+        ]
+      }
+    },
+    "ALTIMA": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ND"
+        ]
+      }
+    },
+    "CUBE": {
+      "years": [
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A01"
+        ]
+      }
+    },
+    "E-NV200": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "B/B03",
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B07"
+        ]
+      }
+    },
+    "GT-R": {
+      "years": [
+        2011,
+        2012,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A01",
+          "A03",
+          "A05",
+          "A08",
+          "A09",
+          "A10",
+          "A12",
+          "A14"
+        ]
+      }
+    },
+    "INFINITI": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "A01",
+          "A03",
+          "F07"
+        ]
+      }
+    },
+    "INTERSTAR": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "00AC6EP033D3T0"
+        ]
+      }
+    },
+    "JUKE": {
+      "years": [
+        2011,
+        2012,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "A01",
+          "A02",
+          "A04",
+          "C03",
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06"
+        ],
+        "Gasolina": [
+          "A01",
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13",
+          "A14",
+          "B01",
+          "B02",
+          "B04",
+          "B05",
+          "B06",
+          "C01",
+          "C03",
+          "C05",
+          "C06",
+          "E01",
+          "E02",
+          "E03",
+          "F15/A/A06",
+          "F15/A/A07",
+          "F15/E/E02",
+          "F15/E/E03"
+        ]
+      }
+    },
+    "JUNKE": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "D03"
+        ]
+      }
+    },
+    "LEAF": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "01",
+          "A0",
+          "A01",
+          "A011",
+          "A02",
+          "A03",
+          "A05",
+          "A07",
+          "E11*2007/46*0230*04",
+          "ZE0/A/A02"
+        ]
+      }
+    },
+    "LEAFT": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "A05"
+        ]
+      }
+    },
+    "MICRA": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "A01",
+          "A02",
+          "A03",
+          "A05",
+          "B01"
+        ],
+        "GLP (autogás)": [
+          "D06"
+        ],
+        "Gasolina": [
+          "01",
+          "A01",
+          "A02",
+          "A03",
+          "A04",
+          "A06",
+          "A07",
+          "A08",
+          "A10",
+          "A12",
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B08",
+          "B10",
+          "B11",
+          "B12",
+          "C01",
+          "C03",
+          "D01",
+          "D02",
+          "D03",
+          "D06",
+          "D09",
+          "D11",
+          "D12",
+          "D14",
+          "D17",
+          "D20",
+          "E01",
+          "E04",
+          "G01",
+          "K13",
+          "K13/A/A07",
+          "K13/A/A12"
+        ]
+      }
+    },
+    "MICRA 1.0 I 16V": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "B03"
+        ]
+      }
+    },
+    "MURANO": {
+      "years": [
+        2012,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "C01"
+        ],
+        "Gasolina": [
+          "A01",
+          "B01"
+        ]
+      }
+    },
+    "NAVARA": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "6M1C2FL5",
+          "6M6C2DE5"
+        ]
+      }
+    },
+    "NISAN": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "A01"
+        ]
+      }
+    },
+    "NISSA": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "B01"
+        ]
+      }
+    },
+    "NISSA JUKE": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A12"
+        ]
+      }
+    },
+    "NISSAN": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "A01",
+          "B01",
+          "B02"
+        ]
+      }
+    },
+    "NISSAN 370Z": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A09",
+          "A10",
+          "A11"
+        ]
+      }
+    },
+    "NISSAN 370Z ROADSTER": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "B05",
+          "B06"
+        ]
+      }
+    },
+    "NISSAN ARIYA": {
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "A01",
+          "A03",
+          "A05",
+          "A07",
+          "B03",
+          "B05",
+          "B07",
+          "B09",
+          "B11"
+        ]
+      }
+    },
+    "NISSAN E-NV200": {
+      "years": [
+        2019,
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "B03",
+          "B04",
+          "B07"
+        ]
+      }
+    },
+    "NISSAN GT-R": {
+      "years": [
+        2018,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A10",
+          "A11",
+          "A14"
+        ]
+      }
+    },
+    "NISSAN JUKE": {
+      "years": [
+        2018,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "A12",
+          "D06"
+        ],
+        "Gasolina": [
+          "A09",
+          "A10",
+          "A12",
+          "A13",
+          "A14",
+          "A18",
+          "A22",
+          "A26",
+          "A30",
+          "A34",
+          "B02",
+          "B03",
+          "B06",
+          "B09"
+        ]
+      }
+    },
+    "NISSAN LEAF 40KWH": {
+      "years": [
+        2018,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "A01",
+          "A02",
+          "A05",
+          "A06"
+        ]
+      }
+    },
+    "NISSAN LEAF 62KWH": {
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "A03",
+          "A07"
+        ]
+      }
+    },
+    "NISSAN LEAF E": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "A02"
+        ]
+      }
+    },
+    "NISSAN MICRA": {
+      "years": [
+        2018,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "A01",
+          "A05"
+        ],
+        "Gasolina": [
+          "B05",
+          "C03",
+          "D01",
+          "D11",
+          "D14",
+          "D17",
+          "D20"
+        ]
+      }
+    },
+    "NISSAN NV200": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "H39",
+          "H42",
+          "N39",
+          "N42"
+        ]
+      }
+    },
+    "NISSAN NV300": {
+      "years": [
+        2018,
+        2019,
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "MH1000600A00",
+          "MH1000600B00",
+          "ML6TAH100A30",
+          "ML6TAH142A30",
+          "MMATAW100A30",
+          "MN6TAB100A10",
+          "MN6TAB100A30",
+          "MN6TAB100B30",
+          "MN6TAB142A10",
+          "MN6TAB142A30",
+          "MS6SA4000A10",
+          "MS6SA4000A30",
+          "MS6SA4000B30",
+          "MS6SA4002A10",
+          "MS6SA4002A30",
+          "MS6SA4042A10",
+          "MS6SA4042A30",
+          "MU6UC4400A10",
+          "MU6UC4400A30",
+          "MU6UC4400B10",
+          "MU6UC4400B30",
+          "MU6UC4402A30",
+          "MW6UC2400A10",
+          "MW6UC2400A30",
+          "MW6UC2402A30"
+        ]
+      }
+    },
+    "NISSAN NV400": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "00A16DP033D3T0"
+        ]
+      }
+    },
+    "NISSAN QASHQAI": {
+      "years": [
+        2018,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "A04",
+          "A74"
+        ],
+        "Gasolina": [
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A12",
+          "A15",
+          "A16",
+          "A17",
+          "A18",
+          "A20",
+          "A21",
+          "A22",
+          "A26",
+          "A30",
+          "A31",
+          "A32",
+          "A35",
+          "A36",
+          "A39",
+          "A41",
+          "A42",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B07",
+          "B08",
+          "B09",
+          "B12",
+          "B13",
+          "C03",
+          "C05",
+          "C06",
+          "C07",
+          "C13",
+          "C15",
+          "C16",
+          "F01",
+          "F02",
+          "F03",
+          "F10",
+          "F71",
+          "F72",
+          "F73"
+        ]
+      }
+    },
+    "NISSAN QASHQAI+2": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A02"
+        ]
+      }
+    },
+    "NISSAN X-TRAIL": {
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A02",
+          "A03",
+          "A06",
+          "A07",
+          "A08",
+          "B02",
+          "B03",
+          "B06",
+          "B07",
+          "B10",
+          "B11",
+          "B12",
+          "B15",
+          "B16",
+          "C02",
+          "C03",
+          "C06",
+          "C07",
+          "C10",
+          "C11",
+          "C14",
+          "C15",
+          "C16",
+          "H13",
+          "H14",
+          "H15",
+          "H16"
+        ]
+      }
+    },
+    "NISSAQN": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "B01"
+        ]
+      }
+    },
+    "NISSN": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "A01"
+        ]
+      }
+    },
+    "NISSSAN": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "B01"
+        ]
+      }
+    },
+    "NISSSAN TERRANO 3.0 3P": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Diésel": [
+          "G1"
+        ]
+      }
+    },
+    "NOTE": {
+      "years": [
+        2012,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Diésel": [
+          "A01",
+          "A02",
+          "B01",
+          "C01",
+          "C04"
+        ],
+        "Gasolina": [
+          "A01",
+          "A02",
+          "B01",
+          "B01E",
+          "B02",
+          "B03",
+          "B04",
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "E12/B/B01"
+        ]
+      }
+    },
+    "NV200": {
+      "years": [
+        2012,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "B31",
+          "B35",
+          "E11",
+          "E31",
+          "H11",
+          "H13",
+          "H14",
+          "H31",
+          "H34",
+          "H35",
+          "H38",
+          "H39",
+          "H42",
+          "M14",
+          "N11",
+          "N13",
+          "N14",
+          "N31",
+          "N34",
+          "N35",
+          "N38",
+          "N39",
+          "N42"
+        ],
+        "Gasolina": [
+          "G11",
+          "G12",
+          "G14",
+          "G16",
+          "H34",
+          "M12",
+          "M14",
+          "M16",
+          "N31",
+          "N34"
+        ]
+      }
+    },
+    "NV2OO": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "H34"
+        ]
+      }
+    },
+    "NV300": {
+      "years": [
+        2016,
+        2017,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "MG1000600A00",
+          "MG1000600B00",
+          "MG1000642A00",
+          "MG1000642B00",
+          "MH1000600A00",
+          "MH1000600B00",
+          "MH1000602A00",
+          "MH1000642A00",
+          "MH1000642B00",
+          "ML6TAH100A10",
+          "ML6TAH100A30",
+          "ML6TAH100B30",
+          "ML6TAH142A10",
+          "ML6TAH142A30",
+          "ML6TAH142B30",
+          "MLATAS100B30",
+          "MLATAS142A30",
+          "MMATAW100A30",
+          "MMATAW100B30",
+          "MMATAW142A30",
+          "MMATAW142B30",
+          "MN6TAB100A10",
+          "MN6TAB100A30",
+          "MN6TAB100B30",
+          "MN6TAB142A10",
+          "MN6TAB142A30",
+          "MN6TAB142B30",
+          "MS6SA4000A10",
+          "MS6SA4000A30",
+          "MS6SA4000B30",
+          "MS6SA4002A30",
+          "MS6SA4042A30",
+          "MS6SA4042B30",
+          "MU6UC4400A10",
+          "MU6UC4400A30",
+          "MU6UC4400B10",
+          "MU6UC4400B30",
+          "MU6UC4402A10",
+          "MU6UC4402A30",
+          "MW6UC2400A10",
+          "MW6UC2400A30",
+          "MW6UC2400B30",
+          "MW6UC2402A10",
+          "MW6UC2402A30",
+          "MW6UC2402B30"
+        ]
+      }
+    },
+    "NV400": {
+      "years": [
+        2016,
+        2017,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "00A16DP033D3T0",
+          "MSB31B61A3T0",
+          "MSB31B62A3T0",
+          "MSB31B63D3T0"
+        ]
+      }
+    },
+    "Nissan e-NV200": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "B03",
+          "B04"
+        ]
+      }
+    },
+    "PATHFINDER": {
+      "years": [
+        2011,
+        2012,
+        2014,
+        2015,
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "C01",
+          "C6",
+          "D01",
+          "D09",
+          "E01",
+          "G01",
+          "G02"
+        ],
+        "Gasolina": [
+          "ND"
+        ]
+      }
+    },
+    "PATROL": {
+      "years": [
+        2012
+      ],
+      "fuels": {
+        "Diésel": [
+          "C08"
+        ]
+      }
+    },
+    "PIXO": {
+      "years": [
+        2012,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MT"
+        ]
+      }
+    },
+    "PRIMASTAR": {
+      "years": [
+        2012,
+        2014,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "F4A0A6",
+          "F4B1B1",
+          "F4B1B6",
+          "J4A7A3",
+          "J4A7A4",
+          "J4A7AA",
+          "J4B7B3",
+          "J4B7BA",
+          "J4C1A3",
+          "J4C1AA",
+          "MU6UC3400A30",
+          "MU6UC3402A10",
+          "MU6UC3402A30",
+          "MU6UC34A0A10",
+          "MU6UC34A0A30",
+          "MU6UC34A0B10",
+          "MU6UC34A0B30",
+          "MU6UC34A2A10",
+          "MU6UC34A2A30",
+          "MU6UC34A2B30",
+          "MU6WC34A06B0",
+          "MU6WC34A08B0",
+          "MU6WC34A09B0",
+          "MU6WC34A0A10",
+          "MU6WC34A0A30",
+          "MU6WC34A0B30",
+          "MU6WC34A26B0",
+          "MU6WC34A28B0",
+          "MU6WC34A29B0",
+          "MU6WC34A2A10",
+          "MU6WC34A2A30",
+          "MUAUC5402B30",
+          "MUAUC54A0A10",
+          "MUAUC54A0A30",
+          "MUAUC6400B30",
+          "MUAWC54A09B0",
+          "MUAWC54A0B30",
+          "MUAWC54A29B0",
+          "MVAUC74A0A10",
+          "MVAUC8402A30",
+          "MVAUC8402B30",
+          "MW6UC1400A10",
+          "MW6UC1400A30",
+          "MW6UC1402A30",
+          "MW6UC14A0A10",
+          "MW6UC14A0A30",
+          "MW6UC14A0B30",
+          "MW6UC14A2A10",
+          "MW6UC14A2A30",
+          "MW6UC2400A30",
+          "MW6WC14A09B0",
+          "MW6WC14A0A10",
+          "MW6WC14A0A30",
+          "MW6WC14A26B0",
+          "MW6WC14A29B0",
+          "MW6WC14A2A10",
+          "MW6WC14A2A30"
+        ]
+      }
+    },
+    "PRIMASTARJ4": {
+      "years": [
+        2011
+      ],
+      "fuels": {
+        "Diésel": [
+          "J4AHJ4AHAS"
+        ]
+      }
+    },
+    "PULSAR": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Diésel": [
+          "A0/",
+          "A01",
+          "A02",
+          "A03",
+          "A06",
+          "B01",
+          "C01"
+        ],
+        "Gasolina": [
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "C01",
+          "C02"
+        ]
+      }
+    },
+    "PULSAT": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "B01"
+        ]
+      }
+    },
+    "QASHQAI": {
+      "years": [
+        2011,
+        2012,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "0A1",
+          "3",
+          "A01",
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A10",
+          "A11",
+          "A14",
+          "A15",
+          "A18",
+          "A19",
+          "A72",
+          "A74",
+          "A76",
+          "A77",
+          "A80",
+          "A81",
+          "A88",
+          "A89",
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B73",
+          "B75",
+          "C01",
+          "C02",
+          "C03",
+          "C06",
+          "C07",
+          "C08",
+          "C72",
+          "CO2",
+          "D01",
+          "D02",
+          "D03",
+          "E02",
+          "F02",
+          "F05",
+          "F06",
+          "F07",
+          "G01",
+          "G04",
+          "G06",
+          "G08",
+          "G71",
+          "G74",
+          "G78",
+          "H01",
+          "H02",
+          "H03",
+          "H04",
+          "H05",
+          "H06",
+          "H07",
+          "H08",
+          "H71",
+          "H72",
+          "H73",
+          "H74",
+          "H77",
+          "H78",
+          "J02",
+          "J11/A/A01",
+          "K01",
+          "K02",
+          "L01",
+          "L02",
+          "M01",
+          "M02",
+          "N01",
+          "N02"
+        ],
+        "GLP (autogás)": [
+          "D03",
+          "D06"
+        ],
+        "Gasolina": [
+          "A01",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A12",
+          "A15",
+          "A16",
+          "A17",
+          "A18",
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D73",
+          "D75",
+          "E01",
+          "E02",
+          "E05",
+          "E06",
+          "E07",
+          "E08",
+          "E71",
+          "F01",
+          "F02",
+          "F03",
+          "F04",
+          "F05",
+          "F06",
+          "F07",
+          "F08",
+          "F09",
+          "F10",
+          "F12",
+          "F71",
+          "F72",
+          "F73",
+          "F74",
+          "F75",
+          "F76",
+          "F77",
+          "F78",
+          "F79",
+          "G03",
+          "G04",
+          "J11/D/D04",
+          "J11/D/D05",
+          "J11/D/D06"
+        ]
+      }
+    },
+    "ROGUE": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ND"
+        ]
+      }
+    },
+    "SENTRA": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ND"
+        ]
+      }
+    },
+    "TERRANO": {
+      "years": [
+        2020,
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "C2",
+          "C3",
+          "H1"
+        ]
+      }
+    },
+    "TERRANO 3P 2.7": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "C2"
+        ]
+      }
+    },
+    "TERRANO II": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A3"
+        ]
+      }
+    },
+    "TOWNSTAR": {
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MB6A146A1000",
+          "MB6A147A1000",
+          "MB6A746A1000",
+          "MB6A746A10B0",
+          "MB6A747A1000",
+          "MB6A747A10B0",
+          "MB6AH46C30B0",
+          "MB6AH47C30B0"
+        ]
+      }
+    },
+    "VERSA": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ND"
+        ]
+      }
+    },
+    "VERSA SEDAN": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ND"
+        ]
+      }
+    },
+    "X-TRAIL": {
+      "years": [
+        2010,
+        2012,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "A01",
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A79",
+          "A80",
+          "A81",
+          "A82",
+          "B01",
+          "B02",
+          "B03",
+          "B05",
+          "B06",
+          "B75",
+          "B76",
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D72",
+          "D74",
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E06",
+          "E08",
+          "E72",
+          "E74",
+          "E76",
+          "E78",
+          "F01",
+          "F02",
+          "F03",
+          "F04",
+          "F06",
+          "F07",
+          "F08",
+          "F09",
+          "F11",
+          "F12",
+          "F13",
+          "F14",
+          "F71",
+          "F72",
+          "F73",
+          "F74",
+          "G01",
+          "G02",
+          "G04",
+          "G06",
+          "G08",
+          "G09",
+          "G10",
+          "G11",
+          "G13",
+          "G16",
+          "G17",
+          "G18",
+          "G20",
+          "G21",
+          "G71",
+          "G72",
+          "G74",
+          "G76",
+          "T32/A/A10"
+        ],
+        "Gasolina": [
+          "A02",
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C73",
+          "C74",
+          "E04",
+          "H01",
+          "H03",
+          "H05",
+          "H06",
+          "H07",
+          "H08",
+          "H09",
+          "H10",
+          "H11",
+          "H12",
+          "H13",
+          "H14",
+          "H15",
+          "H16",
+          "H71",
+          "H72",
+          "H73",
+          "H74",
+          "H75",
+          "H76",
+          "H77",
+          "H78",
+          "J01"
+        ]
+      }
+    },
+    "XTRAIL": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "B01"
+        ]
+      }
+    }
+  },
+  "OLEOPEL": {
+    "CORSA": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHYJ-X2B200"
+        ],
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "HMHD-X1B100",
+          "HNKK-X1B300",
+          "HNKK-X1B600",
+          "HNKS-X1B300",
+          "HNSS-X1B300"
+        ]
+      }
+    }
+  },
+  "OMODA": {
+    "E5": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "53B008A"
+        ]
+      }
+    },
+    "OMODA5": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "51E324T",
+          "51E34CA"
+        ]
+      }
+    },
+    "OMODA5 EV": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "53B002A"
+        ]
+      }
+    }
+  },
+  "OPEL": {
+    "ADAM": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "4B06E4C5PHR4",
+          "BA1L2JKJC5",
+          "BA1N4FPCD5",
+          "BA1S1FMHL5",
+          "BX1C6EHLA4",
+          "BX1C6EHTA4",
+          "BX1D3EHTA4",
+          "BX1D3EHTK4"
+        ],
+        "GLP (autogás)": [
+          "1BACE8C8PHT4",
+          "BA2MAEEHN14",
+          "BA2MAEEHN24",
+          "BX1AD3EHT4A",
+          "BX1D3EHTA4",
+          "BX1D3EHTK4",
+          "BX1D6EHTA4",
+          "BX1D6EHTK4"
+        ],
+        "Gasolina": [
+          "1BACE8C8PHT4",
+          "4B06E3C49BR4",
+          "4B06E3C4PBR4",
+          "4B06E4C5OPHR4",
+          "4B06E4C5PHP4",
+          "4B06E4C5PHR4",
+          "4B06E4C5PHS4",
+          "4B06E4C5PHT4",
+          "4B06E8C6PHT4",
+          "4BABE3C4PBR4",
+          "4BABE3C4PBT4",
+          "4BABE4C5PHR4",
+          "4BABE4C5PHT4",
+          "4BACE4C5PHR4",
+          "4BACE4C5PHS4",
+          "4BACE4CPHS4",
+          "4BACE8C6PHR4",
+          "4BACE8C6PHS4",
+          "4BACE8C6PHT4",
+          "ABABE4C5PHT4",
+          "BA2M3JAPJ7",
+          "BA2MADEHN14",
+          "BA2MADEHN24",
+          "BA2MAEEHN14",
+          "BA2MAEEHN24",
+          "BA2MAGEHN14",
+          "BA2MAGEHN24",
+          "BA2MAKJB414",
+          "BX1C6AHTA4",
+          "BX1C6EF2J4",
+          "BX1C6EHLA4",
+          "BX1C6EHLK4",
+          "BX1C6EHTA4",
+          "BX1C6RHTA4",
+          "BX1C9EF2J4",
+          "BX1D3AHTA4",
+          "BX1D3EF2J4",
+          "BX1D3EF2K4",
+          "BX1D3EF2KA",
+          "BX1D3EHLA4",
+          "BX1D3EHLK4",
+          "BX1D3EHTA4",
+          "BX1D3EHTB4",
+          "BX1D3EHTK4",
+          "BX1D3EHTKA",
+          "BX1D3KE6K4",
+          "BX1D3RHTB4",
+          "BX1D5K",
+          "BX1D6EF2J4",
+          "BX1D6EF2K4",
+          "BX1D6EHTA4",
+          "BX1D6EHTB4",
+          "BX1D6EHTK4",
+          "BX1D6JBWK4",
+          "BX1D6KE6K4",
+          "BX1D6KEK4",
+          "BX1E6EHTK4",
+          "BX1E6JBWK4",
+          "BX1E6KE6K4",
+          "BX1F2JBWK4",
+          "BX1F5JBWK4",
+          "BX1V6EF2J4",
+          "BX2D6KE6K4",
+          "BX2E6EHLA5",
+          "BXD3EHTK4",
+          "BZ1D3EHTK4",
+          "S-D",
+          "S-D/BAD1C12/BX1C6EHTA4"
+        ]
+      }
+    },
+    "AGILA": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "1AABA1AABA5",
+          "3AABA1AABA5"
+        ]
+      }
+    },
+    "ANTARA": {
+      "years": [
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Diésel": [
+          "1A12AABFMA5",
+          "1A12AABFMB5",
+          "1A12ABFMA5",
+          "1A14ACB001086",
+          "1A14ACBFMA5",
+          "1A14ACBFMB5",
+          "1A15ADBEHA5",
+          "1A15ADBEHB5",
+          "2A12AABFMA5",
+          "2A12AABFMB5",
+          "2A14ACBFMA5",
+          "2A14ACBFMB5"
+        ],
+        "Gasolina": [
+          "1A08A6BDFA5",
+          "1A08A6BDFB5",
+          "2A14ACBFMA5"
+        ]
+      }
+    },
+    "ASTA": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "BA1L2JDJA5"
+        ]
+      }
+    },
+    "ASTRA": {
+      "years": [
+        2010,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "11",
+          "1A05PAJBAG5",
+          "1A06AALCCC5",
+          "2A09ACMFFD5",
+          "3AAEAKBKJCJ5",
+          "3AAFAKBKJCE5",
+          "B-K/CA0FEBA12/BK1G2ABAK5",
+          "BA1BAMJUD15",
+          "BA1BAMJUD25",
+          "BA1BANJUK15",
+          "BA1BAPACA15",
+          "BA1E4JBDJ5",
+          "BA1F1JBDJ5",
+          "BA1F1JBDK5",
+          "BA1F1XJBDK5",
+          "BA1F2JBDJ5",
+          "BA1F2JBDK5",
+          "BA1F3JBCJ5",
+          "BA1F3JBDJ5",
+          "BA1F3JBDJA",
+          "BA1F3JBDK5",
+          "BA1F3JBKJ5",
+          "BA1F3JBKK5",
+          "BA1F3XJBDK5",
+          "BA1G1ABAK5",
+          "BA1G3ABAK5",
+          "BA1J1",
+          "BA1J1ABEJ5",
+          "BA1J1JDWJ5",
+          "BA1J1JFA5",
+          "BA1J1JHFA5",
+          "BA1J1JHJA5",
+          "BA1J1JKFA",
+          "BA1J1JKFA4",
+          "BA1J1JKFA5",
+          "BA1J1JKFR5",
+          "BA1J2JKFA5",
+          "BA1J3JDJA5",
+          "BA1J3JHA5",
+          "BA1J3JHJA5",
+          "BA1J3JHJB5",
+          "BA1J3JHJR5",
+          "BA1J3JKFA5",
+          "BA1J3JKFB5",
+          "BA1J3JKFK5",
+          "BA1J3JKFR5",
+          "BA1J3LKFA5",
+          "BA1J6JKFA5",
+          "BA1JAJKFA5",
+          "BA1JAJKFR5",
+          "BA1JEJHJA5",
+          "BA1JKFA5",
+          "BA1K1JHJA5",
+          "BA1K2FPFA5",
+          "BA1K2JDA5",
+          "BA1K2JDC5",
+          "BA1K2JDJA5",
+          "BA1K2JDJB5",
+          "BA1K2JDJC5",
+          "BA1K2JDWA5",
+          "BA1K2JFKR5",
+          "BA1K2JHA5",
+          "BA1K2JHJA5",
+          "BA1K2JHJB5",
+          "BA1K2JHJD5",
+          "BA1K2JHJK5",
+          "BA1K2JHJR5",
+          "BA1K2JKA5",
+          "BA1K2JKFA5",
+          "BA1K2JKFB5",
+          "BA1K2JKFK5",
+          "BA1K2JKFR2",
+          "BA1K2JKFR5",
+          "BA1KSJKFA5",
+          "BA1L1JKFA5",
+          "BA1L2BGDA5",
+          "BA1L2BGDB5",
+          "BA1L2DJA5",
+          "BA1L2DJC5",
+          "BA1L2FMNA5",
+          "BA1L2FPFA5",
+          "BA1L2FPFB5",
+          "BA1L2JDA5",
+          "BA1L2JDC5",
+          "BA1L2JDJ",
+          "BA1L2JDJA5",
+          "BA1L2JDJA6",
+          "BA1L2JDJB5",
+          "BA1L2JDJC5",
+          "BA1L2JFJA5",
+          "BA1L2JHJA5",
+          "BA1L2JHJA8",
+          "BA1L2JHJB5",
+          "BA1L2JHJK5",
+          "BA1L2JHJR5",
+          "BA1L2JJA5",
+          "BA1L2JKFA5",
+          "BA1L2JKFB5",
+          "BA1L2JKFK5",
+          "BA1L2PFA5",
+          "BA1L2VGDA5",
+          "BA1M3BGDA5",
+          "BA1M3BGDB5",
+          "BA1M3FMNA5",
+          "BA1M3FPFA5",
+          "BA1M3FPFB5",
+          "BA1M3JDJA5",
+          "BA1M3JDJB5",
+          "BA1M3JHJA5",
+          "BA1M3JHJK5",
+          "BA1N1BGDA5",
+          "BA1N1FMNA5",
+          "BA1N1FPFA5",
+          "BA1N1FPFB5",
+          "BA1N1JDJB5",
+          "BA1N4BGDA5",
+          "BA1N4BGDB5",
+          "BA1N4FMA5",
+          "BA1NFMNA5",
+          "BA2BAMJUD15",
+          "BA2BAMJUD25",
+          "BA2BANJUK15",
+          "BA2BAPACA15",
+          "BA2F3JBDJ5",
+          "BA2F4JBDJ5",
+          "BA2F4JBDK5",
+          "BA2F4XJBDJ5",
+          "BA2F4XJBDK5",
+          "BA2G2JBDJ5",
+          "BA2G2JBDK5",
+          "BA2G2JBKJ5",
+          "BA2G2JBKK5",
+          "BA2G2XJBDK5",
+          "BA2G2XJBKK5",
+          "BA2G3ABAA5",
+          "BA2G3ABAB5",
+          "BA2G3XABAB5",
+          "BA2J1ABAK5",
+          "BA2J1JDWA5",
+          "BA2J1JHJA5",
+          "BA2J1JHJACK",
+          "BA2J1JKFA5",
+          "BA2J1JKFR5",
+          "BA2J3AJ8J5",
+          "BA2J3JDJA5",
+          "BA2J3JDJC5",
+          "BA2J3JHJA5",
+          "BA2J3JHJB5",
+          "BA2J3JHJR5",
+          "BA2J3JKFA5",
+          "BA2J3JKFB5",
+          "BA2J3JKFR5",
+          "BA2JEJKFA5",
+          "BA2JKGFA5",
+          "BA2K0JH4A5",
+          "BA2K2",
+          "BA2K2AJ8J5",
+          "BA2K2JDJ2A5",
+          "BA2K2JDJA05",
+          "BA2K2JDJA5",
+          "BA2K2JDJB5",
+          "BA2K2JDJC5",
+          "BA2K2JHJA5",
+          "BA2K2JHJACK",
+          "BA2K2JHJB5",
+          "BA2K2JHJK5",
+          "BA2K2JHJR5",
+          "BA2K2JKFA5",
+          "BA2K2JKFB5",
+          "BA2K2JKFK5",
+          "BA2L2AJ8J5",
+          "BA2L2JDA5",
+          "BA2L2JDB5",
+          "BA2L2JDJA5",
+          "BA2L2JDJB5",
+          "BA2L2JHJA5",
+          "BA2L2JHJB5",
+          "BA2L2JHJK5",
+          "BA3E2JDPA5",
+          "BA3J1JNWJ5",
+          "BA3J3JDPA5",
+          "BA3J3JHPA5",
+          "BA3J3JHPJ5",
+          "BA3K2BGDA5",
+          "BA3K2FPHA5",
+          "BA3K2FPHB5",
+          "BA3K2JDPA5",
+          "BA3K2JDPB5",
+          "BA3K2JHPA5",
+          "BA3K2JHPB5",
+          "BA3K2JHPJ5",
+          "BA3L2BGDA5",
+          "BA3L2FM3A5",
+          "BA3L2FPHA5",
+          "BA3L2FPHB5",
+          "BA3L2JHPJ5",
+          "BA3M3FM3A5",
+          "BA3M3FPHB5",
+          "BAEGC12",
+          "BAFHF12",
+          "BAK2JHPJ",
+          "BAK2JKFA5",
+          "BAL2BGDA5",
+          "BALJSJKFA5",
+          "BAN1FPFA5",
+          "BANJ1JKFA5",
+          "BB1BAZJUDA5",
+          "BB1BBADCEA5",
+          "BC1F3JBDK5",
+          "BD1BAYJUD15",
+          "BD1BAYJUD25",
+          "BD2BAYJUD15",
+          "BD2BAYJUD25",
+          "BG1BAZJUDA5",
+          "BH1BAYJUD15",
+          "BH1BAYJUDA5",
+          "BH2BAYJUDA5",
+          "BK1BAMJUD15",
+          "BK1BANJUK15",
+          "BK1BAPACA15",
+          "BK1E4JBDK5",
+          "BK1E4KHGK5",
+          "BK1F1JBDJ5",
+          "BK1F1JBDK5",
+          "BK1F1XJBDK5",
+          "BK1F3ABAK5",
+          "BK1F3JBDJ5",
+          "BK1F3JBDK",
+          "BK1F3JBDK5",
+          "BK1F3JBKK5",
+          "BK1F3XJBDK5",
+          "BK1F4ABAK5",
+          "BK1G1ABAK5",
+          "BK1G1FAFK5",
+          "BK1G1JBDK5",
+          "BK1G1JBKK5",
+          "BK1G2ABAK5",
+          "BK1G3ABAK5",
+          "BK1G3FAFK5",
+          "BK1G3JBDK5",
+          "BK1G3JBKK5",
+          "BK1G3XFAFK5",
+          "BK1H2ABAK5",
+          "BK1H2FAFK5",
+          "BK2BAMJUD15",
+          "BK2BANJUK15",
+          "BK2BAPACA15",
+          "BK2F4JBDJ5",
+          "BK2F4JBDK5",
+          "BK2G2JBDJ5",
+          "BK2G2JBDK5",
+          "BK2G2JBKJ5",
+          "BK2G2JBKK5",
+          "BK2G2XJBDK5",
+          "BK2G2XJBKK5",
+          "BK2G3ABAB5",
+          "BK2G3ABAK5",
+          "BK2G3FAFK5",
+          "BK2G3XABAB5",
+          "BK2H1JBDK5",
+          "BK2H1JBKK5",
+          "BK2H1XJBKK5",
+          "BK2H2ABAB5",
+          "BK2H2ABAK5",
+          "BK2H2FAFK5",
+          "BK2H2XABAK5",
+          "BK2H3JBKK5",
+          "BK2J1ABAB5",
+          "BK2J1ABAK5",
+          "BK2J1FAFK5",
+          "BK2J5FAFK5",
+          "BNA3K2JDPA5",
+          "BT1BAZJUD15",
+          "BT1BBADCE15",
+          "BT2BAYJUD15",
+          "BT2BAZJUD15",
+          "BU1BAZJUD15",
+          "BU1BBADCE15",
+          "BU2BAZJUD15",
+          "BU2BBADCE15",
+          "BVA1M3FPFB5",
+          "BW1BAYJUD15",
+          "BW1BAYJUDA5",
+          "BW1BAZJUD15",
+          "BW1BAZJUDA5",
+          "BW1BBADCE15",
+          "BW1BBADCEA5",
+          "BW2BAYJUD15",
+          "BW2BAZJUD15",
+          "BX1BAYJUD15",
+          "BX1BAZJUD15",
+          "BX2BAZJUD15",
+          "BZ1L2FPFA5",
+          "CA1F3JBDJ5",
+          "CA1J1JKFA5",
+          "CA1K3JKFA5",
+          "CAFBA12",
+          "DAEGC12 / BA1L2JHJA5",
+          "DAFBE12/BA1K2JDJC5",
+          "DAFBF12 FA1L2JDJA5",
+          "DAFHF12",
+          "FG109797",
+          "FW/2A24BY39NLG5",
+          "J",
+          "NA2K2JHJB5",
+          "NB",
+          "R2K000",
+          "VA1L2JHJA5",
+          "VASK2JHJA5"
+        ],
+        "GLP (autogás)": [
+          "BA1J1DWA5",
+          "BA1J1JDWA5",
+          "BA1J3JDWA5",
+          "BA1K2JDWA5",
+          "BA1K2JDWJ5",
+          "BA1K2JHJA5",
+          "BA1L2JDWA5",
+          "BA1L2JDWJ5",
+          "BA2J1JDEJ5",
+          "BA2J1JDWJ5",
+          "BA2J3JDWA5",
+          "BA2K2JDWA5"
+        ],
+        "Gasolina": [
+          "1A04A8GEDN5",
+          "1A18AVEABN5",
+          "B1H1EHTA5",
+          "BA1BABEAN15",
+          "BA1BABEAN25",
+          "BA1BACJTD15",
+          "BA1BACJTD25",
+          "BA1BADKHG15",
+          "BA1D1EANA5",
+          "BA1D3EANA5",
+          "BA1D3EANJ5",
+          "BA1D3EANK5",
+          "BA1D3XEANK5",
+          "BA1D4EBSJ5",
+          "BA1D4EBSK5",
+          "BA1D6KHGJ5",
+          "BA1D6KHGK5",
+          "BA1D6XKHGK5",
+          "BA1E1EANJ5",
+          "BA1E1EANK5",
+          "BA1E1KHGJ5",
+          "BA1E1KHGK5",
+          "BA1E3KHGJ5",
+          "BA1E3KHGK5",
+          "BA1E3XKHGK5",
+          "BA1E4KHGJ5",
+          "BA1E4KHGK5",
+          "BA1F2AACK5",
+          "BA1F4AACK5",
+          "BA1H1EHTA5",
+          "BA1H1EHTJ5",
+          "BA1H4EHTA5",
+          "BA1H4EHTJ5",
+          "BA1H4JDWA5",
+          "BA1H4JDWJ5",
+          "BA1HAJDWJ5",
+          "BA1HEHTA5",
+          "BA1HJ1JDWJ5",
+          "BA1J1ABEA5",
+          "BA1J1ABEJ5",
+          "BA1J1ABEK5",
+          "BA1J1BPA5",
+          "BA1J1DWA5",
+          "BA1J1DWJ5",
+          "BA1J1JBTA5",
+          "BA1J1JDEJ5",
+          "BA1J1JDWA5",
+          "BA1J1JDWB5",
+          "BA1J1JDWJ5",
+          "BA1J1JKFA5",
+          "BA1J3ABEA5",
+          "BA1J3DWJ5",
+          "BA1J3JBPA5",
+          "BA1J3JBPK5",
+          "BA1J3JDWA5",
+          "BA1J3JDWJ5",
+          "BA1J3JDWK5",
+          "BA1J3JHJA5",
+          "BA1J3JKFR5",
+          "BA1K2ABEA5",
+          "BA1K2JBPA5",
+          "BA1K2JDEJ5",
+          "BA1K2JDWA5",
+          "BA1K2JDWB5",
+          "BA1K2JDWJ5",
+          "BA1K2JHJA5",
+          "BA1L2JBPA5",
+          "BA1L2JDJB5",
+          "BA1L2JDWJ5",
+          "BA1L2JHJB5",
+          "BA2BACJTD15",
+          "BA2BACJTD25",
+          "BA2BAGAAC15",
+          "BA2E1EANA5",
+          "BA2E1EANJ5",
+          "BA2E1EANK5",
+          "BA2E4EANJ5",
+          "BA2E4EANK5",
+          "BA2E4EBSK5",
+          "BA2F1JDWJ5",
+          "BA2F1KHGJ5",
+          "BA2F1KHGK5",
+          "BA2F3AACK5",
+          "BA2F3KHGJ5",
+          "BA2F3KHGK5",
+          "BA2G1AACK5",
+          "BA2G1JDEJ5",
+          "BA2G3AACK5",
+          "BA2G5EHTA5",
+          "BA2H1EHTA5",
+          "BA2H1EHTJ5",
+          "BA2H1JDWJ5",
+          "BA2H4EHTA5",
+          "BA2H4EHTJ5",
+          "BA2H4JDWA5",
+          "BA2H4JDWJ5",
+          "BA2H6JDWJ5",
+          "BA2H7ABEJ5",
+          "BA2J1ABEA5",
+          "BA2J1ABEJ5",
+          "BA2J1DWA5",
+          "BA2J1DWJ5",
+          "BA2J1EHTA5",
+          "BA2J1JDW15",
+          "BA2J1JDWA5",
+          "BA2J1JDWB5",
+          "BA2J1JDWJ5",
+          "BA2J1JDWK5",
+          "BA2J3ABEA5",
+          "BA2J3ABEJ5",
+          "BA2J3ABEK5",
+          "BA2J3JDWA5",
+          "BA2J3JKFA5",
+          "BA2K2ABEA5",
+          "BA2K2ABEJ5",
+          "BA2K2ABJ5",
+          "BA2K2JDJA5",
+          "BA3H4JNWA5",
+          "BA3H4JNWJ5",
+          "BA3J1ABGJ5",
+          "BA3J1JBWJ5",
+          "BA3J1JNWA",
+          "BA3J1JNWA5",
+          "BA3J1JNWB5",
+          "BA3J1JNWJ5",
+          "BA3J3ABGJ5",
+          "BA3J3JBTA5",
+          "BA3J3JBTB5",
+          "BA3J3JBWB5",
+          "BA3J3JBWJ5",
+          "BA3J3JNWB5",
+          "BA3J3JNWJ5",
+          "BA3K2FD3A5",
+          "BA3K2FD3N5",
+          "BA3K2JBTA5",
+          "BA3K2JBTB5",
+          "BA3K2JBWA5",
+          "BA3K2JBWB5",
+          "BA3K2JBWJ5",
+          "BA3L2FD3A5",
+          "BA3L2FD3N5",
+          "BA3L2JBWJ5",
+          "BA6J1JWA5",
+          "BAEMC12",
+          "BAH4JDWA5",
+          "BB11",
+          "BB1BATKH3A5",
+          "BB1BAUKH3A5",
+          "BB1BAVNAUA5",
+          "BB1BBCKH3A5",
+          "BD1BATKH315",
+          "BD1BATKH325",
+          "BD2BATKH325",
+          "BG1BBCKH3A5",
+          "BH1BATKH315",
+          "BH1BATKH3A5",
+          "BK1BABEAN15",
+          "BK1BACJTD15",
+          "BK1BACJTD25",
+          "BK1BADKHG15",
+          "BK1BAEJTD15",
+          "BK1BAGAAC15",
+          "BK1BAJJDM15",
+          "BK1D3EANJ5",
+          "BK1D3EANK5",
+          "BK1D4EBSJ5",
+          "BK1D4EBSK5",
+          "BK1D6KHGJ5",
+          "BK1D6KHGK5",
+          "BK1D6XKHGK5",
+          "BK1E1EANK5",
+          "BK1E1KHGJ5",
+          "BK1E1KHGK5",
+          "BK1E3KHGK5",
+          "BK1E3XKHGK5",
+          "BK1E4AACK5",
+          "BK1E4EANK5",
+          "BK1E4KHGK4",
+          "BK1E4KHGK5",
+          "BK1E4XAACK5",
+          "BK1F1KHGK5",
+          "BK1F1XKHGK5",
+          "BK1F2AACK5",
+          "BK1F2KHGK5",
+          "BK1F2XAACK5",
+          "BK1F3JAMK5",
+          "BK1F3JBDK5",
+          "BK1F3KHGK5",
+          "BK1F4AACK5",
+          "BK1G1JAMK5",
+          "BK1G3JAMK5",
+          "BK1H2JAMK5",
+          "BK2BACJTD15",
+          "BK2BACJTD25",
+          "BK2BADKHG15",
+          "BK2BAEJTD15",
+          "BK2BAGAAC15",
+          "BK2BAJJDM15",
+          "BK2E4EANK5",
+          "BK2E4EBSK5",
+          "BK2F1KHGJ5",
+          "BK2F1KHGK5",
+          "BK2F1XKHGK5",
+          "BK2F3AACK5",
+          "BK2F3KHGK5",
+          "BK2F3XKHGK5",
+          "BK2G1AACK5",
+          "BK2G1KHGK5",
+          "BK2G2JAMK5",
+          "BK2G3AACK5",
+          "BK2H1JAMK5",
+          "BK2H3JAMK5",
+          "BT1BATKH315",
+          "BT1BAUKH315",
+          "BT1BAVNAU15",
+          "BT1BBCKH315",
+          "BT2BAUKH315",
+          "BT2BAVNAU15",
+          "BT2BBCKH315",
+          "BW1BATKH315",
+          "BW1BATKH3A5",
+          "BW1BAUKH315",
+          "BW1BAUKH3A5",
+          "BW1BAVNAU15",
+          "BW1BAVNAUA5",
+          "BW1BBCKH315",
+          "BW1BBCKH3A5",
+          "BW2BATKH315",
+          "BW2BAUKH315",
+          "BW2BAUKH3A5",
+          "BW2BAVNAU15",
+          "BW2BAVNAUA5",
+          "BW2BBCKH315",
+          "BX1BAVNAUA5",
+          "CAOABAB12",
+          "J",
+          "NA2H1JDWJ5",
+          "VA2H1EHTA5"
+        ]
+      }
+    },
+    "ASTRA 5P DESIGN & TECH 1.2T SHL MT6 S/S 110 CV (81": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BW1BATKH3A5"
+        ]
+      }
+    },
+    "ASTRA 5P DESIGN & TECH 1.2T SHT MT6 S/S 130 CV (96": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BW1BAUKH3A5"
+        ]
+      }
+    },
+    "ASTRA 5P DESIGN & TECH 1.5D DVC MT6 S/S 105 CV (77": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BW1BAYJUDA5"
+        ]
+      }
+    },
+    "ASTRA 5P EDITION  1.2T SHL MT6 S/S 110 CV (81KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BD1BATKH315"
+        ]
+      }
+    },
+    "ASTRA 5P EDITION 1.2T XHL MT6 S/S 110 CV (81KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNPL-F11E00",
+          "HNPL-F1YE00"
+        ]
+      }
+    },
+    "ASTRA 5P EDITION 1.2T XHT HYBRID EDCT6 S/S 136 CV": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPYC-F1UN00"
+        ]
+      }
+    },
+    "ASTRA 5P EDITION 1.2T XHT MT6 S/S 130 CV (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-F1YE00"
+        ]
+      }
+    },
+    "ASTRA 5P EDITION 1.5D DVC MT6 S/S 105 CV (77KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BH1BAYJUDA5"
+        ]
+      }
+    },
+    "ASTRA 5P EDITION 12T XHL MT6 S/S 110 CV (81KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNPL-F1YE00"
+        ]
+      }
+    },
+    "ASTRA 5P EDITION 12T XHT MT6 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-F1YE00"
+        ]
+      }
+    },
+    "ASTRA 5P EDITION ELECTRIC 54KWH 156 CV (115KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKWZ-F0V001"
+        ]
+      }
+    },
+    "ASTRA 5P ELECTRIC GS 54KWH 156 CV (115KW)": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKWZ-F0V000",
+          "ZKWZ-F0V001"
+        ]
+      }
+    },
+    "ASTRA 5P GS 1.2 T XHT MT6 S/S 130 CV (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-F11E00",
+          "HNSL-F11F00"
+        ]
+      }
+    },
+    "ASTRA 5P GS 1.2T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNST-F11E01",
+          "HNST-F11F01"
+        ]
+      }
+    },
+    "ASTRA 5P GS 1.2T XHT AT8 S/S 130 HP (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNST-F11E01"
+        ]
+      }
+    },
+    "ASTRA 5P GS 1.2T XHT HYBRID EDCT6 S/S 136 CV (100K": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPYC-F1UM00",
+          "HPYC-F1UN00"
+        ]
+      }
+    },
+    "ASTRA 5P GS 1.2T XHT MT6 S/S 130 CV (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-F11E00",
+          "HNSL-F11F00"
+        ]
+      }
+    },
+    "ASTRA 5P GS 1.2T XHT MT6 S/S 130 HP (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-F11E00",
+          "HNSL-F11F00"
+        ]
+      }
+    },
+    "ASTRA 5P GS 1.5D DTH AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZT-F21400",
+          "YHZT-F21500"
+        ]
+      }
+    },
+    "ASTRA 5P GS 1.5D DTH AT8 S/S 130 HP (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZT-F21400"
+        ]
+      }
+    },
+    "ASTRA 5P GS 1.6T PLUG-IN HYBRID AT8 S/S 180 CV (13": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "DGXT-F1V000"
+        ]
+      }
+    },
+    "ASTRA 5P GS 12T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNST-F11E01",
+          "HNST-F11F01"
+        ]
+      }
+    },
+    "ASTRA 5P GS 12T XHT AT8 S/S 130 HP (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNST-F11E01"
+        ]
+      }
+    },
+    "ASTRA 5P GS 12T XHT MT6 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-F11E00",
+          "HNSL-F11F00"
+        ]
+      }
+    },
+    "ASTRA 5P GS 12T XHT MT6 S/S 130 HP (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-F11E00"
+        ]
+      }
+    },
+    "ASTRA 5P GS 15D DTH AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZT-F21400",
+          "YHZT-F21500"
+        ]
+      }
+    },
+    "ASTRA 5P GS 15D DTH AT8 S/S 130 HP (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZT-F21400"
+        ]
+      }
+    },
+    "ASTRA 5P GS 16T PLUG-IN HYBRID AT8 S/S 180 CV (13": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "DGXT-F1V000"
+        ]
+      }
+    },
+    "ASTRA 5P GS ELECTRIC 54KWH 156 CV (115KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKWZ-F0V001"
+        ]
+      }
+    },
+    "ASTRA 5P GSE 1.6T PLUG-IN HYBRID AT8 S/S 225 CV (1": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "DGYT-F1V000"
+        ]
+      }
+    },
+    "ASTRA 5P GSE 16T PLUG-IN HYBRID AT8 S/S 225 CV (1": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "DGYT-F1V000"
+        ]
+      }
+    },
+    "ASTRA 5P T ELECTRIC": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKWZ-F0V000"
+        ]
+      }
+    },
+    "ASTRA 5P TECH EDITION 1.2T XHL MT6 S/S 110 CV (81K": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNPL-F11E00"
+        ]
+      }
+    },
+    "ASTRA 5P TECH EDITION 1.2T XHT HYBRID EDCT6 S/S 13": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPYC-F1UN00"
+        ]
+      }
+    },
+    "ASTRA 5P ULTIMATE  1.5D DVH MT6 S/S 122 CV (90KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1BAZJUDA5"
+        ]
+      }
+    },
+    "ASTRA BUSINESS EDITION NAV T": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BE1VALPALA5"
+        ],
+        "Gasolina": [
+          "HNSK-41B500"
+        ]
+      }
+    },
+    "ASTRA BUSINESS EDITION NAV T D": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300",
+          "YHTK-X2B400"
+        ],
+        "Gasolina": [
+          "BA1VANPDTA5",
+          "BE1VAAPH0A5",
+          "BE1VADPH0A5",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKK-X1B100",
+          "HNP2-A12100",
+          "HNSK-41B500"
+        ]
+      }
+    },
+    "ASTRA ELITE NAV PREMIUM T": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "HNP2-A14200",
+          "HNSK-C1P400"
+        ]
+      }
+    },
+    "ASTRA ELITE NAV PREMIUM T CVT": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VADPH0A5"
+        ]
+      }
+    },
+    "ASTRA GRIFFIN EDITION TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BC1ZATJUKA5",
+          "BC1ZAWCABA5",
+          "BE1VALPALA5",
+          "BH1ZATJUKA5",
+          "BW1BAYJUDA5",
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHTK-X2B100",
+          "YHTK-X2B400",
+          "YHTK-X2B500",
+          "YHZJ-C2K300",
+          "YHZK-C2P400",
+          "YHZS-C2PD00",
+          "YHZS-C2PG00"
+        ],
+        "Gasolina": [
+          "BB1BBCKH3A5",
+          "BE1VADPH0A5",
+          "BW1BATKH315",
+          "BW1BAVNAUA5",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P400",
+          "HNSK-C1P600",
+          "HNSK-C1V100",
+          "HNSS-41B500",
+          "HNSS-C1PE00"
+        ]
+      }
+    },
+    "ASTRA GRIFFIN EDITION TURBO D": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZK-C2P400"
+        ],
+        "Gasolina": [
+          "BW1BAUKH3A5"
+        ]
+      }
+    },
+    "ASTRA GS 1.6T PLUG-IN HYBRID AT8 S/S 180 CV (132 K": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "DGXT-F1V000"
+        ]
+      }
+    },
+    "ASTRA SE TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500"
+        ],
+        "Gasolina": [
+          "HNSK-C1P600"
+        ]
+      }
+    },
+    "ASTRA SE TURBO CVT": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500"
+        ]
+      }
+    },
+    "ASTRA SE TURBO D": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNSS-41B500"
+        ]
+      }
+    },
+    "ASTRA SPORTS TOURER": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Diésel": [
+          "BA2BAMJUD15",
+          "BA2BAMJUD25",
+          "BA2BANJUK15",
+          "BK2BAMJUD15",
+          "BK2BANJUK15",
+          "BK2BAPACA15"
+        ],
+        "Gasolina": [
+          "BA2BACJTD15",
+          "BA2BAGAAC15",
+          "BK2BACJTD15",
+          "BK2BAEJTD15",
+          "BK2BAGAAC15",
+          "BK2BAJJDM15"
+        ]
+      }
+    },
+    "ASTRA SRI NAV TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300",
+          "YHTK-X2B100"
+        ],
+        "Gasolina": [
+          "HMHD-X1B400",
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "ASTRA SRI NAV TURBO CVT": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HMHD-X1B400",
+          "HNEK-X1B500",
+          "HNSK-41B500"
+        ]
+      }
+    },
+    "ASTRA SRI NAV TURBO D AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSS-41B500"
+        ]
+      }
+    },
+    "ASTRA SRI TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNSK-C1P600"
+        ]
+      }
+    },
+    "ASTRA ST DESIGN & TECH 1.4T SHT CVT S/S 145 CV (10": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BX1BAVNAUA5"
+        ]
+      }
+    },
+    "ASTRA ST EDITION 1.2T XHL MT6 S/S 110 CV (81KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNPL-G1YE00"
+        ]
+      }
+    },
+    "ASTRA ST EDITION 1.2T XHT HYBRID EDCT6 S/S 136 CV": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPYC-G1UN00"
+        ]
+      }
+    },
+    "ASTRA ST EDITION 12T XHL MT6 S/S 110 CV (81KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNPL-G1YE00"
+        ]
+      }
+    },
+    "ASTRA ST EDITION 12T XHT MT6 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-G1YE00"
+        ]
+      }
+    },
+    "ASTRA ST EDITION ELECTRIC 54KWH 156 CV (115KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKWZ-G0V001"
+        ]
+      }
+    },
+    "ASTRA ST GS 1.2T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNST-G11E01",
+          "HNST-G11F01"
+        ]
+      }
+    },
+    "ASTRA ST GS 1.2T XHT HYBRID EDCT6 S/S 136 CV (100K": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPYC-G1UM00",
+          "HPYC-G1UN00"
+        ]
+      }
+    },
+    "ASTRA ST GS 1.2T XHT MT6 S/S 130 CV (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-G11E00",
+          "HNSL-G11F00"
+        ]
+      }
+    },
+    "ASTRA ST GS 1.5D DTH AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZT-G21400",
+          "YHZT-G21500"
+        ]
+      }
+    },
+    "ASTRA ST GS 1.6T PLUG-IN HYBRID AT8 S/S 180 CV (13": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "DGXT-G1V000"
+        ]
+      }
+    },
+    "ASTRA ST GS 12T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNST-G11F01"
+        ]
+      }
+    },
+    "ASTRA ST GS 12T XHT MT6 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSL-G11E00"
+        ]
+      }
+    },
+    "ASTRA ST GS ELECTRIC 54KWH 156 CV (115KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKWZ-G0V001"
+        ]
+      }
+    },
+    "ASTRA ST GSE 1.6T PLUG-IN HYBRID AT8 S/S 225 CV (1": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Híbrido gasolina": [
+          "DGYT-G1V000"
+        ]
+      }
+    },
+    "ASTRA ST ULTIMATE  1.2T SHR MT6 S/S 145 CV (107KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BG1BBCKH3A5"
+        ]
+      }
+    },
+    "ASTRA ST ULTIMATE 1.5D DVH MT6 S/S 122 CV (90KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BG1BAZJUDA5"
+        ]
+      }
+    },
+    "AZUL": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "4AAED6A7LJM5"
+        ]
+      }
+    },
+    "BA1L2JKJC5": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "BA1L2JKJC5"
+        ]
+      }
+    },
+    "BA2R5FPHA7": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "EAHCA12"
+        ]
+      }
+    },
+    "BA3J3JBTA5": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BA3J3JBTA5"
+        ]
+      }
+    },
+    "BK1G1JBKK5": {
+      "years": [
+        2016
+      ],
+      "fuels": {
+        "Diésel": [
+          "CA0FEBB12"
+        ]
+      }
+    },
+    "CASCADA": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "BA3R5BGDA4",
+          "BA3R5BGDB4",
+          "BA3R5FPHA4",
+          "BA3R5FPHB4",
+          "BA3R5FPHJ4",
+          "BA3S1BGDA4",
+          "BA3S1BGDB4",
+          "BA3S1FPHJ4"
+        ],
+        "Gasolina": [
+          "BA3N4JNWA4",
+          "BA3N4JNWJ4",
+          "BA3N4JSWJ4",
+          "BA3P3ADGA4",
+          "BA3P3ADGJ4",
+          "BA3P3JBTA4",
+          "BA3P3JBWJ4",
+          "BA3P3JNWB4",
+          "BA3P3JSWJ4",
+          "BA3PACJD424",
+          "BA3R2ADGA4",
+          "BA3R2ADGJ4",
+          "BA3R2JBTA4",
+          "BA3R2JBWJ4",
+          "BA3R2JSWJ4",
+          "BA3R5ADGA4",
+          "BA3R5ADGB4",
+          "BA3R5ADGJ4",
+          "BA3R5JBWJ4",
+          "BB3PABAJ124",
+          "BB3PACJD424"
+        ]
+      }
+    },
+    "CBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNS3-C14400"
+        ]
+      }
+    },
+    "COMBO": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "02AA",
+          "02AB",
+          "02AC",
+          "02M",
+          "02X",
+          "02Y",
+          "02Z",
+          "07P",
+          "1",
+          "A4C",
+          "A4G",
+          "A5AG",
+          "A8BA",
+          "A8BC",
+          "LR2AN",
+          "LS5BN",
+          "SA2AXP1BSN5BN",
+          "SN2AN",
+          "SN5AN",
+          "SN5BN",
+          "SN7BN",
+          "YHT2-A2C300",
+          "YHT2-A2P300",
+          "YHT2-B2C300",
+          "YHT2-C2C300",
+          "YHT2-C2P300",
+          "YHT2-D2C300",
+          "YHT2-D2P300",
+          "YHWC-A2A000",
+          "YHWC-A2E000",
+          "YHYC-A22000",
+          "YHYC-A2B000",
+          "YHYC-A2F000",
+          "YHYC-A2P000",
+          "YHYC-B22000",
+          "YHYC-B2F000",
+          "YHYC-B2P000",
+          "YHYC-C22000",
+          "YHYC-C2B000",
+          "YHYC-C2F000",
+          "YHYC-C2P000",
+          "YHYC-D22000",
+          "YHYC-D2B000",
+          "YHYC-D2F000",
+          "YHYC-D2P000",
+          "YHZ2-A2C300",
+          "YHZ2-B2C300",
+          "YHZ2-C2C300",
+          "YHZ2-D2C300",
+          "YHZJ-A22000",
+          "YHZJ-A2B000",
+          "YHZJ-A2F000",
+          "YHZJ-A2P000",
+          "YHZJ-B22000",
+          "YHZJ-B2F000",
+          "YHZJ-B2P000",
+          "YHZJ-C22000",
+          "YHZJ-C2B000",
+          "YHZJ-C2F000",
+          "YHZJ-C2P000",
+          "YHZJ-D22000",
+          "YHZJ-D2B000",
+          "YHZJ-D2F000",
+          "YHZJ-D2P000",
+          "YHZR-A22000",
+          "YHZR-A2B000",
+          "YHZR-A2F000",
+          "YHZR-A2P000",
+          "YHZR-B22000",
+          "YHZR-B2F000",
+          "YHZR-B2P000",
+          "YHZR-C2B000",
+          "YHZR-C2F000",
+          "YHZR-D22000",
+          "YHZR-D2B000",
+          "YHZR-D2F000"
+        ],
+        "Gasolina": [
+          "HNP2-A12100",
+          "HNP2-A14200",
+          "HNP2-A1D100",
+          "HNP2-A1K100",
+          "HNP2-B12100",
+          "HNP2-B1K100",
+          "HNP2-C12100",
+          "HNP2-C1K100",
+          "HNP2-D12100",
+          "HNP2-D1D100",
+          "HNP2-D1K100",
+          "HNPJ-A1B000",
+          "HNPJ-A1F000",
+          "HNPJ-B1B000",
+          "HNPJ-B1F000",
+          "HNPJ-C1B000",
+          "HNPJ-C1F000",
+          "HNPJ-D1B000",
+          "HNPJ-D1F000",
+          "HNS3-A14400",
+          "HNS3-B14400",
+          "HNS3-C14400",
+          "HNS3-D14400"
+        ]
+      }
+    },
+    "COMBO LIFE": {
+      "years": [
+        2018,
+        2019,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300",
+          "YHT2-A2P300",
+          "YHWC-A2E000",
+          "YHYC-A22000",
+          "YHYC-A2B000",
+          "YHYC-A2F000",
+          "YHYC-A2P000",
+          "YHYC-B2F000",
+          "YHYC-C2F000",
+          "YHYC-D22000",
+          "YHYC-D2F000",
+          "YHZ2-D2C300",
+          "YHZJ-A22000",
+          "YHZJ-A2B000",
+          "YHZJ-A2F000",
+          "YHZJ-B22000",
+          "YHZJ-B2F000",
+          "YHZJ-C22000",
+          "YHZJ-C2F000",
+          "YHZJ-D22000",
+          "YHZJ-D2B000",
+          "YHZJ-D2F000",
+          "YHZR-A22000",
+          "YHZR-A2F000",
+          "YHZR-B22000",
+          "YHZR-B2F000",
+          "YHZR-C2F000",
+          "YHZR-D2B000",
+          "YHZR-D2F000"
+        ],
+        "Gasolina": [
+          "HNP2-A12100",
+          "HNP2-A1K100",
+          "HNP2-B1K100",
+          "HNP2-C1K100",
+          "HNP2-D1K100",
+          "HNPJ-A1B000",
+          "HNPJ-A1F000",
+          "HNPJ-B1F000",
+          "HNPJ-C1F000"
+        ]
+      }
+    },
+    "COMBO LIFE EDITION S/S": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BA1VAFPG9A5",
+          "BE1VAMPG9A5",
+          "YHT2-A2P300",
+          "YHYC-A2P000",
+          "YHZJ-C2K000",
+          "YHZK-C2P400"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNSK-C1P600"
+        ]
+      }
+    },
+    "COMBO LIFE EDITION TURBO D S/S": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "COMBO LIFE ELECTRIC L EDITION 100KW / 136 CV": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-A75000"
+        ]
+      }
+    },
+    "COMBO LIFE ELECTRIC L EDITION PLUS 100KW / 136 CV": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-A75000",
+          "ZKXZ-A7U000"
+        ]
+      }
+    },
+    "COMBO LIFE ELECTRIC L ELEGANCE PLUS 100KW / 136 CV": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-A75000",
+          "ZKXZ-A7U000"
+        ]
+      }
+    },
+    "COMBO LIFE ELECTRIC XL EDITION 100KW / 136 CV": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-C75000",
+          "ZKXZ-C7U000",
+          "ZKXZ-D76000"
+        ]
+      }
+    },
+    "COMBO LIFE ELECTRIC XL EDITION PLUS 100KW / 136 CV": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-C75000",
+          "ZKXZ-D76000"
+        ]
+      }
+    },
+    "COMBO LIFE ELECTRIC XL ELEGANCE PLUS 100KW / 136 C": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-D75000",
+          "ZKXZ-D76000"
+        ]
+      }
+    },
+    "COMBO LIFE ELITE S/S AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B700"
+        ],
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P600"
+        ],
+        "Híbrido gasolina": [
+          "DGZS-C1J000"
+        ]
+      }
+    },
+    "COMBO LIFE ENERGY S/S AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSK-41B500"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION 1.5 TD S/S MT6 6.3 100 CV": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2P300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION 1.5 TD S/S MT6 ?6.3 100 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300",
+          "YHT2-A2P300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION 1.5 TD S/S MT6 ?6.3 130 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZ2-A2C300",
+          "YHZ2-A2P300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION 15 TD S/S MT6 Â¿63 100 CV": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION 15 TD S/S MT6 Â¿63 130 CV": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZ2-A2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION PLUS 1.2 T S/S MT6 110 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNP2-A14200"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION PLUS 1.2 T S/S MT6 6.3 110 C": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNP2-A14200"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION PLUS 1.2 T S/S MT6 6.4 110 C": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNP2-A14200"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION PLUS 1.5 TD S/S MT6 100 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION PLUS 1.5 TD S/S MT6 130 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZ2-A2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION PLUS 1.5 TD S/S MT6 6.3 100": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 EDITION PLUS 1.5 TD S/S MT6 6.3 130": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZ2-A2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE 1.2 T S/S AT8 6.3 130 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNS3-A14400",
+          "HNS3-B14400"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE 1.5 TD S/S MT6 100 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE 1.5 TD S/S MT6 6.3 100 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300",
+          "YHT2-B2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE 1.5 TD S/S MT6 6.3 130 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZ2-A2C300",
+          "YHZ2-B2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE 12 T S/S AT8 63 130 CV": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNS3-A14400",
+          "HNS3-B14400"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE PLUS 1.2 T S/S AT8 130 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNS3-A14400"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE PLUS 1.2 T S/S AT8 6.3 130": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNS3-A14400",
+          "HNS3-B14400"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE PLUS 1.5 TD S/S MT6 6.3 100": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300",
+          "YHT2-B2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE PLUS 1.5 TD S/S MT6 6.3 130": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZ2-A2C300",
+          "YHZ2-B2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE PLUS 12 T S/S AT8 63 130": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNS3-A14400"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE PLUS 15 TD S/S MT6 63 100": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L1 ELEGANCE PLUS 15 TD S/S MT6 63 130": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZ2-A2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L2 EDITION (7 PLAZAS)  1.5 TD S/S MT6 6": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-D2C300",
+          "YHT2-D2P300"
+        ]
+      }
+    },
+    "COMBO LIFE L2 EDITION 1.5 TD S/S MT6 6.3 100 CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-C2C300",
+          "YHT2-C2P300"
+        ]
+      }
+    },
+    "COMBO LIFE L2 EDITION PLUS (7 PLAZAS) 1.5 TD S/S M": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-D2C300",
+          "YHZ2-D2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L2 EDITION PLUS (7 PLAZAS) 15 TD S/S M": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-D2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L2 EDITION PLUS 1.5 TD S/S MT6 6.3 100": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-C2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L2 EDITION PLUS 1.5 TD S/S MT6 6.3 130": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZ2-C2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L2 EDITION PLUS 15 TD S/S MT6 63 130": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZ2-C2C300"
+        ]
+      }
+    },
+    "COMBO LIFE L2 ELEGANCE (7 PLAZAS) 1.2 T S/S AT8 6.": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
           "HNS3-D14400"
         ]
       }
@@ -99721,7 +104522,2654 @@ export const VEHICLES = {
           "ZKXZ-D7Y000"
         ]
       }
-    },   "BA1ZAEFAF15",
+    },
+    "CORSA": {
+      "years": [
+        2010,
+        2014,
+        2015,
+        2016,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "1AACD7A9DKA5",
+          "2A12B1P0KBD5",
+          "2A12B3R0KBD5",
+          "2A12B3U0EAN5",
+          "2A12B5V0EAE5",
+          "2A12B5V0EAN5",
+          "2A12B5VG0EAE5",
+          "2AACA92DEA7",
+          "2AADB1P0KBD5",
+          "2AADB3U0EAE5",
+          "2AAEB1P0KBD5",
+          "2AAEB3R0KBD5",
+          "2AAEB3U0EAE5",
+          "2AAEB3U0EAN5",
+          "2AAFB5V0EAE5",
+          "2AAFC220GFJ5",
+          "2AAGB3HKBB2",
+          "2ADB3U0EAE5",
+          "4AACB9Y0DKA5",
+          "4AADB7A7LJM5",
+          "4AAEB7A7LJM5",
+          "4AAED6A7LJM5",
+          "4AAED6A7LJN5",
+          "BX1F5EEHJ2",
+          "BX2D6EHLA5",
+          "BX2E6EHLA5",
+          "BX2F2EEHJ5",
+          "BX2F2EEHK5",
+          "BX2F2GFKJ5",
+          "BX2F5EDTJ5",
+          "BX2F5EEHA5",
+          "BX2F5EEHJ5",
+          "BX2F5FKJ5",
+          "BX2F5GFK5",
+          "BX2F5GFKJ5",
+          "BX2F5GFKK5",
+          "BX2F5KE6J5",
+          "BX2G1EDTJ5",
+          "BX2G1EEHA5",
+          "BX2G1EEHJ5",
+          "BX2G1GFKJ5",
+          "BX2G1GFKK5",
+          "BX2G5GFKJ5",
+          "D",
+          "YHTK-X2B100",
+          "YHTK-X2B300",
+          "YHTK-X2B400",
+          "YHTK-X2B500",
+          "YHTK-X2B600",
+          "YHTK-X2B700",
+          "YHYJ-X2B000",
+          "YHYJ-X2B200",
+          "YHYJ-X2B800"
+        ],
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ],
+        "GLP (autogás)": [
+          "1AACA7K0DKA5",
+          "1AACD7A9DKA5",
+          "1AADD7A9BDA5",
+          "1AADD7A9DKA5",
+          "BX2E6EHTJ5",
+          "BX2F5EHTJ5"
+        ],
+        "Gasolina": [
+          "0",
+          "0A01ARAFBB5",
+          "1A06A690CCA5",
+          "1A06A69282",
+          "1A06D5B2B2DKA5",
+          "1A06D5B2BDA5",
+          "1A06D5B2CCA",
+          "1A06D5B2CCA5",
+          "1A06D5B2DKA5",
+          "1A06D5X0MKA5",
+          "1A06D5X0MKG5",
+          "1AABA3C0MKA5",
+          "1AABA690CCA5",
+          "1AACB9Y0FEA5",
+          "1AACB9Y0MKA5",
+          "1AACD5B2CCA5",
+          "1AACD5X0MKG5",
+          "1AADD7A9DKA5",
+          "1AAFC650HCK5",
+          "1AAFC650HCP5",
+          "2AADB1P0KBD5",
+          "4A06A690BDA5",
+          "4A06A690DKA5",
+          "4A06B9Y0DKA5",
+          "4A06D5B2BDA5",
+          "4A06D5B2DKA2",
+          "4A06D5B2DKA5",
+          "4A06D5B5DKA5",
+          "4A06D5X0DKA5",
+          "4A06D5X0DKG5",
+          "4A094015",
+          "4A12B1P0DHJ5",
+          "4A12D8R0DHF5",
+          "4A12D8R0DHJ5",
+          "4AABA690BDA5",
+          "4AABA690DKA5",
+          "4AACA690DKA5",
+          "4AACB9Y0DKA5",
+          "4AACB9Y0DKG5",
+          "4AACB9Y0GKA5",
+          "4AACBAY0DKA5",
+          "4AACBPYDKA5",
+          "4AACD5B2BDA5",
+          "4AACD5B2DKA5",
+          "4AACD5X0DKA5",
+          "4AACD5X0DKG5",
+          "4AADB1P0DHJ5",
+          "4AADB9Y0DKA5",
+          "4AAEB1P0DHJ5",
+          "4AAED8R0DHF5",
+          "4AAVB9Y0DKA5",
+          "4B06E4C5PHR4",
+          "5AACB9Y0DKA5",
+          "AX2D6EHLA5",
+          "BA1N1FPCD5",
+          "BX26EHLA5",
+          "BX2D3EFXJ5",
+          "BX2D3EHLA5",
+          "BX2D3EHLJ5",
+          "BX2D3EHTA5",
+          "BX2D5EHLJ5",
+          "BX2D6EFXJ5",
+          "BX2D6EHLA5",
+          "BX2D6EHLA6",
+          "BX2D6EHLAS",
+          "BX2D6EHLJ5",
+          "BX2D6EHLJE",
+          "BX2D6EHLK5",
+          "BX2E6AH7J5",
+          "BX2E6AHLA5",
+          "BX2E6EFXJ5",
+          "BX2E6EHLA5",
+          "BX2E6EHLJ5",
+          "BX2E6EHLK5",
+          "BX2E6HLA5",
+          "BX2E6KE6J5",
+          "BX2F2EFXJ5",
+          "BX2F2EHTJ5",
+          "BX2F2JBFA5",
+          "BX2F2KE6J5",
+          "BX2F2KE6K5",
+          "BX2F5AH7K5",
+          "BX2F5EFXA5",
+          "BX2F5EFXK5",
+          "BX2F5EHLA5",
+          "BX2F5GFKJ5",
+          "BX2F5JBFA5",
+          "BX2F5JBFJ5",
+          "BX2F5JBFK5",
+          "BX2F5KE6J5",
+          "BX2F5KE6K5",
+          "BX2F5KH9A5",
+          "BX2G1JBFA5",
+          "BX2G1JBFK5",
+          "BX2G1KE6K5",
+          "BX2G5JBFA5",
+          "BX5E6EHLA5",
+          "BXD6EHLJ5",
+          "D",
+          "HMHD-X1B100",
+          "HMHD-X1B300",
+          "HMHD-X1B400",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNEK-X1B700",
+          "HNKK-X1B100",
+          "HNKK-X1B300",
+          "HNKK-X1B600",
+          "HNKS-X1B300",
+          "HNKS-X1B500",
+          "HNKS-X1B600",
+          "HNKS-X1B700",
+          "HNSS-X1B300",
+          "HNSS-X1B500",
+          "HNSS-X1B600",
+          "HNSS-X1B700",
+          "OPEL CORSA-B/5 PUERTAS",
+          "PR11",
+          "S-D",
+          "VX2E6EHLA5"
+        ]
+      }
+    },
+    "CORSA 40 ANIVERSARIO 1.2T XHL MT6 S/S 100 CV (74KW": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA 40 ANIVERSARIO 12T XHL MT6 S/S 100 CV (74KW": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA DESIGN & TECH   1.2T XHL MT6 S/S 100 CV (74K": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA E": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BX2F5GFKJ5"
+        ]
+      }
+    },
+    "CORSA E ELITE NAV": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "EHTM-P2S20N",
+          "YHSK-42B500"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "HMHD-X1B400",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNSK-41B500"
+        ]
+      }
+    },
+    "CORSA E ELITE NAV PREMIUM": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BC1ZAWCABA5",
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHT2-D2C300",
+          "YHTK-X2B300",
+          "YHZ2-A2C300",
+          "YHZK-C2P400"
+        ],
+        "Gasolina": [
+          "BB1BBCKH3A5",
+          "BD1VANPDTA5",
+          "BE1VADPH0A5",
+          "BH1BATKH315",
+          "BW1BATKH3A5",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P600",
+          "HNSS-41B500"
+        ]
+      }
+    },
+    "CORSA E GRIFFIN": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300",
+          "YHZR-C2K000"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BW1BAUKH3A5",
+          "HNEK-X1B500",
+          "HNKS-X1B500"
+        ]
+      }
+    },
+    "CORSA E SE NAV": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BE1VAMPG9A5",
+          "BE1ZATJUKA5",
+          "EHTM-N2N20L",
+          "YHT2-A2C300",
+          "YHT2-D2C300",
+          "YHTK-X2B400",
+          "YHZK-C2P400"
+        ],
+        "Gasolina": [
+          "BD1VANPDTA5",
+          "BE1VADPH0A5",
+          "BF1VABPAZA5",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B500",
+          "HNSK-C1P600"
+        ]
+      }
+    },
+    "CORSA E SE NAV PREMIUM": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B400",
+          "YHVM-P2S10N"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BW2BATKH315",
+          "HNEK-41B500",
+          "HNEK-X1B500",
+          "HNSK-C1P400"
+        ]
+      }
+    },
+    "CORSA E SRI NAV PREMIUM": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHTK-X2B300",
+          "YHTK-X2B500",
+          "YHVK-N2F00L",
+          "YHYC-A2P000",
+          "YHZK-C2P400"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000",
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BT2BAUKH315",
+          "BW1BATKH3A5",
+          "BW1BAVNAUA5",
+          "BW2BBCKH315",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNSK-41B500",
+          "HNSK-41B700",
+          "HNSK-C1P600",
+          "HNSS-41B500"
+        ]
+      }
+    },
+    "CORSA E SRI PREMIUM": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNSK-C1P100",
+          "HNSK-C1P600"
+        ]
+      }
+    },
+    "CORSA EDITION  1.2 XEL MT5 S/S 75 CV (55KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HMHD-X1B400"
+        ]
+      }
+    },
+    "CORSA EDITION  1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B400"
+        ]
+      }
+    },
+    "CORSA EDITION  1.5D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B100"
+        ]
+      }
+    },
+    "CORSA EDITION 1.2 XEL MT5 S/S 75 CV (55KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HMHD-X1B400",
+          "HMHD-Y1T500"
+        ]
+      }
+    },
+    "CORSA EDITION 1.2T XEL MT5 S/S 75 CV (55KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HMHD-X1B400",
+          "HMHD-X1B500",
+          "HMHD-Y1G500"
+        ]
+      }
+    },
+    "CORSA EDITION 1.2T XHL HYBRID EDCT6 S/S 100 CV (74": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPX5-Y1NN00"
+        ]
+      }
+    },
+    "CORSA EDITION 1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B400",
+          "HNEK-Y1G500",
+          "HNEK-Y1T500"
+        ]
+      }
+    },
+    "CORSA EDITION 1.5D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B100"
+        ]
+      }
+    },
+    "CORSA EDITION 12T XEL MT5 S/S 75 CV (55KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HMHD-X1B400",
+          "HMHD-Y1G500"
+        ]
+      }
+    },
+    "CORSA EDITION 12T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNEK-Y1G500"
+        ]
+      }
+    },
+    "CORSA EDITION 15D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B100",
+          "YHTK-X2B300"
+        ]
+      }
+    },
+    "CORSA EDITION ELECTRIC 50KWH 136 CV (100KW)": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-Y0L000"
+        ]
+      }
+    },
+    "CORSA ELEGANCE  1.2T XHL AT8 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNKS-X1B500",
+          "HNKS-X1B700"
+        ]
+      }
+    },
+    "CORSA ELEGANCE  1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA ELEGANCE  1.5D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B300"
+        ]
+      }
+    },
+    "CORSA ELEGANCE 1.2T XHL AT8 S/S 100 CV (74KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNKS-X1B500",
+          "HNKS-X1B700"
+        ]
+      }
+    },
+    "CORSA ELEGANCE 1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNEK-X1B700"
+        ]
+      }
+    },
+    "CORSA ELEGANCE 1.5D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B300",
+          "YHTK-X2B500"
+        ]
+      }
+    },
+    "CORSA ELEGANCE 12T XHL AT8 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNKS-X1B500"
+        ]
+      }
+    },
+    "CORSA ELEGANCE 12T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNEK-X1B700"
+        ]
+      }
+    },
+    "CORSA ELEGANCE 15D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B300"
+        ]
+      }
+    },
+    "CORSA ELITE": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHT2-A2P300",
+          "YHT2-D2C300",
+          "YHTK-X2B400",
+          "YHYJ-X2B000",
+          "YHZJ-C2K000",
+          "YHZS-C2PD00"
+        ],
+        "Gasolina": [
+          "BB1BBCKH3A5",
+          "BE1VABPAZA5",
+          "BE1VADPH0A5",
+          "BW1BAVNAUA5",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P100",
+          "HNSK-C1P600",
+          "HNSS-41B700"
+        ]
+      }
+    },
+    "CORSA ELITE EDITION": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BC1ZAWCABA5",
+          "BE1VALPALA5",
+          "BG1BAZJUDA5",
+          "BW1BAYJUDA5",
+          "YHSK-42B500",
+          "YHT2-D2C300",
+          "YHTK-X2B300",
+          "YHTK-X2B400",
+          "YHTK-X2B500",
+          "YHVM-P2S10L",
+          "YHYC-A2P000",
+          "YHZJ-C2K000",
+          "YHZJ-C2K300"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000",
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "BB1BAVNAUA5",
+          "BE1VAAPH0A5",
+          "BE1VABPAZA5",
+          "BE1VADPH0A5",
+          "BW1BATKH3A5",
+          "BW2BATKH315",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P100",
+          "HNSK-C1P600",
+          "HNSK-C1P700",
+          "HNSS-C1PE00",
+          "HNSS-X1B500"
+        ],
+        "Híbrido gasolina": [
+          "DGZS-C1J000"
+        ]
+      }
+    },
+    "CORSA ELITE EDITION TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "AHXK-N2200L",
+          "BC1ZATJUKA5",
+          "BC1ZAWCABA5",
+          "YHTK-X2B400"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "HNEK-41B500",
+          "HNEK-X1B500",
+          "HNKS-X1B500"
+        ]
+      }
+    },
+    "CORSA ELITE EDITION TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HMHD-X1B400",
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA ELITE NAV": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B500",
+          "YHYC-A2P000"
+        ],
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNSS-41B500",
+          "HNSS-41B700"
+        ]
+      }
+    },
+    "CORSA ELITE NAV PREMIUM TRBO A": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1VAFPG9A5",
+          "BG1BAZJUDA5",
+          "BH1BAYJUDA5",
+          "BW1BAYJUD15",
+          "YHT2-A2C300",
+          "YHTK-X2B400"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BH1BATKH3A5",
+          "BW2BAUKH315",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNP2-A12100"
+        ]
+      }
+    },
+    "CORSA ELITE NAV PREMIUM TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1VAFPG9A5",
+          "BC1ZAWCABA5",
+          "BE1ZATJUKA5",
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHTK-X2B400",
+          "YHTK-X2B500",
+          "YHZ2-A2C300",
+          "YHZJ-C2K300",
+          "YHZR-C2K000"
+        ],
+        "Gasolina": [
+          "BC1ZARDAEA5",
+          "BE1VAAPH0A5",
+          "BE1VADPH0A5",
+          "BW1BATKH315",
+          "BW1BATKH3A5",
+          "BW2BATKH315",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P600",
+          "HNSS-41B500",
+          "HNSS-41B700"
+        ],
+        "Híbrido gasolina": [
+          "5GBS-C1J000"
+        ]
+      }
+    },
+    "CORSA ELITE NAV TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B400",
+          "YHTK-X2B500",
+          "YHYC-A2P000",
+          "YHZ2-C2C300",
+          "YHZ2-D2C300",
+          "YHZK-C2P400"
+        ],
+        "Gasolina": [
+          "BE1VAAPH0A5",
+          "BE1VADPH0A5",
+          "HNEK-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P600"
+        ],
+        "Híbrido gasolina": [
+          "5GBS-C1J000"
+        ]
+      }
+    },
+    "CORSA ELITE NAV TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B400",
+          "YHZ2-A2C300"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000",
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "BW1BAVNAUA5",
+          "HMHD-X1B400",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNSS-41B500"
+        ]
+      }
+    },
+    "CORSA ELITE NAV TURBO D": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500"
+        ],
+        "Gasolina": [
+          "HNSK-C1P400"
+        ]
+      }
+    },
+    "CORSA ELITE TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BA1VAFPG9A5",
+          "BB1VAMPG9A5",
+          "BH1ZAUCABA5",
+          "YHT2-A2P300",
+          "YHT2-D2C300"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P400",
+          "HNSK-C1P600",
+          "HNSS-41B500",
+          "HNSS-41B700"
+        ]
+      }
+    },
+    "CORSA ELITE TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1VAMPG9A5",
+          "BC1ZAWCABA5",
+          "YHT2-A2P300",
+          "YHTK-X2B100",
+          "YHTK-X2B400"
+        ],
+        "Gasolina": [
+          "BW1BAUKH315",
+          "HMHD-X1B100",
+          "HNEK-41B500",
+          "HNEK-X1B500",
+          "HNSK-41B500"
+        ],
+        "Híbrido gasolina": [
+          "5GBS-C1J000"
+        ]
+      }
+    },
+    "CORSA ELITE TURBO D": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "EHTM-L2N20L"
+        ]
+      }
+    },
+    "CORSA GRIFFIN": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHT2-A2P300",
+          "YHTK-X2B100",
+          "YHTK-X2B300",
+          "YHYC-A2P000",
+          "YHYJ-X2B000",
+          "YHZ2-C2C300"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BW1BATKH3A5",
+          "BW1BAUKH3A5",
+          "BW1BAVNAUA5",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P400",
+          "HNSS-41B500",
+          "HNSS-X1B700"
+        ],
+        "Híbrido gasolina": [
+          "DGZS-C1J000"
+        ]
+      }
+    },
+    "CORSA GRIFFIN EDITION": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZK-C2P400"
+        ],
+        "Gasolina": [
+          "BE1VAAPH0A5",
+          "BE1VADPH0A5",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNSK-C1P600"
+        ]
+      }
+    },
+    "CORSA GRIFFIN EDITION TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500"
+        ],
+        "Gasolina": [
+          "BC1ZAZDAEA5",
+          "BW2BAUKH315",
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA GRIFFIN EDITION TURBO A": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZK-C2P400"
+        ],
+        "Gasolina": [
+          "HNEK-X1B400"
+        ]
+      }
+    },
+    "CORSA GRIFFIN TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1VAMPG9A5",
+          "BE1VALPALA5",
+          "BT1BAZJUD15",
+          "EHTM-P2S20N",
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHTK-X2B300",
+          "YHTK-X2B400",
+          "YHYC-A2P000",
+          "YHZ2-A2C300"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BF1VABPAZA5",
+          "BW1BATKH315",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B500",
+          "HNKK-X1B300"
+        ],
+        "Híbrido gasolina": [
+          "5GBS-C1J000"
+        ]
+      }
+    },
+    "CORSA GRIFFIN TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA GS 1.2T XHL HYBRID EDCT6 S/S 100 CV (74KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPX5-Y1NM00",
+          "HPX5-Y1NN00"
+        ]
+      }
+    },
+    "CORSA GS 1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNEK-X1B700",
+          "HNEK-Y1D500",
+          "HNEK-Y1D700",
+          "HNEK-Y1G500",
+          "HNEK-Y1G700",
+          "HNEK-Y1T500",
+          "HNEK-Y1T700"
+        ]
+      }
+    },
+    "CORSA GS 1.2T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSS-X1B500",
+          "HNSS-X1B700"
+        ]
+      }
+    },
+    "CORSA GS 1.2T XHT HYBRID EDCT6 S/S 136 CV (100KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPY5-Y1NM00",
+          "HPY5-Y1NN00"
+        ]
+      }
+    },
+    "CORSA GS 1.5D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B300",
+          "YHTK-X2B600"
+        ]
+      }
+    },
+    "CORSA GS 12T XHL HYBRID EDCT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPX5-Y1NN00"
+        ]
+      }
+    },
+    "CORSA GS 12T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNEK-X1B700",
+          "HNEK-Y1D500",
+          "HNEK-Y1D700",
+          "HNEK-Y1G500",
+          "HNEK-Y1G700"
+        ]
+      }
+    },
+    "CORSA GS 12T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSS-X1B500",
+          "HNSS-X1B700"
+        ]
+      }
+    },
+    "CORSA GS 15D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B300",
+          "YHTK-X2B600"
+        ]
+      }
+    },
+    "CORSA GS ELECTRIC 51KWH LONG RANGE 156 CV (115KW)": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKWZ-Y0J000",
+          "ZKWZ-Y0L000",
+          "ZKWZ-Y0R000"
+        ]
+      }
+    },
+    "CORSA GS LINE 1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNEK-X1B700"
+        ]
+      }
+    },
+    "CORSA GS LINE 1.2T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSS-X1B500"
+        ]
+      }
+    },
+    "CORSA GS LINE 12T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA GS LINE 12T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSS-X1B500"
+        ]
+      }
+    },
+    "CORSA GS-LINE  1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNEK-X1B700"
+        ]
+      }
+    },
+    "CORSA GS-LINE  1.5D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B300",
+          "YHTK-X2B600"
+        ]
+      }
+    },
+    "CORSA GS-LINE +  1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA GS-LINE + 1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA GS-LINE 1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA GS-LINE 1.2T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSS-X1B500",
+          "HNSS-X1B700"
+        ]
+      }
+    },
+    "CORSA GS-LINE 1.5D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B300",
+          "YHTK-X2B600"
+        ]
+      }
+    },
+    "CORSA GS-LINE 12T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA GS-LINE 15D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B300"
+        ]
+      }
+    },
+    "CORSA SE": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "AHXK-N2200L",
+          "BA1ZACJFK25",
+          "BC1ZAWCABA5",
+          "BE1VALPALA5",
+          "BE1VAMPG9A5",
+          "BH1ZAUCABA5",
+          "BW1BAYJUDA5",
+          "BW2BAZJUD15",
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHT2-A2P300",
+          "YHT2-C2C300",
+          "YHT2-C2P300",
+          "YHTK-X2B100",
+          "YHTK-X2B400",
+          "YHTK-X2B500",
+          "YHTK-X2B700",
+          "YHVK-N2200L",
+          "YHVK-P2F00L",
+          "YHYJ-X2B000",
+          "YHYJ-X2B200",
+          "YHZ2-D2C300",
+          "YHZJ-C2K300",
+          "YHZK-C2P400",
+          "YHZS-C2PD00"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000",
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "BB1BBCKH3A5",
+          "BB1VADPH0A5",
+          "BD1VANPDTA5",
+          "BE1VAAPH0A5",
+          "BE1VABPAZA5",
+          "BE1VADPH0A5",
+          "BH1BATKH315",
+          "BW1BATKH3A5",
+          "BW1BAUKH3A5",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKK-X1B300",
+          "HNKS-X1B500",
+          "HNKS-X1B700",
+          "HNP2-A14200",
+          "HNS3-A14400",
+          "HNSK-41B500",
+          "HNSK-C1P400",
+          "HNSK-C1P600",
+          "HNSS-41B500",
+          "HNSS-41B700",
+          "HNSS-C1PE00",
+          "HNSS-X1B500"
+        ],
+        "Híbrido gasolina": [
+          "5GBS-C1J000"
+        ]
+      }
+    },
+    "CORSA SE EDITION": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300"
+        ],
+        "Gasolina": [
+          "HMHD-X1B400",
+          "HNEK-X1B400",
+          "HNEK-X1B500"
+        ],
+        "Híbrido gasolina": [
+          "5GBS-C1J000",
+          "DGZS-C1J000"
+        ]
+      }
+    },
+    "CORSA SE EDITION TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B700"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000"
+        ]
+      }
+    },
+    "CORSA SE NAV PREMIUM TURBO A": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HMHD-X1B400"
+        ]
+      }
+    },
+    "CORSA SE NAV TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500"
+        ]
+      }
+    },
+    "CORSA SE NAV TURBO D": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B400"
+        ]
+      }
+    },
+    "CORSA SE PREMIUM": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1VAMPG9A5",
+          "BE1VALPALA5",
+          "BE1VAMPG9A5",
+          "BW1BAYJUDA5",
+          "EHTM-P2S20N",
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHT2-A2P300",
+          "YHTK-X2B100",
+          "YHTK-X2B400",
+          "YHTK-X2B500",
+          "YHVK-P2F00K",
+          "YHYC-A2P000",
+          "YHZJ-C2K300"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000",
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "BB1BBCKH3A5",
+          "BB1VADPH0A5",
+          "BE1VAAPH0A5",
+          "BE1VADPH0A5",
+          "BF1VABPAZA5",
+          "BW1BAUKH315",
+          "BW1BAUKH3A5",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNP2-A14200",
+          "HNSK-41B500",
+          "HNSK-C1P400",
+          "HNSK-C1P600",
+          "HNSS-41B500",
+          "HNSS-41B700"
+        ]
+      }
+    },
+    "CORSA SE PREMIUM TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500",
+          "YHTK-X2B400",
+          "YHZ2-A2C300",
+          "YHZJ-C2K000"
+        ],
+        "Gasolina": [
+          "BD1VANPDTA5",
+          "BE1VADPH0A5",
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA SE PREMIUM TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHZJ-A2P000",
+          "YHZR-C2K000"
+        ],
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNKK-X1B300",
+          "HNKS-X1B500",
+          "HNSK-C1P700",
+          "HNSS-41B500"
+        ],
+        "Híbrido gasolina": [
+          "5GBS-C1J000"
+        ]
+      }
+    },
+    "CORSA SE TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B100",
+          "YHTK-X2B500",
+          "YHZK-C2P400"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BW1BATKH315",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B500",
+          "HNEK-X1B700",
+          "HNSK-41B500",
+          "HNSK-C1P600",
+          "HNSS-41B700"
+        ]
+      }
+    },
+    "CORSA SE TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B400",
+          "YHTK-X2B700"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "HNKS-X1B500",
+          "HNSK-C1P600"
+        ]
+      }
+    },
+    "CORSA SE TURBO D": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B500"
+        ],
+        "Gasolina": [
+          "BW1BAUKH3A5",
+          "HNEK-41B500",
+          "HNEK-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P600",
+          "HNSK-C1P700"
+        ]
+      }
+    },
+    "CORSA SRI EDITION TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B500"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BH1BATKH315",
+          "BW1BATKH3A5",
+          "HNEK-X1B500",
+          "HNSK-41B500"
+        ]
+      }
+    },
+    "CORSA SRI NAV PREMIUM TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BW2BAUKH315"
+        ]
+      }
+    },
+    "CORSA SRI PREMIUM TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1VAMPG9A5",
+          "YHSK-42B500",
+          "YHT2-A2C300",
+          "YHT2-A2P300",
+          "YHTK-X2B400",
+          "YHTK-X2B500",
+          "YHVM-P2S10N",
+          "YHZS-C2PD00"
+        ],
+        "Eléctrico": [
+          "ZKXZ-40B000",
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "BB1BBCKH3A5",
+          "BC1ZARDAEA5",
+          "BE1VADPH0A5",
+          "BW1BATKH315",
+          "BW2BATKH315",
+          "HMHD-X1B400",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNSK-41B500",
+          "HNSK-C1P600",
+          "HNSS-41B500",
+          "HNSS-41B700"
+        ]
+      }
+    },
+    "CORSA SRI PREMIUM TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500"
+        ],
+        "Gasolina": [
+          "BE1VAAPH0A5",
+          "BE1VADPH0A5",
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA SRI PREMIUM TURBO D": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSK-41B500"
+        ]
+      }
+    },
+    "CORSA SRI TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BC1ZATJUKA5",
+          "BE1VALPALA5",
+          "YHT2-A2C300",
+          "YHT2-D2C300",
+          "YHTK-X2B100",
+          "YHTK-X2B400",
+          "YHTK-X2B500",
+          "YHVK-P2F00L",
+          "YHYC-A2P000",
+          "YHYC-D2P000",
+          "YHZJ-C2K300",
+          "YHZK-C2P400"
+        ],
+        "Eléctrico": [
+          "ZKXZ-X0A000",
+          "ZKXZ-X0C000"
+        ],
+        "Gasolina": [
+          "BD1VANPDTA5",
+          "BE1VADPH0A5",
+          "BH1BATKH315",
+          "BW1BATKH315",
+          "BW1BAUKH3A5",
+          "BW1BAVNAUA5",
+          "BW2BAUKH315",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKS-X1B500",
+          "HNSK-C1P600",
+          "HNSS-41B500",
+          "HNSS-C1PE00",
+          "HNSS-X1B500"
+        ]
+      }
+    },
+    "CORSA SRI TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHSK-42B500"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "HNEK-X1B500",
+          "HNP2-A14200",
+          "HNSK-C1P600"
+        ]
+      }
+    },
+    "CORSA ULTIMATE  1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B700"
+        ]
+      }
+    },
+    "CORSA ULTIMATE  1.2T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSS-X1B700"
+        ]
+      }
+    },
+    "CORSA ULTIMATE 1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B700"
+        ]
+      }
+    },
+    "CORSA ULTIMATE 1.2T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSS-X1B700"
+        ]
+      }
+    },
+    "CORSA ULTIMATE 12T XHT AT8 S/S 130 CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNSS-X1B700"
+        ]
+      }
+    },
+    "CORSA ULTIMATE NAV TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CORSA ULTIMATE NAV TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300"
+        ],
+        "Gasolina": [
+          "HNEK-X1B500",
+          "HNP2-A14200",
+          "HNSK-C1P600"
+        ]
+      }
+    },
+    "CORSA VAN EDITION 15D DT MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHTK-X2B100"
+        ]
+      }
+    },
+    "CORSA YES 1.2T XHL HYBRID EDCT6 S/S 100CV (74KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HPX5-Y1NN00"
+        ]
+      }
+    },
+    "CORSA YES 1.2T XHL MT6 S/S 100 CV (74KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-Y1T500"
+        ]
+      }
+    },
+    "CORSA YES ELECTRIC 50KWH 136 CV (100KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-Y0L000"
+        ]
+      }
+    },
+    "CORSA-E": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BA1N1JKJC5",
+          "BX2D6EHLA5",
+          "BX2D6EHLJ5",
+          "BX2D6HLA5",
+          "BX2E6AH7J5",
+          "BX2E6EHLA5",
+          "BX2E6GFKJ5",
+          "BX2E79*37",
+          "BX2F2EDTJ5",
+          "BX2F2EEHJ5",
+          "BX2F2GFKJ5",
+          "BX2F5EDTJ5",
+          "BX2F5EDTK5",
+          "BX2F5EEHJ5",
+          "BX2F5EEHK5",
+          "BX2F5GFKJ5",
+          "BX2F5GFKK5",
+          "BX2G1EDTJ5",
+          "BX2G1EEHJ5",
+          "BX2G1GFKJ5",
+          "BX2G1GFKK5",
+          "BX2G1JBFK5",
+          "BXF5GFKJ5"
+        ],
+        "Eléctrico": [
+          "ZKXZ-X0A000",
+          "ZKXZ-X0C000"
+        ],
+        "GLP (autogás)": [
+          "BA1SAFEHN15",
+          "BA1SAFEHN25",
+          "BX2D6EHLA5",
+          "BX2D6EHTJ5",
+          "BX2E6EHLA5",
+          "BX2E6EHTJ5",
+          "BX2F2EH7J5",
+          "BX2F2EHTJ5",
+          "BX2F2EHTK5",
+          "BX2F5EHTJ5",
+          "BX2F5EHTK5"
+        ],
+        "Gasolina": [
+          "AA1SAHJBM15",
+          "B2XF2EFXJ5",
+          "BA1P3FPCC5",
+          "BA1SABEH225",
+          "BA1SACEH215",
+          "BA1SACEH225",
+          "BA1SADEH215",
+          "BA1SADEH225",
+          "BA1SAEAH715",
+          "BA1SAEAH725",
+          "BA1SAFEHN15",
+          "BA1SAFEHN25",
+          "BA1SAGJBD15",
+          "BA1SAGJBD25",
+          "BA1SAHJBM15",
+          "BS2D6EHLA5",
+          "BV2D6EHLA5",
+          "BX0D6EHLA5",
+          "BX2D3EFXJ5",
+          "BX2D3EHLA5",
+          "BX2D3EHLJ5",
+          "BX2D4EHLA5",
+          "BX2D5JBFA5",
+          "BX2D6AH7J5",
+          "BX2D6EFXJ5",
+          "BX2D6EFXK5",
+          "BX2D6EHLA",
+          "BX2D6EHLA5",
+          "BX2D6EHLAE",
+          "BX2D6EHLJ5",
+          "BX2D6EHLK5",
+          "BX2D6EHTJ5",
+          "BX2D6ELA5",
+          "BX2D6HLA5",
+          "BX2DEHLA5",
+          "BX2E6AH7J5",
+          "BX2E6AH7K5",
+          "BX2E6EFX15",
+          "BX2E6EFXJ5",
+          "BX2E6EFXJA",
+          "BX2E6EFXK5",
+          "BX2E6EHKA5",
+          "BX2E6EHLA5",
+          "BX2E6EHLH5",
+          "BX2E6EHLJ5",
+          "BX2E6EHLK5",
+          "BX2E6HLA5",
+          "BX2E6KE6J5",
+          "BX2E6KE6K5",
+          "BX2E6RHLA5",
+          "BX2F2AH7J5",
+          "BX2F2AH7K5",
+          "BX2F2EFXJ5",
+          "BX2F2EFXK5",
+          "BX2F2EHLA5",
+          "BX2F2EHLJ5",
+          "BX2F2JBFA5",
+          "BX2F2KE6J5",
+          "BX2F2KE6K5",
+          "BX2F5AH7K5",
+          "BX2F5EEHJ5",
+          "BX2F5EFXJ5",
+          "BX2F5EFXK5",
+          "BX2F5JBFA5",
+          "BX2F5JBFA54",
+          "BX2F5JBFJ5",
+          "BX2F5JBFK5",
+          "BX2F5KE6J5",
+          "BX2F5KE6K5",
+          "BX2F5KH9A5",
+          "BX2G1JBFA5",
+          "BX2G1JBFJ5",
+          "BX2G1JBFK5",
+          "BX2G1JBWN5",
+          "BX2G1KE6K5",
+          "BX2G3JBWN5",
+          "BX3E6EHLA5",
+          "BXS6EHLA5",
+          "BZ2D6EHLJ5",
+          "VX2E6EHLA5"
+        ]
+      }
+    },
+    "CORSA-E 40 ANIVERSARIO BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0J000"
+        ]
+      }
+    },
+    "CORSA-E DESIGN & TECH   BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ]
+      }
+    },
+    "CORSA-E EDITION-E  BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0C000",
+          "ZKXZ-X0L000",
+          "ZKXZ-Y0L000"
+        ]
+      }
+    },
+    "CORSA-E EDITION-E BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ]
+      }
+    },
+    "CORSA-E ELEGANCE-E  BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0A000",
+          "ZKXZ-X0C000",
+          "ZKXZ-X0L000"
+        ]
+      }
+    },
+    "CORSA-E ELEGANCE-E BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ]
+      }
+    },
+    "CORSA-E GS BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0J000",
+          "ZKXZ-X0L000",
+          "ZKXZ-Y0L000"
+        ]
+      }
+    },
+    "CORSA-E GS LINE + E  BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ]
+      }
+    },
+    "CORSA-E GS LINE + E BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ]
+      }
+    },
+    "CORSA-E GS LINE BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0C000",
+          "ZKXZ-X0L000"
+        ]
+      }
+    },
+    "CORSA-E ULTIMATE-E  BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ]
+      }
+    },
+    "CORSA-E ULTIMATE-E BEV 50KWH 136 CV (100KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ]
+      }
+    },
+    "COSA-E": {
+      "years": [
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BX2D6EHLA5"
+        ]
+      }
+    },
+    "CROSSLAND": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BA1E3PCYA5",
+          "BA1E4PCYA5",
+          "BA1F1PCYJ5",
+          "BA1F1XPCYJ5",
+          "BA1F2PCRA5",
+          "BA1F2PCYJ5",
+          "BA1F2XPCYJ5",
+          "BA1F3PCYJ5",
+          "BA1F3PFXA5",
+          "BA1F3PFXJ5",
+          "BA1F3XPCYJ5",
+          "BA1F3XPFXJ5",
+          "BA1F4PCYJ5",
+          "BA1F4PFXJ5",
+          "BA1F4XPCYJ5",
+          "BA1F4XPFXJ5",
+          "BA1G1PCYJ5",
+          "BA1G1PFXJ5",
+          "BA1G1XPFXJ5",
+          "BA1G2PFXJ5",
+          "BA1G2XPFXJ5",
+          "BA1G3PFXJ5",
+          "BA1G3XPFXJ5",
+          "BA1VAFPG925",
+          "BA1VAFPG9A5",
+          "BA1VAGPAL25",
+          "BA1VAGPALA5",
+          "BB1VAFPG9A5",
+          "BB1VAGPALA5",
+          "BB1VALPALA5",
+          "BB1VAMPG9A5",
+          "BC1VAFPG9A5",
+          "BC1VAGPALA5",
+          "BC1VALPALA5",
+          "BE1VALPALA5",
+          "BE1VAMPG9A5",
+          "BF1VALPALA5"
+        ],
+        "GLP (autogás)": [
+          "BA1D6PDTA5",
+          "BA1D6XPDTA5",
+          "BA1E1PDTA5",
+          "BA1E1XPDTA5"
+        ],
+        "Gasolina": [
+          "BA1C7PDTJ5",
+          "BA1C7XPDTJ5",
+          "BA1D1PDTJ5",
+          "BA1D1XPDTJ5",
+          "BA1D2PDTJ5",
+          "BA1D6PBWA5",
+          "BA1D6XPBWA5",
+          "BA1E1PBWA5",
+          "BA1E1PBWJ5",
+          "BA1E1XPBWA5",
+          "BA1E1XPBWJ5",
+          "BA1E3PBWA5",
+          "BA1E3PBWJ5",
+          "BA1E3PEXJ5",
+          "BA1E3XPBWA5",
+          "BA1E3XPBWJ5",
+          "BA1E4PAZJ5",
+          "BA1E4PBWA5",
+          "BA1E4PBWJ5",
+          "BA1E4PEXJ5",
+          "BA1E4XPAZJ5",
+          "BA1E4XPBWA5",
+          "BA1F1PAZJ5",
+          "BA1F1PBWA5",
+          "BA1F1PBWJ5",
+          "BA1F1PEXJ5",
+          "BA1F1XPAZJ5",
+          "BA1F2PAZJ5",
+          "BA1F2PBWA5",
+          "BA1F2PEXJ5",
+          "BA1F2XPAZJ5",
+          "BA1F3PAZJ5",
+          "BA1F3PBWA5",
+          "BA1F3PEXJ5",
+          "BA1F3XPAZJ5",
+          "BA1F4PAZJ5",
+          "BA1F4PEXJ5",
+          "BA1F4XPAZJ5",
+          "BA1G1PAZJ5",
+          "BA1G2PAZJ5",
+          "BA1VAAPH0A5",
+          "BA1VAAPH825",
+          "BA1VACPDT25",
+          "BA1VADPH025",
+          "BA1VADPH0A5",
+          "BA1VAEPAZ25",
+          "BA1VANPDTA5",
+          "BB1VAAPH0A5",
+          "BB1VABPAZA5",
+          "BB1VADPH0A5",
+          "BC1VAAPH0A5",
+          "BC1VABPAZA5",
+          "BC1VADPH0A5",
+          "BC1VANPDTA5",
+          "BD1VADPH0A5",
+          "BD1VANPDTA5",
+          "BE1VAAPH0A5",
+          "BE1VABPAZA5",
+          "BE1VADPH0A5",
+          "BF1VAAPH0A5",
+          "BF1VABPAZA5",
+          "BF1VADPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND BUSINESS ELEGANCE  1.2 GAS AT6 S/S 130CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VABPAZA5",
+          "BF1VABPAZA5"
+        ]
+      }
+    },
+    "CROSSLAND BUSINESS ELEGANCE  1.2 GAS MT6 S/S 130CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VAAPH0A5",
+          "BF1VAAPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND BUSINESS ELEGANCE  1.5 DIE AT6 S/S 120CV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1VALPALA5",
+          "BC1VALPALA5"
+        ]
+      }
+    },
+    "CROSSLAND BUSINESS ELEGANCE  12 GAS AT6 S/S 130CV": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VABPAZA5",
+          "BF1VABPAZA5"
+        ]
+      }
+    },
+    "CROSSLAND BUSINESS ELEGANCE  12 GAS MT6 S/S 130CV": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VAAPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND BUSINESS ELEGANCE 1.2 GAS AT6 S/S 130CV(": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VABPAZA5"
+        ]
+      }
+    },
+    "CROSSLAND EDITION  1.2 GAS MT6 S/S 110CV (81KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VADPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND EDITION  1.5 DIE MT6 S/S 110CV (81KW)": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1VAMPG9A5"
+        ]
+      }
+    },
+    "CROSSLAND EDITION  12 GAS MT6 S/S 110CV (81KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VADPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND EDITION 1.2 GAS MT6 S/S 110CV (81KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VADPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND EDITION 1.5 DIE MT6 S/S 110CV (81KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "BB1VAMPG9A5",
+          "BE1VAMPG9A5"
+        ]
+      }
+    },
+    "CROSSLAND EDITION 12 GAS MT6 S/S 110CV (81KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VADPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND EDITION 15 DIE MT6 S/S 110CV (81KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "BE1VAMPG9A5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE 1.2 GAS AT6 S/S 130CV (96KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VABPAZA5",
+          "BF1VABPAZA5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE 1.2 GAS MT6 S/S 110CV (81KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BF1VADPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE 1.5 DIE MT6 S/S 110CV (81KW)": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "BE1VAMPG9A5",
+          "BF1VAMPG9A5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE 1.5 DIE MT6 S/S 110CV (88KW)": {
+      "years": [
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "BE1VAMPG9A5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE 12 GAS AT6 S/S 130CV (96KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VABPAZA5",
+          "BF1VABPAZA5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE 12 GAS MT6 S/S 110CV (81KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BF1VADPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE 15 DIE MT6 S/S 110CV (81KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "BE1VAMPG9A5",
+          "BF1VAMPG9A5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE 15 DIE MT6 S/S 110CV (88KW)": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "BE1VAMPG9A5",
+          "BF1VAMPG9A5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE PACK 1.2 GAS AT6 S/S 130CV (96K": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VABPAZA5"
+        ]
+      }
+    },
+    "CROSSLAND ELEGANCE PACK 1.2 GAS MT6 S/S 110CV (81K": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BE1VADPH0A5"
+        ]
+      }
+    },
+    "CROSSLAND ELITE": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-C2P300"
+        ],
+        "Gasolina": [
+          "BE1VABPAZA5",
+          "HNEK-X1B500",
+          "HNSK-41B500",
+          "HNSS-X1B500"
+        ]
+      }
+    },
+    "CROSSLAND ELITE EDITION": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HNEK-41B500",
+          "HNEK-X1B400",
+          "HNEK-X1B500"
+        ]
+      }
+    },
+    "CROSSLAND ELITE EDITION TRBO A": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BH1BAYJUDA5",
+          "YHT2-A2P300"
+        ],
+        "Eléctrico": [
+          "ZKXZ-A7U000"
+        ],
+        "Gasolina": [
+          "HNSK-C1P400"
+        ]
+      }
+    },
+    "CROSSLAND ELITE EDITION TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BE1VALPALA5",
+          "YHSK-42B500"
+        ],
+        "Gasolina": [
+          "BH1BATKH315",
+          "HMHD-X1B100",
+          "HMHD-X1B400",
+          "HNSK-41B500",
+          "HNSS-41B700"
+        ]
+      }
+    },
+    "CROSSLAND ELITE NAV": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "YHT2-A2C300"
+        ],
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BW1BATKH3A5",
+          "HMHD-X1B400",
+          "HNEK-41B500",
+          "HNEK-X1B500"
+        ],
+        "Híbrido gasolina": [
+          "DGZS-C1J000"
+        ]
+      }
+    },
+    "CROSSLAND ELITE NAV TURBO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BC1ZATJUKA5",
+          "BW1BAYJUD15",
+          "BW1BAZJUDA5",
+          "YHT2-A2C300",
+          "YHT2-C2C300",
+          "YHTK-X2B300",
+          "YHTK-X2B400",
+          "YHZ2-A2C300"
+        ],
+        "Eléctrico": [
+          "ZKXZ-X0A000"
+        ],
+        "Gasolina": [
+          "BE1VADPH0A5",
+          "BW1BAUKH3A5",
+          "BW2BAUKH315",
+          "HMHD-X1B400",
+          "HNEK-X1B400",
+          "HNEK-X1B500",
+          "HNKK-X1B300",
+          "HNP2-A14200",
+          "HNSK-41B500",
+          "HNSK-C1P600",
+          "HNSS-C1PE00",
+          "HNSS-X1B500"
+        ],
+        "Híbrido gasolina": [
+          "5GBS-C1J000"
+        ]
+      }
+    },
+    "CROSSLAND ELITE NAV TURBO AUTO": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "BA1ZAEFAF15",
           "BE1VALPALA5",
           "BW1BAYJUDA5",
           "YHSK-42B500",
@@ -166543,13 +173991,7 @@ export const VEHICLE_CATALOG_SOURCE = {
 };
 export function getBrands() { return Object.keys(VEHICLES); }
 export function getModels(brand) { return VEHICLES[brand] ? Object.keys(VEHICLES[brand]) : []; }
-// Permit historical registration years from 1990 while retaining the years
-// observed in the governed source. Older registrations require manual review.
-export function getYears(brand, model) {
-  const years = VEHICLES[brand]?.[model]?.years || [];
-  const max = years.length ? Math.max(...years) : new Date().getFullYear();
-  return Array.from({ length: Math.max(0, max - 1990 + 1) }, (_, i) => 1990 + i);
-}
+export function getYears(brand, model) { return VEHICLES[brand]?.[model]?.years || []; }
 export function getFuels(brand, model) { return VEHICLES[brand]?.[model] ? Object.keys(VEHICLES[brand][model].fuels) : []; }
 export function getVersions(brand, model, fuel) { return VEHICLES[brand]?.[model]?.fuels?.[fuel] || []; }
 export function buildVehicleCatalogId(brand, model, year, fuel, version) {
