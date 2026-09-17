@@ -200,21 +200,352 @@ export const VEHICLES = {
   "ACURA": {
     "MDX": {
       "years": [
-        2022
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
+          "MDX (2001)",
+          "MDX (2004)",
+          "MDX (2006)",
+          "MDX (2010)",
+          "MDX (2013)",
+          "MDX (2016)",
+          "MDX (2018)",
+          "MDX (2021)",
+          "MDX (2024)",
           "ND"
+        ],
+        "Hybrid": [
+          "MDX (2016)",
+          "MDX (2018)"
         ]
       }
     },
     "RDX": {
       "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
         2022
       ],
       "fuels": {
         "Gasolina": [
-          "ND"
+          "ND",
+          "RDX (2006)",
+          "RDX (2012)",
+          "RDX (2015)",
+          "RDX (2018)",
+          "RDX (2021)"
+        ]
+      }
+    },
+    "ADX": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ADX (2024)"
+        ]
+      }
+    },
+    "CL": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CL (1997)",
+          "CL (2001)"
+        ]
+      }
+    },
+    "CSX": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CSX (2005)",
+          "CSX (2009)"
+        ]
+      }
+    },
+    "EL": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "EL (1997)"
+        ]
+      }
+    },
+    "ILX": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ILX (2012)",
+          "ILX (2014)",
+          "ILX (2016)",
+          "ILX (2018)"
+        ],
+        "Hybrid": [
+          "ILX (2012)"
+        ]
+      }
+    },
+    "Integra": {
+      "years": [
+        2000,
+        2001,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Integra Coupe (1994)",
+          "Integra Sedan (1994)",
+          "Integra Sedan (2022)",
+          "Integra Sedan (2023)"
+        ]
+      }
+    },
+    "NSX": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid": [
+          "NSX (2016)"
+        ],
+        "Gasolina": [
+          "NSX (1991)",
+          "NSX (2001)"
+        ]
+      }
+    },
+    "RL": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RL (2004)",
+          "RL (2008)"
+        ]
+      }
+    },
+    "RLX": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RLX (2013)",
+          "RLX (2017)"
+        ],
+        "Hybrid": [
+          "RLX (2013)",
+          "RLX (2017)"
+        ]
+      }
+    },
+    "RSX": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RSX (2002)",
+          "RSX (2005)"
+        ]
+      }
+    },
+    "RSX TYPE-S": {
+      "years": [
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RSX TYPE-S (2005)"
+        ]
+      }
+    },
+    "TL": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "TL (1999)",
+          "TL (2003)",
+          "TL (2008)"
+        ]
+      }
+    },
+    "TLX": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "TLX (2015)",
+          "TLX (2020)"
+        ]
+      }
+    },
+    "TSX": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "TSX (2003)",
+          "TSX (2008)",
+          "TSX (2010)"
+        ]
+      }
+    },
+    "ZDX": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ZDX (2023)"
+        ],
+        "Gasolina": [
+          "ZDX (2009)"
         ]
       }
     }
@@ -1174,23 +1505,49 @@ export const VEHICLES = {
   "ALFA ROMEO": {
     "145": {
       "years": [
+        2000,
         2012
       ],
       "fuels": {
         "Gasolina": [
+          "145 (1994)",
           "70"
+        ],
+        "Diésel": [
+          "145 (1994)"
         ]
       }
     },
     "147": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2014
       ],
       "fuels": {
         "Diésel": [
+          "147 3 Doors (2000)",
+          "147 3 Doors (2005)",
+          "147 5 Doors (2000)",
+          "147 5 Doors (2005)",
           "31C",
           "33"
+        ],
+        "Gasolina": [
+          "147 3 Doors (2000)",
+          "147 3 Doors (2003)",
+          "147 3 Doors (2005)",
+          "147 5 Doors (2000)",
+          "147 5 Doors (2005)"
         ]
       }
     },
@@ -1206,42 +1563,69 @@ export const VEHICLES = {
     },
     "156": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
         2012,
         2014
       ],
       "fuels": {
         "Diésel": [
+          "156 (1997)",
+          "156 (2003)",
           "45",
           "932AXE0060",
           "932BXC00"
+        ],
+        "Gasolina": [
+          "156 (1997)",
+          "156 (2001)",
+          "156 (2003)"
         ]
       }
     },
     "159": {
       "years": [
-        2010
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
       ],
       "fuels": {
         "Diésel": [
-          "12G"
+          "12G",
+          "159 (2005)"
+        ],
+        "Gasolina": [
+          "159 (2005)"
         ]
       }
     },
     "4C": {
       "years": [
+        2013,
         2014,
         2015,
         2016,
         2017,
         2018,
-        2019
+        2019,
+        2020
       ],
       "fuels": {
         "Gasolina": [
           "0",
           "01L",
           "01M",
-          "1"
+          "1",
+          "4C (2013)",
+          "4C Spider (2015)"
         ]
       }
     },
@@ -1812,6 +2196,14 @@ export const VEHICLES = {
     },
     "GT": {
       "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
         2012,
         2014
       ],
@@ -1819,10 +2211,12 @@ export const VEHICLES = {
         "Diésel": [
           "04C",
           "24",
-          "24C"
+          "24C",
+          "GT (2003)"
         ],
         "Gasolina": [
-          "937CXN1B24"
+          "937CXN1B24",
+          "GT (2003)"
         ]
       }
     },
@@ -2055,12 +2449,416 @@ export const VEHICLES = {
           "3EAA1NB"
         ]
       }
+    },
+    "146": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "146 (1995)"
+        ],
+        "Diésel": [
+          "146 (1995)"
+        ]
+      }
+    },
+    "156 Sportwagon": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "156 Sportwagon (2000)",
+          "156 Sportwagon (2002)",
+          "156 Sportwagon (2003)"
+        ],
+        "Diésel": [
+          "156 Sportwagon (2000)",
+          "156 Sportwagon (2003)"
+        ]
+      }
+    },
+    "159 Sportwagon": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "159 Sportwagon (2006)"
+        ],
+        "Diésel": [
+          "159 Sportwagon (2006)"
+        ]
+      }
+    },
+    "166": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "166 (1996)",
+          "166 (2003)"
+        ],
+        "Diésel": [
+          "166 (1996)",
+          "166 (2003)"
+        ]
+      }
+    },
+    "8C": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "8C (2007)",
+          "8C (2008)"
+        ]
+      }
+    },
+    "Brera": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Brera (2005)"
+        ],
+        "Diésel": [
+          "Brera (2005)"
+        ]
+      }
+    },
+    "Crosswagon Q4": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Diésel": [
+          "Crosswagon Q4 (2004)"
+        ]
+      }
+    },
+    "Giulia": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Giulia (2016)",
+          "Giulia (2022)"
+        ],
+        "Diésel": [
+          "Giulia (2016)",
+          "Giulia (2022)"
+        ]
+      }
+    },
+    "Giulia GTA": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Giulia GTA (2020)"
+        ]
+      }
+    },
+    "Giulia Quadrifoglio": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Giulia Quadrifoglio (2016)"
+        ]
+      }
+    },
+    "Giulia Veloce": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Giulia Veloce (2016)"
+        ],
+        "Diésel": [
+          "Giulia Veloce (2016)"
+        ]
+      }
+    },
+    "Giulietta": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Giulietta (2010)",
+          "Giulietta (2016)"
+        ],
+        "Diésel": [
+          "Giulietta (2010)",
+          "Giulietta (2016)"
+        ],
+        "Natural Gas": [
+          "Giulietta (2010)"
+        ]
+      }
+    },
+    "Giulietta Quadrifoglio Verde": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Giulietta Quadrifoglio Verde (2011)"
+        ]
+      }
+    },
+    "GTV": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GTV (1995)",
+          "GTV (2003)"
+        ]
+      }
+    },
+    "Junior": {
+      "years": [
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Junior (2024)",
+          "Junior (2025)"
+        ],
+        "Mild Hybrid": [
+          "Junior (2025)"
+        ]
+      }
+    },
+    "MiTo": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MiTo (2008)",
+          "MiTo (2013)",
+          "MiTo (2016)"
+        ],
+        "Diésel": [
+          "MiTo (2008)",
+          "MiTo (2013)",
+          "MiTo (2016)"
+        ],
+        "Natural Gas": [
+          "MiTo (2013)",
+          "MiTo (2016)"
+        ]
+      }
+    },
+    "MiTo Quadrifoglio Verde": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MiTo Quadrifoglio Verde (2009)",
+          "MiTo Quadrifoglio Verde (2013)"
+        ]
+      }
+    },
+    "MiTo Veloce": {
+      "years": [
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MiTo Veloce (2016)"
+        ]
+      }
+    },
+    "Spider": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Spider (1995)",
+          "Spider (2003)",
+          "Spider (2006)"
+        ],
+        "Diésel": [
+          "Spider (2006)"
+        ]
+      }
+    },
+    "Stelvio": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stelvio (2017)",
+          "Stelvio (2022)"
+        ],
+        "Diésel": [
+          "Stelvio (2017)",
+          "Stelvio (2022)"
+        ]
+      }
+    },
+    "Stelvio Quadrifoglio": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stelvio Quadrifoglio (2017)"
+        ]
+      }
+    },
+    "Tonale": {
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tonale (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "Tonale (2022)",
+          "Tonale (2025)"
+        ],
+        "Mild Hybrid": [
+          "Tonale (2022)",
+          "Tonale (2025)"
+        ]
+      }
     }
   },
   "ALPINE": {
     "A110": {
       "years": [
+        2017,
         2018,
+        2019,
         2020,
         2021,
         2022,
@@ -2069,6 +2867,10 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Gasolina": [
+          "A110 (2017)",
+          "A110 (2021)",
+          "A110 (2023)",
+          "A110 (2024)",
           "AMF1WB22000E",
           "AMF1WB220A0E",
           "MDB6SA010000",
@@ -2104,7 +2906,31 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Eléctrico": [
+          "A290 (2024)",
           "J1BEA2B50000"
+        ]
+      }
+    },
+    "A110S": {
+      "years": [
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A110S (2019)",
+          "A110S (2021)"
+        ]
+      }
+    },
+    "A390": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "A390 (2025)"
         ]
       }
     }
@@ -2128,6 +2954,7 @@ export const VEHICLES = {
         2016,
         2017,
         2018,
+        2019,
         2020,
         2021,
         2022,
@@ -2141,7 +2968,9 @@ export const VEHICLES = {
           "053L4WAEG375.0",
           "055L4WAEG375.0",
           "057L4WAEG393",
-          "057L4WAEG393.5"
+          "057L4WAEG393.5",
+          "DB11 (2016)",
+          "DB11 (2018)"
         ]
       }
     },
@@ -2166,7 +2995,8 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "059L4WAEM500",
-          "059L4WAEM500.0"
+          "059L4WAEM500.0",
+          "DB12 (2023)"
         ]
       }
     },
@@ -2182,13 +3012,27 @@ export const VEHICLES = {
     },
     "DB9": {
       "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
+        2016,
         2022
       ],
       "fuels": {
         "Gasolina": [
+          "DB9 (2004)",
+          "DB9 (2010)",
+          "DB9 (2013)",
+          "DB9 (2014)",
           "L",
           "L4EAAA",
           "L4MAAE"
@@ -2208,16 +3052,27 @@ export const VEHICLES = {
     },
     "DBS": {
       "years": [
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2018,
+        2019,
         2020,
         2021,
         2022,
-        2023
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
           "002L4VAFI533",
           "002L4VAFI533.0",
+          "DBS (2008)",
+          "DBS (2018)",
+          "DBS (2019)",
+          "DBS (2023)",
           "L4DAAE"
         ]
       }
@@ -2248,14 +3103,18 @@ export const VEHICLES = {
         2021,
         2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
           "002L5WAGJ405",
           "002L5WAGJ405.0",
           "010L5WAGJ405",
-          "010L5WAGJ405.0"
+          "010L5WAGJ405.0",
+          "DBX (2020)",
+          "DBX (2022)",
+          "DBX (2025)"
         ]
       }
     },
@@ -2458,6 +3317,465 @@ export const VEHICLES = {
           "L4NAAE"
         ]
       }
+    },
+    "Cygnet": {
+      "years": [
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cygnet (2011)"
+        ]
+      }
+    },
+    "DB AR1": {
+      "years": [
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "DB AR1 (2003)"
+        ]
+      }
+    },
+    "DB11 Volante": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "DB11 Volante (2018)"
+        ]
+      }
+    },
+    "DB12 Volante": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "DB12 Volante (2023)"
+        ]
+      }
+    },
+    "DB7": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "DB7 (1999)",
+          "DB7 (2003)"
+        ]
+      }
+    },
+    "DB7 Volante": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "DB7 Volante (1999)"
+        ]
+      }
+    },
+    "DB9 Volante": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "DB9 Volante (2004)",
+          "DB9 Volante (2010)",
+          "DB9 Volante (2013)"
+        ]
+      }
+    },
+    "DBS Volante": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "DBS Volante (2009)"
+        ]
+      }
+    },
+    "One-77": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "One-77 (2009)"
+        ]
+      }
+    },
+    "Rapide": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rapide (2010)"
+        ]
+      }
+    },
+    "Rapide AMR": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rapide AMR (2017)"
+        ]
+      }
+    },
+    "Rapide E": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Rapide E (2019)"
+        ]
+      }
+    },
+    "Rapide S": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rapide S (2013)"
+        ]
+      }
+    },
+    "V12 Speedster": {
+      "years": [
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V12 Speedster (2020)"
+        ]
+      }
+    },
+    "V12 Vantage": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V12 Vantage (2009)",
+          "V12 Vantage (2013)",
+          "V12 Vantage (2018)",
+          "V12 Vantage (2022)"
+        ]
+      }
+    },
+    "V12 Vantage AMR": {
+      "years": [
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V12 Vantage AMR (2017)"
+        ]
+      }
+    },
+    "V12 Vantage S": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V12 Vantage S Roadster (2014)"
+        ]
+      }
+    },
+    "V12 Zagato": {
+      "years": [
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V12 Zagato (2012)"
+        ]
+      }
+    },
+    "V8 Vantage": {
+      "years": [
+        2000,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V8 Vantage (1996)",
+          "V8 Vantage (1999)",
+          "V8 Vantage (2005)",
+          "V8 Vantage (2008)",
+          "V8 Vantage (2010)",
+          "V8 Vantage (2014)",
+          "V8 Vantage (2018)",
+          "V8 Vantage (2019)",
+          "V8 Vantage (2024)"
+        ]
+      }
+    },
+    "V8 Vantage S": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V8 Vantage S (2011)",
+          "V8 Vantage S Roadster (2011)"
+        ]
+      }
+    },
+    "V8 Volante": {
+      "years": [
+        2000,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V8 Volante (1998)",
+          "V8 Volante (2006)",
+          "V8 Volante (2008)",
+          "V8 Volante (2010)"
+        ]
+      }
+    },
+    "Valhalla": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Valhalla (2022)"
+        ]
+      }
+    },
+    "Vanquish": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vanquish (2001)",
+          "Vanquish (2012)",
+          "Vanquish (2024)"
+        ]
+      }
+    },
+    "Vanquish S": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vanquish S (2004)",
+          "Vanquish S (2016)"
+        ]
+      }
+    },
+    "Vanquish Volante": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vanquish Volante (2013)",
+          "Vanquish Volante (2025)"
+        ]
+      }
+    },
+    "Vantage": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vantage Roadster (2020)"
+        ]
+      }
+    },
+    "Vantage GT12": {
+      "years": [
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vantage GT12 (2015)"
+        ]
+      }
+    },
+    "Vantage GT8": {
+      "years": [
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vantage GT8 (2016)"
+        ]
+      }
+    },
+    "Virage": {
+      "years": [
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Virage (2011)"
+        ]
+      }
+    },
+    "Virage Volante": {
+      "years": [
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Virage Volante (2011)"
+        ]
+      }
+    },
+    "Vulcan": {
+      "years": [
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vulcan (2015)"
+        ]
+      }
     }
   },
   "AUDI": {
@@ -2466,6 +3784,7 @@ export const VEHICLES = {
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -2478,6 +3797,9 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Diésel": [
+          "A1 (2010)",
+          "A1 (2015)",
+          "A1 Sportback (2012)",
           "FA7AM007R8X52LLS47MJEM0AN",
           "FD7AM007P8X01LLS57MMEM2",
           "FD7AM007P8X02LLS47MMEM2",
@@ -2602,6 +3924,11 @@ export const VEHICLES = {
           "FS7AM007R8X52LLS57MJEM0AN"
         ],
         "Gasolina": [
+          "A1 (2010)",
+          "A1 (2015)",
+          "A1 (2018)",
+          "A1 (2019)",
+          "A1 Sportback (2012)",
           "ACBZAF1",
           "E1*2007/46*0414*12",
           "FD6FD6D9011RT31C174BFAEM10",
@@ -3199,9 +4526,20 @@ export const VEHICLES = {
     },
     "A3": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -3210,11 +4548,31 @@ export const VEHICLES = {
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
           "1M621031R8V617MJEM1",
+          "A3 (1996)",
+          "A3 (2003)",
+          "A3 (2005)",
+          "A3 (2008)",
+          "A3 (2012)",
+          "A3 (2016)",
+          "A3 Cabriolet (2008)",
+          "A3 Cabriolet (2013)",
+          "A3 Cabriolet (2016)",
+          "A3 Sedan (2013)",
+          "A3 Sedan (2016)",
+          "A3 Sedan (2020)",
+          "A3 Sportback (1999)",
+          "A3 Sportback (2004)",
+          "A3 Sportback (2008)",
+          "A3 Sportback (2012)",
+          "A3 Sportback (2016)",
+          "A3 Sportback (2020)",
           "ACRLBF1",
           "DS6D9002R8V617MMEM1",
           "EM62Q031R8V617MJEM1",
@@ -3662,6 +5020,24 @@ export const VEHICLES = {
           "FD7FD7CW005RT11C184BFAEM1"
         ],
         "Gasolina": [
+          "A3 (1996)",
+          "A3 (2003)",
+          "A3 (2005)",
+          "A3 (2008)",
+          "A3 (2012)",
+          "A3 (2016)",
+          "A3 Cabriolet (2008)",
+          "A3 Cabriolet (2013)",
+          "A3 Cabriolet (2016)",
+          "A3 Sedan (2013)",
+          "A3 Sedan (2016)",
+          "A3 Sedan (2020)",
+          "A3 Sportback (1999)",
+          "A3 Sportback (2004)",
+          "A3 Sportback (2008)",
+          "A3 Sportback (2012)",
+          "A3 Sportback (2016)",
+          "A3 Sportback (2020)",
           "FD62E011R8P607G",
           "FD62E011R8P610G",
           "FD62E016R8P607",
@@ -4095,6 +5471,27 @@ export const VEHICLES = {
           "FD7FD7CW005RT11C177CSAEM1",
           "FD7FD7CW005RT11C184BFAEM1",
           "FD7FD7CW005RT11C187CSAEM1"
+        ],
+        "Mild Hybrid Diesel": [
+          "A3 Sedan (2024)",
+          "A3 Sportback (2024)"
+        ],
+        "Mild Hybrid": [
+          "A3 Sedan (2020)",
+          "A3 Sedan (2024)",
+          "A3 Sportback (2020)",
+          "A3 Sportback (2024)"
+        ],
+        "Natural Gas": [
+          "A3 Sportback (2013)",
+          "A3 Sportback (2016)",
+          "A3 Sportback (2020)"
+        ],
+        "Plug-in Hybrid": [
+          "A3 Sportback (2016)"
+        ],
+        "Hybrid": [
+          "A3 Sportback (2013)"
         ]
       }
     },
@@ -4477,9 +5874,20 @@ export const VEHICLES = {
     },
     "A4": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -4488,11 +5896,24 @@ export const VEHICLES = {
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
           "1",
+          "A4 (1994)",
+          "A4 (2001)",
+          "A4 (2004)",
+          "A4 (2007)",
+          "A4 (2012)",
+          "A4 (2016)",
+          "A4 (2018)",
+          "A4 (2019)",
+          "A4 Cabriolet (2002)",
+          "A4 Cabriolet (2005)",
           "ABPWF1",
           "ACDUCQ1",
           "ACJCDF",
@@ -5041,6 +6462,16 @@ export const VEHICLES = {
           "FD7FD7CK005RT031E19S57CSBEM1"
         ],
         "Gasolina": [
+          "A4 (1994)",
+          "A4 (2001)",
+          "A4 (2004)",
+          "A4 (2007)",
+          "A4 (2012)",
+          "A4 (2016)",
+          "A4 (2018)",
+          "A4 (2019)",
+          "A4 Cabriolet (2002)",
+          "A4 Cabriolet (2005)",
           "FAAW010PB803S57MMEM1",
           "FAV8W001RB8K2S57MJEM1",
           "FAVAW006EB8K1S57MJEM1",
@@ -5283,6 +6714,12 @@ export const VEHICLES = {
         "ng": [
           "FD7FD7CK005RT021C17S57CSAEM1",
           "FD7FD7CK005RT021E18S57CSBEM1"
+        ],
+        "Mild Hybrid": [
+          "A4 (2019)"
+        ],
+        "Ethanol": [
+          "A4 (2007)"
         ]
       }
     },
@@ -5556,9 +6993,13 @@ export const VEHICLES = {
     },
     "A5": {
       "years": [
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -5567,10 +7008,21 @@ export const VEHICLES = {
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
+          "A5 Cabriolet (2009)",
+          "A5 Cabriolet (2012)",
+          "A5 Coupe (2007)",
+          "A5 Coupe (2011)",
+          "A5 Coupe (2016)",
+          "A5 Sportback (2009)",
+          "A5 Sportback (2011)",
+          "A5 Sportback (2016)",
+          "A5 Sportback (2019)",
           "DAV8W001RB8T1S57MJEM1",
           "F6B3002R8F607MGEM0",
           "FAV8W001PB811S47MMEM1",
@@ -6038,6 +7490,16 @@ export const VEHICLES = {
           "FD7FD7CK005RT171E19S54BFBEM1"
         ],
         "Gasolina": [
+          "A5 Cabriolet (2009)",
+          "A5 Cabriolet (2012)",
+          "A5 Coupe (2007)",
+          "A5 Coupe (2011)",
+          "A5 Coupe (2016)",
+          "A5 Sedan (2024)",
+          "A5 Sportback (2009)",
+          "A5 Sportback (2011)",
+          "A5 Sportback (2016)",
+          "A5 Sportback (2019)",
           "FAVAW002R8T607",
           "FAVAW010PB811S47MMEM1",
           "FAVAW010PB811S57MMEM1",
@@ -6342,6 +7804,9 @@ export const VEHICLES = {
           "FD7FD7CK005RT171E19S54BFBEM1",
           "FD7FD7CK005RT171E19S57CSBEM1",
           "FD7FD7CK005RT181E20S57CSBEM1"
+        ],
+        "Mild Hybrid Diesel": [
+          "A5 Sedan (2024)"
         ]
       }
     },
@@ -6581,9 +8046,20 @@ export const VEHICLES = {
     },
     "A6": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -6591,13 +8067,24 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
           "5H050000",
           "6A150000",
           "7MGEM2",
+          "A6 (1997)",
+          "A6 (2001)",
+          "A6 (2005)",
+          "A6 (2008)",
+          "A6 (2011)",
+          "A6 (2014)",
+          "A6 (2018)",
           "AG",
           "DAVAW008R4G60S57MJEM2",
           "F,6CS002R4G60S57MMEM2",
@@ -7063,6 +8550,14 @@ export const VEHICLES = {
           "QD7AD7CJ003RT031B19S54BIBEM1H44FSD1"
         ],
         "Gasolina": [
+          "A6 (1997)",
+          "A6 (2001)",
+          "A6 (2005)",
+          "A6 (2008)",
+          "A6 (2011)",
+          "A6 (2014)",
+          "A6 (2018)",
+          "A6 (2025)",
           "FA8BW003R4G71",
           "FA8BW003R4G717MJ",
           "FAV",
@@ -7247,6 +8742,21 @@ export const VEHICLES = {
           "QD7AD7DK001RT101B19S54BFBEM9H660FS0",
           "QD7AD7DK001RT101C20S54BFBEM9H660FS0",
           "QD7AD7DK001RT101C20S54BFCEM9H660FS0"
+        ],
+        "Mild Hybrid Diesel": [
+          "A6 (2025)"
+        ],
+        "Mild Hybrid": [
+          "A6 (2025)"
+        ],
+        "Hybrid": [
+          "A6 (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "A6 (2011)"
+        ],
+        "Eléctrico": [
+          "A6 Sportback (2024)"
         ]
       }
     },
@@ -7615,6 +9125,7 @@ export const VEHICLES = {
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -7622,10 +9133,17 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
+          "A7 (2010)",
+          "A7 (2014)",
+          "A7 (2017)",
           "FAVAW007R4G70S57MGEM2",
           "FAVAW008R4G707",
           "FAVAW008R4G707MG",
@@ -7829,6 +9347,9 @@ export const VEHICLES = {
           "QD7QD7B5034P4G12S57MMEM2K1"
         ],
         "Gasolina": [
+          "A7 (2010)",
+          "A7 (2014)",
+          "A7 (2017)",
           "FAVAW007R4G70S47MGEM2",
           "FAVAW007R4G70S47MJEM2",
           "FAVAW007R4GT0S57MJEM2",
@@ -7957,6 +9478,12 @@ export const VEHICLES = {
           "QD7AD7DK001RT111B19S54BFBEM9H66FSB3",
           "QD7AD7DK001RT111C20S54BFCEM9H660FS0",
           "QD7AD7DK001RT111C20S54BFCEM9H66FSB3"
+        ],
+        "Hybrid": [
+          "A7 (2017)"
+        ],
+        "Mild Hybrid Diesel": [
+          "A7 (2017)"
         ]
       }
     },
@@ -8074,9 +9601,20 @@ export const VEHICLES = {
     },
     "A8": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -8091,6 +9629,12 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Diésel": [
+          "A8 (2003)",
+          "A8 (2005)",
+          "A8 (2010)",
+          "A8 (2013)",
+          "A8 (2017)",
+          "A8 (D2) (1999)",
           "FA8BK001R4H71S57MGEM",
           "QA6A0R4E70S57G",
           "QA6E0R4E70S57G",
@@ -8169,6 +9713,13 @@ export const VEHICLES = {
           "QA8QA8D5030RT11C21S54WEBEM1D2"
         ],
         "Gasolina": [
+          "A8 (2003)",
+          "A8 (2005)",
+          "A8 (2010)",
+          "A8 (2013)",
+          "A8 (2017)",
+          "A8 (2021)",
+          "A8 (D2) (1999)",
           "FA8BW001R4H82S57MGEM0",
           "FA8BW001R4H82S57MMEM0",
           "QA6EC0R4E80S50G",
@@ -8237,6 +9788,16 @@ export const VEHICLES = {
           "QA8QA8DY001RT31C21S54BIBEM9B3",
           "QA8QA8DY001RT31C21S54WEAEM9B3",
           "QA8QA8DY001RT31C21S54WEBEM9B3"
+        ],
+        "Mild Hybrid": [
+          "A8 (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "A8 (2017)"
+        ],
+        "Hybrid": [
+          "A8 (2010)",
+          "A8 (2013)"
         ]
       }
     },
@@ -8638,6 +10199,8 @@ export const VEHICLES = {
     },
     "Q2": {
       "years": [
+        2016,
+        2017,
         2018,
         2019,
         2020,
@@ -8768,6 +10331,7 @@ export const VEHICLES = {
           "FM6FM6C9012RT41B184BIAEM1HA0BD0",
           "FM6FM6C9012RT41B184BIAEM1HA0CD0",
           "FM6FM6C9012RT41B184BIBEM1HA00D0",
+          "Q2 (2016)",
           "QD7AD7GC005PGA057MMEM1HA0",
           "QD7AD7GC005PGA067MMEM1HA0",
           "QD7AD7GC005PGA077MMEM1HA0",
@@ -8977,6 +10541,8 @@ export const VEHICLES = {
           "FM6FM6C9015RT41B184BIAEM1HA0CB0",
           "FM6FM6C9015RT41B184VNAEM1HA0BB0",
           "FM6FM6C9015RT41B184WEAEM1HA00B0",
+          "Q2 (2016)",
+          "Q2 (2020)",
           "QD7AD7GC007PGA057MVEM1HA0",
           "QD7AD7GC007PGA067MVEM1HA0",
           "QD7AD7GC007PGA077MVEM1HA0",
@@ -9012,6 +10578,7 @@ export const VEHICLES = {
       "years": [
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -9022,7 +10589,8 @@ export const VEHICLES = {
         2021,
         2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -9313,6 +10881,13 @@ export const VEHICLES = {
           "FM6FM6BB002RT61C914BIAHA4EM1BD0",
           "FM6VV002R8U617MJEM1",
           "Q062Q039R8U617MJEM1",
+          "Q3 (2011)",
+          "Q3 (2015)",
+          "Q3 (2016)",
+          "Q3 (2018)",
+          "Q3 (2025)",
+          "Q3 Sportback (2019)",
+          "Q3 Sportback (2025)",
           "Q7BH003R8U617MJEM1",
           "QD7AD7DL003RT21B174BFAHA4EM1",
           "QD7AD7DL003RT21B174BFAHA4EM1A",
@@ -9935,6 +11510,13 @@ export const VEHICLES = {
           "FM6FM6C9011RT61C914BIAHA2EM1BB0",
           "FM6FM6C9011RT61C914BIAHA2EM1CB0",
           "FM6FM6C9011RT61C914BIAHA3EM1BB0",
+          "Q3 (2011)",
+          "Q3 (2015)",
+          "Q3 (2016)",
+          "Q3 (2018)",
+          "Q3 (2025)",
+          "Q3 Sportback (2019)",
+          "Q3 Sportback (2025)",
           "QD7AD7DL004RT21B174BFAHA4EM1AB0",
           "QD7AD7DL004RT21B177CSAHA4EM1",
           "QD7AD7DL004RT21B177CSAHA5EM1",
@@ -10125,6 +11707,15 @@ export const VEHICLES = {
         ],
         "UNKNOWN": [
           "FD7FD7BH002P8U057MMEM1K1"
+        ],
+        "Mild Hybrid": [
+          "Q3 (2018)",
+          "Q3 (2025)",
+          "Q3 Sportback (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "Q3 (2025)",
+          "Q3 Sportback (2025)"
         ]
       }
     },
@@ -10406,7 +11997,12 @@ export const VEHICLES = {
     },
     "Q4": {
       "years": [
-        2021
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
       ],
       "fuels": {
         "Eléctrico": [
@@ -10428,6 +12024,8 @@ export const VEHICLES = {
           "HE1HE1G1Z01RT021A210GAAEM0M",
           "HE1HE1G1Z01RT021A210GAAEM1M",
           "HE1HE1G1Z01RT021A210GAAEM1O",
+          "Q4 Sportback (2021)",
+          "Q4 Sportback (2026)",
           "QE1QE1G1Z03RT011A200GAAEM0M",
           "QE1QE1G1Z03RT011A200GAAEM0O",
           "QE1QE1G1Z03RT011A210GAAEM0M",
@@ -10608,9 +12206,12 @@ export const VEHICLES = {
     },
     "Q5": {
       "years": [
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -10719,6 +12320,10 @@ export const VEHICLES = {
           "FM6FM6DJ006RT51C184BFAEM1FS",
           "FM6FM6DJ006RT51C204BFAEM1FS",
           "FM6V1006R8R737MJEM1N",
+          "Q5 (2008)",
+          "Q5 (2012)",
+          "Q5 (2016)",
+          "Q5 (2020)",
           "QA7B5035R8R7C7MJEM1G",
           "QA8BK001R8R207MJEM1N",
           "QA8BK001R8R207MJRM1N",
@@ -10959,6 +12564,10 @@ export const VEHICLES = {
           "QA8BW001R8R707MG"
         ],
         "Gasolina": [
+          "Q5 (2008)",
+          "Q5 (2012)",
+          "Q5 (2016)",
+          "Q5 (2018)",
           "QA8BK001R8R707MJEM1G",
           "QA8BK001R8R7A7MGEM1",
           "QA8BK001R8R7A7MJEM1G",
@@ -11136,6 +12745,24 @@ export const VEHICLES = {
           "QD7AD7DK002RT71E214BFBEM9FL",
           "QD7AD7DK002RT71E214BFBEM9FL0",
           "QD7AD7DK002RT71E214BFBEM9FS0"
+        ],
+        "Mild Hybrid": [
+          "Q5 (2020)",
+          "Q5 (2024)",
+          "Q5 Sportback (2020)",
+          "Q5 Sportback (2024)"
+        ],
+        "Mild Hybrid Diesel": [
+          "Q5 (2020)",
+          "Q5 (2024)",
+          "Q5 Sportback (2020)"
+        ],
+        "Plug-in Hybrid": [
+          "Q5 (2020)",
+          "Q5 Sportback (2020)"
+        ],
+        "Hybrid": [
+          "Q5 (2008)"
         ]
       }
     },
@@ -11409,9 +13036,14 @@ export const VEHICLES = {
     },
     "Q7": {
       "years": [
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -11428,6 +13060,10 @@ export const VEHICLES = {
         "Diésel": [
           "8022R4L907MJEM2S7FL",
           "GA69D052R4L907",
+          "Q7 (2006)",
+          "Q7 (2009)",
+          "Q7 (2015)",
+          "Q7 (2019)",
           "Q8C8022R4L217MJWM2S7FS",
           "QA69",
           "QA69D052R4L217",
@@ -11621,6 +13257,11 @@ export const VEHICLES = {
           "QZ8022R4L907MJEM2S7FS"
         ],
         "Gasolina": [
+          "Q7 (2006)",
+          "Q7 (2009)",
+          "Q7 (2015)",
+          "Q7 (2019)",
+          "Q7 (2024)",
           "QA69D052R4L907GGS7FL",
           "QA69D059R4L210G",
           "QA69D059R4L900G",
@@ -11689,6 +13330,18 @@ export const VEHICLES = {
           "QA8QA8D7004RT81B214BFBEM9S5FL",
           "QA8QA8D7004RT81B214BIAEM9S5FLB3",
           "QA8QA8D7004RT81B214BIBEM9S5FLB3"
+        ],
+        "Mild Hybrid Diesel": [
+          "Q7 (2024)"
+        ],
+        "Mild Hybrid": [
+          "Q7 (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "Q7 (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Q7 (2019)"
         ]
       }
     },
@@ -11769,6 +13422,7 @@ export const VEHICLES = {
     },
     "Q8": {
       "years": [
+        2018,
         2019,
         2020,
         2021,
@@ -11778,6 +13432,8 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Diésel": [
+          "Q8 (2018)",
+          "Q8 (2023)",
           "QA8QA8D5020RT11B194BFAEM1S5FL",
           "QA8QA8D5020RT11B194BFAEM1S5FS",
           "QA8QA8D5020RT11B194BFBEM1S5FL",
@@ -11820,6 +13476,7 @@ export const VEHICLES = {
           "QA8QA8D5020RT11C234WEBEM1S5FLD2"
         ],
         "Gasolina": [
+          "Q8 (2018)",
           "QA8QA8D5022RT11B194BFBEM1S5FS",
           "QA8QA8D5022RT11B194BIAEM1S5FSB2",
           "QA8QA8D5022RT11B214WEAEM1S5FLB2",
@@ -11852,6 +13509,12 @@ export const VEHICLES = {
           "QA8QA8D7004RT11C224BIBEM9S5FLB3",
           "QA8QA8D7004RT11C224BICEM8S5FLB3",
           "QA8QA8D7004RT11C224BICEM9S5FLB3"
+        ],
+        "Hybrid Gasoline": [
+          "Q8 (2018)"
+        ],
+        "Eléctrico": [
+          "Q8 Sportback (2023)"
         ]
       }
     },
@@ -11986,15 +13649,24 @@ export const VEHICLES = {
     },
     "R8": {
       "years": [
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
+        2015,
         2016,
         2017,
+        2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
@@ -12028,7 +13700,26 @@ export const VEHICLES = {
           "QD7QD7BZ003P42017MM",
           "QD7QD7BZ003P42017MMK1",
           "QD7QD7BZ005P42017MM",
-          "QD7QD7BZ005P42017MMK1"
+          "QD7QD7BZ005P42017MMK1",
+          "R8 (2007)",
+          "R8 (2008)",
+          "R8 (2012)",
+          "R8 (2015)",
+          "R8 (2017)",
+          "R8 (2018)",
+          "R8 (2021)",
+          "R8 Spyder (2010)",
+          "R8 Spyder (2011)",
+          "R8 Spyder (2016)",
+          "R8 Spyder (2017)",
+          "R8 Spyder (2018)",
+          "R8 Spyder (2021)"
+        ],
+        "Eléctrico": [
+          "R8 (2015)"
+        ],
+        "No especificado": [
+          "R8 Spyder (2017)"
         ]
       }
     },
@@ -12426,6 +14117,9 @@ export const VEHICLES = {
     },
     "RS Q3": {
       "years": [
+        2013,
+        2014,
+        2015,
         2022,
         2023,
         2024
@@ -12434,7 +14128,8 @@ export const VEHICLES = {
         "Gasolina": [
           "QD7AD7DL010RS011A204BIAHA6EM1B0",
           "QD7AD7DL010RS011C214BIAHA6EM1B0",
-          "QD7AD7DL010RS021C214BIAHA6EM1B0"
+          "QD7AD7DL010RS021C214BIAHA6EM1B0",
+          "RS Q3 (2013)"
         ]
       }
     },
@@ -12455,6 +14150,7 @@ export const VEHICLES = {
     },
     "RS Q8": {
       "years": [
+        2019,
         2021,
         2022,
         2023,
@@ -12468,7 +14164,8 @@ export const VEHICLES = {
           "QA8QA8D6012RS011C234IAEM1S5FLB2",
           "QA8QA8D6012RS011C234WEAEM1S5FLB2",
           "QA8QA8D6012RS031C234BIAEM1S5FLB2",
-          "QA8QA8D6012RS031C234WEAEM1S5FLB2"
+          "QA8QA8D6012RS031C234WEAEM1S5FLB2",
+          "RS Q8 (2019)"
         ]
       }
     },
@@ -12510,18 +14207,31 @@ export const VEHICLES = {
     },
     "RS6": {
       "years": [
+        2002,
+        2003,
+        2004,
+        2008,
+        2009,
         2010
       ],
       "fuels": {
         "Gasolina": [
-          "QA6E14R4FR30GG"
+          "QA6E14R4FR30GG",
+          "RS6 (2002)",
+          "RS6 (2008)"
         ]
       }
     },
     "RS7": {
       "years": [
+        2013,
+        2014,
+        2015,
         2016,
-        2017
+        2017,
+        2018,
+        2019,
+        2022
       ],
       "fuels": {
         "Gasolina": [
@@ -12532,7 +14242,12 @@ export const VEHICLES = {
           "QA8QA8BK005P4G42S47MMEM2FS",
           "QA8QA8BK005P4G42S47MMEM2FSK1",
           "QA8QA8BK005P4G43S47MMEM2FS",
-          "QA8QA8BK005P4G43S47MMEM2FSK1"
+          "QA8QA8BK005P4G43S47MMEM2FSK1",
+          "RS7 Sportback (2013)",
+          "RS7 Sportback (2019)"
+        ],
+        "Mild Hybrid": [
+          "RS7 Sportback (2022)"
         ]
       }
     },
@@ -12572,15 +14287,26 @@ export const VEHICLES = {
           "QM6QM6A8002P8X06LLS47MMEM2",
           "QM6QM6A8002P8X06LLS47MMEM2K1",
           "QM6QM6A8002P8X09LLS47MMEM2",
-          "QM6QM6A8002P8X09LLS47MMEM2K1"
+          "QM6QM6A8002P8X09LLS47MMEM2K1",
+          "S1 (2014)",
+          "S1 Sportback (2014)"
         ]
       }
     },
     "S3": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -12589,7 +14315,9 @@ export const VEHICLES = {
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
@@ -12647,7 +14375,24 @@ export const VEHICLES = {
           "QM6FB001R8V817MMEM1",
           "QM6FB001R8V827MMEM1",
           "QM6FB001R8V8B7MMEM1",
-          "QM6QM6FB001P8V397MMEM1"
+          "QM6QM6FB001P8V397MMEM1",
+          "S3 (1999)",
+          "S3 (2001)",
+          "S3 (2006)",
+          "S3 (2008)",
+          "S3 (2013)",
+          "S3 (2016)",
+          "S3 Cabriolet (2014)",
+          "S3 Cabriolet (2016)",
+          "S3 Sedan (2013)",
+          "S3 Sedan (2016)",
+          "S3 Sedan (2020)",
+          "S3 Sedan (2024)",
+          "S3 Sportback (2008)",
+          "S3 Sportback (2013)",
+          "S3 Sportback (2016)",
+          "S3 Sportback (2020)",
+          "S3 Sportback (2024)"
         ]
       }
     },
@@ -12688,9 +14433,19 @@ export const VEHICLES = {
     },
     "S4": {
       "years": [
+        2000,
+        2001,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -12698,7 +14453,9 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
@@ -12707,7 +14464,8 @@ export const VEHICLES = {
           "QA8QA8D5016RT131E19S54BFBEM10",
           "QA8QA8D5016RT131E19S54BFBEM10D2",
           "QA8QA8D5016RT131E19S54BIAEM10D2",
-          "QA8QA8D5016RT131E19S54BIBEM10D2"
+          "QA8QA8D5016RT131E19S54BIBEM10D2",
+          "S4 (2019)"
         ],
         "Gasolina": [
           "QA8QA8D5007P8W17S57MMEM1",
@@ -12724,7 +14482,15 @@ export const VEHICLES = {
           "QD7B5041RB8KES57MMEM1",
           "QM6B4006R8K807",
           "QM6B4006R8K927",
-          "QM6B4006R8K927MGEM0"
+          "QM6B4006R8K927MGEM0",
+          "S4 (1997)",
+          "S4 (2003)",
+          "S4 (2005)",
+          "S4 (2008)",
+          "S4 (2012)",
+          "S4 (2016)",
+          "S4 Cabriolet (2003)",
+          "S4 Cabriolet (2006)"
         ]
       }
     },
@@ -12754,9 +14520,13 @@ export const VEHICLES = {
     },
     "S5": {
       "years": [
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -12764,7 +14534,10 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
@@ -12781,7 +14554,9 @@ export const VEHICLES = {
           "QA8QA8D5016RT251E20S54BFBEM1",
           "QA8QA8D5016RT251E20S54BFBEM10",
           "QA8QA8D5016RT251E20S54BFBEM10D2",
-          "QA8QA8D5016RT251E20S54BIBEM10D2"
+          "QA8QA8D5016RT251E20S54BIBEM10D2",
+          "S5 Sportback (2016)",
+          "S5 Sportback (2020)"
         ],
         "Gasolina": [
           "QA6B6005R8T800",
@@ -12819,7 +14594,18 @@ export const VEHICLES = {
           "QD7B5041RB8THS47MMEM1",
           "QD7B5041RB8TIS47MGEM1",
           "QM6B4002R8T80",
-          "QM6B4002R8T800"
+          "QM6B4002R8T800",
+          "S5 (2007)",
+          "S5 (2012)",
+          "S5 (2016)",
+          "S5 (2024)",
+          "S5 Cabriolet (2009)",
+          "S5 Cabriolet (2012)",
+          "S5 Cabriolet (2017)",
+          "S5 Cabriolet (2020)",
+          "S5 Sportback (2010)",
+          "S5 Sportback (2011)",
+          "S5 Sportback (2016)"
         ]
       }
     },
@@ -12897,8 +14683,19 @@ export const VEHICLES = {
     },
     "S6": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -12906,7 +14703,11 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -12933,7 +14734,8 @@ export const VEHICLES = {
           "QA8QA8D5024RT051C21S54BFBEM1H661FL",
           "QA8QA8D5024RT051C21S54BFBEM1H661FLC",
           "QA8QA8D5024RT051C21S54BFBEM1H661FS",
-          "QA8QA8D5024RT051C21S54BIBEM1H66FLD2"
+          "QA8QA8D5024RT051C21S54BIBEM1H66FLD2",
+          "S6 (2019)"
         ],
         "Gasolina": [
           "QA69E012R4FS6S5",
@@ -12947,7 +14749,12 @@ export const VEHICLES = {
           "QD7QD7B5037P4G05S57MMEM2K1",
           "QD7QD7B5037P4G13S57MMEM2",
           "QD7QD7B5037P4G13S57MMEM2K0",
-          "QD7QD7B5037P4G13S57MMEM2K1"
+          "QD7QD7B5037P4G13S57MMEM2K1",
+          "S6 (1999)",
+          "S6 (2006)",
+          "S6 (2008)",
+          "S6 (2012)",
+          "S6 (2014)"
         ]
       }
     },
@@ -13001,14 +14808,20 @@ export const VEHICLES = {
     },
     "S7": {
       "years": [
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
         2017,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -13031,7 +14844,8 @@ export const VEHICLES = {
           "QA8QA8D5024RT081C21S54BFBEM1H661FS",
           "QA8QA8D5024RT081C21S54BIAEM1H66FSD2",
           "QA8QA8D5024RT081C21S54BIBEM1H66FLD2",
-          "QA8QA8D5024RT081C21S54BIBEM1H66FSD2"
+          "QA8QA8D5024RT081C21S54BIBEM1H66FSD2",
+          "S7 Sportback (2019)"
         ],
         "Gasolina": [
           "QD7B5037P4G10S47MMEM2",
@@ -13044,7 +14858,9 @@ export const VEHICLES = {
           "QD7QD7B5037P4G11S47MMEM2",
           "QD7QD7B5037P4G11S47MMEM2K1",
           "QD7QD7B5037P4G12S47MMEM2",
-          "QD7QD7B5037P4G12S47MMEM2K1"
+          "QD7QD7B5037P4G12S47MMEM2K1",
+          "S7 Sportback (2011)",
+          "S7 Sportback (2014)"
         ]
       }
     },
@@ -13069,12 +14885,24 @@ export const VEHICLES = {
     },
     "S8": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
         2017,
         2018,
+        2019,
         2020,
         2021,
         2022,
@@ -13107,7 +14935,13 @@ export const VEHICLES = {
           "QA8QA8D6012RT51C20S54BFBEM1",
           "QA8QA8D6012RT51C21S54BFBEM1",
           "QA8QA8D6012RT71C20S54BFAEM1",
-          "QA8QA8D6012RT71C21S54BFBEM1"
+          "QA8QA8D6012RT71C21S54BFBEM1",
+          "S8 (1999)",
+          "S8 (2006)",
+          "S8 (2012)",
+          "S8 (2013)",
+          "S8 (2019)",
+          "S8 (2021)"
         ]
       }
     },
@@ -13128,6 +14962,7 @@ export const VEHICLES = {
     },
     "SQ2": {
       "years": [
+        2018,
         2019,
         2020,
         2021,
@@ -13144,12 +14979,15 @@ export const VEHICLES = {
           "QD7AD7GC006RT31C194BIAEM1HA00B0",
           "QD7AD7GC006RT31C194WEAEM1HA00B0",
           "QD7AD7GC006RT31E194BFAEM1HA0",
-          "QD7AD7GC006RT31E197CSAEM1HA0"
+          "QD7AD7GC006RT31E197CSAEM1HA0",
+          "SQ2 (2018)",
+          "SQ2 (2020)"
         ]
       }
     },
     "SQ5": {
       "years": [
+        2013,
         2014,
         2015,
         2016,
@@ -13218,7 +15056,10 @@ export const VEHICLES = {
           "QA8QA8D5029RT41C214WEAEM1FSD2C",
           "QA8QA8D5029RT41C214WEBEM1FLD2C",
           "QA8QA8D5029RT41C214WEBEM1FLD2D",
-          "QA8QA8D5029RT41C214WEBEM1FSD2C"
+          "QA8QA8D5029RT41C214WEBEM1FSD2C",
+          "SQ5 (2013)",
+          "SQ5 (2017)",
+          "SQ5 Sportback (2020)"
         ],
         "Gasolina": [
           "QA8QA8D5006PFY087MM0EM1FL",
@@ -13226,7 +15067,16 @@ export const VEHICLES = {
           "QA8QA8D5006PFY087MMEM1FS",
           "QA8QA8D5006PFY107MM0EM1FS",
           "QA8QA8D5006PFY107MMEM1FL",
-          "QA8QA8D5006PFY107MMEM1FS"
+          "QA8QA8D5006PFY107MMEM1FS",
+          "SQ5 (2013)",
+          "SQ5 (2017)"
+        ],
+        "Mild Hybrid": [
+          "SQ5 (2024)",
+          "SQ5 Sportback (2024)"
+        ],
+        "Mild Hybrid Diesel": [
+          "SQ5 (2020)"
         ]
       }
     },
@@ -13291,6 +15141,7 @@ export const VEHICLES = {
       "years": [
         2016,
         2017,
+        2018,
         2019,
         2020,
         2021,
@@ -13315,7 +15166,9 @@ export const VEHICLES = {
           "QA8QA8D6007RT101C224BFBEM1S7FL",
           "QA8QA8D6007RT91B204BFAEM1S7FL",
           "QA8QA8D6007RT91C214BFAEM1S5FL",
-          "QA8QA8D6007RT91C214BFAEM1S7FL"
+          "QA8QA8D6007RT91C214BFAEM1S7FL",
+          "SQ7 (2016)",
+          "SQ7 (2019)"
         ],
         "Gasolina": [
           "QA8QA8D6012R101B224WEAEM1S7FLB0",
@@ -13329,7 +15182,9 @@ export const VEHICLES = {
           "QA8QA8D6012RT91C214BIAEM1S7FLB0",
           "QA8QA8D6012RT91C214WEAEM1S5FLB0",
           "QA8QA8D6012RT91C214WEAEM1S7FLB0",
-          "QA8QA8D6012RT91C214WEBEM1S7FLB0"
+          "QA8QA8D6012RT91C214WEBEM1S7FLB0",
+          "SQ7 (2019)",
+          "SQ7 (2024)"
         ]
       }
     },
@@ -13347,7 +15202,8 @@ export const VEHICLES = {
           "QA8QA8D6010RT21C214BFAEM1S5FL",
           "QA8QA8D6010RT21C214BFBEM1S5FL",
           "QA8QA8D6010RT21C224BFAEM1S5FL",
-          "QA8QA8D6010RT21C224BFBEM1S5FL"
+          "QA8QA8D6010RT21C224BFBEM1S5FL",
+          "SQ8 (2019)"
         ],
         "Gasolina": [
           "QA8QA8D6012RT21C214BIAEM1S5FLB0",
@@ -13358,7 +15214,9 @@ export const VEHICLES = {
           "QA8QA8D6012RT21C234BIAEM1S5FLB0",
           "QA8QA8D6012RT21C234BIBEM1S5FLB0",
           "QA8QA8D6012RT21C234WEAEM1S5FLB0",
-          "QA8QA8D6012RT21C234WEBEM1S5FLB0"
+          "QA8QA8D6012RT21C234WEBEM1S5FLB0",
+          "SQ8 (2019)",
+          "SQ8 (2023)"
         ]
       }
     },
@@ -13388,9 +15246,20 @@ export const VEHICLES = {
     },
     "TT": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -13398,7 +15267,9 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
@@ -13416,7 +15287,11 @@ export const VEHICLES = {
           "QM62Q018R8J607",
           "QM62Q018R8J607MGE",
           "QM62Q018R8J6A7MQEM1",
-          "QM6Q018R8J607MQEM1"
+          "QM6Q018R8J607MQEM1",
+          "TT Coupe (2006)",
+          "TT Coupe (2014)",
+          "TT Roadster (2007)",
+          "TT Roadster (2014)"
         ],
         "Gasolina": [
           "FD62E016R8J60",
@@ -13555,7 +15430,20 @@ export const VEHICLES = {
           "QM62Q023R8J8A7MQEM1",
           "QM62Q023R8J927",
           "QM6A6007R8J817",
-          "QM6A6007R8J817MG"
+          "QM6A6007R8J817MG",
+          "TT Coupe (1998)",
+          "TT Coupe (2005)",
+          "TT Coupe (2006)",
+          "TT Coupe (2008)",
+          "TT Coupe (2014)",
+          "TT Coupe (2018)",
+          "TT Coupe (2020)",
+          "TT Roadster (1999)",
+          "TT Roadster (2007)",
+          "TT Roadster (2008)",
+          "TT Roadster (2014)",
+          "TT Roadster (2018)",
+          "TT Roadster (2020)"
         ]
       }
     },
@@ -13611,11 +15499,33 @@ export const VEHICLES = {
     },
     "TT RS": {
       "years": [
-        2010
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
-          "QM6A6007R8J827"
+          "QM6A6007R8J827",
+          "TT RS Coupe (2009)",
+          "TT RS Coupe (2012)",
+          "TT RS Coupe (2016)",
+          "TT RS Coupe (2019)",
+          "TT RS Roadster (2009)",
+          "TT RS Roadster (2013)",
+          "TT RS Roadster (2016)",
+          "TT RS Roadster (2019)"
         ]
       }
     },
@@ -13697,6 +15607,649 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "QD7AD7GC001RT21E20S44BIAEM1B0"
+        ]
+      }
+    },
+    "A1 Quattro": {
+      "years": [
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A1 Quattro (2012)"
+        ]
+      }
+    },
+    "A2": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A2 (1999)"
+        ],
+        "Diésel": [
+          "A2 (1999)"
+        ]
+      }
+    },
+    "A3 allstreet": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid Diesel": [
+          "A3 allstreet (2024)"
+        ],
+        "Mild Hybrid": [
+          "A3 allstreet (2024)"
+        ]
+      }
+    },
+    "A4 Allroad": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A4 Allroad (2009)",
+          "A4 Allroad (2012)",
+          "A4 Allroad (2019)"
+        ],
+        "Diésel": [
+          "A4 Allroad (2009)",
+          "A4 Allroad (2012)"
+        ]
+      }
+    },
+    "A4 Avant": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A4 Avant (1996)",
+          "A4 Avant (2001)",
+          "A4 Avant (2004)",
+          "A4 Avant (2008)",
+          "A4 Avant (2012)",
+          "A4 Avant (2016)",
+          "A4 Avant (2018)",
+          "A4 Avant (2019)"
+        ],
+        "Diésel": [
+          "A4 Avant (1996)",
+          "A4 Avant (2001)",
+          "A4 Avant (2004)",
+          "A4 Avant (2008)",
+          "A4 Avant (2012)",
+          "A4 Avant (2016)",
+          "A4 Avant (2018)",
+          "A4 Avant (2019)"
+        ],
+        "Ethanol": [
+          "A4 Avant (2008)",
+          "A4 Avant (2012)"
+        ]
+      }
+    },
+    "A4 DTM Edition": {
+      "years": [
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A4 DTM Edition (2005)"
+        ]
+      }
+    },
+    "A5 Avant": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A5 Avant (2024)"
+        ],
+        "Mild Hybrid Diesel": [
+          "A5 Avant (2024)"
+        ]
+      }
+    },
+    "A6 Avant": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A6 Avant (1998)",
+          "A6 Avant (2001)",
+          "A6 Avant (2005)",
+          "A6 Avant (2008)",
+          "A6 Avant (2011)",
+          "A6 Avant (2014)",
+          "A6 Avant (2018)",
+          "A6 Avant (2025)"
+        ],
+        "Mild Hybrid": [
+          "A6 Avant (2025)"
+        ],
+        "Diésel": [
+          "A6 Avant (1998)",
+          "A6 Avant (2001)",
+          "A6 Avant (2005)",
+          "A6 Avant (2008)",
+          "A6 Avant (2011)",
+          "A6 Avant (2014)",
+          "A6 Avant (2018)"
+        ],
+        "Hybrid": [
+          "A6 Avant (2018)"
+        ]
+      }
+    },
+    "Allroad": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "Allroad (2000)",
+          "Allroad (2006)",
+          "Allroad (2012)",
+          "Allroad (2019)"
+        ],
+        "Hybrid": [
+          "Allroad (2019)"
+        ],
+        "Gasolina": [
+          "Allroad (2000)",
+          "Allroad (2006)",
+          "Allroad (2012)"
+        ]
+      }
+    },
+    "Cabriolet": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cabriolet (1991)"
+        ],
+        "Diésel": [
+          "Cabriolet (1991)"
+        ]
+      }
+    },
+    "e-tron": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "e-tron (2024)"
+        ],
+        "Eléctrico": [
+          "e-tron (2019)",
+          "e-tron Sportback (2019)"
+        ]
+      }
+    },
+    "e-tron GT": {
+      "years": [
+        2021,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "e-tron GT (2021)",
+          "e-tron GT (2024)"
+        ]
+      }
+    },
+    "Nuvolari": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Nuvolari (2026)"
+        ]
+      }
+    },
+    "Q4 e-tron": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Q4 e-tron (2021)"
+        ]
+      }
+    },
+    "Q6": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Q6 (2024)",
+          "Q6 Sportback (2024)"
+        ]
+      }
+    },
+    "Q8 e-tron": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Q8 e-tron (2022)"
+        ]
+      }
+    },
+    "R8 GT": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "R8 GT (2010)",
+          "R8 GT (2022)",
+          "R8 GT Spyder (2011)"
+        ]
+      }
+    },
+    "RS 3": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RS 3 Sedan (2016)",
+          "RS 3 Sedan (2021)",
+          "RS 3 Sedan (2024)",
+          "RS 3 Sportback (2010)",
+          "RS 3 Sportback (2015)",
+          "RS 3 Sportback (2017)",
+          "RS 3 Sportback (2021)",
+          "RS 3 Sportback (2024)"
+        ]
+      }
+    },
+    "RS 4": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RS 4 (2005)",
+          "RS 4 Cabriolet (2006)"
+        ]
+      }
+    },
+    "RS 4 Avant": {
+      "years": [
+        2000,
+        2001,
+        2006,
+        2007,
+        2008,
+        2012,
+        2013,
+        2014,
+        2015,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RS 4 Avant (2000)",
+          "RS 4 Avant (2006)",
+          "RS 4 Avant (2012)",
+          "RS 4 Avant (2017)",
+          "RS 4 Avant (2019)"
+        ]
+      }
+    },
+    "RS 5": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "RS5 Sedan (2026)"
+        ],
+        "Gasolina": [
+          "RS 5 (2010)",
+          "RS 5 (2017)",
+          "RS 5 (2019)",
+          "RS5 Cabriolet (2013)",
+          "RS5 Sportback (2018)",
+          "RS5 Sportback (2019)"
+        ]
+      }
+    },
+    "RS5 Avant": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "RS5 Avant (2026)"
+        ]
+      }
+    },
+    "RS6 Avant": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RS6 Avant (2002)",
+          "RS6 Avant (2004)",
+          "RS6 Avant (2008)",
+          "RS6 Avant (2013)",
+          "RS6 Avant (2019)",
+          "RS6 Avant (2022)"
+        ]
+      }
+    },
+    "S4 Avant": {
+      "years": [
+        2000,
+        2001,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "S4 Avant (2019)"
+        ],
+        "Gasolina": [
+          "S4 Avant (1997)",
+          "S4 Avant (2003)",
+          "S4 Avant (2006)",
+          "S4 Avant (2008)",
+          "S4 Avant (2012)",
+          "S4 Avant (2016)"
+        ]
+      }
+    },
+    "S5 Avant": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S5 Avant (2024)"
+        ]
+      }
+    },
+    "S6 Avant": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "S6 Avant (2024)"
+        ],
+        "Diésel": [
+          "S6 Avant (2019)"
+        ],
+        "Gasolina": [
+          "S6 Avant (1999)",
+          "S6 Avant (2006)",
+          "S6 Avant (2008)",
+          "S6 Avant (2012)",
+          "S6 Avant (2014)"
+        ]
+      }
+    },
+    "S8 Plus": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S8 Plus (2015)"
+        ]
+      }
+    },
+    "SQ6": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SQ6 (2024)",
+          "SQ6 Sportback (2024)"
+        ]
+      }
+    },
+    "SQ8 e-tron": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SQ8 e-tron (2023)"
         ]
       }
     }
@@ -13871,6 +16424,16 @@ export const VEHICLES = {
       "fuels": {
         "ng": [
           "RN5LDP"
+        ]
+      }
+    },
+    "MOTOR BJ60": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "MOTOR BJ60 (2023)"
         ]
       }
     }
@@ -15098,6 +17661,295 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "1"
+        ]
+      }
+    },
+    "Arnage": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Arnage (1999)",
+          "Arnage (2002)",
+          "Arnage (2005)"
+        ]
+      }
+    },
+    "Azure": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Azure (1995)",
+          "Azure (2006)",
+          "Azure (2008)"
+        ]
+      }
+    },
+    "Batur": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Batur Convertible (2024)"
+        ]
+      }
+    },
+    "Bentayga": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bentayga (2015)",
+          "Bentayga (2020)",
+          "Bentayga (2021)"
+        ],
+        "Hybrid": [
+          "Bentayga (2018)"
+        ],
+        "Diésel": [
+          "Bentayga (2015)"
+        ]
+      }
+    },
+    "Bentayga Speed": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bentayga Speed (2019)",
+          "Bentayga Speed (2020)",
+          "Bentayga Speed (2025)"
+        ]
+      }
+    },
+    "Brooklands": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Brooklands (2007)"
+        ]
+      }
+    },
+    "Continental": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Continental (1991)",
+          "Continental (1996)",
+          "Continental (2003)",
+          "Continental (2007)"
+        ]
+      }
+    },
+    "Continental Flying Spur": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Continental Flying Spur (2005)",
+          "Continental Flying Spur (2009)"
+        ]
+      }
+    },
+    "Continental GT": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Continental GT (2026)"
+        ],
+        "Hybrid Gasoline": [
+          "Continental GT (2024)"
+        ],
+        "Gasolina": [
+          "Continental GT (2011)",
+          "Continental GT (2013)",
+          "Continental GT (2015)",
+          "Continental GT (2017)",
+          "Continental GT (2019)",
+          "Continental GT (2021)"
+        ]
+      }
+    },
+    "Continental GTC": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Continental GTC (2024)",
+          "Continental GTC (2026)"
+        ],
+        "Gasolina": [
+          "Continental GTC (2006)",
+          "Continental GTC (2009)",
+          "Continental GTC (2011)",
+          "Continental GTC (2012)",
+          "Continental GTC (2015)",
+          "Continental GTC (2017)",
+          "Continental GTC (2018)"
+        ]
+      }
+    },
+    "Flying Spur": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Flying Spur (2026)"
+        ],
+        "Hybrid Gasoline": [
+          "Flying Spur (2019)",
+          "Flying Spur (2024)"
+        ],
+        "Gasolina": [
+          "Flying Spur (2014)",
+          "Flying Spur (2019)"
+        ]
+      }
+    },
+    "Mulliner": {
+      "years": [
+        2020,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mulliner (2020)",
+          "Mulliner (2022)"
+        ]
+      }
+    },
+    "Mulsanne": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mulsanne (2009)",
+          "Mulsanne (2016)"
         ]
       }
     }
@@ -23372,10 +26224,14 @@ export const VEHICLES = {
     },
     "M2": {
       "years": [
+        2015,
         2016,
         2017,
         2018,
         2019,
+        2020,
+        2021,
+        2022,
         2023,
         2024
       ],
@@ -23405,7 +26261,11 @@ export const VEHICLES = {
           "IAW400MX",
           "IHW400K0",
           "IHW400M0",
-          "IHW400MV"
+          "IHW400MV",
+          "M2 (2015)",
+          "M2 (2018)",
+          "M2 (2022)",
+          "M2 (2024)"
         ]
       }
     },
@@ -23422,14 +26282,18 @@ export const VEHICLES = {
     },
     "M2 CS": {
       "years": [
+        2019,
         2020,
         2021,
-        2022
+        2022,
+        2025
       ],
       "fuels": {
         "Gasolina": [
           "DAW40900",
-          "DHW40900"
+          "DHW40900",
+          "M2 CS (2019)",
+          "M2 CS (2025)"
         ]
       }
     },
@@ -23587,14 +26451,31 @@ export const VEHICLES = {
     },
     "M3": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
         2017,
         2018,
-        2019
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
@@ -23605,7 +26486,20 @@ export const VEHICLES = {
           "6A05E000",
           "6A05E0V0",
           "6H050000",
-          "COUPE"
+          "COUPE",
+          "M3 Cabriolet (2001)",
+          "M3 Cabriolet (2008)",
+          "M3 Coupe (2000)",
+          "M3 Coupe (2007)",
+          "M3 Coupe (2010)",
+          "M3 Sedan (2008)",
+          "M3 Sedan (2014)",
+          "M3 Sedan (2017)",
+          "M3 Sedan (2020)",
+          "M3 Sedan (2023)",
+          "M3 Sedan (2024)",
+          "M3 Touring (2022)",
+          "M3 Touring (2024)"
         ]
       }
     },
@@ -23655,12 +26549,14 @@ export const VEHICLES = {
       "years": [
         2019,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
           "6A0500V0",
-          "IAW509L0"
+          "IAW509L0",
+          "M3 CS Touring (2025)"
         ]
       }
     },
@@ -23778,7 +26674,10 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
@@ -23794,7 +26693,14 @@ export const VEHICLES = {
           "DAW4E000",
           "DAW4E0V0",
           "DAW4E900",
-          "DHW4E000"
+          "DHW4E000",
+          "M4 (2014)",
+          "M4 (2020)",
+          "M4 (2022)",
+          "M4 (2024)",
+          "M4 Convertible (2014)",
+          "M4 Convertible (2021)",
+          "M4 Convertible (2024)"
         ]
       }
     },
@@ -23840,13 +26746,21 @@ export const VEHICLES = {
     },
     "M4 CS": {
       "years": [
+        2017,
+        2018,
         2019,
+        2020,
+        2021,
+        2022,
+        2023,
         2024
       ],
       "fuels": {
         "Gasolina": [
           "6A0400V0",
-          "EAW40000"
+          "EAW40000",
+          "M4 CS (2017)",
+          "M4 CS (2024)"
         ]
       }
     },
@@ -24013,7 +26927,20 @@ export const VEHICLES = {
     },
     "M5": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -24021,7 +26948,9 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
+        2021,
         2022,
+        2023,
         2024
       ],
       "fuels": {
@@ -24038,13 +26967,28 @@ export const VEHICLES = {
           "DAW50000",
           "DAW5000P",
           "DAW500V0",
-          "IAW5000P"
+          "IAW5000P",
+          "M5 (1998)",
+          "M5 (2005)",
+          "M5 (2011)",
+          "M5 (2013)",
+          "M5 (2017)",
+          "M5 (2018)",
+          "M5 (2020)",
+          "M5 (2021)",
+          "M5 Touring (2007)"
         ],
         "Híbrido gasolina": [
           "EAA50000",
           "EAA5000V",
           "EAW50000",
           "EAW5000V"
+        ],
+        "Hybrid Gasoline": [
+          "M5 (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "M5 Touring (2024)"
         ]
       }
     },
@@ -24163,11 +27107,19 @@ export const VEHICLES = {
     },
     "M6": {
       "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
         2012,
+        2013,
         2014,
         2015,
         2016,
-        2017
+        2017,
+        2018
       ],
       "fuels": {
         "Gasolina": [
@@ -24181,7 +27133,10 @@ export const VEHICLES = {
           "6A04M0V0",
           "6A050000",
           "6A05M000",
-          "M560"
+          "M560",
+          "M6 Coupe (2005)",
+          "M6 Coupe (2012)",
+          "M6 Coupe (2014)"
         ]
       }
     },
@@ -24224,6 +27179,7 @@ export const VEHICLES = {
     },
     "M8": {
       "years": [
+        2019,
         2020,
         2021,
         2022
@@ -24233,7 +27189,11 @@ export const VEHICLES = {
           "DAW5000P",
           "IAW50000",
           "IAW5000P",
-          "IAW500VP"
+          "IAW500VP",
+          "M8 Convertible (2019)",
+          "M8 Convertible (2022)",
+          "M8 Coupe (2019)",
+          "M8 Coupe (2022)"
         ]
       }
     },
@@ -24429,15 +27389,20 @@ export const VEHICLES = {
     },
     "X1": {
       "years": [
+        2009,
+        2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
         2017,
         2018,
+        2019,
         2020,
-        2021
+        2021,
+        2022
       ],
       "fuels": {
         "Diésel": [
@@ -24457,7 +27422,12 @@ export const VEHICLES = {
           "6H15R0C0",
           "6H2500C0",
           "CC8HR0",
-          "VP51"
+          "VP51",
+          "X1 (2009)",
+          "X1 (2012)",
+          "X1 (2016)",
+          "X1 (2019)",
+          "X1 (2022)"
         ],
         "Gasolina": [
           "5A000",
@@ -24476,7 +27446,21 @@ export const VEHICLES = {
           "6H2500C0",
           "DAW50000",
           "IAW500LT",
-          "USA"
+          "USA",
+          "X1 (2009)",
+          "X1 (2012)",
+          "X1 (2016)",
+          "X1 (2019)",
+          "X1 (2022)"
+        ],
+        "Mild Hybrid": [
+          "X1 (2022)"
+        ],
+        "Mild Hybrid Diesel": [
+          "X1 (2022)"
+        ],
+        "Hybrid": [
+          "X1 (2019)"
         ]
       }
     },
@@ -25058,17 +28042,32 @@ export const VEHICLES = {
     },
     "X2": {
       "years": [
-        2018
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
           "CA150000",
           "CA250000",
-          "CAW500L0"
+          "CAW500L0",
+          "X2 (2018)",
+          "X2 (2023)"
         ],
         "Gasolina": [
           "CA1500L0",
-          "CA2500L0"
+          "CA2500L0",
+          "X2 (2018)",
+          "X2 (2023)"
+        ],
+        "Mild Hybrid": [
+          "X2 (2023)"
+        ],
+        "Hybrid": [
+          "X2 (2018)"
         ]
       }
     },
@@ -25516,13 +28515,27 @@ export const VEHICLES = {
     },
     "X3": {
       "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
+        2016,
         2017,
         2018,
-        2021
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
@@ -25566,7 +28579,12 @@ export const VEHICLES = {
           "CA3500M0",
           "CA3500MA",
           "CAW500L0",
-          "CAW500M0"
+          "CAW500M0",
+          "X3 (2004)",
+          "X3 (2007)",
+          "X3 (2010)",
+          "X3 (2014)",
+          "X3 (2017)"
         ],
         "Gasolina": [
           "5A000",
@@ -25582,7 +28600,25 @@ export const VEHICLES = {
           "CA1500B0",
           "CA1500BA",
           "CA1500M0",
-          "CA1500MA"
+          "CA1500MA",
+          "X3 (2004)",
+          "X3 (2007)",
+          "X3 (2010)",
+          "X3 (2014)",
+          "X3 (2017)"
+        ],
+        "Mild Hybrid": [
+          "X3 (2017)",
+          "X3 (2021)",
+          "X3 (2024)"
+        ],
+        "Mild Hybrid Diesel": [
+          "X3 (2021)",
+          "X3 (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "X3 (2021)",
+          "X3 (2024)"
         ]
       }
     },
@@ -25643,7 +28679,12 @@ export const VEHICLES = {
           "DAW500VP",
           "EAW500L0",
           "IAW500L0",
-          "IAW500M0"
+          "IAW500M0",
+          "X3 M (2019)",
+          "X3 M (2021)"
+        ],
+        "Hybrid": [
+          "X3 M (2019)"
         ]
       }
     },
@@ -26293,10 +29334,14 @@ export const VEHICLES = {
     },
     "X4": {
       "years": [
+        2014,
         2015,
+        2016,
         2017,
         2018,
-        2020
+        2019,
+        2020,
+        2021
       ],
       "fuels": {
         "Diésel": [
@@ -26311,7 +29356,9 @@ export const VEHICLES = {
           "6H150000",
           "6H250000",
           "6H350000",
-          "6J250000"
+          "6J250000",
+          "X4 (2014)",
+          "X4 (2018)"
         ],
         "Gasolina": [
           "6A050000",
@@ -26319,7 +29366,16 @@ export const VEHICLES = {
           "6A25000A",
           "6A350000",
           "6H250000",
+          "X4 (2014)",
+          "X4 (2018)",
           "XX11"
+        ],
+        "Mild Hybrid Diesel": [
+          "X4 (2018)",
+          "X4 (2021)"
+        ],
+        "Mild Hybrid": [
+          "X4 (2021)"
         ]
       }
     },
@@ -26330,7 +29386,8 @@ export const VEHICLES = {
         2021,
         2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
@@ -26338,7 +29395,9 @@ export const VEHICLES = {
           "DAW500VP",
           "EAW500L0",
           "IAW500L0",
-          "IAW500M0"
+          "IAW500M0",
+          "X4 M (2019)",
+          "X4 M (2021)"
         ]
       }
     },
@@ -26779,14 +29838,30 @@ export const VEHICLES = {
     },
     "X5": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
+        2016,
         2017,
         2018,
+        2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
@@ -26822,7 +29897,13 @@ export const VEHICLES = {
           "AF",
           "CAW50000",
           "FG",
-          "KS21"
+          "KS21",
+          "X5 (2000)",
+          "X5 (2003)",
+          "X5 (2007)",
+          "X5 (2010)",
+          "X5 (2014)",
+          "X5 (2018)"
         ],
         "Gasolina": [
           "5A000",
@@ -26834,13 +29915,33 @@ export const VEHICLES = {
           "6A170000",
           "6A250000",
           "6A270000",
-          "DAW409M0"
+          "DAW409M0",
+          "X5 (2000)",
+          "X5 (2003)",
+          "X5 (2007)",
+          "X5 (2010)",
+          "X5 (2014)",
+          "X5 (2018)"
         ],
         "Híbrido gasolina": [
           "6A150000",
           "6A15000K",
           "6A250000",
           "6A25000K"
+        ],
+        "Mild Hybrid": [
+          "X5 (2023)"
+        ],
+        "Mild Hybrid Diesel": [
+          "X5 (2018)",
+          "X5 (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "X5 (2023)"
+        ],
+        "Hybrid": [
+          "X5 (2014)",
+          "X5 (2018)"
         ]
       }
     },
@@ -26876,9 +29977,19 @@ export const VEHICLES = {
     },
     "X5 M": {
       "years": [
+        2009,
+        2010,
+        2011,
+        2012,
         2013,
+        2014,
         2015,
         2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
         2022,
         2023
       ],
@@ -26888,7 +29999,13 @@ export const VEHICLES = {
           "6A050000",
           "6A0500V0",
           "IAW500BA",
-          "IAW500BP"
+          "IAW500BP",
+          "X5 M (2009)",
+          "X5 M (2014)",
+          "X5 M (2019)"
+        ],
+        "Mild Hybrid": [
+          "X5 M (2023)"
         ]
       }
     },
@@ -27714,15 +30831,22 @@ export const VEHICLES = {
     },
     "X6": {
       "years": [
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
+        2016,
         2017,
         2018,
+        2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
@@ -27740,6 +30864,10 @@ export const VEHICLES = {
           "AB",
           "GA",
           "GE",
+          "X6 (2008)",
+          "X6 (2010)",
+          "X6 (2014)",
+          "X6 (2019)",
           "X6 XDRIVE40D"
         ],
         "Gasolina": [
@@ -27754,17 +30882,40 @@ export const VEHICLES = {
           "6A150000",
           "6A250000",
           "6A25000A",
-          "M7X"
+          "M7X",
+          "X6 (2008)",
+          "X6 (2010)",
+          "X6 (2014)",
+          "X6 (2019)"
+        ],
+        "Mild Hybrid": [
+          "X6 (2023)"
+        ],
+        "Mild Hybrid Diesel": [
+          "X6 (2023)"
+        ],
+        "Híbrido diésel": [
+          "X6 (2019)"
+        ],
+        "Hybrid": [
+          "X6 (2010)"
         ]
       }
     },
     "X6 M": {
       "years": [
+        2009,
+        2010,
+        2011,
+        2012,
         2013,
         2014,
         2015,
         2016,
+        2017,
+        2018,
         2019,
+        2020,
         2021,
         2022,
         2023
@@ -27776,7 +30927,13 @@ export const VEHICLES = {
           "IAW500B0",
           "IAW500BP",
           "IAW500LA",
-          "IAW500LP"
+          "IAW500LP",
+          "X6 M (2009)",
+          "X6 M (2014)",
+          "X6 M (2019)"
+        ],
+        "Mild Hybrid": [
+          "X6 M (2023)"
         ]
       }
     },
@@ -28519,6 +31676,7 @@ export const VEHICLES = {
     },
     "XM": {
       "years": [
+        2022,
         2023,
         2024
       ],
@@ -28530,6 +31688,9 @@ export const VEHICLES = {
           "IAW5000Q",
           "IAW5000V",
           "IAW500UQ"
+        ],
+        "Plug-in Hybrid": [
+          "XM (2022)"
         ]
       }
     },
@@ -28567,15 +31728,35 @@ export const VEHICLES = {
     },
     "Z4": {
       "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
-        2014
+        2013,
+        2014,
+        2015,
+        2016,
+        2024
       ],
       "fuels": {
         "Gasolina": [
           "5A",
           "5A000",
           "5H000",
-          "6H0200000"
+          "6H0200000",
+          "Z4 Coupe (2006)",
+          "Z4 Roadster (2002)",
+          "Z4 Roadster (2006)",
+          "Z4 Roadster (2009)",
+          "Z4 Roadster (2013)",
+          "Z4 Roadster (2024)"
         ]
       }
     },
@@ -28797,15 +31978,28 @@ export const VEHICLES = {
     },
     "i3": {
       "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2026
       ],
       "fuels": {
         "Eléctrico": [
           "0AW40000",
-          "0AW4000S"
+          "0AW4000S",
+          "i3 (2013)",
+          "i3 (2017)",
+          "i3 Sedan (2026)"
+        ],
+        "Hybrid": [
+          "i3 (2017)"
         ]
       }
     },
@@ -28913,6 +32107,11 @@ export const VEHICLES = {
     },
     "i8": {
       "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
         2019,
         2020
       ],
@@ -28924,6 +32123,11 @@ export const VEHICLES = {
           "DAW20000",
           "DAW200T0",
           "DAW400T0"
+        ],
+        "Hybrid": [
+          "i8 (2014)",
+          "i8 (2018)",
+          "i8 Roadster (2018)"
         ]
       }
     },
@@ -28965,13 +32169,931 @@ export const VEHICLES = {
     },
     "iX3": {
       "years": [
+        2020,
         2021,
-        2022
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Eléctrico": [
           "0AW50000",
-          "0AW5000S"
+          "0AW5000S",
+          "iX3 (2020)",
+          "iX3 (2025)"
+        ]
+      }
+    },
+    "1 Series": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "1 Series (2004)",
+          "1 Series (2007)",
+          "1 Series (2011)",
+          "1 Series (2015)",
+          "1 Series (2017)",
+          "1 Series (2019)",
+          "1 Series (2024)",
+          "1 Series 3 doors (2007)",
+          "1 Series 3 doors (2012)",
+          "1 Series 3 doors (2015)",
+          "1 Series 3 doors (2017)",
+          "1 Series Cabriolet (2008)",
+          "1 Series Cabriolet (2010)",
+          "1 Series Coupe (2007)",
+          "1 Series Coupe (2010)",
+          "1 Series Sedan (2017)"
+        ],
+        "Mild Hybrid": [
+          "1 Series (2024)"
+        ],
+        "Diésel": [
+          "1 Series (2004)",
+          "1 Series (2007)",
+          "1 Series (2011)",
+          "1 Series (2015)",
+          "1 Series (2017)",
+          "1 Series (2019)",
+          "1 Series 3 doors (2007)",
+          "1 Series 3 doors (2012)",
+          "1 Series 3 doors (2015)",
+          "1 Series 3 doors (2017)",
+          "1 Series Cabriolet (2008)",
+          "1 Series Cabriolet (2010)",
+          "1 Series Coupe (2007)",
+          "1 Series Coupe (2010)"
+        ]
+      }
+    },
+    "1 Series M": {
+      "years": [
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "1 Series M Coupe (2010)"
+        ]
+      }
+    },
+    "2 Series": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "2 Series Convertible (2014)",
+          "2 Series Convertible (2017)",
+          "2 Series Coupe (2013)",
+          "2 Series Coupe (2017)",
+          "2 Series Coupe (2021)"
+        ],
+        "Diésel": [
+          "2 Series Convertible (2014)",
+          "2 Series Convertible (2017)",
+          "2 Series Coupe (2013)",
+          "2 Series Coupe (2017)",
+          "2 Series Coupe (2021)"
+        ]
+      }
+    },
+    "2 Series Active Tourer": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "2 Series Active Tourer (2014)",
+          "2 Series Active Tourer (2018)",
+          "2 Series Active Tourer (2021)"
+        ],
+        "Diésel": [
+          "2 Series Active Tourer (2014)",
+          "2 Series Active Tourer (2018)",
+          "2 Series Active Tourer (2021)"
+        ],
+        "Mild Hybrid": [
+          "2 Series Active Tourer (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "2 Series Active Tourer (2014)",
+          "2 Series Active Tourer (2018)"
+        ]
+      }
+    },
+    "2 Series Gran": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "2 Series Gran Coupe (2019)",
+          "2 Series Gran Coupe (2024)"
+        ],
+        "Diésel": [
+          "2 Series Gran Coupe (2019)",
+          "2 Series Gran Coupe (2024)"
+        ],
+        "Mild Hybrid": [
+          "2 Series Gran Coupe (2024)"
+        ],
+        "Mild Hybrid Diesel": [
+          "2 Series Gran Coupe (2024)"
+        ]
+      }
+    },
+    "2 Series Gran Tourer": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "2 Series Gran Tourer (2015)",
+          "2 Series Gran Tourer (2018)"
+        ],
+        "Diésel": [
+          "2 Series Gran Tourer (2015)",
+          "2 Series Gran Tourer (2018)"
+        ]
+      }
+    },
+    "3 Series": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "3 Series  Cabriolet (2000)",
+          "3 Series  Cabriolet (2003)",
+          "3 Series  Cabriolet (2007)",
+          "3 Series  Cabriolet (2010)",
+          "3 Series Coupe (1999)",
+          "3 Series Coupe (2003)",
+          "3 Series Coupe (2006)",
+          "3 Series Coupe (2010)",
+          "3 Series Sedan (1998)",
+          "3 Series Sedan (2002)",
+          "3 Series Sedan (2005)",
+          "3 Series Sedan (2008)",
+          "3 Series Sedan (2012)",
+          "3 Series Sedan (2016)",
+          "3 Series Sedan (2018)",
+          "3 Series Sedan (2022)",
+          "3 Series Sedan (2024)",
+          "3 Series Touring (1999)",
+          "3 Series Touring (2001)",
+          "3 Series Touring (2005)",
+          "3 Series Touring (2008)",
+          "3 Series Touring (2012)",
+          "3 Series Touring (2016)",
+          "3 Series Touring (2019)",
+          "3 Series Touring (2022)",
+          "3 Series Touring (2024)"
+        ],
+        "Mild Hybrid Diesel": [
+          "3 Series Sedan (2022)",
+          "3 Series Sedan (2024)",
+          "3 Series Touring (2022)",
+          "3 Series Touring (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "3 Series Sedan (2016)",
+          "3 Series Sedan (2022)",
+          "3 Series Sedan (2024)",
+          "3 Series Touring (2022)",
+          "3 Series Touring (2024)"
+        ],
+        "Mild Hybrid": [
+          "3 Series Sedan (2022)",
+          "3 Series Sedan (2024)",
+          "3 Series Touring (2022)",
+          "3 Series Touring (2024)"
+        ],
+        "Diésel": [
+          "3 Series  Cabriolet (2003)",
+          "3 Series  Cabriolet (2007)",
+          "3 Series  Cabriolet (2010)",
+          "3 Series Coupe (2003)",
+          "3 Series Coupe (2006)",
+          "3 Series Coupe (2010)",
+          "3 Series Sedan (1998)",
+          "3 Series Sedan (2002)",
+          "3 Series Sedan (2005)",
+          "3 Series Sedan (2008)",
+          "3 Series Sedan (2012)",
+          "3 Series Sedan (2016)",
+          "3 Series Sedan (2018)",
+          "3 Series Touring (1999)",
+          "3 Series Touring (2001)",
+          "3 Series Touring (2005)",
+          "3 Series Touring (2008)",
+          "3 Series Touring (2012)",
+          "3 Series Touring (2016)",
+          "3 Series Touring (2019)"
+        ],
+        "Plug-in Hybrid": [
+          "3 Series Sedan (2018)"
+        ],
+        "Hybrid": [
+          "3 Series Sedan (2012)"
+        ]
+      }
+    },
+    "3 Series Compact": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "3 Series Compact (1994)",
+          "3 Series Compact (2001)"
+        ],
+        "Diésel": [
+          "3 Series Compact (1994)",
+          "3 Series Compact (2001)"
+        ]
+      }
+    },
+    "3 Series Gran Turismo": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "3 Series Gran Turismo (2013)",
+          "3 Series Gran Turismo (2016)"
+        ],
+        "Diésel": [
+          "3 Series Gran Turismo (2013)",
+          "3 Series Gran Turismo (2016)"
+        ]
+      }
+    },
+    "4 Series": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "4 Series Convertible (2014)",
+          "4 Series Convertible (2018)",
+          "4 Series Convertible (2020)",
+          "4 Series Convertible (2024)",
+          "4 Series Coupe (2013)",
+          "4 Series Coupe (2018)",
+          "4 Series Coupe (2020)",
+          "4 Series Coupe (2024)"
+        ],
+        "Mild Hybrid Diesel": [
+          "4 Series Convertible (2020)",
+          "4 Series Convertible (2024)",
+          "4 Series Coupe (2020)",
+          "4 Series Coupe (2024)"
+        ],
+        "Mild Hybrid": [
+          "4 Series Convertible (2020)",
+          "4 Series Convertible (2024)",
+          "4 Series Coupe (2020)",
+          "4 Series Coupe (2024)"
+        ],
+        "Diésel": [
+          "4 Series Convertible (2014)",
+          "4 Series Convertible (2018)",
+          "4 Series Coupe (2013)",
+          "4 Series Coupe (2018)"
+        ]
+      }
+    },
+    "4 Series Gran": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "4 Series Gran Coupe (2014)",
+          "4 Series Gran Coupe (2018)",
+          "4 Series Gran Coupe (2021)",
+          "4 Series Gran Coupe (2024)"
+        ],
+        "Mild Hybrid Diesel": [
+          "4 Series Gran Coupe (2021)",
+          "4 Series Gran Coupe (2024)"
+        ],
+        "Mild Hybrid": [
+          "4 Series Gran Coupe (2021)",
+          "4 Series Gran Coupe (2024)"
+        ],
+        "Diésel": [
+          "4 Series Gran Coupe (2014)",
+          "4 Series Gran Coupe (2018)"
+        ]
+      }
+    },
+    "5 Series": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid Diesel": [
+          "5 Series Sedan (2016)",
+          "5 Series Sedan (2020)",
+          "5 Series Sedan (2023)",
+          "5 Series Touring (2020)",
+          "5 Series Touring (2024)"
+        ],
+        "Mild Hybrid": [
+          "5 Series Sedan (2020)",
+          "5 Series Sedan (2023)",
+          "5 Series Touring (2020)"
+        ],
+        "Gasolina": [
+          "5 Series Sedan (1995)",
+          "5 Series Sedan (2000)",
+          "5 Series Sedan (2003)",
+          "5 Series Sedan (2007)",
+          "5 Series Sedan (2009)",
+          "5 Series Sedan (2013)",
+          "5 Series Sedan (2016)",
+          "5 Series Sedan (2020)",
+          "5 Series Touring (1997)",
+          "5 Series Touring (2004)",
+          "5 Series Touring (2007)",
+          "5 Series Touring (2010)",
+          "5 Series Touring (2013)",
+          "5 Series Touring (2017)"
+        ],
+        "Diésel": [
+          "5 Series Sedan (1995)",
+          "5 Series Sedan (2000)",
+          "5 Series Sedan (2003)",
+          "5 Series Sedan (2007)",
+          "5 Series Sedan (2009)",
+          "5 Series Sedan (2013)",
+          "5 Series Sedan (2016)",
+          "5 Series Touring (1997)",
+          "5 Series Touring (2004)",
+          "5 Series Touring (2007)",
+          "5 Series Touring (2010)",
+          "5 Series Touring (2013)",
+          "5 Series Touring (2017)"
+        ],
+        "Plug-in Hybrid": [
+          "5 Series Sedan (2023)"
+        ],
+        "Hybrid": [
+          "5 Series Sedan (2009)",
+          "5 Series Sedan (2016)",
+          "5 Series Sedan (2020)"
+        ],
+        "Hybrid Gasoline": [
+          "5 Series Sedan (2013)"
+        ]
+      }
+    },
+    "5 Series Gran Turismo": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "5 Series Gran Turismo (2009)",
+          "5 Series Gran Turismo (2013)"
+        ],
+        "Diésel": [
+          "5 Series Gran Turismo (2009)",
+          "5 Series Gran Turismo (2013)"
+        ]
+      }
+    },
+    "6 Series": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "6 Series Convertible (2004)",
+          "6 Series Convertible (2007)",
+          "6 Series Convertible (2012)",
+          "6 Series Convertible (2015)",
+          "6 Series Coupe (2003)",
+          "6 Series Coupe (2007)",
+          "6 Series Coupe (2011)",
+          "6 Series Coupe (2015)"
+        ],
+        "Diésel": [
+          "6 Series Convertible (2007)",
+          "6 Series Convertible (2012)",
+          "6 Series Convertible (2015)",
+          "6 Series Coupe (2007)",
+          "6 Series Coupe (2011)",
+          "6 Series Coupe (2015)"
+        ]
+      }
+    },
+    "6 Series Gran": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "6 Series Gran Coupe (2012)",
+          "6 Series Gran Coupe (2015)"
+        ],
+        "Diésel": [
+          "6 Series Gran Coupe (2012)",
+          "6 Series Gran Coupe (2015)"
+        ]
+      }
+    },
+    "6 Series Gran Turismo": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Mild Hybrid Diesel": [
+          "6 Series Gran Turismo (2020)"
+        ],
+        "Mild Hybrid": [
+          "6 Series Gran Turismo (2020)"
+        ],
+        "Gasolina": [
+          "6 Series Gran Turismo (2017)"
+        ],
+        "Diésel": [
+          "6 Series Gran Turismo (2017)"
+        ]
+      }
+    },
+    "7 Series": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2026
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "7 Series (2012)",
+          "7 Series (2022)",
+          "7 Series (2026)"
+        ],
+        "Mild Hybrid Diesel": [
+          "7 Series (2019)",
+          "7 Series (2022)",
+          "7 Series (2026)"
+        ],
+        "Plug-in Hybrid": [
+          "7 Series (2026)"
+        ],
+        "Eléctrico": [
+          "7 Series (2022)"
+        ],
+        "Gasolina": [
+          "7 Series (1997)",
+          "7 Series (1998)",
+          "7 Series (2001)",
+          "7 Series (2005)",
+          "7 Series (2008)",
+          "7 Series (2012)",
+          "7 Series (2016)",
+          "7 Series (2019)"
+        ],
+        "Diésel": [
+          "7 Series (1998)",
+          "7 Series (2001)",
+          "7 Series (2005)",
+          "7 Series (2008)",
+          "7 Series (2012)",
+          "7 Series (2016)",
+          "7 Series (2019)"
+        ],
+        "Hybrid": [
+          "7 Series (2008)",
+          "7 Series (2019)"
+        ],
+        "Hybrid Gasoline": [
+          "7 Series (2012)",
+          "7 Series (2016)"
+        ]
+      }
+    },
+    "8 Series": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "8 Series Convertible (2018)",
+          "8 Series Convertible (2022)",
+          "8 Series Coupe (2018)",
+          "8 Series Coupe (2022)"
+        ],
+        "Diésel": [
+          "8 Series Convertible (2018)",
+          "8 Series Convertible (2022)",
+          "8 Series Coupe (2018)"
+        ]
+      }
+    },
+    "8 Series Gran": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "8 Series Gran Coupe (2019)"
+        ],
+        "Diésel": [
+          "8 Series Gran Coupe (2019)"
+        ]
+      }
+    },
+    "i4": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "i4 (2021)",
+          "i4 (2024)"
+        ]
+      }
+    },
+    "i5": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "i5 (2023)",
+          "i5 Touring (2024)"
+        ]
+      }
+    },
+    "i7": {
+      "years": [
+        2022,
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "i7 (2022)",
+          "i7 (2026)"
+        ]
+      }
+    },
+    "iX": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "iX (2021)",
+          "iX (2025)"
+        ]
+      }
+    },
+    "iX M": {
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "iX M (2022)"
+        ]
+      }
+    },
+    "iX1": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "iX1 (2022)"
+        ]
+      }
+    },
+    "iX2": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "iX2 (2023)"
+        ]
+      }
+    },
+    "M4 GTS": {
+      "years": [
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "M4 GTS (2015)"
+        ]
+      }
+    },
+    "M6 Cabrio": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "M6 Cabrio (2006)",
+          "M6 Cabrio (2012)",
+          "M6 Cabrio (2014)"
+        ]
+      }
+    },
+    "M6 Gran": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "M6 Gran Coupe (2013)"
+        ]
+      }
+    },
+    "M8 Gran": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "M8 Gran Coupe (2022)"
+        ]
+      }
+    },
+    "X7": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Mild Hybrid Diesel": [
+          "X7 (2018)",
+          "X7 (2022)"
+        ],
+        "Mild Hybrid": [
+          "X7 (2018)",
+          "X7 (2022)"
+        ],
+        "Gasolina": [
+          "X7 (2018)"
+        ],
+        "Diésel": [
+          "X7 (2018)"
+        ]
+      }
+    },
+    "Z3": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Z3 Coupe (1998)",
+          "Z3 Roadster (1996)",
+          "Z3 Roadster (1997)"
+        ]
+      }
+    },
+    "Z8": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Z8 (2000)"
         ]
       }
     }
@@ -29357,12 +33479,16 @@ export const VEHICLES = {
   "BYD": {
     "ATTO 3": {
       "years": [
+        2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "Eléctrico": [
-          "1NXE5E001NL1"
+          "1NXE5E001NL1",
+          "ATTO 3 (2022)",
+          "ATTO 3 (2025)"
         ]
       }
     },
@@ -29454,6 +33580,39 @@ export const VEHICLES = {
           "1NXE7E001NL1"
         ]
       }
+    },
+    "ATTO 2": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ATTO 2 (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "ATTO 2 (2025)"
+        ]
+      }
+    },
+    "DOLPHIN": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "DOLPHIN (2025)"
+        ]
+      }
+    },
+    "Sealion 7": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Sealion 7 (2024)"
+        ]
+      }
     }
   },
   "CADILLAC": {
@@ -29500,6 +33659,10 @@ export const VEHICLES = {
     },
     "BLS": {
       "years": [
+        2006,
+        2007,
+        2008,
+        2009,
         2010
       ],
       "fuels": {
@@ -29508,7 +33671,16 @@ export const VEHICLES = {
           "4DZ19DTHFFF406WR3",
           "4DZ19DTHFFF406WR355",
           "A601",
+          "BLS (2006)",
+          "BLS Wagon (2007)",
           "M601"
+        ],
+        "Gasolina": [
+          "BLS (2006)",
+          "BLS Wagon (2007)"
+        ],
+        "Ethanol": [
+          "BLS Wagon (2007)"
         ]
       }
     },
@@ -29524,11 +33696,32 @@ export const VEHICLES = {
     },
     "CTS": {
       "years": [
-        2010
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
       ],
       "fuels": {
         "Gasolina": [
-          "AFFBABCAA"
+          "AFFBABCAA",
+          "CTS (2002)",
+          "CTS (2007)",
+          "CTS (2013)",
+          "CTS Coupe (2011)"
         ]
       }
     },
@@ -29564,14 +33757,28 @@ export const VEHICLES = {
     },
     "SRX": {
       "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
-        2014
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
       ],
       "fuels": {
         "Gasolina": [
           "ABBAAAABA",
           "ADDAAAAAB",
-          "AHHAAAAAB"
+          "AHHAAAAAB",
+          "SRX (2004)",
+          "SRX (2005)",
+          "SRX (2009)"
         ]
       }
     },
@@ -29582,6 +33789,543 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "ABBBBBBBA"
+        ]
+      }
+    },
+    "ATS": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ATS (2012)",
+          "ATS Coupe (2014)"
+        ]
+      }
+    },
+    "ATS-V": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ATS-V (2015)",
+          "ATS-V Coupe (2015)"
+        ]
+      }
+    },
+    "Catera": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Catera (1997)"
+        ]
+      }
+    },
+    "Celestiq": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Celestiq (2023)"
+        ]
+      }
+    },
+    "CT4": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CT4 (2019)"
+        ]
+      }
+    },
+    "CT4-V": {
+      "years": [
+        2019,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CT4-V (2019)",
+          "CT4-V (2021)"
+        ]
+      }
+    },
+    "CT5": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CT5 (2019)",
+          "CT5 (2023)"
+        ]
+      }
+    },
+    "CT5-V": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CT5-V (2019)",
+          "CT5-V (2021)",
+          "CT5-V (2024)"
+        ]
+      }
+    },
+    "CT6": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CT6 (2016)",
+          "CT6 (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "CT6 (2016)"
+        ]
+      }
+    },
+    "CTS Sport": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CTS Sport Wagon (2009)"
+        ]
+      }
+    },
+    "CTS V-Series": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CTS V-Series (2003)",
+          "CTS V-Series (2008)",
+          "CTS V-Series (2015)"
+        ]
+      }
+    },
+    "CTS-V": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CTS-V Coupe (2012)"
+        ]
+      }
+    },
+    "CTS-V Sport": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CTS-V Sport Wagon (2010)"
+        ]
+      }
+    },
+    "DeVille": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "DeVille (1999)"
+        ]
+      }
+    },
+    "DTS": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "DTS (2005)",
+          "DTS (2008)"
+        ]
+      }
+    },
+    "Eldorado": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Eldorado (1991)"
+        ]
+      }
+    },
+    "ELR": {
+      "years": [
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Hybrid": [
+          "ELR (2014)"
+        ]
+      }
+    },
+    "Escalade": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Escalade (2000)",
+          "Escalade (2006)",
+          "Escalade (2014)",
+          "Escalade (2020)",
+          "Escalade (2022)",
+          "Escalade (2024)"
+        ],
+        "Eléctrico": [
+          "Escalade (2023)"
+        ],
+        "Diésel": [
+          "Escalade (2020)"
+        ]
+      }
+    },
+    "Escalade ESV": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Escalade ESV (2002)",
+          "Escalade ESV (2006)",
+          "Escalade ESV (2014)",
+          "Escalade ESV (2020)"
+        ],
+        "Diésel": [
+          "Escalade ESV (2020)"
+        ]
+      }
+    },
+    "Escalade EXT": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Escalade EXT (2001)",
+          "Escalade EXT (2006)"
+        ]
+      }
+    },
+    "Escalade IQL": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Escalade IQL (2025)"
+        ]
+      }
+    },
+    "Lyriq": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Lyriq (2022)"
+        ]
+      }
+    },
+    "Lyriq-V": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Lyriq-V (2025)"
+        ]
+      }
+    },
+    "Optiq": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Optiq (2023)"
+        ]
+      }
+    },
+    "Optiq-V": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Optiq-V (2025)"
+        ]
+      }
+    },
+    "Seville": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Seville (1998)"
+        ]
+      }
+    },
+    "STS": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "STS (2004)",
+          "STS (2006)",
+          "STS (2007)"
+        ]
+      }
+    },
+    "Vistiq": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Vistiq (2023)"
+        ]
+      }
+    },
+    "XLR": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XLR (2003)",
+          "XLR (2005)",
+          "XLR (2008)"
+        ]
+      }
+    },
+    "XLR V-Series": {
+      "years": [
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XLR V-Series (2008)"
+        ]
+      }
+    },
+    "XT4": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XT4 (2018)",
+          "XT4 (2023)"
+        ]
+      }
+    },
+    "XT5": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XT5 (2016)",
+          "XT5 (2019)"
+        ]
+      }
+    },
+    "XTS": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XTS (2013)",
+          "XTS (2017)"
         ]
       }
     }
@@ -31322,29 +36066,1388 @@ export const VEHICLES = {
           "H44PDXHXJJB"
         ]
       }
+    },
+    "Agile": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Agile (2009)",
+          "Agile (2013)"
+        ],
+        "Ethanol": [
+          "Agile (2009)",
+          "Agile (2013)"
+        ]
+      }
+    },
+    "Astro": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astro (1994)"
+        ]
+      }
+    },
+    "Avalanche": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Avalanche (2001)",
+          "Avalanche (2006)"
+        ],
+        "Ethanol": [
+          "Avalanche (2006)"
+        ]
+      }
+    },
+    "Aveo / Kalos": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aveo / Kalos 3 Doors (2004)",
+          "Aveo / Kalos 3 Doors (2008)",
+          "Aveo / Kalos 5 Doors (2002)",
+          "Aveo / Kalos 5 Doors (2005)",
+          "Aveo / Kalos 5 Doors (2008)",
+          "Aveo / Kalos Sedan (2004)",
+          "Aveo / Kalos Sedan (2005)",
+          "Aveo / Kalos Sedan (2011)"
+        ],
+        "Diésel": [
+          "Aveo / Kalos Sedan (2011)"
+        ]
+      }
+    },
+    "Blazer": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Blazer (1995)",
+          "Blazer (2019)",
+          "Blazer (2022)"
+        ],
+        "Eléctrico": [
+          "Blazer (2022)"
+        ]
+      }
+    },
+    "Bolt": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Bolt (2016)",
+          "Bolt (2021)",
+          "Bolt (2025)"
+        ]
+      }
+    },
+    "Camaro": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Camaro (1993)",
+          "Camaro (1997)",
+          "Camaro (2009)",
+          "Camaro (2010)",
+          "Camaro (2012)",
+          "Camaro (2013)",
+          "Camaro (2016)",
+          "Camaro (2018)",
+          "Camaro Convertible (2011)",
+          "Camaro Convertible (2012)",
+          "Camaro Convertible (2013)",
+          "Camaro Convertible (2016)",
+          "Camaro Convertible (2018)"
+        ]
+      }
+    },
+    "Captiva": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Captiva (2006)",
+          "Captiva (2011)"
+        ],
+        "Diésel": [
+          "Captiva (2006)",
+          "Captiva (2011)"
+        ]
+      }
+    },
+    "Cavalier": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cavalier (1994)",
+          "Cavalier (1995)",
+          "Cavalier (2003)"
+        ]
+      }
+    },
+    "Celta": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Celta (2000)"
+        ]
+      }
+    },
+    "Classic": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Classic (2002)"
+        ],
+        "Ethanol": [
+          "Classic (2002)"
+        ]
+      }
+    },
+    "Cobalt": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cobalt Coupe (2004)",
+          "Cobalt Coupe (2005)",
+          "Cobalt Sedan (2004)",
+          "Cobalt Sedan (2008)",
+          "Cobalt Sedan (2011)"
+        ],
+        "Diésel": [
+          "Cobalt Sedan (2011)"
+        ]
+      }
+    },
+    "Colorado": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Colorado Double Cab (2003)",
+          "Colorado Double Cab (2009)",
+          "Colorado Double Cab (2015)",
+          "Colorado Double Cab (2023)",
+          "Colorado Extended Cab (2003)",
+          "Colorado Extended Cab (2009)",
+          "Colorado Extended Cab (2015)"
+        ],
+        "Diésel": [
+          "Colorado Double Cab (2015)"
+        ]
+      }
+    },
+    "Colorado Regular Cab": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Colorado Regular Cab (2003)",
+          "Colorado Regular Cab (2009)"
+        ]
+      }
+    },
+    "Corvette": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Corvette Convertible (2023)",
+          "Corvette Coupe (2023)"
+        ],
+        "Gasolina": [
+          "Corvette Convertible (1998)",
+          "Corvette Convertible (2004)",
+          "Corvette Convertible (2008)",
+          "Corvette Convertible (2009)",
+          "Corvette Convertible (2012)",
+          "Corvette Convertible (2013)",
+          "Corvette Coupe (1997)",
+          "Corvette Coupe (2002)",
+          "Corvette Coupe (2004)",
+          "Corvette Coupe (2008)",
+          "Corvette Coupe (2013)",
+          "Corvette Coupe (2019)"
+        ]
+      }
+    },
+    "Corvette Grand Sport": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corvette Grand Sport (2026)"
+        ]
+      }
+    },
+    "Corvette Z06": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corvette Z06 (2008)",
+          "Corvette Z06 (2014)",
+          "Corvette Z06 (2021)",
+          "Corvette Z06 Convertible (2014)"
+        ]
+      }
+    },
+    "Corvette ZR1": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corvette ZR1 (2008)",
+          "Corvette ZR1 (2018)",
+          "Corvette ZR1 (2024)",
+          "Corvette ZR1 Convertible (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Corvette ZR1 (2024)",
+          "Corvette ZR1 Convertible (2026)"
+        ]
+      }
+    },
+    "Cruze": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cruze (2009)",
+          "Cruze (2016)",
+          "Cruze (2018)",
+          "Cruze - 5 doors (2011)",
+          "Cruze - 5 doors (2017)",
+          "Cruze - 5 doors (2018)",
+          "Cruze Wagon (2012)"
+        ],
+        "Diésel": [
+          "Cruze (2009)",
+          "Cruze (2016)",
+          "Cruze (2018)",
+          "Cruze - 5 doors (2011)",
+          "Cruze - 5 doors (2018)",
+          "Cruze Wagon (2012)"
+        ]
+      }
+    },
+    "Epica": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Epica (2006)"
+        ]
+      }
+    },
+    "Equinox": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Equinox (2004)",
+          "Equinox (2009)",
+          "Equinox (2017)",
+          "Equinox (2020)",
+          "Equinox (2024)"
+        ],
+        "Eléctrico": [
+          "Equinox (2022)"
+        ],
+        "Diésel": [
+          "Equinox (2017)"
+        ]
+      }
+    },
+    "Evanda": {
+      "years": [
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Evanda (2004)"
+        ]
+      }
+    },
+    "Express": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Express (1995)",
+          "Express (2002)",
+          "Express (2008)"
+        ],
+        "Diésel": [
+          "Express (1995)",
+          "Express (2008)"
+        ],
+        "Hybrid": [
+          "Express (2002)"
+        ]
+      }
+    },
+    "HHR": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HHR (2005)",
+          "HHR (2006)",
+          "HHR (2007)"
+        ],
+        "Natural Gas": [
+          "HHR (2005)"
+        ]
+      }
+    },
+    "Impala": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Impala (1999)",
+          "Impala (2003)",
+          "Impala (2005)",
+          "Impala (2013)"
+        ],
+        "Natural Gas": [
+          "Impala (2013)"
+        ],
+        "Hybrid Gasoline": [
+          "Impala (2013)"
+        ]
+      }
+    },
+    "Malibu": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Malibu (1996)",
+          "Malibu (2003)",
+          "Malibu (2005)",
+          "Malibu (2008)",
+          "Malibu (2012)",
+          "Malibu (2016)",
+          "Malibu (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "Malibu (2018)"
+        ],
+        "Hybrid": [
+          "Malibu (2008)",
+          "Malibu (2013)",
+          "Malibu (2016)"
+        ],
+        "Ethanol": [
+          "Malibu (2008)"
+        ]
+      }
+    },
+    "Malibu Maxx": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Malibu Maxx (2003)",
+          "Malibu Maxx (2005)"
+        ]
+      }
+    },
+    "Matiz / Spark": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Matiz / Spark (2000)",
+          "Matiz / Spark (2005)",
+          "Matiz / Spark (2009)",
+          "Matiz / Spark (2016)",
+          "Matiz / Spark (2018)"
+        ],
+        "Diésel": [
+          "Matiz / Spark (2009)"
+        ]
+      }
+    },
+    "Monte Carlo": {
+      "years": [
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Monte Carlo (2005)"
+        ]
+      }
+    },
+    "Nubira / Lacetti": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Nubira / Lacetti (2002)",
+          "Nubira / Lacetti (2004)"
+        ],
+        "Diésel": [
+          "Nubira / Lacetti (2002)",
+          "Nubira / Lacetti (2004)"
+        ]
+      }
+    },
+    "Onix": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Onix (2012)"
+        ],
+        "Ethanol": [
+          "Onix (2012)"
+        ]
+      }
+    },
+    "Orlando": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Orlando (2010)"
+        ],
+        "Diésel": [
+          "Orlando (2010)"
+        ]
+      }
+    },
+    "Prisma": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Prisma (2013)"
+        ]
+      }
+    },
+    "S-10": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S-10 (1997)",
+          "S-10 (2000)"
+        ]
+      }
+    },
+    "Silverado": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Silverado (2023)"
+        ],
+        "Gasolina": [
+          "Silverado (2008)",
+          "Silverado (2013)",
+          "Silverado (2018)",
+          "Silverado (2021)"
+        ],
+        "Diésel": [
+          "Silverado (2013)",
+          "Silverado (2018)",
+          "Silverado (2021)"
+        ],
+        "Natural Gas": [
+          "Silverado (2008)",
+          "Silverado (2013)"
+        ]
+      }
+    },
+    "Silverado 2500HD": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Silverado 2500HD (2007)",
+          "Silverado 2500HD (2008)",
+          "Silverado 2500HD (2023)"
+        ],
+        "Diésel": [
+          "Silverado 2500HD (2007)",
+          "Silverado 2500HD (2008)",
+          "Silverado 2500HD (2023)"
+        ]
+      }
+    },
+    "Silverado 3500HD": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Silverado 3500HD (2008)"
+        ],
+        "Diésel": [
+          "Silverado 3500HD (2008)"
+        ]
+      }
+    },
+    "Silverado Hybrid": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Silverado Hybrid (2008)"
+        ]
+      }
+    },
+    "Sonic": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sonic Hatchback (2011)",
+          "Sonic Sedan (2011)",
+          "Sonic Sedan (2016)"
+        ],
+        "Diésel": [
+          "Sonic Sedan (2011)"
+        ]
+      }
+    },
+    "Sonic RS": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sonic RS (2012)"
+        ]
+      }
+    },
+    "Spark EV": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Spark EV (2013)"
+        ]
+      }
+    },
+    "Spin": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Spin (2012)"
+        ],
+        "Diésel": [
+          "Spin (2012)"
+        ],
+        "Ethanol": [
+          "Spin (2012)"
+        ]
+      }
+    },
+    "SS": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SS (2013)",
+          "SS (2016)"
+        ]
+      }
+    },
+    "SSR": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SSR (2003)"
+        ]
+      }
+    },
+    "Suburban": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Suburban (1999)",
+          "Suburban (2006)",
+          "Suburban (2014)",
+          "Suburban (2018)",
+          "Suburban (2020)",
+          "Suburban (2023)"
+        ],
+        "Diésel": [
+          "Suburban (2020)",
+          "Suburban (2023)"
+        ],
+        "Natural Gas": [
+          "Suburban (2006)"
+        ]
+      }
+    },
+    "Tacuma": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tacuma (2004)"
+        ]
+      }
+    },
+    "Tahoe": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tahoe (2006)",
+          "Tahoe (2008)",
+          "Tahoe (2014)",
+          "Tahoe (2020)",
+          "Tahoe (2023)"
+        ],
+        "Diésel": [
+          "Tahoe (2020)",
+          "Tahoe (2023)"
+        ],
+        "Ethanol": [
+          "Tahoe (2006)",
+          "Tahoe (2008)"
+        ],
+        "Hybrid Gasoline": [
+          "Tahoe (2008)"
+        ]
+      }
+    },
+    "Tracker": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tracker (1999)",
+          "Tracker (2013)"
+        ]
+      }
+    },
+    "TrailBlazer": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "TrailBlazer (2000)",
+          "TrailBlazer (2002)",
+          "TrailBlazer (2005)",
+          "TrailBlazer (2008)",
+          "TrailBlazer (2012)",
+          "TrailBlazer (2023)"
+        ],
+        "Diésel": [
+          "TrailBlazer (2012)"
+        ]
+      }
+    },
+    "Traverse": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Traverse (2008)",
+          "Traverse (2012)",
+          "Traverse (2017)",
+          "Traverse (2020)",
+          "Traverse (2023)"
+        ]
+      }
+    },
+    "Trax": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Trax (2013)",
+          "Trax (2017)",
+          "Trax (2022)"
+        ],
+        "Diésel": [
+          "Trax (2013)"
+        ]
+      }
+    },
+    "Uplander": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Uplander (2004)"
+        ],
+        "Hybrid": [
+          "Uplander (2004)"
+        ]
+      }
+    },
+    "Venture": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Venture (1996)"
+        ]
+      }
+    },
+    "Volt": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Volt (2016)"
+        ],
+        "Eléctrico": [
+          "Volt (2011)"
+        ]
+      }
     }
   },
   "CHRYSLER": {
     "200": {
       "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
         2022
       ],
       "fuels": {
         "Gasolina": [
+          "200 (2011)",
+          "200 (2014)",
+          "200 Convertible (2011)",
           "ND"
         ]
       }
     },
     "300C": {
       "years": [
-        2010
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2022
       ],
       "fuels": {
         "Diésel": [
+          "300C (2004)",
+          "300C Touring (2004)",
           "H1"
         ],
         "Gasolina": [
-          "04"
+          "04",
+          "300C (2004)",
+          "300C (2005)",
+          "300C (2022)",
+          "300C Touring (2004)",
+          "300C Touring (2006)"
         ]
       }
     },
@@ -31427,6 +37530,244 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "E5H2A"
+        ]
+      }
+    },
+    "300": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "300 (2011)",
+          "300 (2015)"
+        ],
+        "Diésel": [
+          "300 (2011)"
+        ]
+      }
+    },
+    "300M": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "300M (1998)"
+        ]
+      }
+    },
+    "Aspen": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aspen (2006)"
+        ]
+      }
+    },
+    "Concorde": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Concorde (1998)"
+        ]
+      }
+    },
+    "Crossfire": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Crossfire (2003)",
+          "Crossfire (2004)",
+          "Crossfire (2007)",
+          "Crossfire Roadster (2004)",
+          "Crossfire Roadster (2007)"
+        ]
+      }
+    },
+    "Grand Voyager": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grand Voyager (AS) (2008)"
+        ],
+        "Diésel": [
+          "Grand Voyager (AS) (2008)"
+        ]
+      }
+    },
+    "Pacifica": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Pacifica (2003)",
+          "Pacifica (2016)",
+          "Pacifica (2020)",
+          "Pacifica (2026)"
+        ]
+      }
+    },
+    "PT Cruiser": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "PT Cruiser (2000)",
+          "PT Cruiser (2006)",
+          "PT Cruiser Convertible (2004)",
+          "PT Cruiser Convertible (2006)"
+        ],
+        "Diésel": [
+          "PT Cruiser (2000)",
+          "PT Cruiser (2006)"
+        ]
+      }
+    },
+    "Sebring": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sebring Convertible (2001)",
+          "Sebring Convertible (2003)",
+          "Sebring Convertible (2007)",
+          "Sebring Coupe (2000)",
+          "Sebring Coupe (2003)",
+          "Sebring Sedan (2001)",
+          "Sebring Sedan (2003)",
+          "Sebring Sedan (2006)"
+        ],
+        "Diésel": [
+          "Sebring Convertible (2007)",
+          "Sebring Sedan (2006)"
+        ]
+      }
+    },
+    "Town & Country": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Town & Country (2000)",
+          "Town & Country (2004)",
+          "Town & Country (2007)"
+        ],
+        "Diésel": [
+          "Town & Country (2000)"
+        ]
+      }
+    },
+    "Voyager": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Voyager (2000)"
+        ],
+        "Diésel": [
+          "Voyager (2000)"
         ]
       }
     }
@@ -48828,6 +55169,141 @@ export const VEHICLES = {
           "FD6PFD6DD0024WE1B5BAKP04"
         ]
       }
+    },
+    "Ateca": {
+      "years": [
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ateca (2018)"
+        ]
+      }
+    },
+    "Born": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Born (2021)"
+        ]
+      }
+    },
+    "Formentor": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Formentor (2020)",
+          "Formentor (2024)"
+        ],
+        "Diésel": [
+          "Formentor (2020)",
+          "Formentor (2024)"
+        ],
+        "Mild Hybrid": [
+          "Formentor (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "Formentor (2020)",
+          "Formentor (2024)"
+        ]
+      }
+    },
+    "Leon": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon (2020)",
+          "Leon (2024)"
+        ],
+        "Diésel": [
+          "Leon (2024)"
+        ],
+        "Mild Hybrid": [
+          "Leon (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "Leon (2024)"
+        ],
+        "Hybrid": [
+          "Leon (2020)"
+        ]
+      }
+    },
+    "Leon Sportstourer": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon Sportstourer (2020)",
+          "Leon Sportstourer (2024)"
+        ],
+        "Diésel": [
+          "Leon Sportstourer (2020)",
+          "Leon Sportstourer (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "Leon Sportstourer (2024)"
+        ]
+      }
+    },
+    "Raval": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Raval (2026)"
+        ]
+      }
+    },
+    "Tavascan": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Tavascan (2023)"
+        ]
+      }
+    },
+    "Terramar": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Terramar (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "Terramar (2024)"
+        ]
+      }
     }
   },
   "DACIA": {
@@ -49012,9 +55488,13 @@ export const VEHICLES = {
     },
     "JOGGER": {
       "years": [
+        2020,
+        2021,
         2022,
         2023,
-        2024
+        2024,
+        2025,
+        2026
       ],
       "fuels": {
         "GLP (autogás)": [
@@ -49029,6 +55509,8 @@ export const VEHICLES = {
           "MT6WA4JM700B"
         ],
         "Gasolina": [
+          "JOGGER (2020)",
+          "JOGGER (2026)",
           "MD6UA4HM5000",
           "MD6UA4HM50V0",
           "MD6UA4HM5200",
@@ -49044,6 +55526,13 @@ export const VEHICLES = {
         ],
         "unknown": [
           "M?6U??M7???"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "JOGGER (2020)",
+          "JOGGER (2022)"
+        ],
+        "Hybrid Gasoline": [
+          "JOGGER (2022)"
         ]
       }
     },
@@ -49411,6 +55900,434 @@ export const VEHICLES = {
           "M20EB04100B0"
         ]
       }
+    },
+    "1310": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "1310 (1999)"
+        ]
+      }
+    },
+    "1310 Break": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "1310 Break (1999)"
+        ]
+      }
+    },
+    "Bigster": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Liquefied Petroleum Gas (LPG)": [
+          "Bigster (2024)"
+        ],
+        "Mild Hybrid": [
+          "Bigster (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Bigster (2024)"
+        ]
+      }
+    },
+    "Dokker": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Dokker (2012)"
+        ],
+        "Diésel": [
+          "Dokker (2012)"
+        ],
+        "Natural Gas": [
+          "Dokker (2012)"
+        ]
+      }
+    },
+    "Dokker Van": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Dokker Van (2012)"
+        ],
+        "Diésel": [
+          "Dokker Van (2012)"
+        ],
+        "Natural Gas": [
+          "Dokker Van (2012)"
+        ]
+      }
+    },
+    "Duster": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Duster (2010)",
+          "Duster (2013)",
+          "Duster (2017)",
+          "Duster (2021)",
+          "Duster (2023)"
+        ],
+        "Mild Hybrid": [
+          "Duster (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Duster (2023)"
+        ],
+        "Diésel": [
+          "Duster (2010)",
+          "Duster (2013)",
+          "Duster (2017)",
+          "Duster (2021)"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "Duster (2021)"
+        ],
+        "Natural Gas": [
+          "Duster (2017)"
+        ]
+      }
+    },
+    "Duster Pick-Up": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "Duster Pick-Up (2020)"
+        ]
+      }
+    },
+    "Lodgy": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lodgy (2012)"
+        ],
+        "Diésel": [
+          "Lodgy (2012)"
+        ]
+      }
+    },
+    "Logan": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Logan (2004)",
+          "Logan (2008)",
+          "Logan (2012)",
+          "Logan (2016)",
+          "Logan (2020)"
+        ],
+        "No especificado": [
+          "Logan (2020)"
+        ],
+        "Diésel": [
+          "Logan (2004)",
+          "Logan (2008)",
+          "Logan (2012)",
+          "Logan (2016)"
+        ],
+        "Natural Gas": [
+          "Logan (2016)"
+        ]
+      }
+    },
+    "Logan MCV": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Logan MCV (2006)",
+          "Logan MCV (2008)",
+          "Logan MCV (2013)",
+          "Logan MCV (2016)"
+        ],
+        "Diésel": [
+          "Logan MCV (2006)",
+          "Logan MCV (2008)",
+          "Logan MCV (2013)",
+          "Logan MCV (2016)"
+        ],
+        "Natural Gas": [
+          "Logan MCV (2008)",
+          "Logan MCV (2016)"
+        ]
+      }
+    },
+    "Logan MCV Stepway": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Logan MCV Stepway (2017)"
+        ],
+        "Diésel": [
+          "Logan MCV Stepway (2017)"
+        ],
+        "Natural Gas": [
+          "Logan MCV Stepway (2017)"
+        ]
+      }
+    },
+    "Logan Pick-Up": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Logan Pick-Up (2007)"
+        ],
+        "Diésel": [
+          "Logan Pick-Up (2007)"
+        ]
+      }
+    },
+    "Logan Van": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Logan Van (2007)"
+        ],
+        "Diésel": [
+          "Logan Van (2007)"
+        ]
+      }
+    },
+    "Sandero": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sandero (2008)",
+          "Sandero (2012)",
+          "Sandero (2016)",
+          "Sandero (2020)"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "Sandero (2020)"
+        ],
+        "Diésel": [
+          "Sandero (2008)",
+          "Sandero (2012)",
+          "Sandero (2016)"
+        ],
+        "Natural Gas": [
+          "Sandero (2008)",
+          "Sandero (2012)"
+        ],
+        "Ethanol": [
+          "Sandero (2008)"
+        ]
+      }
+    },
+    "Sandero Stepway": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sandero Stepway (2009)",
+          "Sandero Stepway (2012)",
+          "Sandero Stepway (2016)",
+          "Sandero Stepway (2020)",
+          "Sandero Stepway (2026)"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "Sandero Stepway (2020)"
+        ],
+        "Diésel": [
+          "Sandero Stepway (2009)",
+          "Sandero Stepway (2012)",
+          "Sandero Stepway (2016)"
+        ]
+      }
+    },
+    "Solenza": {
+      "years": [
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Solenza (2003)"
+        ],
+        "Diésel": [
+          "Solenza (2003)"
+        ]
+      }
+    },
+    "Spring": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Spring (2021)",
+          "Spring (2024)"
+        ]
+      }
+    },
+    "SuperNova": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SuperNova (1999)"
+        ]
+      }
     }
   },
   "DAIHATSU": {
@@ -49502,6 +56419,221 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "GQDFW"
+        ]
+      }
+    },
+    "Altis": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Altis (2012)"
+        ],
+        "Gasolina": [
+          "Altis (2000)",
+          "Altis (2001)",
+          "Altis (2006)"
+        ]
+      }
+    },
+    "Applause": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Applause (1997)"
+        ]
+      }
+    },
+    "Ayla": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ayla (2013)"
+        ]
+      }
+    },
+    "Copen": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Copen (2004)"
+        ]
+      }
+    },
+    "Cuore": {
+      "years": [
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cuore (2007)"
+        ]
+      }
+    },
+    "Gran Move": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Gran Move (1999)"
+        ]
+      }
+    },
+    "Materia": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Materia (2007)"
+        ]
+      }
+    },
+    "Move": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Move (1999)"
+        ]
+      }
+    },
+    "Sirion": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sirion (1998)",
+          "Sirion (2001)",
+          "Sirion (2010)"
+        ]
+      }
+    },
+    "Sirion 2": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sirion 2 (2005)"
+        ]
+      }
+    },
+    "Terios": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Terios (1997)",
+          "Terios (2000)",
+          "Terios (2006)"
+        ]
+      }
+    },
+    "Trevis": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Trevis (2004)"
+        ]
+      }
+    },
+    "Valera": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Valera (1996)"
         ]
       }
     }
@@ -50052,6 +57184,477 @@ export const VEHICLES = {
           "L"
         ]
       }
+    },
+    "Avenger": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Avenger (2007)",
+          "Avenger (2010)"
+        ],
+        "Diésel": [
+          "Avenger (2007)"
+        ]
+      }
+    },
+    "Caliber": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Caliber (2006)"
+        ],
+        "Diésel": [
+          "Caliber (2006)"
+        ]
+      }
+    },
+    "Caliber SRT4": {
+      "years": [
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Caliber SRT4 (2007)"
+        ]
+      }
+    },
+    "Caravan": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Caravan (1995)",
+          "Caravan (2001)",
+          "Caravan (2007)"
+        ]
+      }
+    },
+    "Challenger": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Challenger (2008)",
+          "Challenger (2010)",
+          "Challenger (2014)"
+        ]
+      }
+    },
+    "Challenger SRT": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Challenger SRT (2009)",
+          "Challenger SRT (2015)",
+          "Challenger SRT (2017)",
+          "Challenger SRT (2023)"
+        ]
+      }
+    },
+    "Charger": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Charger (2024)"
+        ],
+        "Gasolina": [
+          "Charger (2005)",
+          "Charger (2010)",
+          "Charger (2015)"
+        ]
+      }
+    },
+    "Charger SRT": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Charger SRT (2006)",
+          "Charger SRT (2012)",
+          "Charger SRT (2015)",
+          "Charger SRT (2019)"
+        ]
+      }
+    },
+    "Dakota": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Dakota (1996)"
+        ]
+      }
+    },
+    "Dakota Club Cab": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Dakota Club Cab (2004)"
+        ]
+      }
+    },
+    "Dakota Quad Cab": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Dakota Quad Cab (2004)"
+        ]
+      }
+    },
+    "Dart": {
+      "years": [
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Dart (2012)"
+        ]
+      }
+    },
+    "Durango": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Durango (1997)",
+          "Durango (2004)",
+          "Durango (2013)",
+          "Durango (2020)"
+        ]
+      }
+    },
+    "Durango SRT": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Durango SRT (2017)",
+          "Durango SRT (2020)"
+        ]
+      }
+    },
+    "Hornet": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Hornet (2022)"
+        ],
+        "Hybrid Gasoline": [
+          "Hornet (2022)"
+        ]
+      }
+    },
+    "Journey": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Journey (2008)",
+          "Journey (2011)",
+          "Journey (2014)"
+        ],
+        "Diésel": [
+          "Journey (2008)"
+        ]
+      }
+    },
+    "Magnum": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Magnum (2004)",
+          "Magnum (2007)"
+        ]
+      }
+    },
+    "Magnum SRT8": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Magnum SRT8 (2005)",
+          "Magnum SRT8 (2007)"
+        ]
+      }
+    },
+    "Neon": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Neon (1999)",
+          "Neon (2003)"
+        ]
+      }
+    },
+    "Nitro": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Nitro (2006)"
+        ],
+        "Diésel": [
+          "Nitro (2006)"
+        ]
+      }
+    },
+    "Ram": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ram (1993)",
+          "Ram (2009)"
+        ],
+        "Diésel": [
+          "Ram (1993)",
+          "Ram (2009)"
+        ]
+      }
+    },
+    "Stratus": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stratus (1994)",
+          "Stratus (2001)",
+          "Stratus Coupe (2001)"
+        ]
+      }
+    },
+    "Viper": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Viper (1991)",
+          "Viper (1996)",
+          "Viper (2003)",
+          "Viper (2005)",
+          "Viper (2007)",
+          "Viper (2012)"
+        ]
+      }
     }
   },
   "DONGFENG": {
@@ -50084,6 +57687,38 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "3"
+        ]
+      }
+    },
+    "D8": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "D8 (1993)"
+        ]
+      }
+    },
+    "P24": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "P24 (2026)"
         ]
       }
     }
@@ -50399,6 +58034,71 @@ export const VEHICLES = {
         "GLP (autogás)": [
           "5W0P0G3FG",
           "5W1P0M6FG"
+        ]
+      }
+    },
+    "MOTOR dr cityCROSS": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MOTOR dr cityCROSS (2013)"
+        ]
+      }
+    },
+    "MOTOR dr1": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "No especificado": [
+          "MOTOR dr1 (2009)"
+        ]
+      }
+    },
+    "MOTOR dr2": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MOTOR dr2 (2010)"
+        ]
+      }
+    },
+    "MOTOR dr5": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MOTOR dr5 (2007)"
         ]
       }
     }
@@ -56649,6 +64349,190 @@ export const VEHICLES = {
           "HNSS-C1K000"
         ]
       }
+    },
+    "AUTOMOBILES DS 3": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AUTOMOBILES DS 3 (2014)",
+          "AUTOMOBILES DS 3 (2016)",
+          "AUTOMOBILES DS 3 (2023)"
+        ],
+        "Diésel": [
+          "AUTOMOBILES DS 3 (2014)",
+          "AUTOMOBILES DS 3 (2016)",
+          "AUTOMOBILES DS 3 (2023)"
+        ],
+        "Eléctrico": [
+          "AUTOMOBILES DS 3 (2023)"
+        ]
+      }
+    },
+    "AUTOMOBILES DS 3 Cabrio": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AUTOMOBILES DS 3 Cabrio (2013)",
+          "AUTOMOBILES DS 3 Cabrio (2016)"
+        ],
+        "Diésel": [
+          "AUTOMOBILES DS 3 Cabrio (2013)",
+          "AUTOMOBILES DS 3 Cabrio (2016)"
+        ]
+      }
+    },
+    "AUTOMOBILES DS 3 Crossback": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AUTOMOBILES DS 3 Crossback (2018)"
+        ],
+        "Diésel": [
+          "AUTOMOBILES DS 3 Crossback (2018)"
+        ],
+        "Eléctrico": [
+          "AUTOMOBILES DS 3 Crossback (2018)"
+        ]
+      }
+    },
+    "AUTOMOBILES DS 4": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "AUTOMOBILES DS 4 (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "AUTOMOBILES DS 4 (2025)"
+        ],
+        "Gasolina": [
+          "AUTOMOBILES DS 4 (2021)"
+        ],
+        "Diésel": [
+          "AUTOMOBILES DS 4 (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "AUTOMOBILES DS 4 (2021)"
+        ]
+      }
+    },
+    "AUTOMOBILES DS 5": {
+      "years": [
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AUTOMOBILES DS 5 (2016)"
+        ],
+        "Diésel": [
+          "AUTOMOBILES DS 5 (2016)"
+        ],
+        "Híbrido diésel": [
+          "AUTOMOBILES DS 5 (2016)"
+        ]
+      }
+    },
+    "AUTOMOBILES DS 5LS": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AUTOMOBILES DS 5LS (2014)"
+        ],
+        "Diésel": [
+          "AUTOMOBILES DS 5LS (2014)"
+        ],
+        "Híbrido diésel": [
+          "AUTOMOBILES DS 5LS (2014)"
+        ]
+      }
+    },
+    "AUTOMOBILES DS 7": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "AUTOMOBILES DS 7 (2026)"
+        ],
+        "Hybrid Gasoline": [
+          "AUTOMOBILES DS 7 (2017)",
+          "AUTOMOBILES DS 7 (2022)"
+        ],
+        "Gasolina": [
+          "AUTOMOBILES DS 7 (2017)"
+        ],
+        "Diésel": [
+          "AUTOMOBILES DS 7 (2017)"
+        ]
+      }
+    },
+    "AUTOMOBILES DS 9": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AUTOMOBILES DS 9 (2020)"
+        ],
+        "Hybrid": [
+          "AUTOMOBILES DS 9 (2020)"
+        ],
+        "Plug-in Hybrid": [
+          "AUTOMOBILES DS 9 (2020)"
+        ]
+      }
+    },
+    "AUTOMOBILES DS N8": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "AUTOMOBILES DS N8 (2024)"
+        ]
+      }
     }
   },
   "EBRO": {
@@ -57568,23 +65452,32 @@ export const VEHICLES = {
       "fuels": {
         "Híbrido gasolina": [
           "A"
+        ],
+        "Plug-in Hybrid": [
+          "296 GTB (2022)"
         ]
       }
     },
     "296 GTS": {
       "years": [
+        2022,
         2023,
         2024
       ],
       "fuels": {
         "Híbrido gasolina": [
           "A"
+        ],
+        "Hybrid Gasoline": [
+          "296 GTS (2022)"
         ]
       }
     },
     "458": {
       "years": [
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -57592,6 +65485,7 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Gasolina": [
+          "458 Spider (2011)",
           "E",
           "L"
         ]
@@ -57602,10 +65496,12 @@ export const VEHICLES = {
         2015,
         2016,
         2017,
-        2018
+        2018,
+        2019
       ],
       "fuels": {
         "Gasolina": [
+          "488 Spider (2016)",
           "E",
           "L"
         ]
@@ -57613,11 +65509,16 @@ export const VEHICLES = {
     },
     "488 GTB": {
       "years": [
+        2015,
+        2016,
+        2017,
+        2018,
         2019,
         2020
       ],
       "fuels": {
         "Gasolina": [
+          "488 GTB (2015)",
           "E"
         ]
       }
@@ -57668,10 +65569,19 @@ export const VEHICLES = {
     },
     "812": {
       "years": [
-        2017
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
+          "812 (2017)",
+          "812 (2019)",
           "E"
         ]
       }
@@ -57867,12 +65777,17 @@ export const VEHICLES = {
     },
     "FF": {
       "years": [
+        2011,
         2012,
-        2015
+        2013,
+        2014,
+        2015,
+        2016
       ],
       "fuels": {
         "Gasolina": [
-          "E"
+          "E",
+          "FF (2011)"
         ]
       }
     },
@@ -58000,6 +65915,524 @@ export const VEHICLES = {
           "C"
         ]
       }
+    },
+    "12Cilindri": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "12Cilindri (2024)",
+          "12Cilindri Spider (2024)"
+        ]
+      }
+    },
+    "288 GTO/F40/F50/Enzo/LaFerrari": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Hybrid": [
+          "288 GTO/F40/F50/Enzo/LaFerrari (2013)"
+        ],
+        "Gasolina": [
+          "288 GTO/F40/F50/Enzo/LaFerrari (2002)"
+        ]
+      }
+    },
+    "296 Speciale": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "296 Speciale (2025)"
+        ]
+      }
+    },
+    "360": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "360 Spider (2000)"
+        ]
+      }
+    },
+    "360 Challenge Stradale": {
+      "years": [
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "360 Challenge Stradale (2003)"
+        ]
+      }
+    },
+    "360 Modena": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "360 Modena (1999)"
+        ]
+      }
+    },
+    "456 GT": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "456 GT (1998)"
+        ]
+      }
+    },
+    "458 Italia": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "458 Italia (2009)"
+        ]
+      }
+    },
+    "458 Speciale": {
+      "years": [
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "458 Speciale (2013)"
+        ]
+      }
+    },
+    "458 Speciale A": {
+      "years": [
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "458 Speciale A (2014)"
+        ]
+      }
+    },
+    "488 Pista": {
+      "years": [
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "488 Pista (2018)"
+        ]
+      }
+    },
+    "550 Barchetta/575M Superamerica": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "550 Barchetta/575M Superamerica (2000)",
+          "550 Barchetta/575M Superamerica (2005)"
+        ]
+      }
+    },
+    "550/575M Maranello": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "550/575M Maranello (1996)",
+          "550/575M Maranello (2002)"
+        ]
+      }
+    },
+    "599": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "599 (2006)",
+          "599 (2010)"
+        ]
+      }
+    },
+    "612 Scaglietti": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "612 Scaglietti (2004)"
+        ]
+      }
+    },
+    "Amalfi": {
+      "years": [
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Amalfi (2025)",
+          "Amalfi Spider (2026)"
+        ]
+      }
+    },
+    "California T": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "California T (2014)"
+        ]
+      }
+    },
+    "Daytona": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Daytona (2021)"
+        ]
+      }
+    },
+    "F12 Berlinetta": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F12 Berlinetta (2012)"
+        ]
+      }
+    },
+    "F12 TRS": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F12 TRS (2014)"
+        ]
+      }
+    },
+    "F12tdf": {
+      "years": [
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F12tdf (2015)"
+        ]
+      }
+    },
+    "F149 California": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F149 California (2008)",
+          "F149 California (2012)"
+        ]
+      }
+    },
+    "F430": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F430 (2004)",
+          "F430 (2007)",
+          "F430 Spider (2005)"
+        ]
+      }
+    },
+    "F60 America": {
+      "years": [
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F60 America (2014)"
+        ]
+      }
+    },
+    "F8": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F8 (2019)"
+        ]
+      }
+    },
+    "F80": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "F80 (2024)"
+        ]
+      }
+    },
+    "FXX": {
+      "years": [
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "FXX (2005)"
+        ]
+      }
+    },
+    "GTC4Lusso": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GTC4Lusso (2016)"
+        ]
+      }
+    },
+    "GTC4Lusso T": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GTC4Lusso T (2016)"
+        ]
+      }
+    },
+    "LaFerrari": {
+      "years": [
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "LaFerrari (2016)"
+        ]
+      }
+    },
+    "Luce": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Luce (2026)"
+        ]
+      }
+    },
+    "Monza": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Monza (2018)"
+        ]
+      }
+    },
+    "Portofino": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Portofino (2017)",
+          "Portofino (2020)"
+        ]
+      }
+    },
+    "Purosangue": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Purosangue (2022)"
+        ]
+      }
+    },
+    "Roma": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Roma (2019)",
+          "Roma Convertible (2023)"
+        ]
+      }
+    },
+    "Scuderia": {
+      "years": [
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Scuderia Spider (2008)"
+        ]
+      }
+    },
+    "SF90": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "SF90 (2020)",
+          "SF90 (2023)"
+        ],
+        "Hybrid": [
+          "SF90 (2019)"
+        ]
+      }
+    },
+    "Testarossa": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Testarossa Spider (2025)"
+        ]
+      }
+    },
+    "Testarossa/512 TR/512M": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Testarossa/512 TR/512M (2025)"
+        ]
+      }
     }
   },
   "FIAT": {
@@ -58027,10 +66460,16 @@ export const VEHICLES = {
       "years": [
         2016,
         2017,
-        2019
+        2018,
+        2019,
+        2020,
+        2021
       ],
       "fuels": {
         "Gasolina": [
+          "124 Spider (2016)",
+          "124 Spider (2017)",
+          "124 Spider (2018)",
           "60W1",
           "6DW1",
           "A0W1"
@@ -58069,6 +66508,13 @@ export const VEHICLES = {
     },
     "500": {
       "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
         2014,
         2015,
         2016,
@@ -58098,6 +66544,9 @@ export const VEHICLES = {
           "17B",
           "17C",
           "17D",
+          "500 (2007)",
+          "500 (2009)",
+          "500 (2015)",
           "L0D",
           "L4B",
           "L4D",
@@ -58112,7 +66561,8 @@ export const VEHICLES = {
           "1E2B000B",
           "2D1A0",
           "2D1B0",
-          "2E1B000B"
+          "2E1B000B",
+          "500 (2020)"
         ],
         "GLP (autogás)": [
           "00AH",
@@ -58260,6 +66710,9 @@ export const VEHICLES = {
           "21",
           "21B",
           "34",
+          "500 (2007)",
+          "500 (2009)",
+          "500 (2015)",
           "59D",
           "6",
           "8",
@@ -58372,6 +66825,8 @@ export const VEHICLES = {
     },
     "500L": {
       "years": [
+        2012,
+        2013,
         2014,
         2015,
         2016,
@@ -58385,6 +66840,7 @@ export const VEHICLES = {
         "Diésel": [
           "00A",
           "14E",
+          "500L (2012)",
           "610A",
           "64D",
           "64F",
@@ -58486,6 +66942,7 @@ export const VEHICLES = {
           "00AJ",
           "1L",
           "22B",
+          "500L (2012)",
           "EAR2",
           "EAS2",
           "EBB2",
@@ -58525,6 +66982,9 @@ export const VEHICLES = {
           "LIB",
           "LY",
           "LYB1B"
+        ],
+        "Natural Gas": [
+          "500L (2012)"
         ]
       }
     },
@@ -58591,6 +67051,8 @@ export const VEHICLES = {
           "15F",
           "16B",
           "16D",
+          "500X (2015)",
+          "500X (2018)",
           "DDA",
           "E12A",
           "E12B",
@@ -58691,6 +67153,8 @@ export const VEHICLES = {
           "17B",
           "21A",
           "21B",
+          "500X (2015)",
+          "500X (2018)",
           "AXC11",
           "E04AM",
           "E04AT",
@@ -58844,6 +67308,9 @@ export const VEHICLES = {
     },
     "600": {
       "years": [
+        2005,
+        2006,
+        2007,
         2023,
         2024
       ],
@@ -58851,13 +67318,15 @@ export const VEHICLES = {
         "Eléctrico": [
           "2DAANN1N5",
           "2DAANN1N5B",
-          "2EAANN1N5B"
+          "2EAANN1N5B",
+          "600 (2023)"
         ],
         "Gasolina": [
           "1EAAND115B",
           "1EAANE115B",
           "4EAAND115B",
-          "4EAANE115B"
+          "4EAANE115B",
+          "600 (2005)"
         ]
       }
     },
@@ -62855,6 +71324,893 @@ export const VEHICLES = {
           "CIA8/G2UR/EMGF214"
         ]
       }
+    },
+    "126": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "126 (1972)"
+        ]
+      }
+    },
+    "500 3+1": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "500 3+1 (2020)"
+        ]
+      }
+    },
+    "500 Abarth": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "500 Abarth (2008)",
+          "500 Abarth (2009)",
+          "500 Abarth (2010)",
+          "500 Abarth (2012)",
+          "500 Abarth (2014)",
+          "500 Abarth (2016)",
+          "500 Abarth (2021)"
+        ]
+      }
+    },
+    "500e": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "500e (2013)"
+        ]
+      }
+    },
+    "500L Living": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "500L Living (2013)"
+        ],
+        "Diésel": [
+          "500L Living (2013)"
+        ]
+      }
+    },
+    "500L Trekking": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "500L Trekking (2013)"
+        ],
+        "Diésel": [
+          "500L Trekking (2013)"
+        ],
+        "Natural Gas": [
+          "500L Trekking (2013)"
+        ]
+      }
+    },
+    "500L Urban": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "500L Urban (2017)"
+        ]
+      }
+    },
+    "Albea / Siena": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Albea / Siena (2002)",
+          "Albea / Siena (2005)"
+        ],
+        "Diésel": [
+          "Albea / Siena (2005)"
+        ]
+      }
+    },
+    "Barchetta": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Barchetta (1995)",
+          "Barchetta (2003)"
+        ]
+      }
+    },
+    "Brava": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Brava (1995)"
+        ],
+        "Diésel": [
+          "Brava (1995)"
+        ]
+      }
+    },
+    "Bravo": {
+      "years": [
+        2000,
+        2001,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bravo (1995)",
+          "Bravo (2007)"
+        ],
+        "Diésel": [
+          "Bravo (1995)",
+          "Bravo (2007)"
+        ]
+      }
+    },
+    "Coupe": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Coupe (1994)"
+        ]
+      }
+    },
+    "Croma": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Croma (2005)"
+        ],
+        "Diésel": [
+          "Croma (2005)"
+        ]
+      }
+    },
+    "Doblo": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Doblo (2001)",
+          "Doblo (2005)",
+          "Doblo (2010)",
+          "Doblo (2015)"
+        ],
+        "Diésel": [
+          "Doblo (2001)",
+          "Doblo (2005)",
+          "Doblo (2010)",
+          "Doblo (2015)"
+        ],
+        "Natural Gas": [
+          "Doblo (2015)"
+        ]
+      }
+    },
+    "Freemont": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Freemont (2011)",
+          "Freemont (2015)"
+        ],
+        "Diésel": [
+          "Freemont (2011)",
+          "Freemont (2015)"
+        ]
+      }
+    },
+    "Fullback": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "Fullback (2016)"
+        ]
+      }
+    },
+    "Grande Panda": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Grande Panda (2024)"
+        ],
+        "Mild Hybrid": [
+          "Grande Panda (2024)"
+        ]
+      }
+    },
+    "Grande Punto / Punto Evo": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grande Punto / Punto Evo 3 Doors (2005)",
+          "Grande Punto / Punto Evo 3 Doors (2007)",
+          "Grande Punto / Punto Evo 3 Doors (2009)",
+          "Grande Punto / Punto Evo 5 Doors (2005)",
+          "Grande Punto / Punto Evo 5 Doors (2009)"
+        ],
+        "Diésel": [
+          "Grande Punto / Punto Evo 3 Doors (2005)",
+          "Grande Punto / Punto Evo 3 Doors (2009)",
+          "Grande Punto / Punto Evo 5 Doors (2005)",
+          "Grande Punto / Punto Evo 5 Doors (2009)"
+        ],
+        "Hybrid": [
+          "Grande Punto / Punto Evo 3 Doors (2009)",
+          "Grande Punto / Punto Evo 5 Doors (2009)"
+        ]
+      }
+    },
+    "Idea": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Idea (2003)",
+          "Idea (2010)"
+        ],
+        "Diésel": [
+          "Idea (2003)"
+        ]
+      }
+    },
+    "Linea": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Linea (2006)"
+        ],
+        "Diésel": [
+          "Linea (2006)"
+        ]
+      }
+    },
+    "Marea": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Marea (1996)"
+        ],
+        "Diésel": [
+          "Marea (1996)"
+        ]
+      }
+    },
+    "Marea Weekend": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Marea Weekend (1996)"
+        ],
+        "Diésel": [
+          "Marea Weekend (1996)"
+        ]
+      }
+    },
+    "Mille": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mille (1983)"
+        ]
+      }
+    },
+    "Multipla": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Multipla (1998)",
+          "Multipla (2004)"
+        ],
+        "Diésel": [
+          "Multipla (1998)",
+          "Multipla (2004)"
+        ]
+      }
+    },
+    "Palio": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Palio (2011)"
+        ]
+      }
+    },
+    "Palio Weekend": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Palio Weekend (2012)"
+        ]
+      }
+    },
+    "Panda": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panda (1986)",
+          "Panda (2003)",
+          "Panda (2006)",
+          "Panda (2011)"
+        ],
+        "Diésel": [
+          "Panda (2003)",
+          "Panda (2011)"
+        ],
+        "Natural Gas": [
+          "Panda (2011)"
+        ]
+      }
+    },
+    "Panda 4X4": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panda 4X4 (2003)",
+          "Panda 4X4 (2012)"
+        ],
+        "Diésel": [
+          "Panda 4X4 (2003)",
+          "Panda 4X4 (2012)"
+        ]
+      }
+    },
+    "Panda City Cross": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panda City Cross (2017)"
+        ]
+      }
+    },
+    "Panda Cross": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panda Cross (2014)"
+        ],
+        "Diésel": [
+          "Panda Cross (2014)"
+        ]
+      }
+    },
+    "Punto": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Punto 3 Doors (1999)",
+          "Punto 3 Doors (2003)",
+          "Punto 3 Doors (2012)",
+          "Punto 5 Doors (1999)",
+          "Punto 5 Doors (2003)",
+          "Punto 5 Doors (2012)"
+        ],
+        "Diésel": [
+          "Punto 3 Doors (1999)",
+          "Punto 3 Doors (2003)",
+          "Punto 3 Doors (2012)",
+          "Punto 5 Doors (1999)",
+          "Punto 5 Doors (2003)",
+          "Punto 5 Doors (2012)"
+        ],
+        "Natural Gas": [
+          "Punto 3 Doors (2012)"
+        ]
+      }
+    },
+    "Qubo": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Qubo (2008)"
+        ],
+        "Diésel": [
+          "Qubo (2008)"
+        ],
+        "Natural Gas": [
+          "Qubo (2008)"
+        ]
+      }
+    },
+    "Sedici": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sedici (2006)",
+          "Sedici (2009)"
+        ],
+        "Diésel": [
+          "Sedici (2006)",
+          "Sedici (2009)"
+        ]
+      }
+    },
+    "Seicento": {
+      "years": [
+        2000,
+        2001,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Seicento (1998)",
+          "Seicento (2004)"
+        ]
+      }
+    },
+    "Stilo": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stilo 3 Doors (2001)",
+          "Stilo 3 Doors (2004)",
+          "Stilo 5 Doors (2001)",
+          "Stilo 5 Doors (2004)"
+        ],
+        "Diésel": [
+          "Stilo 3 Doors (2001)",
+          "Stilo 3 Doors (2004)",
+          "Stilo 5 Doors (2001)",
+          "Stilo 5 Doors (2004)"
+        ]
+      }
+    },
+    "Stilo Multi": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stilo Multi Wagon (2003)",
+          "Stilo Multi Wagon (2006)"
+        ],
+        "Diésel": [
+          "Stilo Multi Wagon (2003)",
+          "Stilo Multi Wagon (2006)"
+        ]
+      }
+    },
+    "Tipo": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tipo (2015)",
+          "Tipo 5 Doors (2016)"
+        ],
+        "Diésel": [
+          "Tipo (2015)",
+          "Tipo 5 Doors (2016)"
+        ]
+      }
+    },
+    "Tipo Cross": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tipo Cross (2020)"
+        ],
+        "Diésel": [
+          "Tipo Cross (2020)"
+        ]
+      }
+    },
+    "Tipo Station": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tipo Station Wagon (2016)"
+        ],
+        "Diésel": [
+          "Tipo Station Wagon (2016)"
+        ]
+      }
+    },
+    "Topolino": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Topolino (2023)"
+        ]
+      }
+    },
+    "Ulysse": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ulysse (1999)",
+          "Ulysse (2002)"
+        ],
+        "Diésel": [
+          "Ulysse (1999)",
+          "Ulysse (2002)"
+        ]
+      }
+    },
+    "Uno": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Uno (2010)"
+        ]
+      }
+    },
+    "Viaggio": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Viaggio (2013)"
+        ]
+      }
     }
   },
   "FIAT DETHLEFFS": {
@@ -63431,11 +72787,37 @@ export const VEHICLES = {
     },
     "EcoSport": {
       "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
         2022
       ],
       "fuels": {
         "Gasolina": [
-          "5AAPENAPMEW"
+          "5AAPENAPMEW",
+          "EcoSport (2004)",
+          "EcoSport (2013)",
+          "EcoSport (2017)"
+        ],
+        "Diésel": [
+          "EcoSport (2004)",
+          "EcoSport (2013)",
+          "EcoSport (2017)"
         ]
       }
     },
@@ -67699,6 +77081,1748 @@ export const VEHICLES = {
           "A254UB"
         ]
       }
+    },
+    "B-Max": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "B-Max (2012)"
+        ],
+        "Diésel": [
+          "B-Max (2012)"
+        ]
+      }
+    },
+    "Bronco": {
+      "years": [
+        2020,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bronco (2020)",
+          "Bronco (2022)"
+        ]
+      }
+    },
+    "C-Max": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "C-Max (2003)",
+          "C-Max (2007)",
+          "C-Max (2010)",
+          "C-Max (2014)"
+        ],
+        "Diésel": [
+          "C-Max (2003)",
+          "C-Max (2007)",
+          "C-Max (2010)",
+          "C-Max (2014)"
+        ],
+        "Natural Gas": [
+          "C-Max (2007)",
+          "C-Max (2014)"
+        ],
+        "Hybrid": [
+          "C-Max (2003)",
+          "C-Max (2010)"
+        ],
+        "Ethanol": [
+          "C-Max (2007)"
+        ]
+      }
+    },
+    "Capri SUV": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Capri SUV (2024)"
+        ]
+      }
+    },
+    "Contour/Mondeo": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Contour/Mondeo (1997)"
+        ],
+        "Diésel": [
+          "Contour/Mondeo (1997)"
+        ]
+      }
+    },
+    "Cougar": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cougar (1998)"
+        ]
+      }
+    },
+    "Crown Victoria": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Crown Victoria (1998)"
+        ]
+      }
+    },
+    "E-Tourneo": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "E-Tourneo (2023)"
+        ],
+        "Eléctrico": [
+          "E-Tourneo (2023)"
+        ]
+      }
+    },
+    "Econovan": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Econovan (1999)"
+        ],
+        "Diésel": [
+          "Econovan (1999)"
+        ]
+      }
+    },
+    "Edge": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Edge (2006)",
+          "Edge (2010)",
+          "Edge (2015)",
+          "Edge (2018)"
+        ],
+        "Diésel": [
+          "Edge (2015)",
+          "Edge (2018)"
+        ]
+      }
+    },
+    "Edge ST": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Edge ST (2018)"
+        ]
+      }
+    },
+    "Escape": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Escape (2000)",
+          "Escape (2007)",
+          "Escape (2008)",
+          "Escape (2012)",
+          "Escape (2016)",
+          "Escape (2019)",
+          "Escape (2022)"
+        ],
+        "Plug-in Hybrid": [
+          "Escape (2022)"
+        ],
+        "Hybrid": [
+          "Escape (2000)",
+          "Escape (2007)",
+          "Escape (2019)"
+        ],
+        "Hybrid Gasoline": [
+          "Escape (2008)",
+          "Escape (2019)"
+        ],
+        "Diésel": [
+          "Escape (2012)"
+        ]
+      }
+    },
+    "Escort": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Escort 3 Doors (1995)",
+          "Escort 4 Doors (1995)",
+          "Escort 5 Doors (1995)",
+          "Escort Wagon (1995)"
+        ],
+        "Diésel": [
+          "Escort 3 Doors (1995)",
+          "Escort 4 Doors (1995)",
+          "Escort 5 Doors (1995)",
+          "Escort Wagon (1995)"
+        ]
+      }
+    },
+    "Everest": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Diésel": [
+          "Everest (2003)",
+          "Everest (2015)",
+          "Everest (2018)",
+          "Everest (2022)"
+        ],
+        "Gasolina": [
+          "Everest (2003)",
+          "Everest (2007)"
+        ]
+      }
+    },
+    "Excursion": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Excursion (2000)"
+        ],
+        "Diésel": [
+          "Excursion (2000)"
+        ]
+      }
+    },
+    "Expedition": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Expedition (1996)",
+          "Expedition (2002)",
+          "Expedition (2006)",
+          "Expedition (2014)",
+          "Expedition (2017)",
+          "Expedition (2021)",
+          "Expedition (2024)"
+        ]
+      }
+    },
+    "Explorer": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Explorer (2000)",
+          "Explorer (2005)",
+          "Explorer (2010)",
+          "Explorer (2015)",
+          "Explorer (2019)",
+          "Explorer (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Explorer (2019)"
+        ]
+      }
+    },
+    "Explorer Electric": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Explorer Electric (2023)"
+        ]
+      }
+    },
+    "Explorer Sport": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Explorer Sport (2001)"
+        ]
+      }
+    },
+    "Explorer Sport Trac": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Explorer Sport Trac (2002)",
+          "Explorer Sport Trac (2006)"
+        ]
+      }
+    },
+    "F-150 Raptor": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F-150 Raptor (2009)",
+          "F-150 Raptor (2017)",
+          "F-150 Raptor (2021)"
+        ]
+      }
+    },
+    "F-150 Regular Cab": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F-150 Regular Cab (1996)",
+          "F-150 Regular Cab (2004)",
+          "F-150 Regular Cab (2009)",
+          "F-150 Regular Cab (2012)"
+        ]
+      }
+    },
+    "F-150 Super Cab": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "F-150 Super Cab (2022)"
+        ],
+        "Gasolina": [
+          "F-150 Super Cab (2001)",
+          "F-150 Super Cab (2004)",
+          "F-150 Super Cab (2009)",
+          "F-150 Super Cab (2012)"
+        ]
+      }
+    },
+    "F-150 Super Crew": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F-150 Super Crew (2001)",
+          "F-150 Super Crew (2004)",
+          "F-150 Super Crew (2009)",
+          "F-150 Super Crew (2014)",
+          "F-150 Super Crew (2018)",
+          "F-150 Super Crew (2020)"
+        ],
+        "Diésel": [
+          "F-150 Super Crew (2020)"
+        ],
+        "Hybrid Gasoline": [
+          "F-150 Super Crew (2020)"
+        ]
+      }
+    },
+    "Fiesta": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Fiesta 3 Doors (1999)",
+          "Fiesta 3 Doors (2003)",
+          "Fiesta 3 Doors (2005)",
+          "Fiesta 3 Doors (2008)",
+          "Fiesta 3 Doors (2013)",
+          "Fiesta 3 Doors (2017)",
+          "Fiesta 5 Doors (1999)",
+          "Fiesta 5 Doors (2002)",
+          "Fiesta 5 Doors (2005)",
+          "Fiesta 5 Doors (2008)",
+          "Fiesta 5 Doors (2013)",
+          "Fiesta 5 Doors (2017)",
+          "Fiesta 5 Doors (2018)",
+          "Fiesta 5 Doors (2021)",
+          "Fiesta Sedan (2011)"
+        ],
+        "Mild Hybrid": [
+          "Fiesta 5 Doors (2021)"
+        ],
+        "Diésel": [
+          "Fiesta 3 Doors (1999)",
+          "Fiesta 3 Doors (2003)",
+          "Fiesta 3 Doors (2005)",
+          "Fiesta 3 Doors (2008)",
+          "Fiesta 3 Doors (2013)",
+          "Fiesta 3 Doors (2017)",
+          "Fiesta 5 Doors (1999)",
+          "Fiesta 5 Doors (2002)",
+          "Fiesta 5 Doors (2005)",
+          "Fiesta 5 Doors (2008)",
+          "Fiesta 5 Doors (2013)",
+          "Fiesta 5 Doors (2017)",
+          "Fiesta Sedan (2011)"
+        ],
+        "Natural Gas": [
+          "Fiesta 3 Doors (2013)",
+          "Fiesta 5 Doors (2013)"
+        ]
+      }
+    },
+    "Fiesta ST": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Fiesta ST (2012)",
+          "Fiesta ST (2016)",
+          "Fiesta ST (2018)"
+        ]
+      }
+    },
+    "Figo": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Figo (2010)",
+          "Figo (2012)",
+          "Figo (2015)",
+          "Figo (2018)"
+        ],
+        "Diésel": [
+          "Figo (2010)",
+          "Figo (2012)",
+          "Figo (2015)",
+          "Figo (2018)"
+        ]
+      }
+    },
+    "Five Hundred": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Five Hundred (2004)"
+        ]
+      }
+    },
+    "Flex": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Flex (2009)",
+          "Flex (2012)"
+        ]
+      }
+    },
+    "Focus CC": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Focus CC (2006)",
+          "Focus CC (2008)"
+        ],
+        "Diésel": [
+          "Focus CC (2006)",
+          "Focus CC (2008)"
+        ]
+      }
+    },
+    "Focus RS": {
+      "years": [
+        2002,
+        2003,
+        2008,
+        2009,
+        2010,
+        2011,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Focus RS (2002)",
+          "Focus RS (2008)",
+          "Focus RS (2016)"
+        ]
+      }
+    },
+    "Focus ST": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Focus ST 5 doors (2012)",
+          "Focus ST 5 doors (2014)",
+          "Focus ST 5 doors (2019)",
+          "Focus ST 5 doors (2021)",
+          "Focus ST Wagon (2012)"
+        ],
+        "Diésel": [
+          "Focus ST 5 doors (2014)",
+          "Focus ST 5 doors (2019)"
+        ]
+      }
+    },
+    "Focus US": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Focus 3 Doors (1998)",
+          "Focus 3 Doors (2001)",
+          "Focus 3 Doors (2004)",
+          "Focus 3 Doors (2008)",
+          "Focus 5 Doors (1998)",
+          "Focus 5 Doors (2001)",
+          "Focus 5 Doors (2004)",
+          "Focus 5 Doors (2005)",
+          "Focus 5 Doors (2008)",
+          "Focus 5 Doors (2011)",
+          "Focus 5 Doors (2014)",
+          "Focus 5 Doors (2018)",
+          "Focus 5 Doors (2021)",
+          "Focus Sedan (1999)",
+          "Focus Sedan (2001)",
+          "Focus Sedan (2005)",
+          "Focus Sedan (2008)",
+          "Focus Sedan (2011)",
+          "Focus Sedan (2014)",
+          "Focus US (2007)",
+          "Focus Wagon (1999)",
+          "Focus Wagon (2001)",
+          "Focus Wagon (2005)",
+          "Focus Wagon (2008)",
+          "Focus Wagon (2011)",
+          "Focus Wagon (2014)",
+          "Focus Wagon (2018)",
+          "Focus Wagon (2021)"
+        ],
+        "Diésel": [
+          "Focus 3 Doors (1998)",
+          "Focus 3 Doors (2001)",
+          "Focus 3 Doors (2004)",
+          "Focus 3 Doors (2008)",
+          "Focus 5 Doors (1998)",
+          "Focus 5 Doors (2001)",
+          "Focus 5 Doors (2004)",
+          "Focus 5 Doors (2008)",
+          "Focus 5 Doors (2011)",
+          "Focus 5 Doors (2014)",
+          "Focus 5 Doors (2018)",
+          "Focus Sedan (1999)",
+          "Focus Sedan (2001)",
+          "Focus Sedan (2005)",
+          "Focus Sedan (2008)",
+          "Focus Sedan (2011)",
+          "Focus Sedan (2014)",
+          "Focus US (2007)",
+          "Focus Wagon (1999)",
+          "Focus Wagon (2001)",
+          "Focus Wagon (2005)",
+          "Focus Wagon (2008)",
+          "Focus Wagon (2011)",
+          "Focus Wagon (2014)",
+          "Focus Wagon (2018)",
+          "Focus Wagon (2021)"
+        ],
+        "Hybrid": [
+          "Focus 5 Doors (2004)",
+          "Focus 5 Doors (2008)",
+          "Focus Sedan (2005)",
+          "Focus Wagon (2005)"
+        ]
+      }
+    },
+    "Freestar": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Freestar (2003)"
+        ]
+      }
+    },
+    "Freestyle": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Freestyle (2004)"
+        ]
+      }
+    },
+    "Fusion European": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Fusion European (2002)",
+          "Fusion European (2005)"
+        ],
+        "Diésel": [
+          "Fusion European (2002)",
+          "Fusion European (2005)"
+        ]
+      }
+    },
+    "Fusion North American": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Fusion North American (2005)",
+          "Fusion North American (2008)",
+          "Fusion North American (2012)",
+          "Fusion North American (2016)",
+          "Fusion North American (2018)"
+        ],
+        "Hybrid": [
+          "Fusion North American (2008)",
+          "Fusion North American (2012)",
+          "Fusion North American (2016)",
+          "Fusion North American (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "Fusion North American (2016)"
+        ],
+        "Ethanol": [
+          "Fusion North American (2008)"
+        ]
+      }
+    },
+    "Galaxy": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Galaxy (1995)",
+          "Galaxy (2000)",
+          "Galaxy (2006)",
+          "Galaxy (2016)",
+          "Galaxy (2019)"
+        ],
+        "Diésel": [
+          "Galaxy (1995)",
+          "Galaxy (2000)",
+          "Galaxy (2006)",
+          "Galaxy (2016)",
+          "Galaxy (2019)"
+        ]
+      }
+    },
+    "Grand C-MAX": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grand C-MAX (2011)"
+        ],
+        "Diésel": [
+          "Grand C-MAX (2011)"
+        ]
+      }
+    },
+    "GT": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GT (2004)",
+          "GT (2017)",
+          "GT (2019)"
+        ]
+      }
+    },
+    "Ka": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ka (1997)",
+          "Ka (2008)"
+        ],
+        "Diésel": [
+          "Ka (2008)"
+        ]
+      }
+    },
+    "Ka+": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ka+ (2016)",
+          "Ka+ (2018)"
+        ],
+        "Diésel": [
+          "Ka+ (2018)"
+        ]
+      }
+    },
+    "Ka+ Active": {
+      "years": [
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ka+ Active (2018)"
+        ],
+        "Diésel": [
+          "Ka+ Active (2018)"
+        ]
+      }
+    },
+    "Kuga": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kuga (2008)",
+          "Kuga (2012)",
+          "Kuga (2016)",
+          "Kuga (2019)",
+          "Kuga (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Kuga (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "Kuga (2024)"
+        ],
+        "Diésel": [
+          "Kuga (2008)",
+          "Kuga (2012)",
+          "Kuga (2016)",
+          "Kuga (2019)"
+        ]
+      }
+    },
+    "Maverick": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Maverick (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "Maverick (2021)"
+        ]
+      }
+    },
+    "Mondeo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mondeo Hatchback (1996)",
+          "Mondeo Hatchback (2000)",
+          "Mondeo Hatchback (2003)",
+          "Mondeo Hatchback (2005)",
+          "Mondeo Hatchback (2007)",
+          "Mondeo Hatchback (2010)",
+          "Mondeo Hatchback (2014)",
+          "Mondeo Sedan (2000)",
+          "Mondeo Sedan (2003)",
+          "Mondeo Sedan (2005)",
+          "Mondeo Sedan (2007)",
+          "Mondeo Sedan (2015)",
+          "Mondeo Wagon (1996)",
+          "Mondeo Wagon (2000)",
+          "Mondeo Wagon (2003)",
+          "Mondeo Wagon (2005)",
+          "Mondeo Wagon (2007)",
+          "Mondeo Wagon (2015)",
+          "Mondeo Wagon (2019)"
+        ],
+        "Diésel": [
+          "Mondeo Hatchback (1996)",
+          "Mondeo Hatchback (2000)",
+          "Mondeo Hatchback (2003)",
+          "Mondeo Hatchback (2005)",
+          "Mondeo Hatchback (2007)",
+          "Mondeo Hatchback (2010)",
+          "Mondeo Hatchback (2014)",
+          "Mondeo Sedan (2000)",
+          "Mondeo Sedan (2003)",
+          "Mondeo Sedan (2005)",
+          "Mondeo Sedan (2007)",
+          "Mondeo Sedan (2015)",
+          "Mondeo Wagon (1996)",
+          "Mondeo Wagon (2000)",
+          "Mondeo Wagon (2003)",
+          "Mondeo Wagon (2005)",
+          "Mondeo Wagon (2007)",
+          "Mondeo Wagon (2015)",
+          "Mondeo Wagon (2019)"
+        ],
+        "Ethanol": [
+          "Mondeo Hatchback (2010)"
+        ],
+        "Hybrid": [
+          "Mondeo Sedan (2015)"
+        ],
+        "Hybrid Gasoline": [
+          "Mondeo Wagon (2019)"
+        ]
+      }
+    },
+    "Mustang": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mustang (1998)",
+          "Mustang (2004)",
+          "Mustang (2009)",
+          "Mustang (2012)",
+          "Mustang (2014)",
+          "Mustang (2015)",
+          "Mustang (2017)",
+          "Mustang (2019)",
+          "Mustang (2023)",
+          "Mustang Convertible (1998)",
+          "Mustang Convertible (2004)",
+          "Mustang Convertible (2009)",
+          "Mustang Convertible (2012)",
+          "Mustang Convertible (2014)",
+          "Mustang Convertible (2017)",
+          "Mustang Convertible (2023)"
+        ]
+      }
+    },
+    "Mustang Mach 1": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mustang Mach 1 (2020)"
+        ]
+      }
+    },
+    "Mustang MACH-E": {
+      "years": [
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Mustang MACH-E (2020)",
+          "Mustang MACH-E (2021)"
+        ]
+      }
+    },
+    "Puma": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Puma (1998)",
+          "Puma (2019)"
+        ],
+        "Diésel": [
+          "Puma (2019)"
+        ],
+        "Mild Hybrid": [
+          "Puma (2019)"
+        ]
+      }
+    },
+    "Puma ST": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Puma ST (2020)"
+        ]
+      }
+    },
+    "Ranger": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ranger Double Cab (2018)",
+          "Ranger Double Cab (2022)",
+          "Ranger Double Cab (2023)"
+        ],
+        "Diésel": [
+          "Ranger Double Cab (2011)",
+          "Ranger Double Cab (2015)",
+          "Ranger Double Cab (2018)",
+          "Ranger Double Cab (2021)"
+        ]
+      }
+    },
+    "Ranger Regular Cab": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Diésel": [
+          "Ranger Regular Cab (2008)",
+          "Ranger Regular Cab (2011)",
+          "Ranger Regular Cab (2015)"
+        ],
+        "Gasolina": [
+          "Ranger Regular Cab (2000)",
+          "Ranger Regular Cab (2008)"
+        ]
+      }
+    },
+    "Ranger Super Cab": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Diésel": [
+          "Ranger Super Cab (2011)",
+          "Ranger Super Cab (2015)"
+        ],
+        "Gasolina": [
+          "Ranger Super Cab (2000)",
+          "Ranger Super Cab (2008)"
+        ]
+      }
+    },
+    "Ranger Wildtrak": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "Ranger Wildtrak (2023)"
+        ]
+      }
+    },
+    "Raptor Ranger": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Raptor Ranger (2018)"
+        ],
+        "Diésel": [
+          "Raptor Ranger (2018)"
+        ]
+      }
+    },
+    "S-Max": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "S-Max (2006)",
+          "S-Max (2015)",
+          "S-Max (2019)"
+        ],
+        "Gasolina": [
+          "S-Max (2006)",
+          "S-Max (2015)"
+        ]
+      }
+    },
+    "SportKa": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SportKa (2003)"
+        ]
+      }
+    },
+    "StreetKa": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "StreetKa (2003)"
+        ]
+      }
+    },
+    "Super Duty": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Super Duty (2021)"
+        ],
+        "Diésel": [
+          "Super Duty (2021)"
+        ]
+      }
+    },
+    "Taurus": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Taurus (1999)",
+          "Taurus (2007)",
+          "Taurus (2009)",
+          "Taurus (2012)",
+          "Taurus Wagon (1999)"
+        ]
+      }
+    },
+    "Taurus SHO": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Taurus SHO (2009)"
+        ]
+      }
+    },
+    "Taurus X": {
+      "years": [
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Taurus X (2007)"
+        ]
+      }
+    },
+    "Territory": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Territory (2018)"
+        ]
+      }
+    },
+    "Thunderbird": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Thunderbird (2001)"
+        ]
+      }
+    },
+    "Tourneo": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tourneo (2003)",
+          "Tourneo (2007)",
+          "Tourneo (2013)",
+          "Tourneo (2018)"
+        ],
+        "Diésel": [
+          "Tourneo (2003)",
+          "Tourneo (2009)",
+          "Tourneo (2013)",
+          "Tourneo (2017)",
+          "Tourneo (2018)"
+        ]
+      }
+    },
+    "Transit Connect": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Transit Connect Wagon (2018)"
+        ]
+      }
+    },
+    "Transit Custom": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "Transit Custom (2019)"
+        ]
+      }
+    },
+    "Wildtrak": {
+      "years": [
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "Wildtrak (2019)",
+          "Wildtrak (2021)"
+        ]
+      }
+    },
+    "Windstar": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Windstar (1998)"
+        ]
+      }
     }
   },
   "FORD CNG TECHNIK": {
@@ -68324,6 +79448,415 @@ export const VEHICLES = {
           "ND"
         ]
       }
+    },
+    "Acadia": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Acadia (2007)",
+          "Acadia (2012)",
+          "Acadia (2016)",
+          "Acadia (2019)"
+        ]
+      }
+    },
+    "Canyon": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Canyon Crew Cab (2004)",
+          "Canyon Crew Cab (2014)",
+          "Canyon Double Cab (2004)"
+        ],
+        "Diésel": [
+          "Canyon Crew Cab (2014)"
+        ]
+      }
+    },
+    "Canyon Regular Cab": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Canyon Regular Cab (2004)"
+        ]
+      }
+    },
+    "Envoy": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Envoy (2001)",
+          "Envoy (2008)"
+        ]
+      }
+    },
+    "Envoy XL": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Envoy XL (2001)"
+        ]
+      }
+    },
+    "Envoy XUV": {
+      "years": [
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Envoy XUV (2003)"
+        ]
+      }
+    },
+    "Hummer EV": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Hummer EV (2021)"
+        ]
+      }
+    },
+    "Hummer EV SUV": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Hummer EV SUV (2023)"
+        ]
+      }
+    },
+    "Jimmy": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Jimmy 3 Doors (1997)",
+          "Jimmy 5 Doors (1997)"
+        ]
+      }
+    },
+    "Safari": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Safari (1994)"
+        ]
+      }
+    },
+    "Savana": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Savana (1995)",
+          "Savana (2003)",
+          "Savana (2013)"
+        ],
+        "Diésel": [
+          "Savana (2013)"
+        ],
+        "Natural Gas": [
+          "Savana (2013)"
+        ]
+      }
+    },
+    "Sierra": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sierra (2007)",
+          "Sierra (2008)",
+          "Sierra (2013)",
+          "Sierra (2018)",
+          "Sierra (2022)",
+          "Sierra (2023)"
+        ],
+        "Diésel": [
+          "Sierra (2023)"
+        ],
+        "Eléctrico": [
+          "Sierra (2022)"
+        ],
+        "Hybrid": [
+          "Sierra (2008)"
+        ],
+        "Ethanol": [
+          "Sierra (2008)"
+        ]
+      }
+    },
+    "Sierra 2500HD": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "No especificado": [
+          "Sierra 2500HD (2019)"
+        ],
+        "Gasolina": [
+          "Sierra 2500HD (2008)",
+          "Sierra 2500HD (2014)"
+        ],
+        "Diésel": [
+          "Sierra 2500HD (2008)",
+          "Sierra 2500HD (2014)"
+        ],
+        "Hybrid": [
+          "Sierra 2500HD (2008)"
+        ]
+      }
+    },
+    "Sierra 3500HD": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sierra 3500HD (2008)",
+          "Sierra 3500HD (2013)"
+        ],
+        "Diésel": [
+          "Sierra 3500HD (2008)",
+          "Sierra 3500HD (2013)"
+        ]
+      }
+    },
+    "Terrain": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Terrain (2009)",
+          "Terrain (2016)",
+          "Terrain (2017)",
+          "Terrain (2021)",
+          "Terrain (2024)"
+        ],
+        "Diésel": [
+          "Terrain (2017)"
+        ]
+      }
+    },
+    "Yukon": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Yukon (1999)",
+          "Yukon (2008)",
+          "Yukon (2014)",
+          "Yukon (2020)",
+          "Yukon (2024)"
+        ],
+        "Diésel": [
+          "Yukon (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Yukon (2008)"
+        ]
+      }
+    },
+    "Yukon XL": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Yukon XL (1999)",
+          "Yukon XL (2008)",
+          "Yukon XL (2014)",
+          "Yukon XL (2020)"
+        ]
+      }
     }
   },
   "GREEN TOUR": {
@@ -68713,7 +80246,20 @@ export const VEHICLES = {
     },
     "CR-V": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -68733,6 +80279,12 @@ export const VEHICLES = {
           "3",
           "4",
           "6",
+          "CR-V (2004)",
+          "CR-V (2007)",
+          "CR-V (2010)",
+          "CR-V (2011)",
+          "CR-V (2014)",
+          "CR-V (2016)",
           "N22A2"
         ],
         "Gasolina": [
@@ -68741,23 +80293,50 @@ export const VEHICLES = {
           "3",
           "4",
           "6",
+          "CR-V (1996)",
+          "CR-V (2002)",
+          "CR-V (2004)",
+          "CR-V (2007)",
+          "CR-V (2010)",
+          "CR-V (2011)",
+          "CR-V (2014)",
+          "CR-V (2016)",
+          "CR-V (2019)",
+          "CR-V (2022)",
+          "CR-V (2023)",
           "NA"
         ],
         "Híbrido gasolina": [
           "1"
+        ],
+        "Plug-in Hybrid": [
+          "CR-V (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "CR-V (2022)"
+        ],
+        "Hybrid": [
+          "CR-V (2019)"
         ]
       }
     },
     "CR-Z": {
       "years": [
         2010,
+        2011,
         2012,
-        2014
+        2013,
+        2014,
+        2015,
+        2016
       ],
       "fuels": {
         "Gasolina": [
           "1",
           "2"
+        ],
+        "Hybrid": [
+          "CR-Z (2010)"
         ]
       }
     },
@@ -68876,6 +80455,14 @@ export const VEHICLES = {
     },
     "HR-V": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2014,
         2015,
         2016,
         2017,
@@ -68885,20 +80472,36 @@ export const VEHICLES = {
         2021,
         2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
           "1",
           "2",
-          "5"
+          "5",
+          "HR-V 5 Doors (2014)",
+          "HR-V 5 Doors (2018)"
         ],
         "Gasolina": [
           "1",
           "2",
           "3",
           "4",
-          "5"
+          "5",
+          "HR-V 3 Doors (1999)",
+          "HR-V 3 Doors (2001)",
+          "HR-V 5 Doors (1999)",
+          "HR-V 5 Doors (2001)",
+          "HR-V 5 Doors (2014)",
+          "HR-V 5 Doors (2018)",
+          "HR-V 5 Doors (2022)",
+          "HR-V 5 Doors (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "HR-V 5 Doors (2018)",
+          "HR-V 5 Doors (2021)",
+          "HR-V 5 Doors (2022)"
         ]
       }
     },
@@ -68992,7 +80595,825 @@ export const VEHICLES = {
         "Gasolina": [
           "1",
           "2",
-          "3"
+          "3",
+          "ZR-V (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "ZR-V (2023)"
+        ]
+      }
+    },
+    "Accord": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Accord (1997)",
+          "Accord (2002)",
+          "Accord (2005)",
+          "Accord (2008)",
+          "Accord (2012)",
+          "Accord (2015)",
+          "Accord (2017)",
+          "Accord (2020)",
+          "Accord (2022)",
+          "Accord Coupe (1998)",
+          "Accord Coupe (2003)",
+          "Accord Coupe (2006)",
+          "Accord Coupe (2007)",
+          "Accord Coupe (2012)",
+          "Accord Coupe (2015)"
+        ],
+        "Hybrid Gasoline": [
+          "Accord (2020)",
+          "Accord (2022)"
+        ],
+        "Hybrid": [
+          "Accord (2015)",
+          "Accord (2017)"
+        ],
+        "Mild Hybrid": [
+          "Accord (2005)"
+        ]
+      }
+    },
+    "Accord Crosstour": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Accord Crosstour (2009)",
+          "Accord Crosstour (2013)"
+        ]
+      }
+    },
+    "Accord Euro": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Accord Euro (1998)",
+          "Accord Euro (1999)",
+          "Accord Euro (2001)",
+          "Accord Euro (2003)",
+          "Accord Euro (2006)",
+          "Accord Euro (2008)"
+        ],
+        "Diésel": [
+          "Accord Euro (1998)",
+          "Accord Euro (2003)",
+          "Accord Euro (2006)",
+          "Accord Euro (2008)"
+        ]
+      }
+    },
+    "Accord Tourer": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Accord Tourer (2003)",
+          "Accord Tourer (2005)",
+          "Accord Tourer (2008)",
+          "Accord Tourer (2011)"
+        ],
+        "Diésel": [
+          "Accord Tourer (2003)",
+          "Accord Tourer (2005)",
+          "Accord Tourer (2008)",
+          "Accord Tourer (2011)"
+        ]
+      }
+    },
+    "Accord Type R": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Accord Type R (1998)"
+        ]
+      }
+    },
+    "Airwave": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Airwave (2005)"
+        ]
+      }
+    },
+    "Avancier": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Avancier (1999)"
+        ]
+      }
+    },
+    "Civic": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Civic 3 Doors (1995)",
+          "Civic 3 Doors (2001)",
+          "Civic 3 Doors (2003)",
+          "Civic 3 Doors (2005)",
+          "Civic 3 Doors (2008)",
+          "Civic 5 Doors (1997)",
+          "Civic 5 Doors (2001)",
+          "Civic 5 Doors (2003)",
+          "Civic 5 Doors (2005)",
+          "Civic 5 Doors (2008)",
+          "Civic 5 Doors (2012)",
+          "Civic 5 Doors (2015)",
+          "Civic 5 Doors (2016)",
+          "Civic 5 Doors (2019)",
+          "Civic 5 Doors (2021)",
+          "Civic Coupe (1996)",
+          "Civic Coupe (2001)",
+          "Civic Coupe (2005)",
+          "Civic Coupe (2006)",
+          "Civic Coupe (2008)",
+          "Civic Coupe (2012)",
+          "Civic Coupe (2015)",
+          "Civic Coupe (2016)",
+          "Civic Coupe (2018)",
+          "Civic Sedan (1995)",
+          "Civic Sedan (2000)",
+          "Civic Sedan (2003)",
+          "Civic Sedan (2006)",
+          "Civic Sedan (2012)",
+          "Civic Sedan (2016)",
+          "Civic Sedan (2018)",
+          "Civic Sedan (2021)",
+          "Civic Sedan (2022)",
+          "Civic Sedan US (2005)",
+          "Civic Sedan US (2007)",
+          "Civic Sedan US (2008)"
+        ],
+        "Natural Gas": [
+          "Civic Sedan (2012)"
+        ],
+        "Hybrid": [
+          "Civic Sedan (2003)",
+          "Civic Sedan (2006)",
+          "Civic Sedan US (2005)",
+          "Civic Sedan US (2008)"
+        ],
+        "Diésel": [
+          "Civic 3 Doors (2001)",
+          "Civic 3 Doors (2003)",
+          "Civic 3 Doors (2005)",
+          "Civic 3 Doors (2008)",
+          "Civic 5 Doors (2001)",
+          "Civic 5 Doors (2003)",
+          "Civic 5 Doors (2005)",
+          "Civic 5 Doors (2008)",
+          "Civic 5 Doors (2012)",
+          "Civic 5 Doors (2015)"
+        ],
+        "No especificado": [
+          "Civic Sedan US (2008)"
+        ]
+      }
+    },
+    "Civic Aero Deck": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Civic Aero Deck (1998)"
+        ]
+      }
+    },
+    "Civic Si Sedan US": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Civic Si Sedan US (2024)"
+        ]
+      }
+    },
+    "Civic Tourer": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Diésel": [
+          "Civic Tourer (2013)"
+        ],
+        "No especificado": [
+          "Civic Tourer (2013)"
+        ]
+      }
+    },
+    "Civic Type-R": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Civic Type-R (2001)",
+          "Civic Type-R (2006)",
+          "Civic Type-R (2008)",
+          "Civic Type-R (2009)",
+          "Civic Type-R (2015)",
+          "Civic Type-R (2016)",
+          "Civic Type-R (2022)"
+        ]
+      }
+    },
+    "Clarity": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Clarity (2007)"
+        ]
+      }
+    },
+    "e": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "e (2020)"
+        ]
+      }
+    },
+    "e:Ny1": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "e:Ny1 (2023)"
+        ]
+      }
+    },
+    "Element": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Element (2003)"
+        ]
+      }
+    },
+    "Fit EV": {
+      "years": [
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Fit EV (2012)"
+        ]
+      }
+    },
+    "FR-V / Edix": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "FR-V / Edix (2004)",
+          "FR-V / Edix (2007)"
+        ],
+        "Diésel": [
+          "FR-V / Edix (2004)",
+          "FR-V / Edix (2007)"
+        ]
+      }
+    },
+    "Insight": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Insight (1999)",
+          "Insight (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "Insight (2008)",
+          "Insight (2012)"
+        ]
+      }
+    },
+    "Jazz / Fit": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Jazz / Fit (2002)",
+          "Jazz / Fit (2004)",
+          "Jazz / Fit (2008)",
+          "Jazz / Fit (2013)",
+          "Jazz / Fit (2017)",
+          "Jazz / Fit (2020)"
+        ],
+        "Hybrid": [
+          "Jazz / Fit (2020)"
+        ],
+        "Diésel": [
+          "Jazz / Fit (2017)"
+        ]
+      }
+    },
+    "Legend": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Legend Sedan (2014)"
+        ],
+        "Gasolina": [
+          "Legend Sedan (1996)",
+          "Legend Sedan (2004)",
+          "Legend Sedan (2009)"
+        ]
+      }
+    },
+    "Logo / Fit": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Logo / Fit (1996)"
+        ]
+      }
+    },
+    "MDX": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MDX (2003)"
+        ]
+      }
+    },
+    "Mobilio": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mobilio (2001)",
+          "Mobilio (2004)"
+        ]
+      }
+    },
+    "NSX": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Hybrid": [
+          "NSX (2016)"
+        ],
+        "Gasolina": [
+          "NSX (1997)",
+          "NSX (2002)"
+        ]
+      }
+    },
+    "Odyssey": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Odyssey (2005)",
+          "Odyssey (2008)",
+          "Odyssey (2011)",
+          "Odyssey (2017)",
+          "Odyssey (2020)",
+          "Odyssey (2024)"
+        ]
+      }
+    },
+    "Passport": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Passport (2018)",
+          "Passport (2023)",
+          "Passport (2024)"
+        ]
+      }
+    },
+    "Pilot": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Pilot (2009)",
+          "Pilot (2015)",
+          "Pilot (2018)",
+          "Pilot (2022)",
+          "Pilot (2025)"
+        ]
+      }
+    },
+    "Prelude": {
+      "years": [
+        2000,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Prelude (2025)"
+        ],
+        "Gasolina": [
+          "Prelude (1996)"
+        ]
+      }
+    },
+    "Prologue": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Prologue (2023)"
+        ]
+      }
+    },
+    "Ridgeline": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ridgeline (2005)",
+          "Ridgeline (2009)",
+          "Ridgeline (2016)"
+        ]
+      }
+    },
+    "S2000": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S2000 (1999)"
+        ]
+      }
+    },
+    "S660": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S660 (2015)"
+        ]
+      }
+    },
+    "Shuttle": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Shuttle (1998)"
+        ]
+      }
+    },
+    "Stream": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stream (2000)",
+          "Stream (2003)",
+          "Stream (2006)"
+        ]
+      }
+    },
+    "That's": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "That's (2002)"
         ]
       }
     }
@@ -69000,12 +81421,127 @@ export const VEHICLES = {
   "HUMMER": {
     "H3": {
       "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010
       ],
       "fuels": {
         "Gasolina": [
           "AAAAAAAAA",
-          "ABBAABAAA"
+          "ABBAABAAA",
+          "H3 (2005)"
+        ]
+      }
+    },
+    "H1 2 Door Hardtop": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Diésel": [
+          "H1 2 Door Hardtop (1992)"
+        ]
+      }
+    },
+    "H1 4 Door": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Diésel": [
+          "H1 4 Door Wagon (1992)"
+        ]
+      }
+    },
+    "H1 4 Door Hardtop": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Diésel": [
+          "H1 4 Door Hardtop (1992)"
+        ]
+      }
+    },
+    "H1 4 Door Opentop": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Diésel": [
+          "H1 4 Door Opentop (1992)"
+        ]
+      }
+    },
+    "H2": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "H2 (2002)"
+        ]
+      }
+    },
+    "H2 SUT": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "H2 SUT (2004)"
+        ]
+      }
+    },
+    "H3 Alpha": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "H3 Alpha (2007)"
         ]
       }
     }
@@ -70672,9 +83208,13 @@ export const VEHICLES = {
     "NEXO": {
       "years": [
         2018,
+        2019,
+        2020,
         2021,
+        2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "HYDROGEN": [
@@ -70686,6 +83226,10 @@ export const VEHICLES = {
         "hydrogen": [
           "A11AH1",
           "A11BH1"
+        ],
+        "Hydrogen Fuel Cell": [
+          "NEXO (2018)",
+          "NEXO (2025)"
         ]
       }
     },
@@ -71218,6 +83762,1089 @@ export const VEHICLES = {
           "M61A11"
         ]
       }
+    },
+    "Accent": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Accent 3 Doors (1999)",
+          "Accent 3 Doors (2003)",
+          "Accent 3 Doors (2006)",
+          "Accent 5 Doors (1999)",
+          "Accent 5 Doors (2011)",
+          "Accent Sedan (1999)",
+          "Accent Sedan (2003)",
+          "Accent Sedan (2006)",
+          "Accent Sedan (2011)",
+          "Accent Sedan (2017)"
+        ],
+        "Diésel": [
+          "Accent Sedan (2003)",
+          "Accent Sedan (2006)",
+          "Accent Sedan (2011)"
+        ]
+      }
+    },
+    "Atos": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Atos (2003)",
+          "Atos (2005)"
+        ]
+      }
+    },
+    "Atos Multi": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Atos Multi (1998)"
+        ]
+      }
+    },
+    "Atos Spirit": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Atos Spirit (1999)"
+        ]
+      }
+    },
+    "Bayon": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bayon (2021)"
+        ],
+        "Mild Hybrid": [
+          "Bayon (2021)"
+        ]
+      }
+    },
+    "Coupe / Tiburon": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Coupe / Tiburon (1999)",
+          "Coupe / Tiburon (2001)",
+          "Coupe / Tiburon (2004)",
+          "Coupe / Tiburon (2007)"
+        ]
+      }
+    },
+    "Elantra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Elantra 5 Doors (2000)",
+          "Elantra 5 Doors (2003)",
+          "Elantra 5 Doors (2012)",
+          "Elantra Coupe (2012)",
+          "Elantra Sedan (2000)",
+          "Elantra Sedan (2003)",
+          "Elantra Sedan (2006)",
+          "Elantra Sedan (2010)",
+          "Elantra Sedan (2014)",
+          "Elantra Sedan (2016)",
+          "Elantra Sedan (2020)",
+          "Elantra Sedan (2023)",
+          "Elantra Touring (2009)"
+        ],
+        "Hybrid Gasoline": [
+          "Elantra Sedan (2020)",
+          "Elantra Sedan (2023)"
+        ],
+        "Diésel": [
+          "Elantra 5 Doors (2003)",
+          "Elantra Sedan (2000)",
+          "Elantra Sedan (2003)",
+          "Elantra Sedan (2006)"
+        ]
+      }
+    },
+    "Elantra GT": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Elantra GT (2012)",
+          "Elantra GT (2015)",
+          "Elantra GT (2017)"
+        ]
+      }
+    },
+    "Elantra N": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Elantra N (2023)"
+        ]
+      }
+    },
+    "Equus": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Equus (2010)",
+          "Equus (2013)"
+        ]
+      }
+    },
+    "Excel": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Excel 3 Doors (1998)",
+          "Excel 5 Doors (1998)",
+          "Excel Sedan (1998)"
+        ]
+      }
+    },
+    "Genesis": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Genesis (2008)",
+          "Genesis (2014)",
+          "Genesis Coupe (2008)",
+          "Genesis Coupe (2013)"
+        ]
+      }
+    },
+    "Getz": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Getz 3 Doors (2002)",
+          "Getz 3 Doors (2005)",
+          "Getz 5 Doors (2002)",
+          "Getz 5 Doors (2005)"
+        ],
+        "Diésel": [
+          "Getz 3 Doors (2002)",
+          "Getz 3 Doors (2005)",
+          "Getz 5 Doors (2002)",
+          "Getz 5 Doors (2005)"
+        ]
+      }
+    },
+    "Grandeur / Azera": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grandeur / Azera (2005)",
+          "Grandeur / Azera (2012)"
+        ],
+        "Hybrid": [
+          "Grandeur / Azera (2012)"
+        ],
+        "Diésel": [
+          "Grandeur / Azera (2005)"
+        ]
+      }
+    },
+    "i10": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "i10 (2008)",
+          "i10 (2013)",
+          "i10 (2014)",
+          "i10 (2016)",
+          "i10 (2019)",
+          "i10 (2023)"
+        ],
+        "Natural Gas": [
+          "i10 (2016)"
+        ],
+        "Diésel": [
+          "i10 (2013)"
+        ]
+      }
+    },
+    "i20": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "i20 (2009)",
+          "i20 (2014)",
+          "i20 (2018)",
+          "i20 (2020)",
+          "i20 (2023)",
+          "i20 Coupe (2015)"
+        ],
+        "Hybrid Gasoline": [
+          "i20 (2023)"
+        ],
+        "Hybrid": [
+          "i20 (2020)"
+        ],
+        "Diésel": [
+          "i20 (2009)",
+          "i20 (2014)",
+          "i20 Coupe (2015)"
+        ]
+      }
+    },
+    "i20 Active": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "i20 Active (2015)",
+          "i20 Active (2018)"
+        ],
+        "Diésel": [
+          "i20 Active (2015)"
+        ]
+      }
+    },
+    "i20 N": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "i20 N (2020)"
+        ]
+      }
+    },
+    "i30": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "i30 (2007)",
+          "i30 (2012)",
+          "i30 (2016)",
+          "i30 (2018)",
+          "i30 (2020)",
+          "i30 (2024)",
+          "i30 Coupe (2012)",
+          "i30 Estate (2008)",
+          "i30 Estate (2012)",
+          "i30 Estate (2017)",
+          "i30 Estate (2020)",
+          "i30 Estate (2024)",
+          "i30 Fastback (2017)",
+          "i30 Fastback (2019)"
+        ],
+        "Mild Hybrid": [
+          "i30 (2020)",
+          "i30 (2024)",
+          "i30 Estate (2020)",
+          "i30 Estate (2024)",
+          "i30 Fastback (2019)"
+        ],
+        "Diésel": [
+          "i30 (2007)",
+          "i30 (2012)",
+          "i30 (2016)",
+          "i30 (2018)",
+          "i30 (2020)",
+          "i30 Coupe (2012)",
+          "i30 Estate (2008)",
+          "i30 Estate (2012)",
+          "i30 Estate (2017)",
+          "i30 Estate (2018)",
+          "i30 Estate (2020)",
+          "i30 Fastback (2017)",
+          "i30 Fastback (2019)"
+        ]
+      }
+    },
+    "i30 N": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "i30 N (2017)",
+          "i30 N (2020)"
+        ]
+      }
+    },
+    "i40": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "i40 (2011)",
+          "i40 wagon (2012)",
+          "i40 wagon (2018)"
+        ],
+        "Diésel": [
+          "i40 (2011)",
+          "i40 wagon (2012)",
+          "i40 wagon (2018)"
+        ]
+      }
+    },
+    "i800 / H-1": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Diésel": [
+          "i800 / H-1 (2008)"
+        ]
+      }
+    },
+    "Ioniq": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Ioniq (2016)",
+          "Ioniq (2019)",
+          "Ioniq (2021)"
+        ],
+        "Hybrid": [
+          "Ioniq (2019)"
+        ],
+        "Hybrid Gasoline": [
+          "Ioniq (2016)"
+        ]
+      }
+    },
+    "Ioniq 3": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Ioniq 3 (2026)"
+        ]
+      }
+    },
+    "Ioniq 5": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Ioniq 5 (2023)"
+        ]
+      }
+    },
+    "Ioniq 6": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Ioniq 6 (2022)"
+        ]
+      }
+    },
+    "Ioniq 9": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Ioniq 9 (2024)"
+        ]
+      }
+    },
+    "ix20": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ix20 (2010)",
+          "ix20 (2015)"
+        ],
+        "Diésel": [
+          "ix20 (2010)",
+          "ix20 (2015)"
+        ]
+      }
+    },
+    "ix35 / Tucson": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Mild Hybrid Diesel": [
+          "ix35 / Tucson (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "ix35 / Tucson (2020)",
+          "ix35 / Tucson (2021)",
+          "ix35 / Tucson (2023)"
+        ],
+        "Gasolina": [
+          "ix35 / Tucson (2004)",
+          "ix35 / Tucson (2009)",
+          "ix35 / Tucson (2013)",
+          "ix35 / Tucson (2016)",
+          "ix35 / Tucson (2018)",
+          "ix35 / Tucson (2021)",
+          "ix35 / Tucson (2023)"
+        ],
+        "Hybrid": [
+          "ix35 / Tucson (2018)",
+          "ix35 / Tucson (2020)"
+        ],
+        "Diésel": [
+          "ix35 / Tucson (2004)",
+          "ix35 / Tucson (2009)",
+          "ix35 / Tucson (2016)",
+          "ix35 / Tucson (2018)"
+        ],
+        "Ethanol": [
+          "ix35 / Tucson (2016)"
+        ]
+      }
+    },
+    "ix55 / Veracruz": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ix55 / Veracruz (2009)"
+        ],
+        "Diésel": [
+          "ix55 / Veracruz (2009)"
+        ]
+      }
+    },
+    "Kona": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kona (2017)",
+          "Kona (2021)",
+          "Kona (2023)"
+        ],
+        "Diésel": [
+          "Kona (2017)"
+        ],
+        "Hybrid": [
+          "Kona (2017)"
+        ]
+      }
+    },
+    "Kona Electric": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Kona Electric (2018)",
+          "Kona Electric (2020)",
+          "Kona Electric (2021)",
+          "Kona Electric (2023)"
+        ]
+      }
+    },
+    "Kona N": {
+      "years": [
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kona N (2021)"
+        ]
+      }
+    },
+    "Lantra": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lantra (1998)",
+          "Lantra Wagon (1999)"
+        ],
+        "Diésel": [
+          "Lantra (1998)",
+          "Lantra Wagon (1999)"
+        ]
+      }
+    },
+    "Matrix": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Matrix (2001)"
+        ],
+        "Diésel": [
+          "Matrix (2001)"
+        ]
+      }
+    },
+    "Mistra": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mistra (2014)"
+        ]
+      }
+    },
+    "Palisade": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Palisade (2019)",
+          "Palisade (2022)",
+          "Palisade (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "Palisade (2025)"
+        ],
+        "Diésel": [
+          "Palisade (2019)"
+        ]
+      }
+    },
+    "Santa Cruz": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Santa Cruz (2021)",
+          "Santa Cruz (2024)"
+        ]
+      }
+    },
+    "Santa Fe": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Santa Fe (2000)",
+          "Santa Fe (2004)",
+          "Santa Fe (2006)",
+          "Santa Fe (2009)",
+          "Santa Fe (2012)",
+          "Santa Fe (2016)",
+          "Santa Fe (2018)",
+          "Santa Fe (2020)",
+          "Santa Fe (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Santa Fe (2020)",
+          "Santa Fe (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Santa Fe (2023)"
+        ],
+        "Diésel": [
+          "Santa Fe (2000)",
+          "Santa Fe (2004)",
+          "Santa Fe (2006)",
+          "Santa Fe (2009)",
+          "Santa Fe (2012)",
+          "Santa Fe (2016)",
+          "Santa Fe (2018)"
+        ]
+      }
+    },
+    "Satellite": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Satellite (1997)"
+        ]
+      }
+    },
+    "Sonata": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sonata (1998)",
+          "Sonata (2001)",
+          "Sonata (2004)",
+          "Sonata (2008)",
+          "Sonata (2009)",
+          "Sonata (2014)",
+          "Sonata (2017)",
+          "Sonata (2019)",
+          "Sonata (2023)"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "Sonata (2023)"
+        ],
+        "Hybrid": [
+          "Sonata (2019)"
+        ],
+        "Diésel": [
+          "Sonata (2004)",
+          "Sonata (2008)"
+        ]
+      }
+    },
+    "Sonata Hybrid": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Sonata Hybrid (2010)",
+          "Sonata Hybrid (2015)",
+          "Sonata Hybrid (2017)"
+        ],
+        "Hybrid Gasoline": [
+          "Sonata Hybrid (2015)"
+        ]
+      }
+    },
+    "Terracan": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Terracan (2001)",
+          "Terracan (2004)"
+        ],
+        "Diésel": [
+          "Terracan (2001)",
+          "Terracan (2004)"
+        ]
+      }
+    },
+    "Trajet": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Trajet (2000)",
+          "Trajet (2004)"
+        ],
+        "Diésel": [
+          "Trajet (2000)",
+          "Trajet (2004)"
+        ]
+      }
+    },
+    "Veloster": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Veloster (2011)",
+          "Veloster (2018)"
+        ]
+      }
+    },
+    "Venue": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Venue (2019)"
+        ],
+        "Diésel": [
+          "Venue (2019)"
+        ]
+      }
+    },
+    "XG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XG (1999)",
+          "XG (2003)"
+        ]
+      }
     }
   },
   "ILUSION": {
@@ -71464,6 +85091,19 @@ export const VEHICLES = {
         ],
         "Gasolina": [
           "B32A5AN"
+        ]
+      }
+    },
+    "Grenadier": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grenadier (2022)"
+        ],
+        "Diésel": [
+          "Grenadier (2022)"
         ]
       }
     }
@@ -71759,19 +85399,36 @@ export const VEHICLES = {
     },
     "M": {
       "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014,
         2020
       ],
       "fuels": {
         "Diésel": [
           "C01",
-          "D01"
+          "D01",
+          "M Sedan (2010)"
         ],
         "Gasolina": [
           "A01",
           "B01",
-          "E01"
+          "E01",
+          "M Sedan (2003)",
+          "M Sedan (2005)",
+          "M Sedan (2010)"
+        ],
+        "Hybrid Gasoline": [
+          "M Sedan (2010)"
         ]
       }
     },
@@ -71840,13 +85497,18 @@ export const VEHICLES = {
     },
     "Q50": {
       "years": [
+        2013,
         2014,
         2015,
         2016,
         2017,
+        2018,
         2019,
         2020,
-        2022
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
@@ -71860,7 +85522,9 @@ export const VEHICLES = {
           "A07",
           "A08",
           "A0F0",
-          "A76"
+          "A76",
+          "Q50 (2013)",
+          "Q50 (2016)"
         ],
         "Gasolina": [
           "B06",
@@ -71873,22 +85537,43 @@ export const VEHICLES = {
           "D74",
           "D75",
           "ND",
-          "Q50"
+          "Q50",
+          "Q50 (2013)",
+          "Q50 (2016)",
+          "Q50 (2018)"
+        ],
+        "Hybrid": [
+          "Q50 (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "Q50 (2013)",
+          "Q50 (2016)"
         ]
       }
     },
     "Q60": {
       "years": [
+        2013,
         2014,
         2015,
+        2016,
         2017,
-        2019
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
       ],
       "fuels": {
         "Gasolina": [
           "F01",
           "F71",
           "G01",
+          "Q60 (2013)",
+          "Q60 (2014)",
+          "Q60 (2016)",
+          "Q60 (2018)",
+          "Q60 Convertible (2013)",
           "S01",
           "T01"
         ]
@@ -71896,10 +85581,12 @@ export const VEHICLES = {
     },
     "Q70": {
       "years": [
+        2013,
         2014,
         2015,
         2016,
         2017,
+        2018,
         2019
       ],
       "fuels": {
@@ -71907,20 +85594,28 @@ export const VEHICLES = {
           "F04",
           "F05",
           "F06",
-          "F07"
+          "F07",
+          "Q70 (2013)"
         ],
         "Gasolina": [
           "B01",
           "B02",
           "E03",
-          "E04"
+          "E04",
+          "Q70 (2013)"
+        ],
+        "Hybrid": [
+          "Q70 (2013)",
+          "Q70 (2018)"
         ]
       }
     },
     "QX30": {
       "years": [
+        2015,
         2016,
         2017,
+        2018,
         2019,
         2020
       ],
@@ -71929,36 +85624,51 @@ export const VEHICLES = {
           "C09",
           "C20",
           "C59",
-          "C70"
+          "C70",
+          "QX30 (2015)"
         ],
         "Gasolina": [
           "E57",
           "E61",
-          "E64"
+          "E64",
+          "QX30 (2015)",
+          "QX30 (2017)"
         ]
       }
     },
     "QX50": {
       "years": [
+        2013,
         2014,
         2015,
-        2016
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
       ],
       "fuels": {
         "Diésel": [
           "L01"
         ],
         "Gasolina": [
-          "N01"
+          "N01",
+          "QX50 (2013)",
+          "QX50 (2016)",
+          "QX50 (2018)",
+          "QX50 (2020)"
         ]
       }
     },
     "QX70": {
       "years": [
+        2013,
         2014,
         2015,
         2016,
-        2017
+        2017,
+        2018,
+        2019
       ],
       "fuels": {
         "Diésel": [
@@ -71969,17 +85679,33 @@ export const VEHICLES = {
           "D01",
           "D03",
           "E01",
-          "E03"
+          "E03",
+          "QX70 (2013)",
+          "QX70 (2017)"
         ]
       }
     },
     "QX80": {
       "years": [
-        2022
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
-          "ND"
+          "ND",
+          "QX80 (2014)",
+          "QX80 (2018)",
+          "QX80 (2021)",
+          "QX80 (2024)"
         ]
       }
     },
@@ -71990,6 +85716,225 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "A04"
+        ]
+      }
+    },
+    "EX": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "EX (2007)",
+          "EX (2013)"
+        ],
+        "Diésel": [
+          "EX (2007)"
+        ]
+      }
+    },
+    "FX": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "FX (2002)",
+          "FX (2008)"
+        ],
+        "Diésel": [
+          "FX (2008)"
+        ]
+      }
+    },
+    "G": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G Convertible (2009)",
+          "G Convertible (2012)",
+          "G Coupe (2008)",
+          "G Coupe (2011)",
+          "G Sedan (2008)",
+          "G Sedan (2011)",
+          "G Sedan (2013)"
+        ]
+      }
+    },
+    "G20": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G20 (1999)"
+        ]
+      }
+    },
+    "G35": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G35 (2001)",
+          "G35 (2006)",
+          "G35 Coupe (2002)"
+        ]
+      }
+    },
+    "I": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "I (1999)"
+        ]
+      }
+    },
+    "JX": {
+      "years": [
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "JX (2012)"
+        ]
+      }
+    },
+    "Q": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Q (1996)",
+          "Q (2001)"
+        ]
+      }
+    },
+    "Q40": {
+      "years": [
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Q40 (2014)"
+        ]
+      }
+    },
+    "QX": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "QX (1997)",
+          "QX (2001)",
+          "QX (2004)",
+          "QX (2010)"
+        ]
+      }
+    },
+    "QX55": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "QX55 (2021)"
+        ]
+      }
+    },
+    "QX60": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "QX60 (2013)",
+          "QX60 (2016)",
+          "QX60 (2021)",
+          "QX60 (2025)"
+        ],
+        "Hybrid": [
+          "QX60 (2013)",
+          "QX60 (2016)"
         ]
       }
     }
@@ -73024,7 +86969,14 @@ export const VEHICLES = {
       "years": [
         2015,
         2016,
-        2017
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
@@ -73032,23 +86984,35 @@ export const VEHICLES = {
           "503",
           "508",
           "509",
-          "510"
+          "510",
+          "XE (2015)",
+          "XE (2019)"
         ],
         "Gasolina": [
           "501",
           "502",
-          "503"
+          "503",
+          "XE (2015)",
+          "XE (2018)",
+          "XE (2019)"
         ]
       }
     },
     "XF": {
       "years": [
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
-        2017
+        2017,
+        2018,
+        2019,
+        2020
       ],
       "fuels": {
         "Diésel": [
@@ -73065,12 +87029,23 @@ export const VEHICLES = {
           "507",
           "508",
           "509",
-          "510"
+          "510",
+          "XF (2008)",
+          "XF (2012)",
+          "XF (2015)"
         ],
         "Gasolina": [
           "501",
           "502",
-          "504"
+          "504",
+          "XF (2008)",
+          "XF (2011)",
+          "XF (2012)",
+          "XF (2015)",
+          "XF (2020)"
+        ],
+        "Mild Hybrid Diesel": [
+          "XF (2020)"
         ]
       }
     },
@@ -73136,11 +87111,26 @@ export const VEHICLES = {
     },
     "XJ": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
-        2017
+        2017,
+        2018,
+        2019
       ],
       "fuels": {
         "Diésel": [
@@ -73153,7 +87143,11 @@ export const VEHICLES = {
           "511",
           "512",
           "513",
-          "514"
+          "514",
+          "XJ (2003)",
+          "XJ (2007)",
+          "XJ (2009)",
+          "XJ (2012)"
         ],
         "Gasolina": [
           "501",
@@ -73161,7 +87155,12 @@ export const VEHICLES = {
           "507",
           "508",
           "511",
-          "512"
+          "512",
+          "XJ (1997)",
+          "XJ (2003)",
+          "XJ (2007)",
+          "XJ (2009)",
+          "XJ (2012)"
         ]
       }
     },
@@ -73247,14 +87246,35 @@ export const VEHICLES = {
     },
     "XK": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014
       ],
       "fuels": {
         "Gasolina": [
           "4 02",
           "401",
-          "402"
+          "402",
+          "XK (1996)",
+          "XK (2002)",
+          "XK (2006)",
+          "XK (2010)",
+          "XK Convertible (1996)",
+          "XK Convertible (2002)",
+          "XK Convertible (2006)",
+          "XK Convertible (2010)"
         ]
       }
     },
@@ -73265,6 +87285,297 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "5JJJM"
+        ]
+      }
+    },
+    "E-Pace": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "E-Pace (2017)"
+        ],
+        "Diésel": [
+          "E-Pace (2017)"
+        ]
+      }
+    },
+    "F-Pace": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F-Pace (2015)",
+          "F-Pace (2020)"
+        ],
+        "Diésel": [
+          "F-Pace (2015)",
+          "F-Pace (2020)"
+        ],
+        "Hybrid": [
+          "F-Pace (2020)"
+        ],
+        "Mild Hybrid Diesel": [
+          "F-Pace (2020)"
+        ],
+        "Mild Hybrid": [
+          "F-Pace (2020)"
+        ]
+      }
+    },
+    "F-Pace SVR": {
+      "years": [
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F-Pace SVR (2018)",
+          "F-Pace SVR (2020)"
+        ]
+      }
+    },
+    "F-Type": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F-Type Convertible (2013)",
+          "F-Type Convertible (2017)",
+          "F-Type Convertible (2020)",
+          "F-Type Coupe (2014)",
+          "F-Type Coupe (2017)",
+          "F-Type Coupe (2020)"
+        ]
+      }
+    },
+    "F-Type SVR": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F-Type SVR (2016)",
+          "F-Type SVR Coupe (2016)",
+          "F-Type SVR Coupe (2017)"
+        ]
+      }
+    },
+    "I-Pace": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "I-Pace (2018)"
+        ]
+      }
+    },
+    "S-Type": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S-Type (1999)",
+          "S-Type (2004)"
+        ],
+        "Diésel": [
+          "S-Type (2004)"
+        ]
+      }
+    },
+    "S-Type R": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S-Type R (2002)",
+          "S-Type R (2004)"
+        ]
+      }
+    },
+    "X-Type": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "X-Type (2001)",
+          "X-Type Estate (2004)"
+        ],
+        "Diésel": [
+          "X-Type (2001)",
+          "X-Type Estate (2004)"
+        ]
+      }
+    },
+    "XE SV": {
+      "years": [
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XE SV (2017)"
+        ]
+      }
+    },
+    "XF Sportbrake": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XF Sportbrake (2017)",
+          "XF Sportbrake (2020)"
+        ],
+        "Mild Hybrid Diesel": [
+          "XF Sportbrake (2020)"
+        ],
+        "Diésel": [
+          "XF Sportbrake (2012)",
+          "XF Sportbrake (2017)"
+        ]
+      }
+    },
+    "XFR": {
+      "years": [
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XFR (2009)"
+        ]
+      }
+    },
+    "XJR": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "No especificado": [
+          "XJR (2017)"
+        ],
+        "Gasolina": [
+          "XJR (1997)",
+          "XJR (2003)",
+          "XJR (2007)",
+          "XJR (2013)"
+        ]
+      }
+    },
+    "XKR": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XKR (1998)",
+          "XKR (2002)",
+          "XKR (2006)",
+          "XKR (2008)",
+          "XKR (2009)",
+          "XKR (2011)",
+          "XKR Convertible (1998)",
+          "XKR Convertible (2002)",
+          "XKR Convertible (2006)",
+          "XKR Convertible (2009)",
+          "XKR Convertible (2011)"
         ]
       }
     }
@@ -73705,10 +88016,34 @@ export const VEHICLES = {
     },
     "Compass": {
       "years": [
-        2018
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
+          "Compass (2006)",
+          "Compass (2011)",
+          "Compass (2016)",
+          "Compass (2019)",
+          "Compass (2021)",
           "H5LD1A",
           "H5MD1A",
           "J5LD1A",
@@ -73717,6 +88052,11 @@ export const VEHICLES = {
           "K5ME1A"
         ],
         "Gasolina": [
+          "Compass (2006)",
+          "Compass (2011)",
+          "Compass (2016)",
+          "Compass (2019)",
+          "Compass (2021)",
           "H5MN1A",
           "J5LN1A",
           "J5LN1B",
@@ -73724,6 +88064,18 @@ export const VEHICLES = {
           "J5MN1B",
           "K5LN1B",
           "K5MN1B"
+        ],
+        "Eléctrico": [
+          "Compass (2025)"
+        ],
+        "Mild Hybrid": [
+          "Compass (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "Compass (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "Compass (2021)"
         ]
       }
     },
@@ -74305,16 +88657,51 @@ export const VEHICLES = {
     },
     "Wrangler": {
       "years": [
-        2018
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
           "J4H72A",
-          "J4H73A"
+          "J4H73A",
+          "Wrangler (2006)"
         ],
         "Gasolina": [
           "J4H31A",
-          "J4H34A"
+          "J4H34A",
+          "Wrangler (1996)",
+          "Wrangler (2006)",
+          "Wrangler (2018)",
+          "Wrangler (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Wrangler (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Wrangler (2021)"
         ]
       }
     },
@@ -74342,15 +88729,287 @@ export const VEHICLES = {
     },
     "Wrangler Unlimited": {
       "years": [
-        2018
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
-          "J5H72A"
+          "J5H72A",
+          "Wrangler Unlimited (2006)",
+          "Wrangler Unlimited (2011)",
+          "Wrangler Unlimited (2017)"
         ],
         "Gasolina": [
           "J5H31A",
-          "J5H34A"
+          "J5H34A",
+          "Wrangler Unlimited (2004)",
+          "Wrangler Unlimited (2006)",
+          "Wrangler Unlimited (2011)",
+          "Wrangler Unlimited (2017)"
+        ]
+      }
+    },
+    "Avenger": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Avenger (2022)"
+        ]
+      }
+    },
+    "Cherokee": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Cherokee (2025)"
+        ],
+        "Gasolina": [
+          "Cherokee (2013)",
+          "Cherokee (2018)"
+        ],
+        "Diésel": [
+          "Cherokee (2013)",
+          "Cherokee (2018)"
+        ]
+      }
+    },
+    "Cherokee/Liberty": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cherokee/Liberty (1997)",
+          "Cherokee/Liberty (2001)",
+          "Cherokee/Liberty (2004)",
+          "Cherokee/Liberty (2007)"
+        ],
+        "Diésel": [
+          "Cherokee/Liberty (2001)",
+          "Cherokee/Liberty (2004)",
+          "Cherokee/Liberty (2007)"
+        ]
+      }
+    },
+    "Commander": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Commander (2005)",
+          "Commander (2008)"
+        ],
+        "Diésel": [
+          "Commander (2005)",
+          "Commander (2008)"
+        ]
+      }
+    },
+    "Gladiator": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Gladiator (2020)",
+          "Gladiator (2023)"
+        ],
+        "Diésel": [
+          "Gladiator (2020)"
+        ]
+      }
+    },
+    "Grand Cherokee": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grand Cherokee (1999)",
+          "Grand Cherokee (2003)",
+          "Grand Cherokee (2005)",
+          "Grand Cherokee (2006)",
+          "Grand Cherokee (2010)",
+          "Grand Cherokee (2012)",
+          "Grand Cherokee (2013)",
+          "Grand Cherokee (2018)",
+          "Grand Cherokee (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "Grand Cherokee (2021)"
+        ],
+        "No especificado": [
+          "Grand Cherokee (2020)"
+        ],
+        "Diésel": [
+          "Grand Cherokee (1999)",
+          "Grand Cherokee (2003)",
+          "Grand Cherokee (2005)",
+          "Grand Cherokee (2010)",
+          "Grand Cherokee (2013)"
+        ]
+      }
+    },
+    "Patriot": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Patriot (2007)"
+        ],
+        "Diésel": [
+          "Patriot (2007)"
+        ]
+      }
+    },
+    "Recon": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Recon (2025)"
+        ]
+      }
+    },
+    "Renegade": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Renegade (2014)",
+          "Renegade (2018)"
+        ],
+        "Diésel": [
+          "Renegade (2014)",
+          "Renegade (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "Renegade (2018)"
+        ]
+      }
+    },
+    "Wagoneer": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Wagoneer (2021)",
+          "Wagoneer (2025)"
+        ],
+        "Eléctrico": [
+          "Wagoneer (2024)"
+        ],
+        "Mild Hybrid": [
+          "Wagoneer (2021)"
+        ]
+      }
+    },
+    "Wrangler Rubicon": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Wrangler Rubicon (2023)"
         ]
       }
     }
@@ -74871,6 +89530,9 @@ export const VEHICLES = {
     },
     "Ceed": {
       "years": [
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
@@ -74890,6 +89552,8 @@ export const VEHICLES = {
           "M6GBZ1"
         ],
         "Gasolina": [
+          "Ceed (2018)",
+          "Ceed (2021)",
           "D71AZ1",
           "D71B11",
           "D71BZ1",
@@ -74914,16 +89578,23 @@ export const VEHICLES = {
           "D61JZ2",
           "D61LZ1",
           "D61LZ2"
+        ],
+        "Mild Hybrid Diesel": [
+          "Ceed (2021)"
         ]
       }
     },
     "EV3": {
       "years": [
-        2024
+        2024,
+        2025,
+        2026
       ],
       "fuels": {
         "Eléctrico": [
-          "E11AZ1"
+          "E11AZ1",
+          "EV3 (2024)",
+          "EV3 (2026)"
         ]
       }
     },
@@ -74939,7 +89610,8 @@ export const VEHICLES = {
           "E11A11",
           "E11B11",
           "E11C11",
-          "E12D11"
+          "E12D11",
+          "EV6 (2021)"
         ]
       }
     },
@@ -74950,7 +89622,9 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Eléctrico": [
-          "E11B11"
+          "E11B11",
+          "EV9 (2023)",
+          "EV9 (2024)"
         ]
       }
     },
@@ -75201,7 +89875,26 @@ export const VEHICLES = {
     },
     "Picanto": {
       "years": [
-        2021
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
@@ -75213,7 +89906,18 @@ export const VEHICLES = {
           "M55DZ1",
           "M56AZ1",
           "M56DZ1",
-          "M57DZ1"
+          "M57DZ1",
+          "Picanto (2004)",
+          "Picanto (2007)",
+          "Picanto (2011)",
+          "Picanto (2015)",
+          "Picanto (2017)",
+          "Picanto (2020)",
+          "Picanto (2023)"
+        ],
+        "Diésel": [
+          "Picanto (2004)",
+          "Picanto (2007)"
         ]
       }
     },
@@ -75752,7 +90456,10 @@ export const VEHICLES = {
     },
     "XCeed": {
       "years": [
-        2021
+        2019,
+        2020,
+        2021,
+        2022
       ],
       "fuels": {
         "Diésel": [
@@ -75762,7 +90469,8 @@ export const VEHICLES = {
           "M6DHZ1",
           "M6EHZ1",
           "M6HHZ1",
-          "M6JHZ1"
+          "M6JHZ1",
+          "XCeed (2019)"
         ],
         "Gasolina": [
           "D74HZ1",
@@ -75775,13 +90483,915 @@ export const VEHICLES = {
           "M65HZ1",
           "M6AH11",
           "M6BHZ1",
-          "M6CH11"
+          "M6CH11",
+          "XCeed (2019)",
+          "XCeed (2022)"
         ],
         "Híbrido gasolina": [
           "D61KZ1",
           "D61KZ2",
           "D61MZ1",
           "D61MZ2"
+        ]
+      }
+    },
+    "Borrego / Mohave": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Borrego / Mohave (2009)"
+        ],
+        "Diésel": [
+          "Borrego / Mohave (2009)"
+        ]
+      }
+    },
+    "Carens": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Carens (2000)",
+          "Carens (2002)",
+          "Carens (2008)",
+          "Carens (2013)",
+          "Carens (2016)"
+        ],
+        "Diésel": [
+          "Carens (2002)",
+          "Carens (2008)",
+          "Carens (2013)",
+          "Carens (2016)"
+        ],
+        "Natural Gas": [
+          "Carens (2000)",
+          "Carens (2002)"
+        ]
+      }
+    },
+    "Carnival / Sedona": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Carnival / Sedona (2002)",
+          "Carnival / Sedona (2005)",
+          "Carnival / Sedona (2006)",
+          "Carnival / Sedona (2015)",
+          "Carnival / Sedona (2018)",
+          "Carnival / Sedona (2021)",
+          "Carnival / Sedona (2024)"
+        ],
+        "Diésel": [
+          "Carnival / Sedona (2002)",
+          "Carnival / Sedona (2005)",
+          "Carnival / Sedona (2006)"
+        ]
+      }
+    },
+    "cee'd": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "cee'd (2007)",
+          "cee'd (2009)",
+          "cee'd (2012)",
+          "cee'd (2015)"
+        ],
+        "Diésel": [
+          "cee'd (2007)",
+          "cee'd (2009)",
+          "cee'd (2012)",
+          "cee'd (2015)"
+        ],
+        "Hybrid": [
+          "cee'd (2009)"
+        ]
+      }
+    },
+    "cee'd SW": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "cee'd SW (2007)",
+          "cee'd SW (2012)"
+        ],
+        "Diésel": [
+          "cee'd SW (2007)",
+          "cee'd SW (2012)"
+        ]
+      }
+    },
+    "Cerato / Spectra": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cerato / Spectra (2004)",
+          "Cerato / Spectra (2007)"
+        ],
+        "Diésel": [
+          "Cerato / Spectra (2004)",
+          "Cerato / Spectra (2007)"
+        ]
+      }
+    },
+    "Cerato/Forte": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cerato/Forte (2013)"
+        ]
+      }
+    },
+    "EV2": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EV2 (2026)"
+        ]
+      }
+    },
+    "EV4": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EV4 (2025)",
+          "EV4 Hatchback (2025)"
+        ]
+      }
+    },
+    "EV5": {
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EV5 (2023)"
+        ]
+      }
+    },
+    "Forte": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Forte (2009)",
+          "Forte (2013)",
+          "Forte (2016)",
+          "Forte (2018)",
+          "Forte (2021)"
+        ]
+      }
+    },
+    "Forte 5 Door": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Forte 5 Door (2010)",
+          "Forte 5 Door (2013)",
+          "Forte 5 Door (2016)"
+        ]
+      }
+    },
+    "Forte Koup": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Forte Koup (2009)",
+          "Forte Koup (2013)"
+        ]
+      }
+    },
+    "Joice": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Joice (1999)"
+        ]
+      }
+    },
+    "K4": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "K4 Hatchback (2025)"
+        ]
+      }
+    },
+    "K5": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "K5 (2019)",
+          "K5 (2024)"
+        ]
+      }
+    },
+    "K7 / Cadenza": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "K7 / Cadenza (2013)",
+          "K7 / Cadenza (2016)"
+        ]
+      }
+    },
+    "K9": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "K9 (2012)",
+          "K9 (2018)"
+        ]
+      }
+    },
+    "Niro": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Niro (2019)"
+        ],
+        "Eléctrico": [
+          "Niro (2018)"
+        ],
+        "Hybrid": [
+          "Niro (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "Niro (2016)"
+        ]
+      }
+    },
+    "Opirus / Amanti": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Opirus / Amanti (2003)",
+          "Opirus / Amanti (2007)"
+        ]
+      }
+    },
+    "Optima / Magentis": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Optima / Magentis (2001)",
+          "Optima / Magentis (2003)",
+          "Optima / Magentis (2006)",
+          "Optima / Magentis (2008)",
+          "Optima / Magentis (2010)",
+          "Optima / Magentis (2016)",
+          "Optima / Magentis (2018)",
+          "Optima / Magentis (2020)"
+        ],
+        "Diésel": [
+          "Optima / Magentis (2006)",
+          "Optima / Magentis (2008)",
+          "Optima / Magentis (2010)",
+          "Optima / Magentis (2016)"
+        ],
+        "Hybrid Gasoline": [
+          "Optima / Magentis (2010)"
+        ]
+      }
+    },
+    "Optima Sportswagon": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Optima Sportswagon (2016)",
+          "Optima Sportswagon (2018)"
+        ],
+        "Diésel": [
+          "Optima Sportswagon (2016)",
+          "Optima Sportswagon (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "Optima Sportswagon (2018)"
+        ]
+      }
+    },
+    "Picanto X-Line": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Picanto X-Line (2017)"
+        ]
+      }
+    },
+    "Pro cee'd": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Pro cee'd (2007)",
+          "Pro cee'd (2013)",
+          "Pro cee'd (2018)"
+        ],
+        "Diésel": [
+          "Pro cee'd (2007)",
+          "Pro cee'd (2013)",
+          "Pro cee'd (2018)"
+        ]
+      }
+    },
+    "pro_cee’d GT": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "pro_cee’d GT (2013)"
+        ]
+      }
+    },
+    "PV5": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "PV5 (2026)"
+        ]
+      }
+    },
+    "Rio": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rio Hatchback (2005)",
+          "Rio Hatchback (2009)",
+          "Rio Hatchback (2011)",
+          "Rio Hatchback (2012)",
+          "Rio Hatchback (2016)",
+          "Rio Hatchback (2020)",
+          "Rio Sedan (2005)",
+          "Rio Sedan (2009)",
+          "Rio Sedan (2011)"
+        ],
+        "Mild Hybrid": [
+          "Rio Hatchback (2020)"
+        ],
+        "Diésel": [
+          "Rio Hatchback (2005)",
+          "Rio Hatchback (2009)",
+          "Rio Hatchback (2011)",
+          "Rio Hatchback (2012)",
+          "Rio Hatchback (2016)",
+          "Rio Sedan (2005)",
+          "Rio Sedan (2009)",
+          "Rio Sedan (2011)"
+        ]
+      }
+    },
+    "Rondo": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rondo (2008)",
+          "Rondo (2013)"
+        ],
+        "Diésel": [
+          "Rondo (2013)"
+        ]
+      }
+    },
+    "Seltos": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Seltos (2019)",
+          "Seltos (2022)",
+          "Seltos (2026)"
+        ],
+        "Diésel": [
+          "Seltos (2019)",
+          "Seltos (2026)"
+        ]
+      }
+    },
+    "Shuma": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Shuma (1998)",
+          "Shuma (2001)"
+        ]
+      }
+    },
+    "Sorento": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "Sorento (2002)",
+          "Sorento (2006)",
+          "Sorento (2009)",
+          "Sorento (2014)",
+          "Sorento (2017)",
+          "Sorento (2020)"
+        ],
+        "Hybrid": [
+          "Sorento (2020)"
+        ],
+        "Plug-in Hybrid": [
+          "Sorento (2020)"
+        ],
+        "Gasolina": [
+          "Sorento (2002)",
+          "Sorento (2006)",
+          "Sorento (2009)",
+          "Sorento (2017)",
+          "Sorento (2018)"
+        ]
+      }
+    },
+    "Soul": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Soul (2008)",
+          "Soul (2012)",
+          "Soul (2018)",
+          "Soul (2022)"
+        ],
+        "Eléctrico": [
+          "Soul (2012)",
+          "Soul (2018)"
+        ],
+        "Diésel": [
+          "Soul (2008)"
+        ]
+      }
+    },
+    "Sportage": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sportage (2004)",
+          "Sportage (2008)",
+          "Sportage (2010)",
+          "Sportage (2013)",
+          "Sportage (2015)",
+          "Sportage (2018)",
+          "Sportage (2021)",
+          "Sportage (2025)"
+        ],
+        "Diésel": [
+          "Sportage (2004)",
+          "Sportage (2008)",
+          "Sportage (2010)",
+          "Sportage (2013)",
+          "Sportage (2015)",
+          "Sportage (2018)",
+          "Sportage (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "Sportage (2022)",
+          "Sportage (2025)"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "Sportage (2025)"
+        ]
+      }
+    },
+    "Stinger": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stinger (2017)",
+          "Stinger (2021)"
+        ],
+        "Diésel": [
+          "Stinger (2017)"
+        ]
+      }
+    },
+    "Stonic": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stonic (2017)"
+        ],
+        "Diésel": [
+          "Stonic (2017)"
+        ]
+      }
+    },
+    "Stonic GT-Line": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stonic GT-Line (2020)"
+        ]
+      }
+    },
+    "Syros": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Syros (2024)"
+        ]
+      }
+    },
+    "Tasman": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tasman (2024)"
+        ]
+      }
+    },
+    "Telluride": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Telluride (2019)",
+          "Telluride (2022)",
+          "Telluride (2025)"
+        ]
+      }
+    },
+    "Venga": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Venga (2009)",
+          "Venga (2014)"
+        ],
+        "Diésel": [
+          "Venga (2009)",
+          "Venga (2014)"
         ]
       }
     }
@@ -76030,6 +91640,149 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "Y"
+        ]
+      }
+    },
+    "110": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "110 (1998)"
+        ]
+      }
+    },
+    "111": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "111 (1998)"
+        ]
+      }
+    },
+    "112": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "112 (1999)"
+        ]
+      }
+    },
+    "Kalina": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kalina Hatchback (2007)",
+          "Kalina Sedan (2006)"
+        ],
+        "Diésel": [
+          "Kalina Hatchback (2007)"
+        ]
+      }
+    },
+    "Niva": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Niva (1976)"
+        ],
+        "Diésel": [
+          "Niva (1976)"
+        ]
+      }
+    },
+    "Priora": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Priora (2008)"
+        ]
+      }
+    },
+    "Samara": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Samara Sedan (1984)"
         ]
       }
     }
@@ -76463,6 +92216,233 @@ export const VEHICLES = {
           "AAAABAAAAAA"
         ]
       }
+    },
+    "Aventador": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aventador (2011)",
+          "Aventador (2015)",
+          "Aventador (2017)",
+          "Aventador (2018)",
+          "Aventador (2022)",
+          "Aventador Roadster (2012)",
+          "Aventador Roadster (2015)",
+          "Aventador Roadster (2017)",
+          "Aventador Roadster (2019)",
+          "Aventador Roadster (2022)"
+        ]
+      }
+    },
+    "Centenario": {
+      "years": [
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Centenario (2016)",
+          "Centenario Roadster (2016)"
+        ]
+      }
+    },
+    "Diablo": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Diablo (2000)",
+          "Diablo Roadster (1999)"
+        ]
+      }
+    },
+    "Fenomeno": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Fenomeno Roadster (2026)"
+        ]
+      }
+    },
+    "Gallardo": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "No especificado": [
+          "Gallardo (2013)"
+        ],
+        "Gasolina": [
+          "Gallardo (2003)",
+          "Gallardo (2005)",
+          "Gallardo (2007)",
+          "Gallardo (2008)",
+          "Gallardo (2009)",
+          "Gallardo (2010)",
+          "Gallardo (2011)",
+          "Gallardo (2012)",
+          "Gallardo Spyder (2006)",
+          "Gallardo Spyder (2008)",
+          "Gallardo Spyder (2010)",
+          "Gallardo Spyder (2012)"
+        ]
+      }
+    },
+    "Huracan": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Huracan (2014)",
+          "Huracan (2016)",
+          "Huracan (2017)",
+          "Huracan (2019)",
+          "Huracan (2020)",
+          "Huracan (2022)",
+          "Huracan Spyder (2015)",
+          "Huracan Spyder (2016)",
+          "Huracan Spyder (2018)",
+          "Huracan Spyder (2019)"
+        ]
+      }
+    },
+    "Murcielago": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Murcielago (2001)",
+          "Murcielago (2006)",
+          "Murcielago (2009)",
+          "Murcielago Roadster (2004)",
+          "Murcielago Roadster (2007)"
+        ]
+      }
+    },
+    "Reventon": {
+      "years": [
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Reventon (2008)"
+        ]
+      }
+    },
+    "Revuelto": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Revuelto (2023)"
+        ]
+      }
+    },
+    "Sian": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Sian (2019)",
+          "Sian Roadster (2020)"
+        ]
+      }
+    },
+    "Temerario": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Temerario (2024)"
+        ]
+      }
+    },
+    "Urus": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2024
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Urus (2024)"
+        ],
+        "Gasolina": [
+          "Urus (2018)",
+          "Urus (2022)"
+        ]
+      }
+    },
+    "Veneno": {
+      "years": [
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Veneno (2013)",
+          "Veneno Roadster (2014)"
+        ]
+      }
     }
   },
   "LANCIA": {
@@ -76771,6 +92751,274 @@ export const VEHICLES = {
           "YOL",
           "YON",
           "YOU"
+        ]
+      }
+    },
+    "Delta": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Delta (2008)",
+          "Delta (2013)"
+        ],
+        "Diésel": [
+          "Delta (2008)",
+          "Delta (2013)"
+        ],
+        "Natural Gas": [
+          "Delta (2008)"
+        ]
+      }
+    },
+    "Flavia": {
+      "years": [
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Flavia Convertible (2013)"
+        ]
+      }
+    },
+    "Kappa": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kappa (1995)",
+          "Kappa Coupe (1997)"
+        ],
+        "Diésel": [
+          "Kappa (1995)"
+        ]
+      }
+    },
+    "Kappa SW": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kappa SW (1996)"
+        ],
+        "Diésel": [
+          "Kappa SW (1996)"
+        ]
+      }
+    },
+    "Lybra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lybra (1999)"
+        ],
+        "Diésel": [
+          "Lybra (1999)"
+        ]
+      }
+    },
+    "Lybra SW": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lybra SW (1999)"
+        ],
+        "Diésel": [
+          "Lybra SW (1999)"
+        ]
+      }
+    },
+    "Musa": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Musa (2003)"
+        ],
+        "Diésel": [
+          "Musa (2003)"
+        ],
+        "Natural Gas": [
+          "Musa (2003)"
+        ]
+      }
+    },
+    "Phedra": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Phedra (2002)"
+        ],
+        "Diésel": [
+          "Phedra (2002)"
+        ]
+      }
+    },
+    "Thema": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Thema (2011)"
+        ],
+        "Diésel": [
+          "Thema (2011)"
+        ]
+      }
+    },
+    "Thesis": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Thesis (2001)"
+        ],
+        "Diésel": [
+          "Thesis (2001)"
+        ]
+      }
+    },
+    "Voyager": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Voyager (2011)"
+        ],
+        "Diésel": [
+          "Voyager (2011)"
+        ]
+      }
+    },
+    "Ypsilon": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2021,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Ypsilon (2024)"
+        ],
+        "Gasolina": [
+          "Ypsilon (2003)",
+          "Ypsilon (2006)",
+          "Ypsilon (2010)",
+          "Ypsilon (2011)",
+          "Ypsilon (2015)",
+          "Ypsilon (2021)"
+        ],
+        "Diésel": [
+          "Ypsilon (2003)",
+          "Ypsilon (2006)",
+          "Ypsilon (2010)",
+          "Ypsilon (2011)",
+          "Ypsilon (2015)",
+          "Ypsilon (2021)"
+        ],
+        "Natural Gas": [
+          "Ypsilon (2010)",
+          "Ypsilon (2011)",
+          "Ypsilon (2015)",
+          "Ypsilon (2021)"
+        ],
+        "Mild Hybrid": [
+          "Ypsilon (2021)"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "Ypsilon (2021)"
+        ]
+      }
+    },
+    "Zeta": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Zeta (1994)"
+        ],
+        "Diésel": [
+          "Zeta (1994)"
         ]
       }
     }
@@ -77268,6 +93516,27 @@ export const VEHICLES = {
     },
     "Discovery": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
@@ -77288,22 +93557,44 @@ export const VEHICLES = {
           "A7IDB",
           "A7NA",
           "A7NBB",
-          "A7NBC"
+          "A7NBC",
+          "Discovery (1999)",
+          "Discovery (2002)",
+          "Discovery (2004)",
+          "Discovery (2009)",
+          "Discovery (2013)",
+          "Discovery (2017)"
         ],
         "Gasolina": [
           "50AA010",
           "70AA020",
-          "A7LAB"
+          "A7LAB",
+          "Discovery (1999)",
+          "Discovery (2002)",
+          "Discovery (2004)",
+          "Discovery (2009)",
+          "Discovery (2013)"
         ]
       }
     },
     "Discovery Sport": {
       "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
         2020
       ],
       "fuels": {
         "Diésel": [
-          "A5OBB"
+          "A5OBB",
+          "Discovery Sport (2014)",
+          "Discovery Sport (2019)"
+        ],
+        "Gasolina": [
+          "Discovery Sport (2014)"
         ]
       }
     },
@@ -78020,11 +94311,44 @@ export const VEHICLES = {
     },
     "Range Rover Evoque": {
       "years": [
-        2020
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
-          "A5DAB"
+          "A5DAB",
+          "Range Rover Evoque (2011)",
+          "Range Rover Evoque (2015)",
+          "Range Rover Evoque (2018)",
+          "Range Rover Evoque (2023)",
+          "Range Rover Evoque Convertible (2016)"
+        ],
+        "Mild Hybrid": [
+          "Range Rover Evoque (2018)",
+          "Range Rover Evoque (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Range Rover Evoque (2023)"
+        ],
+        "Mild Hybrid Diesel": [
+          "Range Rover Evoque (2018)",
+          "Range Rover Evoque (2023)"
+        ],
+        "Gasolina": [
+          "Range Rover Evoque (2011)",
+          "Range Rover Evoque (2015)",
+          "Range Rover Evoque Convertible (2016)"
         ]
       }
     },
@@ -78035,6 +94359,375 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "A5BDA"
+        ]
+      }
+    },
+    "Defender 110": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Defender 110 (1991)",
+          "Defender 110 (2019)"
+        ],
+        "Diésel": [
+          "Defender 110 (1991)",
+          "Defender 110 (2007)",
+          "Defender 110 (2012)",
+          "Defender 110 (2019)"
+        ],
+        "Hybrid Gasoline": [
+          "Defender 110 (2019)"
+        ],
+        "Mild Hybrid Diesel": [
+          "Defender 110 (2019)"
+        ]
+      }
+    },
+    "Defender 130": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Mild Hybrid Diesel": [
+          "Defender 130 (2022)"
+        ],
+        "Mild Hybrid": [
+          "Defender 130 (2022)"
+        ]
+      }
+    },
+    "Defender 90": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Defender 90 (1991)",
+          "Defender 90 (2018)",
+          "Defender 90 (2019)"
+        ],
+        "Diésel": [
+          "Defender 90 (1991)",
+          "Defender 90 (2007)",
+          "Defender 90 (2012)",
+          "Defender 90 (2019)"
+        ]
+      }
+    },
+    "Defender Octa": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Defender Octa (2024)"
+        ]
+      }
+    },
+    "Discovery SVX": {
+      "years": [
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Discovery SVX (2018)"
+        ]
+      }
+    },
+    "Freelander": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Freelander (1998)",
+          "Freelander (2000)",
+          "Freelander (2003)",
+          "Freelander (2006)",
+          "Freelander (2009)"
+        ],
+        "Diésel": [
+          "Freelander (1998)",
+          "Freelander (2000)",
+          "Freelander (2003)",
+          "Freelander (2006)",
+          "Freelander (2009)"
+        ]
+      }
+    },
+    "Range Rover": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Range Rover (1994)",
+          "Range Rover (2002)",
+          "Range Rover (2005)",
+          "Range Rover (2009)",
+          "Range Rover (2013)",
+          "Range Rover (2017)",
+          "Range Rover (2021)"
+        ],
+        "Mild Hybrid Diesel": [
+          "Range Rover (2021)"
+        ],
+        "Mild Hybrid": [
+          "Range Rover (2021)"
+        ],
+        "Diésel": [
+          "Range Rover (1994)",
+          "Range Rover (2002)",
+          "Range Rover (2005)",
+          "Range Rover (2009)",
+          "Range Rover (2013)",
+          "Range Rover (2017)"
+        ],
+        "Híbrido diésel": [
+          "Range Rover (2013)"
+        ]
+      }
+    },
+    "Range Rover L": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Range Rover L (2014)"
+        ],
+        "Diésel": [
+          "Range Rover L (2014)"
+        ]
+      }
+    },
+    "Range Rover PHEV": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Range Rover PHEV (2017)"
+        ],
+        "Híbrido diésel": [
+          "Range Rover PHEV (2013)"
+        ]
+      }
+    },
+    "Range Rover Sport": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Range Rover Sport (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Range Rover Sport (2022)",
+          "Range Rover Sport (2023)"
+        ],
+        "Gasolina": [
+          "Range Rover Sport (2005)",
+          "Range Rover Sport (2009)",
+          "Range Rover Sport (2013)",
+          "Range Rover Sport (2019)",
+          "Range Rover Sport (2022)"
+        ],
+        "Mild Hybrid Diesel": [
+          "Range Rover Sport (2022)"
+        ],
+        "Hybrid Gasoline": [
+          "Range Rover Sport (2022)"
+        ],
+        "Diésel": [
+          "Range Rover Sport (2005)",
+          "Range Rover Sport (2009)",
+          "Range Rover Sport (2013)",
+          "Range Rover Sport (2017)"
+        ],
+        "Hybrid": [
+          "Range Rover Sport (2013)"
+        ]
+      }
+    },
+    "Range Rover Sport PHEV": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Range Rover Sport PHEV (2017)"
+        ]
+      }
+    },
+    "Range Rover Sport SVR": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Range Rover Sport SVR (2015)",
+          "Range Rover Sport SVR (2017)"
+        ]
+      }
+    },
+    "Range Rover Velar": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "No especificado": [
+          "Range Rover Velar (2023)"
+        ],
+        "Gasolina": [
+          "Range Rover Velar (2017)"
+        ],
+        "Diésel": [
+          "Range Rover Velar (2017)"
+        ],
+        "Mild Hybrid Diesel": [
+          "Range Rover Velar (2017)"
+        ],
+        "Mild Hybrid": [
+          "Range Rover Velar (2017)"
         ]
       }
     }
@@ -78156,13 +94849,47 @@ export const VEHICLES = {
     },
     "GS": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
         2016,
-        2017
+        2017,
+        2018,
+        2019,
+        2020
       ],
       "fuels": {
         "Gasolina": [
+          "GS (1997)",
+          "GS (2000)",
+          "GS (2005)",
+          "GS (2008)",
+          "GS (2012)",
+          "GS (2015)",
           "URL10L-FEZRHW(1A)",
           "URL10L-FEZRHW(1B)"
+        ],
+        "Hybrid": [
+          "GS (2008)",
+          "GS (2015)"
+        ],
+        "Hybrid Gasoline": [
+          "GS (2005)",
+          "GS (2012)",
+          "GS (2015)"
         ]
       }
     },
@@ -78259,21 +94986,87 @@ export const VEHICLES = {
     },
     "GX": {
       "years": [
-        2022
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
+          "GX (2003)",
+          "GX (2010)",
+          "GX (2013)",
+          "GX (2019)",
+          "GX (2023)",
           "ND"
         ]
       }
     },
     "IS": {
       "years": [
-        2012
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2025
       ],
       "fuels": {
         "Gasolina": [
+          "IS (1998)",
+          "IS (2001)",
+          "IS (2005)",
+          "IS (2008)",
+          "IS (2009)",
+          "IS (2012)",
+          "IS (2013)",
+          "IS (2016)",
+          "IS (2020)",
+          "IS (2025)",
           "USE20L-FEZRHW(2E)"
+        ],
+        "Hybrid": [
+          "IS (2016)"
+        ],
+        "Hybrid Gasoline": [
+          "IS (2013)"
+        ],
+        "Diésel": [
+          "IS (1998)",
+          "IS (2005)"
         ]
       }
     },
@@ -79074,11 +95867,15 @@ export const VEHICLES = {
     },
     "LFA": {
       "years": [
-        2012
+        2010,
+        2011,
+        2012,
+        2013
       ],
       "fuels": {
         "Gasolina": [
-          "LFA"
+          "LFA",
+          "LFA (2010)"
         ]
       }
     },
@@ -79284,23 +96081,48 @@ export const VEHICLES = {
         2014,
         2015,
         2016,
-        2017
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
+          "RC (2014)",
+          "RC (2018)",
           "USC10L",
           "USC10L-FCZRHW(1A)",
           "USC10L-FCZRHW(1B)",
           "USC10L-FCZRHW(2C)"
+        ],
+        "Hybrid": [
+          "RC (2018)"
         ]
       }
     },
     "RC F": {
       "years": [
-        2019
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
+          "RC F (2014)",
           "USC10L-FCZRHW(1E)"
         ]
       }
@@ -79340,11 +96162,50 @@ export const VEHICLES = {
     },
     "RX": {
       "years": [
-        2011
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
       ],
       "fuels": {
         "Gasolina": [
-          "AWXGKW"
+          "AWXGKW",
+          "RX (1998)",
+          "RX (2004)",
+          "RX (2008)",
+          "RX (2012)",
+          "RX (2016)",
+          "RX (2019)",
+          "RX (2022)"
+        ],
+        "Hybrid Gasoline": [
+          "RX (2012)",
+          "RX (2022)"
+        ],
+        "Hybrid": [
+          "RX (2004)",
+          "RX (2008)",
+          "RX (2016)",
+          "RX (2019)"
         ]
       }
     },
@@ -79513,6 +96374,352 @@ export const VEHICLES = {
           "MZAH15L-AWXBBW(3C)"
         ]
       }
+    },
+    "CT": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid": [
+          "CT (2014)",
+          "CT (2017)"
+        ],
+        "Gasolina": [
+          "CT (2011)"
+        ],
+        "Hybrid Gasoline": [
+          "CT (2011)"
+        ]
+      }
+    },
+    "ES": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "ES (2018)",
+          "ES (2021)",
+          "ES (2023)",
+          "ES (2025)"
+        ],
+        "Gasolina": [
+          "ES (2002)",
+          "ES (2006)",
+          "ES (2012)",
+          "ES (2016)",
+          "ES (2018)",
+          "ES (2021)",
+          "ES (2023)"
+        ],
+        "Hybrid": [
+          "ES (2012)",
+          "ES (2016)"
+        ]
+      }
+    },
+    "GS F": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GS F (2015)"
+        ]
+      }
+    },
+    "HS": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "HS (2009)"
+        ]
+      }
+    },
+    "LBX": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "LBX (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "LBX (2023)"
+        ]
+      }
+    },
+    "LC": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "LC (2016)",
+          "LC (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "LC (2016)"
+        ]
+      }
+    },
+    "LM": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "LM (2023)"
+        ]
+      }
+    },
+    "LS": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "LS (1997)",
+          "LS (2000)",
+          "LS (2003)",
+          "LS (2006)",
+          "LS (2009)",
+          "LS (2012)",
+          "LS (2017)",
+          "LS (2020)"
+        ],
+        "Hybrid": [
+          "LS (2009)",
+          "LS (2012)",
+          "LS (2017)"
+        ],
+        "Hybrid Gasoline": [
+          "LS (2006)"
+        ]
+      }
+    },
+    "LX": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "LX (1997)",
+          "LX (2008)",
+          "LX (2012)",
+          "LX (2015)",
+          "LX (2021)"
+        ],
+        "Diésel": [
+          "LX (2015)",
+          "LX (2021)"
+        ]
+      }
+    },
+    "NX": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "NX (2014)",
+          "NX (2017)",
+          "NX (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "NX (2021)"
+        ],
+        "Hybrid": [
+          "NX (2014)",
+          "NX (2017)"
+        ]
+      }
+    },
+    "RZ": {
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "RZ (2022)",
+          "RZ (2025)"
+        ]
+      }
+    },
+    "SC": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SC (1991)",
+          "SC (2001)",
+          "SC (2005)"
+        ]
+      }
+    },
+    "TX": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "TX (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "TX (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "TX (2023)"
+        ]
+      }
+    },
+    "TZ": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "TZ (2026)"
+        ]
+      }
+    },
+    "UX": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "UX (2018)",
+          "UX (2020)"
+        ],
+        "Gasolina": [
+          "UX (2018)"
+        ],
+        "Hybrid": [
+          "UX (2018)"
+        ]
+      }
     }
   },
   "LIVAN": {
@@ -79609,6 +96816,195 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "K"
+        ]
+      }
+    },
+    "2 Eleven": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "2 Eleven (2007)"
+        ]
+      }
+    },
+    "3 Eleven": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "3 Eleven (2018)"
+        ]
+      }
+    },
+    "Eletre": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Eletre (2022)"
+        ]
+      }
+    },
+    "Elise": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Elise (1997)",
+          "Elise (2001)",
+          "Elise (2008)",
+          "Elise (2010)",
+          "Elise (2016)",
+          "Elise (2021)"
+        ]
+      }
+    },
+    "Emira": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Emira (2021)"
+        ]
+      }
+    },
+    "Esprit": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Esprit (1976)"
+        ]
+      }
+    },
+    "Europa": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Europa (2006)"
+        ]
+      }
+    },
+    "Evija": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Evija (2020)"
+        ]
+      }
+    },
+    "Evora": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Evora (2008)",
+          "Evora (2015)",
+          "Evora (2016)",
+          "Evora (2017)",
+          "Evora (2018)",
+          "Evora (2019)"
+        ]
+      }
+    },
+    "Exige": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Exige (2000)",
+          "Exige (2004)",
+          "Exige (2008)",
+          "Exige (2012)",
+          "Exige (2017)",
+          "Exige (2021)"
         ]
       }
     }
@@ -79721,6 +97117,87 @@ export const VEHICLES = {
           "YW2HY7",
           "YW4HN",
           "YW4HY"
+        ]
+      }
+    },
+    "Bolero": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "Bolero (2011)"
+        ]
+      }
+    },
+    "Scorpio / GOA": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Scorpio / GOA (2002)"
+        ]
+      }
+    },
+    "Thar": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "Thar (2010)"
+        ]
+      }
+    },
+    "Verito": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Verito (2012)"
+        ],
+        "Diésel": [
+          "Verito (2012)"
         ]
       }
     }
@@ -80282,6 +97759,7 @@ export const VEHICLES = {
     },
     "MC20": {
       "years": [
+        2020,
         2022,
         2023,
         2024
@@ -80291,7 +97769,9 @@ export const VEHICLES = {
           "2AP",
           "2APL",
           "2APL4",
-          "2EL"
+          "2EL",
+          "MC20 (2020)",
+          "MC20 (2022)"
         ]
       }
     },
@@ -80398,6 +97878,275 @@ export const VEHICLES = {
           "5AP",
           "5AP1",
           "5W"
+        ]
+      }
+    },
+    "Coupe": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Coupe (1998)",
+          "Coupe (2002)"
+        ]
+      }
+    },
+    "Ghibli": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Ghibli (2020)"
+        ],
+        "Gasolina": [
+          "Ghibli (2013)",
+          "Ghibli (2017)",
+          "Ghibli (2020)"
+        ],
+        "Diésel": [
+          "Ghibli (2013)",
+          "Ghibli (2017)"
+        ]
+      }
+    },
+    "GranCabrio": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GranCabrio (2010)",
+          "GranCabrio (2017)",
+          "GranCabrio (2024)"
+        ],
+        "Eléctrico": [
+          "GranCabrio (2024)"
+        ]
+      }
+    },
+    "GranSport": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GranSport (2004)"
+        ]
+      }
+    },
+    "GranTurismo": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GranTurismo (2007)",
+          "GranTurismo (2008)",
+          "GranTurismo (2011)",
+          "GranTurismo (2017)",
+          "GranTurismo (2022)"
+        ],
+        "Eléctrico": [
+          "GranTurismo (2022)"
+        ]
+      }
+    },
+    "Grecale": {
+      "years": [
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Grecale (2023)"
+        ],
+        "Mild Hybrid": [
+          "Grecale (2022)"
+        ]
+      }
+    },
+    "Grecale Trofeo": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grecale Trofeo (2022)"
+        ]
+      }
+    },
+    "GT2 Stradale": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GT2 Stradale (2024)"
+        ]
+      }
+    },
+    "Levante": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Levante (2016)",
+          "Levante (2018)",
+          "Levante (2020)"
+        ],
+        "Diésel": [
+          "Levante (2016)"
+        ],
+        "Hybrid Gasoline": [
+          "Levante (2016)"
+        ]
+      }
+    },
+    "MC 12": {
+      "years": [
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MC 12 (2004)"
+        ]
+      }
+    },
+    "MCPura": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MCPura (2025)"
+        ]
+      }
+    },
+    "MCPura Cielo": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MCPura Cielo (2025)"
+        ]
+      }
+    },
+    "Quattroporte": {
+      "years": [
+        2000,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Quattroporte (1994)",
+          "Quattroporte (2003)",
+          "Quattroporte (2008)",
+          "Quattroporte (2013)",
+          "Quattroporte (2016)",
+          "Quattroporte (2020)"
+        ],
+        "Diésel": [
+          "Quattroporte (2013)",
+          "Quattroporte (2016)"
+        ]
+      }
+    },
+    "Quattroporte Sport GT S": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Quattroporte Sport GT S (2009)"
+        ]
+      }
+    },
+    "Spyder": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Spyder (2001)",
+          "Spyder (2006)"
         ]
       }
     }
@@ -80657,7 +98406,11 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -80669,7 +98422,8 @@ export const VEHICLES = {
           "A1W0",
           "A1W00",
           "AAW00",
-          "AAW01"
+          "AAW01",
+          "CX-3 (2015)"
         ],
         "Gasolina": [
           "61W0",
@@ -80693,7 +98447,9 @@ export const VEHICLES = {
           "ABW00",
           "ABW01",
           "ARW0A",
-          "ARW0C"
+          "ARW0C",
+          "CX-3 (2015)",
+          "CX-3 (2018)"
         ]
       }
     },
@@ -80707,7 +98463,8 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "6AW00",
-          "AAW00"
+          "AAW00",
+          "CX-30 (2019)"
         ],
         "Gasolina": [
           "6CW00",
@@ -80720,6 +98477,7 @@ export const VEHICLES = {
           "ACW0AB",
           "ACW0CA",
           "ACW0CB",
+          "CX-30 (2019)",
           "ND"
         ]
       }
@@ -80727,6 +98485,7 @@ export const VEHICLES = {
     "CX-5": {
       "years": [
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -80734,7 +98493,11 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -80750,7 +98513,10 @@ export const VEHICLES = {
           "AAW0",
           "AEW0",
           "AEW0A",
-          "AEW0B"
+          "AEW0B",
+          "CX-5 (2012)",
+          "CX-5 (2015)",
+          "CX-5 (2016)"
         ],
         "Gasolina": [
           "60E",
@@ -80776,37 +98542,69 @@ export const VEHICLES = {
           "AEW0BC",
           "AFW0",
           "AFW0A",
-          "AFW0B"
+          "AFW0B",
+          "CX-5 (2012)",
+          "CX-5 (2015)",
+          "CX-5 (2016)"
+        ],
+        "Mild Hybrid": [
+          "CX-5 (2025)"
         ]
       }
     },
     "CX-7": {
       "years": [
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012
       ],
       "fuels": {
         "Diésel": [
           "6EU",
-          "A"
+          "A",
+          "CX-7 (2009)"
         ],
         "Gasolina": [
-          "6EU"
+          "6EU",
+          "CX-7 (2007)",
+          "CX-7 (2009)"
         ]
       }
     },
     "CX-9": {
       "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
         2014,
         2015,
-        2016
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "GLP (autogás)": [
           "8"
         ],
         "Gasolina": [
-          "8"
+          "8",
+          "CX-9 (2007)",
+          "CX-9 (2009)",
+          "CX-9 (2013)",
+          "CX-9 (2016)"
         ]
       }
     },
@@ -81185,12 +98983,19 @@ export const VEHICLES = {
     },
     "MX-30": {
       "years": [
+        2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Eléctrico": [
-          "JBW11"
+          "JBW11",
+          "MX-30 (2019)"
+        ],
+        "Plug-in Hybrid": [
+          "MX-30 (2023)"
         ]
       }
     },
@@ -81276,6 +99081,557 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "2"
+        ]
+      }
+    },
+    "2 / Demio": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "2 / Demio (2023)"
+        ],
+        "Gasolina": [
+          "2 / Demio (2002)",
+          "2 / Demio (2007)",
+          "2 / Demio (2014)",
+          "2 / Demio (2019)",
+          "2 / Demio - 3 doors (2007)",
+          "2 / Demio - Sedan (2008)"
+        ],
+        "Mild Hybrid": [
+          "2 / Demio (2019)"
+        ],
+        "Diésel": [
+          "2 / Demio (2002)",
+          "2 / Demio (2007)",
+          "2 / Demio (2014)"
+        ]
+      }
+    },
+    "3 / Axela": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "3 / Axela Hatchback (2004)",
+          "3 / Axela Hatchback (2009)",
+          "3 / Axela Hatchback (2013)",
+          "3 / Axela Hatchback (2016)",
+          "3 / Axela Hatchback (2018)",
+          "3 / Axela Sedan (2004)",
+          "3 / Axela Sedan (2009)",
+          "3 / Axela Sedan (2013)",
+          "3 / Axela Sedan (2016)",
+          "3 / Axela Sedan (2018)"
+        ],
+        "Diésel": [
+          "3 / Axela Hatchback (2004)",
+          "3 / Axela Hatchback (2009)",
+          "3 / Axela Hatchback (2013)",
+          "3 / Axela Hatchback (2016)",
+          "3 / Axela Hatchback (2018)",
+          "3 / Axela Sedan (2004)",
+          "3 / Axela Sedan (2009)",
+          "3 / Axela Sedan (2013)",
+          "3 / Axela Sedan (2016)",
+          "3 / Axela Sedan (2018)"
+        ]
+      }
+    },
+    "3 MPS / MAZDASPEED 3": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "3 MPS / MAZDASPEED 3 (2006)",
+          "3 MPS / MAZDASPEED 3 (2009)"
+        ]
+      }
+    },
+    "5 / Premacy": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "5 / Premacy (2005)",
+          "5 / Premacy (2008)",
+          "5 / Premacy (2010)"
+        ],
+        "Diésel": [
+          "5 / Premacy (2005)",
+          "5 / Premacy (2008)",
+          "5 / Premacy (2010)"
+        ]
+      }
+    },
+    "6 / Atenza": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "6 / Atenza Hatchback (2002)",
+          "6 / Atenza Hatchback (2007)",
+          "6 / Atenza Sedan (2002)",
+          "6 / Atenza Sedan (2005)",
+          "6 / Atenza Sedan (2006)",
+          "6 / Atenza Sedan (2007)",
+          "6 / Atenza Sedan (2013)",
+          "6 / Atenza Sedan (2015)",
+          "6 / Atenza Sedan (2018)",
+          "6 / Atenza Wagon (2002)",
+          "6 / Atenza Wagon (2005)",
+          "6 / Atenza Wagon (2007)",
+          "6 / Atenza Wagon (2013)",
+          "6 / Atenza Wagon (2015)"
+        ],
+        "Diésel": [
+          "6 / Atenza Hatchback (2002)",
+          "6 / Atenza Hatchback (2007)",
+          "6 / Atenza Sedan (2002)",
+          "6 / Atenza Sedan (2005)",
+          "6 / Atenza Sedan (2007)",
+          "6 / Atenza Sedan (2013)",
+          "6 / Atenza Sedan (2015)",
+          "6 / Atenza Sedan (2018)",
+          "6 / Atenza Wagon (2002)",
+          "6 / Atenza Wagon (2005)",
+          "6 / Atenza Wagon (2007)",
+          "6 / Atenza Wagon (2013)",
+          "6 / Atenza Wagon (2015)"
+        ]
+      }
+    },
+    "626": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "626 Hatchback (1997)",
+          "626 Sedan (1997)"
+        ],
+        "Diésel": [
+          "626 Hatchback (1997)",
+          "626 Sedan (1997)"
+        ]
+      }
+    },
+    "6e": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "6e (2025)"
+        ]
+      }
+    },
+    "B Series / Bravo Dual Cab": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "B Series / Bravo Dual Cab (1999)"
+        ],
+        "Diésel": [
+          "B Series / Bravo Dual Cab (1999)"
+        ]
+      }
+    },
+    "B Series / Bravo Freestyle Cab": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "B Series / Bravo Freestyle Cab (1999)"
+        ],
+        "Diésel": [
+          "B Series / Bravo Freestyle Cab (1999)"
+        ]
+      }
+    },
+    "Biante": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Biante (2008)"
+        ]
+      }
+    },
+    "BT-50": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "BT-50 (2006)",
+          "BT-50 (2011)",
+          "BT-50 (2015)",
+          "BT-50 (2018)"
+        ],
+        "Gasolina": [
+          "BT-50 (2011)"
+        ]
+      }
+    },
+    "CX-50": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CX-50 (2021)"
+        ]
+      }
+    },
+    "CX-60": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "CX-60 (2022)"
+        ]
+      }
+    },
+    "CX-6e": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "CX-6e (2026)"
+        ]
+      }
+    },
+    "CX-70": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "CX-70 (2024)"
+        ],
+        "Mild Hybrid": [
+          "CX-70 (2024)"
+        ]
+      }
+    },
+    "CX-8": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CX-8 (2017)"
+        ],
+        "Diésel": [
+          "CX-8 (2017)"
+        ]
+      }
+    },
+    "CX-80": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "CX-80 (2024)"
+        ],
+        "Mild Hybrid Diesel": [
+          "CX-80 (2024)"
+        ]
+      }
+    },
+    "CX-90": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "CX-90 (2023)"
+        ],
+        "Mild Hybrid Diesel": [
+          "CX-90 (2023)"
+        ],
+        "Mild Hybrid": [
+          "CX-90 (2023)"
+        ]
+      }
+    },
+    "Flair": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Flair (2012)"
+        ]
+      }
+    },
+    "Flairwagon": {
+      "years": [
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Flairwagon (2012)"
+        ]
+      }
+    },
+    "MX-5 / Miata": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MX-5 / Miata (1998)",
+          "MX-5 / Miata (2004)",
+          "MX-5 / Miata (2005)",
+          "MX-5 / Miata (2008)",
+          "MX-5 / Miata (2012)",
+          "MX-5 / Miata (2015)",
+          "MX-5 / Miata (2016)"
+        ]
+      }
+    },
+    "RX-7": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RX-7 (1992)"
+        ]
+      }
+    },
+    "RX-8": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RX-8 (2003)",
+          "RX-8 (2008)"
+        ]
+      }
+    },
+    "Tribute": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tribute (2001)",
+          "Tribute (2007)",
+          "Tribute (2008)"
+        ],
+        "Hybrid Gasoline": [
+          "Tribute (2008)"
+        ],
+        "Hybrid": [
+          "Tribute (2007)"
+        ]
+      }
+    },
+    "Verisa": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Verisa (2004)"
+        ]
+      }
+    },
+    "Xedos 9": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Xedos 9 (1993)",
+          "Xedos 9 (2001)"
         ]
       }
     }
@@ -81661,10 +100017,18 @@ export const VEHICLES = {
   "MCLAREN": {
     "570S": {
       "years": [
-        2018
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
       ],
       "fuels": {
         "Gasolina": [
+          "570S (2015)",
+          "570S Spider (2017)",
           "BB",
           "BD"
         ]
@@ -81672,10 +100036,14 @@ export const VEHICLES = {
     },
     "600LT": {
       "years": [
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
+          "600LT (2018)",
           "CF"
         ]
       }
@@ -81692,32 +100060,45 @@ export const VEHICLES = {
     },
     "720S": {
       "years": [
+        2017,
+        2018,
+        2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
+          "720S (2017)",
+          "720S (2018)",
           "EB"
         ]
       }
     },
     "765LT": {
       "years": [
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
+          "765LT (2020)",
           "FG"
         ]
       }
     },
     "GT": {
       "years": [
+        2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
+          "GT (2019)",
           "JA",
           "JB"
         ]
@@ -81796,11 +100177,16 @@ export const VEHICLES = {
     "MP4-12C": {
       "years": [
         2011,
-        2012
+        2012,
+        2013,
+        2014,
+        2015
       ],
       "fuels": {
         "Gasolina": [
-          "70AAA200"
+          "70AAA200",
+          "MP4-12C (2011)",
+          "MP4-12C Spider (2012)"
         ]
       }
     },
@@ -81811,6 +100197,165 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "70AAB100"
+        ]
+      }
+    },
+    "12C GT Sprint": {
+      "years": [
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "12C GT Sprint (2013)"
+        ]
+      }
+    },
+    "540C": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "540C (2015)"
+        ]
+      }
+    },
+    "570GT": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "570GT (2016)"
+        ]
+      }
+    },
+    "620R": {
+      "years": [
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "620R (2019)"
+        ]
+      }
+    },
+    "650S": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "650S (2014)",
+          "650S Spider (2014)"
+        ]
+      }
+    },
+    "675LT": {
+      "years": [
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "675LT (2015)",
+          "675LT Spider (2016)"
+        ]
+      }
+    },
+    "750S": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "750S (2023)"
+        ]
+      }
+    },
+    "Artura": {
+      "years": [
+        2021,
+        2024
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Artura (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Artura (2021)"
+        ]
+      }
+    },
+    "Elva": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Elva (2020)"
+        ]
+      }
+    },
+    "GTS": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GTS (2023)"
+        ]
+      }
+    },
+    "P1": {
+      "years": [
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Hybrid": [
+          "P1 (2013)"
+        ]
+      }
+    },
+    "Senna": {
+      "years": [
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Senna (2018)"
+        ]
+      }
+    },
+    "Speedtail": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Speedtail (2018)"
         ]
       }
     }
@@ -82596,6 +101141,503 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "YZAAA200"
+        ]
+      }
+    },
+    "A-Class": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "A-Class (2015)",
+          "A-Class (2018)",
+          "A-Class (2019)"
+        ]
+      }
+    },
+    "C-Class": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "C-CLASS COUPE (2016)",
+          "C-CLASS COUPE (2018)",
+          "C-Class Wagon (2015)",
+          "C-Class Wagon (2022)"
+        ],
+        "No especificado": [
+          "C-Class Wagon (2022)"
+        ]
+      }
+    },
+    "C-CLASS": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "C-CLASS (2015)",
+          "C-CLASS (2018)",
+          "C-CLASS (2022)",
+          "C-CLASS Cabriolet (2016)"
+        ],
+        "Plug-in Hybrid": [
+          "C-CLASS (2022)"
+        ]
+      }
+    },
+    "C-CLASS T-MODELL": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "C-CLASS T-MODELL (2018)"
+        ]
+      }
+    },
+    "CLA Shooting brake": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CLA Shooting brake (2015)",
+          "CLA Shooting brake (2019)",
+          "CLA Shooting brake (2023)"
+        ]
+      }
+    },
+    "CLA-Class": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CLA-Class (2016)",
+          "CLA-Class (2019)",
+          "CLA-Class (2023)"
+        ]
+      }
+    },
+    "CLE": {
+      "years": [
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "CLE Cabriolet (2024)",
+          "CLE Coupe (2023)"
+        ]
+      }
+    },
+    "CLS-Class": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "CLS-Class (2021)"
+        ],
+        "Gasolina": [
+          "CLS-Class (2018)"
+        ]
+      }
+    },
+    "E-Class": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "E-Class (2024)"
+        ],
+        "Mild Hybrid": [
+          "E-Class (2018)",
+          "E-Class (2020)"
+        ],
+        "Gasolina": [
+          "E-Class (2016)",
+          "E-Class (2017)",
+          "E-Class (2020)",
+          "E-Class Cabriolet (2018)",
+          "E-Class Cabriolet (2020)",
+          "E-Class Coupe (2018)",
+          "E-Class Coupe (2020)"
+        ],
+        "Hybrid Gasoline": [
+          "E-Class Estate (2024)"
+        ]
+      }
+    },
+    "EQE": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EQE (2022)"
+        ]
+      }
+    },
+    "EQE SUV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "EQE SUV (2022)"
+        ]
+      }
+    },
+    "EQS": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EQS (2021)"
+        ]
+      }
+    },
+    "G 63": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "G 63 (2024)"
+        ],
+        "Gasolina": [
+          "G 63 (2018)"
+        ]
+      }
+    },
+    "GLA": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GLA (2014)",
+          "GLA (2017)",
+          "GLA (2020)",
+          "GLA (2023)"
+        ]
+      }
+    },
+    "GLB": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GLB (2019)",
+          "GLB (2023)"
+        ]
+      }
+    },
+    "GLC": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2026
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "GLC  Coupe (2023)",
+          "GLC  Coupe (2026)"
+        ],
+        "Plug-in Hybrid": [
+          "GLC  Coupe (2023)"
+        ],
+        "Gasolina": [
+          "GLC  Coupe (2016)",
+          "GLC  Coupe (2017)",
+          "GLC  Coupe (2019)"
+        ]
+      }
+    },
+    "GLC-Class": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "GLC-Class (2023)"
+        ],
+        "Gasolina": [
+          "GLC-Class (2016)",
+          "GLC-Class (2017)",
+          "GLC-Class (2019)"
+        ]
+      }
+    },
+    "GLE": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GLE  Coupe (2015)",
+          "GLE  Coupe (2019)",
+          "GLE  Coupe (2023)",
+          "GLE (2015)",
+          "GLE (2016)",
+          "GLE (2019)",
+          "GLE (2023)"
+        ],
+        "Mild Hybrid": [
+          "GLE  Coupe (2019)"
+        ],
+        "Hybrid Gasoline": [
+          "GLE (2026)"
+        ],
+        "Plug-in Hybrid": [
+          "GLE (2026)"
+        ]
+      }
+    },
+    "GLS- Class": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "GLS- Class (2023)"
+        ],
+        "Gasolina": [
+          "GLS- Class (2016)"
+        ]
+      }
+    },
+    "GT": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "GT Coupe (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "GT Coupe (2024)"
+        ],
+        "Gasolina": [
+          "GT Coupe (2015)",
+          "GT Coupe (2016)",
+          "GT Coupe (2017)",
+          "GT Coupe (2019)",
+          "GT Coupe (2020)",
+          "GT Coupe (2023)",
+          "GT Roadster (2016)",
+          "GT Roadster (2018)",
+          "GT Roadster (2019)",
+          "GT Roadster (2020)"
+        ],
+        "No especificado": [
+          "GT Roadster (2018)"
+        ]
+      }
+    },
+    "GT 4-DOOR": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "GT 4-DOOR COUPE (2026)"
+        ],
+        "Plug-in Hybrid": [
+          "GT 4-DOOR COUPE (2023)"
+        ],
+        "Mild Hybrid": [
+          "GT 4-DOOR COUPE (2020)",
+          "GT 4-DOOR COUPE (2023)"
+        ],
+        "Gasolina": [
+          "GT 4-DOOR COUPE (2018)"
+        ]
+      }
+    },
+    "ONE": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "ONE (2022)"
+        ]
+      }
+    },
+    "S-Class": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2023
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "S-Class (2023)"
+        ],
+        "Gasolina": [
+          "S-Class (2017)",
+          "S-Class Cabriolet (2016)",
+          "S-Class Cabriolet (2017)",
+          "S-Class Coupe (2017)"
+        ]
+      }
+    },
+    "SL-Class": {
+      "years": [
+        2021,
+        2023
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "SL-Class (2023)"
+        ],
+        "Gasolina": [
+          "SL-Class (2021)"
+        ],
+        "Mild Hybrid": [
+          "SL-Class (2021)"
+        ]
+      }
+    },
+    "SLC": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SLC (2016)"
         ]
       }
     }
@@ -97198,6 +116240,2218 @@ export const VEHICLES = {
           "3GJR4X29BEXX"
         ]
       }
+    },
+    "MERCEDES BENZ A-Class": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ A-Class Sedan (2018)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ A-Class Sedan (2018)"
+        ]
+      }
+    },
+    "MERCEDES BENZ A-Klasse": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ A-Klasse (1997)",
+          "MERCEDES BENZ A-Klasse (2001)",
+          "MERCEDES BENZ A-Klasse (2004)",
+          "MERCEDES BENZ A-Klasse (2008)",
+          "MERCEDES BENZ A-Klasse (2012)",
+          "MERCEDES BENZ A-Klasse (2015)",
+          "MERCEDES BENZ A-Klasse (2018)",
+          "MERCEDES BENZ A-Klasse (2022)",
+          "MERCEDES BENZ A-Klasse Coupe (2004)",
+          "MERCEDES BENZ A-Klasse Coupe (2008)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ A-Klasse (1997)",
+          "MERCEDES BENZ A-Klasse (2001)",
+          "MERCEDES BENZ A-Klasse (2004)",
+          "MERCEDES BENZ A-Klasse (2008)",
+          "MERCEDES BENZ A-Klasse (2012)",
+          "MERCEDES BENZ A-Klasse (2015)",
+          "MERCEDES BENZ A-Klasse (2018)",
+          "MERCEDES BENZ A-Klasse (2022)",
+          "MERCEDES BENZ A-Klasse Coupe (2004)",
+          "MERCEDES BENZ A-Klasse Coupe (2008)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ A-Klasse (2022)"
+        ]
+      }
+    },
+    "MERCEDES BENZ A-Klasse AMG": {
+      "years": [
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ A-Klasse AMG (2013)"
+        ]
+      }
+    },
+    "MERCEDES BENZ A-Klasse Saloon": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ A-Klasse Saloon (2022)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ A-Klasse Saloon (2022)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ A-Klasse Saloon (2022)"
+        ]
+      }
+    },
+    "MERCEDES BENZ B-Klasse": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ B-Klasse (2005)",
+          "MERCEDES BENZ B-Klasse (2008)",
+          "MERCEDES BENZ B-Klasse (2011)",
+          "MERCEDES BENZ B-Klasse (2014)",
+          "MERCEDES BENZ B-Klasse (2018)",
+          "MERCEDES BENZ B-Klasse (2022)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ B-Klasse (2005)",
+          "MERCEDES BENZ B-Klasse (2008)",
+          "MERCEDES BENZ B-Klasse (2011)",
+          "MERCEDES BENZ B-Klasse (2014)",
+          "MERCEDES BENZ B-Klasse (2018)",
+          "MERCEDES BENZ B-Klasse (2022)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ B-Klasse (2018)",
+          "MERCEDES BENZ B-Klasse (2022)"
+        ],
+        "Eléctrico": [
+          "MERCEDES BENZ B-Klasse (2014)"
+        ],
+        "Natural Gas": [
+          "MERCEDES BENZ B-Klasse (2008)",
+          "MERCEDES BENZ B-Klasse (2011)",
+          "MERCEDES BENZ B-Klasse (2014)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Class": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ C-Class Cabriolet (2016)",
+          "MERCEDES BENZ C-Class Cabriolet (2018)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ C-Class Cabriolet (2016)",
+          "MERCEDES BENZ C-Class Cabriolet (2018)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Class EV": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ C-Class EV (2026)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Klasse": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ C-Klasse Coupe (2011)",
+          "MERCEDES BENZ C-Klasse Coupe (2016)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ C-Klasse Coupe (2011)",
+          "MERCEDES BENZ C-Klasse Coupe (2016)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Klasse All-Terrain": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ C-Klasse All-Terrain (2021)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ C-Klasse All-Terrain (2021)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Klasse AMG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ C-Klasse AMG (1997)",
+          "MERCEDES BENZ C-Klasse AMG (2000)",
+          "MERCEDES BENZ C-Klasse AMG (2004)",
+          "MERCEDES BENZ C-Klasse AMG (2007)",
+          "MERCEDES BENZ C-Klasse AMG (2011)",
+          "MERCEDES BENZ C-Klasse AMG (2014)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ C-Klasse AMG (2000)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Klasse and predecessors": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "MERCEDES BENZ C-Klasse and predecessors (2021)"
+        ],
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ C-Klasse and predecessors (2021)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ C-Klasse and predecessors (1997)",
+          "MERCEDES BENZ C-Klasse and predecessors (2000)",
+          "MERCEDES BENZ C-Klasse and predecessors (2004)",
+          "MERCEDES BENZ C-Klasse and predecessors (2007)",
+          "MERCEDES BENZ C-Klasse and predecessors (2011)",
+          "MERCEDES BENZ C-Klasse and predecessors (2014)",
+          "MERCEDES BENZ C-Klasse and predecessors (2018)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ C-Klasse and predecessors (1997)",
+          "MERCEDES BENZ C-Klasse and predecessors (2000)",
+          "MERCEDES BENZ C-Klasse and predecessors (2004)",
+          "MERCEDES BENZ C-Klasse and predecessors (2007)",
+          "MERCEDES BENZ C-Klasse and predecessors (2011)",
+          "MERCEDES BENZ C-Klasse and predecessors (2014)",
+          "MERCEDES BENZ C-Klasse and predecessors (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "MERCEDES BENZ C-Klasse and predecessors (2014)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ C-Klasse and predecessors (2014)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Klasse Coupe AMG": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ C-Klasse Coupe AMG (2011)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Klasse SportCoupe AMG": {
+      "years": [
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ C-Klasse SportCoupe AMG (2002)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ C-Klasse SportCoupe AMG (2002)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Klasse SportCoupe/CLC": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ C-Klasse SportCoupe/CLC (2000)",
+          "MERCEDES BENZ C-Klasse SportCoupe/CLC (2004)",
+          "MERCEDES BENZ C-Klasse SportCoupe/CLC (2008)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ C-Klasse SportCoupe/CLC (2000)",
+          "MERCEDES BENZ C-Klasse SportCoupe/CLC (2004)",
+          "MERCEDES BENZ C-Klasse SportCoupe/CLC (2008)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Klasse T-Modell": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "MERCEDES BENZ C-Klasse T-Modell (2021)"
+        ],
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ C-Klasse T-Modell (2021)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ C-Klasse T-Modell (1997)",
+          "MERCEDES BENZ C-Klasse T-Modell (2001)",
+          "MERCEDES BENZ C-Klasse T-Modell (2004)",
+          "MERCEDES BENZ C-Klasse T-Modell (2007)",
+          "MERCEDES BENZ C-Klasse T-Modell (2011)",
+          "MERCEDES BENZ C-Klasse T-Modell (2014)",
+          "MERCEDES BENZ C-Klasse T-Modell (2015)",
+          "MERCEDES BENZ C-Klasse T-Modell (2018)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ C-Klasse T-Modell (1997)",
+          "MERCEDES BENZ C-Klasse T-Modell (2001)",
+          "MERCEDES BENZ C-Klasse T-Modell (2004)",
+          "MERCEDES BENZ C-Klasse T-Modell (2007)",
+          "MERCEDES BENZ C-Klasse T-Modell (2011)",
+          "MERCEDES BENZ C-Klasse T-Modell (2014)",
+          "MERCEDES BENZ C-Klasse T-Modell (2018)"
+        ],
+        "Hybrid": [
+          "MERCEDES BENZ C-Klasse T-Modell (2014)"
+        ]
+      }
+    },
+    "MERCEDES BENZ C-Klasse T-Modell AMG": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ C-Klasse T-Modell AMG (2004)"
+        ]
+      }
+    },
+    "MERCEDES BENZ Citan": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ Citan (2021)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ Citan (2021)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CL AMG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ CL AMG (2000)",
+          "MERCEDES BENZ CL AMG (2002)",
+          "MERCEDES BENZ CL AMG (2003)",
+          "MERCEDES BENZ CL AMG (2007)",
+          "MERCEDES BENZ CL AMG (2010)",
+          "MERCEDES BENZ CL AMG (2011)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CL-Klasse and predecessors": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ CL-Klasse and predecessors (1999)",
+          "MERCEDES BENZ CL-Klasse and predecessors (2002)",
+          "MERCEDES BENZ CL-Klasse and predecessors (2006)",
+          "MERCEDES BENZ CL-Klasse and predecessors (2010)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLA 45": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ CLA 45 (2013)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLA Klasse": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ CLA Klasse (2025)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ CLA Klasse (2013)",
+          "MERCEDES BENZ CLA Klasse (2016)",
+          "MERCEDES BENZ CLA Klasse (2019)",
+          "MERCEDES BENZ CLA Klasse (2023)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ CLA Klasse (2013)",
+          "MERCEDES BENZ CLA Klasse (2016)",
+          "MERCEDES BENZ CLA Klasse (2019)",
+          "MERCEDES BENZ CLA Klasse (2023)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ CLA Klasse (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ CLA Klasse (2019)",
+          "MERCEDES BENZ CLA Klasse (2023)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLA Shooting Brake": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ CLA Shooting Brake (2025)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ CLA Shooting Brake (2015)",
+          "MERCEDES BENZ CLA Shooting Brake (2019)",
+          "MERCEDES BENZ CLA Shooting Brake (2023)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ CLA Shooting Brake (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ CLA Shooting Brake (2019)",
+          "MERCEDES BENZ CLA Shooting Brake (2023)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ CLA Shooting Brake (2015)",
+          "MERCEDES BENZ CLA Shooting Brake (2019)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLE": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "MERCEDES BENZ CLE Cabriolet (2023)",
+          "MERCEDES BENZ CLE Coupe (2023)"
+        ],
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ CLE Cabriolet (2023)",
+          "MERCEDES BENZ CLE Coupe (2023)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLK AMG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ CLK AMG (1999)",
+          "MERCEDES BENZ CLK AMG (2003)",
+          "MERCEDES BENZ CLK AMG (2004)",
+          "MERCEDES BENZ CLK AMG (2006)",
+          "MERCEDES BENZ CLK AMG (2007)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLK AMG Cabrio": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ CLK AMG Cabrio (2000)",
+          "MERCEDES BENZ CLK AMG Cabrio (2003)",
+          "MERCEDES BENZ CLK AMG Cabrio (2006)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLS AMG": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ CLS AMG (2004)",
+          "MERCEDES BENZ CLS AMG (2006)",
+          "MERCEDES BENZ CLS AMG (2011)",
+          "MERCEDES BENZ CLS AMG (2014)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLS Shooting Brake": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ CLS Shooting Brake (2012)",
+          "MERCEDES BENZ CLS Shooting Brake (2014)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ CLS Shooting Brake (2012)",
+          "MERCEDES BENZ CLS Shooting Brake (2014)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLS Shooting Brake AMG": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ CLS Shooting Brake AMG (2014)"
+        ]
+      }
+    },
+    "MERCEDES BENZ CLS-Klasse": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ CLS-Klasse (2004)",
+          "MERCEDES BENZ CLS-Klasse (2008)",
+          "MERCEDES BENZ CLS-Klasse (2010)",
+          "MERCEDES BENZ CLS-Klasse (2014)",
+          "MERCEDES BENZ CLS-Klasse (2018)",
+          "MERCEDES BENZ CLS-Klasse (2021)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ CLS-Klasse (2004)",
+          "MERCEDES BENZ CLS-Klasse (2008)",
+          "MERCEDES BENZ CLS-Klasse (2010)",
+          "MERCEDES BENZ CLS-Klasse (2014)",
+          "MERCEDES BENZ CLS-Klasse (2018)",
+          "MERCEDES BENZ CLS-Klasse (2021)"
+        ],
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ CLS-Klasse (2021)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ CLS-Klasse (2021)"
+        ]
+      }
+    },
+    "MERCEDES BENZ E-Class T-Modell All-Terrain": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "MERCEDES BENZ E-Class T-Modell All-Terrain (2020)",
+          "MERCEDES BENZ E-Class T-Modell All-Terrain (2023)"
+        ],
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ E-Class T-Modell All-Terrain (2023)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ E-Class T-Modell All-Terrain (2017)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ E-Class T-Modell All-Terrain (2017)"
+        ]
+      }
+    },
+    "MERCEDES BENZ E-Klasse AMG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ E-Klasse AMG (1997)",
+          "MERCEDES BENZ E-Klasse AMG (2002)",
+          "MERCEDES BENZ E-Klasse AMG (2006)",
+          "MERCEDES BENZ E-Klasse AMG (2009)",
+          "MERCEDES BENZ E-Klasse AMG (2013)"
+        ]
+      }
+    },
+    "MERCEDES BENZ E-Klasse and predecessors": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "MERCEDES BENZ E-Klasse and predecessors (2020)",
+          "MERCEDES BENZ E-Klasse and predecessors (2023)"
+        ],
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ E-Klasse and predecessors (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ E-Klasse and predecessors (2023)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ E-Klasse and predecessors (1999)",
+          "MERCEDES BENZ E-Klasse and predecessors (2002)",
+          "MERCEDES BENZ E-Klasse and predecessors (2006)",
+          "MERCEDES BENZ E-Klasse and predecessors (2009)",
+          "MERCEDES BENZ E-Klasse and predecessors (2013)",
+          "MERCEDES BENZ E-Klasse and predecessors (2016)",
+          "MERCEDES BENZ E-Klasse and predecessors (2020)"
+        ],
+        "Híbrido diésel": [
+          "MERCEDES BENZ E-Klasse and predecessors (2009)",
+          "MERCEDES BENZ E-Klasse and predecessors (2020)"
+        ],
+        "Hybrid Gasoline": [
+          "MERCEDES BENZ E-Klasse and predecessors (2020)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ E-Klasse and predecessors (1999)",
+          "MERCEDES BENZ E-Klasse and predecessors (2002)",
+          "MERCEDES BENZ E-Klasse and predecessors (2006)",
+          "MERCEDES BENZ E-Klasse and predecessors (2009)",
+          "MERCEDES BENZ E-Klasse and predecessors (2013)",
+          "MERCEDES BENZ E-Klasse and predecessors (2016)"
+        ],
+        "Hybrid": [
+          "MERCEDES BENZ E-Klasse and predecessors (2013)"
+        ],
+        "Natural Gas": [
+          "MERCEDES BENZ E-Klasse and predecessors (2002)",
+          "MERCEDES BENZ E-Klasse and predecessors (2009)",
+          "MERCEDES BENZ E-Klasse and predecessors (2013)"
+        ]
+      }
+    },
+    "MERCEDES BENZ E-Klasse Cabriolet and predecessors": {
+      "years": [
+        2000,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Diésel": [
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2005)",
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2010)",
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2013)",
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2016)",
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2020)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2020)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (1998)",
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2003)",
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2005)",
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2010)",
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2013)",
+          "MERCEDES BENZ E-Klasse Cabriolet and predecessors (2016)"
+        ]
+      }
+    },
+    "MERCEDES BENZ E-Klasse Coupe and predecessors": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (1999)",
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2002)",
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2005)",
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2009)",
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2013)",
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2016)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2002)",
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2005)",
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2009)",
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2013)",
+          "MERCEDES BENZ E-Klasse Coupe and predecessors (2016)"
+        ]
+      }
+    },
+    "MERCEDES BENZ E-Klasse T-Modell": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ E-Klasse T-Modell (1999)",
+          "MERCEDES BENZ E-Klasse T-Modell (2003)",
+          "MERCEDES BENZ E-Klasse T-Modell (2006)",
+          "MERCEDES BENZ E-Klasse T-Modell (2009)",
+          "MERCEDES BENZ E-Klasse T-Modell (2013)",
+          "MERCEDES BENZ E-Klasse T-Modell (2016)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ E-Klasse T-Modell (1999)",
+          "MERCEDES BENZ E-Klasse T-Modell (2003)",
+          "MERCEDES BENZ E-Klasse T-Modell (2006)",
+          "MERCEDES BENZ E-Klasse T-Modell (2009)",
+          "MERCEDES BENZ E-Klasse T-Modell (2013)",
+          "MERCEDES BENZ E-Klasse T-Modell (2016)"
+        ],
+        "Híbrido diésel": [
+          "MERCEDES BENZ E-Klasse T-Modell (2009)",
+          "MERCEDES BENZ E-Klasse T-Modell (2013)"
+        ]
+      }
+    },
+    "MERCEDES BENZ E-Klasse T-Modell AMG": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ E-Klasse T-Modell AMG (2004)",
+          "MERCEDES BENZ E-Klasse T-Modell AMG (2006)",
+          "MERCEDES BENZ E-Klasse T-Modell AMG (2009)",
+          "MERCEDES BENZ E-Klasse T-Modell AMG (2013)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQA": {
+      "years": [
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ EQA (2021)",
+          "MERCEDES BENZ EQA (2023)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQB": {
+      "years": [
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ EQB (2021)",
+          "MERCEDES BENZ EQB (2023)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQC": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ EQC (2019)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQE": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ EQE (2021)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQE SUV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ EQE SUV (2022)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQS": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ EQS (2021)",
+          "MERCEDES BENZ EQS (2024)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQS SUV": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ EQS SUV (2022)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQS SUV Maybach": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ EQS SUV Maybach (2023)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQT": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ EQT (2023)"
+        ]
+      }
+    },
+    "MERCEDES BENZ EQV": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ EQV (2019)"
+        ]
+      }
+    },
+    "MERCEDES BENZ G-Klasse": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ G-Klasse (2024)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ G-Klasse (2024)"
+        ],
+        "Eléctrico": [
+          "MERCEDES BENZ G-Klasse (2024)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ G-Klasse (1979)",
+          "MERCEDES BENZ G-Klasse (1989)",
+          "MERCEDES BENZ G-Klasse (2000)",
+          "MERCEDES BENZ G-Klasse (2007)",
+          "MERCEDES BENZ G-Klasse (2008)",
+          "MERCEDES BENZ G-Klasse (2012)",
+          "MERCEDES BENZ G-Klasse (2015)",
+          "MERCEDES BENZ G-Klasse (2018)",
+          "MERCEDES BENZ G-Klasse Cabriolet (1990)",
+          "MERCEDES BENZ G-Klasse Cabriolet (2001)",
+          "MERCEDES BENZ G-Klasse Cabriolet (2007)",
+          "MERCEDES BENZ G-Klasse Cabriolet (2012)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ G-Klasse (1979)",
+          "MERCEDES BENZ G-Klasse (1989)",
+          "MERCEDES BENZ G-Klasse (2000)",
+          "MERCEDES BENZ G-Klasse (2007)",
+          "MERCEDES BENZ G-Klasse (2008)",
+          "MERCEDES BENZ G-Klasse (2012)",
+          "MERCEDES BENZ G-Klasse (2016)",
+          "MERCEDES BENZ G-Klasse (2018)",
+          "MERCEDES BENZ G-Klasse Cabriolet (1990)",
+          "MERCEDES BENZ G-Klasse Cabriolet (2001)",
+          "MERCEDES BENZ G-Klasse Cabriolet (2007)"
+        ]
+      }
+    },
+    "MERCEDES BENZ G-Klasse AMG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ G-Klasse AMG (1999)",
+          "MERCEDES BENZ G-Klasse AMG (2004)",
+          "MERCEDES BENZ G-Klasse AMG (2006)",
+          "MERCEDES BENZ G-Klasse AMG (2008)",
+          "MERCEDES BENZ G-Klasse AMG (2012)",
+          "MERCEDES BENZ G-Klasse AMG (2013)"
+        ]
+      }
+    },
+    "MERCEDES BENZ G-Klasse Kurz": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ G-Klasse Kurz (1979)",
+          "MERCEDES BENZ G-Klasse Kurz (1990)",
+          "MERCEDES BENZ G-Klasse Kurz (2000)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ G-Klasse Kurz (1979)",
+          "MERCEDES BENZ G-Klasse Kurz (1990)",
+          "MERCEDES BENZ G-Klasse Kurz (2000)"
+        ]
+      }
+    },
+    "MERCEDES BENZ GL-Klasse": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ GL-Klasse (2006)",
+          "MERCEDES BENZ GL-Klasse (2009)",
+          "MERCEDES BENZ GL-Klasse (2012)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ GL-Klasse (2006)",
+          "MERCEDES BENZ GL-Klasse (2009)",
+          "MERCEDES BENZ GL-Klasse (2012)"
+        ]
+      }
+    },
+    "MERCEDES BENZ GL-Klasse AMG": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ GL-Klasse AMG (2012)"
+        ]
+      }
+    },
+    "MERCEDES BENZ GLA": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "MERCEDES BENZ GLA (2013)",
+          "MERCEDES BENZ GLA (2017)",
+          "MERCEDES BENZ GLA (2020)",
+          "MERCEDES BENZ GLA (2023)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ GLA (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ GLA (2023)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ GLA (2013)",
+          "MERCEDES BENZ GLA (2017)",
+          "MERCEDES BENZ GLA (2020)"
+        ]
+      }
+    },
+    "MERCEDES BENZ GLB": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ GLB (2025)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ GLB (2019)",
+          "MERCEDES BENZ GLB (2023)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ GLB (2023)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ GLB (2019)"
+        ]
+      }
+    },
+    "MERCEDES BENZ GLC Class": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2025
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "MERCEDES BENZ GLC Class (2022)",
+          "MERCEDES BENZ GLC Class Coupe (2023)"
+        ],
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ GLC Class (2022)",
+          "MERCEDES BENZ GLC Class Coupe (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ GLC Class (2022)",
+          "MERCEDES BENZ GLC Class Coupe (2023)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ GLC Class (2015)",
+          "MERCEDES BENZ GLC Class (2019)",
+          "MERCEDES BENZ GLC Class Coupe (2016)",
+          "MERCEDES BENZ GLC Class Coupe (2019)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ GLC Class (2015)",
+          "MERCEDES BENZ GLC Class (2019)",
+          "MERCEDES BENZ GLC Class Coupe (2016)",
+          "MERCEDES BENZ GLC Class Coupe (2019)"
+        ],
+        "Hybrid": [
+          "MERCEDES BENZ GLC Class (2015)",
+          "MERCEDES BENZ GLC Class (2019)",
+          "MERCEDES BENZ GLC Class Coupe (2016)"
+        ],
+        "Eléctrico": [
+          "MERCEDES BENZ GLC Class (2025)"
+        ]
+      }
+    },
+    "MERCEDES BENZ GLE-Class": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ GLE-Class (2015)",
+          "MERCEDES BENZ GLE-Class (2018)",
+          "MERCEDES BENZ GLE-Class (2026)",
+          "MERCEDES BENZ GLE-Class Coupe (2015)"
+        ],
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ GLE-Class (2023)",
+          "MERCEDES BENZ GLE-Class Coupe (2023)",
+          "MERCEDES BENZ GLE-Class Coupe (2026)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ GLE-Class (2023)",
+          "MERCEDES BENZ GLE-Class Coupe (2023)",
+          "MERCEDES BENZ GLE-Class Coupe (2026)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ GLE-Class (2023)",
+          "MERCEDES BENZ GLE-Class Coupe (2023)",
+          "MERCEDES BENZ GLE-Class Coupe (2026)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ GLE-Class (2015)",
+          "MERCEDES BENZ GLE-Class (2018)",
+          "MERCEDES BENZ GLE-Class Coupe (2015)",
+          "MERCEDES BENZ GLE-Class Coupe (2019)"
+        ],
+        "Híbrido diésel": [
+          "MERCEDES BENZ GLE-Class (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "MERCEDES BENZ GLE-Class (2018)"
+        ],
+        "Hybrid": [
+          "MERCEDES BENZ GLE-Class (2015)"
+        ]
+      }
+    },
+    "MERCEDES BENZ GLK-Klasse": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ GLK-Klasse (2008)",
+          "MERCEDES BENZ GLK-Klasse (2012)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ GLK-Klasse (2008)",
+          "MERCEDES BENZ GLK-Klasse (2012)"
+        ]
+      }
+    },
+    "MERCEDES BENZ GLS Maybach": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "No especificado": [
+          "MERCEDES BENZ GLS Maybach (2023)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ GLS Maybach (2020)"
+        ]
+      }
+    },
+    "MERCEDES BENZ GLS-Class": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ GLS-Class (2016)",
+          "MERCEDES BENZ GLS-Class (2019)",
+          "MERCEDES BENZ GLS-Class (2023)",
+          "MERCEDES BENZ GLS-Class (2026)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ GLS-Class (2016)",
+          "MERCEDES BENZ GLS-Class (2019)",
+          "MERCEDES BENZ GLS-Class (2023)",
+          "MERCEDES BENZ GLS-Class (2026)"
+        ]
+      }
+    },
+    "MERCEDES BENZ M-Klasse": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ M-Klasse (1997)",
+          "MERCEDES BENZ M-Klasse (2001)",
+          "MERCEDES BENZ M-Klasse (2005)",
+          "MERCEDES BENZ M-Klasse (2008)",
+          "MERCEDES BENZ M-Klasse (2011)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ M-Klasse (1997)",
+          "MERCEDES BENZ M-Klasse (2001)",
+          "MERCEDES BENZ M-Klasse (2005)",
+          "MERCEDES BENZ M-Klasse (2008)",
+          "MERCEDES BENZ M-Klasse (2011)"
+        ],
+        "Hybrid Gasoline": [
+          "MERCEDES BENZ M-Klasse (2008)"
+        ]
+      }
+    },
+    "MERCEDES BENZ M-Klasse AMG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ M-Klasse AMG (1999)",
+          "MERCEDES BENZ M-Klasse AMG (2002)",
+          "MERCEDES BENZ M-Klasse AMG (2005)",
+          "MERCEDES BENZ M-Klasse AMG (2008)",
+          "MERCEDES BENZ M-Klasse AMG (2011)"
+        ]
+      }
+    },
+    "MERCEDES BENZ Maybach EQS SUV": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ Maybach EQS SUV (2023)"
+        ]
+      }
+    },
+    "MERCEDES BENZ Pullman": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ Pullman (1995)",
+          "MERCEDES BENZ Pullman (2001)",
+          "MERCEDES BENZ Pullman (2015)",
+          "MERCEDES BENZ Pullman (2018)"
+        ]
+      }
+    },
+    "MERCEDES BENZ R-Klasse": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ R-Klasse (2005)",
+          "MERCEDES BENZ R-Klasse (2010)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ R-Klasse (2005)",
+          "MERCEDES BENZ R-Klasse (2010)"
+        ]
+      }
+    },
+    "MERCEDES BENZ R-Klasse AMG": {
+      "years": [
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ R-Klasse AMG (2006)"
+        ]
+      }
+    },
+    "MERCEDES BENZ R-Klasse Lang": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ R-Klasse Lang (2005)",
+          "MERCEDES BENZ R-Klasse Lang (2010)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ R-Klasse Lang (2005)"
+        ]
+      }
+    },
+    "MERCEDES BENZ S-Class": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ S-Class Cabriolet (2016)",
+          "MERCEDES BENZ S-Class Cabriolet (2017)"
+        ]
+      }
+    },
+    "MERCEDES BENZ S-Class Coupe AMG": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ S-Class Coupe AMG (2014)"
+        ]
+      }
+    },
+    "MERCEDES BENZ S-Class Maybach": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ S-Class Maybach (2023)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ S-Class Maybach (2015)",
+          "MERCEDES BENZ S-Class Maybach (2018)",
+          "MERCEDES BENZ S-Class Maybach (2020)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ S-Class Maybach (2020)"
+        ]
+      }
+    },
+    "MERCEDES BENZ S-Klasse": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ S-Klasse Coupe (2014)",
+          "MERCEDES BENZ S-Klasse Coupe (2017)"
+        ]
+      }
+    },
+    "MERCEDES BENZ S-Klasse AMG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ S-Klasse AMG (1999)",
+          "MERCEDES BENZ S-Klasse AMG (2001)",
+          "MERCEDES BENZ S-Klasse AMG (2002)",
+          "MERCEDES BENZ S-Klasse AMG (2004)",
+          "MERCEDES BENZ S-Klasse AMG (2006)",
+          "MERCEDES BENZ S-Klasse AMG (2010)",
+          "MERCEDES BENZ S-Klasse AMG (2013)"
+        ]
+      }
+    },
+    "MERCEDES BENZ S-Klasse and predecessors": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Mild Hybrid Diesel": [
+          "MERCEDES BENZ S-Klasse and predecessors (2026)"
+        ],
+        "Mild Hybrid": [
+          "MERCEDES BENZ S-Klasse and predecessors (2026)"
+        ],
+        "Plug-in Hybrid": [
+          "MERCEDES BENZ S-Klasse and predecessors (2026)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ S-Klasse and predecessors (1998)",
+          "MERCEDES BENZ S-Klasse and predecessors (2002)",
+          "MERCEDES BENZ S-Klasse and predecessors (2005)",
+          "MERCEDES BENZ S-Klasse and predecessors (2009)",
+          "MERCEDES BENZ S-Klasse and predecessors (2013)",
+          "MERCEDES BENZ S-Klasse and predecessors (2017)",
+          "MERCEDES BENZ S-Klasse and predecessors (2020)"
+        ],
+        "Hybrid Gasoline": [
+          "MERCEDES BENZ S-Klasse and predecessors (2017)",
+          "MERCEDES BENZ S-Klasse and predecessors (2020)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ S-Klasse and predecessors (1998)",
+          "MERCEDES BENZ S-Klasse and predecessors (2002)",
+          "MERCEDES BENZ S-Klasse and predecessors (2005)",
+          "MERCEDES BENZ S-Klasse and predecessors (2009)",
+          "MERCEDES BENZ S-Klasse and predecessors (2013)",
+          "MERCEDES BENZ S-Klasse and predecessors (2017)"
+        ],
+        "Hybrid": [
+          "MERCEDES BENZ S-Klasse and predecessors (2009)",
+          "MERCEDES BENZ S-Klasse and predecessors (2013)",
+          "MERCEDES BENZ S-Klasse and predecessors (2017)"
+        ]
+      }
+    },
+    "MERCEDES BENZ SL AMG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ SL AMG (1999)",
+          "MERCEDES BENZ SL AMG (2002)",
+          "MERCEDES BENZ SL AMG (2004)",
+          "MERCEDES BENZ SL AMG (2006)",
+          "MERCEDES BENZ SL AMG (2008)",
+          "MERCEDES BENZ SL AMG (2012)",
+          "MERCEDES BENZ SL AMG (2016)"
+        ]
+      }
+    },
+    "MERCEDES BENZ SL Monogram Maybach": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ SL Monogram Maybach (2025)"
+        ]
+      }
+    },
+    "MERCEDES BENZ SL-Klasse": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ SL-Klasse (1998)",
+          "MERCEDES BENZ SL-Klasse (2001)",
+          "MERCEDES BENZ SL-Klasse (2006)",
+          "MERCEDES BENZ SL-Klasse (2008)",
+          "MERCEDES BENZ SL-Klasse (2012)",
+          "MERCEDES BENZ SL-Klasse (2016)"
+        ]
+      }
+    },
+    "MERCEDES BENZ SLC-Class": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ SLC-Class (2016)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ SLC-Class (2016)"
+        ]
+      }
+    },
+    "MERCEDES BENZ SLK AMG": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ SLK AMG (2000)",
+          "MERCEDES BENZ SLK AMG (2004)",
+          "MERCEDES BENZ SLK AMG (2006)",
+          "MERCEDES BENZ SLK AMG (2008)",
+          "MERCEDES BENZ SLK AMG (2012)"
+        ]
+      }
+    },
+    "MERCEDES BENZ SLK-Klasse": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ SLK-Klasse (1996)",
+          "MERCEDES BENZ SLK-Klasse (2000)",
+          "MERCEDES BENZ SLK-Klasse (2008)",
+          "MERCEDES BENZ SLK-Klasse (2011)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ SLK-Klasse (2011)"
+        ]
+      }
+    },
+    "MERCEDES BENZ SLR McLaren": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ SLR McLaren (2003)",
+          "MERCEDES BENZ SLR McLaren (2006)",
+          "MERCEDES BENZ SLR McLaren (2007)",
+          "MERCEDES BENZ SLR McLaren (2009)"
+        ]
+      }
+    },
+    "MERCEDES BENZ SLS AMG": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ SLS AMG (2010)",
+          "MERCEDES BENZ SLS AMG (2011)",
+          "MERCEDES BENZ SLS AMG (2012)",
+          "MERCEDES BENZ SLS AMG (2013)"
+        ]
+      }
+    },
+    "MERCEDES BENZ T-Class": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ T-Class (2022)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ T-Class (2022)"
+        ]
+      }
+    },
+    "MERCEDES BENZ V-Class and predecessors": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "MERCEDES BENZ V-Class and predecessors (1996)",
+          "MERCEDES BENZ V-Class and predecessors (2014)",
+          "MERCEDES BENZ V-Class and predecessors (2019)"
+        ],
+        "Gasolina": [
+          "MERCEDES BENZ V-Class and predecessors (1996)"
+        ]
+      }
+    },
+    "MERCEDES BENZ VANEO": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ VANEO (2002)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ VANEO (2002)"
+        ]
+      }
+    },
+    "MERCEDES BENZ VIANO": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ VIANO (2003)",
+          "MERCEDES BENZ VIANO (2010)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ VIANO (2003)",
+          "MERCEDES BENZ VIANO (2010)"
+        ]
+      }
+    },
+    "MERCEDES BENZ Vito": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ Vito (2020)"
+        ]
+      }
+    },
+    "MERCEDES BENZ VLE": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MERCEDES BENZ VLE (2026)"
+        ]
+      }
+    },
+    "MERCEDES BENZ X-Class": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MERCEDES BENZ X-Class (2017)"
+        ],
+        "Diésel": [
+          "MERCEDES BENZ X-Class (2017)"
+        ]
+      }
     }
   },
   "MG": {
@@ -97375,17 +118629,264 @@ export const VEHICLES = {
     },
     "ZS": {
       "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Eléctrico": [
           "PA5LKE",
-          "RA5LKE"
+          "RA5LKE",
+          "ZS (2021)"
         ],
         "Gasolina": [
           "JM5LIP",
           "OA5LIP",
-          "OM5LIP"
+          "OM5LIP",
+          "ZS (2017)",
+          "ZS Hatchback (2002)",
+          "ZS Hatchback (2004)",
+          "ZS Sedan (2001)",
+          "ZS Sedan (2004)"
+        ],
+        "Diésel": [
+          "ZS Hatchback (2002)",
+          "ZS Hatchback (2004)",
+          "ZS Sedan (2001)",
+          "ZS Sedan (2004)"
+        ]
+      }
+    },
+    "F/ TF": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "F/ TF (1995)",
+          "F/ TF (2002)"
+        ]
+      }
+    },
+    "GS": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GS (2015)"
+        ]
+      }
+    },
+    "HS": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "HS (2019)"
+        ]
+      }
+    },
+    "IM5": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "IM5 (2025)"
+        ]
+      }
+    },
+    "IM6": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "IM6 (2025)"
+        ]
+      }
+    },
+    "Marvel R": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Marvel R (2021)"
+        ]
+      }
+    },
+    "MG 3": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2024
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "MG 3 (2024)"
+        ],
+        "Gasolina": [
+          "MG 3 (2013)"
+        ]
+      }
+    },
+    "MG 4": {
+      "years": [
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MG 4 (2022)",
+          "MG 4 (2023)"
+        ]
+      }
+    },
+    "MG 5": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "MG 5 (2021)"
+        ]
+      }
+    },
+    "MG 6": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MG 6 (2011)"
+        ],
+        "Diésel": [
+          "MG 6 (2011)"
+        ]
+      }
+    },
+    "S5 EV": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "S5 EV (2025)"
+        ]
+      }
+    },
+    "U9": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Diésel": [
+          "U9 (2025)"
+        ]
+      }
+    },
+    "XPower": {
+      "years": [
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XPower (2004)"
+        ]
+      }
+    },
+    "ZR": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ZR 3 Doors (2001)",
+          "ZR 3 Doors (2004)",
+          "ZR 5 Doors (2001)",
+          "ZR 5 Doors (2004)"
+        ],
+        "Diésel": [
+          "ZR 3 Doors (2001)",
+          "ZR 3 Doors (2004)",
+          "ZR 5 Doors (2001)",
+          "ZR 5 Doors (2004)"
+        ]
+      }
+    },
+    "ZT": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ZT (2001)",
+          "ZT (2004)"
+        ],
+        "Diésel": [
+          "ZT (2001)",
+          "ZT (2004)"
+        ]
+      }
+    },
+    "ZT-T": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ZT-T (2001)",
+          "ZT-T (2004)"
+        ],
+        "Diésel": [
+          "ZT-T (2001)",
+          "ZT-T (2004)"
         ]
       }
     }
@@ -99207,6 +120708,260 @@ export const VEHICLES = {
           "IHW500L0"
         ]
       }
+    },
+    "Aceman": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Aceman (2024)"
+        ]
+      }
+    },
+    "Classic": {
+      "years": [
+        2000,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Classic (1997)",
+          "Classic (2021)",
+          "Classic (2024)"
+        ]
+      }
+    },
+    "Clubman": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Clubman (2007)",
+          "Clubman (2015)",
+          "Clubman (2019)"
+        ],
+        "Diésel": [
+          "Clubman (2007)",
+          "Clubman (2015)",
+          "Clubman (2019)"
+        ]
+      }
+    },
+    "Clubvan": {
+      "years": [
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Clubvan (2012)"
+        ],
+        "Diésel": [
+          "Clubvan (2012)"
+        ]
+      }
+    },
+    "Convertible": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Convertible (2022)"
+        ],
+        "Gasolina": [
+          "Convertible (2004)",
+          "Convertible (2009)",
+          "Convertible (2015)",
+          "Convertible (2018)",
+          "Convertible (2021)"
+        ],
+        "Diésel": [
+          "Convertible (2009)",
+          "Convertible (2015)",
+          "Convertible (2018)"
+        ]
+      }
+    },
+    "Countryman": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Countryman (2023)"
+        ],
+        "Mild Hybrid": [
+          "Countryman (2023)"
+        ],
+        "Gasolina": [
+          "Countryman (2010)",
+          "Countryman (2014)",
+          "Countryman (2016)",
+          "Countryman (2020)"
+        ],
+        "Diésel": [
+          "Countryman (2010)",
+          "Countryman (2014)",
+          "Countryman (2016)",
+          "Countryman (2020)"
+        ],
+        "Hybrid": [
+          "Countryman (2016)",
+          "Countryman (2020)"
+        ]
+      }
+    },
+    "Coupe": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Coupe (2011)"
+        ],
+        "Diésel": [
+          "Coupe (2011)"
+        ]
+      }
+    },
+    "Hatch": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Hatch (2018)",
+          "Hatch (2023)"
+        ],
+        "Gasolina": [
+          "Hatch (1997)",
+          "Hatch (2001)",
+          "Hatch (2006)",
+          "Hatch (2014)",
+          "Hatch (2018)",
+          "Hatch (2019)",
+          "Hatch (2021)"
+        ],
+        "Diésel": [
+          "Hatch (2001)",
+          "Hatch (2006)",
+          "Hatch (2014)",
+          "Hatch (2018)"
+        ]
+      }
+    },
+    "Paceman": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Paceman (2013)"
+        ],
+        "Diésel": [
+          "Paceman (2013)"
+        ]
+      }
+    },
+    "Roadster": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Roadster (2011)"
+        ],
+        "Diésel": [
+          "Roadster (2011)"
+        ]
+      }
     }
   },
   "MITSUBISHI": {
@@ -99537,9 +121292,26 @@ export const VEHICLES = {
     },
     "L 200": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014,
-        2015
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
       ],
       "fuels": {
         "Diésel": [
@@ -99548,7 +121320,14 @@ export const VEHICLES = {
           "AB3MEAM6AC4AAAA",
           "AG1MAAA5NJ5AAAA",
           "AV1NA5NJ5AAAA",
-          "AV1NAA5NJ5AAAA"
+          "AV1NAA5NJ5AAAA",
+          "L 200 (1995)",
+          "L 200 (2005)",
+          "L 200 (2015)"
+        ],
+        "Gasolina": [
+          "L 200 (1995)",
+          "L 200 (2005)"
         ]
       }
     },
@@ -99903,6 +121682,555 @@ export const VEHICLES = {
           "ACBBA5C5CAAA",
           "AEBCCCB5BAAA",
           "AEBCCCC5CAAA"
+        ]
+      }
+    },
+    "3000 GT": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "3000 GT (1994)"
+        ]
+      }
+    },
+    "ASX / RVR / Outlander Sport": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ASX / RVR / Outlander Sport (2010)",
+          "ASX / RVR / Outlander Sport (2012)",
+          "ASX / RVR / Outlander Sport (2016)",
+          "ASX / RVR / Outlander Sport (2019)",
+          "ASX / RVR / Outlander Sport (2023)"
+        ],
+        "Mild Hybrid": [
+          "ASX / RVR / Outlander Sport (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "ASX / RVR / Outlander Sport (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "ASX / RVR / Outlander Sport (2023)"
+        ],
+        "Diésel": [
+          "ASX / RVR / Outlander Sport (2010)",
+          "ASX / RVR / Outlander Sport (2012)",
+          "ASX / RVR / Outlander Sport (2016)"
+        ]
+      }
+    },
+    "Attrage": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Attrage (2013)"
+        ]
+      }
+    },
+    "Carisma": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Carisma Sedan (1995)"
+        ]
+      }
+    },
+    "Colt": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Colt 3 Doors (1996)",
+          "Colt 3 Doors (2004)",
+          "Colt 3 Doors (2005)",
+          "Colt 3 Doors (2008)",
+          "Colt 5 Doors (2004)",
+          "Colt 5 Doors (2008)",
+          "Colt 5 Doors (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Colt 5 Doors (2023)"
+        ],
+        "Diésel": [
+          "Colt 3 Doors (2004)",
+          "Colt 5 Doors (2004)"
+        ]
+      }
+    },
+    "Colt CZC": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Colt CZC (2006)"
+        ]
+      }
+    },
+    "Eclipse": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Eclipse (2000)",
+          "Eclipse (2005)",
+          "Eclipse (2009)",
+          "Eclipse Spyder (2000)",
+          "Eclipse Spyder (2006)",
+          "Eclipse Spyder (2009)"
+        ]
+      }
+    },
+    "Eclipse Cross": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Eclipse Cross (2025)"
+        ],
+        "Gasolina": [
+          "Eclipse Cross (2017)",
+          "Eclipse Cross (2021)"
+        ]
+      }
+    },
+    "Endeavor": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Endeavor (2002)",
+          "Endeavor (2008)"
+        ]
+      }
+    },
+    "Galant": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Galant (1997)",
+          "Galant (2004)",
+          "Galant (2008)"
+        ],
+        "Diésel": [
+          "Galant (1997)"
+        ]
+      }
+    },
+    "Galant Station": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Galant Station Wagon (1997)"
+        ],
+        "Diésel": [
+          "Galant Station Wagon (1997)"
+        ]
+      }
+    },
+    "Grandis": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grandis (2005)"
+        ],
+        "Diésel": [
+          "Grandis (2005)"
+        ]
+      }
+    },
+    "i-MiEV": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "i-MiEV (2009)"
+        ]
+      }
+    },
+    "Lancer": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lancer (2000)",
+          "Lancer (2003)",
+          "Lancer (2007)",
+          "Lancer (2008)",
+          "Lancer (2016)",
+          "Lancer Hatchback (2008)"
+        ],
+        "Diésel": [
+          "Lancer (2007)",
+          "Lancer Hatchback (2008)"
+        ]
+      }
+    },
+    "Lancer Combi": {
+      "years": [
+        2000,
+        2001,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lancer Combi (1992)",
+          "Lancer Combi (2003)"
+        ],
+        "Diésel": [
+          "Lancer Combi (1992)"
+        ]
+      }
+    },
+    "Lancer Evolution": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lancer Evolution (1999)",
+          "Lancer Evolution (2000)",
+          "Lancer Evolution (2003)",
+          "Lancer Evolution (2005)",
+          "Lancer Evolution (2007)"
+        ]
+      }
+    },
+    "Mirage": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mirage (2012)",
+          "Mirage (2016)",
+          "Mirage (2019)"
+        ]
+      }
+    },
+    "Mirage G4": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mirage G4 (2013)",
+          "Mirage G4 (2016)"
+        ]
+      }
+    },
+    "Outlander / Airtrek": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Outlander / Airtrek (2003)",
+          "Outlander / Airtrek (2007)",
+          "Outlander / Airtrek (2012)",
+          "Outlander / Airtrek (2016)",
+          "Outlander / Airtrek (2021)"
+        ],
+        "Diésel": [
+          "Outlander / Airtrek (2007)",
+          "Outlander / Airtrek (2012)",
+          "Outlander / Airtrek (2016)"
+        ],
+        "Mild Hybrid": [
+          "Outlander / Airtrek (2016)"
+        ],
+        "Hybrid": [
+          "Outlander / Airtrek (2012)"
+        ]
+      }
+    },
+    "Pajero": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Pajero 3 Doors (2000)",
+          "Pajero 3 Doors (2003)",
+          "Pajero 3 Doors (2006)",
+          "Pajero 5 Doors (2000)",
+          "Pajero 5 Doors (2003)",
+          "Pajero 5 Doors (2004)",
+          "Pajero 5 Doors (2006)"
+        ],
+        "Diésel": [
+          "Pajero 3 Doors (2000)",
+          "Pajero 3 Doors (2003)",
+          "Pajero 3 Doors (2006)",
+          "Pajero 5 Doors (2000)",
+          "Pajero 5 Doors (2003)",
+          "Pajero 5 Doors (2004)",
+          "Pajero 5 Doors (2006)"
+        ]
+      }
+    },
+    "Pajero Pinin / Shogun Pinin / Montero iO": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Pajero Pinin / Shogun Pinin / Montero iO (1998)",
+          "Pajero Pinin / Shogun Pinin / Montero iO (2001)"
+        ]
+      }
+    },
+    "Raider": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Raider Crew Cab (2005)",
+          "Raider Double Cab (2005)"
+        ]
+      }
+    },
+    "Space Star": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Space Star (2002)",
+          "Space Star (2013)"
+        ],
+        "Diésel": [
+          "Space Star (2002)"
         ]
       }
     }
@@ -100280,6 +122608,211 @@ export const VEHICLES = {
           "15W2"
         ]
       }
+    },
+    "3 wheeler": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "3 wheeler (2011)"
+        ]
+      }
+    },
+    "4/4 2 Seater": {
+      "years": [
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "4/4 2 Seater (2008)"
+        ]
+      }
+    },
+    "4/4 4 Seater": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "4/4 4 Seater (2006)"
+        ]
+      }
+    },
+    "Aero": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aero Coupe (2012)"
+        ]
+      }
+    },
+    "Aero 8": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aero 8 (2001)",
+          "Aero 8 (2004)",
+          "Aero 8 (2008)",
+          "Aero 8 (2015)"
+        ]
+      }
+    },
+    "Aero SuperSports": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aero SuperSports (2009)"
+        ]
+      }
+    },
+    "AeroMax": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "AeroMax (2005)"
+        ]
+      }
+    },
+    "Plus 4": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Plus 4 (2005)",
+          "Plus 4 (2006)",
+          "Plus 4 (2020)",
+          "Plus 4 (2022)"
+        ]
+      }
+    },
+    "Plus 8": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Plus 8 (2012)"
+        ]
+      }
+    },
+    "Plus Six": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Plus Six (2022)"
+        ],
+        "No especificado": [
+          "Plus Six (2019)"
+        ]
+      }
+    },
+    "Roadster": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Roadster (2004)",
+          "Roadster (2006)"
+        ]
+      }
     }
   },
   "MOTO STAR": {
@@ -100421,17 +122954,34 @@ export const VEHICLES = {
   "NISSAN": {
     "350Z": {
       "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2012
       ],
       "fuels": {
         "Gasolina": [
+          "350Z (2002)",
+          "350Z (2006)",
+          "350Z Roadster (2005)",
+          "350Z Roadster (2008)",
           "A02"
         ]
       }
     },
     "370Z": {
       "years": [
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -100443,6 +122993,10 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Gasolina": [
+          "370Z (2008)",
+          "370Z (2012)",
+          "370Z Roadster (2009)",
+          "370Z Roadster (2012)",
           "A01",
           "A02",
           "A03",
@@ -100522,8 +123076,16 @@ export const VEHICLES = {
     },
     "GT-R": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2007,
+        2008,
+        2009,
+        2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -100531,7 +123093,9 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
@@ -100542,7 +123106,12 @@ export const VEHICLES = {
           "A09",
           "A10",
           "A12",
-          "A14"
+          "A14",
+          "GT-R (1999)",
+          "GT-R (2007)",
+          "GT-R (2011)",
+          "GT-R (2016)",
+          "GT-R (2023)"
         ]
       }
     },
@@ -101918,6 +124487,1286 @@ export const VEHICLES = {
           "B01"
         ]
       }
+    },
+    "200 SX": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "200 SX (1994)"
+        ]
+      }
+    },
+    "370Z Nismo": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "370Z Nismo (2009)",
+          "370Z Nismo (2013)",
+          "370Z Nismo (2014)"
+        ]
+      }
+    },
+    "Almera / Pulsar": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Almera / Pulsar 3 Doors (1995)",
+          "Almera / Pulsar 3 Doors (2000)",
+          "Almera / Pulsar 3 Doors (2002)",
+          "Almera / Pulsar 5 Doors (1995)",
+          "Almera / Pulsar 5 Doors (2000)",
+          "Almera / Pulsar 5 Doors (2002)",
+          "Almera / Pulsar 5 Doors (2014)",
+          "Almera / Pulsar Sedan (1995)",
+          "Almera / Pulsar Sedan (2000)",
+          "Almera / Pulsar Sedan (2011)"
+        ],
+        "Diésel": [
+          "Almera / Pulsar 3 Doors (1995)",
+          "Almera / Pulsar 3 Doors (2000)",
+          "Almera / Pulsar 3 Doors (2002)",
+          "Almera / Pulsar 5 Doors (1995)",
+          "Almera / Pulsar 5 Doors (2000)",
+          "Almera / Pulsar 5 Doors (2002)",
+          "Almera / Pulsar 5 Doors (2014)",
+          "Almera / Pulsar Sedan (1995)",
+          "Almera / Pulsar Sedan (2000)"
+        ]
+      }
+    },
+    "Almera Tino": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Almera Tino (2000)"
+        ],
+        "Diésel": [
+          "Almera Tino (2000)"
+        ]
+      }
+    },
+    "Altima": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Altima (1998)",
+          "Altima (2002)",
+          "Altima (2007)",
+          "Altima (2012)",
+          "Altima (2018)",
+          "Altima (2022)"
+        ],
+        "Hybrid": [
+          "Altima (2007)"
+        ]
+      }
+    },
+    "Ariya": {
+      "years": [
+        2020,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Ariya (2020)",
+          "Ariya (2024)"
+        ]
+      }
+    },
+    "Armada": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Armada (2003)",
+          "Armada (2008)",
+          "Armada (2016)",
+          "Armada (2020)",
+          "Armada (2024)",
+          "Armada (2025)"
+        ]
+      }
+    },
+    "Cube": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cube (2008)"
+        ]
+      }
+    },
+    "Elgrand": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Elgrand (2025)"
+        ]
+      }
+    },
+    "Grand Livina": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grand Livina (2006)"
+        ]
+      }
+    },
+    "GT-R Nismo": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GT-R Nismo (2014)",
+          "GT-R Nismo (2019)",
+          "GT-R Nismo (2023)"
+        ]
+      }
+    },
+    "Juke": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Juke (2010)",
+          "Juke (2019)"
+        ],
+        "Diésel": [
+          "Juke (2010)"
+        ]
+      }
+    },
+    "Juke Nismo": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Juke Nismo (2013)"
+        ]
+      }
+    },
+    "Kicks": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kicks (2016)",
+          "Kicks (2020)",
+          "Kicks (2024)"
+        ]
+      }
+    },
+    "Leaf": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Leaf (2010)",
+          "Leaf (2017)",
+          "Leaf (2022)",
+          "Leaf (2025)"
+        ]
+      }
+    },
+    "Liberty": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Liberty (1999)"
+        ]
+      }
+    },
+    "Maxima": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Maxima (1995)",
+          "Maxima (2000)",
+          "Maxima (2004)",
+          "Maxima (2009)",
+          "Maxima (2016)",
+          "Maxima (2018)"
+        ]
+      }
+    },
+    "Micra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Micra 5 Doors (2025)"
+        ],
+        "Gasolina": [
+          "Micra 3 Doors (1998)",
+          "Micra 3 Doors (2000)",
+          "Micra 3 Doors (2003)",
+          "Micra 3 Doors (2005)",
+          "Micra 5 Doors (1998)",
+          "Micra 5 Doors (2000)",
+          "Micra 5 Doors (2003)",
+          "Micra 5 Doors (2005)",
+          "Micra 5 Doors (2007)",
+          "Micra 5 Doors (2010)",
+          "Micra 5 Doors (2013)",
+          "Micra 5 Doors (2017)"
+        ],
+        "Diésel": [
+          "Micra 3 Doors (1998)",
+          "Micra 3 Doors (2000)",
+          "Micra 3 Doors (2003)",
+          "Micra 3 Doors (2005)",
+          "Micra 5 Doors (1998)",
+          "Micra 5 Doors (2000)",
+          "Micra 5 Doors (2003)",
+          "Micra 5 Doors (2005)",
+          "Micra 5 Doors (2007)",
+          "Micra 5 Doors (2017)"
+        ]
+      }
+    },
+    "Micra C+C": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Micra C+C (2005)"
+        ]
+      }
+    },
+    "Murano": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Murano (2003)",
+          "Murano (2008)",
+          "Murano (2015)",
+          "Murano (2018)",
+          "Murano (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Murano (2015)"
+        ],
+        "Diésel": [
+          "Murano (2008)"
+        ]
+      }
+    },
+    "Murano CrossCabriolet": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Murano CrossCabriolet (2011)"
+        ]
+      }
+    },
+    "N7": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "N7 (2024)"
+        ]
+      }
+    },
+    "Navara / Frontier": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Diésel": [
+          "Navara / Frontier Double Cab (2005)",
+          "Navara / Frontier Double Cab (2015)",
+          "Navara / Frontier Double Cab (2019)",
+          "Navara / Frontier King Cab (2005)",
+          "Navara / Frontier King Cab (2009)",
+          "Navara / Frontier King Cab (2015)",
+          "Navara / Frontier King Cab (2018)",
+          "Navara / Frontier King Cab (2019)"
+        ],
+        "Gasolina": [
+          "Navara / Frontier Double Cab (2005)",
+          "Navara / Frontier Double Cab (2021)",
+          "Navara / Frontier King Cab (2005)"
+        ]
+      }
+    },
+    "Note": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Note (2005)",
+          "Note (2008)",
+          "Note (2013)",
+          "Note (2017)"
+        ],
+        "Diésel": [
+          "Note (2005)",
+          "Note (2008)",
+          "Note (2013)"
+        ]
+      }
+    },
+    "NP300": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Diésel": [
+          "NP300 (2008)"
+        ]
+      }
+    },
+    "NV": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "NV (2009)"
+        ]
+      }
+    },
+    "Pathfinder": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Pathfinder (2001)",
+          "Pathfinder (2005)",
+          "Pathfinder (2007)",
+          "Pathfinder (2012)",
+          "Pathfinder (2021)",
+          "Pathfinder (2025)"
+        ],
+        "No especificado": [
+          "Pathfinder (2016)"
+        ],
+        "Diésel": [
+          "Pathfinder (2005)",
+          "Pathfinder (2007)"
+        ]
+      }
+    },
+    "Patrol LWB": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Patrol LWB (2010)",
+          "Patrol LWB (2014)",
+          "Patrol LWB (2024)"
+        ],
+        "Diésel": [
+          "Patrol LWB (1998)",
+          "Patrol LWB (2004)"
+        ]
+      }
+    },
+    "Patrol SWB": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Diésel": [
+          "Patrol SWB (1998)",
+          "Patrol SWB (2004)"
+        ]
+      }
+    },
+    "Pixo": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Pixo (2009)"
+        ]
+      }
+    },
+    "Platina": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Platina (2006)"
+        ]
+      }
+    },
+    "Primera": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Primera Hatchback (1999)",
+          "Primera Hatchback (2002)",
+          "Primera Sedan (1999)",
+          "Primera Sedan (2002)"
+        ],
+        "Diésel": [
+          "Primera Hatchback (1999)",
+          "Primera Hatchback (2002)",
+          "Primera Sedan (1999)",
+          "Primera Sedan (2002)"
+        ]
+      }
+    },
+    "Primera Break": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Primera Break (1999)",
+          "Primera Break (2002)"
+        ],
+        "Diésel": [
+          "Primera Break (1999)",
+          "Primera Break (2002)"
+        ]
+      }
+    },
+    "Qashqai": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Qashqai (2021)",
+          "Qashqai (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Qashqai (2024)"
+        ],
+        "Eléctrico": [
+          "Qashqai (2021)"
+        ],
+        "Gasolina": [
+          "Qashqai (2007)",
+          "Qashqai (2010)",
+          "Qashqai (2013)",
+          "Qashqai (2018)"
+        ],
+        "Diésel": [
+          "Qashqai (2007)",
+          "Qashqai (2010)",
+          "Qashqai (2013)",
+          "Qashqai (2018)"
+        ]
+      }
+    },
+    "Quest": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Quest (2004)",
+          "Quest (2009)",
+          "Quest (2011)"
+        ]
+      }
+    },
+    "Rogue": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rogue (2007)",
+          "Rogue (2013)",
+          "Rogue (2016)",
+          "Rogue (2019)",
+          "Rogue (2020)",
+          "Rogue (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Rogue (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Rogue (2016)"
+        ]
+      }
+    },
+    "Sakura": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Sakura (2022)"
+        ]
+      }
+    },
+    "Sentra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sentra (2000)",
+          "Sentra (2004)",
+          "Sentra (2006)",
+          "Sentra (2012)",
+          "Sentra (2015)",
+          "Sentra (2019)",
+          "Sentra (2023)",
+          "Sentra (2025)"
+        ]
+      }
+    },
+    "Serena": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Serena (2016)"
+        ],
+        "Gasolina": [
+          "Serena (1991)",
+          "Serena (1999)",
+          "Serena (2005)",
+          "Serena (2010)"
+        ],
+        "Diésel": [
+          "Serena (1991)",
+          "Serena (1999)"
+        ]
+      }
+    },
+    "Skyline": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Skyline (2001)",
+          "Skyline (2002)",
+          "Skyline (2006)"
+        ]
+      }
+    },
+    "Sunny": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sunny (2010)"
+        ],
+        "Diésel": [
+          "Sunny (2010)"
+        ]
+      }
+    },
+    "Teana": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Teana (2003)",
+          "Teana (2009)"
+        ]
+      }
+    },
+    "Terrano": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "Terrano 3 Doors (1996)",
+          "Terrano 3 Doors (2000)",
+          "Terrano 3 Doors (2002)",
+          "Terrano 5 Doors (1996)",
+          "Terrano 5 Doors (2000)",
+          "Terrano 5 Doors (2002)",
+          "Terrano 5 Doors (2013)"
+        ],
+        "Gasolina": [
+          "Terrano 3 Doors (1996)",
+          "Terrano 3 Doors (2000)",
+          "Terrano 5 Doors (1996)",
+          "Terrano 5 Doors (2000)",
+          "Terrano 5 Doors (2013)"
+        ]
+      }
+    },
+    "Tiida / Versa": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tiida / Versa (2006)",
+          "Tiida / Versa Sedan (2006)",
+          "Tiida / Versa Sedan (2011)",
+          "Tiida / Versa Sedan (2019)",
+          "Tiida / Versa Sedan (2022)"
+        ],
+        "Diésel": [
+          "Tiida / Versa (2006)",
+          "Tiida / Versa Sedan (2006)"
+        ]
+      }
+    },
+    "Titan": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Titan Crew Cab (2004)",
+          "Titan Crew Cab (2016)",
+          "Titan Crew Cab (2019)",
+          "Titan King Cab (2004)",
+          "Titan King Cab (2009)"
+        ],
+        "Diésel": [
+          "Titan Crew Cab (2015)"
+        ]
+      }
+    },
+    "X-Trail": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "X-Trail (2001)",
+          "X-Trail (2003)",
+          "X-Trail (2007)",
+          "X-Trail (2014)",
+          "X-Trail (2017)",
+          "X-Trail (2022)"
+        ],
+        "Hybrid Gasoline": [
+          "X-Trail (2022)"
+        ],
+        "Mild Hybrid": [
+          "X-Trail (2022)"
+        ],
+        "Diésel": [
+          "X-Trail (2001)",
+          "X-Trail (2003)",
+          "X-Trail (2007)",
+          "X-Trail (2014)",
+          "X-Trail (2017)"
+        ]
+      }
+    },
+    "XTerra": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XTerra (2002)",
+          "XTerra (2005)",
+          "XTerra (2009)"
+        ]
+      }
+    },
+    "Z Nismo": {
+      "years": [
+        2021,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Z Nismo (2021)",
+          "Z Nismo (2023)"
+        ]
+      }
     }
   },
   "OLEOPEL": {
@@ -101972,6 +125821,16 @@ export const VEHICLES = {
       "fuels": {
         "Eléctrico": [
           "53B002A"
+        ]
+      }
+    },
+    "7": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "7 (2026)"
         ]
       }
     }
@@ -114494,6 +138353,1027 @@ export const VEHICLES = {
           "BA2R5FPHA7"
         ]
       }
+    },
+    "Adam": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Adam (2013)"
+        ]
+      }
+    },
+    "Adam Rocks": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Adam Rocks (2013)"
+        ]
+      }
+    },
+    "Agila": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Agila (2000)",
+          "Agila (2003)",
+          "Agila (2008)"
+        ],
+        "Diésel": [
+          "Agila (2003)",
+          "Agila (2008)"
+        ]
+      }
+    },
+    "Ampera": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Ampera (2016)"
+        ],
+        "Hybrid": [
+          "Ampera (2011)"
+        ]
+      }
+    },
+    "Antara": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Antara (2007)",
+          "Antara (2010)"
+        ],
+        "Diésel": [
+          "Antara (2007)",
+          "Antara (2010)"
+        ]
+      }
+    },
+    "Astra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Diésel": [
+          "Astra 3 Doors (1998)",
+          "Astra 3 Doors (2005)",
+          "Astra 5 Doors (1998)",
+          "Astra 5 Doors (2004)",
+          "Astra 5 Doors (2007)",
+          "Astra 5 Doors (2009)",
+          "Astra 5 Doors (2015)",
+          "Astra 5 Doors (2019)",
+          "Astra 5 Doors (2021)",
+          "Astra 5 Doors (2026)",
+          "Astra Cabriolet (2001)",
+          "Astra Coupe (2000)",
+          "Astra Sedan (1998)",
+          "Astra Sedan (2007)",
+          "Astra Sedan (2012)"
+        ],
+        "Eléctrico": [
+          "Astra 5 Doors (2022)",
+          "Astra 5 Doors (2026)"
+        ],
+        "Mild Hybrid": [
+          "Astra 5 Doors (2026)"
+        ],
+        "Plug-in Hybrid": [
+          "Astra 5 Doors (2026)"
+        ],
+        "Gasolina": [
+          "Astra 3 Doors (1998)",
+          "Astra 3 Doors (2005)",
+          "Astra 5 Doors (1998)",
+          "Astra 5 Doors (2004)",
+          "Astra 5 Doors (2007)",
+          "Astra 5 Doors (2009)",
+          "Astra 5 Doors (2015)",
+          "Astra 5 Doors (2019)",
+          "Astra 5 Doors (2021)",
+          "Astra Cabriolet (2001)",
+          "Astra Coupe (2000)",
+          "Astra Sedan (1998)",
+          "Astra Sedan (2007)",
+          "Astra Sedan (2012)"
+        ],
+        "Natural Gas": [
+          "Astra 5 Doors (2009)"
+        ]
+      }
+    },
+    "Astra Caravan": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra Caravan (1998)",
+          "Astra Caravan (2002)",
+          "Astra Caravan (2004)"
+        ],
+        "Diésel": [
+          "Astra Caravan (1998)",
+          "Astra Caravan (2004)"
+        ]
+      }
+    },
+    "Astra GTC": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra GTC (2011)"
+        ],
+        "Diésel": [
+          "Astra GTC (2011)"
+        ]
+      }
+    },
+    "Astra OPC": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra OPC (2000)",
+          "Astra OPC (2005)",
+          "Astra OPC (2013)"
+        ]
+      }
+    },
+    "Astra Sports Tourer": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Astra Sports Tourer (2022)"
+        ],
+        "Gasolina": [
+          "Astra Sports Tourer (2010)",
+          "Astra Sports Tourer (2015)",
+          "Astra Sports Tourer (2019)",
+          "Astra Sports Tourer (2021)"
+        ],
+        "Diésel": [
+          "Astra Sports Tourer (2010)",
+          "Astra Sports Tourer (2015)",
+          "Astra Sports Tourer (2019)",
+          "Astra Sports Tourer (2021)"
+        ],
+        "Plug-in Hybrid": [
+          "Astra Sports Tourer (2021)"
+        ]
+      }
+    },
+    "Astra Twin Top /": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra Twin Top / Cabriolet (2006)"
+        ],
+        "Diésel": [
+          "Astra Twin Top / Cabriolet (2006)"
+        ]
+      }
+    },
+    "Cascada": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cascada (2013)"
+        ],
+        "Diésel": [
+          "Cascada (2013)"
+        ]
+      }
+    },
+    "Combo": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Combo (2001)",
+          "Combo (2011)",
+          "Combo (2018)"
+        ],
+        "Diésel": [
+          "Combo (2001)",
+          "Combo (2011)",
+          "Combo (2018)"
+        ],
+        "Natural Gas": [
+          "Combo (2011)"
+        ]
+      }
+    },
+    "Corsa": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corsa 3 Doors (1997)",
+          "Corsa 3 Doors (2000)",
+          "Corsa 3 Doors (2003)",
+          "Corsa 3 Doors (2006)",
+          "Corsa 3 Doors (2010)",
+          "Corsa 3 Doors (2014)",
+          "Corsa 5 Doors (1997)",
+          "Corsa 5 Doors (2000)",
+          "Corsa 5 Doors (2003)",
+          "Corsa 5 Doors (2006)",
+          "Corsa 5 Doors (2010)",
+          "Corsa 5 Doors (2014)",
+          "Corsa 5 Doors (2019)",
+          "Corsa 5 Doors (2023)"
+        ],
+        "Eléctrico": [
+          "Corsa 5 Doors (2019)",
+          "Corsa 5 Doors (2023)"
+        ],
+        "Mild Hybrid": [
+          "Corsa 5 Doors (2023)"
+        ],
+        "Diésel": [
+          "Corsa 3 Doors (1997)",
+          "Corsa 3 Doors (2000)",
+          "Corsa 3 Doors (2003)",
+          "Corsa 3 Doors (2006)",
+          "Corsa 3 Doors (2010)",
+          "Corsa 3 Doors (2014)",
+          "Corsa 5 Doors (1997)",
+          "Corsa 5 Doors (2000)",
+          "Corsa 5 Doors (2003)",
+          "Corsa 5 Doors (2006)",
+          "Corsa 5 Doors (2010)",
+          "Corsa 5 Doors (2014)",
+          "Corsa 5 Doors (2019)"
+        ],
+        "Natural Gas": [
+          "Corsa 3 Doors (2014)",
+          "Corsa 5 Doors (2014)"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "Corsa 3 Doors (2010)"
+        ]
+      }
+    },
+    "Corsa GSE": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Corsa GSE (2026)"
+        ]
+      }
+    },
+    "Corsa OPC": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corsa OPC (2007)",
+          "Corsa OPC (2015)"
+        ]
+      }
+    },
+    "Crossland": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Crossland (2017)",
+          "Crossland (2020)"
+        ],
+        "Diésel": [
+          "Crossland (2017)",
+          "Crossland (2020)"
+        ]
+      }
+    },
+    "Frontera": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Frontera (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Frontera (2024)"
+        ],
+        "Gasolina": [
+          "Frontera (1998)"
+        ],
+        "Diésel": [
+          "Frontera (1998)"
+        ]
+      }
+    },
+    "Grandland": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Grandland (2024)"
+        ],
+        "Gasolina": [
+          "Grandland (2017)",
+          "Grandland (2021)"
+        ],
+        "Diésel": [
+          "Grandland (2017)",
+          "Grandland (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "Grandland (2021)"
+        ],
+        "Plug-in Hybrid": [
+          "Grandland (2021)"
+        ],
+        "Hybrid": [
+          "Grandland (2017)"
+        ]
+      }
+    },
+    "GT": {
+      "years": [
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GT (2007)"
+        ]
+      }
+    },
+    "Insignia": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia (2008)",
+          "Insignia (2013)",
+          "Insignia (2017)",
+          "Insignia (2019)"
+        ],
+        "Diésel": [
+          "Insignia (2008)",
+          "Insignia (2013)",
+          "Insignia (2017)",
+          "Insignia (2019)"
+        ],
+        "Natural Gas": [
+          "Insignia (2013)"
+        ]
+      }
+    },
+    "Insignia Country Tourer": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia Country Tourer (2013)"
+        ],
+        "Diésel": [
+          "Insignia Country Tourer (2013)"
+        ]
+      }
+    },
+    "Insignia GSi": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia GSi (2017)"
+        ]
+      }
+    },
+    "Insignia OPC": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia OPC (2009)"
+        ]
+      }
+    },
+    "Insignia Sports Tourer": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia Sports Tourer (2009)",
+          "Insignia Sports Tourer (2017)"
+        ],
+        "Diésel": [
+          "Insignia Sports Tourer (2009)",
+          "Insignia Sports Tourer (2017)"
+        ],
+        "Natural Gas": [
+          "Insignia Sports Tourer (2009)"
+        ],
+        "Ethanol": [
+          "Insignia Sports Tourer (2009)"
+        ]
+      }
+    },
+    "Insignia Sports Tourer GSi": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia Sports Tourer GSi (2017)"
+        ],
+        "Diésel": [
+          "Insignia Sports Tourer GSi (2017)"
+        ]
+      }
+    },
+    "Insignia Sports Tourer OPC": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia Sports Tourer OPC (2009)",
+          "Insignia Sports Tourer OPC (2013)"
+        ]
+      }
+    },
+    "Karl": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Karl (2015)"
+        ]
+      }
+    },
+    "Meriva": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Meriva (2003)",
+          "Meriva (2005)",
+          "Meriva (2006)",
+          "Meriva (2010)",
+          "Meriva (2014)"
+        ],
+        "Diésel": [
+          "Meriva (2003)",
+          "Meriva (2006)",
+          "Meriva (2010)",
+          "Meriva (2014)"
+        ],
+        "Natural Gas": [
+          "Meriva (2014)"
+        ]
+      }
+    },
+    "Mokka": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mokka (2012)",
+          "Mokka (2016)",
+          "Mokka (2024)"
+        ],
+        "Eléctrico": [
+          "Mokka (2020)",
+          "Mokka (2024)"
+        ],
+        "Mild Hybrid": [
+          "Mokka (2024)"
+        ],
+        "Diésel": [
+          "Mokka (2012)",
+          "Mokka (2016)"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "Mokka (2016)"
+        ]
+      }
+    },
+    "Omega": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Omega Sedan (1999)"
+        ],
+        "Diésel": [
+          "Omega Sedan (1999)"
+        ]
+      }
+    },
+    "Omega Caravan": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Omega Caravan (1999)"
+        ],
+        "Diésel": [
+          "Omega Caravan (1999)"
+        ]
+      }
+    },
+    "Rocks-e": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Rocks-e (2021)"
+        ]
+      }
+    },
+    "Signum": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Signum (2003)",
+          "Signum (2005)"
+        ],
+        "Diésel": [
+          "Signum (2003)",
+          "Signum (2005)"
+        ]
+      }
+    },
+    "Speedster": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Speedster (2001)"
+        ]
+      }
+    },
+    "Tigra": {
+      "years": [
+        2000,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tigra (1994)",
+          "Tigra (2005)"
+        ],
+        "Diésel": [
+          "Tigra (2005)"
+        ]
+      }
+    },
+    "Vectra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vectra Hatchback (1999)",
+          "Vectra Hatchback (2002)",
+          "Vectra Hatchback (2005)",
+          "Vectra Sedan (1999)",
+          "Vectra Sedan (2002)",
+          "Vectra Sedan (2005)"
+        ],
+        "Diésel": [
+          "Vectra Hatchback (1999)",
+          "Vectra Hatchback (2002)",
+          "Vectra Hatchback (2005)",
+          "Vectra Sedan (1999)",
+          "Vectra Sedan (2002)",
+          "Vectra Sedan (2005)"
+        ]
+      }
+    },
+    "Vectra Caravan": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vectra Caravan (1999)",
+          "Vectra Caravan (2002)",
+          "Vectra Caravan (2005)"
+        ],
+        "Diésel": [
+          "Vectra Caravan (1999)",
+          "Vectra Caravan (2002)",
+          "Vectra Caravan (2005)"
+        ]
+      }
+    },
+    "Vectra OPC": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vectra OPC (2005)"
+        ]
+      }
+    },
+    "Zafira": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "Zafira (1999)",
+          "Zafira (2003)",
+          "Zafira (2006)",
+          "Zafira (2008)",
+          "Zafira (2011)",
+          "Zafira (2016)",
+          "Zafira (2019)"
+        ],
+        "Gasolina": [
+          "Zafira (1999)",
+          "Zafira (2001)",
+          "Zafira (2003)",
+          "Zafira (2005)",
+          "Zafira (2006)",
+          "Zafira (2008)",
+          "Zafira (2011)",
+          "Zafira (2016)"
+        ],
+        "Natural Gas": [
+          "Zafira (2008)",
+          "Zafira (2011)",
+          "Zafira (2016)"
+        ],
+        "Hybrid": [
+          "Zafira (2006)"
+        ]
+      }
     }
   },
   "PALLARES": {
@@ -114668,27 +139548,51 @@ export const VEHICLES = {
     },
     "106": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
         2014
       ],
       "fuels": {
         "Gasolina": [
+          "106 (1996)",
           "1CHDZE",
           "T"
+        ],
+        "Diésel": [
+          "106 (1996)"
         ]
       }
     },
     "107": {
       "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
         2011,
         2012,
+        2013,
         2014
       ],
       "fuels": {
         "Gasolina": [
+          "107 3 Doors (2005)",
+          "107 3 Doors (2008)",
+          "107 5 Doors (2005)",
+          "107 5 Doors (2008)",
           "P",
           "PMCFB4",
           "PNCFB0/P",
           "PNCFB4"
+        ],
+        "Diésel": [
+          "107 3 Doors (2005)",
+          "107 3 Doors (2008)",
+          "107 5 Doors (2008)"
         ]
       }
     },
@@ -114722,6 +139626,7 @@ export const VEHICLES = {
           "W1A000"
         ],
         "Gasolina": [
+          "108 (2014)",
           "91A000",
           "B1A000",
           "CFB5-H1B000",
@@ -114900,6 +139805,7 @@ export const VEHICLES = {
     },
     "2008": {
       "years": [
+        2013,
         2014,
         2015,
         2016,
@@ -114907,7 +139813,9 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
@@ -114915,6 +139823,10 @@ export const VEHICLES = {
           "/6",
           "0",
           "1PS",
+          "2008 (2013)",
+          "2008 (2016)",
+          "2008 (2019)",
+          "2008 (2023)",
           "6",
           "6/S",
           "BUHZM/S",
@@ -114992,12 +139904,18 @@ export const VEHICLES = {
           "YHZS-R2BG00"
         ],
         "Eléctrico": [
+          "2008 (2019)",
+          "2008 (2023)",
           "ZKXZ-R0A000",
           "ZKXZ-R0C000"
         ],
         "Gasolina": [
           "0",
           "1PS",
+          "2008 (2013)",
+          "2008 (2016)",
+          "2008 (2019)",
+          "2008 (2023)",
           "3/J1S",
           "3/J2S",
           "3/JS",
@@ -115039,6 +139957,9 @@ export const VEHICLES = {
           "S/2S",
           "S/S",
           "T/S"
+        ],
+        "Hybrid Gasoline": [
+          "2008 (2023)"
         ]
       }
     },
@@ -115834,11 +140755,27 @@ export const VEHICLES = {
     },
     "206": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
         2012,
         2014
       ],
       "fuels": {
         "Diésel": [
+          "206 3 Doors (1998)",
+          "206 3 Doors (2002)",
+          "206 5 Doors (1998)",
+          "206 5 Doors (2002)",
           "2A8HZA",
           "2M8HR0",
           "8U8HR0",
@@ -115846,6 +140783,12 @@ export const VEHICLES = {
           "T"
         ],
         "Gasolina": [
+          "206 3 Doors (1998)",
+          "206 3 Doors (2002)",
+          "206 3 Doors (2003)",
+          "206 5 Doors (1998)",
+          "206 5 Doors (2002)",
+          "206 Sedan (2006)",
           "2HNFUF",
           "F"
         ]
@@ -115853,6 +140796,10 @@ export const VEHICLES = {
     },
     "207": {
       "years": [
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
@@ -115864,6 +140811,10 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "1",
+          "207 3 Doors (2006)",
+          "207 3 Doors (2009)",
+          "207 5 Doors (2006)",
+          "207 5 Doors (2009)",
           "3HRHYB",
           "EB9HR8",
           "PNCFB0/P",
@@ -115879,6 +140830,11 @@ export const VEHICLES = {
         "Gasolina": [
           "0",
           "1",
+          "207 3 Doors (2006)",
+          "207 3 Doors (2007)",
+          "207 3 Doors (2009)",
+          "207 5 Doors (2006)",
+          "207 5 Doors (2009)",
           "WA8FP0/1",
           "WB5FS0",
           "WB5FS0/1",
@@ -116034,6 +140990,7 @@ export const VEHICLES = {
     "208": {
       "years": [
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -116042,13 +140999,19 @@ export const VEHICLES = {
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
           "/6",
           "/S",
           "0",
+          "208 3 doors (2012)",
+          "208 3 doors (2015)",
+          "208 5 doors (2012)",
+          "208 5 doors (2015)",
+          "208 5 doors (2019)",
           "6",
           "6/1S",
           "6/S",
@@ -116132,6 +141095,8 @@ export const VEHICLES = {
           "YHTK-J2B700"
         ],
         "Eléctrico": [
+          "208 5 doors (2019)",
+          "208 5 doors (2023)",
           "ZKXZ-J0A000",
           "ZKXZ-J0C000"
         ],
@@ -116141,6 +141106,12 @@ export const VEHICLES = {
         ],
         "Gasolina": [
           "0",
+          "208 3 doors (2012)",
+          "208 3 doors (2015)",
+          "208 5 doors (2012)",
+          "208 5 doors (2015)",
+          "208 5 doors (2019)",
+          "208 5 doors (2023)",
           "6",
           "6/S",
           "CA5FS0",
@@ -116200,6 +141171,9 @@ export const VEHICLES = {
           "T/S",
           "W1A000",
           "XXHMZ6"
+        ],
+        "Mild Hybrid": [
+          "208 5 doors (2023)"
         ]
       }
     },
@@ -117108,9 +142082,11 @@ export const VEHICLES = {
     },
     "3008": {
       "years": [
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -117119,7 +142095,9 @@ export const VEHICLES = {
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Diésel": [
@@ -117162,6 +142140,10 @@ export const VEHICLES = {
           "1S",
           "2",
           "2P",
+          "3008 (2009)",
+          "3008 (2013)",
+          "3008 (2016)",
+          "3008 (2020)",
           "AHWW-C2B000",
           "AHXH-C2B000",
           "AHXH-C2F000",
@@ -117221,6 +142203,10 @@ export const VEHICLES = {
           "0UNHY",
           "1",
           "1S",
+          "3008 (2009)",
+          "3008 (2013)",
+          "3008 (2016)",
+          "3008 (2020)",
           "5GFR-C1B000",
           "5GFR-C1K000",
           "5GFR-C1U000",
@@ -117258,6 +142244,16 @@ export const VEHICLES = {
         "Híbrido gasolina": [
           "5GBU-C1J000",
           "DGZU-C1J000"
+        ],
+        "Eléctrico": [
+          "3008 (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "3008 (2013)",
+          "3008 (2020)"
+        ],
+        "Hybrid": [
+          "3008 (2009)"
         ]
       }
     },
@@ -118036,17 +143032,34 @@ export const VEHICLES = {
     },
     "307": {
       "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
         2012,
         2014,
         2020
       ],
       "fuels": {
         "Diésel": [
+          "307 3 Doors (2001)",
+          "307 3 Doors (2005)",
+          "307 5 Doors (2001)",
+          "307 5 Doors (2005)",
           "3C9HXC",
           "B",
           "C"
         ],
         "Gasolina": [
+          "307 3 Doors (2001)",
+          "307 3 Doors (2005)",
+          "307 5 Doors (2001)",
+          "307 5 Doors (2005)",
+          "307 Sedan (2006)",
           "3CNFUC",
           "3CNFUN"
         ]
@@ -118054,9 +143067,12 @@ export const VEHICLES = {
     },
     "308": {
       "years": [
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -118065,7 +143081,10 @@ export const VEHICLES = {
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -118075,6 +143094,12 @@ export const VEHICLES = {
           "1PS",
           "1S",
           "2PS",
+          "308 3 Doors (2008)",
+          "308 5 Doors (2008)",
+          "308 5 Doors (2013)",
+          "308 5 Doors (2014)",
+          "308 5 Doors (2017)",
+          "308 5 Doors (2021)",
           "4*****/4E9HP*/4EP0/1",
           "49HD8/1PS",
           "4B9HD8/S",
@@ -118234,6 +143259,13 @@ export const VEHICLES = {
         ],
         "Gasolina": [
           "1",
+          "308 3 Doors (2008)",
+          "308 5 Doors (2008)",
+          "308 5 Doors (2013)",
+          "308 5 Doors (2014)",
+          "308 5 Doors (2015)",
+          "308 5 Doors (2017)",
+          "308 5 Doors (2021)",
           "4B5FS0",
           "4B5FVA",
           "4C5FS0/1",
@@ -118373,6 +143405,21 @@ export const VEHICLES = {
           "R1F000",
           "R1K000",
           "R2F000"
+        ],
+        "Eléctrico": [
+          "308 5 Doors (2025)"
+        ],
+        "Mild Hybrid": [
+          "308 5 Doors (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "308 5 Doors (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "308 5 Doors (2021)"
+        ],
+        "Ethanol": [
+          "308 5 Doors (2008)"
         ]
       }
     },
@@ -119048,14 +144095,51 @@ export const VEHICLES = {
     },
     "308 SW": {
       "years": [
-        2010
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
-          "1"
+          "1",
+          "308 SW (2008)",
+          "308 SW (2014)",
+          "308 SW (2017)",
+          "308 SW (2021)"
         ],
         "Gasolina": [
-          "1"
+          "1",
+          "308 SW (2008)",
+          "308 SW (2014)",
+          "308 SW (2017)",
+          "308 SW (2021)"
+        ],
+        "Eléctrico": [
+          "308 SW (2025)"
+        ],
+        "Mild Hybrid": [
+          "308 SW (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "308 SW (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "308 SW (2021)"
         ]
       }
     },
@@ -120010,6 +145094,9 @@ export const VEHICLES = {
     },
     "4007": {
       "years": [
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012
@@ -120019,7 +145106,11 @@ export const VEHICLES = {
           "1",
           "2",
           "2P",
+          "4007 (2007)",
           "P"
+        ],
+        "Gasolina": [
+          "4007 (2007)"
         ]
       }
     },
@@ -120046,11 +145137,15 @@ export const VEHICLES = {
     "4008": {
       "years": [
         2012,
+        2013,
         2014,
-        2015
+        2015,
+        2016,
+        2017
       ],
       "fuels": {
         "Diésel": [
+          "4008 (2012)",
           "BU6HZB/S",
           "BU9HD8/S",
           "BU9HDB/S"
@@ -120071,20 +145166,37 @@ export const VEHICLES = {
     },
     "406": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
         2012,
         2014
       ],
       "fuels": {
         "Diésel": [
+          "406 (1999)",
+          "406 Coupe (1997)",
+          "406 Coupe (2003)",
           "E"
         ],
         "Gasolina": [
+          "406 (1999)",
+          "406 Coupe (1997)",
+          "406 Coupe (2003)",
           "T"
         ]
       }
     },
     "407": {
       "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
@@ -120094,12 +145206,18 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "1",
+          "407 (2004)",
+          "407 Coupe (2005)",
           "6D9HZ",
           "6D9HZC",
           "6DRHRE/SF",
           "6ERHRJ",
           "6JUHZJ",
           "8"
+        ],
+        "Gasolina": [
+          "407 (2004)",
+          "407 Coupe (2005)"
         ]
       }
     },
@@ -120175,9 +145293,11 @@ export const VEHICLES = {
     },
     "5008": {
       "years": [
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -120186,7 +145306,10 @@ export const VEHICLES = {
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -120282,6 +145405,10 @@ export const VEHICLES = {
           "1S",
           "2S",
           "43551",
+          "5008 (2009)",
+          "5008 (2013)",
+          "5008 (2016)",
+          "5008 (2020)",
           "A09HR8/1",
           "ABHZM/2S",
           "AHXH-S2F000",
@@ -120330,6 +145457,10 @@ export const VEHICLES = {
           "0EHNYM/1S",
           "0U9HD8/PS",
           "1",
+          "5008 (2009)",
+          "5008 (2013)",
+          "5008 (2016)",
+          "5008 (2020)",
           "5GFR-S1B000",
           "5GFR-S1K000",
           "5GFR-S1U000",
@@ -120356,6 +145487,15 @@ export const VEHICLES = {
           "M/S",
           "T/1S",
           "T/S"
+        ],
+        "Eléctrico": [
+          "5008 (2024)"
+        ],
+        "Mild Hybrid": [
+          "5008 (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "5008 (2024)"
         ]
       }
     },
@@ -121202,15 +146342,20 @@ export const VEHICLES = {
     },
     "508": {
       "years": [
+        2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
         2017,
         2018,
+        2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
@@ -121219,6 +146364,10 @@ export const VEHICLES = {
           "0EBHZM/1S",
           "0S",
           "1P",
+          "508 (2010)",
+          "508 (2014)",
+          "508 (2018)",
+          "508 (2023)",
           "6BHDI120",
           "8/1",
           "8/PS",
@@ -121294,6 +146443,10 @@ export const VEHICLES = {
           "YHZT-R2K800"
         ],
         "Gasolina": [
+          "508 (2010)",
+          "508 (2014)",
+          "508 (2018)",
+          "508 (2023)",
           "5GFT-C1B100",
           "5GFT-C1BG00",
           "5GFT-C1K100",
@@ -121335,6 +146488,14 @@ export const VEHICLES = {
           "DGZT-C1E000",
           "DGZT-R1A000",
           "DGZT-R1E000"
+        ],
+        "Plug-in Hybrid": [
+          "508 (2023)"
+        ],
+        "Hybrid": [
+          "508 (2010)",
+          "508 (2014)",
+          "508 (2018)"
         ]
       }
     },
@@ -121887,6 +147048,13 @@ export const VEHICLES = {
     },
     "807": {
       "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
         2010,
         2012,
         2014,
@@ -121898,6 +147066,7 @@ export const VEHICLES = {
         "Diésel": [
           "0",
           "1A",
+          "807 (2002)",
           "B",
           "EB4HSJ",
           "EB4HWG",
@@ -121906,6 +147075,9 @@ export const VEHICLES = {
           "EBRHHA",
           "EBRHKH",
           "EBRHRH"
+        ],
+        "Gasolina": [
+          "807 (2002)"
         ]
       }
     },
@@ -133564,7 +158736,11 @@ export const VEHICLES = {
     },
     "RCZ": {
       "years": [
+        2009,
+        2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -133573,7 +158749,9 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "4J5FU8",
-          "4JRHH8"
+          "4JRHH8",
+          "RCZ (2009)",
+          "RCZ (2013)"
         ],
         "Gasolina": [
           "4J5FGM",
@@ -133582,7 +158760,9 @@ export const VEHICLES = {
           "4J5FV8",
           "4J5FVA",
           "M",
-          "M/GT"
+          "M/GT",
+          "RCZ (2009)",
+          "RCZ (2013)"
         ]
       }
     },
@@ -133602,10 +158782,12 @@ export const VEHICLES = {
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023
       ],
       "fuels": {
         "Diésel": [
+          "RIFTER (2018)",
           "YHT2-A2C310",
           "YHT2-A2P310",
           "YHT2-B2C310",
@@ -133647,7 +158829,8 @@ export const VEHICLES = {
           "HNS3-A144104",
           "HNS3-B14410",
           "HNS3-C14410",
-          "HNS3-D14410"
+          "HNS3-D14410",
+          "RIFTER (2018)"
         ]
       }
     },
@@ -135011,6 +160194,529 @@ export const VEHICLES = {
           "DGZU-C1J000"
         ]
       }
+    },
+    "1007": {
+      "years": [
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "1007 (2007)"
+        ],
+        "Diésel": [
+          "1007 (2007)"
+        ]
+      }
+    },
+    "206 CC": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "206 CC (2001)"
+        ],
+        "Diésel": [
+          "206 CC (2001)"
+        ]
+      }
+    },
+    "206 SW": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "206 SW (2002)"
+        ],
+        "Diésel": [
+          "206 SW (2002)"
+        ]
+      }
+    },
+    "206+": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "206+ 3 Doors (2009)",
+          "206+ 5 Doors (2009)"
+        ],
+        "Diésel": [
+          "206+ 3 Doors (2009)",
+          "206+ 5 Doors (2009)"
+        ]
+      }
+    },
+    "207 CC": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "207 CC (2007)",
+          "207 CC (2009)"
+        ],
+        "Diésel": [
+          "207 CC (2007)",
+          "207 CC (2009)"
+        ]
+      }
+    },
+    "207 SW": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "207 SW (2007)",
+          "207 SW (2008)"
+        ],
+        "Diésel": [
+          "207 SW (2007)",
+          "207 SW (2008)"
+        ]
+      }
+    },
+    "208 GTI": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "208 GTI (2013)",
+          "208 GTI (2015)"
+        ]
+      }
+    },
+    "208 XY": {
+      "years": [
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "208 XY (2013)"
+        ],
+        "Diésel": [
+          "208 XY (2013)"
+        ]
+      }
+    },
+    "301": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "301 (2012)",
+          "301 (2017)"
+        ],
+        "Diésel": [
+          "301 (2012)",
+          "301 (2017)"
+        ]
+      }
+    },
+    "306": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "306 (1996)",
+          "306 (1997)"
+        ],
+        "Diésel": [
+          "306 (1997)"
+        ]
+      }
+    },
+    "307 CC": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "307 CC (2003)",
+          "307 CC (2005)"
+        ],
+        "Diésel": [
+          "307 CC (2005)"
+        ]
+      }
+    },
+    "307 SW": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "307 SW (2002)",
+          "307 SW (2005)"
+        ],
+        "Diésel": [
+          "307 SW (2002)",
+          "307 SW (2005)"
+        ]
+      }
+    },
+    "308 CC": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "308 CC (2008)",
+          "308 CC (2011)"
+        ],
+        "Diésel": [
+          "308 CC (2008)",
+          "308 CC (2011)"
+        ]
+      }
+    },
+    "406 Break": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "406 Break (1999)"
+        ],
+        "Diésel": [
+          "406 Break (1999)"
+        ]
+      }
+    },
+    "407 SW": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "407 SW (2004)"
+        ],
+        "Diésel": [
+          "407 SW (2004)"
+        ]
+      }
+    },
+    "408": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "408 Fastback (2022)",
+          "408 Sedan (2010)"
+        ],
+        "Hybrid Gasoline": [
+          "408 Fastback (2022)"
+        ],
+        "Diésel": [
+          "408 Sedan (2010)"
+        ]
+      }
+    },
+    "508 RXH": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Diésel": [
+          "508 RXH (2014)"
+        ],
+        "Hybrid": [
+          "508 RXH (2011)",
+          "508 RXH (2014)"
+        ]
+      }
+    },
+    "508 SW": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "508 SW (2010)",
+          "508 SW (2014)",
+          "508 SW (2018)",
+          "508 SW (2023)"
+        ],
+        "Diésel": [
+          "508 SW (2010)",
+          "508 SW (2014)",
+          "508 SW (2018)",
+          "508 SW (2020)",
+          "508 SW (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "508 SW (2020)",
+          "508 SW (2023)"
+        ],
+        "Hybrid": [
+          "508 SW (2010)"
+        ]
+      }
+    },
+    "607": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "607 (2000)",
+          "607 (2005)"
+        ],
+        "Diésel": [
+          "607 (2000)",
+          "607 (2005)"
+        ]
+      }
+    },
+    "806": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "806 (1998)"
+        ],
+        "Diésel": [
+          "806 (1998)"
+        ]
+      }
+    },
+    "Hoggar": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Hoggar (2010)"
+        ]
+      }
+    },
+    "iOn": {
+      "years": [
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "iOn (2010)"
+        ]
+      }
+    },
+    "Landtrek": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Landtrek (2020)"
+        ],
+        "Diésel": [
+          "Landtrek (2020)"
+        ]
+      }
+    },
+    "Partner Combi": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Partner Combi (2002)"
+        ],
+        "Diésel": [
+          "Partner Combi (2002)"
+        ]
+      }
+    },
+    "Pick Up": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "Pick Up (2017)"
+        ]
+      }
+    },
+    "RCZ R": {
+      "years": [
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "RCZ R (2013)"
+        ]
+      }
+    },
+    "Tepee": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tepee (2007)",
+          "Tepee (2008)"
+        ],
+        "Diésel": [
+          "Tepee (2007)",
+          "Tepee (2008)"
+        ]
+      }
+    },
+    "Traveller": {
+      "years": [
+        2016
+      ],
+      "fuels": {
+        "Diésel": [
+          "Traveller (2016)"
+        ]
+      }
     }
   },
   "PILOTE": {
@@ -135868,16 +161574,304 @@ export const VEHICLES = {
           "AL10"
         ]
       }
+    },
+    "1": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid": [
+          "1 (2019)"
+        ]
+      }
+    },
+    "2": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "2 (2019)",
+          "2 (2023)"
+        ]
+      }
+    },
+    "3": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "3 (2022)"
+        ]
+      }
+    },
+    "4": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "No especificado": [
+          "4 (2023)"
+        ]
+      }
+    },
+    "5": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "5 (2025)"
+        ]
+      }
     }
   },
   "PONTIAC": {
     "G6": {
       "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
         2022
       ],
       "fuels": {
         "Gasolina": [
+          "G6 (2004)",
+          "G6 (2006)",
+          "G6 (2008)",
+          "G6 Convertible (2008)",
+          "G6 Coupe (2008)",
           "ND"
+        ]
+      }
+    },
+    "Aztek": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aztek (2000)"
+        ]
+      }
+    },
+    "Bonneville": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bonneville (2000)",
+          "Bonneville (2004)"
+        ]
+      }
+    },
+    "Firebird": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Firebird (2000)"
+        ]
+      }
+    },
+    "G3": {
+      "years": [
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G3 (2009)"
+        ]
+      }
+    },
+    "G5": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G5 (2004)",
+          "G5 (2007)"
+        ]
+      }
+    },
+    "G8": {
+      "years": [
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G8 (2007)"
+        ]
+      }
+    },
+    "Grand Am": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grand Am (1998)"
+        ]
+      }
+    },
+    "Grand Prix": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grand Prix (1996)",
+          "Grand Prix (1997)",
+          "Grand Prix (2003)"
+        ]
+      }
+    },
+    "GTO": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GTO (2003)"
+        ]
+      }
+    },
+    "Montana": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Montana (2000)",
+          "Montana (2005)"
+        ]
+      }
+    },
+    "Solstice": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Solstice (2005)",
+          "Solstice (2008)"
+        ]
+      }
+    },
+    "Sunfire": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sunfire Coupe (2000)",
+          "Sunfire Coupe (2001)",
+          "Sunfire Sedan (1999)"
+        ]
+      }
+    },
+    "Torrent": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Torrent (2005)"
+        ]
+      }
+    },
+    "Vibe": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vibe (2002)",
+          "Vibe (2003)",
+          "Vibe (2008)"
         ]
       }
     }
@@ -135890,7 +161884,9 @@ export const VEHICLES = {
         2018,
         2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
@@ -135902,6 +161898,8 @@ export const VEHICLES = {
           "41",
           "42",
           "62",
+          "718 Spyder (2019)",
+          "718 Spyder (2023)",
           "72",
           "92"
         ]
@@ -135970,32 +161968,48 @@ export const VEHICLES = {
     },
     "718 Boxster": {
       "years": [
-        2021
+        2016,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
           "42",
+          "718 Boxster (2016)",
+          "718 Boxster (2018)",
           "92"
         ]
       }
     },
     "718 Boxster GTS": {
       "years": [
+        2017,
+        2019,
         2021
       ],
       "fuels": {
         "Gasolina": [
-          "42"
+          "42",
+          "718 Boxster GTS (2017)",
+          "718 Boxster GTS (2019)"
         ]
       }
     },
     "718 Boxster S": {
       "years": [
+        2016,
         2021
       ],
       "fuels": {
         "Gasolina": [
-          "51"
+          "51",
+          "718 Boxster S (2016)"
         ]
       }
     },
@@ -136096,43 +162110,70 @@ export const VEHICLES = {
     },
     "718 Cayman": {
       "years": [
-        2021
+        2016,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
+          "718 Cayman (2016)",
+          "718 Cayman (2018)",
           "92"
         ]
       }
     },
     "718 Cayman GT4": {
       "years": [
-        2021
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
-          "42"
+          "42",
+          "718 Cayman GT4 (2015)",
+          "718 Cayman GT4 (2019)",
+          "718 Cayman GT4 (2021)"
         ]
       }
     },
     "718 Cayman GTS": {
       "years": [
+        2017,
+        2019,
         2021
       ],
       "fuels": {
         "Gasolina": [
           "32",
-          "42"
+          "42",
+          "718 Cayman GTS (2017)",
+          "718 Cayman GTS (2019)"
         ]
       }
     },
     "718 Cayman S": {
       "years": [
+        2016,
         2021
       ],
       "fuels": {
         "Gasolina": [
           "41",
-          "51"
+          "51",
+          "718 Cayman S (2016)"
         ]
       }
     },
@@ -136353,33 +162394,111 @@ export const VEHICLES = {
     },
     "911 Carrera": {
       "years": [
-        2021
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
           "2410000",
-          "3410000"
+          "3410000",
+          "911 Carrera (1997)",
+          "911 Carrera (2001)",
+          "911 Carrera (2004)",
+          "911 Carrera (2008)",
+          "911 Carrera (2012)",
+          "911 Carrera (2015)",
+          "911 Carrera Cabriolet (1998)",
+          "911 Carrera Cabriolet (2005)",
+          "911 Carrera Cabriolet (2008)",
+          "911 Carrera Cabriolet (2012)",
+          "911 Carrera Cabriolet (2015)",
+          "911 Carrera Cabriolet (2019)",
+          "911 Carrera Cabriolet (2024)"
         ]
       }
     },
     "911 Carrera 4": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
         2021
       ],
       "fuels": {
         "Gasolina": [
           "2410000",
-          "3410000"
+          "3410000",
+          "911 Carrera 4 (1998)",
+          "911 Carrera 4 (2001)",
+          "911 Carrera 4 (2005)",
+          "911 Carrera 4 (2008)",
+          "911 Carrera 4 (2012)",
+          "911 Carrera 4 Cabriolet (1998)",
+          "911 Carrera 4 Cabriolet (2001)",
+          "911 Carrera 4 Cabriolet (2005)",
+          "911 Carrera 4 Cabriolet (2008)",
+          "911 Carrera 4 Cabriolet (2012)"
         ]
       }
     },
     "911 Carrera 4 GTS": {
       "years": [
-        2021
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
-          "3410000"
+          "3410000",
+          "911 Carrera 4 GTS (2014)",
+          "911 Carrera 4 GTS (2021)",
+          "911 Carrera 4 GTS Cabriolet (2014)"
+        ],
+        "Hybrid Gasoline": [
+          "911 Carrera 4 GTS (2024)"
         ]
       }
     },
@@ -136395,32 +162514,108 @@ export const VEHICLES = {
     },
     "911 Carrera 4S": {
       "years": [
-        2021
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
           "2400000",
-          "3410000"
+          "3410000",
+          "911 Carrera 4S (2001)",
+          "911 Carrera 4S (2005)",
+          "911 Carrera 4S (2008)",
+          "911 Carrera 4S (2012)",
+          "911 Carrera 4S (2018)",
+          "911 Carrera 4S Cabriolet (2003)",
+          "911 Carrera 4S Cabriolet (2005)",
+          "911 Carrera 4S Cabriolet (2008)",
+          "911 Carrera 4S Cabriolet (2012)",
+          "911 Carrera 4S Cabriolet (2018)"
         ]
       }
     },
     "911 Carrera GTS": {
       "years": [
+        2010,
+        2011,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
-          "3410000"
+          "3410000",
+          "911 Carrera GTS (2010)",
+          "911 Carrera GTS (2014)",
+          "911 Carrera GTS Cabriolet (2010)",
+          "911 Carrera GTS Cabriolet (2014)"
         ]
       }
     },
     "911 Carrera S": {
       "years": [
-        2021
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
-          "3410000"
+          "3410000",
+          "911 Carrera S (2004)",
+          "911 Carrera S (2008)",
+          "911 Carrera S (2012)",
+          "911 Carrera S (2015)",
+          "911 Carrera S (2019)",
+          "911 Carrera S Cabriolet (2005)",
+          "911 Carrera S Cabriolet (2008)",
+          "911 Carrera S Cabriolet (2012)",
+          "911 Carrera S Cabriolet (2015)"
         ]
       }
     },
@@ -136447,6 +162642,25 @@ export const VEHICLES = {
     },
     "911 GT3": {
       "years": [
+        2000,
+        2001,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021,
         2022,
         2023,
@@ -136455,19 +162669,48 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "3210000",
-          "3211000"
+          "3211000",
+          "911 GT3 (1999)",
+          "911 GT3 (2003)",
+          "911 GT3 (2006)",
+          "911 GT3 (2009)",
+          "911 GT3 (2013)",
+          "911 GT3 (2017)",
+          "911 GT3 (2021)",
+          "911 GT3 (2022)",
+          "911 GT3 (2024)"
         ]
       }
     },
     "911 GT3 RS": {
       "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2016,
+        2017,
+        2018,
+        2019,
         2023,
         2024
       ],
       "fuels": {
         "Gasolina": [
           "3210000",
-          "7210000"
+          "7210000",
+          "911 GT3 RS (2004)",
+          "911 GT3 RS (2006)",
+          "911 GT3 RS (2009)",
+          "911 GT3 RS (2011)",
+          "911 GT3 RS (2016)",
+          "911 GT3 RS (2018)"
         ]
       }
     },
@@ -136659,57 +162902,166 @@ export const VEHICLES = {
     },
     "911 Targa 4": {
       "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
-          "3410000"
+          "3410000",
+          "911 Targa 4 (2006)",
+          "911 Targa 4 (2008)",
+          "911 Targa 4 (2014)",
+          "911 Targa 4 (2016)",
+          "911 Targa 4 (2020)"
         ]
       }
     },
     "911 Targa 4 GTS": {
       "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
-          "3410000"
+          "3410000",
+          "911 Targa 4 GTS (2015)",
+          "911 Targa 4 GTS (2021)"
         ]
       }
     },
     "911 Targa 4S": {
       "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
-          "3410000"
+          "3410000",
+          "911 Targa 4S (2006)",
+          "911 Targa 4S (2008)",
+          "911 Targa 4S (2014)",
+          "911 Targa 4S (2020)"
         ]
       }
     },
     "911 Turbo": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
-          "3400000"
+          "3400000",
+          "911 Turbo (2000)",
+          "911 Turbo (2006)",
+          "911 Turbo (2009)",
+          "911 Turbo (2013)",
+          "911 Turbo (2016)",
+          "911 Turbo (2020)",
+          "911 Turbo Cabriolet (2004)",
+          "911 Turbo Cabriolet (2007)",
+          "911 Turbo Cabriolet (2009)",
+          "911 Turbo Cabriolet (2013)",
+          "911 Turbo Cabriolet (2016)"
         ]
       }
     },
     "911 Turbo S": {
       "years": [
-        2021
+        2004,
+        2005,
+        2006,
+        2010,
+        2011,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
           "3200000",
-          "3400000"
+          "3400000",
+          "911 Turbo S (2004)",
+          "911 Turbo S (2010)",
+          "911 Turbo S (2013)",
+          "911 Turbo S (2016)",
+          "911 Turbo S (2020)",
+          "911 Turbo S Cabriolet (2004)",
+          "911 Turbo S Cabriolet (2010)",
+          "911 Turbo S Cabriolet (2013)",
+          "911 Turbo S Cabriolet (2016)",
+          "911 Turbo S Cabriolet (2020)"
+        ],
+        "Hybrid Gasoline": [
+          "911 Turbo S (2025)"
         ]
       }
     },
     "918": {
       "years": [
+        2013,
         2014,
         2015
       ],
@@ -136719,6 +163071,9 @@ export const VEHICLES = {
         ],
         "Híbrido gasolina": [
           "1"
+        ],
+        "Hybrid": [
+          "918 (2013)"
         ]
       }
     },
@@ -137195,14 +163550,50 @@ export const VEHICLES = {
     },
     "Cayenne": {
       "years": [
-        2021
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
           "1205110",
           "2204110",
           "2205110",
-          "2215110"
+          "2215110",
+          "Cayenne (2002)",
+          "Cayenne (2007)",
+          "Cayenne (2010)",
+          "Cayenne (2015)",
+          "Cayenne (2017)",
+          "Cayenne (2023)",
+          "Cayenne Coupe (2019)",
+          "Cayenne Coupe (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Cayenne (2023)",
+          "Cayenne Coupe (2023)"
+        ],
+        "Hybrid": [
+          "Cayenne (2018)"
         ]
       }
     },
@@ -137224,7 +163615,21 @@ export const VEHICLES = {
     },
     "Cayenne GTS": {
       "years": [
-        2021
+        2008,
+        2009,
+        2010,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
@@ -137234,13 +163639,40 @@ export const VEHICLES = {
           "2204210",
           "2204310",
           "2205210",
-          "2205310"
+          "2205310",
+          "Cayenne GTS (2008)",
+          "Cayenne GTS (2012)",
+          "Cayenne GTS (2014)",
+          "Cayenne GTS (2020)",
+          "Cayenne GTS (2024)",
+          "Cayenne GTS Coupe (2020)"
         ]
       }
     },
     "Cayenne S": {
       "years": [
-        2021
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
@@ -137248,18 +163680,54 @@ export const VEHICLES = {
           "1705110",
           "2204110",
           "2205110",
-          "2215110"
+          "2215110",
+          "Cayenne S (2002)",
+          "Cayenne S (2007)",
+          "Cayenne S (2010)",
+          "Cayenne S (2014)",
+          "Cayenne S (2017)",
+          "Cayenne S (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Cayenne S (2010)"
         ]
       }
     },
     "Cayenne Turbo": {
       "years": [
-        2021
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
           "2205110",
-          "2704110"
+          "2704110",
+          "Cayenne Turbo (2002)",
+          "Cayenne Turbo (2007)",
+          "Cayenne Turbo (2010)",
+          "Cayenne Turbo (2014)",
+          "Cayenne Turbo (2017)",
+          "Cayenne Turbo Coupe (2019)"
         ]
       }
     },
@@ -137275,7 +163743,11 @@ export const VEHICLES = {
     },
     "Cayenne Turbo S E-Hybrid": {
       "years": [
-        2021
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
@@ -137283,6 +163755,9 @@ export const VEHICLES = {
           "1705100",
           "2204101",
           "2205101"
+        ],
+        "Hybrid": [
+          "Cayenne Turbo S E-Hybrid (2019)"
         ]
       }
     },
@@ -137449,31 +163924,66 @@ export const VEHICLES = {
     },
     "Macan": {
       "years": [
-        2021
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
           "2100000",
           "2100001",
           "2500110",
-          "7100000"
+          "7100000",
+          "Macan (2014)",
+          "Macan (2018)"
         ]
       }
     },
     "Macan GTS": {
       "years": [
-        2021
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Gasolina": [
           "2100000",
           "2100001",
-          "2500110"
+          "2500110",
+          "Macan GTS (2015)",
+          "Macan GTS (2019)",
+          "Macan GTS (2021)"
+        ],
+        "Eléctrico": [
+          "Macan GTS (2025)"
         ]
       }
     },
     "Macan S": {
       "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
@@ -137482,18 +163992,33 @@ export const VEHICLES = {
           "2100001",
           "2110001",
           "2500110",
-          "7100000"
+          "7100000",
+          "Macan S (2014)",
+          "Macan S (2018)",
+          "Macan S (2021)"
+        ],
+        "Diésel": [
+          "Macan S (2014)"
         ]
       }
     },
     "Macan Turbo": {
       "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
           "2100000",
-          "2100001"
+          "2100001",
+          "Macan Turbo (2014)",
+          "Macan Turbo (2019)"
         ]
       }
     },
@@ -137731,37 +164256,80 @@ export const VEHICLES = {
     },
     "Panamera": {
       "years": [
-        2021
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
           "1401110",
           "1501110",
-          "1501210"
+          "1501210",
+          "Panamera (2009)",
+          "Panamera (2013)",
+          "Panamera (2016)",
+          "Panamera (2020)"
         ]
       }
     },
     "Panamera 4": {
       "years": [
-        2021
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
       ],
       "fuels": {
         "Gasolina": [
           "1401110",
           "1501110",
-          "1705110"
+          "1705110",
+          "Panamera 4 (2009)",
+          "Panamera 4 (2013)",
+          "Panamera 4 (2016)",
+          "Panamera 4 (2020)",
+          "Panamera 4 (2023)"
         ]
       }
     },
     "Panamera 4 E-Hybrid": {
       "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
           "1501100",
           "1501200",
-          "1705100"
+          "1705100",
+          "Panamera 4 E-Hybrid (2016)"
         ],
         "Híbrido gasolina": [
           "1401100",
@@ -137772,17 +164340,33 @@ export const VEHICLES = {
     },
     "Panamera 4S": {
       "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
           "1401110",
-          "1501110"
+          "1501110",
+          "Panamera 4S (2009)",
+          "Panamera 4S (2013)",
+          "Panamera 4S (2016)"
         ]
       }
     },
     "Panamera 4S E-Hybrid": {
       "years": [
+        2020,
         2021
       ],
       "fuels": {
@@ -137796,39 +164380,72 @@ export const VEHICLES = {
         "Híbrido gasolina": [
           "1401100",
           "1501100"
+        ],
+        "Hybrid Gasoline": [
+          "Panamera 4S E-Hybrid (2020)"
         ]
       }
     },
     "Panamera GTS": {
       "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
           "1401110",
-          "1501110"
+          "1501110",
+          "Panamera GTS (2011)",
+          "Panamera GTS (2013)",
+          "Panamera GTS (2018)",
+          "Panamera GTS (2020)"
         ]
       }
     },
     "Panamera Turbo S": {
       "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
           "1401110",
-          "1501110"
+          "1501110",
+          "Panamera Turbo S (2011)",
+          "Panamera Turbo S (2013)",
+          "Panamera Turbo S (2020)"
         ]
       }
     },
     "Panamera Turbo S E-Hybrid": {
       "years": [
+        2017,
+        2018,
+        2019,
+        2020,
         2021
       ],
       "fuels": {
         "Gasolina": [
           "1401100",
           "1501100"
+        ],
+        "Hybrid Gasoline": [
+          "Panamera Turbo S E-Hybrid (2017)"
         ]
       }
     },
@@ -137952,14 +164569,22 @@ export const VEHICLES = {
     },
     "Taycan": {
       "years": [
-        2021
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Eléctrico": [
           "1040000",
           "1041000",
           "1050000",
-          "1051000"
+          "1051000",
+          "Taycan (2019)",
+          "Taycan (2021)",
+          "Taycan (2024)"
         ]
       }
     },
@@ -137989,12 +164614,19 @@ export const VEHICLES = {
     },
     "Taycan Turbo": {
       "years": [
-        2021
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Eléctrico": [
           "1041000",
-          "1051000"
+          "1051000",
+          "Taycan Turbo (2019)",
+          "Taycan Turbo (2024)"
         ]
       }
     },
@@ -138006,6 +164638,661 @@ export const VEHICLES = {
         "Eléctrico": [
           "1041000",
           "1051000"
+        ]
+      }
+    },
+    "911 Carrera T": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "911 Carrera T (2017)",
+          "911 Carrera T (2022)"
+        ]
+      }
+    },
+    "911 GT2": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "911 GT2 (2001)",
+          "911 GT2 (2007)"
+        ]
+      }
+    },
+    "911 GT2 RS": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "911 GT2 RS (2010)",
+          "911 GT2 RS (2017)"
+        ]
+      }
+    },
+    "911 R": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "911 R (2016)"
+        ]
+      }
+    },
+    "911 Sport Classic": {
+      "years": [
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "911 Sport Classic (2010)"
+        ]
+      }
+    },
+    "Boxster": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Boxster (1996)",
+          "Boxster (2002)",
+          "Boxster (2004)",
+          "Boxster (2008)",
+          "Boxster (2012)",
+          "Boxster Spyder (2009)",
+          "Boxster Spyder (2015)"
+        ]
+      }
+    },
+    "Boxster S": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Boxster S (1999)",
+          "Boxster S (2002)",
+          "Boxster S (2004)",
+          "Boxster S (2008)",
+          "Boxster S (2012)"
+        ]
+      }
+    },
+    "Carrera GT": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Carrera GT (2003)"
+        ]
+      }
+    },
+    "Cayenne Diesel": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Diésel": [
+          "Cayenne Diesel (2008)",
+          "Cayenne Diesel (2010)",
+          "Cayenne Diesel (2014)"
+        ]
+      }
+    },
+    "Cayenne Electric": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Cayenne Electric (2026)"
+        ]
+      }
+    },
+    "Cayenne S Diesel": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Diésel": [
+          "Cayenne S Diesel (2012)",
+          "Cayenne S Diesel (2014)"
+        ]
+      }
+    },
+    "Cayenne S E-Hybrid": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Cayenne S E-Hybrid (2014)"
+        ]
+      }
+    },
+    "Cayenne S Electric": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Cayenne S Electric (2026)"
+        ]
+      }
+    },
+    "Cayenne S Hybrid": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Cayenne S Hybrid (2010)"
+        ]
+      }
+    },
+    "Cayenne S TransSyberia": {
+      "years": [
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cayenne S TransSyberia (2009)"
+        ]
+      }
+    },
+    "Cayenne Turbo E-Hybrid": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Cayenne Turbo E-Hybrid (2023)"
+        ],
+        "Mild Hybrid": [
+          "Cayenne Turbo E-Hybrid Coupe (2023)"
+        ]
+      }
+    },
+    "Cayenne Turbo S": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cayenne Turbo S (2006)",
+          "Cayenne Turbo S (2008)",
+          "Cayenne Turbo S (2012)",
+          "Cayenne Turbo S (2015)"
+        ]
+      }
+    },
+    "Cayman": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cayman (2006)",
+          "Cayman (2009)",
+          "Cayman (2012)"
+        ]
+      }
+    },
+    "Cayman R": {
+      "years": [
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cayman R (2010)"
+        ]
+      }
+    },
+    "Cayman S": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cayman S (2005)",
+          "Cayman S (2009)",
+          "Cayman S (2012)"
+        ]
+      }
+    },
+    "Macan 4 Electric": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Macan 4 Electric (2024)"
+        ]
+      }
+    },
+    "Macan S Diesel": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Diésel": [
+          "Macan S Diesel (2014)"
+        ]
+      }
+    },
+    "Macan T": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Macan T (2022)"
+        ]
+      }
+    },
+    "Macan Turbo Electric": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Macan Turbo Electric (2024)"
+        ]
+      }
+    },
+    "Panamera 4 E-Hybrid Sport Turismo": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Panamera 4 E-Hybrid Sport Turismo (2017)"
+        ]
+      }
+    },
+    "Panamera 4 Sport Turismo": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panamera 4 Sport Turismo (2017)"
+        ]
+      }
+    },
+    "Panamera 4S Diesel": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "Panamera 4S Diesel (2016)"
+        ]
+      }
+    },
+    "Panamera 4S Diesel Sport Turismo": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "Panamera 4S Diesel Sport Turismo (2017)"
+        ]
+      }
+    },
+    "Panamera 4S Sport Turismo": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panamera 4S Sport Turismo (2017)"
+        ]
+      }
+    },
+    "Panamera Diesel": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Diésel": [
+          "Panamera Diesel (2011)",
+          "Panamera Diesel (2013)"
+        ]
+      }
+    },
+    "Panamera GTS Sport Turismo": {
+      "years": [
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panamera GTS Sport Turismo (2018)",
+          "Panamera GTS Sport Turismo (2020)"
+        ]
+      }
+    },
+    "Panamera S": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panamera S (2009)",
+          "Panamera S (2013)"
+        ]
+      }
+    },
+    "Panamera S E-Hybrid": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Panamera S E-Hybrid (2013)"
+        ]
+      }
+    },
+    "Panamera S Hybrid": {
+      "years": [
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Panamera S Hybrid (2011)"
+        ]
+      }
+    },
+    "Panamera Turbo": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panamera Turbo (2009)",
+          "Panamera Turbo (2013)",
+          "Panamera Turbo (2016)"
+        ]
+      }
+    },
+    "Panamera Turbo E Hybrid": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Panamera Turbo E Hybrid (2023)"
+        ]
+      }
+    },
+    "Panamera Turbo S E-Hybrid Sport Turismo": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Panamera Turbo S E-Hybrid Sport Turismo (2017)"
+        ]
+      }
+    },
+    "Panamera Turbo S Sport Turismo": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panamera Turbo S Sport Turismo (2020)"
+        ]
+      }
+    },
+    "Panamera Turbo Sport Turismo": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Panamera Turbo Sport Turismo (2017)"
+        ]
+      }
+    },
+    "Speedster": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Speedster (2019)"
+        ]
+      }
+    },
+    "Taycan Cross Turismo": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Taycan Cross Turismo (2021)",
+          "Taycan Cross Turismo (2024)"
+        ]
+      }
+    },
+    "Taycan GTS": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Taycan GTS (2021)",
+          "Taycan GTS (2024)"
+        ]
+      }
+    },
+    "Taycan GTS Sport Turismo": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Taycan GTS Sport Turismo (2021)"
+        ]
+      }
+    },
+    "Taycan Sport Turismo": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Taycan Sport Turismo (2024)"
         ]
       }
     }
@@ -138250,6 +165537,98 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "ND"
+        ]
+      }
+    },
+    "Trucks 1500": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Trucks 1500 (2013)",
+          "Trucks 1500 (2015)",
+          "Trucks 1500 (2018)",
+          "Trucks 1500 (2020)",
+          "Trucks 1500 (2024)",
+          "Trucks 1500 (2026)"
+        ],
+        "Eléctrico": [
+          "Trucks 1500 (2023)"
+        ],
+        "Diésel": [
+          "Trucks 1500 (2015)",
+          "Trucks 1500 (2018)"
+        ]
+      }
+    },
+    "Trucks 2500": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Trucks 2500 (2013)",
+          "Trucks 2500 (2016)"
+        ],
+        "Diésel": [
+          "Trucks 2500 (2013)",
+          "Trucks 2500 (2016)"
+        ],
+        "Natural Gas": [
+          "Trucks 2500 (2016)"
+        ]
+      }
+    },
+    "Trucks 3500": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Trucks 3500 (2013)",
+          "Trucks 3500 (2016)"
+        ],
+        "Diésel": [
+          "Trucks 3500 (2013)",
+          "Trucks 3500 (2016)"
         ]
       }
     }
@@ -142635,7 +170014,1134 @@ export const VEHICLES = {
           "YC1",
           "YE0",
           "YF0",
-          "YF1"
+          "YF1",
+          "ZOE (2013)",
+          "ZOE (2019)"
+        ]
+      }
+    },
+    "4 E-Tech": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "4 E-Tech (2025)"
+        ]
+      }
+    },
+    "5 E-Tech": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "5 E-Tech (2024)"
+        ]
+      }
+    },
+    "Alaskan": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Diésel": [
+          "Alaskan (2016)"
+        ]
+      }
+    },
+    "Arkana": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Arkana (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Arkana (2021)",
+          "Arkana (2023)"
+        ],
+        "Gasolina": [
+          "Arkana (2019)",
+          "Arkana (2021)"
+        ]
+      }
+    },
+    "Austral": {
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Austral (2022)",
+          "Austral (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "Austral (2022)"
+        ]
+      }
+    },
+    "Avantime": {
+      "years": [
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Avantime (2001)"
+        ],
+        "Diésel": [
+          "Avantime (2001)"
+        ]
+      }
+    },
+    "Captur": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Captur (2013)",
+          "Captur (2017)",
+          "Captur (2019)",
+          "Captur (2024)"
+        ],
+        "Liquefied Petroleum Gas (LPG)": [
+          "Captur (2019)",
+          "Captur (2024)"
+        ],
+        "Mild Hybrid": [
+          "Captur (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Captur (2019)",
+          "Captur (2024)"
+        ],
+        "Diésel": [
+          "Captur (2013)",
+          "Captur (2017)",
+          "Captur (2019)"
+        ]
+      }
+    },
+    "City K-ZE": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "City K-ZE (2019)"
+        ]
+      }
+    },
+    "Clio": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Clio 3 Doors (2001)",
+          "Clio 3 Doors (2003)",
+          "Clio 3 Doors (2006)",
+          "Clio 3 Doors (2009)",
+          "Clio 5 Doors (2001)",
+          "Clio 5 Doors (2006)",
+          "Clio 5 Doors (2009)",
+          "Clio 5 Doors (2012)",
+          "Clio 5 Doors (2013)",
+          "Clio 5 Doors (2016)",
+          "Clio 5 Doors (2019)",
+          "Clio 5 Doors (2023)",
+          "Clio 5 Doors (2025)",
+          "Clio Estate (2009)",
+          "Clio Estate (2013)",
+          "Clio Estate (2016)"
+        ],
+        "Hybrid Gasoline": [
+          "Clio 5 Doors (2023)",
+          "Clio 5 Doors (2025)"
+        ],
+        "Diésel": [
+          "Clio 3 Doors (2001)",
+          "Clio 3 Doors (2006)",
+          "Clio 3 Doors (2009)",
+          "Clio 5 Doors (2001)",
+          "Clio 5 Doors (2006)",
+          "Clio 5 Doors (2009)",
+          "Clio 5 Doors (2012)",
+          "Clio 5 Doors (2016)",
+          "Clio 5 Doors (2019)",
+          "Clio 5 Doors (2023)",
+          "Clio Estate (2009)",
+          "Clio Estate (2013)",
+          "Clio Estate (2016)"
+        ],
+        "Hybrid": [
+          "Clio 5 Doors (2019)"
+        ]
+      }
+    },
+    "Clio RS": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Clio RS (2013)"
+        ]
+      }
+    },
+    "Clio Symbol / Thalia": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Clio Symbol / Thalia (2000)",
+          "Clio Symbol / Thalia (2002)",
+          "Clio Symbol / Thalia (2008)"
+        ],
+        "Diésel": [
+          "Clio Symbol / Thalia (2000)",
+          "Clio Symbol / Thalia (2002)",
+          "Clio Symbol / Thalia (2008)"
+        ]
+      }
+    },
+    "Duster OROCH": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Duster OROCH (2015)"
+        ],
+        "Ethanol": [
+          "Duster OROCH (2015)"
+        ]
+      }
+    },
+    "Espace": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Espace (2023)",
+          "Espace (2025)"
+        ],
+        "Gasolina": [
+          "Espace (1997)",
+          "Espace (1998)",
+          "Espace (2002)",
+          "Espace (2006)",
+          "Espace (2014)",
+          "Espace (2019)"
+        ],
+        "Diésel": [
+          "Espace (1997)",
+          "Espace (1998)",
+          "Espace (2002)",
+          "Espace (2006)",
+          "Espace (2014)",
+          "Espace (2019)"
+        ]
+      }
+    },
+    "Filante": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Filante (2026)"
+        ]
+      }
+    },
+    "Fluence": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Fluence (2009)",
+          "Fluence (2013)"
+        ],
+        "Diésel": [
+          "Fluence (2009)",
+          "Fluence (2013)"
+        ],
+        "Eléctrico": [
+          "Fluence (2009)"
+        ]
+      }
+    },
+    "Grand Kangoo": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Grand Kangoo (2023)"
+        ]
+      }
+    },
+    "Grand Modus": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grand Modus (2008)"
+        ],
+        "Diésel": [
+          "Grand Modus (2008)"
+        ]
+      }
+    },
+    "Grand Scenic": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grand Scenic (2003)",
+          "Grand Scenic (2006)",
+          "Grand Scenic (2009)",
+          "Grand Scenic (2013)",
+          "Grand Scenic (2016)"
+        ],
+        "Diésel": [
+          "Grand Scenic (2003)",
+          "Grand Scenic (2006)",
+          "Grand Scenic (2009)",
+          "Grand Scenic (2013)",
+          "Grand Scenic (2016)"
+        ],
+        "Hybrid": [
+          "Grand Scenic (2016)"
+        ]
+      }
+    },
+    "Kadjar": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kadjar (2015)",
+          "Kadjar (2018)"
+        ],
+        "Diésel": [
+          "Kadjar (2015)",
+          "Kadjar (2018)"
+        ]
+      }
+    },
+    "Kangoo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kangoo (1997)",
+          "Kangoo (2001)",
+          "Kangoo (2003)",
+          "Kangoo (2005)",
+          "Kangoo (2006)",
+          "Kangoo (2008)",
+          "Kangoo (2020)"
+        ],
+        "Diésel": [
+          "Kangoo (1997)",
+          "Kangoo (2001)",
+          "Kangoo (2003)",
+          "Kangoo (2005)",
+          "Kangoo (2008)",
+          "Kangoo (2020)"
+        ],
+        "Eléctrico": [
+          "Kangoo (2020)"
+        ]
+      }
+    },
+    "Kardian": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Ethanol": [
+          "Kardian (2023)"
+        ]
+      }
+    },
+    "Kiger": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kiger (2021)",
+          "Kiger (2025)"
+        ]
+      }
+    },
+    "Koleos": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Diésel": [
+          "Koleos (2007)",
+          "Koleos (2011)",
+          "Koleos (2013)",
+          "Koleos (2016)",
+          "Koleos (2019)"
+        ],
+        "Gasolina": [
+          "Koleos (2007)",
+          "Koleos (2011)",
+          "Koleos (2013)",
+          "Koleos (2016)"
+        ]
+      }
+    },
+    "Kwid": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kwid (2015)"
+        ]
+      }
+    },
+    "Laguna": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Laguna (1998)",
+          "Laguna (2001)",
+          "Laguna (2005)",
+          "Laguna (2007)",
+          "Laguna (2010)",
+          "Laguna Coupe (2008)",
+          "Laguna Estate (1998)",
+          "Laguna Estate (2001)",
+          "Laguna Estate (2005)",
+          "Laguna Estate (2007)",
+          "Laguna Estate (2010)"
+        ],
+        "Diésel": [
+          "Laguna (1998)",
+          "Laguna (2001)",
+          "Laguna (2005)",
+          "Laguna (2007)",
+          "Laguna (2010)",
+          "Laguna Coupe (2008)",
+          "Laguna Estate (1998)",
+          "Laguna Estate (2001)",
+          "Laguna Estate (2005)",
+          "Laguna Estate (2007)",
+          "Laguna Estate (2010)"
+        ]
+      }
+    },
+    "Latitude": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Latitude (2010)"
+        ],
+        "Diésel": [
+          "Latitude (2010)"
+        ]
+      }
+    },
+    "Logan": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Logan (2014)"
+        ]
+      }
+    },
+    "Megane": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Megane 5 Doors (1999)",
+          "Megane 5 Doors (2002)",
+          "Megane 5 Doors (2004)",
+          "Megane 5 Doors (2006)",
+          "Megane 5 Doors (2008)",
+          "Megane 5 Doors (2013)",
+          "Megane 5 Doors (2014)",
+          "Megane 5 Doors (2015)",
+          "Megane 5 Doors (2017)",
+          "Megane 5 Doors (2018)",
+          "Megane 5 Doors (2020)",
+          "Megane Cabriolet (1999)",
+          "Megane Cabriolet (2003)",
+          "Megane Cabriolet (2006)",
+          "Megane Cabriolet (2010)",
+          "Megane Cabriolet (2014)",
+          "Megane Coupe (1999)",
+          "Megane Coupe (2002)",
+          "Megane Coupe (2004)",
+          "Megane Coupe (2006)",
+          "Megane Coupe (2008)",
+          "Megane Coupe (2009)",
+          "Megane Coupe (2010)",
+          "Megane Coupe (2013)",
+          "Megane Coupe (2014)",
+          "Megane Estate (1999)",
+          "Megane Estate (2003)",
+          "Megane Estate (2006)",
+          "Megane Estate (2009)",
+          "Megane Estate (2014)",
+          "Megane Estate (2016)",
+          "Megane Estate (2020)",
+          "Megane Sedan (1999)",
+          "Megane Sedan (2003)",
+          "Megane Sedan (2006)",
+          "Megane Sedan (2016)",
+          "Megane Sedan (2020)"
+        ],
+        "Diésel": [
+          "Megane 5 Doors (1999)",
+          "Megane 5 Doors (2002)",
+          "Megane 5 Doors (2006)",
+          "Megane 5 Doors (2008)",
+          "Megane 5 Doors (2014)",
+          "Megane 5 Doors (2015)",
+          "Megane 5 Doors (2020)",
+          "Megane Cabriolet (2003)",
+          "Megane Cabriolet (2006)",
+          "Megane Cabriolet (2010)",
+          "Megane Cabriolet (2014)",
+          "Megane Coupe (1999)",
+          "Megane Coupe (2002)",
+          "Megane Coupe (2006)",
+          "Megane Coupe (2008)",
+          "Megane Coupe (2013)",
+          "Megane Estate (1999)",
+          "Megane Estate (2003)",
+          "Megane Estate (2006)",
+          "Megane Estate (2009)",
+          "Megane Estate (2014)",
+          "Megane Estate (2016)",
+          "Megane Estate (2020)",
+          "Megane Sedan (1999)",
+          "Megane Sedan (2003)",
+          "Megane Sedan (2006)",
+          "Megane Sedan (2016)",
+          "Megane Sedan (2020)"
+        ],
+        "Hybrid": [
+          "Megane 5 Doors (2020)",
+          "Megane Estate (2020)"
+        ]
+      }
+    },
+    "Megane E-Tech": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Megane E-Tech (2021)"
+        ]
+      }
+    },
+    "Modus": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Modus (2005)",
+          "Modus (2008)"
+        ],
+        "Diésel": [
+          "Modus (2005)",
+          "Modus (2008)"
+        ]
+      }
+    },
+    "Pulse": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Pulse (2011)"
+        ],
+        "Diésel": [
+          "Pulse (2011)"
+        ]
+      }
+    },
+    "Rafale": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Rafale (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Rafale (2023)"
+        ]
+      }
+    },
+    "Safrane": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Safrane (1996)"
+        ],
+        "Diésel": [
+          "Safrane (1996)"
+        ]
+      }
+    },
+    "Sandero": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sandero (2007)",
+          "Sandero (2019)"
+        ]
+      }
+    },
+    "Sandero GT": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sandero GT (2012)"
+        ]
+      }
+    },
+    "Scala": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Scala (2012)"
+        ],
+        "Diésel": [
+          "Scala (2012)"
+        ]
+      }
+    },
+    "Scenic": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Scenic (2023)"
+        ],
+        "Gasolina": [
+          "Scenic (1999)",
+          "Scenic (2000)",
+          "Scenic (2003)",
+          "Scenic (2009)",
+          "Scenic (2012)",
+          "Scenic (2016)"
+        ],
+        "Diésel": [
+          "Scenic (1999)",
+          "Scenic (2000)",
+          "Scenic (2003)",
+          "Scenic (2009)",
+          "Scenic (2012)",
+          "Scenic (2016)"
+        ]
+      }
+    },
+    "SCENIC XMOD": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SCENIC XMOD (2013)"
+        ],
+        "Diésel": [
+          "SCENIC XMOD (2013)"
+        ]
+      }
+    },
+    "Symbioz": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Symbioz (2024)"
+        ]
+      }
+    },
+    "Talisman": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Talisman (2016)",
+          "Talisman (2019)",
+          "Talisman Estate (2016)",
+          "Talisman Estate (2019)"
+        ],
+        "Diésel": [
+          "Talisman (2016)",
+          "Talisman (2019)",
+          "Talisman Estate (2016)",
+          "Talisman Estate (2019)"
+        ]
+      }
+    },
+    "Triber": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Triber (2019)"
+        ]
+      }
+    },
+    "Twingo": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Twingo (2019)",
+          "Twingo (2025)"
+        ],
+        "Gasolina": [
+          "Twingo (2007)",
+          "Twingo (2011)",
+          "Twingo (2014)",
+          "Twingo (2016)",
+          "Twingo (2019)"
+        ],
+        "Diésel": [
+          "Twingo (2007)",
+          "Twingo (2011)"
+        ]
+      }
+    },
+    "Twingo RS": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Twingo RS (2008)",
+          "Twingo RS (2011)"
+        ]
+      }
+    },
+    "Twizy": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Twizy (2012)"
+        ]
+      }
+    },
+    "Vel Satis": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vel Satis (2002)",
+          "Vel Satis (2005)"
+        ],
+        "Diésel": [
+          "Vel Satis (2002)",
+          "Vel Satis (2005)"
+        ]
+      }
+    },
+    "Wind": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Wind (2010)"
         ]
       }
     }
@@ -143601,10 +172107,18 @@ export const VEHICLES = {
   "ROLLS-ROYCE": {
     "Cullinan": {
       "years": [
-        2022
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
       ],
       "fuels": {
         "Gasolina": [
+          "Cullinan (2018)",
+          "Cullinan (2024)",
           "IAW40000"
         ]
       }
@@ -143636,6 +172150,17 @@ export const VEHICLES = {
     },
     "Ghost": {
       "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
         2020,
         2021,
         2022
@@ -143643,6 +172168,9 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "DAW50000",
+          "Ghost (2009)",
+          "Ghost (2014)",
+          "Ghost (2020)",
           "IAW50000",
           "IAW5000C"
         ]
@@ -143660,11 +172188,37 @@ export const VEHICLES = {
     },
     "Phantom": {
       "years": [
-        2020
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
       ],
       "fuels": {
         "Gasolina": [
-          "DAW40000"
+          "DAW40000",
+          "Phantom (2003)",
+          "Phantom (2005)",
+          "Phantom (2007)",
+          "Phantom (2008)",
+          "Phantom (2009)",
+          "Phantom (2012)",
+          "Phantom (2017)"
         ]
       }
     },
@@ -143677,6 +172231,90 @@ export const VEHICLES = {
           "6A040000"
         ]
       }
+    },
+    "Corniche": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corniche (2000)"
+        ]
+      }
+    },
+    "Dawn": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Dawn (2016)"
+        ]
+      }
+    },
+    "Park Ward": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Park Ward (2000)"
+        ]
+      }
+    },
+    "Silver Seraph": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Silver Seraph (1998)"
+        ]
+      }
+    },
+    "Spectre": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Spectre (2022)"
+        ]
+      }
+    },
+    "Wraith": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Wraith (2013)"
+        ]
+      }
     }
   },
   "ROVER": {
@@ -143687,6 +172325,16 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "04C"
+        ]
+      }
+    },
+    "100 Cabrio": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "100 Cabrio (1994)"
         ]
       }
     }
@@ -143741,13 +172389,27 @@ export const VEHICLES = {
     },
     "9-3": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
-        2011
+        2011,
+        2012
       ],
       "fuels": {
         "Diésel": [
           "0602",
           "6M6F01",
+          "9-3 Convertible (2003)",
+          "9-3 Convertible (2009)",
+          "9-3 Coupe (1998)",
           "A502",
           "A602",
           "A604",
@@ -143760,12 +172422,20 @@ export const VEHICLES = {
           "M6F01"
         ],
         "Gasolina": [
+          "9-3 Convertible (1998)",
+          "9-3 Convertible (1999)",
+          "9-3 Convertible (2003)",
+          "9-3 Convertible (2009)",
+          "9-3 Coupe (1998)",
           "A501",
           "A5F01",
           "A6A01",
           "M602",
           "M6A01",
           "M6F01"
+        ],
+        "Ethanol": [
+          "9-3 Convertible (2009)"
         ]
       }
     },
@@ -143781,21 +172451,188 @@ export const VEHICLES = {
     },
     "9-5": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
-        2011
+        2011,
+        2012
       ],
       "fuels": {
         "Diésel": [
+          "9-5 (2001)",
+          "9-5 (2005)",
+          "9-5 (2010)",
           "A6F01",
           "M6A01",
           "M6F01",
           "M6F02"
         ],
         "Gasolina": [
+          "9-5 (1997)",
+          "9-5 (2001)",
+          "9-5 (2005)",
+          "9-5 (2010)",
           "A6A01",
           "A6F01",
           "M6A01",
           "M6F01"
+        ],
+        "Hybrid": [
+          "9-5 (2010)"
+        ],
+        "Ethanol": [
+          "9-5 (2005)"
+        ]
+      }
+    },
+    "9-2X": {
+      "years": [
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "9-2X (2004)"
+        ]
+      }
+    },
+    "9-3 Aero": {
+      "years": [
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "9-3 Aero (2014)"
+        ]
+      }
+    },
+    "9-3 Sport": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "9-3 Sport Sedan (1998)",
+          "9-3 Sport Sedan (2003)",
+          "9-3 Sport Sedan (2008)",
+          "9-3 Sport Sedan (2009)"
+        ],
+        "Diésel": [
+          "9-3 Sport Sedan (1998)",
+          "9-3 Sport Sedan (2003)",
+          "9-3 Sport Sedan (2009)"
+        ],
+        "Ethanol": [
+          "9-3 Sport Sedan (2009)"
+        ]
+      }
+    },
+    "9-3 SportCombi": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "9-3 SportCombi (2004)",
+          "9-3 SportCombi (2009)"
+        ],
+        "Diésel": [
+          "9-3 SportCombi (2004)",
+          "9-3 SportCombi (2009)"
+        ],
+        "Ethanol": [
+          "9-3 SportCombi (2009)"
+        ]
+      }
+    },
+    "9-3X": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "9-3X (2009)"
+        ],
+        "Diésel": [
+          "9-3X (2009)"
+        ],
+        "Natural Gas": [
+          "9-3X (2009)"
+        ]
+      }
+    },
+    "9-5 SportCombi": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "9-5 SportCombi (1998)",
+          "9-5 SportCombi (2001)",
+          "9-5 SportCombi (2005)"
+        ],
+        "Diésel": [
+          "9-5 SportCombi (2001)",
+          "9-5 SportCombi (2005)"
+        ],
+        "Ethanol": [
+          "9-5 SportCombi (2005)"
+        ]
+      }
+    },
+    "9-7X": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "9-7X (2005)",
+          "9-7X (2008)"
         ]
       }
     }
@@ -147888,6 +176725,679 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "SGFM6"
+        ]
+      }
+    },
+    "Alhambra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Alhambra (1996)",
+          "Alhambra (2000)",
+          "Alhambra (2010)"
+        ],
+        "Diésel": [
+          "Alhambra (1996)",
+          "Alhambra (2000)",
+          "Alhambra (2010)"
+        ]
+      }
+    },
+    "Altea": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Altea (2004)",
+          "Altea (2006)",
+          "Altea (2007)",
+          "Altea (2009)"
+        ],
+        "Diésel": [
+          "Altea (2004)",
+          "Altea (2006)",
+          "Altea (2007)",
+          "Altea (2009)"
+        ]
+      }
+    },
+    "Arona": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Arona (2017)",
+          "Arona (2021)",
+          "Arona (2025)"
+        ],
+        "Natural Gas": [
+          "Arona (2021)"
+        ],
+        "Diésel": [
+          "Arona (2017)"
+        ]
+      }
+    },
+    "Arosa": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Arosa (1997)",
+          "Arosa (2001)"
+        ],
+        "Diésel": [
+          "Arosa (1997)",
+          "Arosa (2001)"
+        ]
+      }
+    },
+    "Ateca": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ateca (2016)",
+          "Ateca (2020)"
+        ],
+        "Diésel": [
+          "Ateca (2016)",
+          "Ateca (2020)"
+        ]
+      }
+    },
+    "Cordoba": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cordoba (1999)",
+          "Cordoba (2003)"
+        ],
+        "Diésel": [
+          "Cordoba (1999)",
+          "Cordoba (2003)"
+        ]
+      }
+    },
+    "Cordoba Cupra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cordoba Cupra (2000)"
+        ]
+      }
+    },
+    "Cordoba SX": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cordoba SX (1999)"
+        ],
+        "Diésel": [
+          "Cordoba SX (1999)"
+        ]
+      }
+    },
+    "Cordoba Vario": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cordoba Vario (1999)"
+        ],
+        "Diésel": [
+          "Cordoba Vario (1999)"
+        ]
+      }
+    },
+    "Exeo": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Exeo (2008)"
+        ],
+        "Diésel": [
+          "Exeo (2008)"
+        ]
+      }
+    },
+    "Exeo ST": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Exeo ST (2009)"
+        ],
+        "Diésel": [
+          "Exeo ST (2009)"
+        ]
+      }
+    },
+    "Ibiza": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ibiza (2017)",
+          "Ibiza 3 Doors (1999)",
+          "Ibiza 3 Doors (2002)",
+          "Ibiza 3 Doors (2006)",
+          "Ibiza 3 Doors (2008)",
+          "Ibiza 5 Doors (1999)",
+          "Ibiza 5 Doors (2002)",
+          "Ibiza 5 Doors (2006)",
+          "Ibiza 5 Doors (2008)",
+          "Ibiza 5 Doors (2017)",
+          "Ibiza 5 Doors (2021)",
+          "Ibiza 5 Doors (2025)"
+        ],
+        "Natural Gas": [
+          "Ibiza (2017)",
+          "Ibiza 5 Doors (2021)"
+        ],
+        "Diésel": [
+          "Ibiza (2017)",
+          "Ibiza 3 Doors (1999)",
+          "Ibiza 3 Doors (2002)",
+          "Ibiza 3 Doors (2006)",
+          "Ibiza 3 Doors (2008)",
+          "Ibiza 5 Doors (1999)",
+          "Ibiza 5 Doors (2002)",
+          "Ibiza 5 Doors (2006)",
+          "Ibiza 5 Doors (2008)",
+          "Ibiza 5 Doors (2017)"
+        ]
+      }
+    },
+    "Ibiza Bocanegra": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ibiza Bocanegra (2009)"
+        ]
+      }
+    },
+    "Ibiza Cupra": {
+      "years": [
+        2000,
+        2001,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ibiza Cupra (1999)",
+          "Ibiza Cupra (2006)",
+          "Ibiza Cupra (2009)",
+          "Ibiza Cupra (2012)"
+        ],
+        "Diésel": [
+          "Ibiza Cupra (2006)"
+        ]
+      }
+    },
+    "Ibiza FR": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ibiza FR (2009)"
+        ],
+        "Diésel": [
+          "Ibiza FR (2009)"
+        ]
+      }
+    },
+    "Ibiza ST": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ibiza ST (2010)"
+        ],
+        "Diésel": [
+          "Ibiza ST (2010)"
+        ]
+      }
+    },
+    "Leon": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon (2000)",
+          "Leon (2005)",
+          "Leon (2009)",
+          "Leon (2012)",
+          "Leon (2020)"
+        ],
+        "Diésel": [
+          "Leon (2000)",
+          "Leon (2005)",
+          "Leon (2009)",
+          "Leon (2012)",
+          "Leon (2020)"
+        ],
+        "Hybrid": [
+          "Leon (2020)"
+        ],
+        "Natural Gas": [
+          "Leon (2020)"
+        ]
+      }
+    },
+    "Leon Cupra": {
+      "years": [
+        2001,
+        2002,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon Cupra (2001)",
+          "Leon Cupra (2006)",
+          "Leon Cupra (2013)"
+        ],
+        "Diésel": [
+          "Leon Cupra (2001)"
+        ]
+      }
+    },
+    "Leon Cupra R": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2009,
+        2010,
+        2011,
+        2012,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon Cupra R (2002)",
+          "Leon Cupra R (2009)",
+          "Leon Cupra R (2017)"
+        ]
+      }
+    },
+    "Leon FR / Topsport": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon FR / Topsport (2002)",
+          "Leon FR / Topsport (2006)"
+        ],
+        "Diésel": [
+          "Leon FR / Topsport (2002)",
+          "Leon FR / Topsport (2006)"
+        ]
+      }
+    },
+    "Leon SC": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon SC (2013)",
+          "Leon SC (2017)"
+        ],
+        "Diésel": [
+          "Leon SC (2013)",
+          "Leon SC (2017)"
+        ]
+      }
+    },
+    "Leon ST": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon ST Estate (2013)",
+          "Leon ST Estate (2020)"
+        ],
+        "Diésel": [
+          "Leon ST Estate (2013)",
+          "Leon ST Estate (2020)"
+        ],
+        "Hybrid": [
+          "Leon ST Estate (2020)"
+        ],
+        "Natural Gas": [
+          "Leon ST Estate (2020)"
+        ],
+        "Mild Hybrid": [
+          "Leon ST Estate (2020)"
+        ]
+      }
+    },
+    "Leon ST Cupra": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon ST Cupra (2015)"
+        ]
+      }
+    },
+    "Leon X-Perience": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leon X-Perience (2014)"
+        ],
+        "Diésel": [
+          "Leon X-Perience (2014)"
+        ]
+      }
+    },
+    "Mii": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "No especificado": [
+          "Mii (2019)"
+        ],
+        "Gasolina": [
+          "Mii (2011)",
+          "Mii (2012)"
+        ],
+        "Natural Gas": [
+          "Mii (2012)"
+        ]
+      }
+    },
+    "Tarraco": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tarraco (2018)"
+        ],
+        "Diésel": [
+          "Tarraco (2018)"
+        ],
+        "Hybrid": [
+          "Tarraco (2018)"
+        ]
+      }
+    },
+    "Toledo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Toledo (1999)",
+          "Toledo (2004)",
+          "Toledo (2012)"
+        ],
+        "Diésel": [
+          "Toledo (1999)",
+          "Toledo (2004)",
+          "Toledo (2012)"
         ]
       }
     }
@@ -152830,6 +182340,271 @@ export const VEHICLES = {
           "ZZAAA200"
         ]
       }
+    },
+    "1": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "1 (2022)"
+        ]
+      }
+    },
+    "3": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "3 (2023)"
+        ]
+      }
+    },
+    "5": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "5 (2024)"
+        ]
+      }
+    },
+    "crossblade": {
+      "years": [
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "crossblade (2002)"
+        ]
+      }
+    },
+    "Electric Drive": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Electric Drive (2012)",
+          "Electric Drive (2016)"
+        ]
+      }
+    },
+    "forfour": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "forfour (2019)"
+        ],
+        "Gasolina": [
+          "forfour (2003)",
+          "forfour (2014)"
+        ],
+        "Diésel": [
+          "forfour (2003)"
+        ]
+      }
+    },
+    "forfour Brabus": {
+      "years": [
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "forfour Brabus (2005)"
+        ]
+      }
+    },
+    "fortwo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "fortwo (2019)"
+        ],
+        "Gasolina": [
+          "fortwo (1998)",
+          "fortwo (2003)",
+          "fortwo (2007)",
+          "fortwo (2012)",
+          "fortwo (2014)"
+        ],
+        "Diésel": [
+          "fortwo (1998)",
+          "fortwo (2003)",
+          "fortwo (2007)",
+          "fortwo (2012)"
+        ],
+        "Hybrid Gasoline": [
+          "fortwo (2012)"
+        ]
+      }
+    },
+    "fortwo Brabus": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "fortwo Brabus (2003)",
+          "fortwo Brabus (2007)",
+          "fortwo Brabus (2012)"
+        ]
+      }
+    },
+    "fortwo Cabrio": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "fortwo Cabrio (2019)"
+        ],
+        "Gasolina": [
+          "fortwo Cabrio (2000)",
+          "fortwo Cabrio (2004)",
+          "fortwo Cabrio (2007)",
+          "fortwo Cabrio (2010)",
+          "fortwo Cabrio (2012)",
+          "fortwo Cabrio (2016)"
+        ],
+        "Diésel": [
+          "fortwo Cabrio (2000)",
+          "fortwo Cabrio (2004)",
+          "fortwo Cabrio (2007)",
+          "fortwo Cabrio (2010)",
+          "fortwo Cabrio (2012)"
+        ]
+      }
+    },
+    "fortwo Cabrio Brabus": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "fortwo Cabrio Brabus (2003)",
+          "fortwo Cabrio Brabus (2007)",
+          "fortwo Cabrio Brabus (2012)"
+        ]
+      }
+    },
+    "Roadster": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Roadster (2002)",
+          "Roadster Coupe (2003)"
+        ]
+      }
     }
   },
   "SPORTEQUIPE": {
@@ -153235,6 +183010,247 @@ export const VEHICLES = {
           "EVA51"
         ]
       }
+    },
+    "Actyon": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Actyon (2006)"
+        ],
+        "Diésel": [
+          "Actyon (2006)"
+        ]
+      }
+    },
+    "Chairman": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Chairman (2004)",
+          "Chairman (2008)"
+        ]
+      }
+    },
+    "Korando": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Korando (1997)",
+          "Korando (2010)",
+          "Korando (2017)",
+          "Korando (2019)"
+        ],
+        "Diésel": [
+          "Korando (1997)",
+          "Korando (2010)",
+          "Korando (2013)",
+          "Korando (2017)",
+          "Korando (2019)"
+        ]
+      }
+    },
+    "Kyron": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "Kyron (2004)"
+        ]
+      }
+    },
+    "Musso": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "Musso (1998)",
+          "Musso (2018)"
+        ],
+        "Gasolina": [
+          "Musso (1998)"
+        ]
+      }
+    },
+    "Musso Sports": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Diésel": [
+          "Musso Sports (1998)"
+        ]
+      }
+    },
+    "Rexton": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "Rexton (2001)",
+          "Rexton (2006)",
+          "Rexton (2018)",
+          "Rexton (2021)"
+        ],
+        "Gasolina": [
+          "Rexton (2001)"
+        ]
+      }
+    },
+    "Rodius": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Diésel": [
+          "Rodius (2004)"
+        ]
+      }
+    },
+    "Tivoli": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tivoli (2015)",
+          "Tivoli (2019)"
+        ],
+        "Diésel": [
+          "Tivoli (2015)",
+          "Tivoli (2019)"
+        ]
+      }
+    },
+    "Tivoli XLV": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tivoli XLV (2016)"
+        ],
+        "Diésel": [
+          "Tivoli XLV (2016)"
+        ]
+      }
     }
   },
   "STIL CONVERSION": {
@@ -153375,6 +183391,8 @@ export const VEHICLES = {
     },
     "BRZ": {
       "years": [
+        2012,
+        2013,
         2014,
         2015,
         2016,
@@ -153395,6 +183413,9 @@ export const VEHICLES = {
           "050",
           "50",
           "550",
+          "BRZ (2012)",
+          "BRZ (2016)",
+          "BRZ (2021)",
           "M1L",
           "ND"
         ],
@@ -153826,6 +183847,8 @@ export const VEHICLES = {
         2017,
         2018,
         2019,
+        2020,
+        2021,
         2022
       ],
       "fuels": {
@@ -153833,13 +183856,17 @@ export const VEHICLES = {
           "M1L",
           "M3L",
           "M4L",
-          "ND"
+          "ND",
+          "WRX (2014)",
+          "WRX (2018)",
+          "WRX (2021)"
         ]
       }
     },
     "XV": {
       "years": [
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -153856,7 +183883,8 @@ export const VEHICLES = {
         "Diésel": [
           "0",
           "0F0",
-          "0F0F"
+          "0F0F",
+          "XV (2012)"
         ],
         "GLP (autogás)": [
           "0A0",
@@ -153878,7 +183906,8 @@ export const VEHICLES = {
           "GX",
           "GX3",
           "GX7",
-          "LC5EG095646"
+          "LC5EG095646",
+          "XV (2012)"
         ],
         "ng": [
           "CIL"
@@ -153896,6 +183925,516 @@ export const VEHICLES = {
         "Gasolina": [
           "010",
           "501"
+        ]
+      }
+    },
+    "Ascent": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ascent (2019)",
+          "Ascent (2022)"
+        ]
+      }
+    },
+    "Baja": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Baja (2003)"
+        ]
+      }
+    },
+    "Crosstrek": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Crosstrek (2017)",
+          "Crosstrek (2025)"
+        ],
+        "Gasolina": [
+          "Crosstrek (2015)",
+          "Crosstrek (2017)",
+          "Crosstrek (2020)",
+          "Crosstrek (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Crosstrek (2020)"
+        ]
+      }
+    },
+    "Exiga Liberty": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Exiga Liberty (2008)"
+        ]
+      }
+    },
+    "Forester": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Forester (2025)"
+        ],
+        "Gasolina": [
+          "Forester (1997)",
+          "Forester (2000)",
+          "Forester (2002)",
+          "Forester (2005)",
+          "Forester (2008)",
+          "Forester (2013)",
+          "Forester (2018)",
+          "Forester (2024)"
+        ],
+        "Diésel": [
+          "Forester (2008)",
+          "Forester (2013)"
+        ]
+      }
+    },
+    "Getaway": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Getaway (2026)"
+        ]
+      }
+    },
+    "Impreza": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Impreza (1998)",
+          "Impreza (2000)",
+          "Impreza (2003)",
+          "Impreza (2005)",
+          "Impreza (2007)",
+          "Impreza (2012)",
+          "Impreza (2016)",
+          "Impreza (2020)",
+          "Impreza (2022)"
+        ],
+        "Hybrid Gasoline": [
+          "Impreza (2020)"
+        ],
+        "Diésel": [
+          "Impreza (2007)"
+        ]
+      }
+    },
+    "Impreza WRX STi": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Impreza WRX STi (1998)",
+          "Impreza WRX STi (2001)",
+          "Impreza WRX STi (2003)",
+          "Impreza WRX STi (2005)",
+          "Impreza WRX STi (2008)"
+        ]
+      }
+    },
+    "Justy": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Justy (1996)",
+          "Justy (1997)",
+          "Justy (2004)",
+          "Justy (2008)"
+        ]
+      }
+    },
+    "Legacy": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Legacy (1999)",
+          "Legacy (2002)",
+          "Legacy (2003)",
+          "Legacy (2006)",
+          "Legacy (2008)",
+          "Legacy (2009)",
+          "Legacy (2014)",
+          "Legacy (2019)",
+          "Legacy (2022)",
+          "Legacy Wagon (1998)",
+          "Legacy Wagon (2002)",
+          "Legacy Wagon (2003)",
+          "Legacy Wagon (2006)",
+          "Legacy Wagon (2009)"
+        ],
+        "Diésel": [
+          "Legacy (2006)",
+          "Legacy (2008)",
+          "Legacy (2009)",
+          "Legacy Wagon (2006)",
+          "Legacy Wagon (2009)"
+        ]
+      }
+    },
+    "Levorg": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Levorg (2014)"
+        ]
+      }
+    },
+    "Liberty": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Liberty (2008)"
+        ]
+      }
+    },
+    "Outback": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Outback (1998)",
+          "Outback (2002)",
+          "Outback (2003)",
+          "Outback (2005)",
+          "Outback (2009)",
+          "Outback (2014)",
+          "Outback (2019)",
+          "Outback (2022)",
+          "Outback (2025)"
+        ],
+        "Diésel": [
+          "Outback (2009)",
+          "Outback (2014)"
+        ]
+      }
+    },
+    "Outback Wilderness": {
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Outback Wilderness (2023)",
+          "Outback Wilderness (2025)"
+        ]
+      }
+    },
+    "R1": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "R1 (2005)"
+        ]
+      }
+    },
+    "R2": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "R2 (2003)"
+        ]
+      }
+    },
+    "Solterra": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Solterra (2021)",
+          "Solterra (2025)"
+        ]
+      }
+    },
+    "Stella": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Stella (2006)"
+        ]
+      }
+    },
+    "Trailseeker": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Trailseeker (2026)"
+        ]
+      }
+    },
+    "Trezia": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Trezia (2010)"
+        ],
+        "Diésel": [
+          "Trezia (2010)"
+        ]
+      }
+    },
+    "Tribeca": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tribeca (2005)",
+          "Tribeca (2007)"
+        ]
+      }
+    },
+    "Uncharted": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Uncharted (2025)"
+        ]
+      }
+    },
+    "Vivio": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vivio (1992)"
         ]
       }
     }
@@ -154677,8 +185216,14 @@ export const VEHICLES = {
     },
     "SX4": {
       "years": [
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -154705,7 +185250,8 @@ export const VEHICLES = {
           "CVT",
           "MT",
           "MT1",
-          "MT2"
+          "MT2",
+          "SX4 Sedan (2006)"
         ]
       }
     },
@@ -154784,6 +185330,499 @@ export const VEHICLES = {
       "fuels": {
         "Gasolina": [
           "BM1114"
+        ]
+      }
+    },
+    "Across": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Across (2026)"
+        ],
+        "Hybrid Gasoline": [
+          "Across (2020)"
+        ]
+      }
+    },
+    "Aerio / Liana": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aerio / Liana Hatchback (2001)",
+          "Aerio / Liana Sedan (2001)"
+        ],
+        "Diésel": [
+          "Aerio / Liana Hatchback (2001)",
+          "Aerio / Liana Sedan (2001)"
+        ]
+      }
+    },
+    "Alto": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Alto (2002)",
+          "Alto (2009)"
+        ]
+      }
+    },
+    "APV": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "APV (2004)"
+        ]
+      }
+    },
+    "Baleno": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Baleno (2016)"
+        ],
+        "Mild Hybrid": [
+          "Baleno (2016)"
+        ]
+      }
+    },
+    "Equator": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Equator (2009)"
+        ]
+      }
+    },
+    "Ertiga": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ertiga (2012)"
+        ],
+        "Diésel": [
+          "Ertiga (2012)"
+        ]
+      }
+    },
+    "Escudo / Grand Vitara": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Escudo / Grand Vitara 3 Doors (2008)",
+          "Escudo / Grand Vitara 5 Doors (1998)",
+          "Escudo / Grand Vitara 5 Doors (2005)",
+          "Escudo / Grand Vitara 5 Doors (2008)"
+        ],
+        "Diésel": [
+          "Escudo / Grand Vitara 3 Doors (2008)",
+          "Escudo / Grand Vitara 5 Doors (1998)",
+          "Escudo / Grand Vitara 5 Doors (2005)",
+          "Escudo / Grand Vitara 5 Doors (2008)"
+        ]
+      }
+    },
+    "Escudo / Vitara": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Escudo / Vitara 3 Doors (2005)"
+        ],
+        "Diésel": [
+          "Escudo / Vitara 3 Doors (2005)"
+        ]
+      }
+    },
+    "Forenza": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Forenza Sedan (2004)",
+          "Forenza Wagon (2004)"
+        ]
+      }
+    },
+    "Ignis": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Ignis (2019)"
+        ],
+        "Gasolina": [
+          "Ignis (2000)",
+          "Ignis (2003)",
+          "Ignis (2016)"
+        ],
+        "Diésel": [
+          "Ignis (2003)"
+        ]
+      }
+    },
+    "Jimny": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Jimny (2005)",
+          "Jimny (2012)",
+          "Jimny (2018)",
+          "Jimny (2023)"
+        ],
+        "Diésel": [
+          "Jimny (2005)"
+        ]
+      }
+    },
+    "Kizashi": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Kizashi (2009)"
+        ]
+      }
+    },
+    "Reno": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Reno (2004)"
+        ]
+      }
+    },
+    "S-Cross": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "S-Cross (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "S-Cross (2021)"
+        ]
+      }
+    },
+    "Splash": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Splash (2007)",
+          "Splash (2011)"
+        ],
+        "Diésel": [
+          "Splash (2007)"
+        ]
+      }
+    },
+    "Swace": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Swace (2020)"
+        ]
+      }
+    },
+    "Swift": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Swift 5 Doors (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Swift 5 Doors (2020)"
+        ],
+        "Gasolina": [
+          "Swift 3 Doors (1996)",
+          "Swift 3 Doors (2005)",
+          "Swift 3 Doors (2010)",
+          "Swift 3 Doors (2014)",
+          "Swift 5 Doors (1996)",
+          "Swift 5 Doors (2005)",
+          "Swift 5 Doors (2010)",
+          "Swift 5 Doors (2014)",
+          "Swift 5 Doors (2017)"
+        ],
+        "Hybrid": [
+          "Swift 5 Doors (2017)"
+        ],
+        "Diésel": [
+          "Swift 3 Doors (2005)",
+          "Swift 5 Doors (2005)",
+          "Swift 5 Doors (2010)"
+        ]
+      }
+    },
+    "SX4 Crossover": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SX4 Crossover (2006)",
+          "SX4 Crossover (2013)",
+          "SX4 Crossover (2016)"
+        ],
+        "Diésel": [
+          "SX4 Crossover (2006)",
+          "SX4 Crossover (2013)",
+          "SX4 Crossover (2016)"
+        ]
+      }
+    },
+    "Verona": {
+      "years": [
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Verona (2004)"
+        ]
+      }
+    },
+    "Vitara": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vitara (2014)",
+          "Vitara (2018)"
+        ],
+        "Hybrid": [
+          "Vitara (2018)"
+        ],
+        "Diésel": [
+          "Vitara (2014)"
+        ]
+      }
+    },
+    "Wagon R": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Wagon R (1997)",
+          "Wagon R (2000)",
+          "Wagon R (2003)"
+        ],
+        "Diésel": [
+          "Wagon R (2003)"
+        ]
+      }
+    },
+    "XL7": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "XL7 (2004)",
+          "XL7 (2007)"
+        ],
+        "Diésel": [
+          "XL7 (2004)"
         ]
       }
     }
@@ -154943,6 +185982,222 @@ export const VEHICLES = {
           "L03E"
         ]
       }
+    },
+    "MOTORS Altroz": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MOTORS Altroz (2019)"
+        ]
+      }
+    },
+    "MOTORS Aria": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Diésel": [
+          "MOTORS Aria (2010)"
+        ]
+      }
+    },
+    "MOTORS Harrier": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "MOTORS Harrier (2018)"
+        ]
+      }
+    },
+    "MOTORS Indica": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MOTORS Indica (1998)",
+          "MOTORS Indica (2008)"
+        ],
+        "Diésel": [
+          "MOTORS Indica (1998)",
+          "MOTORS Indica (2008)"
+        ]
+      }
+    },
+    "MOTORS Indigo": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MOTORS Indigo (2002)",
+          "MOTORS Indigo (2008)",
+          "MOTORS Indigo (2009)"
+        ],
+        "Diésel": [
+          "MOTORS Indigo (2002)",
+          "MOTORS Indigo (2008)",
+          "MOTORS Indigo (2009)"
+        ]
+      }
+    },
+    "MOTORS Indigo SW": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MOTORS Indigo SW (2004)"
+        ],
+        "Diésel": [
+          "MOTORS Indigo SW (2004)"
+        ]
+      }
+    },
+    "MOTORS Nano": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MOTORS Nano (2008)"
+        ]
+      }
+    },
+    "MOTORS Nexon": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MOTORS Nexon (2017)"
+        ],
+        "Diésel": [
+          "MOTORS Nexon (2017)"
+        ]
+      }
+    },
+    "MOTORS Safari": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "MOTORS Safari (2005)",
+          "MOTORS Safari (2012)"
+        ],
+        "Gasolina": [
+          "MOTORS Safari (2005)"
+        ]
+      }
+    },
+    "MOTORS Sumo": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Diésel": [
+          "MOTORS Sumo (2008)"
+        ]
+      }
+    },
+    "MOTORS Telcoline": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Diésel": [
+          "MOTORS Telcoline Double Cab (1988)"
+        ]
+      }
     }
   },
   "TESLA": {
@@ -155100,6 +186355,108 @@ export const VEHICLES = {
       "fuels": {
         "Eléctrico": [
           "01R0ADSTER"
+        ]
+      }
+    },
+    "Cybertruck": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Cybertruck (2021)"
+        ]
+      }
+    },
+    "Model 3": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Model 3 (2017)",
+          "Model 3 (2023)"
+        ]
+      }
+    },
+    "Model S": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Model S (2012)",
+          "Model S (2016)",
+          "Model S (2019)",
+          "Model S (2021)"
+        ]
+      }
+    },
+    "Model X": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Model X (2015)",
+          "Model X (2021)",
+          "Model X (2023)"
+        ]
+      }
+    },
+    "Model Y": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Model Y (2019)",
+          "Model Y (2024)"
+        ]
+      }
+    },
+    "Roadster": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2018
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Roadster (2008)",
+          "Roadster (2009)",
+          "Roadster (2018)"
         ]
       }
     }
@@ -156946,13 +188303,18 @@ export const VEHICLES = {
       "years": [
         2016,
         2017,
+        2018,
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023,
+        2025
       ],
       "fuels": {
         "Gasolina": [
+          "C-HR (2016)",
+          "C-HR (2019)",
           "MAXH10L-AHXEBW(1E)",
           "MAXH10L-AHXEBW(2F)",
           "MAXH10L-AHXGBW(1E)",
@@ -156981,6 +188343,19 @@ export const VEHICLES = {
           "ZYX11L-AHXKBW(1F)",
           "ZYX11L-AHXKBW(2F)",
           "ZYX11L-AHXNBW(1E)"
+        ],
+        "Eléctrico": [
+          "C-HR (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "C-HR (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "C-HR (2023)"
+        ],
+        "Hybrid": [
+          "C-HR (2016)",
+          "C-HR (2019)"
         ]
       }
     },
@@ -157848,11 +189223,19 @@ export const VEHICLES = {
     },
     "MR2": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
         2014
       ],
       "fuels": {
         "Gasolina": [
-          "AKMQHW(1B)"
+          "AKMQHW(1B)",
+          "MR2 Cabriolet (2000)",
+          "MR2 Cabriolet (2002)"
         ]
       }
     },
@@ -158736,17 +190119,32 @@ export const VEHICLES = {
     },
     "RAV4": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
         2017,
+        2018,
         2019,
         2020,
         2021,
-        2022
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -158953,6 +190351,15 @@ export const VEHICLES = {
           "ANTMXW(2L)",
           "AOA41L-ANFMRW(3L)",
           "FF",
+          "RAV4 3 Doors (2000)",
+          "RAV4 3 Doors (2003)",
+          "RAV4 5 Doors (2000)",
+          "RAV4 5 Doors (2003)",
+          "RAV4 5 Doors (2006)",
+          "RAV4 5 Doors (2008)",
+          "RAV4 5 Doors (2010)",
+          "RAV4 5 Doors (2013)",
+          "RAV4 5 Doors (2015)",
           "TOYOTA RAV4",
           "WWA42L-ANFGRW(5R)",
           "WWA42L-ANFGRW(5S)",
@@ -159064,6 +190471,16 @@ export const VEHICLES = {
           "MXAA54L-ANFMBW(1C)",
           "ND",
           "NULL",
+          "RAV4 3 Doors (2000)",
+          "RAV4 3 Doors (2003)",
+          "RAV4 5 Doors (2000)",
+          "RAV4 5 Doors (2003)",
+          "RAV4 5 Doors (2006)",
+          "RAV4 5 Doors (2008)",
+          "RAV4 5 Doors (2010)",
+          "RAV4 5 Doors (2013)",
+          "RAV4 5 Doors (2015)",
+          "RAV4 5 Doors (2018)",
           "TOYOTA RAV4",
           "XSA44L-ANFMPW(2M)",
           "XSA44L-ANFXPW(2P)",
@@ -159145,6 +190562,17 @@ export const VEHICLES = {
           "ZSA44LANXMPW(3L)",
           "ZSA44LANZMPW(3W)",
           "ZSAAAL-ANFXPW(2N)"
+        ],
+        "Hybrid Gasoline": [
+          "RAV4 5 Doors (2018)",
+          "RAV4 5 Doors (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "RAV4 5 Doors (2025)"
+        ],
+        "Hybrid": [
+          "RAV4 5 Doors (2015)",
+          "RAV4 5 Doors (2018)"
         ]
       }
     },
@@ -161690,6 +193118,1678 @@ export const VEHICLES = {
           "NGJ10L-BGXNGW"
         ]
       }
+    },
+    "4Runner": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "4Runner (2003)",
+          "4Runner (2009)",
+          "4Runner (2013)",
+          "4Runner (2024)"
+        ],
+        "Diésel": [
+          "4Runner (2003)"
+        ]
+      }
+    },
+    "Agya": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Agya (2012)"
+        ]
+      }
+    },
+    "Alphard": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Alphard (2002)"
+        ],
+        "Hybrid": [
+          "Alphard (2002)"
+        ]
+      }
+    },
+    "Aqua": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Aqua (2021)"
+        ]
+      }
+    },
+    "Aurion": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aurion (2006)",
+          "Aurion (2012)"
+        ]
+      }
+    },
+    "Auris": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Auris 3 Doors (2006)",
+          "Auris 5 Doors (2006)",
+          "Auris 5 Doors (2010)",
+          "Auris 5 Doors (2013)",
+          "Auris 5 Doors (2015)",
+          "Auris 5 Doors (2018)",
+          "Auris Touring (2013)"
+        ],
+        "Diésel": [
+          "Auris 3 Doors (2006)",
+          "Auris 5 Doors (2006)",
+          "Auris 5 Doors (2010)",
+          "Auris 5 Doors (2013)",
+          "Auris 5 Doors (2015)",
+          "Auris 5 Doors (2018)",
+          "Auris Touring (2013)"
+        ],
+        "Hybrid": [
+          "Auris 5 Doors (2015)",
+          "Auris 5 Doors (2018)"
+        ],
+        "Hybrid Gasoline": [
+          "Auris 5 Doors (2013)",
+          "Auris Touring (2013)"
+        ]
+      }
+    },
+    "Avalon": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Avalon (2005)",
+          "Avalon (2012)",
+          "Avalon (2015)",
+          "Avalon (2018)",
+          "Avalon (2019)"
+        ],
+        "Hybrid": [
+          "Avalon (2015)",
+          "Avalon (2018)",
+          "Avalon (2019)"
+        ]
+      }
+    },
+    "Avensis": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Avensis (1997)",
+          "Avensis (2000)",
+          "Avensis (2003)",
+          "Avensis (2006)",
+          "Avensis (2009)",
+          "Avensis (2011)",
+          "Avensis (2015)",
+          "Avensis Liftback (1997)",
+          "Avensis Liftback (2003)",
+          "Avensis Liftback (2006)",
+          "Avensis Liftback (2009)",
+          "Avensis Wagon (1997)",
+          "Avensis Wagon (2000)",
+          "Avensis Wagon (2003)",
+          "Avensis Wagon (2006)",
+          "Avensis Wagon (2009)",
+          "Avensis Wagon (2015)"
+        ],
+        "Diésel": [
+          "Avensis (1997)",
+          "Avensis (2000)",
+          "Avensis (2003)",
+          "Avensis (2006)",
+          "Avensis (2009)",
+          "Avensis (2011)",
+          "Avensis (2015)",
+          "Avensis Liftback (1997)",
+          "Avensis Liftback (2003)",
+          "Avensis Liftback (2006)",
+          "Avensis Liftback (2009)",
+          "Avensis Wagon (1997)",
+          "Avensis Wagon (2000)",
+          "Avensis Wagon (2003)",
+          "Avensis Wagon (2006)",
+          "Avensis Wagon (2009)",
+          "Avensis Wagon (2015)"
+        ]
+      }
+    },
+    "Avensis Verso": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Avensis Verso (2001)",
+          "Avensis Verso (2003)"
+        ],
+        "Diésel": [
+          "Avensis Verso (2001)",
+          "Avensis Verso (2003)"
+        ]
+      }
+    },
+    "Aygo": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aygo 3 Doors (2005)",
+          "Aygo 3 Doors (2009)",
+          "Aygo 5 Doors (2005)",
+          "Aygo 5 Doors (2014)",
+          "Aygo 5 Doors (2018)"
+        ],
+        "Diésel": [
+          "Aygo 3 Doors (2005)",
+          "Aygo 3 Doors (2009)",
+          "Aygo 5 Doors (2005)"
+        ]
+      }
+    },
+    "Aygo X": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Aygo X (2025)"
+        ],
+        "Gasolina": [
+          "Aygo X (2021)"
+        ]
+      }
+    },
+    "bZ": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "bZ (US) (2026)"
+        ]
+      }
+    },
+    "bZ4X": {
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "bZ4X (2022)",
+          "bZ4X (2025)",
+          "bZ4X Touring (2025)"
+        ]
+      }
+    },
+    "Camry": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Camry (2020)",
+          "Camry (2021)",
+          "Camry (2023)"
+        ],
+        "Gasolina": [
+          "Camry (1997)",
+          "Camry (2001)",
+          "Camry (2004)",
+          "Camry (2007)",
+          "Camry (2011)",
+          "Camry (2014)",
+          "Camry (2017)",
+          "Camry (2019)",
+          "Camry (2020)"
+        ],
+        "Hybrid": [
+          "Camry (2009)",
+          "Camry (2014)",
+          "Camry (2017)"
+        ]
+      }
+    },
+    "Celica": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Celica (1999)",
+          "Celica (2002)"
+        ]
+      }
+    },
+    "Century": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Century Sedan (2023)"
+        ]
+      }
+    },
+    "Century SUV": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Century SUV (2023)"
+        ]
+      }
+    },
+    "Corolla": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Corolla Sedan (2019)",
+          "Corolla Sedan (2022)",
+          "Corolla Touring (2022)"
+        ],
+        "Gasolina": [
+          "Corolla (2014)",
+          "Corolla (2016)",
+          "Corolla (US) (2013)",
+          "Corolla (US) (2018)",
+          "Corolla 3 Doors (1997)",
+          "Corolla 3 Doors (2000)",
+          "Corolla 3 Doors (2002)",
+          "Corolla 3 Doors (2004)",
+          "Corolla 5 Doors (1997)",
+          "Corolla 5 Doors (2000)",
+          "Corolla 5 Doors (2002)",
+          "Corolla 5 Doors (2004)",
+          "Corolla Sedan (1997)",
+          "Corolla Sedan (2000)",
+          "Corolla Sedan (2002)",
+          "Corolla Sedan (2004)",
+          "Corolla Sedan (2007)",
+          "Corolla Sedan (2010)",
+          "Corolla Sedan (2013)",
+          "Corolla Sedan (2016)",
+          "Corolla Sedan (2019)",
+          "Corolla Sedan (2020)",
+          "Corolla Touring (2018)",
+          "Corolla Wagon (1997)",
+          "Corolla Wagon (2000)",
+          "Corolla Wagon (2002)",
+          "Corolla Wagon (2004)"
+        ],
+        "Hybrid": [
+          "Corolla (US) (2018)",
+          "Corolla Sedan (2020)",
+          "Corolla Touring (2018)"
+        ],
+        "Diésel": [
+          "Corolla 3 Doors (1997)",
+          "Corolla 3 Doors (2000)",
+          "Corolla 3 Doors (2002)",
+          "Corolla 3 Doors (2004)",
+          "Corolla 5 Doors (1997)",
+          "Corolla 5 Doors (2000)",
+          "Corolla 5 Doors (2002)",
+          "Corolla 5 Doors (2004)",
+          "Corolla Sedan (1997)",
+          "Corolla Sedan (2000)",
+          "Corolla Sedan (2002)",
+          "Corolla Sedan (2004)",
+          "Corolla Sedan (2007)",
+          "Corolla Sedan (2010)",
+          "Corolla Sedan (2013)",
+          "Corolla Sedan (2016)",
+          "Corolla Wagon (1997)",
+          "Corolla Wagon (2000)",
+          "Corolla Wagon (2002)",
+          "Corolla Wagon (2004)"
+        ]
+      }
+    },
+    "Corolla Cross": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corolla Cross (2020)",
+          "Corolla Cross (2025)",
+          "Corolla Cross (US) (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "Corolla Cross (2020)",
+          "Corolla Cross (2022)",
+          "Corolla Cross (2025)",
+          "Corolla Cross (US) (2021)",
+          "Corolla Cross (US) (2023)"
+        ]
+      }
+    },
+    "Corolla Verso": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corolla Verso (2002)",
+          "Corolla Verso (2004)",
+          "Corolla Verso (2007)"
+        ],
+        "Diésel": [
+          "Corolla Verso (2002)",
+          "Corolla Verso (2004)",
+          "Corolla Verso (2007)"
+        ]
+      }
+    },
+    "Crown": {
+      "years": [
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Crown (2024)",
+          "Crown Estate (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "Crown Estate (2025)"
+        ]
+      }
+    },
+    "Crown SUV": {
+      "years": [
+        2022,
+        2025
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Crown SUV (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "Crown SUV (2022)"
+        ]
+      }
+    },
+    "Etios": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Etios (2010)"
+        ],
+        "Diésel": [
+          "Etios (2010)"
+        ]
+      }
+    },
+    "Etios Liva": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Etios Liva (2011)"
+        ],
+        "Diésel": [
+          "Etios Liva (2011)"
+        ]
+      }
+    },
+    "FJ Cruiser": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "FJ Cruiser (2006)",
+          "FJ Cruiser (2011)"
+        ]
+      }
+    },
+    "Fortuner": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Fortuner (2011)",
+          "Fortuner (2020)"
+        ],
+        "Diésel": [
+          "Fortuner (2011)",
+          "Fortuner (2015)",
+          "Fortuner (2020)"
+        ]
+      }
+    },
+    "GR 86": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GR 86 (2021)"
+        ]
+      }
+    },
+    "GR Corolla": {
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GR Corolla (2022)",
+          "GR Corolla (2025)"
+        ]
+      }
+    },
+    "GR Supra": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GR Supra (2022)"
+        ]
+      }
+    },
+    "GR Yaris": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GR Yaris (2020)",
+          "GR Yaris (2024)"
+        ]
+      }
+    },
+    "Grand Highlander": {
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Grand Highlander (2025)"
+        ],
+        "Gasolina": [
+          "Grand Highlander (2023)"
+        ],
+        "Mild Hybrid": [
+          "Grand Highlander (2023)"
+        ]
+      }
+    },
+    "GT 86": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GT 86 (2012)",
+          "GT 86 (2016)"
+        ]
+      }
+    },
+    "Harrier": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Harrier (2014)"
+        ],
+        "Hybrid Gasoline": [
+          "Harrier (2014)"
+        ]
+      }
+    },
+    "Highlander / Kluger": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Highlander / Kluger (2026)"
+        ],
+        "Gasolina": [
+          "Highlander / Kluger (2001)",
+          "Highlander / Kluger (2007)",
+          "Highlander / Kluger (2013)",
+          "Highlander / Kluger (2016)",
+          "Highlander / Kluger (2019)"
+        ],
+        "Hybrid": [
+          "Highlander / Kluger (2013)",
+          "Highlander / Kluger (2016)",
+          "Highlander / Kluger (2019)"
+        ],
+        "Hybrid Gasoline": [
+          "Highlander / Kluger (2001)",
+          "Highlander / Kluger (2007)"
+        ]
+      }
+    },
+    "Hilux": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Diésel": [
+          "Hilux (2005)",
+          "Hilux (2006)",
+          "Hilux Double Cab (2011)",
+          "Hilux Double Cab (2015)",
+          "Hilux Double Cab (2017)",
+          "Hilux Double Cab (2020)",
+          "Hilux Double Cab (2025)",
+          "Hilux Single Cab (2011)",
+          "Hilux Single Cab (2015)"
+        ],
+        "Híbrido diésel": [
+          "Hilux Double Cab (2020)"
+        ],
+        "Gasolina": [
+          "Hilux (2005)",
+          "Hilux Double Cab (2015)",
+          "Hilux Double Cab (2017)"
+        ]
+      }
+    },
+    "Hilux Extra Cab": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Diésel": [
+          "Hilux Extra Cab (2011)",
+          "Hilux Extra Cab (2015)"
+        ]
+      }
+    },
+    "Innova": {
+      "years": [
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Innova (2011)"
+        ],
+        "Diésel": [
+          "Innova (2011)"
+        ]
+      }
+    },
+    "iQ": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "iQ (2008)"
+        ],
+        "Diésel": [
+          "iQ (2008)"
+        ]
+      }
+    },
+    "Land Cruiser / Prado": {
+      "years": [
+        2000,
+        2001,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid Diesel": [
+          "Land Cruiser / Prado (2024)"
+        ],
+        "Mild Hybrid": [
+          "Land Cruiser / Prado (2023)"
+        ],
+        "Gasolina": [
+          "Land Cruiser / Prado (1996)",
+          "Land Cruiser / Prado (2003)",
+          "Land Cruiser / Prado (2009)",
+          "Land Cruiser / Prado (2013)",
+          "Land Cruiser / Prado (2017)"
+        ],
+        "Diésel": [
+          "Land Cruiser / Prado (2003)",
+          "Land Cruiser / Prado (2009)",
+          "Land Cruiser / Prado (2013)",
+          "Land Cruiser / Prado (2017)"
+        ]
+      }
+    },
+    "Land Cruiser V8 and predecessors": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Land Cruiser V8 and predecessors (1998)",
+          "Land Cruiser V8 and predecessors (2002)",
+          "Land Cruiser V8 and predecessors (2007)",
+          "Land Cruiser V8 and predecessors (2011)",
+          "Land Cruiser V8 and predecessors (2015)"
+        ],
+        "Diésel": [
+          "Land Cruiser V8 and predecessors (1984)",
+          "Land Cruiser V8 and predecessors (1998)",
+          "Land Cruiser V8 and predecessors (2002)",
+          "Land Cruiser V8 and predecessors (2007)",
+          "Land Cruiser V8 and predecessors (2011)",
+          "Land Cruiser V8 and predecessors (2015)"
+        ]
+      }
+    },
+    "Matrix": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Matrix (2003)",
+          "Matrix (2009)"
+        ]
+      }
+    },
+    "Mirai": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Mirai (2021)"
+        ],
+        "Eléctrico": [
+          "Mirai (2015)"
+        ]
+      }
+    },
+    "Paseo": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Paseo (1996)"
+        ]
+      }
+    },
+    "Picnic": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Picnic (1996)"
+        ],
+        "Diésel": [
+          "Picnic (1996)"
+        ]
+      }
+    },
+    "Previa / Estima": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Previa / Estima (2000)",
+          "Previa / Estima (2003)",
+          "Previa / Estima (2007)"
+        ],
+        "Hybrid Gasoline": [
+          "Previa / Estima (2007)"
+        ],
+        "Diésel": [
+          "Previa / Estima (2000)",
+          "Previa / Estima (2003)"
+        ]
+      }
+    },
+    "Prius": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Prius (2009)",
+          "Prius (2022)"
+        ],
+        "Plug-in Hybrid": [
+          "Prius (2022)"
+        ],
+        "Hybrid": [
+          "Prius (1997)",
+          "Prius (2003)",
+          "Prius (2006)",
+          "Prius (2011)",
+          "Prius (2015)",
+          "Prius (2018)"
+        ]
+      }
+    },
+    "Prius C": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Prius C (Aqua) (2012)",
+          "Prius C (Aqua) (2015)",
+          "Prius C (Aqua) (2017)"
+        ]
+      }
+    },
+    "Prius Prime": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Prius Prime (2016)"
+        ]
+      }
+    },
+    "Prius v/Prius+": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Prius v/Prius+ (2011)",
+          "Prius v/Prius+ (2015)"
+        ]
+      }
+    },
+    "Rukus": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rukus (2007)"
+        ]
+      }
+    },
+    "Sequoia": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "No especificado": [
+          "Sequoia (2022)"
+        ],
+        "Gasolina": [
+          "Sequoia (2000)",
+          "Sequoia (2007)",
+          "Sequoia (2017)",
+          "Sequoia (2019)"
+        ]
+      }
+    },
+    "Sienna": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Sienna (2020)",
+          "Sienna (2025)"
+        ],
+        "Gasolina": [
+          "Sienna (1998)",
+          "Sienna (2004)",
+          "Sienna (2010)",
+          "Sienna (2014)",
+          "Sienna (2017)"
+        ]
+      }
+    },
+    "Solara": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Solara Convertible (2004)"
+        ]
+      }
+    },
+    "Supra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Supra (1993)",
+          "Supra (2019)"
+        ]
+      }
+    },
+    "Tacoma": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Tacoma (2023)"
+        ],
+        "Gasolina": [
+          "Tacoma (2005)",
+          "Tacoma (2011)",
+          "Tacoma (2015)",
+          "Tacoma (2019)"
+        ]
+      }
+    },
+    "Tundra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tundra (1999)",
+          "Tundra (2006)",
+          "Tundra (2013)",
+          "Tundra (2017)",
+          "Tundra (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "Tundra (2021)"
+        ]
+      }
+    },
+    "Urban Cruiser": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Urban Cruiser (2025)"
+        ],
+        "Gasolina": [
+          "Urban Cruiser (2009)"
+        ],
+        "Diésel": [
+          "Urban Cruiser (2009)"
+        ]
+      }
+    },
+    "Venza": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2020
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Venza (2020)"
+        ],
+        "Gasolina": [
+          "Venza (2009)",
+          "Venza (2012)"
+        ]
+      }
+    },
+    "Verso": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Verso (2009)",
+          "Verso (2013)"
+        ],
+        "Diésel": [
+          "Verso (2009)",
+          "Verso (2013)"
+        ]
+      }
+    },
+    "VERSO-S": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "VERSO-S (2010)"
+        ],
+        "Diésel": [
+          "VERSO-S (2010)"
+        ]
+      }
+    },
+    "Vios": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vios (2013)"
+        ]
+      }
+    },
+    "Yaris": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Yaris 5 Doors (2019)",
+          "Yaris 5 Doors (2024)"
+        ],
+        "Gasolina": [
+          "Yaris 3 Doors (1999)",
+          "Yaris 3 Doors (2003)",
+          "Yaris 3 Doors (2006)",
+          "Yaris 3 Doors (2008)",
+          "Yaris 3 Doors (2011)",
+          "Yaris 3 Doors (2014)",
+          "Yaris 3 Doors (2017)",
+          "Yaris 5 Doors (1999)",
+          "Yaris 5 Doors (2003)",
+          "Yaris 5 Doors (2006)",
+          "Yaris 5 Doors (2008)",
+          "Yaris 5 Doors (2011)",
+          "Yaris 5 Doors (2014)",
+          "Yaris 5 Doors (2017)",
+          "Yaris 5 Doors (2019)",
+          "Yaris Hatchback (2013)",
+          "Yaris Hatchback (2019)",
+          "Yaris Sedan (2016)",
+          "Yaris Sedan (2018)"
+        ],
+        "Diésel": [
+          "Yaris 3 Doors (1999)",
+          "Yaris 3 Doors (2003)",
+          "Yaris 3 Doors (2006)",
+          "Yaris 3 Doors (2008)",
+          "Yaris 3 Doors (2011)",
+          "Yaris 5 Doors (1999)",
+          "Yaris 5 Doors (2003)",
+          "Yaris 5 Doors (2006)",
+          "Yaris 5 Doors (2008)",
+          "Yaris 5 Doors (2011)",
+          "Yaris 5 Doors (2014)"
+        ],
+        "Hybrid": [
+          "Yaris 5 Doors (2014)"
+        ]
+      }
+    },
+    "Yaris Cross": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Yaris Cross (2020)",
+          "Yaris Cross (2023)"
+        ],
+        "Gasolina": [
+          "Yaris Cross (2020)"
+        ]
+      }
+    },
+    "Yaris TS": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Yaris TS 3 Doors (2007)",
+          "Yaris TS 5 Doors (2007)"
+        ]
+      }
+    },
+    "Yaris Verso": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Yaris Verso (1999)",
+          "Yaris Verso (2003)"
+        ],
+        "Diésel": [
+          "Yaris Verso (1999)",
+          "Yaris Verso (2003)"
+        ]
+      }
     }
   },
   "TRIGANO": {
@@ -163382,6 +196482,7 @@ export const VEHICLES = {
     "CC": {
       "years": [
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -163391,6 +196492,7 @@ export const VEHICLES = {
         "Diésel": [
           "AD6AD62E083ST7MGVR25",
           "AM6AM62Q031ST7MGVR24",
+          "CC (2012)",
           "FD6FD62E018ST7MG",
           "FD6FD62E018ST7MJV24O",
           "FD6FD62E018ST7MJVOR25O",
@@ -163440,6 +196542,7 @@ export const VEHICLES = {
           "FM6FM6FB002ST7MJVR25O"
         ],
         "Gasolina": [
+          "CC (2012)",
           "FD6FD62E015ST7MGVR44",
           "FD6FD62E015ST7MJVR44O",
           "FD6FD62E015ST7MJVR45O",
@@ -165331,7 +198434,10 @@ export const VEHICLES = {
     "ID.3": {
       "years": [
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2026
       ],
       "fuels": {
         "Eléctrico": [
@@ -165347,7 +198453,10 @@ export const VEHICLES = {
           "D0O41AA",
           "D0O41BA",
           "D0O51AA",
-          "D0O51BA"
+          "D0O51BA",
+          "ID.3 (2020)",
+          "ID.3 (2023)",
+          "ID.3 (2026)"
         ]
       }
     },
@@ -165440,6 +198549,7 @@ export const VEHICLES = {
     },
     "ID.4": {
       "years": [
+        2020,
         2021
       ],
       "fuels": {
@@ -165457,6 +198567,8 @@ export const VEHICLES = {
           "DPE1MH0020M1ASA",
           "DPE1MH0020O1ASA",
           "DPE1MH0020O1BSA",
+          "ID.4 (2020)",
+          "ID.4 (2021)",
           "OPE1MH0020M1ALA",
           "OPE1MH0020M1ASA",
           "OPE1MH0020O1ALA",
@@ -165642,7 +198754,8 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Eléctrico": [
-          "AAEDG1Z01NA"
+          "AAEDG1Z01NA",
+          "ID.7 GTX (2024)"
         ]
       }
     },
@@ -171784,6 +204897,1772 @@ export const VEHICLES = {
           "NFM5FM5A4047"
         ]
       }
+    },
+    "Amarok": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Amarok (2009)",
+          "Amarok (2022)"
+        ],
+        "Diésel": [
+          "Amarok (2009)",
+          "Amarok (2011)",
+          "Amarok (2016)",
+          "Amarok (2022)"
+        ]
+      }
+    },
+    "Ameo": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ameo (2016)"
+        ],
+        "Diésel": [
+          "Ameo (2016)"
+        ]
+      }
+    },
+    "Arteon": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Arteon (2017)",
+          "Arteon (2020)",
+          "Arteon (2022)"
+        ],
+        "Hybrid Gasoline": [
+          "Arteon (2020)"
+        ],
+        "Diésel": [
+          "Arteon (2017)"
+        ]
+      }
+    },
+    "Arteon Shooting Brake": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Arteon Shooting Brake (2020)"
+        ],
+        "Gasolina": [
+          "Arteon Shooting Brake (2020)"
+        ]
+      }
+    },
+    "Atlas": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Atlas (2017)",
+          "Atlas (2020)",
+          "Atlas (2023)",
+          "Atlas (2026)"
+        ]
+      }
+    },
+    "Atlas Cross Sport": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Atlas Cross Sport (2019)",
+          "Atlas Cross Sport (2023)"
+        ]
+      }
+    },
+    "Beetle": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Beetle (1945)",
+          "Beetle (1998)",
+          "Beetle (2001)",
+          "Beetle (2005)",
+          "Beetle (2011)",
+          "Beetle (2013)",
+          "Beetle (2016)"
+        ],
+        "Diésel": [
+          "Beetle (1998)",
+          "Beetle (2005)",
+          "Beetle (2011)",
+          "Beetle (2016)"
+        ]
+      }
+    },
+    "Beetle Cabrio": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Beetle Cabrio (2003)",
+          "Beetle Cabrio (2005)",
+          "Beetle Cabrio (2013)",
+          "Beetle Cabrio (2016)"
+        ],
+        "Diésel": [
+          "Beetle Cabrio (2003)",
+          "Beetle Cabrio (2005)",
+          "Beetle Cabrio (2013)",
+          "Beetle Cabrio (2016)"
+        ]
+      }
+    },
+    "Caddy": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Caddy (2005)",
+          "Caddy (2010)",
+          "Caddy (2020)"
+        ],
+        "Diésel": [
+          "Caddy (2005)",
+          "Caddy (2010)",
+          "Caddy (2020)"
+        ],
+        "Natural Gas": [
+          "Caddy (2010)"
+        ]
+      }
+    },
+    "Cross UP!": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cross UP! (2013)",
+          "Cross UP! (2016)"
+        ]
+      }
+    },
+    "e-Golf": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "e-Golf (2014)",
+          "e-Golf (2016)"
+        ]
+      }
+    },
+    "e-UP!": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "e-UP! (2013)",
+          "e-UP! (2019)"
+        ]
+      }
+    },
+    "Eos": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Eos (2006)",
+          "Eos (2011)"
+        ],
+        "Diésel": [
+          "Eos (2006)",
+          "Eos (2011)"
+        ]
+      }
+    },
+    "Fox": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Fox (2005)"
+        ],
+        "Diésel": [
+          "Fox (2005)"
+        ]
+      }
+    },
+    "Gol": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Ethanol": [
+          "Gol (2008)",
+          "Gol (2012)"
+        ]
+      }
+    },
+    "Golf": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Golf 3 Doors (1997)",
+          "Golf 3 Doors (2003)",
+          "Golf 3 Doors (2008)",
+          "Golf 3 Doors (2012)",
+          "Golf 3 Doors (2017)",
+          "Golf 5 Doors (1997)",
+          "Golf 5 Doors (2003)",
+          "Golf 5 Doors (2007)",
+          "Golf 5 Doors (2008)",
+          "Golf 5 Doors (2010)",
+          "Golf 5 Doors (2012)",
+          "Golf 5 Doors (2017)",
+          "Golf 5 Doors (2019)",
+          "Golf 5 Doors (2024)"
+        ],
+        "Diésel": [
+          "Golf 3 Doors (1997)",
+          "Golf 3 Doors (2003)",
+          "Golf 3 Doors (2008)",
+          "Golf 3 Doors (2012)",
+          "Golf 3 Doors (2017)",
+          "Golf 5 Doors (1997)",
+          "Golf 5 Doors (2003)",
+          "Golf 5 Doors (2007)",
+          "Golf 5 Doors (2008)",
+          "Golf 5 Doors (2010)",
+          "Golf 5 Doors (2012)",
+          "Golf 5 Doors (2017)",
+          "Golf 5 Doors (2019)",
+          "Golf 5 Doors (2024)"
+        ],
+        "Mild Hybrid": [
+          "Golf 5 Doors (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "Golf 5 Doors (2024)"
+        ],
+        "Hybrid": [
+          "Golf 5 Doors (2019)"
+        ],
+        "Natural Gas": [
+          "Golf 3 Doors (2008)",
+          "Golf 5 Doors (2010)"
+        ]
+      }
+    },
+    "Golf Alltrack": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Golf Alltrack (2020)"
+        ],
+        "Gasolina": [
+          "Golf Alltrack (2014)",
+          "Golf Alltrack (2017)"
+        ],
+        "Diésel": [
+          "Golf Alltrack (2014)",
+          "Golf Alltrack (2017)"
+        ]
+      }
+    },
+    "Golf Cabrio": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Golf Cabrio (1998)",
+          "Golf Cabrio (2011)",
+          "Golf Cabrio (2015)"
+        ],
+        "Diésel": [
+          "Golf Cabrio (1998)",
+          "Golf Cabrio (2011)",
+          "Golf Cabrio (2015)"
+        ]
+      }
+    },
+    "Golf GTD Variant": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Diésel": [
+          "Golf GTD Variant (2015)"
+        ]
+      }
+    },
+    "Golf GTI / GTD / GTE": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Golf GTI / GTD / GTE (2004)",
+          "Golf GTI / GTD / GTE (2008)",
+          "Golf GTI / GTD / GTE (2013)",
+          "Golf GTI / GTD / GTE (2017)",
+          "Golf GTI / GTD / GTE (2020)",
+          "Golf GTI / GTD / GTE (2024)",
+          "Golf GTI / GTD / GTE (2025)"
+        ],
+        "Hybrid": [
+          "Golf GTI / GTD / GTE (2020)"
+        ],
+        "Diésel": [
+          "Golf GTI / GTD / GTE (2009)",
+          "Golf GTI / GTD / GTE (2013)",
+          "Golf GTI / GTD / GTE (2017)",
+          "Golf GTI / GTD / GTE (2020)"
+        ],
+        "Hybrid Gasoline": [
+          "Golf GTI / GTD / GTE (2014)"
+        ]
+      }
+    },
+    "Golf GTI cabrio": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Golf GTI cabrio (2012)"
+        ]
+      }
+    },
+    "Golf Plus": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Golf Plus (2005)",
+          "Golf Plus (2008)"
+        ],
+        "Diésel": [
+          "Golf Plus (2005)",
+          "Golf Plus (2008)"
+        ]
+      }
+    },
+    "Golf R": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Golf R (2002)",
+          "Golf R (2005)",
+          "Golf R (2009)",
+          "Golf R (2013)",
+          "Golf R (2017)",
+          "Golf R (2021)",
+          "Golf R (2024)"
+        ]
+      }
+    },
+    "Golf R Cabrio": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Golf R Cabrio (2013)"
+        ]
+      }
+    },
+    "Golf R Variant": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Golf R Variant (2015)",
+          "Golf R Variant (2017)",
+          "Golf R Variant (2021)",
+          "Golf R Variant (2024)"
+        ]
+      }
+    },
+    "Golf Sportsvan": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Golf Sportsvan (2014)",
+          "Golf Sportsvan (2017)"
+        ],
+        "Diésel": [
+          "Golf Sportsvan (2014)"
+        ]
+      }
+    },
+    "Golf Variant": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "Golf Variant (2020)",
+          "Golf Variant (2024)"
+        ],
+        "Gasolina": [
+          "Golf Variant (1999)",
+          "Golf Variant (2007)",
+          "Golf Variant (2009)",
+          "Golf Variant (2013)",
+          "Golf Variant (2017)",
+          "Golf Variant (2020)"
+        ],
+        "Diésel": [
+          "Golf Variant (1999)",
+          "Golf Variant (2007)",
+          "Golf Variant (2009)",
+          "Golf Variant (2013)",
+          "Golf Variant (2017)",
+          "Golf Variant (2020)"
+        ],
+        "Natural Gas": [
+          "Golf Variant (2017)",
+          "Golf Variant (2020)"
+        ]
+      }
+    },
+    "ID. Buzz": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ID. Buzz (2023)"
+        ]
+      }
+    },
+    "ID.3 GTX": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ID.3 GTX (2024)"
+        ]
+      }
+    },
+    "ID.5": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ID.5 (2021)"
+        ]
+      }
+    },
+    "ID.5 GTX": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ID.5 GTX (2021)"
+        ]
+      }
+    },
+    "ID.7": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ID.7 (2023)"
+        ]
+      }
+    },
+    "ID.7 GTX Tourer": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ID.7 GTX Tourer (2024)"
+        ]
+      }
+    },
+    "ID.7 Tourer": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ID.7 Tourer (2024)"
+        ]
+      }
+    },
+    "ID.Polo GTI": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ID.Polo GTI (2026)"
+        ]
+      }
+    },
+    "Jetta / Vento / Bora": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Jetta / Vento / Bora (1998)",
+          "Jetta / Vento / Bora (1999)",
+          "Jetta / Vento / Bora (2005)",
+          "Jetta / Vento / Bora (2008)",
+          "Jetta / Vento / Bora (2010)",
+          "Jetta / Vento / Bora (2014)",
+          "Jetta / Vento / Bora (2018)",
+          "Jetta / Vento / Bora (2021)",
+          "Jetta / Vento / Bora (2024)"
+        ],
+        "Diésel": [
+          "Jetta / Vento / Bora (1998)",
+          "Jetta / Vento / Bora (1999)",
+          "Jetta / Vento / Bora (2005)",
+          "Jetta / Vento / Bora (2010)",
+          "Jetta / Vento / Bora (2014)"
+        ],
+        "Hybrid Gasoline": [
+          "Jetta / Vento / Bora (2014)"
+        ],
+        "Natural Gas": [
+          "Jetta / Vento / Bora (2010)"
+        ]
+      }
+    },
+    "Jetta GLI": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Jetta GLI (2021)",
+          "Jetta GLI (2024)"
+        ]
+      }
+    },
+    "Lavida": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lavida (China) (2008)"
+        ]
+      }
+    },
+    "Lupo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lupo (1998)",
+          "Lupo (2002)"
+        ],
+        "Diésel": [
+          "Lupo (1999)"
+        ]
+      }
+    },
+    "Multivan": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Multivan (2003)",
+          "Multivan (2015)",
+          "Multivan (2021)"
+        ],
+        "Diésel": [
+          "Multivan (2003)",
+          "Multivan (2015)",
+          "Multivan (2019)",
+          "Multivan (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "Multivan (2021)"
+        ]
+      }
+    },
+    "Nivus": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Nivus (2020)"
+        ]
+      }
+    },
+    "Passat": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Passat (1996)",
+          "Passat (2000)",
+          "Passat (2005)",
+          "Passat (2009)",
+          "Passat (2010)",
+          "Passat (2012)",
+          "Passat (2014)",
+          "Passat (2019)"
+        ],
+        "Diésel": [
+          "Passat (1996)",
+          "Passat (2000)",
+          "Passat (2005)",
+          "Passat (2009)",
+          "Passat (2010)",
+          "Passat (2012)",
+          "Passat (2014)",
+          "Passat (2019)"
+        ],
+        "Natural Gas": [
+          "Passat (2005)"
+        ]
+      }
+    },
+    "Passat Alltrack": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Passat Alltrack (2012)",
+          "Passat Alltrack (2015)",
+          "Passat Alltrack (2019)"
+        ],
+        "Diésel": [
+          "Passat Alltrack (2012)",
+          "Passat Alltrack (2015)",
+          "Passat Alltrack (2019)"
+        ]
+      }
+    },
+    "Passat GTE": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Passat GTE (2019)"
+        ],
+        "Hybrid": [
+          "Passat GTE (2015)"
+        ]
+      }
+    },
+    "Passat R": {
+      "years": [
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Passat R (2008)"
+        ]
+      }
+    },
+    "Passat Variant": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Passat Variant (1997)",
+          "Passat Variant (2000)",
+          "Passat Variant (2005)",
+          "Passat Variant (2010)",
+          "Passat Variant (2014)",
+          "Passat Variant (2019)",
+          "Passat Variant (2023)"
+        ],
+        "Diésel": [
+          "Passat Variant (1997)",
+          "Passat Variant (2000)",
+          "Passat Variant (2005)",
+          "Passat Variant (2010)",
+          "Passat Variant (2014)",
+          "Passat Variant (2019)",
+          "Passat Variant (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Passat Variant (2023)"
+        ],
+        "Mild Hybrid": [
+          "Passat Variant (2023)"
+        ],
+        "Natural Gas": [
+          "Passat Variant (2010)"
+        ]
+      }
+    },
+    "Passat Variant GTE": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Passat Variant GTE (2015)",
+          "Passat Variant GTE (2019)"
+        ]
+      }
+    },
+    "Phaeton": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Phaeton (2002)",
+          "Phaeton (2004)",
+          "Phaeton (2010)"
+        ],
+        "Diésel": [
+          "Phaeton (2002)",
+          "Phaeton (2004)",
+          "Phaeton (2010)"
+        ]
+      }
+    },
+    "Polo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Polo 3 Doors (1999)",
+          "Polo 3 Doors (2001)",
+          "Polo 3 Doors (2005)",
+          "Polo 3 Doors (2009)",
+          "Polo 3 Doors (2014)",
+          "Polo 5 Doors (1999)",
+          "Polo 5 Doors (2001)",
+          "Polo 5 Doors (2004)",
+          "Polo 5 Doors (2005)",
+          "Polo 5 Doors (2006)",
+          "Polo 5 Doors (2009)",
+          "Polo 5 Doors (2010)",
+          "Polo 5 Doors (2014)",
+          "Polo 5 Doors (2017)",
+          "Polo 5 Doors (2021)",
+          "Polo Sedan (2010)"
+        ],
+        "Diésel": [
+          "Polo 3 Doors (1999)",
+          "Polo 3 Doors (2001)",
+          "Polo 3 Doors (2005)",
+          "Polo 3 Doors (2009)",
+          "Polo 3 Doors (2014)",
+          "Polo 5 Doors (1999)",
+          "Polo 5 Doors (2001)",
+          "Polo 5 Doors (2004)",
+          "Polo 5 Doors (2005)",
+          "Polo 5 Doors (2006)",
+          "Polo 5 Doors (2009)",
+          "Polo 5 Doors (2010)",
+          "Polo 5 Doors (2014)",
+          "Polo 5 Doors (2017)"
+        ]
+      }
+    },
+    "Polo BlueGT": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Polo BlueGT (2013)"
+        ]
+      }
+    },
+    "Polo GTI": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Polo GTI (2005)",
+          "Polo GTI (2010)",
+          "Polo GTI (2014)",
+          "Polo GTI (2017)",
+          "Polo GTI (2021)"
+        ]
+      }
+    },
+    "Polo Variant": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Polo Variant (1997)",
+          "Polo Variant (2000)"
+        ],
+        "Diésel": [
+          "Polo Variant (1997)",
+          "Polo Variant (2000)"
+        ]
+      }
+    },
+    "Routan": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Routan (2008)"
+        ]
+      }
+    },
+    "Scirocco": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Scirocco (2008)",
+          "Scirocco (2014)"
+        ],
+        "Diésel": [
+          "Scirocco (2008)",
+          "Scirocco (2014)"
+        ]
+      }
+    },
+    "Scirocco R": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Scirocco R (2009)",
+          "Scirocco R (2014)"
+        ]
+      }
+    },
+    "Sharan": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sharan (1996)",
+          "Sharan (2000)",
+          "Sharan (2010)"
+        ],
+        "Diésel": [
+          "Sharan (1996)",
+          "Sharan (2000)",
+          "Sharan (2010)"
+        ]
+      }
+    },
+    "T-Cross": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "T-Cross (2018)",
+          "T-Cross (2023)"
+        ],
+        "Diésel": [
+          "T-Cross (2018)"
+        ]
+      }
+    },
+    "T-Roc": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Mild Hybrid": [
+          "T-Roc (2025)"
+        ],
+        "Gasolina": [
+          "T-Roc (2017)",
+          "T-Roc (2021)",
+          "T-Roc Cabriolet (2019)"
+        ],
+        "Diésel": [
+          "T-Roc (2017)",
+          "T-Roc (2021)"
+        ]
+      }
+    },
+    "T-Roc R": {
+      "years": [
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "T-Roc R (2019)"
+        ]
+      }
+    },
+    "Taigo": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Taigo (2021)"
+        ]
+      }
+    },
+    "Taos": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Taos (2024)"
+        ]
+      }
+    },
+    "Tayron": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tayron (2025)"
+        ],
+        "Diésel": [
+          "Tayron (2025)"
+        ],
+        "Mild Hybrid": [
+          "Tayron (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "Tayron (2025)"
+        ]
+      }
+    },
+    "Tiguan": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tiguan (2008)",
+          "Tiguan (2011)",
+          "Tiguan (2016)",
+          "Tiguan (2020)",
+          "Tiguan (2023)",
+          "Tiguan (US) (2021)"
+        ],
+        "Diésel": [
+          "Tiguan (2008)",
+          "Tiguan (2011)",
+          "Tiguan (2016)",
+          "Tiguan (2020)",
+          "Tiguan (2023)"
+        ],
+        "Mild Hybrid": [
+          "Tiguan (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Tiguan (2023)"
+        ]
+      }
+    },
+    "Tiguan Allspace": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tiguan Allspace (2017)",
+          "Tiguan Allspace (2021)"
+        ],
+        "Diésel": [
+          "Tiguan Allspace (2017)",
+          "Tiguan Allspace (2021)"
+        ]
+      }
+    },
+    "Touareg": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Touareg (2002)",
+          "Touareg (2007)",
+          "Touareg (2010)",
+          "Touareg (2014)",
+          "Touareg (2018)",
+          "Touareg (2023)"
+        ],
+        "Diésel": [
+          "Touareg (2002)",
+          "Touareg (2007)",
+          "Touareg (2010)",
+          "Touareg (2014)",
+          "Touareg (2018)",
+          "Touareg (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "Touareg (2018)",
+          "Touareg (2023)"
+        ],
+        "Hybrid": [
+          "Touareg (2014)"
+        ],
+        "Hybrid Gasoline": [
+          "Touareg (2010)"
+        ]
+      }
+    },
+    "Touareg R": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Touareg R (2023)"
+        ],
+        "Hybrid": [
+          "Touareg R (2020)"
+        ]
+      }
+    },
+    "Touran": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Touran (2003)",
+          "Touran (2006)",
+          "Touran (2007)",
+          "Touran (2010)",
+          "Touran (2011)",
+          "Touran (2015)"
+        ],
+        "Diésel": [
+          "Touran (2003)",
+          "Touran (2006)",
+          "Touran (2007)",
+          "Touran (2010)",
+          "Touran (2011)",
+          "Touran (2015)"
+        ],
+        "Natural Gas": [
+          "Touran (2007)",
+          "Touran (2010)",
+          "Touran (2011)"
+        ],
+        "Hybrid": [
+          "Touran (2003)",
+          "Touran (2006)"
+        ]
+      }
+    },
+    "Transporter Kombi": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Transporter Kombi (2015)"
+        ],
+        "Diésel": [
+          "Transporter Kombi (2015)"
+        ]
+      }
+    },
+    "up!": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "up! (2012)",
+          "up! (2016)"
+        ],
+        "Natural Gas": [
+          "up! (2012)",
+          "up! (2016)"
+        ]
+      }
+    },
+    "up! GTI": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "up! GTI (2018)"
+        ]
+      }
+    },
+    "Vento": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vento (2010)"
+        ],
+        "Diésel": [
+          "Vento (2010)"
+        ]
+      }
+    },
+    "XL1": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Hybrid": [
+          "XL1 (2013)"
+        ]
+      }
     }
   },
   "VOLVO": {
@@ -171809,14 +206688,21 @@ export const VEHICLES = {
     },
     "C30": {
       "years": [
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2022
       ],
       "fuels": {
         "Diésel": [
+          "C30 (2006)",
+          "C30 (2009)",
           "MK5050",
           "MK5850",
           "MK5851",
@@ -171832,7 +206718,13 @@ export const VEHICLES = {
           "MK84F1??"
         ],
         "Gasolina": [
+          "C30 (2006)",
+          "C30 (2009)",
           "MK0452"
+        ],
+        "Ethanol": [
+          "C30 (2006)",
+          "C30 (2009)"
         ]
       }
     },
@@ -171845,6 +206737,8 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Eléctrico": [
+          "C40 (2021)",
+          "C40 (2022)",
           "XKEDVE0?",
           "XKEFVK0?",
           "XKEHRL0?",
@@ -171855,13 +206749,26 @@ export const VEHICLES = {
     },
     "C70": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015
       ],
       "fuels": {
         "Diésel": [
+          "C70 (2005)",
           "MC5850",
           "MC5850??",
           "MC5851??",
@@ -171869,6 +206776,9 @@ export const VEHICLES = {
           "MD5851"
         ],
         "Gasolina": [
+          "C70 (2005)",
+          "C70 Convertible (1999)",
+          "C70 Coupe (1996)",
           "MC3852",
           "MC3859",
           "MC6652",
@@ -171917,7 +206827,8 @@ export const VEHICLES = {
         "Eléctrico": [
           "2ZEK9E0?",
           "2ZEL9L0?",
-          "2ZEM1L0?"
+          "2ZEM1L0?",
+          "EX30 (2023)"
         ]
       }
     },
@@ -171935,10 +206846,12 @@ export const VEHICLES = {
     },
     "EX90": {
       "years": [
+        2022,
         2024
       ],
       "fuels": {
         "Eléctrico": [
+          "EX90 (2022)",
           "TFEEBE0?",
           "TFEVBE0?"
         ]
@@ -172005,7 +206918,18 @@ export const VEHICLES = {
     },
     "S40": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
         2014,
         2020
@@ -172023,20 +206947,43 @@ export const VEHICLES = {
           "MS7759",
           "MS84F1",
           "MS84F1??",
-          "MS8651"
+          "MS8651",
+          "S40 (1996)",
+          "S40 (2000)",
+          "S40 (2004)",
+          "S40 (2007)"
         ],
         "Gasolina": [
           "MS0452",
           "MS6754",
           "MS6757",
-          "MS6759"
+          "MS6759",
+          "S40 (1996)",
+          "S40 (2000)",
+          "S40 (2004)",
+          "S40 (2007)"
+        ],
+        "Hybrid": [
+          "S40 (2000)"
         ]
       }
     },
     "S60": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -172104,7 +207051,12 @@ export const VEHICLES = {
           "FSA8C1",
           "FSA8C1??",
           "FSA8CD??",
-          "RS6940"
+          "RS6940",
+          "S60 (2000)",
+          "S60 (2004)",
+          "S60 (2008)",
+          "S60 (2010)",
+          "S60 (2013)"
         ],
         "E85": [
           "FS07HB??"
@@ -172131,6 +207083,13 @@ export const VEHICLES = {
           "FS90H56",
           "FSA0PC??",
           "RS6542",
+          "S60 (2000)",
+          "S60 (2003)",
+          "S60 (2004)",
+          "S60 (2008)",
+          "S60 (2010)",
+          "S60 (2013)",
+          "S60 (2018)",
           "ZS25TD0?",
           "ZS25TDP?",
           "ZS25UD0?",
@@ -172156,6 +207115,13 @@ export const VEHICLES = {
           "ZSH5UD0?",
           "ZSH5VD0?",
           "ZSH7VD0?"
+        ],
+        "Hybrid": [
+          "S60 (2018)"
+        ],
+        "Ethanol": [
+          "S60 (2010)",
+          "S60 (2013)"
         ]
       }
     },
@@ -172173,7 +207139,20 @@ export const VEHICLES = {
     },
     "S80": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
+        2012,
+        2013,
         2014,
         2015,
         2016
@@ -172199,7 +207178,11 @@ export const VEHICLES = {
           "AS83A1",
           "AS8850",
           "AS8850??",
-          "AS88A1??"
+          "AS88A1??",
+          "S80 (1998)",
+          "S80 (2003)",
+          "S80 (2006)",
+          "S80 (2009)"
         ],
         "Gasolina": [
           "AR8556",
@@ -172211,19 +207194,29 @@ export const VEHICLES = {
           "AS445B",
           "AS90H6??",
           "S80",
+          "S80 (1998)",
+          "S80 (2003)",
+          "S80 (2006)",
+          "S80 (2009)",
           "TS61P9"
+        ],
+        "Ethanol": [
+          "S80 (2009)"
         ]
       }
     },
     "S90": {
       "years": [
+        2016,
+        2017,
         2018,
         2019,
         2020,
         2021,
         2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -172260,7 +207253,9 @@ export const VEHICLES = {
           "PSA8VDP?",
           "PSK2UC0?",
           "PSK2VC0?",
-          "PSK2VCP?"
+          "PSK2VCP?",
+          "S90 (2016)",
+          "S90 (2019)"
         ],
         "Gasolina": [
           "PS10BD??",
@@ -172280,7 +207275,9 @@ export const VEHICLES = {
           "PSAKVD0?",
           "PSK9VD0?",
           "PSL1UD0?",
-          "PSL1VD0?"
+          "PSL1VD0?",
+          "S90 (2016)",
+          "S90 (2019)"
         ],
         "Híbrido gasolina": [
           "PSBABD",
@@ -172290,6 +207287,10 @@ export const VEHICLES = {
           "PSBMVD0?",
           "PSBMVDP?",
           "PSH5VD0?"
+        ],
+        "Hybrid": [
+          "S90 (2016)",
+          "S90 (2019)"
         ]
       }
     },
@@ -172329,8 +207330,14 @@ export const VEHICLES = {
     },
     "V40": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
         2010,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -172436,6 +207443,10 @@ export const VEHICLES = {
           "MZA8L1",
           "MZA8L1??",
           "MZA8LD??",
+          "V40 (1996)",
+          "V40 (2000)",
+          "V40 (2012)",
+          "V40 (2016)",
           "VM8481??"
         ],
         "Gasolina": [
@@ -172484,7 +207495,14 @@ export const VEHICLES = {
           "MZ6156",
           "MZ6156??",
           "MZ8451??",
-          "MZ845B??"
+          "MZ845B??",
+          "V40 (1996)",
+          "V40 (2000)",
+          "V40 (2012)",
+          "V40 (2016)"
+        ],
+        "Hybrid": [
+          "V40 (2000)"
         ]
       }
     },
@@ -172519,6 +207537,12 @@ export const VEHICLES = {
     },
     "V50": {
       "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
         2011,
         2012,
@@ -172537,19 +207561,25 @@ export const VEHICLES = {
           "MW84E1",
           "MW84F1",
           "MW84F1??",
-          "MW8651"
+          "MW8651",
+          "V50 (2004)",
+          "V50 (2007)"
         ],
         "Gasolina": [
           "MW0442",
           "MW0452",
-          "MW6754"
+          "MW6754",
+          "V50 (2004)",
+          "V50 (2007)"
         ]
       }
     },
     "V60": {
       "years": [
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -172614,6 +207644,9 @@ export const VEHICLES = {
           "GWAA50??",
           "GWDCH0??",
           "GWDCH0G1",
+          "V60 (2010)",
+          "V60 (2014)",
+          "V60 (2018)",
           "ZW72T10?",
           "ZW72TD0?",
           "ZW72U10?",
@@ -172659,6 +207692,9 @@ export const VEHICLES = {
           "FZ40LC??",
           "FZ61L6??",
           "GWAA50??",
+          "V60 (2010)",
+          "V60 (2014)",
+          "V60 (2018)",
           "ZW25TDP?",
           "ZW25UD0?",
           "ZW25VD0?",
@@ -172699,6 +207735,20 @@ export const VEHICLES = {
           "ZWH1VD0?",
           "ZWH4VD0?",
           "ZWH5UD0?"
+        ],
+        "Hybrid": [
+          "V60 (2014)",
+          "V60 (2018)"
+        ],
+        "Natural Gas": [
+          "V60 (2014)"
+        ],
+        "Ethanol": [
+          "V60 (2010)",
+          "V60 (2014)"
+        ],
+        "Hybrid Gasoline": [
+          "V60 (2010)"
         ]
       }
     },
@@ -172727,16 +207777,24 @@ export const VEHICLES = {
     },
     "V60 Cross Country": {
       "years": [
+        2015,
+        2016,
+        2017,
+        2018,
         2020,
         2021
       ],
       "fuels": {
         "Diésel": [
+          "V60 Cross Country (2015)",
+          "V60 Cross Country (2018)",
           "ZZA8TC0?",
           "ZZA8VC0?",
           "ZZK5VC0?"
         ],
         "Gasolina": [
+          "V60 Cross Country (2015)",
+          "V60 Cross Country (2018)",
           "ZZ25TC0?",
           "ZZ25VC0?",
           "ZZL1VC0?"
@@ -172779,8 +207837,20 @@ export const VEHICLES = {
     },
     "V70": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016
@@ -172797,11 +207867,26 @@ export const VEHICLES = {
           "BW7541",
           "BW8850",
           "BW88A1",
-          "S/SW79/SE7962"
+          "S/SW79/SE7962",
+          "V70 (1997)",
+          "V70 (2000)",
+          "V70 (2004)",
+          "V70 (2007)"
         ],
         "Gasolina": [
           "BW73CD??",
-          "BW9056"
+          "BW9056",
+          "V70 (1997)",
+          "V70 (2000)",
+          "V70 (2003)",
+          "V70 (2004)",
+          "V70 (2007)"
+        ],
+        "Natural Gas": [
+          "V70 (2007)"
+        ],
+        "Ethanol": [
+          "V70 (2007)"
         ]
       }
     },
@@ -172815,7 +207900,8 @@ export const VEHICLES = {
         2021,
         2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -172876,7 +207962,9 @@ export const VEHICLES = {
           "PZA8UC",
           "PZA8UC0",
           "PZA8UC0?",
-          "PZA8UCP?"
+          "PZA8UCP?",
+          "V90 (2016)",
+          "V90 (2019)"
         ],
         "Gasolina": [
           "PW10BD??",
@@ -172908,7 +207996,9 @@ export const VEHICLES = {
           "PZ25UC0",
           "PZA2BC??",
           "PZA3BC??",
-          "PZA3TC0"
+          "PZA3TC0",
+          "V90 (2016)",
+          "V90 (2019)"
         ],
         "Híbrido gasolina": [
           "PWBABD??",
@@ -172921,6 +208011,12 @@ export const VEHICLES = {
           "PWBMVDP",
           "PWH1VD0?",
           "PWH5VD0?"
+        ],
+        "Hybrid": [
+          "V90 (2019)"
+        ],
+        "Hybrid Gasoline": [
+          "V90 (2016)"
         ]
       }
     },
@@ -172976,8 +208072,16 @@ export const VEHICLES = {
     },
     "V90 Cross Country": {
       "years": [
+        2016,
+        2017,
+        2018,
+        2019,
         2020,
-        2021
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -172992,13 +208096,17 @@ export const VEHICLES = {
           "PZK2UC0?",
           "PZK2VC0?",
           "PZK5UC0?",
-          "PZK5VC0?"
+          "PZK5VC0?",
+          "V90 Cross Country (2016)",
+          "V90 Cross Country (2019)"
         ],
         "Gasolina": [
           "PZ06UC0?",
           "PZ06VC0?",
           "PZ25TC0?",
-          "PZ25UC0?"
+          "PZ25UC0?",
+          "V90 Cross Country (2016)",
+          "V90 Cross Country (2019)"
         ],
         "UNKNOWN": [
           "PZK5UC0?"
@@ -173065,6 +208173,7 @@ export const VEHICLES = {
       ],
       "fuels": {
         "Diésel": [
+          "XC40 (2017)",
           "XZ72B10?",
           "XZ72B40?",
           "XZ72BC0?",
@@ -173086,6 +208195,8 @@ export const VEHICLES = {
           "XZA6VCP?"
         ],
         "Eléctrico": [
+          "XC40 (2019)",
+          "XC40 (2022)",
           "XZEDVE0?",
           "XZEFVK0?",
           "XZEHRL0?",
@@ -173094,6 +208205,7 @@ export const VEHICLES = {
         ],
         "Gasolina": [
           "ND",
+          "XC40 (2017)",
           "XZ11B10?",
           "XZ11T10?",
           "XZ11V10?",
@@ -173169,9 +208281,12 @@ export const VEHICLES = {
     },
     "XC60": {
       "years": [
+        2008,
+        2009,
         2010,
         2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -173182,7 +208297,8 @@ export const VEHICLES = {
         2021,
         2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -173318,7 +208434,10 @@ export const VEHICLES = {
           "UZK5UD0?",
           "UZK5VC0?",
           "UZK5VD0?",
-          "VC0?"
+          "VC0?",
+          "XC60 (2008)",
+          "XC60 (2013)",
+          "XC60 (2017)"
         ],
         "Gasolina": [
           "DZ40LD",
@@ -173380,7 +208499,10 @@ export const VEHICLES = {
           "UZL1UC0?",
           "UZL1VC0?",
           "UZL1VD0?",
-          "UZM1VC0?"
+          "UZM1VC0?",
+          "XC60 (2008)",
+          "XC60 (2013)",
+          "XC60 (2017)"
         ],
         "Híbrido gasolina": [
           "UZBABD",
@@ -173405,6 +208527,20 @@ export const VEHICLES = {
           "UZH5UD0?",
           "UZH5VD0?",
           "UZH7VD0?"
+        ],
+        "Mild Hybrid": [
+          "XC60 (2021)",
+          "XC60 (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "XC60 (2021)",
+          "XC60 (2025)"
+        ],
+        "Mild Hybrid Diesel": [
+          "XC60 (2021)"
+        ],
+        "Hybrid": [
+          "XC60 (2017)"
         ]
       }
     },
@@ -173441,11 +208577,24 @@ export const VEHICLES = {
     },
     "XC70": {
       "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
-        2016
+        2016,
+        2025
       ],
       "fuels": {
         "Diésel": [
@@ -173479,20 +208628,39 @@ export const VEHICLES = {
           "BZ8850??",
           "BZ88A1",
           "BZ88A1??",
-          "BZ97C6??"
+          "BZ97C6??",
+          "XC70 (2000)",
+          "XC70 (2004)",
+          "XC70 (2007)"
         ],
         "Gasolina": [
           "BZ81A4",
           "BZ90H6",
           "BZ90H6??",
-          "BZ9956"
+          "BZ9956",
+          "XC70 (2000)",
+          "XC70 (2004)",
+          "XC70 (2007)"
+        ],
+        "Plug-in Hybrid": [
+          "XC70 (2025)"
         ]
       }
     },
     "XC90": {
       "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
         2010,
+        2011,
         2012,
+        2013,
         2014,
         2015,
         2016,
@@ -173547,7 +208715,11 @@ export const VEHICLES = {
           "LFK2UC0",
           "LFK2UC0?",
           "LFK2VC0?",
-          "LFK2VCP?"
+          "LFK2VCP?",
+          "XC90 (2002)",
+          "XC90 (2007)",
+          "XC90 (2014)",
+          "XC90 (2019)"
         ],
         "Gasolina": [
           "CT8556",
@@ -173576,7 +208748,11 @@ export const VEHICLES = {
           "LFBABD??",
           "LFL1UC0?",
           "LFL1VC0?",
-          "LFM1VC0?"
+          "LFM1VC0?",
+          "XC90 (2002)",
+          "XC90 (2007)",
+          "XC90 (2014)",
+          "XC90 (2019)"
         ],
         "Híbrido gasolina": [
           "LFBABD",
@@ -173596,6 +208772,15 @@ export const VEHICLES = {
           "LFH5VD0?",
           "LFH7VD0?",
           "LTBABD??"
+        ],
+        "Mild Hybrid": [
+          "XC90 (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "XC90 (2024)"
+        ],
+        "Hybrid": [
+          "XC90 (2014)"
         ]
       }
     },
@@ -173633,6 +208818,151 @@ export const VEHICLES = {
       "fuels": {
         "Diésel": [
           "BW73CD??"
+        ]
+      }
+    },
+    "EM90": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EM90 (2023)"
+        ]
+      }
+    },
+    "ES90": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ES90 (2025)"
+        ]
+      }
+    },
+    "EX30 Cross Country": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EX30 Cross Country (2025)"
+        ]
+      }
+    },
+    "EX60": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EX60 (2026)"
+        ]
+      }
+    },
+    "EX60 Cross Country": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EX60 Cross Country (2026)"
+        ]
+      }
+    },
+    "S60 Cross Country": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S60 Cross Country (2015)"
+        ],
+        "Diésel": [
+          "S60 Cross Country (2015)"
+        ]
+      }
+    },
+    "S60 Polestar": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S60 Polestar (2014)",
+          "S60 Polestar (2017)"
+        ]
+      }
+    },
+    "S70": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S70 (1997)"
+        ],
+        "Diésel": [
+          "S70 (1997)"
+        ]
+      }
+    },
+    "V40 Cross Country": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V40 Cross Country (2012)",
+          "V40 Cross Country (2016)"
+        ],
+        "Diésel": [
+          "V40 Cross Country (2012)",
+          "V40 Cross Country (2016)"
+        ]
+      }
+    },
+    "V60 Polestar": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "V60 Polestar (2013)",
+          "V60 Polestar (2017)"
+        ]
+      }
+    },
+    "XC60 Polestar": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "XC60 Polestar (2018)"
         ]
       }
     }
@@ -173886,36 +209216,66 @@ export const VEHICLES = {
   "XPENG": {
     "G6": {
       "years": [
+        2023,
         2024
       ],
       "fuels": {
         "Eléctrico": [
           "A15A0A",
           "A55A0A",
-          "BB5A0A"
+          "BB5A0A",
+          "G6 (2023)"
         ]
       }
     },
     "G9": {
       "years": [
+        2021,
         2024
       ],
       "fuels": {
         "Eléctrico": [
           "0500100",
           "0502000",
-          "1501111"
+          "1501111",
+          "G9 (2021)"
         ]
       }
     },
     "P7": {
       "years": [
+        2020,
         2024
       ],
       "fuels": {
         "Eléctrico": [
           "0500000",
-          "1502011"
+          "1502011",
+          "P7 (2020)"
+        ]
+      }
+    },
+    "G3": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "G3 (2018)",
+          "G3 (2021)"
+        ]
+      }
+    },
+    "P5": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "P5 (2021)"
         ]
       }
     }
@@ -173978,24 +209338,7221 @@ export const VEHICLES = {
         ]
       }
     }
+  },
+  "AC": {
+    "Aceca": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aceca (1998)"
+        ]
+      }
+    }
+  },
+  "ARCFOX": {
+    "Alpha S": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Alpha S (2024)"
+        ]
+      }
+    },
+    "Alpha T": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Alpha T (2024)"
+        ]
+      }
+    }
+  },
+  "ARIEL": {
+    "Atom": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Atom (1999)",
+          "Atom (2003)",
+          "Atom (2008)",
+          "Atom (2011)"
+        ]
+      }
+    },
+    "Nomad": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Nomad (2015)"
+        ]
+      }
+    }
+  },
+  "ARO": {
+    "10 Series": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "10 Series (1980)"
+        ],
+        "Diésel": [
+          "10 Series (1980)"
+        ]
+      }
+    },
+    "24 Series": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "24 Series (1991)"
+        ],
+        "Diésel": [
+          "24 Series (1991)"
+        ]
+      }
+    }
+  },
+  "ARTEGA": {
+    "GT": {
+      "years": [
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GT (2010)"
+        ]
+      }
+    },
+    "Scalo": {
+      "years": [
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Scalo (2015)"
+        ]
+      }
+    }
+  },
+  "AURUS": {
+    "Senat": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Senat (2018)"
+        ]
+      }
+    }
+  },
+  "BORGWARD": {
+    "BX7": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BX7 (2016)"
+        ]
+      }
+    }
+  },
+  "BRISTOL": {
+    "Blenheim": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Blenheim (1999)",
+          "Blenheim (2004)"
+        ],
+        "Hybrid": [
+          "Blenheim (2002)"
+        ]
+      }
+    },
+    "Bullet": {
+      "years": [
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bullet (2017)"
+        ]
+      }
+    },
+    "Fighter": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Fighter (2002)",
+          "Fighter (2006)"
+        ]
+      }
+    },
+    "Series 6": {
+      "years": [
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Series 6 (2010)"
+        ]
+      }
+    }
+  },
+  "BUFORI": {
+    "CS8": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CS8 (2025)"
+        ]
+      }
+    },
+    "Geneva": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Geneva (2010)"
+        ]
+      }
+    },
+    "La Joya": {
+      "years": [
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "La Joya (2004)"
+        ]
+      }
+    }
+  },
+  "BUGATTI": {
+    "Bolide": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bolide (2022)"
+        ]
+      }
+    },
+    "Centodieci": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Centodieci (2019)"
+        ]
+      }
+    },
+    "Chiron": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Chiron (2016)",
+          "Chiron (2018)",
+          "Chiron (2020)"
+        ]
+      }
+    },
+    "Divo": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Divo (2018)"
+        ]
+      }
+    },
+    "La Voiture Noire": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "La Voiture Noire (2019)"
+        ]
+      }
+    },
+    "Mistral": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "No especificado": [
+          "Mistral (2022)"
+        ]
+      }
+    },
+    "Tourbillon": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Tourbillon (2024)"
+        ]
+      }
+    },
+    "Veyron": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Veyron (2005)",
+          "Veyron (2009)",
+          "Veyron (2010)",
+          "Veyron (2012)"
+        ]
+      }
+    }
+  },
+  "BUICK": {
+    "Cascada": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cascada (2016)"
+        ]
+      }
+    },
+    "Century": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Century (1996)"
+        ]
+      }
+    },
+    "Enclave": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Enclave (2007)",
+          "Enclave (2012)",
+          "Enclave (2017)",
+          "Enclave (2021)",
+          "Enclave (2024)"
+        ]
+      }
+    },
+    "Encore": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Encore (2013)",
+          "Encore (2016)",
+          "Encore (2019)",
+          "Encore (2023)"
+        ]
+      }
+    },
+    "Envision": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Envision (2014)",
+          "Envision (2018)",
+          "Envision (2020)",
+          "Envision (2023)"
+        ],
+        "Mild Hybrid": [
+          "Envision (2020)"
+        ]
+      }
+    },
+    "Envista": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Envista (2023)"
+        ]
+      }
+    },
+    "LaCrosse": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "LaCrosse (2004)",
+          "LaCrosse (2009)",
+          "LaCrosse (2016)",
+          "LaCrosse (2017)"
+        ],
+        "Hybrid": [
+          "LaCrosse (2009)"
+        ]
+      }
+    },
+    "LeSabre": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "LeSabre (1999)"
+        ]
+      }
+    },
+    "Lucerne": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lucerne (2005)"
+        ]
+      }
+    },
+    "Park Avenue": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Park Avenue (1997)"
+        ]
+      }
+    },
+    "Rainier": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rainier (2003)"
+        ]
+      }
+    },
+    "Regal": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Regal (1997)",
+          "Regal (2010)",
+          "Regal (2012)",
+          "Regal (2013)",
+          "Regal (2017)",
+          "Regal Sportback (2017)"
+        ],
+        "No especificado": [
+          "Regal (2010)"
+        ],
+        "Mild Hybrid": [
+          "Regal (2010)"
+        ]
+      }
+    },
+    "Rendezvous": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rendezvous (2002)"
+        ]
+      }
+    },
+    "Terraza": {
+      "years": [
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Terraza (2005)"
+        ]
+      }
+    },
+    "Verano": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Verano (2012)"
+        ]
+      }
+    }
+  },
+  "CATERHAM": {
+    "Classic": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Classic (2000)"
+        ]
+      }
+    },
+    "CSR": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CSR (2005)"
+        ]
+      }
+    },
+    "Roadsport": {
+      "years": [
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Roadsport (2007)"
+        ]
+      }
+    },
+    "Seven 160": {
+      "years": [
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Seven 160 (2013)"
+        ]
+      }
+    },
+    "Seven 620": {
+      "years": [
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Seven 620 (2013)"
+        ]
+      }
+    },
+    "Superlight": {
+      "years": [
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Superlight (2013)"
+        ]
+      }
+    },
+    "Supersport": {
+      "years": [
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Supersport (2012)"
+        ]
+      }
+    },
+    "The Super Seven 1600": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "The Super Seven 1600 (2020)"
+        ]
+      }
+    }
+  },
+  "CHERY": {
+    "TIGGO 7": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "TIGGO 7 (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "TIGGO 7 (2024)"
+        ]
+      }
+    },
+    "TIGGO 8": {
+      "years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "TIGGO 8 (2022)",
+          "TIGGO 8 (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "TIGGO 8 (2022)",
+          "TIGGO 8 (2025)"
+        ]
+      }
+    },
+    "TIGGO 9": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "TIGGO 9 (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "TIGGO 9 (2025)"
+        ]
+      }
+    }
+  },
+  "CITROËN": {
+    "CITROEN AMI": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "CITROEN AMI (2020)"
+        ]
+      }
+    },
+    "CITROEN Berlingo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Berlingo (1996)",
+          "CITROEN Berlingo (2002)",
+          "CITROEN Berlingo (2006)",
+          "CITROEN Berlingo (2008)",
+          "CITROEN Berlingo (2012)",
+          "CITROEN Berlingo (2015)",
+          "CITROEN Berlingo (2018)",
+          "CITROEN Berlingo (2023)"
+        ],
+        "Diésel": [
+          "CITROEN Berlingo (1996)",
+          "CITROEN Berlingo (2002)",
+          "CITROEN Berlingo (2006)",
+          "CITROEN Berlingo (2008)",
+          "CITROEN Berlingo (2012)",
+          "CITROEN Berlingo (2015)",
+          "CITROEN Berlingo (2018)",
+          "CITROEN Berlingo (2023)"
+        ],
+        "Eléctrico": [
+          "CITROEN Berlingo (2023)"
+        ],
+        "Natural Gas": [
+          "CITROEN Berlingo (2002)"
+        ]
+      }
+    },
+    "CITROEN C-Crosser": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C-Crosser (2007)"
+        ],
+        "Diésel": [
+          "CITROEN C-Crosser (2007)"
+        ]
+      }
+    },
+    "CITROEN C-Elysee": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C-Elysee (2013)"
+        ],
+        "Diésel": [
+          "CITROEN C-Elysee (2013)"
+        ]
+      }
+    },
+    "CITROEN C-Zero": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "CITROEN C-Zero (2010)"
+        ]
+      }
+    },
+    "CITROEN C1": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C1 3 Doors (2005)",
+          "CITROEN C1 3 Doors (2009)",
+          "CITROEN C1 3 Doors (2012)",
+          "CITROEN C1 3 Doors (2014)",
+          "CITROEN C1 5 Doors (2005)",
+          "CITROEN C1 5 Doors (2009)",
+          "CITROEN C1 5 Doors (2012)",
+          "CITROEN C1 5 Doors (2014)"
+        ],
+        "Diésel": [
+          "CITROEN C1 3 Doors (2005)",
+          "CITROEN C1 3 Doors (2009)",
+          "CITROEN C1 5 Doors (2005)",
+          "CITROEN C1 5 Doors (2009)"
+        ]
+      }
+    },
+    "CITROEN C2": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C2 (2003)",
+          "CITROEN C2 (2008)"
+        ],
+        "Diésel": [
+          "CITROEN C2 (2003)",
+          "CITROEN C2 (2008)"
+        ]
+      }
+    },
+    "CITROEN C3": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "CITROEN C3 (2023)"
+        ],
+        "Gasolina": [
+          "CITROEN C3 (2002)",
+          "CITROEN C3 (2005)",
+          "CITROEN C3 (2009)",
+          "CITROEN C3 (2013)",
+          "CITROEN C3 (2016)",
+          "CITROEN C3 (2019)"
+        ],
+        "Diésel": [
+          "CITROEN C3 (2002)",
+          "CITROEN C3 (2005)",
+          "CITROEN C3 (2009)",
+          "CITROEN C3 (2013)",
+          "CITROEN C3 (2016)",
+          "CITROEN C3 (2019)"
+        ],
+        "Natural Gas": [
+          "CITROEN C3 (2005)"
+        ]
+      }
+    },
+    "CITROEN C3 Aircross": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C3 Aircross (2017)",
+          "CITROEN C3 Aircross (2021)",
+          "CITROEN C3 Aircross (2024)"
+        ],
+        "Mild Hybrid": [
+          "CITROEN C3 Aircross (2024)"
+        ],
+        "Diésel": [
+          "CITROEN C3 Aircross (2017)",
+          "CITROEN C3 Aircross (2021)"
+        ]
+      }
+    },
+    "CITROEN C3 Picasso": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C3 Picasso (2008)",
+          "CITROEN C3 Picasso (2013)"
+        ],
+        "Diésel": [
+          "CITROEN C3 Picasso (2008)",
+          "CITROEN C3 Picasso (2013)"
+        ]
+      }
+    },
+    "CITROEN C3 Pluriel": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C3 Pluriel (2003)"
+        ],
+        "Diésel": [
+          "CITROEN C3 Pluriel (2003)"
+        ]
+      }
+    },
+    "CITROEN C4": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C4 (2020)",
+          "CITROEN C4 (2022)",
+          "CITROEN C4 (2024)",
+          "CITROEN C4 Coupe (2004)",
+          "CITROEN C4 Coupe (2008)",
+          "CITROEN C4 Hatchback (2004)",
+          "CITROEN C4 Hatchback (2008)",
+          "CITROEN C4 Hatchback (2010)",
+          "CITROEN C4 Sedan (2007)"
+        ],
+        "Eléctrico": [
+          "CITROEN C4 (2020)",
+          "CITROEN C4 (2024)"
+        ],
+        "Mild Hybrid": [
+          "CITROEN C4 (2024)"
+        ],
+        "Diésel": [
+          "CITROEN C4 (2020)",
+          "CITROEN C4 (2022)",
+          "CITROEN C4 Coupe (2004)",
+          "CITROEN C4 Coupe (2008)",
+          "CITROEN C4 Hatchback (2004)",
+          "CITROEN C4 Hatchback (2008)",
+          "CITROEN C4 Hatchback (2010)",
+          "CITROEN C4 Sedan (2007)"
+        ],
+        "Natural Gas": [
+          "CITROEN C4 Coupe (2008)"
+        ]
+      }
+    },
+    "CITROEN C4 Aircross": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C4 Aircross (2012)"
+        ],
+        "Diésel": [
+          "CITROEN C4 Aircross (2012)"
+        ]
+      }
+    },
+    "CITROEN C4 Cactus": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C4 Cactus (2014)",
+          "CITROEN C4 Cactus (2018)"
+        ],
+        "Diésel": [
+          "CITROEN C4 Cactus (2014)",
+          "CITROEN C4 Cactus (2018)"
+        ]
+      }
+    },
+    "CITROEN C4 Picasso": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C4 Picasso (2007)",
+          "CITROEN C4 Picasso (2010)",
+          "CITROEN C4 Picasso (2013)",
+          "CITROEN C4 Picasso (2016)"
+        ],
+        "Diésel": [
+          "CITROEN C4 Picasso (2007)",
+          "CITROEN C4 Picasso (2010)",
+          "CITROEN C4 Picasso (2013)",
+          "CITROEN C4 Picasso (2016)"
+        ]
+      }
+    },
+    "CITROEN C5": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C5 Estate (2001)",
+          "CITROEN C5 Estate (2004)",
+          "CITROEN C5 Estate (2008)",
+          "CITROEN C5 Estate (2010)",
+          "CITROEN C5 Liftback (2001)",
+          "CITROEN C5 Liftback (2004)",
+          "CITROEN C5 Sedan (2008)",
+          "CITROEN C5 Sedan (2010)"
+        ],
+        "Diésel": [
+          "CITROEN C5 Estate (2001)",
+          "CITROEN C5 Estate (2004)",
+          "CITROEN C5 Estate (2008)",
+          "CITROEN C5 Estate (2010)",
+          "CITROEN C5 Liftback (2001)",
+          "CITROEN C5 Liftback (2004)",
+          "CITROEN C5 Sedan (2008)",
+          "CITROEN C5 Sedan (2010)"
+        ]
+      }
+    },
+    "CITROEN C5 Aircross": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "CITROEN C5 Aircross (2025)"
+        ],
+        "Hybrid Gasoline": [
+          "CITROEN C5 Aircross (2018)",
+          "CITROEN C5 Aircross (2025)"
+        ],
+        "Plug-in Hybrid": [
+          "CITROEN C5 Aircross (2022)",
+          "CITROEN C5 Aircross (2025)"
+        ],
+        "Gasolina": [
+          "CITROEN C5 Aircross (2018)",
+          "CITROEN C5 Aircross (2022)"
+        ],
+        "Diésel": [
+          "CITROEN C5 Aircross (2018)",
+          "CITROEN C5 Aircross (2022)"
+        ],
+        "Mild Hybrid": [
+          "CITROEN C5 Aircross (2022)"
+        ]
+      }
+    },
+    "CITROEN C5 Crosstourer": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "CITROEN C5 Crosstourer (2014)"
+        ]
+      }
+    },
+    "CITROEN C5 X": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C5 X (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "CITROEN C5 X (2021)"
+        ]
+      }
+    },
+    "CITROEN C6": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C6 (2005)"
+        ],
+        "Diésel": [
+          "CITROEN C6 (2005)"
+        ]
+      }
+    },
+    "CITROEN C8": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN C8 (2002)",
+          "CITROEN C8 (2008)"
+        ],
+        "Diésel": [
+          "CITROEN C8 (2002)",
+          "CITROEN C8 (2008)"
+        ]
+      }
+    },
+    "CITROEN DS3": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN DS3 (2009)"
+        ],
+        "Diésel": [
+          "CITROEN DS3 (2009)"
+        ]
+      }
+    },
+    "CITROEN DS4": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN DS4 (2010)"
+        ],
+        "Diésel": [
+          "CITROEN DS4 (2010)"
+        ]
+      }
+    },
+    "CITROEN DS5": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN DS5 (2011)"
+        ],
+        "Diésel": [
+          "CITROEN DS5 (2011)"
+        ],
+        "Híbrido diésel": [
+          "CITROEN DS5 (2011)"
+        ]
+      }
+    },
+    "CITROEN E-Mehari": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "CITROEN E-Mehari (2016)",
+          "CITROEN E-Mehari (2018)"
+        ]
+      }
+    },
+    "CITROEN Evasion": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Evasion (1998)"
+        ],
+        "Diésel": [
+          "CITROEN Evasion (1998)"
+        ]
+      }
+    },
+    "CITROEN Grand C4 Picasso": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Grand C4 Picasso (2006)",
+          "CITROEN Grand C4 Picasso (2013)",
+          "CITROEN Grand C4 Picasso (2016)"
+        ],
+        "Diésel": [
+          "CITROEN Grand C4 Picasso (2006)",
+          "CITROEN Grand C4 Picasso (2013)",
+          "CITROEN Grand C4 Picasso (2016)"
+        ]
+      }
+    },
+    "CITROEN Nemo": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Nemo (2008)"
+        ],
+        "Diésel": [
+          "CITROEN Nemo (2008)"
+        ]
+      }
+    },
+    "CITROEN Saxo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Saxo 3 doors (1998)",
+          "CITROEN Saxo 5 doors (1998)"
+        ],
+        "Diésel": [
+          "CITROEN Saxo 3 doors (1998)",
+          "CITROEN Saxo 5 doors (1998)"
+        ]
+      }
+    },
+    "CITROEN Xantia": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Xantia (1998)"
+        ],
+        "Diésel": [
+          "CITROEN Xantia (1998)"
+        ]
+      }
+    },
+    "CITROEN Xantia Break": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Xantia Break (1998)"
+        ],
+        "Diésel": [
+          "CITROEN Xantia Break (1998)"
+        ]
+      }
+    },
+    "CITROEN XM": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN XM (1997)"
+        ],
+        "Diésel": [
+          "CITROEN XM (1997)"
+        ]
+      }
+    },
+    "CITROEN XM Break": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN XM Break (1997)"
+        ],
+        "Diésel": [
+          "CITROEN XM Break (1997)"
+        ]
+      }
+    },
+    "CITROEN Xsara": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Xsara (1997)",
+          "CITROEN Xsara (2000)",
+          "CITROEN Xsara Coupe (1998)",
+          "CITROEN Xsara Coupe (2000)"
+        ],
+        "Diésel": [
+          "CITROEN Xsara (1997)",
+          "CITROEN Xsara (2000)",
+          "CITROEN Xsara Coupe (1998)",
+          "CITROEN Xsara Coupe (2000)"
+        ]
+      }
+    },
+    "CITROEN Xsara Break": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Xsara Break (2000)"
+        ],
+        "Diésel": [
+          "CITROEN Xsara Break (2000)"
+        ]
+      }
+    },
+    "CITROEN Xsara Picasso": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CITROEN Xsara Picasso (1999)",
+          "CITROEN Xsara Picasso (2004)"
+        ],
+        "Diésel": [
+          "CITROEN Xsara Picasso (1999)",
+          "CITROEN Xsara Picasso (2004)"
+        ]
+      }
+    }
+  },
+  "DAEWOO": {
+    "Damas II": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Damas II (2003)"
+        ]
+      }
+    },
+    "G2X": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G2X (2006)"
+        ]
+      }
+    },
+    "Gentra": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Gentra (2005)"
+        ]
+      }
+    },
+    "Lacetti": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lacetti (2002)",
+          "Lacetti 5 doors (2003)",
+          "Lacetti Wagon (2003)"
+        ],
+        "Diésel": [
+          "Lacetti (2002)",
+          "Lacetti 5 doors (2003)"
+        ]
+      }
+    },
+    "Lanos": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Lanos (1996)",
+          "Lanos Hatchback 3 Doors (1996)",
+          "Lanos Hatchback 5 Doors (1996)"
+        ]
+      }
+    },
+    "Leganza": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Leganza (1997)"
+        ]
+      }
+    },
+    "Magnus": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Magnus (2002)"
+        ]
+      }
+    },
+    "Matiz": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Matiz (1998)",
+          "Matiz (2001)",
+          "Matiz (2005)"
+        ]
+      }
+    },
+    "Nubira": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Nubira (2000)",
+          "Nubira Estate (1997)",
+          "Nubira Estate (2000)",
+          "Nubira Hatchback (2000)"
+        ]
+      }
+    },
+    "Statesman": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Statesman (2003)"
+        ]
+      }
+    },
+    "Tacuma": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tacuma (2000)",
+          "Tacuma (2004)"
+        ]
+      }
+    },
+    "Tico": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tico (1991)"
+        ]
+      }
+    },
+    "Tosca": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tosca (2006)"
+        ],
+        "Diésel": [
+          "Tosca (2006)"
+        ]
+      }
+    },
+    "Winstorm": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Winstorm (2006)"
+        ],
+        "Diésel": [
+          "Winstorm (2006)"
+        ]
+      }
+    }
+  },
+  "DATSUN": {
+    "GO": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GO (2013)",
+          "GO (2018)"
+        ]
+      }
+    },
+    "GO+": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GO+ (2013)"
+        ]
+      }
+    },
+    "Mi-Do": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mi-Do (2014)"
+        ]
+      }
+    },
+    "on-Do": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "on-Do (2014)"
+        ]
+      }
+    }
+  },
+  "FISKER": {
+    "Karma": {
+      "years": [
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Karma (2011)"
+        ]
+      }
+    },
+    "Ocean": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Ocean (2021)"
+        ]
+      }
+    }
+  },
+  "FSO": {
+    "Polonez Atu": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Polonez Atu (1993)"
+        ]
+      }
+    },
+    "Polonez Caro": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Polonez Caro (1991)"
+        ],
+        "Diésel": [
+          "Polonez Caro (1991)"
+        ]
+      }
+    },
+    "Polonez Kombi": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Polonez Kombi (1999)"
+        ]
+      }
+    }
+  },
+  "GEELY": {
+    "CK": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CK (2005)"
+        ]
+      }
+    },
+    "Emgrand EC7": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Emgrand EC7 (2009)"
+        ]
+      }
+    },
+    "LC": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "LC (2009)",
+          "LC (2011)"
+        ]
+      }
+    },
+    "MK": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MK (2006)",
+          "MK (2010)"
+        ]
+      }
+    }
+  },
+  "GENESIS": {
+    "G70": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G70 (2017)",
+          "G70 (2021)"
+        ],
+        "Diésel": [
+          "G70 (2017)",
+          "G70 (2021)"
+        ]
+      }
+    },
+    "G70 Shooting Brake": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G70 Shooting Brake (2021)"
+        ],
+        "Diésel": [
+          "G70 Shooting Brake (2021)"
+        ]
+      }
+    },
+    "G80": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G80 (2016)",
+          "G80 (2020)"
+        ],
+        "Diésel": [
+          "G80 (2020)"
+        ],
+        "Eléctrico": [
+          "G80 (2020)"
+        ]
+      }
+    },
+    "G90": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "G90 (2016)",
+          "G90 (2019)",
+          "G90 (2022)"
+        ]
+      }
+    },
+    "GV60": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "GV60 (2022)"
+        ]
+      }
+    },
+    "GV70": {
+      "years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GV70 (2020)",
+          "GV70 (2024)"
+        ],
+        "Eléctrico": [
+          "GV70 (2020)",
+          "GV70 (2024)"
+        ],
+        "Diésel": [
+          "GV70 (2020)"
+        ]
+      }
+    },
+    "GV80": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GV80 (2023)"
+        ]
+      }
+    }
+  },
+  "GORDON MURRAY AUTOMOTIVE": {
+    "T.33": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "T.33 (2022)"
+        ]
+      }
+    },
+    "T.50": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "T.50 (2022)"
+        ]
+      }
+    }
+  },
+  "GTA": {
+    "Motor Spano": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Motor Spano (2012)"
+        ]
+      }
+    }
+  },
+  "HINDUSTAN": {
+    "Ambassador": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ambassador (1959)"
+        ],
+        "Diésel": [
+          "Ambassador (1959)"
+        ],
+        "Natural Gas": [
+          "Ambassador (1959)"
+        ]
+      }
+    },
+    "Pushpak/Trekker": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "Pushpak/Trekker (1999)"
+        ]
+      }
+    },
+    "RTV/Ranger": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Diésel": [
+          "RTV/Ranger (1998)"
+        ],
+        "Hybrid": [
+          "RTV/Ranger (1998)"
+        ]
+      }
+    }
+  },
+  "HOLDEN": {
+    "Adventra": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Adventra (2003)"
+        ]
+      }
+    },
+    "Astra": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra 3 Doors (2004)",
+          "Astra 5 Doors (2005)"
+        ],
+        "Diésel": [
+          "Astra 3 Doors (2004)",
+          "Astra 5 Doors (2005)"
+        ]
+      }
+    },
+    "Astra Caravan": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra Caravan (2003)"
+        ],
+        "Diésel": [
+          "Astra Caravan (2003)"
+        ]
+      }
+    },
+    "Astra TwinTop": {
+      "years": [
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra TwinTop (2007)"
+        ],
+        "Diésel": [
+          "Astra TwinTop (2007)"
+        ]
+      }
+    },
+    "Barina": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Barina 3 Doors (2000)",
+          "Barina 3 Doors (2005)",
+          "Barina 5 Doors (2001)",
+          "Barina 5 Doors (2005)",
+          "Barina 5 Doors (2011)",
+          "Barina 5 Doors (2016)",
+          "Barina Sedan (2006)",
+          "Barina Sedan (2012)"
+        ],
+        "Diésel": [
+          "Barina 3 Doors (2000)",
+          "Barina 5 Doors (2001)"
+        ]
+      }
+    },
+    "Barina RS": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Barina RS (2013)"
+        ]
+      }
+    },
+    "Barina Spark": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Barina Spark (2010)"
+        ]
+      }
+    },
+    "Caprice/Statesman": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Caprice/Statesman (1999)",
+          "Caprice/Statesman (2003)",
+          "Caprice/Statesman (2006)",
+          "Caprice/Statesman (2010)"
+        ],
+        "Natural Gas": [
+          "Caprice/Statesman (2010)"
+        ]
+      }
+    },
+    "Captiva": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Captiva (2006)",
+          "Captiva (2011)",
+          "Captiva (2016)"
+        ],
+        "Diésel": [
+          "Captiva (2006)",
+          "Captiva (2011)",
+          "Captiva (2016)"
+        ]
+      }
+    },
+    "Captiva MaXX": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Captiva MaXX (2006)"
+        ],
+        "Diésel": [
+          "Captiva MaXX (2006)"
+        ]
+      }
+    },
+    "Combo": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Combo (2002)"
+        ]
+      }
+    },
+    "Commodore": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Commodore Sedan (1997)",
+          "Commodore Sedan (2004)",
+          "Commodore Sedan (2006)",
+          "Commodore Sedan (2013)",
+          "Commodore Sedan (2015)",
+          "Commodore Sedan (2018)",
+          "Commodore Wagon (1997)",
+          "Commodore Wagon (2003)",
+          "Commodore Wagon (2013)",
+          "Commodore Wagon (2015)"
+        ],
+        "Diésel": [
+          "Commodore Sedan (2018)"
+        ],
+        "Natural Gas": [
+          "Commodore Sedan (2013)",
+          "Commodore Sedan (2015)",
+          "Commodore Wagon (2013)",
+          "Commodore Wagon (2015)"
+        ]
+      }
+    },
+    "Crewman": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Crewman (2003)"
+        ]
+      }
+    },
+    "Cruze Mk I": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cruze Mk I (2002)"
+        ]
+      }
+    },
+    "Cruze Mk II": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cruze Mk II (2008)"
+        ],
+        "Diésel": [
+          "Cruze Mk II (2008)"
+        ]
+      }
+    },
+    "Epica": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Epica (2007)"
+        ],
+        "Diésel": [
+          "Epica (2007)"
+        ]
+      }
+    },
+    "Frontera MX": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Frontera MX (1997)"
+        ],
+        "Diésel": [
+          "Frontera MX (1997)"
+        ]
+      }
+    },
+    "Jackaroo": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Jackaroo (1998)"
+        ],
+        "Diésel": [
+          "Jackaroo (1998)"
+        ]
+      }
+    },
+    "Malibu": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Malibu (2013)"
+        ],
+        "Diésel": [
+          "Malibu (2013)"
+        ]
+      }
+    },
+    "Monaro": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Monaro (2001)"
+        ]
+      }
+    },
+    "Rodeo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Rodeo (1996)",
+          "Rodeo (2003)"
+        ],
+        "Diésel": [
+          "Rodeo (1996)",
+          "Rodeo (2003)"
+        ]
+      }
+    },
+    "Statesman": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Statesman (1999)",
+          "Statesman (2006)"
+        ]
+      }
+    },
+    "Tigra": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tigra (2005)"
+        ]
+      }
+    },
+    "Trax": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Trax (2013)",
+          "Trax (2016)"
+        ],
+        "Diésel": [
+          "Trax (2016)"
+        ]
+      }
+    },
+    "Ute": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ute (2003)",
+          "Ute (2007)",
+          "Ute (2013)",
+          "Ute (2015)"
+        ],
+        "Natural Gas": [
+          "Ute (2007)"
+        ]
+      }
+    },
+    "Vectra": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vectra Liftback (1995)",
+          "Vectra Liftback (2002)",
+          "Vectra Sedan (1995)",
+          "Vectra Sedan (2002)"
+        ],
+        "Diésel": [
+          "Vectra Liftback (1995)",
+          "Vectra Liftback (2002)",
+          "Vectra Sedan (1995)",
+          "Vectra Sedan (2002)"
+        ]
+      }
+    },
+    "Zafira": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Zafira (1999)"
+        ],
+        "Diésel": [
+          "Zafira (1999)"
+        ]
+      }
+    }
+  },
+  "ISUZU": {
+    "Amigo": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Amigo 3 Doors (1997)"
+        ]
+      }
+    },
+    "Amigo Cabrio": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Amigo Cabrio (1998)"
+        ]
+      }
+    },
+    "Ascender": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ascender (2001)"
+        ]
+      }
+    },
+    "Axiom": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Axiom (2001)"
+        ]
+      }
+    },
+    "Hombre": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Hombre Crew Cab (1995)"
+        ]
+      }
+    },
+    "i-Series": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "i-Series (2005)"
+        ]
+      }
+    },
+    "MU-7": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Diésel": [
+          "MU-7 (2004)"
+        ]
+      }
+    },
+    "Rodeo / D-Max": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Diésel": [
+          "Rodeo / D-Max (2002)",
+          "Rodeo / D-Max (2012)",
+          "Rodeo / D-Max (2015)",
+          "Rodeo / D-Max (2016)"
+        ],
+        "Gasolina": [
+          "Rodeo / D-Max (2002)"
+        ]
+      }
+    },
+    "Trooper": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Trooper 3 Doors (1998)",
+          "Trooper 5 Doors (1998)"
+        ],
+        "Diésel": [
+          "Trooper 3 Doors (1998)",
+          "Trooper 5 Doors (1998)"
+        ]
+      }
+    }
+  },
+  "KARMA": {
+    "Revero GT": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Revero GT (2019)"
+        ]
+      }
+    },
+    "Revero GTS": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Revero GTS (2019)"
+        ]
+      }
+    }
+  },
+  "KGM": {
+    "Actyon": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Actyon (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Actyon (2024)"
+        ]
+      }
+    },
+    "Korando": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Korando (2023)"
+        ],
+        "Eléctrico": [
+          "Korando (2023)"
+        ]
+      }
+    },
+    "Rexton": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Diésel": [
+          "Rexton (2023)"
+        ]
+      }
+    },
+    "Tivoli": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tivoli (2023)"
+        ]
+      }
+    },
+    "Torres": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Torres (2023)"
+        ],
+        "Eléctrico": [
+          "Torres (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Torres (2023)"
+        ]
+      }
+    }
+  },
+  "KOENIGSEGG": {
+    "Agera": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Agera (2010)",
+          "Agera (2011)",
+          "Agera (2013)",
+          "Agera (2015)"
+        ]
+      }
+    },
+    "CC8S": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CC8S (2002)"
+        ]
+      }
+    },
+    "CCR": {
+      "years": [
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CCR (2004)"
+        ]
+      }
+    },
+    "CCX": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CCX (2006)"
+        ]
+      }
+    },
+    "CCXR": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "CCXR (2007)"
+        ]
+      }
+    },
+    "Gemera": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Ethanol": [
+          "Gemera (2020)"
+        ]
+      }
+    },
+    "Jesko": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Jesko (2019)"
+        ]
+      }
+    },
+    "One:1": {
+      "years": [
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "One:1 (2014)"
+        ]
+      }
+    },
+    "Regera": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Hybrid": [
+          "Regera (2015)"
+        ]
+      }
+    }
+  },
+  "KTM": {
+    "X-Bow": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "X-Bow (2008)",
+          "X-Bow (2011)",
+          "X-Bow (2012)",
+          "X-Bow (2013)"
+        ]
+      }
+    }
+  },
+  "LIGHTYEAR": {
+    "Lightyear 0": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Lightyear 0 (2022)"
+        ]
+      }
+    }
+  },
+  "LINCOLN": {
+    "Aviator": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aviator (2002)",
+          "Aviator (2019)",
+          "Aviator (2024)"
+        ],
+        "Hybrid Gasoline": [
+          "Aviator (2019)"
+        ]
+      }
+    },
+    "Continental": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Continental (1994)",
+          "Continental (2016)"
+        ]
+      }
+    },
+    "Corsair": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corsair (2019)",
+          "Corsair (2022)"
+        ],
+        "Plug-in Hybrid": [
+          "Corsair (2022)"
+        ],
+        "Hybrid": [
+          "Corsair (2019)"
+        ]
+      }
+    },
+    "LS": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "LS (1999)"
+        ]
+      }
+    },
+    "Mark LT": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mark LT (2005)",
+          "Mark LT (2009)"
+        ]
+      }
+    },
+    "MKC": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MKC (2014)",
+          "MKC (2018)"
+        ]
+      }
+    },
+    "MKS": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MKS (2008)",
+          "MKS (2011)"
+        ]
+      }
+    },
+    "MKT": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MKT (2009)",
+          "MKT (2012)"
+        ]
+      }
+    },
+    "MKX": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MKX (2006)",
+          "MKX (2011)",
+          "MKX (2015)"
+        ]
+      }
+    },
+    "MKZ": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MKZ (2006)",
+          "MKZ (2010)",
+          "MKZ (2012)",
+          "MKZ (2016)"
+        ],
+        "Hybrid": [
+          "MKZ (2010)",
+          "MKZ (2012)",
+          "MKZ (2016)"
+        ]
+      }
+    },
+    "Nautilus": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Nautilus (2017)",
+          "Nautilus (2020)",
+          "Nautilus (2023)"
+        ],
+        "Hybrid Gasoline": [
+          "Nautilus (2023)"
+        ]
+      }
+    },
+    "Navigator": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Navigator (1998)",
+          "Navigator (2002)",
+          "Navigator (2006)",
+          "Navigator (2014)",
+          "Navigator (2017)"
+        ]
+      }
+    },
+    "Navigator L": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Navigator L (2006)",
+          "Navigator L (2014)",
+          "Navigator L (2017)"
+        ]
+      }
+    },
+    "Town Car": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Town Car (1998)",
+          "Town Car (2002)",
+          "Town Car (2007)"
+        ]
+      }
+    },
+    "Zephyr": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2021
+      ],
+      "fuels": {
+        "No especificado": [
+          "Zephyr (2021)"
+        ],
+        "Gasolina": [
+          "Zephyr (2005)"
+        ]
+      }
+    }
+  },
+  "LUCID": {
+    "Motors Air": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Motors Air (2021)"
+        ]
+      }
+    },
+    "Motors Gravity": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Motors Gravity (2023)"
+        ]
+      }
+    }
+  },
+  "MARUSSIA": {
+    "B1": {
+      "years": [
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "B1 (2010)"
+        ]
+      }
+    },
+    "B2": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "B2 (2010)"
+        ]
+      }
+    }
+  },
+  "MARUTI SUZUKI": {
+    "800": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "800 (2000)"
+        ]
+      }
+    },
+    "Alto": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Alto (2000)"
+        ]
+      }
+    },
+    "Baleno": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Baleno (2000)"
+        ]
+      }
+    },
+    "Ciaz": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ciaz (2014)"
+        ],
+        "Diésel": [
+          "Ciaz (2014)"
+        ]
+      }
+    },
+    "Esteem": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Esteem (1995)"
+        ]
+      }
+    },
+    "Gipsy": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Gipsy (1985)"
+        ]
+      }
+    },
+    "Swift": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Swift (2006)"
+        ],
+        "Diésel": [
+          "Swift (2006)"
+        ]
+      }
+    },
+    "Wagon R": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Wagon R (2005)"
+        ]
+      }
+    },
+    "Zen": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Zen (2006)"
+        ]
+      }
+    }
+  },
+  "MAYBACH": {
+    "57": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "57 (2002)",
+          "57 (2006)",
+          "57 (2009)"
+        ]
+      }
+    },
+    "62": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "62 (2002)",
+          "62 (2006)",
+          "62 (2009)"
+        ]
+      }
+    },
+    "Landaulet": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Landaulet (2008)"
+        ]
+      }
+    }
+  },
+  "MERCURY": {
+    "Cougar": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cougar (1998)"
+        ]
+      }
+    },
+    "Grand Marquis": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Grand Marquis (2002)",
+          "Grand Marquis (2008)"
+        ]
+      }
+    },
+    "Marauder": {
+      "years": [
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Marauder (2003)"
+        ]
+      }
+    },
+    "Mariner": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mariner (2004)",
+          "Mariner (2007)",
+          "Mariner (2008)"
+        ],
+        "Hybrid Gasoline": [
+          "Mariner (2008)"
+        ],
+        "Hybrid": [
+          "Mariner (2004)",
+          "Mariner (2007)"
+        ]
+      }
+    },
+    "Milan": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Milan (2005)",
+          "Milan (2009)"
+        ],
+        "Hybrid": [
+          "Milan (2009)"
+        ],
+        "Ethanol": [
+          "Milan (2009)"
+        ]
+      }
+    },
+    "Montego": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Montego (2004)"
+        ]
+      }
+    },
+    "Monterey": {
+      "years": [
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Monterey (2004)"
+        ]
+      }
+    },
+    "Mountaineer": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mountaineer (2006)"
+        ]
+      }
+    },
+    "Sable": {
+      "years": [
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sable (2007)"
+        ]
+      }
+    },
+    "Villager": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Villager (1998)"
+        ]
+      }
+    }
+  },
+  "NIO": {
+    "EC6": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EC6 (2020)"
+        ]
+      }
+    },
+    "EP9": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "EP9 (2016)"
+        ]
+      }
+    },
+    "ES6": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ES6 (2018)"
+        ]
+      }
+    },
+    "ES8": {
+      "years": [
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ES8 (2018)"
+        ]
+      }
+    },
+    "ET7": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "ET7 (2020)"
+        ]
+      }
+    }
+  },
+  "OLDSMOBILE": {
+    "Alero": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Alero coupe (1999)",
+          "Alero sedan (1999)"
+        ]
+      }
+    },
+    "Aurora": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aurora (2000)"
+        ]
+      }
+    },
+    "Bravada": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bravada (2001)"
+        ]
+      }
+    },
+    "Intrigue": {
+      "years": [
+        2000,
+        2001,
+        2002
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Intrigue (1997)"
+        ]
+      }
+    },
+    "Silhouette": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Silhouette (1996)"
+        ]
+      }
+    }
+  },
+  "PAGANI": {
+    "Huayra": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Huayra (2012)",
+          "Huayra Roadster (2017)",
+          "Huayra Roadster (2019)"
+        ]
+      }
+    },
+    "Imola": {
+      "years": [
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Imola (2020)"
+        ]
+      }
+    },
+    "Utopia": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Utopia (2022)"
+        ]
+      }
+    },
+    "Zonda": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Zonda Roadster (2003)"
+        ]
+      }
+    },
+    "Zonda Cinque": {
+      "years": [
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Zonda Cinque (2008)",
+          "Zonda Cinque Roadster (2009)"
+        ]
+      }
+    },
+    "Zonda F": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Zonda F (2005)",
+          "Zonda F Roadster (2006)"
+        ]
+      }
+    },
+    "Zonda S": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Zonda S (2002)"
+        ]
+      }
+    }
+  },
+  "PANOZ": {
+    "Avezzano": {
+      "years": [
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Avezzano (2017)"
+        ]
+      }
+    },
+    "Esperante": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Esperante (1999)"
+        ]
+      }
+    },
+    "Esperante GT": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Esperante GT (2000)"
+        ]
+      }
+    },
+    "Esperante GTLM": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Esperante GTLM (2003)"
+        ]
+      }
+    }
+  },
+  "PERODUA": {
+    "Alza": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Alza (2009)",
+          "Alza (2014)",
+          "Alza (2018)"
+        ]
+      }
+    },
+    "Aruz": {
+      "years": [
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aruz (2019)"
+        ]
+      }
+    },
+    "Axia": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Axia (2014)",
+          "Axia (2017)",
+          "Axia (2019)"
+        ]
+      }
+    },
+    "Bezza": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Bezza (2016)",
+          "Bezza (2019)"
+        ]
+      }
+    },
+    "Myvi": {
+      "years": [
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Myvi (2015)"
+        ]
+      }
+    }
+  },
+  "PININFARINA": {
+    "B95": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "B95 (2023)"
+        ]
+      }
+    },
+    "Battista": {
+      "years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Battista (2019)"
+        ]
+      }
+    }
+  },
+  "PLYMOUTH": {
+    "BREEZE": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "BREEZE (1995)"
+        ]
+      }
+    },
+    "VOYAGER": {
+      "years": [
+        2000
+      ],
+      "fuels": {
+        "Gasolina": [
+          "VOYAGER (1995)"
+        ]
+      }
+    }
+  },
+  "PROTON": {
+    "Arena / Jumbuck": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Arena / Jumbuck (2002)"
+        ]
+      }
+    },
+    "Ertiga": {
+      "years": [
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ertiga (2016)"
+        ]
+      }
+    },
+    "Exora": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Exora (2009)",
+          "Exora (2012)"
+        ]
+      }
+    },
+    "Gen-2": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Gen-2 (2004)"
+        ]
+      }
+    },
+    "Inspira": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Inspira (2010)"
+        ]
+      }
+    },
+    "Iriz": {
+      "years": [
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Iriz (2014)"
+        ]
+      }
+    },
+    "Perdana": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Perdana (2016)"
+        ]
+      }
+    },
+    "Persona": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Persona (2007)",
+          "Persona (2016)"
+        ]
+      }
+    },
+    "Preve": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Preve (2011)"
+        ]
+      }
+    },
+    "Saga": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Saga (2011)",
+          "Saga (2016)"
+        ]
+      }
+    },
+    "Satria Neo": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Satria Neo (2006)"
+        ]
+      }
+    },
+    "Savvy": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Savvy (2005)"
+        ]
+      }
+    },
+    "Suprima S": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Suprima S (2013)"
+        ]
+      }
+    },
+    "Waja / Impian": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Waja / Impian (2001)"
+        ]
+      }
+    }
+  },
+  "QOROS": {
+    "3": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "3 (2013)",
+          "3 (2014)",
+          "3 (2015)"
+        ]
+      }
+    },
+    "5": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "5 (2016)"
+        ]
+      }
+    }
+  },
+  "RIMAC": {
+    "Nevera": {
+      "years": [
+        2021,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Nevera (2021)",
+          "Nevera (2024)"
+        ]
+      }
+    }
+  },
+  "RIVIAN": {
+    "R1S": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "R1S (2021)"
+        ]
+      }
+    },
+    "R1T": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "R1T (2021)"
+        ]
+      }
+    }
+  },
+  "SALEEN": {
+    "S7": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S7 (2000)"
+        ]
+      }
+    },
+    "S7TT": {
+      "years": [
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "S7TT (2005)"
+        ]
+      }
+    }
+  },
+  "SAMSUNG": {
+    "SM 3": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SM 3 (2002)"
+        ]
+      }
+    },
+    "SM 5": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SM 5 (1998)",
+          "SM 5 (2004)"
+        ]
+      }
+    },
+    "SM 7": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SM 7 (2005)"
+        ]
+      }
+    }
+  },
+  "SANTANA": {
+    "300 - 350": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Diésel": [
+          "300 - 350 (2005)"
+        ]
+      }
+    },
+    "PS 10 Pickup": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Diésel": [
+          "PS 10 Pickup (2003)"
+        ]
+      }
+    },
+    "PS 10 Plus": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Diésel": [
+          "PS 10 Plus (2002)"
+        ]
+      }
+    },
+    "PS 10 Shortline": {
+      "years": [
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Diésel": [
+          "PS 10 Shortline (2006)"
+        ]
+      }
+    }
+  },
+  "SATURN": {
+    "Astra": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra (2007)",
+          "Astra (2008)"
+        ]
+      }
+    },
+    "Aura": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Aura (2006)"
+        ],
+        "Hybrid": [
+          "Aura (2006)"
+        ]
+      }
+    },
+    "Ion": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ion Sedan (2003)"
+        ]
+      }
+    },
+    "Ion Quad": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Ion Quad Coupe (2003)"
+        ]
+      }
+    },
+    "Outlook": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Outlook (2006)"
+        ]
+      }
+    },
+    "Relay": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Relay (2004)"
+        ]
+      }
+    },
+    "Sky": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sky (2006)"
+        ]
+      }
+    },
+    "Vue": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vue (2001)",
+          "Vue (2005)",
+          "Vue (2007)"
+        ]
+      }
+    }
+  },
+  "SCION": {
+    "FR-S": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "FR-S (2013)"
+        ]
+      }
+    },
+    "iA": {
+      "years": [
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "iA (2016)"
+        ]
+      }
+    },
+    "iM": {
+      "years": [
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "iM (2016)"
+        ]
+      }
+    },
+    "iQ": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "iQ (2011)"
+        ]
+      }
+    },
+    "tC": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "tC (2003)",
+          "tC (2013)"
+        ]
+      }
+    },
+    "xA": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "xA (2003)"
+        ]
+      }
+    },
+    "xB": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "xB (2003)",
+          "xB (2007)"
+        ]
+      }
+    },
+    "xD": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "xD (2007)"
+        ]
+      }
+    }
+  },
+  "ŠKODA": {
+    "SKODA Citigo": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SKODA Citigo (2019)"
+        ],
+        "Gasolina": [
+          "SKODA Citigo (2011)",
+          "SKODA Citigo (2012)",
+          "SKODA Citigo (2017)"
+        ],
+        "Natural Gas": [
+          "SKODA Citigo (2017)"
+        ]
+      }
+    },
+    "SKODA Elroq": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SKODA Elroq (2024)"
+        ]
+      }
+    },
+    "SKODA Elroq RS": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SKODA Elroq RS (2025)"
+        ]
+      }
+    },
+    "SKODA Enyaq": {
+      "years": [
+        2020,
+        2022,
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SKODA Enyaq (2020)",
+          "SKODA Enyaq (2025)",
+          "SKODA Enyaq Coupe (2022)",
+          "SKODA Enyaq Coupe (2025)"
+        ]
+      }
+    },
+    "SKODA Enyaq Coupe RS": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SKODA Enyaq Coupe RS (2025)"
+        ]
+      }
+    },
+    "SKODA Enyaq RS": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SKODA Enyaq RS (2025)"
+        ]
+      }
+    },
+    "SKODA Epiq": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SKODA Epiq (2026)"
+        ]
+      }
+    },
+    "SKODA Fabia": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Fabia (2000)",
+          "SKODA Fabia (2007)",
+          "SKODA Fabia (2014)",
+          "SKODA Fabia (2018)",
+          "SKODA Fabia (2021)",
+          "SKODA Fabia Sedan (2001)"
+        ],
+        "Diésel": [
+          "SKODA Fabia (2000)",
+          "SKODA Fabia (2007)",
+          "SKODA Fabia (2014)",
+          "SKODA Fabia Sedan (2001)"
+        ]
+      }
+    },
+    "SKODA Fabia Combi": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Fabia Combi (2000)",
+          "SKODA Fabia Combi (2008)",
+          "SKODA Fabia Combi (2014)",
+          "SKODA Fabia Combi (2018)"
+        ],
+        "Diésel": [
+          "SKODA Fabia Combi (2000)",
+          "SKODA Fabia Combi (2008)",
+          "SKODA Fabia Combi (2014)"
+        ]
+      }
+    },
+    "SKODA Fabia Combi RS": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Fabia Combi RS (2010)"
+        ]
+      }
+    },
+    "SKODA Fabia RS": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Fabia RS (2010)"
+        ],
+        "Diésel": [
+          "SKODA Fabia RS (2003)"
+        ]
+      }
+    },
+    "SKODA Felicia": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Felicia (1995)"
+        ],
+        "Diésel": [
+          "SKODA Felicia (1995)"
+        ]
+      }
+    },
+    "SKODA Felicia Combi": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Felicia Combi (1995)"
+        ],
+        "Diésel": [
+          "SKODA Felicia Combi (1995)"
+        ]
+      }
+    },
+    "SKODA Kamiq": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Kamiq (2018)",
+          "SKODA Kamiq (2019)",
+          "SKODA Kamiq (2023)"
+        ],
+        "Diésel": [
+          "SKODA Kamiq (2019)"
+        ],
+        "Natural Gas": [
+          "SKODA Kamiq (2019)"
+        ]
+      }
+    },
+    "SKODA Karoq": {
+      "years": [
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Karoq (2017)",
+          "SKODA Karoq (2021)"
+        ],
+        "Diésel": [
+          "SKODA Karoq (2017)",
+          "SKODA Karoq (2021)"
+        ]
+      }
+    },
+    "SKODA Kodiaq": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Kodiaq (2016)",
+          "SKODA Kodiaq (2018)",
+          "SKODA Kodiaq (2021)",
+          "SKODA Kodiaq (2023)"
+        ],
+        "Diésel": [
+          "SKODA Kodiaq (2016)",
+          "SKODA Kodiaq (2021)",
+          "SKODA Kodiaq (2023)"
+        ],
+        "Mild Hybrid": [
+          "SKODA Kodiaq (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "SKODA Kodiaq (2023)"
+        ]
+      }
+    },
+    "SKODA Kodiaq RS": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Kodiaq RS (2025)"
+        ],
+        "Diésel": [
+          "SKODA Kodiaq RS (2018)"
+        ]
+      }
+    },
+    "SKODA Kushaq": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Kushaq (2021)",
+          "SKODA Kushaq (2026)"
+        ]
+      }
+    },
+    "SKODA Kylaq": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Kylaq (2024)"
+        ]
+      }
+    },
+    "SKODA Octavia": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Octavia (1997)",
+          "SKODA Octavia (2004)",
+          "SKODA Octavia (2008)",
+          "SKODA Octavia (2013)",
+          "SKODA Octavia (2017)",
+          "SKODA Octavia (2019)",
+          "SKODA Octavia (2024)"
+        ],
+        "Diésel": [
+          "SKODA Octavia (1997)",
+          "SKODA Octavia (2004)",
+          "SKODA Octavia (2008)",
+          "SKODA Octavia (2013)",
+          "SKODA Octavia (2017)",
+          "SKODA Octavia (2019)",
+          "SKODA Octavia (2024)"
+        ],
+        "Mild Hybrid": [
+          "SKODA Octavia (2024)"
+        ],
+        "Hybrid": [
+          "SKODA Octavia (2019)"
+        ],
+        "Natural Gas": [
+          "SKODA Octavia (2017)",
+          "SKODA Octavia (2019)"
+        ]
+      }
+    },
+    "SKODA Octavia Combi": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Octavia Combi (1997)",
+          "SKODA Octavia Combi (2004)",
+          "SKODA Octavia Combi (2008)",
+          "SKODA Octavia Combi (2013)",
+          "SKODA Octavia Combi (2017)",
+          "SKODA Octavia Combi (2019)",
+          "SKODA Octavia Combi (2024)"
+        ],
+        "Diésel": [
+          "SKODA Octavia Combi (1997)",
+          "SKODA Octavia Combi (2004)",
+          "SKODA Octavia Combi (2008)",
+          "SKODA Octavia Combi (2013)",
+          "SKODA Octavia Combi (2017)",
+          "SKODA Octavia Combi (2019)",
+          "SKODA Octavia Combi (2024)"
+        ],
+        "Mild Hybrid": [
+          "SKODA Octavia Combi (2024)"
+        ],
+        "Hybrid": [
+          "SKODA Octavia Combi (2019)"
+        ],
+        "Natural Gas": [
+          "SKODA Octavia Combi (2019)"
+        ]
+      }
+    },
+    "SKODA Octavia Combi 4x4": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Diésel": [
+          "SKODA Octavia Combi 4x4 (2009)",
+          "SKODA Octavia Combi 4x4 (2013)",
+          "SKODA Octavia Combi 4x4 (2017)"
+        ],
+        "Gasolina": [
+          "SKODA Octavia Combi 4x4 (2009)",
+          "SKODA Octavia Combi 4x4 (2013)"
+        ]
+      }
+    },
+    "SKODA Octavia Combi RS": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Octavia Combi RS (2002)",
+          "SKODA Octavia Combi RS (2005)",
+          "SKODA Octavia Combi RS (2014)",
+          "SKODA Octavia Combi RS (2017)",
+          "SKODA Octavia Combi RS (2025)"
+        ],
+        "Hybrid": [
+          "SKODA Octavia Combi RS (2019)"
+        ],
+        "Mild Hybrid": [
+          "SKODA Octavia Combi RS (2019)"
+        ],
+        "Diésel": [
+          "SKODA Octavia Combi RS (2005)",
+          "SKODA Octavia Combi RS (2014)",
+          "SKODA Octavia Combi RS (2017)"
+        ]
+      }
+    },
+    "SKODA Octavia RS": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Octavia RS (2001)",
+          "SKODA Octavia RS (2005)",
+          "SKODA Octavia RS (2014)",
+          "SKODA Octavia RS (2016)",
+          "SKODA Octavia RS (2025)"
+        ],
+        "Hybrid": [
+          "SKODA Octavia RS (2019)"
+        ],
+        "Mild Hybrid": [
+          "SKODA Octavia RS (2019)"
+        ],
+        "Diésel": [
+          "SKODA Octavia RS (2005)",
+          "SKODA Octavia RS (2014)",
+          "SKODA Octavia RS (2016)"
+        ]
+      }
+    },
+    "SKODA Octavia Scout": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Octavia Scout (2006)",
+          "SKODA Octavia Scout (2009)",
+          "SKODA Octavia Scout (2014)",
+          "SKODA Octavia Scout (2017)",
+          "SKODA Octavia Scout (2020)"
+        ],
+        "Diésel": [
+          "SKODA Octavia Scout (2006)",
+          "SKODA Octavia Scout (2009)",
+          "SKODA Octavia Scout (2014)",
+          "SKODA Octavia Scout (2017)",
+          "SKODA Octavia Scout (2020)"
+        ],
+        "Mild Hybrid": [
+          "SKODA Octavia Scout (2020)"
+        ]
+      }
+    },
+    "SKODA Rapid": {
+      "years": [
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Rapid (2011)",
+          "SKODA Rapid (2012)"
+        ],
+        "Diésel": [
+          "SKODA Rapid (2011)",
+          "SKODA Rapid (2012)"
+        ]
+      }
+    },
+    "SKODA Rapid Spaceback": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Rapid Spaceback (2013)"
+        ],
+        "Diésel": [
+          "SKODA Rapid Spaceback (2013)"
+        ]
+      }
+    },
+    "SKODA Roomster": {
+      "years": [
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Roomster (2006)",
+          "SKODA Roomster (2010)"
+        ],
+        "Diésel": [
+          "SKODA Roomster (2006)",
+          "SKODA Roomster (2010)"
+        ]
+      }
+    },
+    "SKODA Scala": {
+      "years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Scala (2018)",
+          "SKODA Scala (2023)"
+        ],
+        "Diésel": [
+          "SKODA Scala (2018)"
+        ],
+        "Natural Gas": [
+          "SKODA Scala (2018)"
+        ]
+      }
+    },
+    "SKODA Slavia": {
+      "years": [
+        2021
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Slavia (2021)"
+        ]
+      }
+    },
+    "SKODA Superb": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Superb (2002)",
+          "SKODA Superb (2006)",
+          "SKODA Superb (2008)",
+          "SKODA Superb (2013)",
+          "SKODA Superb (2015)",
+          "SKODA Superb (2019)",
+          "SKODA Superb (2023)"
+        ],
+        "Diésel": [
+          "SKODA Superb (2002)",
+          "SKODA Superb (2006)",
+          "SKODA Superb (2008)",
+          "SKODA Superb (2013)",
+          "SKODA Superb (2015)",
+          "SKODA Superb (2019)",
+          "SKODA Superb (2023)"
+        ],
+        "Mild Hybrid": [
+          "SKODA Superb (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "SKODA Superb (2023)"
+        ],
+        "Hybrid": [
+          "SKODA Superb (2019)"
+        ]
+      }
+    },
+    "SKODA Superb Combi / Scout": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Superb Combi / Scout (2009)",
+          "SKODA Superb Combi / Scout (2013)",
+          "SKODA Superb Combi / Scout (2015)",
+          "SKODA Superb Combi / Scout (2019)",
+          "SKODA Superb Combi / Scout (2023)"
+        ],
+        "Diésel": [
+          "SKODA Superb Combi / Scout (2009)",
+          "SKODA Superb Combi / Scout (2013)",
+          "SKODA Superb Combi / Scout (2015)",
+          "SKODA Superb Combi / Scout (2019)",
+          "SKODA Superb Combi / Scout (2023)"
+        ],
+        "Mild Hybrid": [
+          "SKODA Superb Combi / Scout (2023)"
+        ],
+        "Plug-in Hybrid": [
+          "SKODA Superb Combi / Scout (2023)"
+        ],
+        "Hybrid": [
+          "SKODA Superb Combi / Scout (2019)"
+        ]
+      }
+    },
+    "SKODA Yeti": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "SKODA Yeti (2009)",
+          "SKODA Yeti (2013)"
+        ],
+        "Diésel": [
+          "SKODA Yeti (2009)",
+          "SKODA Yeti (2013)"
+        ]
+      }
+    }
+  },
+  "SPYKER": {
+    "C12 LaTurbie": {
+      "years": [
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "C12 LaTurbie (2006)"
+        ]
+      }
+    },
+    "C8": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "C8 Spyder (2000)"
+        ]
+      }
+    },
+    "C8 Double 12 S": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "C8 Double 12 S (2002)"
+        ]
+      }
+    },
+    "C8 Laviolette": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "C8 Laviolette (2001)"
+        ]
+      }
+    },
+    "C8 Preliator": {
+      "years": [
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "C8 Preliator (2016)"
+        ]
+      }
+    }
+  },
+  "TOGG": {
+    "T10F": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "T10F (2024)"
+        ]
+      }
+    },
+    "T10X": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "T10X (2022)"
+        ]
+      }
+    }
+  },
+  "TVR": {
+    "Cerbera": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Cerbera (1996)",
+          "Cerbera (2000)"
+        ]
+      }
+    },
+    "Chimaera": {
+      "years": [
+        2000,
+        2001
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Chimaera (1992)"
+        ]
+      }
+    },
+    "Griffith": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Griffith (1992)",
+          "Griffith (2017)"
+        ]
+      }
+    },
+    "Sagaris": {
+      "years": [
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Sagaris (2004)"
+        ]
+      }
+    },
+    "T350": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "T350 (2002)"
+        ]
+      }
+    },
+    "Tamora": {
+      "years": [
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tamora (2002)"
+        ]
+      }
+    },
+    "Tuscan": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tuscan (2001)"
+        ]
+      }
+    },
+    "Tuscan R/ T 440R/T 400R/ Typhon": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tuscan R/ T 440R/T 400R/ Typhon (2000)"
+        ]
+      }
+    },
+    "Tuscan S": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tuscan S (2001)",
+          "Tuscan S (2005)",
+          "Tuscan S Convertible (2005)"
+        ]
+      }
+    }
+  },
+  "VAUXHALL": {
+    "Agila": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Agila (2000)",
+          "Agila (2008)"
+        ],
+        "Diésel": [
+          "Agila (2008)"
+        ]
+      }
+    },
+    "Antara": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Antara (2007)",
+          "Antara (2010)"
+        ],
+        "Diésel": [
+          "Antara (2007)",
+          "Antara (2010)"
+        ]
+      }
+    },
+    "Astra": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "fuels": {
+        "Plug-in Hybrid": [
+          "Astra Estate (2021)",
+          "Astra Estate (2022)",
+          "Astra Hatchback (2022)"
+        ],
+        "Gasolina": [
+          "Astra Estate (2004)",
+          "Astra Estate (2010)",
+          "Astra Estate (2012)",
+          "Astra Estate (2015)",
+          "Astra Estate (2019)",
+          "Astra Estate (2021)",
+          "Astra Hatchback (2004)",
+          "Astra Hatchback (2009)",
+          "Astra Hatchback (2011)",
+          "Astra Hatchback (2015)",
+          "Astra Hatchback (2019)"
+        ],
+        "Diésel": [
+          "Astra Estate (2004)",
+          "Astra Estate (2010)",
+          "Astra Estate (2012)",
+          "Astra Estate (2015)",
+          "Astra Estate (2019)",
+          "Astra Estate (2021)",
+          "Astra Hatchback (2004)",
+          "Astra Hatchback (2009)",
+          "Astra Hatchback (2011)",
+          "Astra Hatchback (2015)",
+          "Astra Hatchback (2019)"
+        ]
+      }
+    },
+    "Astra Sport Hatch": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra Sport Hatch (2004)"
+        ],
+        "Diésel": [
+          "Astra Sport Hatch (2004)"
+        ]
+      }
+    },
+    "Astra Twin Top": {
+      "years": [
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra Twin Top (2007)"
+        ],
+        "Diésel": [
+          "Astra Twin Top (2007)"
+        ]
+      }
+    },
+    "Astra VXR": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2012,
+        2013,
+        2014,
+        2015
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Astra VXR (2005)",
+          "Astra VXR (2012)"
+        ]
+      }
+    },
+    "Corsa": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corsa 3 Doors (2001)",
+          "Corsa 3 Doors (2006)",
+          "Corsa 3 Doors (2014)",
+          "Corsa 5 Doors (2001)",
+          "Corsa 5 Doors (2006)",
+          "Corsa 5 Doors (2014)",
+          "Corsa 5 Doors (2019)"
+        ],
+        "Diésel": [
+          "Corsa 3 Doors (2001)",
+          "Corsa 3 Doors (2006)",
+          "Corsa 3 Doors (2014)",
+          "Corsa 5 Doors (2001)",
+          "Corsa 5 Doors (2006)",
+          "Corsa 5 Doors (2014)",
+          "Corsa 5 Doors (2019)"
+        ],
+        "Eléctrico": [
+          "Corsa 5 Doors (2019)"
+        ]
+      }
+    },
+    "Corsa GSE": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Corsa GSE (2026)"
+        ]
+      }
+    },
+    "Corsa VXR": {
+      "years": [
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Corsa VXR (2011)"
+        ]
+      }
+    },
+    "Crossland X": {
+      "years": [
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Crossland X (2017)"
+        ],
+        "Diésel": [
+          "Crossland X (2017)"
+        ]
+      }
+    },
+    "Grandland": {
+      "years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "Grandland (2024)"
+        ],
+        "Mild Hybrid": [
+          "Grandland (2024)"
+        ],
+        "Plug-in Hybrid": [
+          "Grandland (2023)"
+        ],
+        "Gasolina": [
+          "Grandland (2021)"
+        ],
+        "Diésel": [
+          "Grandland (2021)"
+        ],
+        "Hybrid Gasoline": [
+          "Grandland (2021)"
+        ]
+      }
+    },
+    "Insignia": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia Hatchback (2008)",
+          "Insignia Hatchback (2013)",
+          "Insignia Sedan (2008)"
+        ],
+        "Diésel": [
+          "Insignia Hatchback (2008)",
+          "Insignia Hatchback (2013)",
+          "Insignia Sedan (2008)",
+          "Insignia Sedan (2013)"
+        ]
+      }
+    },
+    "Insignia Country Tourer": {
+      "years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Diésel": [
+          "Insignia Country Tourer (2013)"
+        ]
+      }
+    },
+    "Insignia Sports Tourer": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia Sports Tourer (2009)",
+          "Insignia Sports Tourer (2013)"
+        ],
+        "Diésel": [
+          "Insignia Sports Tourer (2009)",
+          "Insignia Sports Tourer (2013)"
+        ]
+      }
+    },
+    "Insignia VXR": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia VXR Sedan (2012)"
+        ]
+      }
+    },
+    "Insignia VXR Sports Tourer": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Insignia VXR Sports Tourer (2010)"
+        ]
+      }
+    },
+    "Meriva": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Meriva (2003)",
+          "Meriva (2010)",
+          "Meriva (2014)"
+        ],
+        "Diésel": [
+          "Meriva (2003)",
+          "Meriva (2010)",
+          "Meriva (2014)"
+        ],
+        "Natural Gas": [
+          "Meriva (2014)"
+        ]
+      }
+    },
+    "Meriva VXR": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Meriva VXR (2003)"
+        ]
+      }
+    },
+    "Mokka": {
+      "years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mokka (2012)"
+        ],
+        "Diésel": [
+          "Mokka (2012)"
+        ]
+      }
+    },
+    "Mokka X": {
+      "years": [
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Mokka X (2016)"
+        ],
+        "Diésel": [
+          "Mokka X (2016)"
+        ]
+      }
+    },
+    "Monaro": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Monaro (2001)"
+        ]
+      }
+    },
+    "Monaro VXR": {
+      "years": [
+        2005,
+        2006,
+        2007
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Monaro VXR (2005)"
+        ]
+      }
+    },
+    "Signum": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Signum (2005)"
+        ],
+        "Diésel": [
+          "Signum (2005)"
+        ]
+      }
+    },
+    "Tigra Twin Top": {
+      "years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Tigra Twin Top (2004)"
+        ],
+        "Diésel": [
+          "Tigra Twin Top (2004)"
+        ]
+      }
+    },
+    "Vectra": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vectra Estate (2005)",
+          "Vectra Hatchback (2005)"
+        ],
+        "Diésel": [
+          "Vectra Estate (2005)",
+          "Vectra Hatchback (2005)"
+        ]
+      }
+    },
+    "Vectra Estate VXR": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vectra Estate VXR (2005)"
+        ]
+      }
+    },
+    "Vectra Saloon": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vectra Saloon (2005)"
+        ],
+        "Diésel": [
+          "Vectra Saloon (2005)"
+        ]
+      }
+    },
+    "Vectra VXR": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Vectra VXR (2005)"
+        ]
+      }
+    },
+    "Viva": {
+      "years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Viva (2015)"
+        ]
+      }
+    },
+    "VX 220": {
+      "years": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005
+      ],
+      "fuels": {
+        "Gasolina": [
+          "VX 220 (2000)"
+        ]
+      }
+    },
+    "VXR8": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "VXR8 (2008)",
+          "VXR8 (2013)",
+          "VXR8 (2017)"
+        ]
+      }
+    },
+    "Zafira": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Zafira (2005)",
+          "Zafira (2011)",
+          "Zafira (2016)"
+        ],
+        "Diésel": [
+          "Zafira (2005)",
+          "Zafira (2011)",
+          "Zafira (2016)"
+        ]
+      }
+    },
+    "Zafira VXR": {
+      "years": [
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "fuels": {
+        "Gasolina": [
+          "Zafira VXR (2005)"
+        ]
+      }
+    }
+  },
+  "VINFAST": {
+    "VF 8": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "VF 8 (2022)"
+        ]
+      }
+    },
+    "VF 9": {
+      "years": [
+        2022
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "VF 9 (2022)"
+        ]
+      }
+    }
+  },
+  "WIESMANN": {
+    "GT MF4": {
+      "years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GT MF4 (2003)",
+          "GT MF4 (2010)"
+        ]
+      }
+    },
+    "GT MF4-S": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GT MF4-S (2010)"
+        ]
+      }
+    },
+    "GT MF5": {
+      "years": [
+        2008,
+        2009,
+        2010,
+        2011
+      ],
+      "fuels": {
+        "Gasolina": [
+          "GT MF5 (2008)",
+          "GT MF5 (2011)"
+        ]
+      }
+    },
+    "MF4": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MF4 Roadster (2009)",
+          "MF4 Roadster (2010)"
+        ]
+      }
+    },
+    "MF4-S": {
+      "years": [
+        2010,
+        2011,
+        2012,
+        2013
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MF4-S Roadster (2010)"
+        ]
+      }
+    },
+    "MF5": {
+      "years": [
+        2009,
+        2010,
+        2012
+      ],
+      "fuels": {
+        "Gasolina": [
+          "MF5 Roadster (2009)",
+          "MF5 Roadster (2012)"
+        ]
+      }
+    }
+  },
+  "XIAOMI": {
+    "SU7": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "SU7 (2024)"
+        ]
+      }
+    }
+  },
+  "ZEEKR": {
+    "001": {
+      "years": [
+        2025
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "001 (2025)"
+        ]
+      }
+    },
+    "7GT": {
+      "years": [
+        2026
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "7GT (2026)"
+        ]
+      }
+    },
+    "7X": {
+      "years": [
+        2024
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "7X (2024)"
+        ]
+      }
+    },
+    "X": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Eléctrico": [
+          "X (2023)"
+        ]
+      }
+    }
+  },
+  "ZENVO": {
+    "Aurora": {
+      "years": [
+        2023
+      ],
+      "fuels": {
+        "Hybrid Gasoline": [
+          "Aurora (2023)"
+        ],
+        "Mild Hybrid": [
+          "Aurora (2023)"
+        ]
+      }
+    },
+    "ST1": {
+      "years": [
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017
+      ],
+      "fuels": {
+        "Gasolina": [
+          "ST1 (2009)"
+        ]
+      }
+    },
+    "TS1": {
+      "years": [
+        2017
+      ],
+      "fuels": {
+        "No especificado": [
+          "TS1 (2017)"
+        ]
+      }
+    },
+    "TSR-S": {
+      "years": [
+        2018
+      ],
+      "fuels": {
+        "Gasolina": [
+          "TSR-S (2018)"
+        ]
+      }
+    }
   }
 };
-
 export const VEHICLE_CATALOG_SOURCE = {
-  "sourceLabel": "EEA CO2 cars and vans",
-  "sourceUrl": "https://co2cars.apps.eea.europa.eu/",
-  "sourceDataAsOf": "2025-12-31",
-  "license": "EEA data licence; verify package metadata before redistribution",
-  "generatedAt": "2026-09-17",
+  "sourceLabel": "EEA + vehicle-makes-models (ODbL)",
+  "sourceUrl": "https://github.com/gor3a/vehicle-makes-models",
+  "sourceDataAsOf": "2026-09-17",
+  "license": "ODbL 1.0; attribution to vehicle-makes-models and autoevolution.com required",
+  "historicalMinYear": 2000,
   "provenanceStatus": "declared-not-verified"
 };
-export function getBrands() { return Object.keys(VEHICLES); }
-export function getModels(brand) { return VEHICLES[brand] ? Object.keys(VEHICLES[brand]) : []; }
-export function getYears(brand, model) { return VEHICLES[brand]?.[model]?.years || []; }
-export function getFuels(brand, model) { return VEHICLES[brand]?.[model] ? Object.keys(VEHICLES[brand][model].fuels) : []; }
-export function getVersions(brand, model, fuel) { return VEHICLES[brand]?.[model]?.fuels?.[fuel] || []; }
-export function buildVehicleCatalogId(brand, model, year, fuel, version) {
-  return [brand, model, year, fuel, version].map(value => String(value || '')
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')).join(':');
-}
+export function getBrands(){return Object.keys(VEHICLES)}
+export function getModels(b){return VEHICLES[b]?Object.keys(VEHICLES[b]):[]}
+export function getYears(b,m){return VEHICLES[b]?.[m]?.years||[]}
+export function getFuels(b,m){return VEHICLES[b]?.[m]?Object.keys(VEHICLES[b][m].fuels):[]}
+export function getVersions(b,m,f){return VEHICLES[b]?.[m]?.fuels?.[f]||[]}
