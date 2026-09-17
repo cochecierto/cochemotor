@@ -19,7 +19,8 @@ ALIASES = {
     'year': {'year','model year','registration year','ano','año'},
     'fuel': {'fuel','fuel type','fuel type - primary','ft','combustible'},
     'version': {'version','ve','trim','variant','denomination','versión','version comercial'},
-    'category': {'category','vehicle category','body category','categoria','categoría','segment'},
+    'category': {'category','vehicle category','body category','categoria','categoría','segment','ct'},
+    'country': {'country','pais','país','country code'},
 }
 EXCLUDED_BRANDS = {'1', 'activity', 'air-brakes', 'allied vehicles ltd', 'avelling barford', 'divisegur catalunya', 'enaire', 'electra jacetana', 'remolques ramirez', 'sin marca', 'toth es fiai'}
 BRAND_CANONICAL = {'a.u.d.i.': 'AUDI', 'b.m.w.': 'BMW', 'bmw i': 'BMW', 'chevrolet': 'CHEVROLET', 'jaguar': 'JAGUAR', 'mercedes': 'MERCEDES-BENZ', 'mercedes amg': 'MERCEDES-AMG', 'mercedes-amg': 'MERCEDES-AMG', 'mercedes-benz': 'MERCEDES-BENZ', 'rolls royce': 'ROLLS-ROYCE', 'rolls-royce': 'ROLLS-ROYCE', 'tesla motors': 'TESLA', 'volkswagen, vw': 'VOLKSWAGEN', 'volkswagen v w': 'VOLKSWAGEN', 'volkswagen ag': 'VOLKSWAGEN'}
@@ -73,6 +74,7 @@ def main():
     parser.add_argument('--source-data-as-of', type=date.fromisoformat, default=None, help='Fecha de referencia de los datos (AAAA-MM-DD), no fecha de importación.')
     parser.add_argument('--license', dest='source_license', default=None, help='Licencia o condiciones documentadas del conjunto.')
     parser.add_argument('--include-commercial', action='store_true', help='Incluye categorías comerciales además de turismos M1.')
+    parser.add_argument('--country', default='ES', help='Código de país a incluir cuando la fuente lo proporciona (por defecto ES).')
     args = parser.parse_args()
     src, dst = args.input_csv, args.output_js
     with src.open(encoding='utf-8-sig', newline='') as f:
@@ -85,6 +87,7 @@ def main():
         tree = defaultdict(lambda: defaultdict(lambda: {'years': set(), 'fuels': defaultdict(set)}))
         for row in rows:
             brand, model = clean_brand(row[cols['brand']]), row[cols['model']].strip()
+            if cols.get('country') and args.country and norm(row[cols['country']]) != norm(args.country): continue
             fuel, version = clean_fuel(row[cols['fuel']]), row[cols['version']].strip()
             if not brand or not model or not fuel or not version: continue
             if cols.get('category') and not args.include_commercial:
