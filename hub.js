@@ -413,7 +413,7 @@ async function handleCreateVehicle(event) {
   const contact={name:localSession.name,email:localSession.email,phone:localSession.phone,consent:document.getElementById('up-contact-consent').checked};
   const payload={...newVehicle,km,location,contact};
   const body=new FormData(); body.append('vehicle',JSON.stringify(payload));
-  const slotKeys=['front-right','rear','left-side','right-side','front-interior','rear-interior','dashboard-km','engine','trunk','tire-or-detail'];
+  const slotKeys=['front-right','rear','rear-interior','trunk','front-interior','dashboard-km','left-side','tire','right-side','engine'];
   vehicleImages.forEach((photo,index)=>{body.append('images[]',photo,`${slotKeys[index]}.webp`);body.append('slots[]',JSON.stringify({key:slotKeys[index],sort_order:index}));});
   submit.disabled=true; status.textContent='Enviando el anuncio y las fotos a revisión…';
   try {
