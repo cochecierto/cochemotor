@@ -929,7 +929,7 @@ function renderWindshieldCard() {
   badgeEl.innerText = `DGT ${v.badge}`;
   badgeEl.className = `badge-dgt ${v.badgeClass || 'badge-c'}`;
 
-  const fichaUrl = encodeURIComponent(`${window.location.origin}//ficha?id=${v.id}`);
+  const fichaUrl = encodeURIComponent(`${window.location.origin}/ficha?id=${v.id}`);
   document.getElementById('qr-img-element').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${fichaUrl}&color=002D62`;
 }
 
@@ -1347,7 +1347,7 @@ function generateSocialCopy() {
   if (!car) return;
 
   const activeUser = CocheMotorStorage.getActiveUser();
-  const url = `${window.location.origin}//ficha?id=${car.id}&utm_source=${currentSocialChannel}`;
+  const url = `${window.location.origin}/ficha?id=${car.id}&utm_source=${currentSocialChannel}`;
 
   if (currentSocialChannel === 'facebook') {
     output.value = 

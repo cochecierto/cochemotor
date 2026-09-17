@@ -521,7 +521,7 @@ function generateVehicleCopy() {
   const v = stock.find(item => item.id === select.value) || stock[0];
   if (!v) return;
 
-  const publicFichaUrl = `${window.location.origin}//ficha?id=${v.id}`;
+  const publicFichaUrl = `${window.location.origin}/ficha?id=${v.id}`;
   let text = '';
 
   if (channel === 'portales') {
@@ -832,7 +832,7 @@ function renderWindshieldCard() {
   badgeEl.innerText = `DGT ${v.badge}`;
   badgeEl.className = `badge-dgt ${v.badgeClass || 'badge-c'}`;
 
-  const fichaUrl = encodeURIComponent(`${window.location.origin}//ficha?id=${v.id}`);
+  const fichaUrl = encodeURIComponent(`${window.location.origin}/ficha?id=${v.id}`);
   document.getElementById('qr-img-element').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${fichaUrl}&color=002D62`;
 }
 
@@ -878,7 +878,7 @@ function loadDealerWebSettings() {
   const btnOpen = document.getElementById('btn-open-dealer-web');
 
   const sub = activeUser.subdomain || activeUser.slug || 'taller';
-  const fullUrl = `${window.location.origin}//dealer?id=${activeUser.id}`;
+  const fullUrl = `${window.location.origin}/dealer?id=${activeUser.id}`;
 
   if (titleEl) titleEl.textContent = activeUser.businessName || activeUser.name;
   if (subEl) subEl.textContent = `${sub}.cochemotor.es`;
@@ -931,7 +931,7 @@ function saveDealerSettings(event) {
 function copyDealerWebLink() {
   const activeUser = CocheMotorStorage.getActiveUser();
   const sub = activeUser.subdomain || activeUser.slug || 'taller';
-  const fullUrl = `${window.location.origin}//dealer?id=${activeUser.id}`;
+  const fullUrl = `${window.location.origin}/dealer?id=${activeUser.id}`;
   navigator.clipboard.writeText(fullUrl).then(() => {
     alert(`🌐 Enlace a tu web copiado:\n${fullUrl}\n\nPuedes pegarlo en tu perfil de Instagram, Facebook o WhatsApp Business.`);
   });
@@ -1097,7 +1097,7 @@ function toggleChecklistItem(roomId, itemText, isChecked) {
 }
 
 function copyDealRoomLink(token) {
-  const url = `${window.location.origin}//ficha?deal_token=${token}`;
+  const url = `${window.location.origin}/ficha?deal_token=${token}`;
   navigator.clipboard.writeText(url).then(() => {
     alert(`🔐 ¡Enlace privado de la Deal Room copiado!\n\n${url}\n\nEnvíalo por WhatsApp al comprador para que consulte el expediente telemático de su compra.`);
   });
@@ -1250,7 +1250,7 @@ function generateSocialCopy() {
   if (!car) return;
 
   const activeUser = CocheMotorStorage.getActiveUser();
-  const url = `${window.location.origin}//ficha?id=${car.id}&utm_source=${currentSocialChannel}`;
+  const url = `${window.location.origin}/ficha?id=${car.id}&utm_source=${currentSocialChannel}`;
 
   if (currentSocialChannel === 'facebook') {
     output.value = 
