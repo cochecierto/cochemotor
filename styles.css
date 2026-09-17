@@ -1747,6 +1747,9 @@ button {
 .hub-next-action h2 { margin:3px 0 4px; color:var(--cm-navy); font-size:1.05rem; }
 .hub-next-action p { margin:0; color:var(--cm-text-secondary); font-size:.86rem; }
 .hub-next-action-kicker { color:#1771b8; font-size:.67rem; font-weight:800; letter-spacing:.08em; }
+.publish-progress { margin:12px 0 16px; padding:9px 12px; border:1px solid #d8e4ef; border-radius:8px; color:#52647a; background:#f8fbff; font-size:.78rem; font-weight:650; }
+.form-help { display:block; margin:-5px 0 7px; color:#64748b; font-size:.74rem; line-height:1.35; }
+.margin-preview { display:block; margin-top:6px; color:#176b45; font-size:.78rem; font-weight:750; }
 .hub-flow-roadmap { margin:0 0 24px; padding:16px 20px; border:1px solid #e1e8f0; border-radius:14px; background:#fff; }
 .hub-flow-roadmap-head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .hub-flow-roadmap-head h2 { margin:3px 0 0; color:var(--cm-navy); font-size:1rem; }

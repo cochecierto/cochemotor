@@ -14,6 +14,9 @@ function fill(select, items, placeholder, disabled = false) {
   select.disabled = disabled || items.length === 0;
 }
 
+function fuelLabel(value) { return { Petrol: 'Gasolina', PETROL: 'Gasolina', Diesel: 'Diésel', DIESEL: 'Diésel', electric: 'Eléctrico', Electric: 'Eléctrico' }[value] || value; }
+function versionLabel(code, brand, model, fuel) { return `${brand} ${model} · ${fuelLabel(fuel)} · Motorización catalogada (código ${code})`; }
+
 function resetVehicleFrom(level) {
   const order = ['up-model', 'up-version', 'up-year', 'up-fuel'];
   const index = order.indexOf(level);
@@ -39,7 +42,9 @@ function initVehicleSelectors() {
     fill(version, [], 'Selecciona combustible', true);
   });
   fuel.addEventListener('change', () => {
-    fill(version, getVersions(brand.value, model.value, fuel.value), 'Selecciona versión / motorización', false);
+    const versions = getVersions(brand.value, model.value, fuel.value);
+    version.innerHTML = `<option value="">Selecciona versión / motorización</option>` + versions.map(code => `<option value="${code}">${versionLabel(code, brand.value, model.value, fuel.value)}</option>`).join('');
+    version.disabled = versions.length === 0;
   });
   version.addEventListener('change', () => {
     fill(year, getYears(brand.value, model.value), 'Selecciona año', false);

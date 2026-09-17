@@ -28,9 +28,31 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderDealRoomsList();
   loadDealerWebSettings();
   initVehiclePhotoGuide();
+  initPublishProgress();
 });
 
 const MAX_VEHICLE_IMAGES = 10;
+
+function initPublishProgress() {
+  const ids = ['up-brand','up-model','up-version','up-year','up-community','up-province','up-municipality','up-price','up-km','up-fuel','up-cost','up-badge'];
+  const update = () => {
+    const value = id => document.getElementById(id)?.value?.trim() || '';
+    const basic = ['up-brand','up-model','up-version','up-year'].filter(id => value(id)).length;
+    const location = ['up-community','up-province','up-municipality'].filter(id => value(id)).length;
+    const photos = document.getElementById('up-image-file')?.files?.length || 0;
+    const consent = document.getElementById('up-contact-consent')?.checked;
+    const progress = document.getElementById('publish-progress');
+    const margin = document.getElementById('up-margin-preview');
+    if (progress) progress.textContent = `Datos básicos ${basic}/4 · Ubicación ${location}/3 · Fotos ${photos}/${MAX_VEHICLE_IMAGES} · Consentimiento ${consent ? 'listo' : 'pendiente'}`;
+    const price = Number(value('up-price')); const cost = Number(value('up-cost'));
+    if (margin) margin.textContent = price > 0 && cost > 0 ? `Margen estimado: ${(price - cost).toLocaleString('es-ES')} €` : 'Margen estimado: pendiente';
+  };
+  ids.forEach(id => document.getElementById(id)?.addEventListener('change', update));
+  ['up-price','up-cost','up-km'].forEach(id => document.getElementById(id)?.addEventListener('input', update));
+  document.getElementById('up-image-file')?.addEventListener('change', update);
+  document.getElementById('up-contact-consent')?.addEventListener('change', update);
+  update();
+}
 
 function getProfessionalSession() {
   try { return JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null'); }

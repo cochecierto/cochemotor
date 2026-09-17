@@ -321,6 +321,7 @@
         <p class="hub-tool-desc">
           Sube tu coche a tu inventario privado. Sigue la guía de fotos clave para maximizar llamadas y al guardar se generarán los textos para Wallapop, WhatsApp y el cartel imprimible con QR.
         </p>
+        <div class="publish-progress" id="publish-progress" role="status">Datos básicos 0/4 · Ubicación 0/3 · Fotos 0/10 · Consentimiento pendiente</div>
 
         <form id="form-upload-vehicle" onsubmit="handleCreateVehicle(event)">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
@@ -341,6 +342,7 @@
 
               <div class="form-group">
                 <label class="form-label">Versión y Motorización *</label>
+                <small class="form-help">Primero elige combustible: el catálogo solo muestra las motorizaciones compatibles con la marca y modelo.</small>
                 <select id="up-version" class="form-control" required disabled></select>
               </div>
 
@@ -394,6 +396,7 @@
                 <div class="form-group">
                   <label class="form-label">Coste de Entrada (€)</label>
                   <input type="number" id="up-cost" class="form-control" placeholder="Ej: 14000">
+                  <output id="up-margin-preview" class="margin-preview">Margen estimado: pendiente</output>
                 </div>
               </div>
 
