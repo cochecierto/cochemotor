@@ -43,7 +43,8 @@ function initVehicleSelectors() {
   model.addEventListener('change', () => {
     resetVehicleFrom('up-version');
     const fuels = getFuels(brand.value, model.value);
-    fill(fuel, fuels.map(value => ({ id:value, name:fuelLabel(value) })), 'Selecciona combustible', false);
+    const normalizedFuels = Array.from(new Map(fuels.map(value => [fuelLabel(value), { id:value, name:fuelLabel(value) }])).values());
+    fill(fuel, normalizedFuels, 'Selecciona combustible', false);
     fill(version, [], 'Selecciona combustible', true);
   });
   fuel.addEventListener('change', () => {
