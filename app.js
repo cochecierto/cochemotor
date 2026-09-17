@@ -200,7 +200,7 @@ function renderStockGrid(vehicles) {
     var isSold = v.status === 'vendido';
     var isReserved = v.status === 'reservado';
     var sellerMarkup = v.isDemo ? '<span>🏪 Vendedor de demostración</span>' :
-      '<a href="dealer.html?id=' + encodeURIComponent(v.userId || 'user-juan') + '" style="color: var(--cm-navy); text-decoration: underline; font-weight: 700; font-size: 0.82rem;">🏪 ' + escapeHTML(v.sellerName || v.dealer) + '</a>';
+      '<a href="/dealer?id=' + encodeURIComponent(v.userId || 'user-juan') + '" style="color: var(--cm-navy); text-decoration: underline; font-weight: 700; font-size: 0.82rem;">🏪 ' + escapeHTML(v.sellerName || v.dealer) + '</a>';
 
     return '<article class="vehicle-card" data-id="' + escapeHTML(v.id) + '">' +
       '<div class="vehicle-thumb-box">' +
@@ -225,7 +225,7 @@ function renderStockGrid(vehicles) {
           '<div class="monthly-price">desde ' + escapeHTML(v.monthlyPrice) + '</div>' +
         '</div>' +
         '<div class="card-cta-group">' +
-          '<a class="btn btn-red" href="ficha.html?id=' + encodeURIComponent(v.id) + '" style="font-weight: 800;">Ver detalles</a>' +
+          '<a class="btn btn-red" href="/ficha?id=' + encodeURIComponent(v.id) + '" style="font-weight: 800;">Ver detalles</a>' +
           (v.isDemo ? '<span class="btn btn-outline" aria-label="Anuncio de demostración; contacto desactivado">Ejemplo (sin contacto)</span>' : '<a class="btn btn-outline" href="' + escapeHTML(waUrl) + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>') +
         '</div>' +
       '</div>' +
@@ -370,5 +370,5 @@ function executeHeroSearch() {
   if (brand) params.set('brand', brand);
   if (model) params.set('model', model);
   if (price && price !== 'all') params.set('price', price);
-  window.location.href = 'marketplace.html' + (params.toString() ? '?' + params.toString() : '');
+  window.location.href = '/marketplace' + (params.toString() ? '?' + params.toString() : '');
 }

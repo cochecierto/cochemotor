@@ -7,7 +7,7 @@
 </head>
 <body class="auth-page">
   <main class="auth-card" aria-labelledby="profile-title">
-    <a href="hub.html" class="auth-back">← Volver al espacio profesional</a>
+    <a href="/panel" class="auth-back">← Volver al espacio profesional</a>
     <h1 id="profile-title">Completa tu perfil profesional</h1>
     <p class="auth-intro">Necesitamos estos datos para que los contactos sepan con quién están hablando. Podrás modificarlos más adelante.</p>
     <div id="profile-status" class="auth-status" role="status" aria-live="polite"></div>
@@ -21,9 +21,9 @@
   <script>
     const session = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
     const status = document.getElementById('profile-status');
-    if (!session?.userId || !session.verified) window.location.replace('acceso.html?return=perfil');
+    if (!session?.userId || !session.verified) window.location.replace('/acceso?return=perfil');
     const show = (message, kind='info') => { status.textContent = message; status.dataset.kind = kind; };
-    document.getElementById('profile-form').addEventListener('submit', async event => { event.preventDefault(); const phone = document.getElementById('profile-phone').value.trim(); const professionalType = document.getElementById('profile-type').value; try { const response = await fetch('/api/auth', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'profile', user_id:session.userId, phone, professional_type:professionalType})}); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'No se pudo guardar el perfil'); localStorage.setItem('cochemotor_local_session', JSON.stringify({...session, phone, professionalType, profileComplete:true})); show('Perfil guardado. Ya puedes publicar vehículos.', 'success'); setTimeout(() => window.location.href = 'hub.html', 500); } catch (error) { show(error.message, 'error'); } });
+    document.getElementById('profile-form').addEventListener('submit', async event => { event.preventDefault(); const phone = document.getElementById('profile-phone').value.trim(); const professionalType = document.getElementById('profile-type').value; try { const response = await fetch('/api/auth', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({action:'profile', user_id:session.userId, phone, professional_type:professionalType})}); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'No se pudo guardar el perfil'); localStorage.setItem('cochemotor_local_session', JSON.stringify({...session, phone, professionalType, profileComplete:true})); show('Perfil guardado. Ya puedes publicar vehículos.', 'success'); setTimeout(() => window.location.href = '/panel', 500); } catch (error) { show(error.message, 'error'); } });
   </script>
 </body>
 </html>

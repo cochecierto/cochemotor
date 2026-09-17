@@ -46,7 +46,7 @@ function professionalAuthHeaders(headers = {}) {
 
 async function loadProfessionalVehicles() {
   const response = await fetch('/api/vehicles', { headers: professionalAuthHeaders({'Accept':'application/json'}) });
-  if (response.status === 401) { localStorage.removeItem('cochemotor_local_session'); window.location.replace('acceso.html?audience=professional&return=hub&mode=login'); return; }
+  if (response.status === 401) { localStorage.removeItem('cochemotor_local_session'); window.location.replace('/acceso?audience=professional&return=hub&mode=login'); return; }
   if (!response.ok) throw new Error('No se pudo cargar el inventario de tu cuenta.');
   const data = await response.json();
   CocheMotorStorage.setAuthenticatedStock(window.COCHEMOTOR_AUTH_USER.user_id, Array.isArray(data.vehicles) ? data.vehicles : []);
@@ -54,7 +54,7 @@ async function loadProfessionalVehicles() {
 
 async function loadProfessionalLeads() {
   const response = await fetch('/api/leads', { headers: professionalAuthHeaders({'Accept':'application/json'}) });
-  if (response.status === 401) { localStorage.removeItem('cochemotor_local_session'); window.location.replace('acceso.html?audience=professional&return=hub&mode=login'); return; }
+  if (response.status === 401) { localStorage.removeItem('cochemotor_local_session'); window.location.replace('/acceso?audience=professional&return=hub&mode=login'); return; }
   if (!response.ok) throw new Error('No se pudieron cargar las consultas de tu cuenta.');
   const data = await response.json();
   const vehicles = CocheMotorStorage.getStock(window.COCHEMOTOR_AUTH_USER.user_id);
@@ -89,7 +89,7 @@ async function logoutLocalSession() {
     if (session?.sessionToken) await fetch('/api/auth', {method: 'POST', headers: professionalAuthHeaders({'Content-Type': 'application/json'}), body: JSON.stringify({action: 'logout'})});
   } finally {
     localStorage.removeItem('cochemotor_local_session');
-    window.location.replace('acceso.html');
+    window.location.replace('/acceso');
   }
 }
 
@@ -251,8 +251,8 @@ async function handleCreateVehicle(event) {
   event.preventDefault();
   const form=event.currentTarget, status=document.getElementById('vehicle-submit-status'), submit=form.querySelector('button[type="submit"]');
   const localSession=getProfessionalSession();
-  if (!localSession?.verified || !localSession.sessionToken) { window.location.href='acceso.html?audience=professional&return=hub&mode=login'; return; }
-  if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) { window.location.href='perfil.html'; return; }
+  if (!localSession?.verified || !localSession.sessionToken) { window.location.href='/acceso?audience=professional&return=hub&mode=login'; return; }
+  if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) { window.location.href='/perfil'; return; }
   if(!form.reportValidity())return;
 
   const brand = document.getElementById('up-brand').value.trim();
@@ -340,7 +340,7 @@ async function handleCreateVehicle(event) {
   try {
     const response=await fetch('/api/vehicles',{method:'POST',headers:professionalAuthHeaders(),body});
     const result=await response.json().catch(()=>null);
-    if(response.status===401){localStorage.removeItem('cochemotor_local_session');window.location.href='acceso.html?audience=professional&return=hub&mode=login';return;}
+    if(response.status===401){localStorage.removeItem('cochemotor_local_session');window.location.href='/acceso?audience=professional&return=hub&mode=login';return;}
     if(!response.ok||!result?.ok)throw new Error(result?.error||'No se pudo guardar. Conservamos los datos del formulario para que puedas reintentarlo.');
     newVehicle.id=result.id;newVehicle.stage=result.status;newVehicle.status='pendiente_revision';newVehicle.location=location;newVehicle.km=`${km.toLocaleString('es-ES')} km`;
     CocheMotorStorage.saveVehicle(newVehicle);updateKpis();initVehicleDropdowns();
@@ -435,7 +435,7 @@ function renderPipelineBoard() {
               </select>
 
               <div style="display: flex; gap: 4px; margin-top: 6px;">
-                <a href="ficha.html?id=${car.id}" target="_blank" style="flex: 1; text-align: center; font-size: 0.72rem; padding: 4px; background: var(--cm-surface-subtle); border-radius: 4px; color: var(--cm-navy); font-weight: 700; text-decoration: none;">
+                <a href="/ficha?id=${car.id}" target="_blank" style="flex: 1; text-align: center; font-size: 0.72rem; padding: 4px; background: var(--cm-surface-subtle); border-radius: 4px; color: var(--cm-navy); font-weight: 700; text-decoration: none;">
                   Ver Ficha ↗
                 </a>
               </div>
@@ -527,7 +527,7 @@ function generateVehicleCopy() {
   const v = stock.find(item => item.id === select.value) || stock[0];
   if (!v) return;
 
-  const publicFichaUrl = `${window.location.origin}/ficha.html?id=${v.id}`;
+  const publicFichaUrl = `${window.location.origin}//ficha?id=${v.id}`;
   let text = '';
 
   if (channel === 'portales') {
@@ -618,7 +618,7 @@ function copyGeneratedText() {
 function viewPublicVehiclePage() {
   const select = document.getElementById('gen-vehicle-select');
   if (!select || !select.value) return;
-  window.open(`ficha.html?id=${select.value}`, '_blank');
+  window.open(`/ficha?id=${select.value}`, '_blank');
 }
 
 // 8. Copiloto IA de Precios y Rotación
@@ -824,7 +824,7 @@ function renderWindshieldCard() {
   badgeEl.innerText = `DGT ${v.badge}`;
   badgeEl.className = `badge-dgt ${v.badgeClass || 'badge-c'}`;
 
-  const fichaUrl = encodeURIComponent(`${window.location.origin}/ficha.html?id=${v.id}`);
+  const fichaUrl = encodeURIComponent(`${window.location.origin}//ficha?id=${v.id}`);
   document.getElementById('qr-img-element').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${fichaUrl}&color=002D62`;
 }
 
@@ -870,16 +870,16 @@ function loadDealerWebSettings() {
   const btnOpen = document.getElementById('btn-open-dealer-web');
 
   const sub = activeUser.subdomain || activeUser.slug || 'taller';
-  const fullUrl = `${window.location.origin}/dealer.html?id=${activeUser.id}`;
+  const fullUrl = `${window.location.origin}//dealer?id=${activeUser.id}`;
 
   if (titleEl) titleEl.textContent = activeUser.businessName || activeUser.name;
   if (subEl) subEl.textContent = `${sub}.cochemotor.es`;
   if (urlEl) {
     urlEl.textContent = fullUrl;
-    urlEl.href = `dealer.html?id=${activeUser.id}`;
+    urlEl.href = `/dealer?id=${activeUser.id}`;
   }
   if (btnOpen) {
-    btnOpen.href = `dealer.html?id=${activeUser.id}`;
+    btnOpen.href = `/dealer?id=${activeUser.id}`;
   }
 
   // Cargar formulario
@@ -923,7 +923,7 @@ function saveDealerSettings(event) {
 function copyDealerWebLink() {
   const activeUser = CocheMotorStorage.getActiveUser();
   const sub = activeUser.subdomain || activeUser.slug || 'taller';
-  const fullUrl = `${window.location.origin}/dealer.html?id=${activeUser.id}`;
+  const fullUrl = `${window.location.origin}//dealer?id=${activeUser.id}`;
   navigator.clipboard.writeText(fullUrl).then(() => {
     alert(`🌐 Enlace a tu web copiado:\n${fullUrl}\n\nPuedes pegarlo en tu perfil de Instagram, Facebook o WhatsApp Business.`);
   });
@@ -1089,7 +1089,7 @@ function toggleChecklistItem(roomId, itemText, isChecked) {
 }
 
 function copyDealRoomLink(token) {
-  const url = `${window.location.origin}/ficha.html?deal_token=${token}`;
+  const url = `${window.location.origin}//ficha?deal_token=${token}`;
   navigator.clipboard.writeText(url).then(() => {
     alert(`🔐 ¡Enlace privado de la Deal Room copiado!\n\n${url}\n\nEnvíalo por WhatsApp al comprador para que consulte el expediente telemático de su compra.`);
   });
@@ -1242,7 +1242,7 @@ function generateSocialCopy() {
   if (!car) return;
 
   const activeUser = CocheMotorStorage.getActiveUser();
-  const url = `${window.location.origin}/ficha.html?id=${car.id}&utm_source=${currentSocialChannel}`;
+  const url = `${window.location.origin}//ficha?id=${car.id}&utm_source=${currentSocialChannel}`;
 
   if (currentSocialChannel === 'facebook') {
     output.value = 

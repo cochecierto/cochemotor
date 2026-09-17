@@ -43,18 +43,18 @@
   <!-- Encabezado & Navegación -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-link">
+      <a href="/" class="brand-link">
         <img class="brand-logo-img" src="assets/brand/logos/cochemotor-final-light.png?v=13.0" alt="CocheMotor">
       </a>
       <nav class="nav-desktop">
-        <a href="marketplace.html" class="nav-link" style="color: var(--cm-navy); font-weight: 800; border-bottom: 2px solid var(--cm-cyan);">Coches de ocasión</a>
-        <a href="demanda.html" class="nav-link">Coche Ideal</a>
+        <a href="/marketplace" class="nav-link" style="color: var(--cm-navy); font-weight: 800; border-bottom: 2px solid var(--cm-cyan);">Coches de ocasión</a>
+        <a href="/demanda" class="nav-link">Coche Ideal</a>
         <a href="index.html#ingenieria" class="nav-link">Mecánica Verificada</a>
         <a href="index.html#pilares" class="nav-link">Cómo funciona</a>
         <a href="index.html#faq" class="nav-link">FAQ</a>
       </nav>
       <div class="header-actions">
-        <a href="hub.html" class="btn-nav-hub" style="background: var(--cm-cyan); color: var(--cm-navy); font-weight: 800;">⚡ Probar gratis para profesionales</a>
+        <a href="/panel" class="btn-nav-hub" style="background: var(--cm-cyan); color: var(--cm-navy); font-weight: 800;">⚡ Probar gratis para profesionales</a>
       </div>
     </div>
   </header>
@@ -194,7 +194,7 @@
       <p style="color: #cbd5e1; max-width: 650px; margin: 0 auto 20px auto; font-size: 0.95rem;">
         Publica tu solicitud en "Coche Ideal". Nuestra red de talleres y compraventas revisará sus entradas de campa y te enviará propuestas que se ajusten a tu presupuesto.
       </p>
-      <a href="demanda.html" class="btn btn-red" style="font-weight: 800; padding: 12px 28px;">
+      <a href="/demanda" class="btn btn-red" style="font-weight: 800; padding: 12px 28px;">
         🎯 Publicar mi búsqueda gratis
       </a>
     </div>
@@ -343,13 +343,13 @@
               </div>
 
               <div class="vehicle-dealer" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-top: 1px solid #f1f5f9; padding-top: 8px;">
-                <a href="dealer.html?id=${v.userId || 'user-garcia'}" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline; font-size: 0.8rem;">
+                <a href="/dealer?id=${v.userId || 'user-garcia'}" style="color: var(--cm-navy); font-weight: 700; text-decoration: underline; font-size: 0.8rem;">
                   🏪 ${v.dealer || v.sellerName || 'Taller Homologado'}
                 </a>
                 <span style="font-weight: 700; color: var(--cm-green); font-size: 0.8rem;">🛡️ 12M Garantía</span>
               </div>
 
-              <a class="btn btn-red" href="ficha.html?id=${v.id}" style="font-weight: 800; width: 100%; justify-content: center; padding: 12px;">
+              <a class="btn btn-red" href="/ficha?id=${v.id}" style="font-weight: 800; width: 100%; justify-content: center; padding: 12px;">
                 Ver detalles
               </a>
             </div>

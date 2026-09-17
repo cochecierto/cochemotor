@@ -10,8 +10,8 @@
 </head>
 <body class="publish-page">
   <header class="publish-topbar">
-    <a class="publish-brand" href="index.html" aria-label="CocheMotor, volver al inicio"><img src="assets/brand/logos/cochemotor-horizontal-light.png" alt="CocheMotor"></a>
-    <a class="publish-back-link" href="index.html"><span aria-hidden="true">←</span> Volver al inicio</a>
+    <a class="publish-brand" href="/" aria-label="CocheMotor, volver al inicio"><img src="assets/brand/logos/cochemotor-horizontal-light.png" alt="CocheMotor"></a>
+    <a class="publish-back-link" href="/"><span aria-hidden="true">←</span> Volver al inicio</a>
   </header>
   <main class="publish-shell">
     <section class="publish-hero" aria-labelledby="publish-title">
@@ -153,14 +153,14 @@
       }
       async function submitVehicle(){
         let session=null;try{session=JSON.parse(localStorage.getItem('cochemotor_local_session')||'null');}catch(_){}
-        if(!session?.verified||!session.sessionToken){saveFields();location.href='acceso.html?audience=professional&return=publish';return;}
+        if(!session?.verified||!session.sessionToken){saveFields();location.href='/acceso?audience=professional&return=publish';return;}
         const payload={...gatherVehicle(),id:draftId}; const body=new FormData(); body.append('vehicle',JSON.stringify(payload));
         slots.forEach((slot,index)=>{const record=photos.get(slot.key);if(record){body.append('images[]',record.blob,`${slot.key}.webp`);body.append('slots[]',JSON.stringify({key:slot.key,sort_order:index}));}});
         status.dataset.kind='info';status.textContent='Guardando el anuncio y sus fotos…';
         try {
           const response=await fetch((window.COCHEMOTOR_API_BASE||'')+'/api/vehicles',{method:'POST',headers:{Authorization:`Bearer ${session.sessionToken}`},body});
           const result=await response.json().catch(()=>null);
-          if(response.status===401){location.href='acceso.html?audience=professional&return=publish&mode=login';return;}
+          if(response.status===401){location.href='/acceso?audience=professional&return=publish&mode=login';return;}
           if(!response.ok) throw new Error(result?.error||'No se pudo guardar. Tus datos y fotos siguen guardados para que puedas reintentarlo.');
           localStorage.removeItem(draftKey); localStorage.removeItem(draftIdKey); if(db)db.transaction('photos','readwrite').objectStore('photos').clear(); photos.clear(); urls.forEach(url=>URL.revokeObjectURL(url)); urls.clear();render();
           status.dataset.kind='success';status.textContent='Hemos recibido tu anuncio. Revisaremos tus datos de contacto antes de publicarlo.';

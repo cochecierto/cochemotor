@@ -43,11 +43,11 @@ const siteConfig = {
   },
 
   navigation: [
-    { label: "Coches de ocasión", href: "marketplace.html" },
-    { label: "Coche Ideal", href: "demanda.html" },
+    { label: "Coches de ocasión", href: "/marketplace" },
+    { label: "Coche Ideal", href: "/demanda" },
     { label: "Mecánica Verificada", href: "index.html#ingenieria" },
     { label: "Cómo funciona", href: "index.html#pilares" },
-    { label: "Hub Profesional", href: "hub.html" },
+    { label: "Hub Profesional", href: "/panel" },
     { label: "Planes & Tarifas", href: "index.html#planes" },
     { label: "FAQ", href: "index.html#faq" },
   ],
@@ -155,9 +155,9 @@ const siteConfig = {
       headline: ["Confianza para decidir.", "Compra claro. Vende mejor."],
       subhead: "Vehículos de ocasión, profesionales identificados y herramientas para decidir con información clara.",
       ctaLabel: "Explorar vehículos",
-      ctaTarget: "marketplace.html",
+      ctaTarget: "/marketplace",
       ctaHubLabel: "Acceder al Hub Profesional",
-      ctaHubTarget: "hub.html",
+      ctaHubTarget: "/panel",
       stats: [
         { value: "100 Puntos", label: "Control mecánico verificado" },
         { value: "0 Cargas", label: "Trazabilidad DGT telemática" },

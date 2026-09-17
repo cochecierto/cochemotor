@@ -40,7 +40,7 @@
     const features = plan.features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join('');
     const mainCta = isCustom || plan.id === 'concesionario'
       ? `<a class="btn btn-red" href="${escapeHtml(planContactHref(plan, annualMode.enabled ? 'annual' : 'monthly'))}">Consultar propuesta</a>`
-      : `<a class="btn ${plan.popular ? 'btn-red' : 'btn-navy'}" href="acceso.html?audience=professional&amp;return=hub&amp;mode=register">Crear cuenta beta gratis</a><a class="plan-consult-link" href="${escapeHtml(planContactHref(plan, annualMode.enabled ? 'annual' : 'monthly'))}">Consultar condiciones de este plan</a>`;
+      : `<a class="btn ${plan.popular ? 'btn-red' : 'btn-navy'}" href="/acceso?audience=professional&amp;return=hub&amp;mode=register">Crear cuenta beta gratis</a><a class="plan-consult-link" href="${escapeHtml(planContactHref(plan, annualMode.enabled ? 'annual' : 'monthly'))}">Consultar condiciones de este plan</a>`;
 
     return `<article class="pro-plan-card${plan.popular ? ' is-popular' : ''}">
       ${plan.popular ? '<span class="plan-ribbon">RECOMENDADO</span>' : ''}

@@ -17,11 +17,11 @@
     (function () {
       const rawSession = localStorage.getItem('cochemotor_local_session');
       const session = rawSession ? JSON.parse(rawSession) : null;
-      if (!session?.sessionToken) window.location.replace('acceso.html?return=hub');
+      if (!session?.sessionToken) window.location.replace('/acceso?return=hub');
       else fetch('/api/auth', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'session', session_token: session.sessionToken}) })
         .then(response => { if (!response.ok) throw new Error('Sesión caducada'); return response.json(); })
         .then(data => { if (!data.ok || !data.user?.verified) throw new Error('Sesión no válida'); })
-        .catch(() => { localStorage.removeItem('cochemotor_local_session'); window.location.replace('acceso.html?return=hub'); });
+        .catch(() => { localStorage.removeItem('cochemotor_local_session'); window.location.replace('/acceso?return=hub'); });
     }());
   </script>
   <style>
@@ -187,7 +187,7 @@
          ========================================================================================= -->
     <aside class="hub-sidebar">
       <div class="hub-sidebar-header">
-        <a href="index.html" class="brand-link" style="display: block;">
+        <a href="/" class="brand-link" style="display: block;">
           <img class="brand-logo-img" src="assets/brand/logos/cochemotor-final-dark.png?v=13.0" alt="CocheMotor" style="height: 57px; width: auto;">
         </a>
       </div>
@@ -204,7 +204,7 @@
         <div id="hub-user-role-badge" style="font-size: 0.75rem; color: #cbd5e1; margin-top: 6px; font-weight: 600;">
           Freelance Independiente · Madrid
         </div>
-        <a href="perfil.html" style="display:block;margin-top:10px;color:#bfdbfe;font-size:.78rem;text-decoration:underline;">Completar mi perfil</a>
+        <a href="/perfil" style="display:block;margin-top:10px;color:#bfdbfe;font-size:.78rem;text-decoration:underline;">Completar mi perfil</a>
         <button type="button" onclick="logoutLocalSession()" style="margin-top:12px;background:none;border:0;padding:0;color:#bfdbfe;font-size:.78rem;text-decoration:underline;cursor:pointer;">Cerrar sesión</button>
       </div>
 
@@ -262,10 +262,10 @@
 
       <!-- Footer de la Sidebar -->
       <div class="hub-sidebar-footer">
-        <a href="marketplace.html" style="display: flex; align-items: center; gap: 8px; color: #cbd5e1; font-size: 0.85rem; text-decoration: none; font-weight: 400; margin-bottom: 8px;">
+        <a href="/marketplace" style="display: flex; align-items: center; gap: 8px; color: #cbd5e1; font-size: 0.85rem; text-decoration: none; font-weight: 400; margin-bottom: 8px;">
           <span aria-hidden="true">○</span> Ver Marketplace Público
         </a>
-        <a href="demanda.html" style="display: flex; align-items: center; gap: 8px; color: #93c5fd; font-size: 0.85rem; text-decoration: none; font-weight: 700;">
+        <a href="/demanda" style="display: flex; align-items: center; gap: 8px; color: #93c5fd; font-size: 0.85rem; text-decoration: none; font-weight: 700;">
           <span aria-hidden="true">◎</span> Coche Ideal
         </a>
       </div>
@@ -817,7 +817,7 @@
                 Subdominio asignado: <strong id="dealer-subdomain-display" style="color: var(--cm-navy); font-family: monospace; font-size: 1.05rem;">juangomez.cochemotor.es</strong>
               </p>
               <div style="font-size: 0.85rem; color: #94a3b8;">
-                URL de acceso directo: <a id="dealer-url-display" href="#" target="_blank" style="color: white; text-decoration: underline;">https://cochemotor.es/dealer.html?id=user-juan</a>
+                URL de acceso directo: <a id="dealer-url-display" href="#" target="_blank" style="color: white; text-decoration: underline;">https://cochemotor.es//dealer?id=user-juan</a>
               </div>
             </div>
 

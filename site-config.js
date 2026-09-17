@@ -52,10 +52,10 @@ const siteConfig = {
   },
 
   navigation: [
-    { label: "Coches de ocasión", href: "marketplace.html" },
-    { label: "Publica qué coche buscas", href: "demanda.html" },
-    { label: "Soy profesional", href: "profesionales.html" },
-    { label: "Publicar un coche", href: "publicar.html" },
+    { label: "Coches de ocasión", href: "/marketplace" },
+    { label: "Publica qué coche buscas", href: "/demanda" },
+    { label: "Soy profesional", href: "/profesionales" },
+    { label: "Publicar un coche", href: "/publicar" },
   ],
 
   // Cuentas de Profesionales Sintéticas con soporte para Web Propia / Subdominio
@@ -164,9 +164,9 @@ const siteConfig = {
       headline: ["Compra o vende coches de ocasión", "con más información y confianza."],
       subhead: "Encuentra coches anunciados por profesionales y revisa la información disponible antes de decidir. Si gestionas stock, conoce las herramientas profesionales.",
       ctaLabel: "Buscar coches",
-      ctaTarget: "marketplace.html",
+      ctaTarget: "/marketplace",
       ctaHubLabel: "Crear cuenta beta gratis",
-      ctaHubTarget: "acceso.html?audience=professional&return=hub&mode=register",
+      ctaHubTarget: "/acceso?audience=professional&return=hub&mode=register",
       stats: [
         { value: "DGT", label: "Acceso a fuentes oficiales" },
         { value: "Por anuncio", label: "Información indicada por el vendedor" },

@@ -4,7 +4,7 @@ require_once dirname(__DIR__) . '/cochemotor-private/config.php';
 header('Content-Type: application/xml; charset=UTF-8');
 header('Cache-Control: public, max-age=900, s-maxage=900');
 $origin='https://cochemotor.es';
-$urls=['/','/profesionales.html','/marketplace.html','/demanda.html','/guias/comprar-coche-usado.html','/aviso-legal.html','/privacidad.html','/terminos.html'];
+$urls=['/','/profesionales','/marketplace','/demanda','/guias/comprar-coche-usado.html','/aviso-legal','/privacidad','/terminos'];
 $dynamic=[];
 try {
     $env=static function(string $key): ?string {$value=getenv($key);return $value!==false&&$value!==''?$value:(defined($key)?(string)constant($key):null);};

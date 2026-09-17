@@ -7,7 +7,7 @@
 </head>
 <body class="auth-page">
   <main class="auth-card" aria-labelledby="auth-title">
-    <div class="auth-head"><a href="index.html" class="auth-brand" aria-label="Volver a CocheMotor"><img src="assets/brand/logos/cochemotor-horizontal-light.png" alt="CocheMotor" class="auth-logo"></a><a href="index.html" class="auth-close" aria-label="Cerrar acceso">×</a></div>
+    <div class="auth-head"><a href="/" class="auth-brand" aria-label="Volver a CocheMotor"><img src="assets/brand/logos/cochemotor-horizontal-light.png" alt="CocheMotor" class="auth-logo"></a><a href="/" class="auth-close" aria-label="Cerrar acceso">×</a></div>
     <div class="auth-eyebrow"><span></span> ACCESO A COCHEMOTOR</div>
     <h1 id="auth-title">Entra y continúa donde lo dejaste</h1>
     <p class="auth-intro" id="auth-intro">Accede para publicar coches, guardar búsquedas o hablar con un vendedor.</p>
@@ -33,8 +33,8 @@
       <label for="register-name">Nombre o nombre comercial</label><input id="register-name" autocomplete="organization" required>
       <label for="register-email">Correo electrónico</label><input id="register-email" type="email" autocomplete="email" required>
       <label for="register-password">Contraseña</label><input id="register-password" type="password" autocomplete="new-password" minlength="10" required>
-      <label class="auth-consent"><input id="register-privacy-read" type="checkbox" required> He leído la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.</label>
-      <label class="auth-consent"><input id="register-terms-accepted" type="checkbox" required> Acepto los <a href="terminos.html" target="_blank" rel="noopener">Términos del Servicio</a>.</label>
+      <label class="auth-consent"><input id="register-privacy-read" type="checkbox" required> He leído la <a href="/privacidad" target="_blank" rel="noopener">Política de privacidad</a>.</label>
+      <label class="auth-consent"><input id="register-terms-accepted" type="checkbox" required> Acepto los <a href="/terminos" target="_blank" rel="noopener">Términos del Servicio</a>.</label>
       <button class="btn btn-red" type="submit">Crear cuenta gratis</button>
     </form>
     <p class="auth-note">Empieza gratis durante la beta. Te explicaremos cualquier plan antes de activar un coste.</p>
@@ -45,9 +45,9 @@
     const status = document.getElementById('auth-status');
     const params = new URLSearchParams(location.search);
     const audience = params.get('audience') === 'professional' ? 'professional' : 'buyer';
-    const allowedReturns = { hub:'hub.html', marketplace:'marketplace.html', demanda:'demanda.html', publish:'publicar.html' };
+    const allowedReturns = { hub:'/panel', marketplace:'/marketplace', demanda:'/demanda', publish:'/publicar' };
     const returnKey = params.get('return');
-    const returnTo = allowedReturns[returnKey] || (location.hash.startsWith('#return=') ? location.hash.slice(8) : 'marketplace.html');
+    const returnTo = allowedReturns[returnKey] || (location.hash.startsWith('#return=') ? location.hash.slice(8) : '/marketplace');
     const show = (message, kind='info') => { status.textContent = message; status.dataset.kind = kind; };
     function showAuth(mode) { const login = mode === 'login'; document.getElementById('login-panel').hidden = !login; document.getElementById('register-panel').hidden = login; document.querySelectorAll('.auth-tab').forEach(tab => { const active = tab.id === (login ? 'login-tab' : 'register-tab'); tab.classList.toggle('active', active); tab.setAttribute('aria-selected', String(active)); }); }
     function setAudience(next) { document.querySelectorAll('[data-audience]').forEach(button => button.classList.toggle('active', button.dataset.audience === next)); document.getElementById('auth-intro').textContent = next === 'professional' ? 'Accede para publicar coches, organizar tus contactos y seguir cada oportunidad.' : 'Accede para guardar búsquedas, pedir ayuda o hablar con un vendedor.'; }

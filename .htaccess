@@ -22,6 +22,37 @@ AddDefaultCharset UTF-8
 # Reglas de Reescritura
 <IfModule mod_rewrite.c>
 RewriteEngine On
+# Rutas públicas limpias. Las URLs antiguas con .html se redirigen más abajo
+# para que los enlaces compartidos y los marcadores no se rompan.
+RewriteRule ^marketplace/?$ marketplace.html [END]
+RewriteRule ^demanda/?$ demanda.html [END]
+RewriteRule ^profesionales/?$ profesionales.html [END]
+RewriteRule ^publicar/?$ publicar.html [END]
+RewriteRule ^panel/?$ hub.html [END]
+RewriteRule ^acceso/?$ acceso.html [END]
+RewriteRule ^perfil/?$ perfil.html [END]
+RewriteRule ^dealer/?$ dealer.html [END]
+RewriteRule ^ficha/?$ ficha.html [END]
+RewriteRule ^aviso-legal/?$ aviso-legal.html [END]
+RewriteRule ^privacidad/?$ privacidad.html [END]
+RewriteRule ^terminos/?$ terminos.html [END]
+RewriteRule ^denuncia/?$ denuncia.html [END]
+RewriteRule ^feedback-beta/?$ feedback-beta.html [END]
+RewriteRule ^asesor/?$ asesor.html [END]
+RewriteRule ^asesor-leads/?$ asesor-leads.html [END]
+# Canonicalizar accesos directos antiguos cuando vienen del navegador.
+RewriteCond %{THE_REQUEST} \s/+marketplace\.html(?:[?\s]) [NC]
+RewriteRule ^marketplace\.html$ /marketplace [R=301,END,NE]
+RewriteCond %{THE_REQUEST} \s/+hub\.html(?:[?\s]) [NC]
+RewriteRule ^hub\.html$ /panel [R=301,END,NE]
+RewriteCond %{THE_REQUEST} \s/+demanda\.html(?:[?\s]) [NC]
+RewriteRule ^demanda\.html$ /demanda [R=301,END,NE]
+RewriteCond %{THE_REQUEST} \s/+profesionales\.html(?:[?\s]) [NC]
+RewriteRule ^profesionales\.html$ /profesionales [R=301,END,NE]
+RewriteCond %{THE_REQUEST} \s/+publicar\.html(?:[?\s]) [NC]
+RewriteRule ^publicar\.html$ /publicar [R=301,END,NE]
+RewriteCond %{THE_REQUEST} \s/+acceso\.html(?:[?\s]) [NC]
+RewriteRule ^acceso\.html$ /acceso [R=301,END,NE]
 RewriteRule ^sitemap\.xml$ sitemap-public.php [L]
 RewriteRule ^vehiculos/([a-z0-9][a-z0-9-]{2,179})/?$ seo-public.php?kind=vehicle&slug=$1 [QSA,L,NC]
 RewriteRule ^profesionales/([a-z0-9][a-z0-9-]{2,179})/?$ seo-public.php?kind=dealer&slug=$1 [QSA,L,NC]

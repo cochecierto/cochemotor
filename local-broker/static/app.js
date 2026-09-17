@@ -203,7 +203,7 @@ function renderStockGrid(vehicles) {
           '<div class="spec-cell"><strong>Cambio:</strong> ' + v.gearbox + '</div>' +
         '</div>' +
         '<div class="vehicle-dealer">' +
-          '<a href="dealer.html?id=' + (v.userId || 'user-garcia') + '" style="color: var(--cm-navy); text-decoration: underline; font-weight: 700; font-size: 0.82rem;">' +
+          '<a href="/dealer?id=' + (v.userId || 'user-garcia') + '" style="color: var(--cm-navy); text-decoration: underline; font-weight: 700; font-size: 0.82rem;">' +
           '🏪 ' + (v.sellerName || v.dealer) +
           '</a>' +
         '</div>' +
@@ -212,7 +212,7 @@ function renderStockGrid(vehicles) {
           '<div class="monthly-price">desde ' + v.monthlyPrice + '</div>' +
         '</div>' +
         '<div class="card-cta-group">' +
-          '<a class="btn btn-red" href="ficha.html?id=' + v.id + '" style="font-weight: 800;">Ver detalles</a>' +
+          '<a class="btn btn-red" href="/ficha?id=' + v.id + '" style="font-weight: 800;">Ver detalles</a>' +
           '<a class="btn btn-outline" href="' + waUrl + '" target="_blank" rel="noopener">WhatsApp</a>' +
         '</div>' +
       '</div>' +
@@ -281,7 +281,7 @@ function renderPricing() {
       '<ul class="price-features-list">' +
         p.features.map(function(f) { return '<li>' + f + '</li>'; }).join('') +
       '</ul>' +
-      '<a href="hub.html" class="btn ' + (p.popular ? 'btn-red' : 'btn-navy') + '" style="width: 100%;">' +
+      '<a href="/panel" class="btn ' + (p.popular ? 'btn-red' : 'btn-navy') + '" style="width: 100%;">' +
         p.cta +
       '</a>' +
     '</div>';
@@ -436,7 +436,7 @@ function switchHeroSearchTab(tabEl, mode) {
   });
   tabEl.classList.add('active');
   if (mode === 'profesionales') {
-    window.location.href = 'dealer.html?id=user-garcia';
+    window.location.href = '/dealer?id=user-garcia';
   } else if (mode === 'valoracion') {
     window.location.href = '#calculadora-roi';
   }
@@ -453,5 +453,5 @@ function executeHeroSearch() {
   if (brand) params.set('brand', brand);
   if (model) params.set('model', model);
   if (price) params.set('price', price);
-  window.location.href = 'marketplace.html' + (params.toString() ? '?' + params.toString() : '');
+  window.location.href = '/marketplace' + (params.toString() ? '?' + params.toString() : '');
 }

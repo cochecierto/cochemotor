@@ -153,7 +153,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <div style="display: flex; align-items: center; gap: 14px;">
-        <a href="index.html" class="brand-link">
+        <a href="/" class="brand-link">
           <img class="brand-logo-img" src="assets/brand/logos/cochemotor-final-light.png?v=13.0" alt="CocheMotor">
         </a>
         <span style="font-size: 0.85rem; color: var(--cm-text-secondary); border-left: 1px solid var(--cm-border); padding-left: 14px; font-weight: 600;">
@@ -161,10 +161,10 @@
         </span>
       </div>
       <div style="display: flex; align-items: center; gap: 12px;">
-        <a href="marketplace.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem;">
+        <a href="/marketplace" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem;">
           ← Todo el Stock Nacional
         </a>
-        <a href="hub.html" class="btn btn-red" style="padding: 8px 16px; font-size: 0.88rem;">
+        <a href="/panel" class="btn btn-red" style="padding: 8px 16px; font-size: 0.88rem;">
           Soy Profesional (SaaS)
         </a>
       </div>
@@ -307,7 +307,7 @@
 
   <footer class="site-footer">
     <div class="container" style="text-align: center;">
-      <p>&copy; 2026 CocheMotor (cochemotor.es). Web asociada de la Red Oficial de Profesionales del Motor de Segunda Mano. <a class="beta-feedback-link" href="feedback-beta.html?from=direct" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Comentarios sobre la beta</a></p>
+      <p>&copy; 2026 CocheMotor (cochemotor.es). Web asociada de la Red Oficial de Profesionales del Motor de Segunda Mano. <a class="beta-feedback-link" href="/feedback-beta?from=direct" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Comentarios sobre la beta</a></p>
     </div>
   </footer>
 
@@ -447,7 +447,7 @@
                 <div style="font-size: 1.45rem; font-weight: 800; color: var(--cm-navy);">${Number(car.price || 0).toLocaleString('es-ES')} €</div>
                 <div style="font-size: 0.8rem; color: #16a34a; font-weight: 700;">${escapeHTML(car.monthlyPrice || 'Consulta financiación')}</div>
               </div>
-              <a href="ficha.html?id=${encodeURIComponent(String(car.id || ''))}" class="btn btn-red" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
+              <a href="/ficha?id=${encodeURIComponent(String(car.id || ''))}" class="btn btn-red" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
                 Ver detalles
               </a>
             </div>

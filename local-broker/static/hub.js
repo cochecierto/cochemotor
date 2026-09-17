@@ -27,7 +27,7 @@ async function logoutLocalSession() {
     if (session?.sessionToken) await fetch('/api/auth', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'logout', session_token: session.sessionToken})});
   } finally {
     localStorage.removeItem('cochemotor_local_session');
-    window.location.replace('acceso.html');
+    window.location.replace('/acceso');
   }
 }
 
@@ -185,12 +185,12 @@ async function handleCreateVehicle(event) {
   const localSession = JSON.parse(localStorage.getItem('cochemotor_local_session') || 'null');
   if (!localSession?.verified) {
     alert('Para publicar un coche debes verificar tu correo y entrar con tu cuenta profesional.');
-    window.location.href = 'acceso.html?return=hub';
+    window.location.href = '/acceso?return=hub';
     return;
   }
   if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) {
     alert('Completa tu perfil profesional antes de publicar un coche.');
-    window.location.href = 'perfil.html';
+    window.location.href = '/perfil';
     return;
   }
 
@@ -386,7 +386,7 @@ function renderPipelineBoard() {
               </select>
 
               <div style="display: flex; gap: 4px; margin-top: 6px;">
-                <a href="ficha.html?id=${car.id}" target="_blank" style="flex: 1; text-align: center; font-size: 0.72rem; padding: 4px; background: var(--cm-surface-subtle); border-radius: 4px; color: var(--cm-navy); font-weight: 700; text-decoration: none;">
+                <a href="/ficha?id=${car.id}" target="_blank" style="flex: 1; text-align: center; font-size: 0.72rem; padding: 4px; background: var(--cm-surface-subtle); border-radius: 4px; color: var(--cm-navy); font-weight: 700; text-decoration: none;">
                   Ver Ficha ↗
                 </a>
               </div>
@@ -478,7 +478,7 @@ function generateVehicleCopy() {
   const v = stock.find(item => item.id === select.value) || stock[0];
   if (!v) return;
 
-  const publicFichaUrl = `${window.location.origin}/ficha.html?id=${v.id}`;
+  const publicFichaUrl = `${window.location.origin}//ficha?id=${v.id}`;
   let text = '';
 
   if (channel === 'portales') {
@@ -570,7 +570,7 @@ function copyGeneratedText() {
 function viewPublicVehiclePage() {
   const select = document.getElementById('gen-vehicle-select');
   if (!select || !select.value) return;
-  window.open(`ficha.html?id=${select.value}`, '_blank');
+  window.open(`/ficha?id=${select.value}`, '_blank');
 }
 
 // 8. Copiloto IA de Precios y Rotación
@@ -776,7 +776,7 @@ function renderWindshieldCard() {
   badgeEl.innerText = `DGT ${v.badge}`;
   badgeEl.className = `badge-dgt ${v.badgeClass || 'badge-c'}`;
 
-  const fichaUrl = encodeURIComponent(`${window.location.origin}/ficha.html?id=${v.id}`);
+  const fichaUrl = encodeURIComponent(`${window.location.origin}//ficha?id=${v.id}`);
   document.getElementById('qr-img-element').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${fichaUrl}&color=002D62`;
 }
 
@@ -822,16 +822,16 @@ function loadDealerWebSettings() {
   const btnOpen = document.getElementById('btn-open-dealer-web');
 
   const sub = activeUser.subdomain || activeUser.slug || 'taller';
-  const fullUrl = `${window.location.origin}/dealer.html?id=${activeUser.id}`;
+  const fullUrl = `${window.location.origin}//dealer?id=${activeUser.id}`;
 
   if (titleEl) titleEl.textContent = activeUser.businessName || activeUser.name;
   if (subEl) subEl.textContent = `${sub}.cochemotor.es`;
   if (urlEl) {
     urlEl.textContent = fullUrl;
-    urlEl.href = `dealer.html?id=${activeUser.id}`;
+    urlEl.href = `/dealer?id=${activeUser.id}`;
   }
   if (btnOpen) {
-    btnOpen.href = `dealer.html?id=${activeUser.id}`;
+    btnOpen.href = `/dealer?id=${activeUser.id}`;
   }
 
   // Cargar formulario
@@ -875,7 +875,7 @@ function saveDealerSettings(event) {
 function copyDealerWebLink() {
   const activeUser = CocheMotorStorage.getActiveUser();
   const sub = activeUser.subdomain || activeUser.slug || 'taller';
-  const fullUrl = `${window.location.origin}/dealer.html?id=${activeUser.id}`;
+  const fullUrl = `${window.location.origin}//dealer?id=${activeUser.id}`;
   navigator.clipboard.writeText(fullUrl).then(() => {
     alert(`🌐 Enlace a tu web copiado:\n${fullUrl}\n\nPuedes pegarlo en tu perfil de Instagram, Facebook o WhatsApp Business.`);
   });
@@ -1041,7 +1041,7 @@ function toggleChecklistItem(roomId, itemText, isChecked) {
 }
 
 function copyDealRoomLink(token) {
-  const url = `${window.location.origin}/ficha.html?deal_token=${token}`;
+  const url = `${window.location.origin}//ficha?deal_token=${token}`;
   navigator.clipboard.writeText(url).then(() => {
     alert(`🔐 ¡Enlace privado de la Deal Room copiado!\n\n${url}\n\nEnvíalo por WhatsApp al comprador para que consulte el expediente telemático de su compra.`);
   });
@@ -1194,7 +1194,7 @@ function generateSocialCopy() {
   if (!car) return;
 
   const activeUser = CocheMotorStorage.getActiveUser();
-  const url = `${window.location.origin}/ficha.html?id=${car.id}&utm_source=${currentSocialChannel}`;
+  const url = `${window.location.origin}//ficha?id=${car.id}&utm_source=${currentSocialChannel}`;
 
   if (currentSocialChannel === 'facebook') {
     output.value = 

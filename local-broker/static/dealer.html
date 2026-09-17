@@ -152,7 +152,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <div style="display: flex; align-items: center; gap: 14px;">
-        <a href="index.html" class="brand-link">
+        <a href="/" class="brand-link">
           <img class="brand-logo-img" src="assets/brand/logos/cochemotor-final-light.png?v=13.0" alt="CocheMotor">
         </a>
         <span style="font-size: 0.85rem; color: var(--cm-text-secondary); border-left: 1px solid var(--cm-border); padding-left: 14px; font-weight: 600;">
@@ -160,10 +160,10 @@
         </span>
       </div>
       <div style="display: flex; align-items: center; gap: 12px;">
-        <a href="marketplace.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem;">
+        <a href="/marketplace" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.88rem;">
           ← Todo el Stock Nacional
         </a>
-        <a href="hub.html" class="btn btn-red" style="padding: 8px 16px; font-size: 0.88rem;">
+        <a href="/panel" class="btn btn-red" style="padding: 8px 16px; font-size: 0.88rem;">
           Soy Profesional (SaaS)
         </a>
       </div>
@@ -414,7 +414,7 @@
                 <div style="font-size: 1.45rem; font-weight: 800; color: var(--cm-navy);">${car.price.toLocaleString('es-ES')} €</div>
                 <div style="font-size: 0.8rem; color: #16a34a; font-weight: 700;">${car.monthlyPrice || 'Financiable'}</div>
               </div>
-              <a href="ficha.html?id=${car.id}" class="btn btn-red" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
+              <a href="/ficha?id=${car.id}" class="btn btn-red" style="padding: 8px 14px; font-size: 0.82rem; font-weight: 700;">
                 Ver detalles
               </a>
             </div>
