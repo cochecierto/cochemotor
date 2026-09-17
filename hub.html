@@ -347,6 +347,9 @@
         <p class="hub-tool-desc">
           Sube tu coche a tu inventario privado. Sigue la guía de fotos clave para maximizar llamadas y al guardar se generarán los textos para Wallapop, WhatsApp y el cartel imprimible con QR.
         </p>
+        <ol class="upload-stepper" aria-label="Progreso del alta del vehículo">
+          <li class="is-current"><span>1</span><strong>Datos</strong></li><li><span>2</span><strong>Ubicación</strong></li><li><span>3</span><strong>Fotos</strong></li><li><span>4</span><strong>Revisión</strong></li>
+        </ol>
         <div class="publish-progress" id="publish-progress" role="status">Datos básicos 0/4 · Ubicación 0/3 · Fotos 0/10 · Consentimiento pendiente</div>
 
         <form id="form-upload-vehicle" onsubmit="handleCreateVehicle(event)">
@@ -368,7 +371,7 @@
 
               <div class="form-group">
                 <label class="form-label">Versión y Motorización *</label>
-                <small class="form-help">Primero elige combustible: el catálogo solo muestra las motorizaciones compatibles con la marca y modelo.</small>
+                <small class="form-help">Selecciona primero el combustible para mostrar las motorizaciones compatibles del catálogo.</small>
                 <select id="up-version" class="form-control" required disabled></select>
               </div>
 
@@ -405,12 +408,13 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">Distintivo DGT</label>
-                  <select id="up-badge" class="form-control">
+                  <select id="up-badge" class="form-control" aria-describedby="up-badge-help">
                     <option value="C">Etiqueta C (Verde)</option>
                     <option value="ECO">Etiqueta ECO (Verde/Azul)</option>
                     <option value="0">Etiqueta 0 Emisiones (Azul)</option>
                     <option value="B">Etiqueta B (Amarillo)</option>
                   </select>
+                  <small id="up-badge-help" class="form-help">Se propone automáticamente según combustible y año. Confirma el distintivo en la documentación oficial.</small>
                 </div>
               </div>
 

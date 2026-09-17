@@ -1753,6 +1753,13 @@ button {
 .hub-home-grid strong { color:var(--cm-navy); font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; }
 @media(max-width:600px){.hub-home-grid{grid-template-columns:1fr}.hub-home-actions .btn{width:100%}}
 .publish-progress { margin:12px 0 16px; padding:9px 12px; border:1px solid #d8e4ef; border-radius:8px; color:#52647a; background:#f8fbff; font-size:.78rem; font-weight:650; }
+.upload-stepper { display:flex; align-items:center; gap:0; margin:18px 0 8px; padding:0; list-style:none; max-width:760px; }
+.upload-stepper li { display:flex; align-items:center; gap:7px; color:#7b8da1; font-size:.74rem; font-weight:650; flex:1; }
+.upload-stepper li:not(:last-child)::after { content:""; height:1px; background:#d8e4ef; flex:1; margin:0 10px; }
+.upload-stepper span { display:grid; place-items:center; width:25px; height:25px; border:1px solid #c8d7e5; border-radius:50%; background:#fff; color:#65788d; font-size:.72rem; }
+.upload-stepper li.is-current { color:var(--cm-navy); }
+.upload-stepper li.is-current span { border-color:#1771b8; background:#eaf5ff; color:#0b568e; box-shadow:0 0 0 3px rgba(23,113,184,.12); }
+@media(max-width:600px){.upload-stepper strong{display:none}.upload-stepper li:not(:last-child)::after{margin:0 5px}.upload-stepper{margin-right:0}}
 .form-help { display:block; margin:-5px 0 7px; color:#64748b; font-size:.74rem; line-height:1.35; }
 .margin-preview { display:block; margin-top:6px; color:#176b45; font-size:.78rem; font-weight:750; }
 .hub-flow-roadmap { margin:0 0 24px; padding:16px 20px; border:1px solid #e1e8f0; border-radius:14px; background:#fff; }

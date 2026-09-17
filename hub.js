@@ -45,6 +45,9 @@ function initPublishProgress() {
     const progress = document.getElementById('publish-progress');
     const margin = document.getElementById('up-margin-preview');
     if (progress) progress.textContent = `Datos básicos ${basic}/4 · Ubicación ${location}/3 · Fotos ${photos}/${MAX_VEHICLE_IMAGES} · Consentimiento ${consent ? 'listo' : 'pendiente'}`;
+    const steps = document.querySelectorAll('.upload-stepper li');
+    const currentStep = basic < 4 ? 0 : location < 3 ? 1 : photos < 4 ? 2 : 3;
+    steps.forEach((step, index) => step.classList.toggle('is-current', index === currentStep));
     const price = Number(value('up-price')); const cost = Number(value('up-cost'));
     if (margin) margin.textContent = price > 0 && cost > 0 ? `Margen estimado: ${(price - cost).toLocaleString('es-ES')} €` : 'Margen estimado: pendiente';
   };
