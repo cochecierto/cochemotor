@@ -2061,6 +2061,7 @@ button {
   margin-top: 28px;
   width: 100%;
 }
+.pipeline-pending-note { margin: 8px 0 0; padding: 8px 9px; border: 1px solid #f2d39a; border-radius: 7px; color: #805b10; background: #fff8e7; font-size: .72rem; line-height: 1.35; }
 
 .hero-professional-link {
   display: inline-flex;

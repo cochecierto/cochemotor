@@ -377,13 +377,15 @@ function renderPipelineBoard() {
                 </div>
               ` : ''}
 
-              <select class="pipeline-select-stage" onchange="changeCarStage('${car.id}', this.value)">
-                ${stages.map(s => `
-                  <option value="${s.key}" ${s.key === st.key ? 'selected' : ''}>
-                    Mover a: ${s.label}
-                  </option>
-                `).join('')}
-              </select>
+              ${st.key === 'pendiente_validacion_contacto' ? `
+                <p class="pipeline-pending-note" role="status">🕒 Esperando verificación del contacto. Podrás activar el anuncio cuando CocheMotor lo apruebe.</p>
+              ` : `
+                <select class="pipeline-select-stage" aria-label="Cambiar fase de ${car.brand} ${car.model}" onchange="changeCarStage('${car.id}', this.value)">
+                  ${stages.filter(s => s.key !== 'pendiente_validacion_contacto').map(s => `
+                    <option value="${s.key}" ${s.key === st.key ? 'selected' : ''}>Mover a: ${s.label}</option>
+                  `).join('')}
+                </select>
+              `}
 
               <div style="display: flex; gap: 4px; margin-top: 6px;">
                 <a href="/ficha?id=${car.id}" target="_blank" style="flex: 1; text-align: center; font-size: 0.72rem; padding: 4px; background: var(--cm-surface-subtle); border-radius: 4px; color: var(--cm-navy); font-weight: 700; text-decoration: none;">
