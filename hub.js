@@ -230,6 +230,20 @@ function updateRecommendedAction(stock, leads) {
   else if (stock.length) { message = 'Prepara el anuncio y comparte la ficha del vehículo para conseguir contactos.'; tab = 'tab-generator'; }
   text.textContent = message;
   button.onclick = () => switchHubTab(tab);
+  renderFlowRoadmap(stock);
+}
+
+function renderFlowRoadmap(stock) {
+  const list = document.getElementById('hub-flow-roadmap-steps');
+  const status = document.getElementById('hub-flow-roadmap-status');
+  if (!list || !status) return;
+  const steps = [
+    ['captado','Alta'], ['pendiente_validacion_contacto','Revisión'], ['preparacion','Preparar ficha'],
+    ['publicado','Publicado'], ['leads_activos','Contacto'], ['prueba_en_taller','Cita / reserva'], ['vendido','Venta y posventa']
+  ];
+  const current = stock.length ? Math.max(...stock.map(v => Math.max(0, steps.findIndex(s => s[0] === v.stage)))) : -1;
+  status.textContent = stock.length ? `${stock.length} vehículo(s) en proceso` : 'Sin vehículos todavía';
+  list.innerHTML = steps.map(([key,label], index) => `<li class="${index < current ? 'is-done' : index === current ? 'is-current' : ''}"><strong>${index + 1}.</strong> ${label}</li>`).join('');
 }
 
 function runRecommendedAction() { switchHubTab('tab-upload'); }

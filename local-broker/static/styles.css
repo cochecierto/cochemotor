@@ -1742,6 +1742,16 @@ button {
 .hub-next-action h2 { margin:3px 0 4px; color:var(--cm-navy); font-size:1.05rem; }
 .hub-next-action p { margin:0; color:var(--cm-text-secondary); font-size:.86rem; }
 .hub-next-action-kicker { color:#1771b8; font-size:.67rem; font-weight:800; letter-spacing:.08em; }
+.hub-flow-roadmap { margin:0 0 24px; padding:16px 20px; border:1px solid #e1e8f0; border-radius:14px; background:#fff; }
+.hub-flow-roadmap-head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.hub-flow-roadmap-head h2 { margin:3px 0 0; color:var(--cm-navy); font-size:1rem; }
+.hub-flow-roadmap-head > span { color:var(--cm-text-secondary); font-size:.76rem; }
+.hub-flow-roadmap-steps { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:8px; margin:16px 0 0; padding:0; list-style:none; }
+.hub-flow-roadmap-steps li { min-height:48px; padding:9px 8px; border:1px solid #dce6f0; border-radius:9px; color:#64748b; background:#f8fafc; font-size:.7rem; line-height:1.25; }
+.hub-flow-roadmap-steps li.is-done { border-color:#9ed9bd; color:#176b45; background:#f0fdf4; }
+.hub-flow-roadmap-steps li.is-current { border-color:#6aa9d8; color:var(--cm-navy); background:#eef7ff; box-shadow:inset 0 0 0 1px #6aa9d8; font-weight:750; }
+@media(max-width:800px){.hub-flow-roadmap-steps{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:500px){.hub-flow-roadmap{padding:14px}.hub-flow-roadmap-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.hub-next-action{align-items:flex-start;flex-direction:column}.hub-next-action .btn{width:100%}}
 .photo-slot-card {
   background: var(--cm-surface-subtle);
