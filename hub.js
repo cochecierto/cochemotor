@@ -216,7 +216,23 @@ function updateKpis() {
   if (refFreeEl && ref) {
     refFreeEl.innerText = `${ref.freeMonthsEarned} meses`;
   }
+  updateRecommendedAction(stock, leads);
 }
+
+function updateRecommendedAction(stock, leads) {
+  const text = document.getElementById('hub-next-action-text');
+  const button = document.getElementById('hub-next-action-button');
+  if (!text || !button) return;
+  let message = 'Añade tu primer vehículo para empezar a vender.';
+  let tab = 'tab-upload';
+  if (stock.some(v => v.stage === 'pendiente_validacion_contacto')) { message = `Tienes ${stock.filter(v => v.stage === 'pendiente_validacion_contacto').length} vehículo(s) pendientes de revisión de contacto.`; tab = 'tab-pipeline'; }
+  else if (leads.length) { message = `Tienes ${leads.length} contacto(s) pendiente(s) de respuesta.`; tab = 'tab-pipeline'; }
+  else if (stock.length) { message = 'Prepara el anuncio y comparte la ficha del vehículo para conseguir contactos.'; tab = 'tab-generator'; }
+  text.textContent = message;
+  button.onclick = () => switchHubTab(tab);
+}
+
+function runRecommendedAction() { switchHubTab('tab-upload'); }
 
 // 4. Alta de Vehículo y Asistente
 function autoCalculateBadge() {

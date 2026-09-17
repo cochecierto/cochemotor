@@ -1742,6 +1742,12 @@ button {
   gap: 14px;
   margin-top: 16px;
 }
+.hub-nav-section-label { padding: 12px 12px 5px; color: #93c5fd; font-size: .67rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.hub-next-action { display:flex; align-items:center; justify-content:space-between; gap:18px; margin:22px 0 24px; padding:18px 20px; border:1px solid #cfe0f1; border-radius:14px; background:linear-gradient(115deg,#f1f8ff,#fff); box-shadow:0 5px 16px rgba(0,45,98,.06); }
+.hub-next-action h2 { margin:3px 0 4px; color:var(--cm-navy); font-size:1.05rem; }
+.hub-next-action p { margin:0; color:var(--cm-text-secondary); font-size:.86rem; }
+.hub-next-action-kicker { color:#1771b8; font-size:.67rem; font-weight:800; letter-spacing:.08em; }
+@media(max-width:600px){.hub-next-action{align-items:flex-start;flex-direction:column}.hub-next-action .btn{width:100%}}
 .photo-slot-card {
   background: var(--cm-surface-subtle);
   border: 2px dashed var(--cm-border-strong);

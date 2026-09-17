@@ -219,6 +219,7 @@
       </div>
 
       <!-- Menú Vertical de Herramientas -->
+      <div class="hub-nav-section-label">Ruta operativa</div>
       <nav class="hub-sidebar-nav">
         <button class="hub-nav-item active" onclick="switchHubTab('tab-upload')">
           <span class="hub-nav-item-icon" aria-hidden="true">+</span>
@@ -320,6 +321,11 @@
           </div>
         </div>
       </div>
+
+      <section class="hub-next-action" aria-labelledby="hub-next-action-title">
+        <div><span class="hub-next-action-kicker">PRÓXIMO PASO</span><h2 id="hub-next-action-title">Siguiente acción recomendada</h2><p id="hub-next-action-text">Revisando tu inventario y tus contactos…</p></div>
+        <button type="button" id="hub-next-action-button" class="btn btn-red" onclick="runRecommendedAction()">Abrir</button>
+      </section>
 
       <!-- =====================================================================================
            PESTAÑA 1: SUBIR VEHÍCULO CON ASISTENTE FOTOGRÁFICO GUIADO
