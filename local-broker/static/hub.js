@@ -692,6 +692,13 @@ function renderDemandOrders() {
   `).join('');
 }
 
+function isVehicleCompatible(vehicle, order) {
+  const km = Number(String(vehicle.kmNumber ?? vehicle.km ?? '').replace(/[^0-9]/g, '')) || 0;
+  const maxKm = Number(String(order.maxKm ?? '').replace(/[^0-9]/g, '')) || Infinity;
+  const allowedBadges = String(order.requiredBadge || '').split(/\s+o\s+|,|\//i).map(v => v.trim().toUpperCase()).filter(Boolean);
+  return Number(vehicle.price) <= Number(order.budgetMax) && km <= maxKm && (!allowedBadges.length || allowedBadges.includes(String(vehicle.badge || '').toUpperCase()));
+}
+
 function postulateVehicleToOrder(orderId) {
   const select = document.getElementById(`order-car-select-${orderId}`);
   if (!select || !select.value) {
@@ -699,6 +706,12 @@ function postulateVehicleToOrder(orderId) {
     return;
   }
   const vehicleId = select.value;
+  const order = CocheMotorStorage.getOrders().find(item => item.id === orderId);
+  const vehicle = CocheMotorStorage.getStock().find(item => item.id === vehicleId);
+  if (!order || !vehicle || !isVehicleCompatible(vehicle, order)) {
+    alert('Este vehículo no cumple el presupuesto, kilometraje o etiqueta DGT solicitados.');
+    return;
+  }
 
   CocheMotorStorage.postulateOrder(orderId, vehicleId);
   renderDemandOrders();

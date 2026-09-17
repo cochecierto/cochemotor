@@ -49,7 +49,16 @@ async function loadProfessionalVehicles() {
   if (response.status === 401) { localStorage.removeItem('cochemotor_local_session'); window.location.replace('/acceso?audience=professional&return=hub&mode=login'); return; }
   if (!response.ok) throw new Error('No se pudo cargar el inventario de tu cuenta.');
   const data = await response.json();
-  CocheMotorStorage.setAuthenticatedStock(window.COCHEMOTOR_AUTH_USER.user_id, Array.isArray(data.vehicles) ? data.vehicles : []);
+  const vehicles = (Array.isArray(data.vehicles) ? data.vehicles : []).map(vehicle => {
+    const price = Number(vehicle.price) || 0;
+    return { ...vehicle, price, version: vehicle.version || '', badge: vehicle.badge || 'C',
+      monthlyPrice: vehicle.monthlyPrice || `${Math.round(price * 0.0135)} €/mes`,
+      dealer: vehicle.dealer || vehicle.sellerName || window.COCHEMOTOR_AUTH_USER.name || 'Profesional CocheMotor',
+      location: vehicle.location || vehicle.province || 'España',
+      km: vehicle.km || `${Number(vehicle.kmNumber || 0).toLocaleString('es-ES')} km`,
+      highlights: Array.isArray(vehicle.highlights) ? vehicle.highlights : [] };
+  });
+  CocheMotorStorage.setAuthenticatedStock(window.COCHEMOTOR_AUTH_USER.user_id, vehicles);
 }
 
 async function loadProfessionalLeads() {
@@ -527,7 +536,7 @@ function generateVehicleCopy() {
   const v = stock.find(item => item.id === select.value) || stock[0];
   if (!v) return;
 
-  const publicFichaUrl = `${window.location.origin}//ficha?id=${v.id}`;
+  const publicFichaUrl = `${window.location.origin}/ficha?id=${v.id}`;
   let text = '';
 
   if (channel === 'portales') {
@@ -726,18 +735,25 @@ function renderDemandOrders() {
         <div style="display: flex; align-items: center; gap: 10px;">
           <label style="font-size: 0.85rem; font-weight: 700; color: var(--cm-navy);">Ofrecer de mi stock:</label>
           <select id="order-car-select-${ord.id}" class="form-control" style="font-size: 0.85rem; padding: 6px 12px; width: auto;">
-            ${stock.length ? stock.map(s => `
+            ${stock.filter(s => isVehicleCompatible(s, ord)).length ? stock.filter(s => isVehicleCompatible(s, ord)).map(s => `
               <option value="${s.id}">${s.brand} ${s.model} (${s.price.toLocaleString('es-ES')} € - Etiqueta ${s.badge})</option>
             `).join('') : '<option value="">No tienes coches compatibles</option>'}
           </select>
         </div>
 
-        <button class="btn btn-red" style="padding: 8px 18px; font-size: 0.88rem;" onclick="postulateVehicleToOrder('${ord.id}')" ${!stock.length ? 'disabled' : ''}>
+        <button class="btn btn-red" style="padding: 8px 18px; font-size: 0.88rem;" onclick="postulateVehicleToOrder('${ord.id}')" ${!stock.some(s => isVehicleCompatible(s, ord)) ? 'disabled' : ''}>
           🚀 Postular Coche al Comprador
         </button>
       </div>
     </div>
   `).join('');
+}
+
+function isVehicleCompatible(vehicle, order) {
+  const km = Number(String(vehicle.kmNumber ?? vehicle.km ?? '').replace(/[^0-9]/g, '')) || 0;
+  const maxKm = Number(String(order.maxKm ?? '').replace(/[^0-9]/g, '')) || Infinity;
+  const allowedBadges = String(order.requiredBadge || '').split(/\s+o\s+|,|\//i).map(v => v.trim().toUpperCase()).filter(Boolean);
+  return Number(vehicle.price) <= Number(order.budgetMax) && km <= maxKm && (!allowedBadges.length || allowedBadges.includes(String(vehicle.badge || '').toUpperCase()));
 }
 
 function postulateVehicleToOrder(orderId) {
@@ -747,6 +763,12 @@ function postulateVehicleToOrder(orderId) {
     return;
   }
   const vehicleId = select.value;
+  const order = CocheMotorStorage.getOrders().find(item => item.id === orderId);
+  const vehicle = CocheMotorStorage.getStock().find(item => item.id === vehicleId);
+  if (!order || !vehicle || !isVehicleCompatible(vehicle, order)) {
+    alert('Este vehículo no cumple el presupuesto, kilometraje o etiqueta DGT solicitados.');
+    return;
+  }
 
   CocheMotorStorage.postulateOrder(orderId, vehicleId);
   renderDemandOrders();
