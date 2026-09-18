@@ -87,6 +87,26 @@ function initProgressiveVehicleForm() {
   const nav = document.createElement('div'); nav.className = 'progressive-form-nav'; nav.innerHTML = '<button type="button" class="btn btn-outline" data-progressive-prev>Anterior</button><span data-progressive-label>Paso 1 de 4 · Datos del vehículo</span><button type="button" class="btn btn-red" data-progressive-next>Continuar</button>';
   form.parentNode.insertBefore(nav, form);
   const steps = ['Datos del vehículo','Ubicación y documentación','Precio y rentabilidad','Fotos y revisión'];
+  const stepFields = {
+    1: ['#up-brand', '#up-model', '#up-fuel', '#up-version', '#up-year', '#up-km'],
+    2: ['#up-community', '#up-province', '#up-municipality'],
+    3: ['#up-price', '#up-cost'],
+    4: ['#up-contact-consent']
+  };
+  const validateStep = step => {
+    const fields = stepFields[step] || [];
+    for (const selector of fields) {
+      const field = form.querySelector(selector);
+      if (!field || !field.required) continue;
+      if (!field.checkValidity()) {
+        field.reportValidity();
+        field.focus({ preventScroll: true });
+        nav.querySelector('[data-progressive-label]').textContent = `Paso ${step} de 4 · Completa los campos marcados`;
+        return false;
+      }
+    }
+    return true;
+  };
   const setStep = step => {
     const current = Math.max(1, Math.min(4, step)); form.dataset.progressiveStep = String(current);
     const grid = form.querySelector(':scope > div'); const left = grid?.children[0]; const right = grid?.children[1];
@@ -102,8 +122,14 @@ function initProgressiveVehicleForm() {
     if (current === 4) { show('.photo-guide-grid, #up-highlights, #up-contact-consent, #vehicle-submit-status'); }
     nav.querySelector('[data-progressive-prev]').disabled = current === 1; nav.querySelector('[data-progressive-next]').textContent = current === 4 ? 'Revisar anuncio' : 'Continuar'; nav.querySelector('[data-progressive-label]').textContent = `Paso ${current} de 4 · ${steps[current - 1]}`; document.querySelectorAll('.upload-stepper li').forEach((item,index)=>item.classList.toggle('is-current', index === current - 1)); form.dispatchEvent(new CustomEvent('progressive-step-change'));
   };
+  form._setProgressiveStep = setStep;
   nav.querySelector('[data-progressive-prev]').addEventListener('click', () => setStep(Number(form.dataset.progressiveStep) - 1));
-  nav.querySelector('[data-progressive-next]').addEventListener('click', () => { const current = Number(form.dataset.progressiveStep); if (current < 4) setStep(current + 1); else document.getElementById('vehicle-submit-status')?.scrollIntoView({behavior:'smooth',block:'center'}); });
+  nav.querySelector('[data-progressive-next]').addEventListener('click', () => {
+    const current = Number(form.dataset.progressiveStep);
+    if (!validateStep(current)) return;
+    if (current < 4) setStep(current + 1);
+    else document.getElementById('vehicle-submit-status')?.scrollIntoView({behavior:'smooth',block:'center'});
+  });
   setStep(1);
 }
 
@@ -452,8 +478,14 @@ async function handleCreateVehicle(event) {
   const localSession=getProfessionalSession();
   if (!localSession?.verified || !localSession.sessionToken) { window.location.href='/acceso?audience=professional&return=hub&mode=login'; return; }
   if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) { window.location.href='/perfil'; return; }
-  const invalidVisible = Array.from(form.querySelectorAll('input, select, textarea')).find(field => field.required && field.offsetParent !== null && !field.checkValidity());
-  if (invalidVisible) { invalidVisible.reportValidity(); invalidVisible.focus(); return; }
+  const invalidField = Array.from(form.querySelectorAll('input, select, textarea')).find(field => field.required && !field.checkValidity());
+  if (invalidField) {
+    const fieldStep = ['up-brand','up-model','up-fuel','up-version','up-year','up-km'].includes(invalidField.id) ? 1
+      : ['up-community','up-province','up-municipality'].includes(invalidField.id) ? 2
+      : ['up-price','up-cost'].includes(invalidField.id) ? 3 : 4;
+    if (fieldStep && typeof form._setProgressiveStep === 'function') form._setProgressiveStep(Number(fieldStep));
+    invalidField.reportValidity(); invalidField.focus(); return;
+  }
 
   const brand = document.getElementById('up-brand').value.trim();
   const model = document.getElementById('up-model').value.trim();
