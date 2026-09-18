@@ -2079,6 +2079,19 @@ button {
 .photo-slot-add, .photo-slot-actions button { display:inline-flex; align-items:center; justify-content:center; min-height:34px; padding:7px 11px; border-radius:8px; border:1px solid var(--cm-navy); background:#fff; color:var(--cm-navy); font-size:.75rem; font-weight:750; cursor:pointer; }
 .photo-slot-add:hover, .photo-slot-actions button:hover { background:#eef7ff; }
 .photo-slot-input { position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
+.pricing-analysis { grid-column:1/-1; margin-top:18px; padding:16px; border:1px solid #cfe0f1; border-radius:12px; background:#fbfdff; }
+.pricing-analysis summary { cursor:pointer; color:var(--cm-navy); font-weight:800; font-size:1rem; }
+.pricing-analysis-fields { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:14px 0; }
+.pricing-analysis-fields label { display:flex; flex-direction:column; gap:5px; color:var(--cm-navy); font-size:.76rem; font-weight:700; }
+.pricing-scenarios { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:14px 0; }
+.pricing-scenarios article { padding:12px; border:1px solid var(--cm-border); border-radius:10px; background:#fff; display:flex; flex-direction:column; gap:5px; }
+.pricing-scenarios article.is-recommended { border:2px solid var(--cm-blue); background:#f2f8ff; }
+.pricing-scenarios strong { color:var(--cm-navy); font-size:.78rem; }
+.pricing-scenarios span { color:var(--cm-navy); font-weight:850; font-size:1.08rem; }
+.pricing-scenarios small { color:var(--cm-text-secondary); line-height:1.35; }
+.pricing-recommendation { display:flex; flex-direction:column; gap:4px; padding:13px; margin-bottom:12px; border-left:4px solid var(--cm-red); background:#fff6f5; color:var(--cm-navy); }
+.pricing-recommendation span { font-size:.78rem; color:var(--cm-text-secondary); }
+@media (max-width: 760px) { .pricing-analysis-fields,.pricing-scenarios { grid-template-columns:1fr; } }
 
 /* El panel es una consola operativa a todo lo ancho: cada bloque debe usar
    el espacio disponible sin quedar encajonado en una columna estrecha. */

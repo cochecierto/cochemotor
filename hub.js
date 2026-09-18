@@ -62,9 +62,44 @@ function initPublishProgress() {
   document.getElementById('up-apply-recommended-price')?.addEventListener('click', () => { const recommendation = document.getElementById('up-price-recommendation')?.dataset.value; if (recommendation) { document.getElementById('up-price').value = recommendation; update(); updatePriceAssistant(); } });
   document.getElementById('up-contact-consent')?.addEventListener('change', update);
   document.getElementById('up-publication-status')?.addEventListener('change', () => { updateUpcomingEntryPreview(); update(); });
+  document.getElementById('up-calculate-pricing')?.addEventListener('click', calculatePricingAnalysis);
+  document.getElementById('up-save-pricing')?.addEventListener('click', () => { calculatePricingAnalysis(); document.getElementById('pricing-analysis')?.setAttribute('data-saved','true'); });
+  document.querySelectorAll('.pricing-input, #up-purchase-source, #up-tax-mode').forEach(input => input.addEventListener('input', calculatePricingAnalysis));
   document.addEventListener('vehicle-photos-updated', update);
   update();
   updatePriceAssistant();
+}
+
+function getPricingAnalysis() {
+  const number = id => Number(document.getElementById(id)?.value || 0);
+  const purchasePrice = number('up-purchase-price') || number('up-cost');
+  const auctionFee = number('up-auction-fee');
+  const acquisitionCosts = number('up-acquisition-costs');
+  const preparationCosts = number('up-preparation-costs');
+  const riskCosts = number('up-risk-costs');
+  const minProfit = number('up-min-profit');
+  const optimalSalePrice = number('up-price') || Math.round((purchasePrice + acquisitionCosts + preparationCosts + riskCosts + minProfit) * 1.12);
+  const totalAcquisitionCost = purchasePrice + auctionFee + acquisitionCosts + preparationCosts + riskCosts;
+  const quickSalePrice = Math.round(optimalSalePrice * 0.94 / 100) * 100;
+  const premiumSalePrice = Math.round(optimalSalePrice * 1.06 / 100) * 100;
+  const maximumPurchasePrice = Math.max(0, optimalSalePrice - auctionFee - acquisitionCosts - preparationCosts - riskCosts - minProfit);
+  const maximumAuctionBid = Math.max(0, maximumPurchasePrice - auctionFee);
+  const source = document.getElementById('up-purchase-source')?.value || 'particular';
+  return { purchaseSource: source, taxMode: document.getElementById('up-tax-mode')?.value || 'pendiente', purchasePrice, auctionFee, acquisitionCosts, preparationCosts, riskCosts, minimumProfit: minProfit, totalAcquisitionCost, quickSalePrice, optimalSalePrice, premiumSalePrice, maximumPurchasePrice, maximumAuctionBid, recommendedStrategy: 'optimal', estimatedRotationDays: source === 'subasta' ? 45 : 60, riskLevel: source === 'subasta' ? 'medium' : 'low' };
+}
+
+function calculatePricingAnalysis() {
+  const analysis = getPricingAnalysis();
+  const money = value => value ? `${Math.round(value).toLocaleString('es-ES')} €` : '—';
+  const set = (id, value) => { const element = document.getElementById(id); if (element) element.textContent = value; };
+  set('quick-sale-price', money(analysis.quickSalePrice)); set('optimal-sale-price', money(analysis.optimalSalePrice)); set('premium-sale-price', money(analysis.premiumSalePrice));
+  set('quick-sale-meta', `15–30 días · Beneficio previsto ${money(analysis.quickSalePrice - analysis.totalAcquisitionCost)} · Riesgo bajo`);
+  set('optimal-sale-meta', `30–60 días · Beneficio previsto ${money(analysis.optimalSalePrice - analysis.totalAcquisitionCost)} · Riesgo medio`);
+  set('premium-sale-meta', `60–120 días · Beneficio previsto ${money(analysis.premiumSalePrice - analysis.totalAcquisitionCost)} · Riesgo alto`);
+  set('maximum-purchase-price', money(analysis.maximumPurchasePrice));
+  set('pricing-recommendation-copy', 'Por encima de este importe, la operación puede perder rentabilidad al sumar preparación, garantía, fiscalidad y stock.');
+  const bid = document.getElementById('maximum-auction-bid'); if (bid) { bid.hidden = analysis.purchaseSource !== 'subasta'; bid.textContent = `Puja máxima permitida: ${money(analysis.maximumAuctionBid)}`; }
+  return analysis;
 }
 
 function updateUpcomingEntryPreview() {
@@ -180,6 +215,7 @@ function initUserSwitcher() {
   ).join('');
 
   const activeUser = CocheMotorStorage.getActiveUser();
+  const pricingAnalysis = calculatePricingAnalysis();
   if (roleBadge && activeUser) {
     roleBadge.innerText = `${activeUser.role} · ${activeUser.location}`;
   }
@@ -443,6 +479,7 @@ async function handleCreateVehicle(event) {
     leadsCount: 0,
     estimatedMarketPrice: price,
     publicationStatus,
+    pricingAnalysis,
   };
 
   const location=municipalitySelect?.selectedOptions[0]?.textContent?.trim()||'';

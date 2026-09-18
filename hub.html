@@ -447,6 +447,30 @@
                 <div class="intake-quality" role="status"><strong>Calidad del anuncio</strong><span id="up-quality-score">Completa los datos para obtener una puntuación.</span></div>
               </div>
 
+              <details id="pricing-analysis" class="pricing-analysis" open>
+                <summary>4. Análisis de precio y margen</summary>
+                <p class="form-help">Calcula la rentabilidad real de la operación antes de publicar. Este análisis solo lo verá tu equipo.</p>
+                <div class="pricing-analysis-fields">
+                  <label>Origen del vehículo<select id="up-purchase-source" class="form-control"><option value="particular">Particular</option><option value="profesional">Otro profesional</option><option value="subasta">Subasta</option><option value="renting">Renting o financiera</option><option value="importacion">Importación</option><option value="parte_pago">Parte de pago</option></select></label>
+                  <label>Fiscalidad<select id="up-tax-mode" class="form-control"><option value="rebu">Compra a particular / posible REBU</option><option value="iva_deducible">Factura con IVA deducible</option><option value="factura_rebu">Factura bajo REBU</option><option value="pendiente">Fiscalidad pendiente de confirmar</option></select></label>
+                  <label>Precio de compra o puja (€)<input id="up-purchase-price" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Comisión de subasta (€)<input id="up-auction-fee" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Transporte y documentación (€)<input id="up-acquisition-costs" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Preparación, garantía y reparaciones (€)<input id="up-preparation-costs" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Reserva de riesgo y financiación (€)<input id="up-risk-costs" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Beneficio mínimo deseado (€)<input id="up-min-profit" class="form-control pricing-input" type="number" min="0" value="1000"></label>
+                  <label>Días máximos en stock<input id="up-max-stock-days" class="form-control pricing-input" type="number" min="1" value="60"></label>
+                </div>
+                <div class="pricing-scenarios" id="pricing-scenarios" aria-live="polite">
+                  <article><strong>Venta rápida</strong><span id="quick-sale-price">—</span><small id="quick-sale-meta">Completa el coste y el precio.</small></article>
+                  <article class="is-recommended"><strong>Venta óptima · recomendada</strong><span id="optimal-sale-price">—</span><small id="optimal-sale-meta">La decisión equilibrada.</small></article>
+                  <article><strong>Venta fuera de mercado</strong><span id="premium-sale-price">—</span><small id="premium-sale-meta">Mayor margen, más días en stock.</small></article>
+                </div>
+                <div class="pricing-recommendation"><strong>Precio máximo recomendado de adquisición: <span id="maximum-purchase-price">—</span></strong><span id="pricing-recommendation-copy">Calcula la operación para conocer tu límite de compra.</span><span id="maximum-auction-bid" hidden></span></div>
+                <button type="button" class="pipeline-action-btn" id="up-calculate-pricing">Calcular operación</button>
+                <button type="button" class="btn btn-outline" id="up-save-pricing">Guardar análisis y continuar con la publicación</button>
+              </details>
+
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                 <div class="form-group"><span class="form-label">Estado de publicación</span><p>El anuncio quedará pendiente de revisión del contacto antes de mostrarse a compradores.</p></div>
                 <div class="form-group">
