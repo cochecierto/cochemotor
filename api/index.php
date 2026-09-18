@@ -10,6 +10,7 @@ $privateConfigCandidates = [
     dirname(__DIR__, 4) . '/cochemotor-private/config.php',
     dirname(__DIR__) . '/../cochemotor-private/config.php'
 ];
+$privateConfigCandidates = array_merge($privateConfigCandidates, glob('/home/*/cochemotor-private/config.php') ?: [], glob('/home/*/domains/*/cochemotor-private/config.php') ?: []);
 $privateConfigLoaded = false;
 foreach ($privateConfigCandidates as $privateConfig) {
     if (is_file($privateConfig)) { require_once $privateConfig; $privateConfigLoaded = true; break; }
