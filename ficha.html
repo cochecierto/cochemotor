@@ -716,9 +716,59 @@
       return new URLSearchParams(window.location.search).get(key);
     }
 
-    function initFicha() {
+    async function initFicha() {
       const carId = getParam('id') || 'cm-001';
       currentCar = CocheMotorStorage.getVehicleById(carId);
+
+      if (!currentCar && window.fetch) {
+        try {
+          let res = await fetch('/api/public/vehicles?id=' + encodeURIComponent(carId));
+          if (!res.ok) {
+            res = await fetch('/api/public/vehicles?slug=' + encodeURIComponent(carId));
+          }
+          if (res.ok) {
+            const data = await res.json();
+            const list = data.vehicles || data.items || [];
+            if (list.length > 0) {
+              const v = list[0];
+              const photos = Array.isArray(v.images) && v.images.length > 0 ? v.images : (v.photos || []);
+              currentCar = {
+                id: v.id || carId,
+                brand: v.brand || 'Vehículo',
+                model: v.model || '',
+                version: v.version || '',
+                year: Number(v.year) || new Date().getFullYear(),
+                price: Number(v.price) || 0,
+                km: typeof v.km === 'number' ? `${v.km.toLocaleString('es-ES')} km` : (v.km || '0 km'),
+                fuel: v.fuel || 'No indicado',
+                gearbox: v.gearbox || 'No indicado',
+                badge: v.dgt_badge || 'C',
+                badgeClass: 'badge-' + String(v.dgt_badge || 'c').toLowerCase(),
+                power: v.power || '',
+                color: v.color || '',
+                photos: photos,
+                image: photos[0] || 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80',
+                highlights: v.highlights || [],
+                warranty: v.warranty || '12 meses incluida',
+                userId: v.dealer_slug || 'pro',
+                sellerPhone: v.phone || '',
+                publicSlug: v.public_slug || ''
+              };
+              currentDealer = {
+                id: v.dealer_slug || 'pro',
+                name: v.dealer_name || 'Profesional verificado CocheMotor',
+                businessName: v.dealer_name || 'Profesional verificado CocheMotor',
+                location: v.location || 'España',
+                province: v.location || 'España',
+                avatar: '🚗',
+                phone: v.phone || ''
+              };
+            }
+          }
+        } catch (e) {
+          console.warn('Fallback API fetch error:', e);
+        }
+      }
 
       if (!currentCar) {
         document.querySelector('main').innerHTML = `
@@ -731,7 +781,9 @@
         return;
       }
 
-      currentDealer = CocheMotorStorage.getDealerBySlugOrId(currentCar.userId);
+      if (!currentDealer) {
+        currentDealer = CocheMotorStorage.getDealerBySlugOrId(currentCar.userId);
+      }
 
       // Meta & Título
       const fullTitle = `${currentCar.brand} ${currentCar.model} ${currentCar.year} · ${currentCar.price.toLocaleString('es-ES')} €`;
@@ -819,10 +871,11 @@
       // Datos de Vendedor & Web propia
       if (currentDealer) {
         document.getElementById('view-dealer').textContent = currentCar.isDemo ? 'Vendedor de demostración' : (currentDealer.businessName || currentDealer.name);
-        document.getElementById('view-location').textContent = currentDealer.location || currentDealer.province;
+        document.getElementById('view-location').textContent = currentDealer.location || currentDealer.province || 'España';
         document.getElementById('dealer-avatar').textContent = currentDealer.avatar || "🚗";
         document.getElementById('dealer-website-link').href = `/dealer?id=${currentDealer.id}`;
-        document.getElementById('dealer-website-link').textContent = `Ver web de ${currentDealer.name} y sus ${CocheMotorStorage.getStock(currentDealer.id).length} coches →`;
+        const dealerStockCount = (CocheMotorStorage.getStock ? (CocheMotorStorage.getStock(currentDealer.id) || []).length : 1) || 1;
+        document.getElementById('dealer-website-link').textContent = `Ver web de ${currentDealer.name} y sus ${dealerStockCount} coches →`;
       }
 
       // Iniciar calculadora

@@ -750,8 +750,10 @@ const CocheMotorStorage = {
       v.stage = newStage;
       if (newStage === "vendido") {
         v.status = "vendido";
-      } else if (newStage === "reserva_dgt") {
+      } else if (newStage === "reservado" || newStage === "reserva_dgt") {
         v.status = "reservado";
+      } else if (newStage === "retirado") {
+        v.status = "inactivo";
       } else {
         v.status = "disponible";
       }

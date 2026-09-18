@@ -464,12 +464,15 @@ function renderPipelineBoard() {
     { key: "publicado", label: "2. Publicado / Activo", icon: "📢" },
     { key: "leads_activos", label: "3. Leads Activos", icon: "💬" },
     { key: "prueba_en_taller", label: "4. Cita / Prueba", icon: "🚗" },
-    { key: "reserva_dgt", label: "5. Reserva / DGT", icon: "📋" },
+    { key: "reservado", label: "5. Reserva / DGT", icon: "📋" },
     { key: "vendido", label: "6. Vendido / Entregado", icon: "🎉" }
   ];
 
   boardEl.innerHTML = stages.map(st => {
-    const carsInStage = stock.filter(v => (v.stage || 'publicado') === st.key);
+    const carsInStage = stock.filter(v => {
+      const vStage = v.stage === 'reserva_dgt' ? 'reservado' : (v.stage || 'publicado');
+      return vStage === st.key;
+    });
     
     return `
       <div class="pipeline-col">
@@ -506,18 +509,15 @@ function renderPipelineBoard() {
                 </div>
               ` : ''}
 
-              ${st.key === 'pendiente_validacion_contacto' ? `
-                <p class="pipeline-pending-note" role="status">🕒 Esperando verificación del contacto. Podrás activar el anuncio cuando CocheMotor lo apruebe.</p>
-              ` : `
-                <select class="pipeline-select-stage" aria-label="Cambiar fase de ${car.brand} ${car.model}" onchange="changeCarStage('${car.id}', this.value)">
-                  ${stages.filter(s => s.key !== 'pendiente_validacion_contacto').map(s => `
-                    <option value="${s.key}" ${s.key === st.key ? 'selected' : ''}>Mover a: ${s.label}</option>
-                  `).join('')}
-                </select>
-              `}
+              <select class="pipeline-select-stage" aria-label="Cambiar fase de ${car.brand} ${car.model}" onchange="changeCarStage('${car.id}', this.value)">
+                ${stages.map(s => {
+                  const currentEffective = car.stage === 'reserva_dgt' ? 'reservado' : (car.stage || 'publicado');
+                  return `<option value="${s.key}" ${s.key === currentEffective ? 'selected' : ''}>Mover a: ${s.label}</option>`;
+                }).join('')}
+              </select>
 
               <div style="display: flex; gap: 4px; margin-top: 6px;">
-                <a href="/ficha?id=${car.id}" target="_blank" style="flex: 1; text-align: center; font-size: 0.72rem; padding: 4px; background: var(--cm-surface-subtle); border-radius: 4px; color: var(--cm-navy); font-weight: 700; text-decoration: none;">
+                <a href="${car.publicSlug || car.public_slug ? `/vehiculos/${car.publicSlug || car.public_slug}` : `/ficha?id=${car.id}`}" target="_blank" style="flex: 1; text-align: center; font-size: 0.72rem; padding: 4px; background: var(--cm-surface-subtle); border-radius: 4px; color: var(--cm-navy); font-weight: 700; text-decoration: none;">
                   Ver Ficha ↗
                 </a>
               </div>
@@ -533,10 +533,19 @@ function renderPipelineBoard() {
   }).join('');
 }
 
-function changeCarStage(vehicleId, newStage) {
+async function changeCarStage(vehicleId, newStage) {
   CocheMotorStorage.updateVehicleStage(vehicleId, newStage);
   renderPipelineBoard();
   updateKpis();
+  try {
+    await fetch('/api/vehicles', {
+      method: 'PATCH',
+      headers: professionalAuthHeaders({'Content-Type': 'application/json'}),
+      body: JSON.stringify({ vehicle_id: vehicleId, stage: newStage })
+    });
+  } catch (e) {
+    console.warn('No se pudo sincronizar la fase del vehículo en el servidor:', e);
+  }
 }
 
 function renderLeadsTable() {
@@ -613,7 +622,7 @@ function generateVehicleCopy() {
   const v = stock.find(item => item.id === select.value) || stock[0];
   if (!v) return;
 
-  const publicFichaUrl = `${window.location.origin}/ficha?id=${v.id}`;
+  const publicFichaUrl = v.publicSlug || v.public_slug ? `${window.location.origin}/vehiculos/${v.publicSlug || v.public_slug}` : `${window.location.origin}/ficha?id=${v.id}`;
   let text = '';
 
   if (channel === 'portales') {
@@ -704,7 +713,10 @@ function copyGeneratedText() {
 function viewPublicVehiclePage() {
   const select = document.getElementById('gen-vehicle-select');
   if (!select || !select.value) return;
-  window.open(`/ficha?id=${select.value}`, '_blank');
+  const stock = CocheMotorStorage.getStock();
+  const v = stock.find(item => item.id === select.value);
+  const target = v?.publicSlug || v?.public_slug ? `/vehiculos/${v.publicSlug || v.public_slug}` : `/ficha?id=${select.value}`;
+  window.open(target, '_blank');
 }
 
 // 8. Copiloto IA de Precios y Rotación
@@ -929,7 +941,8 @@ function renderWindshieldCard() {
   badgeEl.innerText = `DGT ${v.badge}`;
   badgeEl.className = `badge-dgt ${v.badgeClass || 'badge-c'}`;
 
-  const fichaUrl = encodeURIComponent(`${window.location.origin}/ficha?id=${v.id}`);
+  const targetFicha = v.publicSlug || v.public_slug ? `${window.location.origin}/vehiculos/${v.publicSlug || v.public_slug}` : `${window.location.origin}/ficha?id=${v.id}`;
+  const fichaUrl = encodeURIComponent(targetFicha);
   document.getElementById('qr-img-element').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${fichaUrl}&color=002D62`;
 }
 
@@ -1096,6 +1109,11 @@ function handleCreateDealRoom(event) {
   CocheMotorStorage.updateVehicleStage(vehicle.id, 'reservado');
   updateKpis();
   renderPipelineBoard();
+  fetch('/api/vehicles', {
+    method: 'PATCH',
+    headers: professionalAuthHeaders({'Content-Type': 'application/json'}),
+    body: JSON.stringify({ vehicle_id: vehicle.id, stage: 'reservado' })
+  }).catch(() => {});
 
   alert(`✅ ¡Expediente Digital creado con éxito para ${buyerName}!\n\nID: ${newRoom.id}\nToken seguro generado para sala privada.`);
   renderDealRoomsList();
@@ -1479,9 +1497,10 @@ function initWarrantyTab() {
   const vehicleSelect = document.getElementById('warranty-vehicle-select');
   if (!vehicleSelect) return;
   const stock = CocheMotorStorage.getStock();
-  vehicleSelect.innerHTML = stock.map(v => 
-    `<option value="${v.id}">${v.brand} ${v.model} (${v.version})</option>`
-  ).join('');
+  vehicleSelect.innerHTML = stock.map(v => {
+    const isSold = v.stage === 'vendido' || v.status === 'vendido';
+    return `<option value="${v.id}">${v.brand} ${v.model} (${v.version})${isSold ? ' · [Vendido]' : ''}</option>`;
+  }).join('');
 
   renderWarrantyCases();
 }
@@ -1490,6 +1509,7 @@ function handleCreateWarrantyCase(event) {
   event.preventDefault();
   const vehicleId = document.getElementById('warranty-vehicle-select').value;
   const buyerName = document.getElementById('warranty-buyer-name').value.trim();
+  const buyerPhone = (document.getElementById('warranty-buyer-phone')?.value || '').trim() || '+34 600 000 000';
   const issueType = document.getElementById('warranty-issue-type').value;
   const issueDesc = document.getElementById('warranty-issue-desc').value.trim();
 
@@ -1502,7 +1522,7 @@ function handleCreateWarrantyCase(event) {
     vehicleId: car.id,
     vehicleTitle: `${car.brand} ${car.model}`,
     buyerName,
-    buyerPhone: "34612345678",
+    buyerPhone,
     deliveryDate: new Date().toISOString().split('T')[0],
     warrantyExpirationDate: new Date(Date.now() + 365 * 86400000).toISOString().split('T')[0],
     claimedIssue: issueDesc,

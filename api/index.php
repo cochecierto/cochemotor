@@ -332,7 +332,19 @@ try {
           catch(Throwable $e) { if($pdo->inTransaction())$pdo->rollBack(); throw $e; }
     }
     if ($route==='/api/public/vehicles' && $method==='GET') {
-        $q=db()->query("SELECT v.vehicle_id,v.brand,v.model,v.version,v.year,v.mileage_km,v.cash_price,v.dgt_badge,v.public_slug,v.metadata_json,d.display_name,d.dealer_slug,d.public_profile,d.public_profile_consent_version,d.public_description FROM vehicles v JOIN dealerships d ON d.tenant_id=v.tenant_id JOIN professional_users u ON u.user_id=v.tenant_id WHERE v.status='disponible' AND v.stage='publicado' AND u.email_verified=1 AND EXISTS (SELECT 1 FROM publication_contacts pc WHERE pc.vehicle_id=v.vehicle_id AND pc.contact_verified=1) ORDER BY v.updated_at DESC LIMIT 200");
+        $filterId = trim((string)($_GET['id'] ?? ''));
+        $filterSlug = trim((string)($_GET['slug'] ?? ''));
+        $whereExtra = '';
+        $params = [];
+        if ($filterId !== '') {
+            $whereExtra = ' AND v.vehicle_id = ?';
+            $params[] = $filterId;
+        } elseif ($filterSlug !== '') {
+            $whereExtra = ' AND v.public_slug = ?';
+            $params[] = $filterSlug;
+        }
+        $q=db()->prepare("SELECT v.vehicle_id,v.brand,v.model,v.version,v.year,v.mileage_km,v.cash_price,v.dgt_badge,v.public_slug,v.metadata_json,d.display_name,d.dealer_slug,d.public_profile,d.public_profile_consent_version,d.public_description FROM vehicles v JOIN dealerships d ON d.tenant_id=v.tenant_id JOIN professional_users u ON u.user_id=v.tenant_id WHERE v.status='disponible' AND v.stage='publicado' AND u.email_verified=1 AND EXISTS (SELECT 1 FROM publication_contacts pc WHERE pc.vehicle_id=v.vehicle_id AND pc.contact_verified=1)" . $whereExtra . " ORDER BY v.updated_at DESC LIMIT 200");
+        $q->execute($params);
         $rows=$q->fetchAll(); $images=db()->prepare('SELECT image_url FROM vehicle_images WHERE vehicle_id=? ORDER BY sort_order LIMIT 10'); $items=[];
         foreach($rows as $row) {
             $meta=json_decode((string)$row['metadata_json'],true); if(!is_array($meta))$meta=[];
@@ -355,6 +367,31 @@ try {
             $items[]=['id'=>$row['vehicle_id'],'userId'=>$u['user_id'],'brand'=>$row['brand'],'model'=>$row['model'],'version'=>$row['version'],'year'=>(int)$row['year'],'km'=>number_format((int)$row['mileage_km'],0,',','.').' km','price'=>(float)$row['cash_price'],'badge'=>$row['dgt_badge'],'stage'=>$row['stage'],'status'=>$row['status'],'evidenceLevel'=>$row['evidence_level'],'public_slug'=>$row['public_slug'],'fuel'=>(string)($metadata['fuel']??''),'gearbox'=>(string)($metadata['gearbox']??''),'location'=>(string)($metadata['location']??''),'province'=>(string)($metadata['province']??''),'images'=>$images,'image'=>$images[0]??'assets/brand/icons/vehicle-placeholder.svg','isDemo'=>false];
         }
         jsonResponse(['vehicles'=>$items]);
+    }
+    if ($route==='/api/vehicles' && ($method==='PATCH' || ($method==='POST' && isset($data['action']) && $data['action']==='update_stage'))) {
+        $u=requireUser();
+        $vehicleId=trim((string)($data['vehicle_id']??''));
+        if(!preg_match('/^[A-Za-z0-9_-]{1,80}$/',$vehicleId)) fail(400,'Identificador de vehículo no válido.');
+        $pdo=db();
+        $q=$pdo->prepare('SELECT vehicle_id,stage,status FROM vehicles WHERE vehicle_id=? AND tenant_id=? LIMIT 1');
+        $q->execute([$vehicleId,$u['user_id']]);
+        $veh=$q->fetch();
+        if(!$veh) fail(404,'Vehículo no encontrado en tu inventario.');
+        $newStage=trim((string)($data['stage']??$veh['stage']));
+        $allowedStages=['pendiente_validacion_contacto','preparacion','publicado','leads_activos','prueba_en_taller','reservado','vendido','retirado'];
+        if(!in_array($newStage,$allowedStages,true)) fail(400,'Fase de ciclo de vida no válida.');
+        $newStatus=match($newStage){
+            'vendido'=>'vendido',
+            'reservado'=>'reservado',
+            'retirado'=>'inactivo',
+            default=>'disponible'
+        };
+        if((bool)$u['email_verified']&&in_array($newStage,['publicado','leads_activos','prueba_en_taller','reservado','vendido'],true)){
+            try { $pdo->prepare('UPDATE publication_contacts SET contact_verified=1,contact_verified_at=UTC_TIMESTAMP() WHERE vehicle_id=? AND user_id=?')->execute([$vehicleId,$u['user_id']]); } catch(Throwable $e){}
+        }
+        $stmt=$pdo->prepare('UPDATE vehicles SET stage=?,status=?,updated_at=UTC_TIMESTAMP() WHERE vehicle_id=? AND tenant_id=?');
+        $stmt->execute([$newStage,$newStatus,$vehicleId,$u['user_id']]);
+        jsonResponse(['ok'=>true,'id'=>$vehicleId,'stage'=>$newStage,'status'=>$newStatus]);
     }
     if ($route==='/api/health' && $method==='GET') { db()->query('SELECT 1'); jsonResponse(['ok'=>true,'service'=>'cochemotor']); }
     if ($route==='/api/auth/verify' && $method==='GET') {
@@ -886,12 +923,16 @@ function ensureOAuthSchema(PDO $pdo): void {
             $imageMetadata=[]; foreach($slots as $i=>$slot){$slot['image_url']='uploads/vehicles/'.$stored[$i];$imageMetadata[]=$slot;}
             $metadata=['location'=>$location,'fuel'=>$fuel,'gearbox'=>$gearbox,'photo_slots'=>$imageMetadata,'publication_state'=>'pending_contact_review','evidence_level'=>'declarado'];
             $pdo->beginTransaction();
+            $isEmailVerified = (bool)$u['email_verified'];
+            $initialStage = $isEmailVerified ? 'publicado' : 'pendiente_validacion_contacto';
+            $initialStatus = $isEmailVerified ? 'disponible' : 'pendiente_revision';
+            $contactVerified = $isEmailVerified ? 1 : 0;
             $q=$pdo->prepare('INSERT INTO dealerships(tenant_id,display_name,dealer_slug,phone_whatsapp) VALUES(?,?,?,?) ON DUPLICATE KEY UPDATE display_name=VALUES(display_name),phone_whatsapp=VALUES(phone_whatsapp)');$q->execute([$u['user_id'],$u['name'],$u['user_id'],trim((string)($contact['phone']??''))]);
-            $q=$pdo->prepare("INSERT INTO vehicles(vehicle_id,tenant_id,brand,model,version,year,mileage_km,cash_price,dgt_badge,evidence_level,stage,status,public_slug,metadata_json) VALUES(?,?,?,?,?,?,?,?,?,'declarado','pendiente_validacion_contacto','pendiente_revision',?,?)");
-            $q->execute([$id,$u['user_id'],$brand,$model,$version,$year,$km,$price,$dgtBadge,$publicSlug,json_encode($metadata,JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR)]);
+            $q=$pdo->prepare("INSERT INTO vehicles(vehicle_id,tenant_id,brand,model,version,year,mileage_km,cash_price,dgt_badge,evidence_level,stage,status,public_slug,metadata_json) VALUES(?,?,?,?,?,?,?,?,?,'declarado',?,?,?,?)");
+            $q->execute([$id,$u['user_id'],$brand,$model,$version,$year,$km,$price,$dgtBadge,$initialStage,$initialStatus,$publicSlug,json_encode($metadata,JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR)]);
             foreach($slots as $i=>$slot){$q=$pdo->prepare('INSERT INTO vehicle_images(image_id,vehicle_id,image_url,sort_order) VALUES(?,?,?,?)');$q->execute([$id.'-img-'.$i,$id,'uploads/vehicles/'.$stored[$i],$slot['sort_order']]);}
-            $q=$pdo->prepare('INSERT INTO publication_contacts(contact_id,vehicle_id,user_id,name,email,phone,whatsapp_opt_in,contact_verified,consent_version) VALUES(?,?,?,?,?,?,0,0,?)');$q->execute(['contact-'.bin2hex(random_bytes(8)),$id,$u['user_id'],$contactName,$contactEmail,$contactPhone,'publish-v1']);
-            $pdo->commit(); jsonResponse(['ok'=>true,'id'=>$id,'status'=>'pendiente_validacion_contacto'],201);
+            $q=$pdo->prepare('INSERT INTO publication_contacts(contact_id,vehicle_id,user_id,name,email,phone,whatsapp_opt_in,contact_verified,consent_version) VALUES(?,?,?,?,?,?,0,?,?)');$q->execute(['contact-'.bin2hex(random_bytes(8)),$id,$u['user_id'],$contactName,$contactEmail,$contactPhone,$contactVerified,'publish-v1']);
+            $pdo->commit(); jsonResponse(['ok'=>true,'id'=>$id,'status'=>$initialStage],201);
         } catch(Throwable $e) { if($pdo->inTransaction())$pdo->rollBack();foreach($stored as $filename)@unlink($directory.'/'.$filename);if($e instanceof ApiFailure)fail($e->status,$e->getMessage());throw $e; }
     }
     if ($route==='/api/vehicles' && $method==='POST') fail(415,'Usa el formulario guiado para publicar el anuncio y sus fotos de forma segura.');
