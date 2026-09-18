@@ -2386,9 +2386,11 @@ button {
 .auth-switch { color: #63758a; text-align: center; font-size: .82rem; margin: 17px 0 0; }
 .auth-switch button { border: 0; background: transparent; color: #1768d1; font: inherit; font-weight: 800; cursor: pointer; padding: 0; }
 .auth-note { text-align: center; font-size: .8rem; margin: 14px 0 0; }
-.auth-status { min-height: 24px; margin: 14px 0; line-height: 1.45; overflow-wrap: anywhere; }
-.auth-status[data-kind="error"] { color: #a61b1b; }
-.auth-status[data-kind="success"] { color: #087443; }
+.auth-status { min-height: 0; margin: 0; display: none; border-radius: 10px; padding: 11px 14px; font-size: .84rem; line-height: 1.45; box-sizing: border-box; }
+.auth-status:not(:empty) { display: block; margin: 12px 0 14px; }
+.auth-status[data-kind="error"] { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+.auth-status[data-kind="success"] { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+.auth-status[data-kind="info"] { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
 .auth-social-group { display: flex; flex-direction: column; gap: 8px; margin: 12px 0 14px; }
 .btn-social { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 11px 14px; border-radius: 11px; font-family: inherit; font-size: .86rem; font-weight: 700; text-decoration: none; cursor: pointer; box-sizing: border-box; transition: transform .12s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease; }
 .btn-social:active { transform: scale(.99); }

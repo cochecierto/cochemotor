@@ -383,7 +383,7 @@ try {
         if ($clientId === '') {
             $names = ['google' => 'Google', 'apple' => 'Apple', 'facebook' => 'Facebook'];
             $providerName = $names[$provider] ?? $provider;
-            $msg = rawurlencode("El acceso con {$providerName} requiere configurar las credenciales en el servidor. Por favor, usa tu correo electrónico.");
+            $msg = rawurlencode("El acceso con {$providerName} estará disponible próximamente. Por favor, accede con tu correo electrónico.");
             header("Location: {$webBase}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
             exit;
         }
