@@ -38,22 +38,39 @@ function publicSlug(string $label, string $suffix): string {
     $tail=strtolower(substr((string)preg_replace('/[^a-z0-9]/i','',$suffix),-8));
     return substr($base,0,110).'-'.$tail;
 }
+function mailConfig(string $key, string $fallback=''): string { $value=getenv($key); if($value!==false&&$value!=='')return (string)$value; return defined($key)?(string)constant($key):$fallback; }
+function smtpCommand($socket, string $command, array $accepted): bool {
+    fwrite($socket, $command."\r\n"); $reply=''; while (($line=fgets($socket,512))!==false) { $reply.=$line; if (strlen($line)<4||$line[3]===' ') break; }
+    $code=(int)substr($reply,0,3); return in_array($code,$accepted,true);
+}
+function smtpSend(string $to, string $subject, string $text, string $html): bool {
+    $host=mailConfig('COCHEMOTOR_MAIL_HOST'); $port=(int)mailConfig('COCHEMOTOR_MAIL_PORT','465'); $user=mailConfig('COCHEMOTOR_MAIL_USER','hola@cochemotor.es'); $password=mailConfig('COCHEMOTOR_MAIL_PASSWORD'); $from=mailConfig('COCHEMOTOR_MAIL_FROM',$user);
+    if ($host===''||$user===''||$password==='') return false;
+    $transport=$port===465?'ssl://':'tcp://'; $socket=@stream_socket_client($transport.$host.':'.$port,$errno,$error,12,STREAM_CLIENT_CONNECT); if(!$socket)return false; stream_set_timeout($socket,12);
+    try {
+        $line=fgets($socket,512); if($line===false||(int)substr($line,0,3)!==220)return false;
+        if(!smtpCommand($socket,'EHLO cochemotor.es',[250]))return false;
+        if($port!==465){ if(!smtpCommand($socket,'STARTTLS',[220])||!@stream_socket_enable_crypto($socket,true,STREAM_CRYPTO_METHOD_TLS_CLIENT)||!smtpCommand($socket,'EHLO cochemotor.es',[250]))return false; }
+        if(!smtpCommand($socket,'AUTH LOGIN',[334])||!smtpCommand($socket,base64_encode($user),[334])||!smtpCommand($socket,base64_encode($password),[235]))return false;
+        if(!smtpCommand($socket,'MAIL FROM:<'.$from.'>',[250])||!smtpCommand($socket,'RCPT TO:<'.$to.'>',[250,251])||!smtpCommand($socket,'DATA',[354]))return false;
+        $boundary='=_cm_'.bin2hex(random_bytes(8)); $headers='From: CocheMotor <'.$from.'>\r\nTo: '.$to.'\r\nSubject: =?UTF-8?B?'.base64_encode($subject)."?=\r\nMIME-Version: 1.0\r\nContent-Type: multipart/alternative; boundary=\"$boundary\"\r\n\r\n";
+        $body=$headers.'--'.$boundary."\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n".$text."\r\n--$boundary\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n".$html."\r\n--$boundary--\r\n.";
+        $ok=smtpCommand($socket,$body,[250]); @fwrite($socket,"QUIT\r\n"); return $ok;
+    } finally { fclose($socket); }
+}
 function sendVerificationEmail(string $email, string $name, string $token): bool {
-    if (!function_exists('mail')) return false;
-    $from = 'hola@cochemotor.es';
+    $from = mailConfig('COCHEMOTOR_MAIL_FROM','hola@cochemotor.es');
     $safeName = trim((string)preg_replace('/[\r\n]+/u', ' ', $name));
-    $verificationUrl = 'https://cochemotor.es/api/auth/verify?token=' . rawurlencode($token);
+    $verificationUrl = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL','https://cochemotor.es'),'/') . '/api/auth/verify?token=' . rawurlencode($token);
     $subject = 'CocheMotor | Verifica tu correo';
     $message = "Hola {$safeName},\r\n\r\n" .
         "Para activar tu cuenta de CocheMotor y acceder a tu espacio profesional, abre este enlace:\r\n" .
         $verificationUrl . "\r\n\r\n" .
+        "El enlace solo puede utilizarse una vez. Una vez verificada, tu cuenta conservarÃ¡ esta condiciÃ³n mientras permanezca activa.\r\n\r\n" .
         "Si no has solicitado esta cuenta, puedes ignorar este mensaje.\r\n\r\n" .
         "CocheMotor\r\nhttps://cochemotor.es";
-    $headers = "From: CocheMotor <{$from}>\r\n" .
-        "Reply-To: {$from}\r\n" .
-        "Content-Type: text/plain; charset=UTF-8\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-    return @mail($email, $subject, $message, $headers);
+    $html = '<p>Hola '.htmlspecialchars($safeName,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8').',</p><p>Activa tu cuenta profesional de CocheMotor:</p><p><a href="'.htmlspecialchars($verificationUrl,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8').'">Verificar mi correo</a></p><p>El enlace solo puede utilizarse una vez. La verificaciÃ³n permanecerÃ¡ activa mientras tu cuenta exista.</p><p>Si no lo has solicitado, ignora este mensaje.</p>';
+    return smtpSend($email,$subject,$message,$html);
 }
 function token(): string { $header=$_SERVER['HTTP_AUTHORIZATION'] ?? ''; return str_starts_with($header,'Bearer ') ? trim(substr($header,7)) : ''; }
 function user(): ?array { $t=token(); if (!$t) return null; $q=db()->prepare('SELECT u.user_id,u.name,u.email,u.email_verified,u.phone,u.professional_type,s.expires_at FROM professional_sessions s JOIN professional_users u ON u.user_id=s.user_id WHERE s.token=? AND s.expires_at>UTC_TIMESTAMP()'); $q->execute([$t]); $u=$q->fetch(); return $u ?: null; }
@@ -284,7 +301,7 @@ try {
     if ($route==='/api/auth/verify' && $method==='GET') {
         $verificationToken=(string)($_GET['token']??'');
         if (!preg_match('/^[a-f0-9]{64}$/', $verificationToken)) fail(400,'El enlace de verificación no es válido.');
-        $q=db()->prepare("UPDATE professional_users SET email_verified=1,verification_token=NULL,verification_used_at=UTC_TIMESTAMP(),email_status='verified' WHERE verification_token_hash=? AND email_verified=0 AND verification_used_at IS NULL"); $q->execute([hash('sha256',$verificationToken)])
+        $q=db()->prepare("UPDATE professional_users SET email_verified=1,verification_token=NULL,verification_used_at=UTC_TIMESTAMP(),email_status='verified' WHERE verification_token_hash=? AND email_verified=0 AND verification_used_at IS NULL"); $q->execute([hash('sha256',$verificationToken)]);
         if ($q->rowCount()!==1) fail(400,'El enlace ya se ha utilizado o no es válido.');
         header('Location: https://cochemotor.es/acceso.html?audience=professional&return=hub&verified=1', true, 303);
         exit;
@@ -306,6 +323,14 @@ try {
                 fail(503,'No se pudo enviar el correo de verificación. Revisa tu dirección e inténtalo de nuevo más tarde.');
             }
             jsonResponse(['ok'=>true,'user'=>['user_id'=>$id,'name'=>$name,'email'=>$email,'verified'=>false],'message'=>'Te enviamos un enlace para verificar tu correo. Revisa también la carpeta de correo no deseado.'],201);
+        }
+        if ($action==='resend_verification') {
+            $email=strtolower(trim((string)($data['email']??''))); if(!filter_var($email,FILTER_VALIDATE_EMAIL)) fail(400,'Indica un correo válido.');
+            $q=$pdo->prepare('SELECT user_id,name,email_verified FROM professional_users WHERE email=? LIMIT 1'); $q->execute([$email]); $row=$q->fetch();
+            if(!$row || (bool)$row['email_verified']) jsonResponse(['ok'=>true,'message'=>'Si existe una cuenta pendiente, recibirás un nuevo enlace en unos minutos.'],202);
+            $verify=bin2hex(random_bytes(32)); $q=$pdo->prepare("UPDATE professional_users SET verification_token_hash=?,verification_expires_at=NULL,verification_used_at=NULL,email_status='pending',email_last_sent_at=UTC_TIMESTAMP(),email_send_attempts=email_send_attempts+1 WHERE user_id=? AND email_verified=0"); $q->execute([hash('sha256',$verify),$row['user_id']]);
+            if(!sendVerificationEmail($email,(string)$row['name'],$verify)){ $pdo->prepare("UPDATE professional_users SET email_status='send_failed' WHERE user_id=?")->execute([$row['user_id']]); fail(503,'No se pudo enviar el correo ahora. Inténtalo de nuevo más tarde.'); }
+            $pdo->prepare("UPDATE professional_users SET email_status='sent' WHERE user_id=?")->execute([$row['user_id']]); jsonResponse(['ok'=>true,'message'=>'Si existe una cuenta pendiente, recibirás un nuevo enlace en unos minutos.'],202);
         }
         if ($action==='verify') { $q=$pdo->prepare("UPDATE professional_users SET email_verified=1,verification_token=NULL,verification_used_at=UTC_TIMESTAMP(),email_status='verified' WHERE verification_token_hash=? AND email_verified=0 AND verification_used_at IS NULL"); $q->execute([hash('sha256',(string)($data['token']??''))]); jsonResponse(['ok'=>$q->rowCount()===1]); }
         if ($action==='login') { $q=$pdo->prepare('SELECT * FROM professional_users WHERE email=?'); $q->execute([strtolower(trim((string)($data['email']??'')))]); $row=$q->fetch(); if (!$row || !password_verify((string)($data['password']??''),$row['password_hash'])) fail(401,'Correo o contraseña incorrectos'); if(!(bool)$row['email_verified']) fail(403,'Verifica tu correo antes de iniciar sesión.'); $t=bin2hex(random_bytes(32)); $q=$pdo->prepare('INSERT INTO professional_sessions(token,user_id,expires_at) VALUES(?,?,DATE_ADD(UTC_TIMESTAMP(),INTERVAL 8 HOUR))'); $q->execute([$t,$row['user_id']]); jsonResponse(['ok'=>true,'user'=>['user_id'=>$row['user_id'],'name'=>$row['name'],'email'=>$row['email'],'verified'=>true,'phone'=>$row['phone'],'professional_type'=>$row['professional_type']],'session_token'=>$t]); }
