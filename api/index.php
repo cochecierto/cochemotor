@@ -2,7 +2,17 @@
 declare(strict_types=1);
 
 // La configuración real se guarda fuera de public_html y nunca se versiona.
-require_once dirname(__DIR__, 2) . '/cochemotor-private/config.php';
+// Hostinger puede servir el repositorio desde /domains/<dominio>/public_html;
+// probamos ambos niveles sin incluir nunca credenciales en el repositorio.
+$privateConfigCandidates = [
+    dirname(__DIR__, 2) . '/cochemotor-private/config.php',
+    dirname(__DIR__, 3) . '/cochemotor-private/config.php',
+    dirname(__DIR__) . '/../cochemotor-private/config.php'
+];
+$privateConfigLoaded = false;
+foreach ($privateConfigCandidates as $privateConfig) {
+    if (is_file($privateConfig)) { require_once $privateConfig; $privateConfigLoaded = true; break; }
+}
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
