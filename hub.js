@@ -316,6 +316,8 @@ function switchHubTab(tabId) {
     const el = document.getElementById(id);
     if (el) el.style.display = (id === tabId) ? 'block' : 'none';
   });
+  const contextBlocks = document.querySelectorAll('.hub-metric-bar, .hub-next-action, .hub-flow-roadmap');
+  contextBlocks.forEach(block => { block.style.display = tabId === 'tab-upload' ? 'none' : ''; });
 
   const buttons = document.querySelectorAll('.hub-nav-item');
   buttons.forEach(btn => {
