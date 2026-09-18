@@ -389,6 +389,12 @@ Todas las decisiones de esta versión están fechadas el 2026-08-27.
 - Decisión: la guía prioriza el enlace a coches disponibles y ofrece, como alternativa secundaria, el flujo existente para crear una búsqueda gratuita según necesidad.
 - Restricciones: no se captura información nueva desde la guía, no se agregan píxeles ni se atribuyen conversiones sin medición consentida.
 
+## D-044 — Verificación de correo profesional basada en SMTP y token de un solo uso
+
+- **Decisión:** trasladar a CocheMotor las invariantes observadas en CocheCierto: SMTP autenticado configurable, hash del token, caducidad de 7 días, estados de entrega, confirmación atómica y reenvío genérico.
+- **Alcance:** backend PHP/MySQL y acceso profesional; sin credenciales versionadas, despliegue ni prueba real de entrega en esta iniciativa.
+- **Estado:** implementado localmente; requiere ejecutar la migración y configurar SMTP en Hostinger antes de validar producción.
+
 ## D-043 — Presentación de beta profesional y comentarios
 
 - Estado: aprobado e implementado localmente el 2026-09-14; validación responsive completa y publicación pendientes.

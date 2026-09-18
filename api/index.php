@@ -284,8 +284,7 @@ try {
     if ($route==='/api/auth/verify' && $method==='GET') {
         $verificationToken=(string)($_GET['token']??'');
         if (!preg_match('/^[a-f0-9]{64}$/', $verificationToken)) fail(400,'El enlace de verificación no es válido.');
-        $q=db()->prepare("UPDATE professional_users SET email_verified=1,verification_token='' WHERE verification_token=? AND email_verified=0");
-        $q->execute([$verificationToken]);
+        $q=db()->prepare("UPDATE professional_users SET email_verified=1,verification_token=NULL,verification_used_at=UTC_TIMESTAMP(),email_status='verified' WHERE verification_token_hash=? AND email_verified=0 AND verification_used_at IS NULL"); $q->execute([hash('sha256',$verificationToken)])
         if ($q->rowCount()!==1) fail(400,'El enlace ya se ha utilizado o no es válido.');
         header('Location: https://cochemotor.es/acceso.html?audience=professional&return=hub&verified=1', true, 303);
         exit;
@@ -299,7 +298,7 @@ try {
             $termsAccepted=($data['terms_accepted']??null)===true;
             if ($nameLength === false || $nameLength < 2 || $nameLength > 120 || !filter_var($email,FILTER_VALIDATE_EMAIL) || strlen($password)<10 || !$privacyNoticeRead || !$termsAccepted || ($data['privacy_notice_version']??null)!=='privacy-v1' || ($data['terms_version']??null)!=='beta-terms-v1') fail(400,'Revisa tus datos y confirma la Política de privacidad y los Términos del Servicio.');
             $id='usr-'.bin2hex(random_bytes(8)); $verify=bin2hex(random_bytes(32));
-            try { $q=$pdo->prepare('INSERT INTO professional_users(user_id,name,email,password_hash,verification_token,privacy_notice_version,terms_version,notice_acknowledged_at) VALUES(?,?,?,?,?,?,?,UTC_TIMESTAMP())'); $q->execute([$id,$name,$email,password_hash($password,PASSWORD_DEFAULT),$verify,'privacy-v1','beta-terms-v1']); }
+            try { $q=$pdo->prepare('INSERT INTO professional_users(user_id,name,email,password_hash,verification_token,verification_token_hash,verification_expires_at,email_status,email_last_sent_at,email_send_attempts,privacy_notice_version,terms_version,notice_acknowledged_at) VALUES(?,?,?,?,NULL,?,NULL,'pending',UTC_TIMESTAMP(),1,?,?,UTC_TIMESTAMP())'); $q->execute([$id,$name,$email,password_hash($password,PASSWORD_DEFAULT),hash('sha256',$verify),'privacy-v1','beta-terms-v1']); }
             catch (PDOException $e) { if ($e->getCode()==='23000') fail(409,'Ya existe una cuenta con ese correo'); throw $e; }
             if (!sendVerificationEmail($email, $name, $verify)) {
                 $cleanup=$pdo->prepare('DELETE FROM professional_users WHERE user_id=? AND email_verified=0');
@@ -308,7 +307,7 @@ try {
             }
             jsonResponse(['ok'=>true,'user'=>['user_id'=>$id,'name'=>$name,'email'=>$email,'verified'=>false],'message'=>'Te enviamos un enlace para verificar tu correo. Revisa también la carpeta de correo no deseado.'],201);
         }
-        if ($action==='verify') { $q=$pdo->prepare("UPDATE professional_users SET email_verified=1,verification_token='' WHERE verification_token=?"); $q->execute([(string)($data['token']??'')]); jsonResponse(['ok'=>$q->rowCount()===1]); }
+        if ($action==='verify') { $q=$pdo->prepare("UPDATE professional_users SET email_verified=1,verification_token=NULL,verification_used_at=UTC_TIMESTAMP(),email_status='verified' WHERE verification_token_hash=? AND email_verified=0 AND verification_used_at IS NULL"); $q->execute([hash('sha256',(string)($data['token']??''))]); jsonResponse(['ok'=>$q->rowCount()===1]); }
         if ($action==='login') { $q=$pdo->prepare('SELECT * FROM professional_users WHERE email=?'); $q->execute([strtolower(trim((string)($data['email']??'')))]); $row=$q->fetch(); if (!$row || !password_verify((string)($data['password']??''),$row['password_hash'])) fail(401,'Correo o contraseña incorrectos'); if(!(bool)$row['email_verified']) fail(403,'Verifica tu correo antes de iniciar sesión.'); $t=bin2hex(random_bytes(32)); $q=$pdo->prepare('INSERT INTO professional_sessions(token,user_id,expires_at) VALUES(?,?,DATE_ADD(UTC_TIMESTAMP(),INTERVAL 8 HOUR))'); $q->execute([$t,$row['user_id']]); jsonResponse(['ok'=>true,'user'=>['user_id'=>$row['user_id'],'name'=>$row['name'],'email'=>$row['email'],'verified'=>true,'phone'=>$row['phone'],'professional_type'=>$row['professional_type']],'session_token'=>$t]); }
         if ($action==='session') { $u=user(); $sessionUser=$u?['user_id'=>$u['user_id'],'name'=>$u['name'],'email'=>$u['email'],'verified'=>(bool)$u['email_verified'],'phone'=>$u['phone'],'professional_type'=>$u['professional_type']]:null; jsonResponse(['ok'=>(bool)$u,'user'=>$sessionUser],$u?200:401); }
         if ($action==='logout') { $u=requireUser(); $q=$pdo->prepare('DELETE FROM professional_sessions WHERE token=? AND user_id=?'); $q->execute([token(),$u['user_id']]); jsonResponse(['ok'=>true]); }
