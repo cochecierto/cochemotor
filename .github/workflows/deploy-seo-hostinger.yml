@@ -32,6 +32,8 @@ on:
       - "assets/js/home_catalog.js"
       - "assets/js/public-lead-form.js"
       - "assets/data/vehicles_catalog.js"
+      - "assets/js/inventory_selectors.js"
+      - "assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png"
       - "database/migrations/007_lead_and_registration_notice_mysql.sql"
       - "api/index.php"
       - "guias/comprar-coche-usado.html"
@@ -68,6 +70,8 @@ on:
       - "assets/js/home_catalog.js"
       - "assets/js/public-lead-form.js"
       - "assets/data/vehicles_catalog.js"
+      - "assets/js/inventory_selectors.js"
+      - "assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png"
       - "database/migrations/007_lead_and_registration_notice_mysql.sql"
       - "api/index.php"
       - "guias/comprar-coche-usado.html"
@@ -198,6 +202,7 @@ jobs:
           mkdir $stage/assets/images
           mkdir $stage/assets/js
           mkdir $stage/assets/data
+          mkdir $stage/assets/brand
           put .htaccess $stage/.htaccess
           put robots.txt $stage/robots.txt
           put sitemap.xml $stage/sitemap.xml
@@ -227,6 +232,8 @@ jobs:
           put assets/js/home_catalog.js $stage/assets/js/home_catalog.js
           put assets/js/public-lead-form.js $stage/assets/js/public-lead-form.js
           put assets/data/vehicles_catalog.js $stage/assets/data/vehicles_catalog.js
+          put assets/js/inventory_selectors.js $stage/assets/js/inventory_selectors.js
+          put assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png $stage/assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png
           put guias/comprar-coche-usado.html $stage/guias/comprar-coche-usado.html
           put assets/images/inspeccion-taller-cochemotor.png $stage/assets/images/inspeccion-taller-cochemotor.png
           -mkdir guias
@@ -234,6 +241,7 @@ jobs:
           -mkdir assets/images
           -mkdir assets/js
           -mkdir assets/data
+          -mkdir assets/brand
           rename $stage/sitemap-public.php sitemap-public.php
           rename $stage/seo-public.php seo-public.php
           rename $stage/seo-legacy-redirect.php seo-legacy-redirect.php
@@ -263,6 +271,8 @@ jobs:
           rename $stage/assets/js/home_catalog.js assets/js/home_catalog.js
           rename $stage/assets/js/public-lead-form.js assets/js/public-lead-form.js
           rename $stage/assets/data/vehicles_catalog.js assets/data/vehicles_catalog.js
+          rename $stage/assets/js/inventory_selectors.js assets/js/inventory_selectors.js
+          rename $stage/assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png
           rename $stage/guias/comprar-coche-usado.html guias/comprar-coche-usado.html
           rename $stage/assets/images/inspeccion-taller-cochemotor.png assets/images/inspeccion-taller-cochemotor.png
           rename $stage/.htaccess .htaccess
@@ -271,6 +281,7 @@ jobs:
           rmdir $stage/assets/images
           rmdir $stage/assets/js
           rmdir $stage/assets/data
+          rmdir $stage/assets/brand
           rmdir $stage/assets
           rmdir $stage
           SFTP
@@ -303,7 +314,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for asset in site-config.js hub.js styles.css assets/js/home_catalog.js assets/js/public-lead-form.js assets/data/vehicles_catalog.js; do
+          for asset in site-config.js hub.js styles.css assets/js/home_catalog.js assets/js/public-lead-form.js assets/js/inventory_selectors.js assets/data/vehicles_catalog.js assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png; do
             local_hash="$(sha256sum "$asset" | cut -d' ' -f1)"
             remote_hash="$(curl --fail --silent --show-error --retry 4 --retry-delay 2 "https://cochemotor.es/$asset?release=$GITHUB_SHA" | sha256sum | cut -d' ' -f1)"
             if [[ "$local_hash" != "$remote_hash" ]]; then
