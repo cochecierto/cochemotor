@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - "scripts/setup_oauth_credentials.py"
       - ".github/workflows/configure-oauth-hostinger.yml"
 
 permissions:
@@ -13,7 +14,10 @@ jobs:
   configure-oauth:
     runs-on: ubuntu-latest
     steps:
-      - name: Validar secretos y configurar SSH
+      - name: Obtener código
+        uses: actions/checkout@v4
+
+      - name: Configurar entorno y ejecutar inyección
         env:
           SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
           SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
@@ -22,95 +26,18 @@ jobs:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
         run: |
-          missing=()
-          for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY SSH_KNOWN_HOSTS GOOGLE_CLIENT_ID GOOGLE_CLIENT_SECRET; do
-            if [[ -z "${!name}" ]]; then missing+=("$name"); fi
-          done
-          if (( ${#missing[@]} )); then
-            echo "::error::Faltan secretos requeridos: ${missing[*]}."
-            exit 1
-          fi
           mkdir -m 700 -p "$RUNNER_TEMP/oauth-ssh"
           printf '%s\n' "$SSH_PRIVATE_KEY" > "$RUNNER_TEMP/oauth-ssh/id_ed25519"
           printf '%s\n' "$SSH_KNOWN_HOSTS" > "$RUNNER_TEMP/oauth-ssh/known_hosts"
           chmod 600 "$RUNNER_TEMP/oauth-ssh/id_ed25519" "$RUNNER_TEMP/oauth-ssh/known_hosts"
 
-      - name: Inyectar credenciales de Google en cochemotor-private/config.php
-        env:
-          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
-          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-        run: |
-          set -euo pipefail
-          echo "Intentando actualizar config.php en Hostinger..."
-          
-          ssh_success=false
-          if ssh -p 65002 \
-            -i "$RUNNER_TEMP/oauth-ssh/id_ed25519" \
-            -o IdentitiesOnly=yes \
-            -o BatchMode=yes \
-            -o StrictHostKeyChecking=yes \
-            -o "UserKnownHostsFile=$RUNNER_TEMP/oauth-ssh/known_hosts" \
-            "$SSH_USER@$SSH_HOST" "bash -s" << SSHCMD
-          set -euo pipefail
-          TARGET=""
-          for candidate in ~/cochemotor-private/config.php ~/domains/*/cochemotor-private/config.php /home/*/cochemotor-private/config.php /home/*/domains/*/cochemotor-private/config.php; do
-            if [ -f "\$candidate" ]; then
-              TARGET="\$candidate"
-              break
-            fi
-          done
-          if [ -z "\$TARGET" ]; then
-            mkdir -p ~/cochemotor-private
-            TARGET=~/cochemotor-private/config.php
-            touch "\$TARGET"
-          fi
-          echo "Archivo de configuración encontrado en: \$TARGET"
-          sed -i '/GOOGLE_CLIENT_ID/d' "\$TARGET"
-          sed -i '/GOOGLE_CLIENT_SECRET/d' "\$TARGET"
-          printf "\nputenv('GOOGLE_CLIENT_ID=%s');\nputenv('GOOGLE_CLIENT_SECRET=%s');\n" "$GOOGLE_CLIENT_ID" "$GOOGLE_CLIENT_SECRET" >> "\$TARGET"
-          echo "Credenciales inyectadas correctamente."
-          php -l "\$TARGET"
-SSHCMD
-          then
-            ssh_success=true
-            echo "Actualización completada exitosamente vía SSH."
-          fi
+          export KEY_PATH="$RUNNER_TEMP/oauth-ssh/id_ed25519"
+          export KNOWN_HOSTS="$RUNNER_TEMP/oauth-ssh/known_hosts"
 
-          if [ "$ssh_success" = false ]; then
-            echo "SSH shell no disponible. Procediendo vía SFTP..."
-            mkdir -p "$RUNNER_TEMP/sftp-stage"
-            sftp -b - -P 65002 \
-              -i "$RUNNER_TEMP/oauth-ssh/id_ed25519" \
-              -o IdentitiesOnly=yes \
-              -o BatchMode=yes \
-              -o StrictHostKeyChecking=yes \
-              -o "UserKnownHostsFile=$RUNNER_TEMP/oauth-ssh/known_hosts" \
-              "$SSH_USER@$SSH_HOST" << SFTP || true
-            get cochemotor-private/config.php $RUNNER_TEMP/sftp-stage/config.php
-            get domains/cochemotor.es/cochemotor-private/config.php $RUNNER_TEMP/sftp-stage/config.php
-SFTP
-            if [ -f "$RUNNER_TEMP/sftp-stage/config.php" ]; then
-              sed -i '/GOOGLE_CLIENT_ID/d' "$RUNNER_TEMP/sftp-stage/config.php"
-              sed -i '/GOOGLE_CLIENT_SECRET/d' "$RUNNER_TEMP/sftp-stage/config.php"
-              printf "\nputenv('GOOGLE_CLIENT_ID=%s');\nputenv('GOOGLE_CLIENT_SECRET=%s');\n" "$GOOGLE_CLIENT_ID" "$GOOGLE_CLIENT_SECRET" >> "$RUNNER_TEMP/sftp-stage/config.php"
-              sftp -b - -P 65002 \
-                -i "$RUNNER_TEMP/oauth-ssh/id_ed25519" \
-                -o IdentitiesOnly=yes \
-                -o BatchMode=yes \
-                -o StrictHostKeyChecking=yes \
-                -o "UserKnownHostsFile=$RUNNER_TEMP/oauth-ssh/known_hosts" \
-                "$SSH_USER@$SSH_HOST" << SFTP
-              put $RUNNER_TEMP/sftp-stage/config.php cochemotor-private/config.php
-SFTP
-              echo "Actualización completada vía SFTP."
-            fi
-          fi
+          python scripts/setup_oauth_credentials.py
 
       - name: Verificar redirección OAuth en vivo en cochemotor.es
         run: |
-          set -euo pipefail
           redirect_url="$(curl --silent --show-error --location --head --write-out '%{url_effective}' --output /dev/null https://cochemotor.es/api/auth/oauth/google)"
           echo "URL efectiva: $redirect_url"
           if [[ "$redirect_url" == *"accounts.google.com"* ]]; then
