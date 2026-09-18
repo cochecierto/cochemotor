@@ -2091,6 +2091,12 @@ button {
 .pricing-scenarios small { color:var(--cm-text-secondary); line-height:1.35; }
 .pricing-recommendation { display:flex; flex-direction:column; gap:4px; padding:13px; margin-bottom:12px; border-left:4px solid var(--cm-red); background:#fff6f5; color:var(--cm-navy); }
 .pricing-recommendation span { font-size:.78rem; color:var(--cm-text-secondary); }
+.form-flow-tools { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:10px 0 16px; padding:9px 12px; border:1px solid var(--cm-border); border-radius:9px; background:#f8fbff; color:var(--cm-text-secondary); font-size:.76rem; }
+.form-flow-tools span:first-child { flex:1 1 260px; }
+.form-flow-tools button { padding:6px 11px; font-size:.75rem; }
+.form-flow-tools #vehicle-draft-status { color:var(--cm-green,#17803d); font-weight:700; }
+.upload-stepper li { cursor:pointer; }
+.upload-stepper li:focus-visible { outline:3px solid #76a9e8; outline-offset:2px; }
 @media (max-width: 760px) { .pricing-analysis-fields,.pricing-scenarios { grid-template-columns:1fr; } }
 
 /* El panel es una consola operativa a todo lo ancho: cada bloque debe usar

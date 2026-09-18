@@ -64,10 +64,35 @@ function initPublishProgress() {
   document.getElementById('up-publication-status')?.addEventListener('change', () => { updateUpcomingEntryPreview(); update(); });
   document.getElementById('up-calculate-pricing')?.addEventListener('click', calculatePricingAnalysis);
   document.getElementById('up-save-pricing')?.addEventListener('click', () => { calculatePricingAnalysis(); document.getElementById('pricing-analysis')?.setAttribute('data-saved','true'); });
+  document.getElementById('save-vehicle-draft')?.addEventListener('click', saveVehicleDraft);
+  restoreVehicleDraft();
+  document.querySelectorAll('#form-upload-vehicle input:not([type="file"]), #form-upload-vehicle select, #form-upload-vehicle textarea').forEach(field => field.addEventListener('change', saveVehicleDraft));
   document.querySelectorAll('.pricing-input, #up-purchase-source, #up-tax-mode').forEach(input => input.addEventListener('input', calculatePricingAnalysis));
   document.addEventListener('vehicle-photos-updated', update);
+  document.querySelectorAll('.upload-stepper li').forEach((step, index) => {
+    step.setAttribute('role', 'button'); step.setAttribute('tabindex', '0'); step.addEventListener('click', () => {
+      const target = index === 0 ? document.getElementById('up-brand') : index === 1 ? document.getElementById('up-community') : index === 2 ? document.querySelector('.photo-slot-card') : document.getElementById('vehicle-submit-status');
+      target?.scrollIntoView({behavior:'smooth', block:'center'}); target?.focus?.({preventScroll:true});
+    });
+    step.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); step.click(); } });
+  });
   update();
   updatePriceAssistant();
+}
+
+const VEHICLE_DRAFT_KEY = 'cochemotor_vehicle_draft_v2';
+function saveVehicleDraft() {
+  const form = document.getElementById('form-upload-vehicle'); if (!form) return;
+  const data = {};
+  form.querySelectorAll('input:not([type="file"]), select, textarea').forEach(field => { if (field.id) data[field.id] = field.type === 'checkbox' ? field.checked : field.value; });
+  localStorage.setItem(VEHICLE_DRAFT_KEY, JSON.stringify(data));
+  const status = document.getElementById('vehicle-draft-status'); if (status) { status.textContent = 'Borrador guardado'; setTimeout(() => { status.textContent = ''; }, 2500); }
+}
+function restoreVehicleDraft() {
+  try {
+    const data = JSON.parse(localStorage.getItem(VEHICLE_DRAFT_KEY) || 'null'); if (!data) return;
+    Object.entries(data).forEach(([id, value]) => { const field = document.getElementById(id); if (!field) return; if (field.type === 'checkbox') field.checked = value === true; else field.value = value; field.dispatchEvent(new Event('change', {bubbles:true})); });
+  } catch (_) { localStorage.removeItem(VEHICLE_DRAFT_KEY); }
 }
 
 function getPricingAnalysis() {
