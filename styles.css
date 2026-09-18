@@ -1742,6 +1742,18 @@ button {
   gap: 14px;
   margin-top: 16px;
 }
+#tab-upload.hub-tool-card { padding: 28px 32px 36px; margin-bottom: 20px; }
+#tab-upload .hub-tool-desc { max-width: 900px; margin-bottom: 18px; font-size: .9rem; }
+#tab-upload .form-group { margin-bottom: 12px; }
+#tab-upload .form-label { margin-bottom: 4px; font-size: .8rem; }
+#tab-upload .form-control { padding: 9px 12px; font-size: .88rem; }
+#tab-upload h3 { margin-bottom: 10px !important; }
+#tab-upload > form > div { gap: 18px !important; }
+#tab-upload .photo-guide-grid { gap: 8px; }
+#tab-upload .photo-slot-card { border-radius: 8px; }
+#tab-upload .photo-slot-copy { padding: 7px 8px 9px; }
+#tab-upload .photo-slot-desc { font-size: .68rem; }
+@media (max-width: 760px) { #tab-upload.hub-tool-card { padding: 20px 16px 28px; } #tab-upload > form > div { grid-template-columns: 1fr !important; } }
 .hub-nav-section-label { padding: 12px 12px 5px; color: #93c5fd; font-size: .67rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .hub-next-action { display:flex; align-items:center; justify-content:space-between; gap:18px; margin:22px 0 24px; padding:18px 20px; border:1px solid #cfe0f1; border-radius:14px; background:linear-gradient(115deg,#f1f8ff,#fff); box-shadow:0 5px 16px rgba(0,45,98,.06); }
 .hub-next-action h2 { margin:3px 0 4px; color:var(--cm-navy); font-size:1.05rem; }
