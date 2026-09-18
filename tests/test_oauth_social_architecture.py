@@ -16,8 +16,8 @@ class TestOAuthSocialArchitecture(unittest.TestCase):
 
     def test_ui_includes_social_login_buttons(self):
         self.assertIn('oauth-google', UI)
-        self.assertIn('oauth-apple', UI)
-        self.assertIn('oauth-facebook', UI)
+        self.assertNotIn('oauth-apple', UI)
+        self.assertNotIn('oauth-facebook', UI)
         self.assertIn('Continuar con Google', UI)
         self.assertIn('auth-divider', UI)
         self.assertIn('session_token', UI)

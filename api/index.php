@@ -380,10 +380,15 @@ try {
         elseif ($provider === 'apple') $clientId = oauthConfig('APPLE_CLIENT_ID');
         elseif ($provider === 'facebook') $clientId = oauthConfig('FACEBOOK_CLIENT_ID', oauthConfig('FACEBOOK_APP_ID'));
 
+        if ($provider === 'apple' || $provider === 'facebook') {
+            header("Location: {$webBase}/acceso", true, 303);
+            exit;
+        }
+
         if ($clientId === '') {
             $names = ['google' => 'Google', 'apple' => 'Apple', 'facebook' => 'Facebook'];
             $providerName = $names[$provider] ?? $provider;
-            $msg = rawurlencode("El acceso con {$providerName} estará disponible próximamente. Por favor, accede con tu correo electrónico.");
+            $msg = rawurlencode("El acceso con {$providerName} requiere configuración en el servidor. Por favor, accede con tu correo electrónico.");
             header("Location: {$webBase}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
             exit;
         }
@@ -624,6 +629,18 @@ try {
         $token = bin2hex(random_bytes(32));
         $pdo->prepare('INSERT INTO professional_sessions(token, user_id, expires_at) VALUES (?, ?, DATE_ADD(UTC_TIMESTAMP(), INTERVAL 8 HOUR))')->execute([$token, $user['user_id']]);
 
+        $clientIp = $_SERVER['REMOTE_ADDR'] ?? '';
+        if ($clientIp !== '') {
+            $salt = oauthConfig('SESSION_SECRET', 'cm_salt_key');
+            setcookie('cm_known_ip', hash('sha256', $clientIp . $salt), [
+                'expires' => time() + 86400 * 180,
+                'path' => '/',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'Lax'
+            ]);
+        }
+
         $hashParams = http_build_query([
             'session_token' => $token,
             'user_id' => $user['user_id'],
@@ -640,6 +657,12 @@ try {
     }
     if ($route==='/api/auth' && $method==='POST') {
         $action=$data['action'] ?? ''; $pdo=db();
+        if ($action==='ip_status') {
+            $clientIp = $_SERVER['REMOTE_ADDR'] ?? '';
+            $salt = oauthConfig('SESSION_SECRET', 'cm_salt_key');
+            $isKnown = !empty($_COOKIE['cm_known_ip']) && hash_equals($_COOKIE['cm_known_ip'], hash('sha256', $clientIp . $salt));
+            jsonResponse(['ok'=>true, 'ip'=>$clientIp, 'recognized'=>$isKnown]);
+        }
         if ($action==='register') {
             $name=trim((string)($data['name']??'')); $email=strtolower(trim((string)($data['email']??''))); $password=(string)($data['password']??'');
             $nameLength = preg_match_all('/./us', $name);
@@ -666,7 +689,28 @@ try {
             $pdo->prepare("UPDATE professional_users SET email_status='sent' WHERE user_id=?")->execute([$row['user_id']]); jsonResponse(['ok'=>true,'message'=>'Si existe una cuenta pendiente, recibirás un nuevo enlace en unos minutos.'],202);
         }
         if ($action==='verify') { $q=$pdo->prepare("UPDATE professional_users SET email_verified=1,verification_token=NULL,verification_used_at=UTC_TIMESTAMP(),email_status='verified' WHERE verification_token_hash=? AND email_verified=0 AND verification_used_at IS NULL"); $q->execute([hash('sha256',(string)($data['token']??''))]); jsonResponse(['ok'=>$q->rowCount()===1]); }
-        if ($action==='login') { $q=$pdo->prepare('SELECT * FROM professional_users WHERE email=?'); $q->execute([strtolower(trim((string)($data['email']??'')))]); $row=$q->fetch(); if (!$row || !password_verify((string)($data['password']??''),$row['password_hash'])) fail(401,'Correo o contraseña incorrectos'); if(!(bool)$row['email_verified']) fail(403,'Verifica tu correo antes de iniciar sesión.'); $t=bin2hex(random_bytes(32)); $q=$pdo->prepare('INSERT INTO professional_sessions(token,user_id,expires_at) VALUES(?,?,DATE_ADD(UTC_TIMESTAMP(),INTERVAL 8 HOUR))'); $q->execute([$t,$row['user_id']]); jsonResponse(['ok'=>true,'user'=>['user_id'=>$row['user_id'],'name'=>$row['name'],'email'=>$row['email'],'verified'=>true,'phone'=>$row['phone'],'professional_type'=>$row['professional_type']],'session_token'=>$t]); }
+        if ($action==='login') {
+            $q=$pdo->prepare('SELECT * FROM professional_users WHERE email=?');
+            $q->execute([strtolower(trim((string)($data['email']??'')))]);
+            $row=$q->fetch();
+            if (!$row || !password_verify((string)($data['password']??''),$row['password_hash'])) fail(401,'Correo o contraseña incorrectos');
+            if(!(bool)$row['email_verified']) fail(403,'Verifica tu correo antes de iniciar sesión.');
+            $t=bin2hex(random_bytes(32));
+            $q=$pdo->prepare('INSERT INTO professional_sessions(token,user_id,expires_at) VALUES(?,?,DATE_ADD(UTC_TIMESTAMP(),INTERVAL 8 HOUR))');
+            $q->execute([$t,$row['user_id']]);
+            $clientIp = $_SERVER['REMOTE_ADDR'] ?? '';
+            if ($clientIp !== '') {
+                $salt = oauthConfig('SESSION_SECRET', 'cm_salt_key');
+                setcookie('cm_known_ip', hash('sha256', $clientIp . $salt), [
+                    'expires' => time() + 86400 * 180,
+                    'path' => '/',
+                    'secure' => true,
+                    'httponly' => true,
+                    'samesite' => 'Lax'
+                ]);
+            }
+            jsonResponse(['ok'=>true,'user'=>['user_id'=>$row['user_id'],'name'=>$row['name'],'email'=>$row['email'],'verified'=>true,'phone'=>$row['phone'],'professional_type'=>$row['professional_type']],'session_token'=>$t]);
+        }
         if ($action==='session') { $u=user(); $sessionUser=$u?['user_id'=>$u['user_id'],'name'=>$u['name'],'email'=>$u['email'],'verified'=>(bool)$u['email_verified'],'phone'=>$u['phone'],'professional_type'=>$u['professional_type']]:null; jsonResponse(['ok'=>(bool)$u,'user'=>$sessionUser],$u?200:401); }
         if ($action==='logout') { $u=requireUser(); $q=$pdo->prepare('DELETE FROM professional_sessions WHERE token=? AND user_id=?'); $q->execute([token(),$u['user_id']]); jsonResponse(['ok'=>true]); }
         if ($action==='profile_details') { $u=requireUser(); $q=$pdo->prepare('SELECT display_name,public_description,dealer_slug,public_profile FROM dealerships WHERE tenant_id=? LIMIT 1'); $q->execute([$u['user_id']]); $profile=$q->fetch()?:[]; jsonResponse(['ok'=>true,'profile'=>['business_name'=>$profile['display_name']??'','public_description'=>$profile['public_description']??'','public_slug'=>$profile['dealer_slug']??'','public_profile'=>(bool)($profile['public_profile']??false)]]); }
