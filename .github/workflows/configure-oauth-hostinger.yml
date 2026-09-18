@@ -2,6 +2,9 @@ name: CocheMotor · Configurar OAuth en Hostinger
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/configure-oauth-hostinger.yml"
 
 permissions:
   contents: read
