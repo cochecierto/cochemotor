@@ -91,13 +91,14 @@ function initProgressiveVehicleForm() {
     const current = Math.max(1, Math.min(4, step)); form.dataset.progressiveStep = String(current);
     const grid = form.querySelector(':scope > div'); const left = grid?.children[0]; const right = grid?.children[1];
     if (grid) grid.style.gridTemplateColumns = 'minmax(0, 1fr)';
+    form.querySelectorAll('.form-group, details, .publication-settings, .photo-guide-grid').forEach(element => { element.style.display = ''; });
     if (left && right) { left.style.display = current === 4 ? 'none' : 'block'; right.style.display = current === 4 ? 'block' : 'none'; }
     const container = element => element.closest('.form-group') || element.closest('details') || element;
     const hide = selector => form.querySelectorAll(selector).forEach(element => { container(element).style.display = 'none'; });
     const show = selector => form.querySelectorAll(selector).forEach(element => { container(element).style.display = ''; });
-    if (current === 1) { hide('#up-community, #up-province, #up-municipality, #up-gearbox, #up-badge, #up-price, #up-cost, #pricing-analysis, .real-photos-details'); show('#up-brand, #up-model, #up-fuel, #up-version, #up-year, #up-km'); }
-    if (current === 2) { hide('#up-brand, #up-model, #up-fuel, #up-version, #up-year, #up-km, #up-price, #up-cost, #pricing-analysis, .real-photos-details'); show('#up-community, #up-province, #up-municipality, #up-gearbox, #up-badge'); }
-    if (current === 3) { hide('#up-brand, #up-model, #up-fuel, #up-version, #up-year, #up-km, #up-community, #up-province, #up-municipality, #up-gearbox, #up-badge, .real-photos-details'); show('#up-price, #up-cost, #pricing-analysis'); }
+    if (current === 1) { hide('#up-community, #up-province, #up-municipality, #up-gearbox, #up-badge, #up-price, #up-cost, #pricing-analysis, .real-photos-details, .publication-settings'); show('#up-brand, #up-model, #up-fuel, #up-version, #up-year, #up-km'); }
+    if (current === 2) { hide('#up-brand, #up-model, #up-fuel, #up-version, #up-year, #up-km, #up-price, #up-cost, #pricing-analysis, .real-photos-details, .publication-settings'); show('#up-community, #up-province, #up-municipality, #up-gearbox, #up-badge'); }
+    if (current === 3) { hide('#up-brand, #up-model, #up-fuel, #up-version, #up-year, #up-km, #up-community, #up-province, #up-municipality, #up-gearbox, #up-badge, .real-photos-details'); show('#up-price, #up-cost, #pricing-analysis, .publication-settings'); }
     if (current === 4) { show('.photo-guide-grid, #up-highlights, #up-contact-consent, #vehicle-submit-status'); }
     nav.querySelector('[data-progressive-prev]').disabled = current === 1; nav.querySelector('[data-progressive-next]').textContent = current === 4 ? 'Revisar anuncio' : 'Continuar'; nav.querySelector('[data-progressive-label]').textContent = `Paso ${current} de 4 · ${steps[current - 1]}`; document.querySelectorAll('.upload-stepper li').forEach((item,index)=>item.classList.toggle('is-current', index === current - 1)); form.dispatchEvent(new CustomEvent('progressive-step-change'));
   };
@@ -449,7 +450,8 @@ async function handleCreateVehicle(event) {
   const localSession=getProfessionalSession();
   if (!localSession?.verified || !localSession.sessionToken) { window.location.href='/acceso?audience=professional&return=hub&mode=login'; return; }
   if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) { window.location.href='/perfil'; return; }
-  if(!form.reportValidity())return;
+  const invalidVisible = Array.from(form.querySelectorAll('input, select, textarea')).find(field => field.required && field.offsetParent !== null && !field.checkValidity());
+  if (invalidVisible) { invalidVisible.reportValidity(); invalidVisible.focus(); return; }
 
   const brand = document.getElementById('up-brand').value.trim();
   const model = document.getElementById('up-model').value.trim();
