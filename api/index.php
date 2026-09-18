@@ -371,7 +371,7 @@ try {
         $return = preg_replace('/[^a-zA-Z0-9_\-\/]/', '', (string)($_GET['return'] ?? 'hub'));
         if ($return === '') $return = 'hub';
 
-        $apiBase = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL', 'https://cochemotor.es'), '/');
+        $apiBase = rtrim(oauthConfig('COCHEMOTOR_OAUTH_REDIRECT_BASE', 'https://cochemotor.es'), '/');
         $webBase = rtrim(oauthConfig('COCHEMOTOR_FRONTEND_URL', 'https://cochemotor.es'), '/');
         $redirectUri = $apiBase . '/api/auth/callback/' . $provider;
 
@@ -437,7 +437,7 @@ try {
     }
     if (preg_match('#^/api/auth/callback/(google|apple|facebook)$#', $route, $matches) && ($method === 'GET' || $method === 'POST')) {
         $provider = $matches[1];
-        $apiBase = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL', 'https://cochemotor.es'), '/');
+        $apiBase = rtrim(oauthConfig('COCHEMOTOR_OAUTH_REDIRECT_BASE', 'https://cochemotor.es'), '/');
         $webBase = rtrim(oauthConfig('COCHEMOTOR_FRONTEND_URL', 'https://cochemotor.es'), '/');
         $redirectUri = $apiBase . '/api/auth/callback/' . $provider;
 
