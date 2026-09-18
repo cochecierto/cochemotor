@@ -371,8 +371,9 @@ try {
         $return = preg_replace('/[^a-zA-Z0-9_\-\/]/', '', (string)($_GET['return'] ?? 'hub'));
         if ($return === '') $return = 'hub';
 
-        $baseUrl = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL', 'https://cochemotor.es'), '/');
-        $redirectUri = $baseUrl . '/api/auth/callback/' . $provider;
+        $apiBase = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL', 'https://cochemotor.es'), '/');
+        $webBase = rtrim(oauthConfig('COCHEMOTOR_FRONTEND_URL', 'https://cochemotor.es'), '/');
+        $redirectUri = $apiBase . '/api/auth/callback/' . $provider;
 
         $clientId = '';
         if ($provider === 'google') $clientId = oauthConfig('GOOGLE_CLIENT_ID');
@@ -383,7 +384,7 @@ try {
             $names = ['google' => 'Google', 'apple' => 'Apple', 'facebook' => 'Facebook'];
             $providerName = $names[$provider] ?? $provider;
             $msg = rawurlencode("El acceso con {$providerName} requiere configurar las credenciales en el servidor. Por favor, usa tu correo electrónico.");
-            header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
+            header("Location: {$webBase}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
             exit;
         }
 
@@ -431,7 +432,9 @@ try {
     }
     if (preg_match('#^/api/auth/callback/(google|apple|facebook)$#', $route, $matches) && ($method === 'GET' || $method === 'POST')) {
         $provider = $matches[1];
-        $baseUrl = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL', 'https://cochemotor.es'), '/');
+        $apiBase = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL', 'https://cochemotor.es'), '/');
+        $webBase = rtrim(oauthConfig('COCHEMOTOR_FRONTEND_URL', 'https://cochemotor.es'), '/');
+        $redirectUri = $apiBase . '/api/auth/callback/' . $provider;
 
         $state = (string)($_REQUEST['state'] ?? '');
         $savedState = (string)($_COOKIE['cm_oauth_state'] ?? '');
