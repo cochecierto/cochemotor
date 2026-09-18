@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Añadir vehículo | CocheMotor</title><link rel="stylesheet" href="styles.css"><style>body{background:#f4f7fb}.intake-shell{max-width:1180px;margin:0 auto;padding:24px 18px 64px}.intake-back{display:inline-flex;margin-bottom:16px;color:#002d62;font-weight:750;text-decoration:none}.intake-shell .hub-tool-card{display:block!important;margin:0}</style></head><body><main class="intake-shell"><a class="intake-back" href="/panel">← Volver al panel</a><section id="tab-upload" class="hub-tool-card" style="display: none;">
+        <div class="chapter-badge">AÑADIR UN COCHE AL INVENTARIO</div>
+        <h2 class="hub-tool-title">Añade un vehículo al inventario</h2>
+        <p class="hub-tool-desc">
+          Completa los datos imprescindibles y guarda un borrador. Al terminar la revisión podrás decidir cuándo publicar el anuncio.
+        </p>
+        <ol class="upload-stepper" aria-label="Progreso del alta del vehículo">
+          <li class="is-current"><span>1</span><strong>Datos</strong></li><li><span>2</span><strong>Ubicación</strong></li><li><span>3</span><strong>Precio</strong></li><li><span>4</span><strong>Fotos y revisión</strong></li>
+        </ol>
+        <div class="publish-progress" id="publish-progress" role="status">Datos básicos 0/4 · Ubicación 0/3 · Fotos 0/10 · Consentimiento pendiente</div>
+        <div class="form-flow-tools"><span>Completa una etapa cada vez; tus datos se guardan como borrador en este dispositivo.</span><button type="button" class="btn btn-outline" id="save-vehicle-draft">Guardar borrador</button><span id="vehicle-draft-status" role="status"></span></div>
+
+        <form id="form-upload-vehicle" onsubmit="handleCreateVehicle(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <!-- Columna A: Datos Técnicos -->
+            <div>
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 16px;">1. Datos del vehículo</h3>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Marca *</label>
+                  <select id="up-brand" class="form-control" required></select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Modelo *</label>
+                  <select id="up-model" class="form-control" required disabled></select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Combustible *</label>
+                <select id="up-fuel" class="form-control" onchange="autoCalculateBadge()" required disabled></select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Versión y Motorización *</label>
+                <small class="form-help">Selecciona el combustible para mostrar las motorizaciones compatibles.</small>
+                <select id="up-version" class="form-control" required disabled></select>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Año de matriculación *</label>
+                  <select id="up-year" class="form-control" required disabled></select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Kilómetros *</label>
+                  <input type="text" id="up-km" class="form-control" placeholder="Ej: 58.000 km" required>
+                </div>
+              </div>
+
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin: 22px 0 16px;">2. Ubicación del inventario</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                <div class="form-group"><label class="form-label">CCAA *</label><select id="up-community" class="form-control" required></select></div>
+                <div class="form-group"><label class="form-label">Provincia *</label><select id="up-province" class="form-control" required disabled></select></div>
+                <div class="form-group"><label class="form-label">Municipio *</label><select id="up-municipality" class="form-control" required disabled></select></div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Caja de Cambios</label>
+                  <select id="up-gearbox" class="form-control">
+                    <option value="Manual 6 vel.">Manual 6 vel.</option>
+                    <option value="Automático DSG / Steptronic">Automático</option>
+                    <option value="Manual 5 vel.">Manual 5 vel.</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Distintivo DGT</label>
+                  <select id="up-badge" class="form-control" aria-describedby="up-badge-help">
+                    <option value="C">Etiqueta C (Verde)</option>
+                    <option value="ECO">Etiqueta ECO (Verde/Azul)</option>
+                    <option value="0">Etiqueta 0 Emisiones (Azul)</option>
+                    <option value="B">Etiqueta B (Amarillo)</option>
+                  </select>
+                  <small id="up-badge-help" class="form-help">Se propone automáticamente según combustible y año. Confirma el distintivo en la documentación oficial.</small>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Precio al Contado (€) *</label>
+                  <input type="number" id="up-price" class="form-control" placeholder="Ej: 17500" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Coste de Entrada (€)</label>
+                  <input type="number" id="up-cost" class="form-control" placeholder="Ej: 14000">
+                  <output id="up-margin-preview" class="margin-preview">Margen estimado: pendiente</output>
+                </div>
+                <div class="intake-price-assistant" role="region" aria-labelledby="intake-price-title">
+                  <div><strong id="intake-price-title">Precio recomendado</strong><span id="up-price-recommendation">Completa marca, modelo y año para estimarlo.</span></div>
+                  <button type="button" class="pipeline-action-btn" id="up-apply-recommended-price">Aplicar</button>
+                </div>
+                <div class="intake-finance-preview"><span>Cuota orientativa</span><strong id="up-monthly-preview">Completa precio y entrada</strong><small>Estimación según plazo y entrada</small></div>
+                <details class="intake-finance-details"><summary>Configurar cuota y margen</summary><div class="intake-finance-fields"><label>Entrada (€)<input type="number" id="up-downpayment" class="form-control" value="0" min="0"></label><label>Plazo<select id="up-months" class="form-control"><option value="36">36 meses</option><option value="48" selected>48 meses</option><option value="60">60 meses</option></select></label></div></details>
+                <div class="intake-quality" role="status"><strong>Calidad del anuncio</strong><span id="up-quality-score">Completa los datos para obtener una puntuación.</span></div>
+              </div>
+
+              <details id="pricing-analysis" class="pricing-analysis">
+                <summary>4. Análisis de precio y margen</summary>
+                <p class="form-help">Calcula la rentabilidad real de la operación antes de publicar. Este análisis solo lo verá tu equipo.</p>
+                <div class="pricing-analysis-fields">
+                  <label>Origen del vehículo<select id="up-purchase-source" class="form-control"><option value="particular">Particular</option><option value="profesional">Otro profesional</option><option value="subasta">Subasta</option><option value="renting">Renting o financiera</option><option value="importacion">Importación</option><option value="parte_pago">Parte de pago</option></select></label>
+                  <label>Fiscalidad<select id="up-tax-mode" class="form-control"><option value="rebu">Compra a particular / posible REBU</option><option value="iva_deducible">Factura con IVA deducible</option><option value="factura_rebu">Factura bajo REBU</option><option value="pendiente">Fiscalidad pendiente de confirmar</option></select></label>
+                  <label>Precio de compra o puja (€)<input id="up-purchase-price" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Comisión de subasta (€)<input id="up-auction-fee" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Transporte y documentación (€)<input id="up-acquisition-costs" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Preparación, garantía y reparaciones (€)<input id="up-preparation-costs" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Reserva de riesgo y financiación (€)<input id="up-risk-costs" class="form-control pricing-input" type="number" min="0" value="0"></label>
+                  <label>Beneficio mínimo deseado (€)<input id="up-min-profit" class="form-control pricing-input" type="number" min="0" value="1000"></label>
+                  <label>Días máximos en stock<input id="up-max-stock-days" class="form-control pricing-input" type="number" min="1" value="60"></label>
+                </div>
+                <div class="pricing-scenarios" id="pricing-scenarios" aria-live="polite">
+                  <article><strong>Venta rápida</strong><span id="quick-sale-price">—</span><small id="quick-sale-meta">Completa el coste y el precio.</small></article>
+                  <article class="is-recommended"><strong>Venta óptima · recomendada</strong><span id="optimal-sale-price">—</span><small id="optimal-sale-meta">La decisión equilibrada.</small></article>
+                  <article><strong>Venta fuera de mercado</strong><span id="premium-sale-price">—</span><small id="premium-sale-meta">Mayor margen, más días en stock.</small></article>
+                </div>
+                <div class="pricing-recommendation"><strong>Precio máximo recomendado de adquisición: <span id="maximum-purchase-price">—</span></strong><span id="pricing-recommendation-copy">Calcula la operación para conocer tu límite de compra.</span><span id="maximum-auction-bid" hidden></span></div>
+                <button type="button" class="pipeline-action-btn" id="up-calculate-pricing">Calcular operación</button>
+                <button type="button" class="btn btn-outline" id="up-save-pricing">Guardar análisis y continuar con la publicación</button>
+              </details>
+
+              <div class="publication-settings" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group"><span class="form-label">Estado de publicación</span><p>El anuncio quedará pendiente de revisión del contacto antes de mostrarse a compradores.</p></div>
+                <div class="form-group">
+                  <label class="form-label">Visibilidad del anuncio</label>
+                  <select id="up-publication-status" class="form-control">
+                    <option value="disponible" selected>Disponible</option>
+                    <option value="proxima_entrada">Próxima entrada</option>
+                  </select>
+                  <small class="form-help">“Próxima entrada” muestra una ficha de interés con imagen informativa y permite recibir reservas anticipadas.</small>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Estado de la información mecánica</label>
+                  <select id="up-evidence-level" class="form-control" style="font-size: 0.85rem;">
+                    <option value="declarado" selected>Declarado por el vendedor; pendiente de verificación independiente</option>
+                  </select>
+                </div>
+              </div>
+
+              <details class="real-photos-details">
+                <summary>Añadir fotos reales del vehículo</summary>
+                <div class="form-group">
+                  <span class="form-label">Fotos del coche <span style="color:var(--cm-red);">*</span></span>
+                  <small id="up-image-count" style="display:block;margin-top:6px;color:var(--cm-text-secondary);">0/10 fotos añadidas · Añade cada foto desde su tarjeta.</small>
+                </div>
+              </details>
+            </div>
+
+            <!-- Columna B: Asistente Fotográfico Guiado -->
+            <div>
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 8px;">2. Checklist Fotográfico de Confianza</h3>
+              <p style="font-size: 0.85rem; color: var(--cm-text-secondary); margin-bottom: 14px;">
+                Fotos esenciales para certificar estado mecánico y evitar compradores desconfiados:
+              </p>
+
+              <div class="photo-guide-grid" aria-label="Ejemplos de fotografías recomendadas">
+                <div class="photo-slot-card has-photo"><img class="photo-slot-thumb" src="assets/brand/photo-guide/front-right.webp" alt="Ejemplo de foto frontal tres cuartos" loading="eager"><div class="photo-slot-copy"><div class="photo-slot-title">1. Frontal 3/4 (Portada)</div><div class="photo-slot-desc">Ruedas rectas, luz natural exterior.</div></div></div>
+                <div class="photo-slot-card"><img class="photo-slot-thumb" src="assets/brand/photo-guide/left-side.webp" alt="Ejemplo del lateral izquierdo completo" loading="lazy"><div class="photo-slot-copy"><div class="photo-slot-title">2. Lateral izquierdo</div><div class="photo-slot-desc">Coche entero, sin recortes.</div></div></div>
+                <div class="photo-slot-card"><img class="photo-slot-thumb" src="assets/brand/photo-guide/right-side.webp" alt="Ejemplo del lateral derecho completo" loading="lazy"><div class="photo-slot-copy"><div class="photo-slot-title">3. Lateral derecho</div><div class="photo-slot-desc">Coche entero, puertas y línea exterior.</div></div></div>
+                <div class="photo-slot-card has-photo"><img class="photo-slot-thumb" src="assets/brand/photo-guide/rear.webp" alt="Ejemplo de foto trasera" loading="lazy"><div class="photo-slot-copy"><div class="photo-slot-title">4. Trasera</div><div class="photo-slot-desc">Pilotos, paragolpes y escape.</div></div></div>
+                <div class="photo-slot-card"><img class="photo-slot-thumb" src="assets/brand/photo-guide/front-interior.webp" alt="Ejemplo del interior delantero" loading="lazy"><div class="photo-slot-copy"><div class="photo-slot-title">5. Interior delantero</div><div class="photo-slot-desc">Volante, asientos, pedales y salpicadero.</div></div></div>
+                <div class="photo-slot-card"><img class="photo-slot-thumb" src="assets/brand/photo-guide/rear-interior.webp" alt="Ejemplo de plazas traseras" loading="lazy"><div class="photo-slot-copy"><div class="photo-slot-title">6. Plazas traseras</div><div class="photo-slot-desc">Espacio, tapicería y estado de las puertas.</div></div></div>
+                <div class="photo-slot-card"><img class="photo-slot-thumb" src="assets/brand/photo-guide/trunk.webp" alt="Ejemplo de maletero" loading="lazy"><div class="photo-slot-copy"><div class="photo-slot-title">7. Maletero</div><div class="photo-slot-desc">Espacio, revestimiento y estado interior.</div></div></div>
+                <div class="photo-slot-card"><img class="photo-slot-thumb" src="assets/brand/photo-guide/engine.webp" alt="Ejemplo del vano motor" loading="lazy"><div class="photo-slot-copy"><div class="photo-slot-title">8. Vano motor</div><div class="photo-slot-desc">Limpio y sin fugas visibles.</div></div></div>
+                <div class="photo-slot-card"><img class="photo-slot-thumb" src="assets/brand/photo-guide/dashboard-km.webp" alt="Ejemplo de cuadro de instrumentos encendido" loading="lazy"><div class="photo-slot-copy"><div class="photo-slot-title">9. Cuadro encendido</div><div class="photo-slot-desc">Demuestra kilómetros y ausencia de testigos.</div></div></div>
+                <div class="photo-slot-card"><img class="photo-slot-thumb" src="assets/brand/photo-guide/tire.webp" alt="Ejemplo de neumático y llanta" loading="lazy"><div class="photo-slot-copy"><div class="photo-slot-title">10. Neumáticos y llantas</div><div class="photo-slot-desc">Dibujo y posibles daños.</div></div></div>
+              </div>
+
+              <div class="form-group" style="margin-top: 18px;">
+                <label class="form-label">Puntos Fuertes de Taller (1 por línea)</label>
+                <textarea id="up-highlights" class="form-control" rows="3" placeholder="Kit de distribución recién cambiado&#10;Neumáticos al 90%&#10;ITV en vigor hasta 2026&#10;1 Solo propietario con libro"></textarea>
+              </div>
+
+              <label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:.9rem"><input id="up-contact-consent" type="checkbox" required><span>Autorizo el uso de estos datos de contacto para revisar y gestionar la publicación. Consulta la <a href="/privacidad" target="_blank" rel="noopener">Política de privacidad</a>.</span></label>
+              <p id="vehicle-submit-status" role="status" aria-live="polite" style="margin-top:10px"></p>
+              <button type="submit" class="btn btn-red" style="width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 800; margin-top: 16px;">
+                🚀 Enviar anuncio a revisión
+              </button>
+            </div>
+          </div>
+        </form>
+      </section></main><script src="site-config.js?v=20260917.1"></script><script type="module" src="assets/js/inventory_selectors.js?v=5"></script><script src="hub.js?v=20260918.1"></script><script>window.addEventListener('DOMContentLoaded',()=>{if(typeof initVehiclePhotoGuide==='function')initVehiclePhotoGuide();if(typeof initPublishProgress==='function')initPublishProgress();});</script></body></html>

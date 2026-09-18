@@ -227,7 +227,7 @@
         </button>
 
         <div class="hub-nav-section-label">Vehículos e Inventario</div>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-upload')">
+        <button class="hub-nav-item" onclick="window.location.href='/panel/vehiculo/nuevo'">
           <span class="hub-nav-item-icon" aria-hidden="true">+</span>
           <span>Añadir vehículo</span>
         </button>
@@ -347,7 +347,7 @@
       <section id="tab-home" class="hub-tool-card hub-home-card">
         <div class="chapter-badge">CENTRO OPERATIVO</div><h2 class="hub-tool-title">Tu día de ventas, de un vistazo</h2>
         <p class="hub-tool-desc">Empieza por la tarea que desbloquea tu siguiente venta. El inventario, los contactos y las operaciones comparten la misma ficha de vehículo.</p>
-        <div class="hub-home-actions"><button class="btn btn-red" onclick="switchHubTab('tab-upload')">Añadir vehículo</button><button class="btn btn-outline" onclick="switchHubTab('tab-pipeline')">Ver contactos y fases</button><button class="btn btn-outline" onclick="switchHubTab('tab-generator')">Preparar un anuncio</button></div>
+        <div class="hub-home-actions"><a class="btn btn-red" href="/panel/vehiculo/nuevo">Añadir vehículo</a><button class="btn btn-outline" onclick="switchHubTab('tab-pipeline')">Ver contactos y fases</button><button class="btn btn-outline" onclick="switchHubTab('tab-generator')">Preparar un anuncio</button></div>
         <div class="hub-home-grid"><div><strong>Inventario</strong><span id="home-stock-summary">Cargando…</span></div><div><strong>Atención hoy</strong><span id="home-attention-summary">Cargando…</span></div><div><strong>Siguiente paso</strong><span>Usa la recomendación superior para avanzar.</span></div></div>
       </section>
       <section id="tab-upload" class="hub-tool-card" style="display: none;">

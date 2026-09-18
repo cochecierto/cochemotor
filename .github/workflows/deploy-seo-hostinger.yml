@@ -26,6 +26,7 @@ on:
       - "perfil.html"
       - "publicar.html"
       - "hub.html"
+      - "vehiculo-nuevo.html"
       - "asesor.html"
       - "asesor-leads.html"
       - "styles.css"
@@ -64,6 +65,7 @@ on:
       - "perfil.html"
       - "publicar.html"
       - "hub.html"
+      - "vehiculo-nuevo.html"
       - "asesor.html"
       - "asesor-leads.html"
       - "styles.css"
@@ -226,6 +228,7 @@ jobs:
           put perfil.html $stage/perfil.html
           put publicar.html $stage/publicar.html
           put hub.html $stage/hub.html
+          put vehiculo-nuevo.html $stage/vehiculo-nuevo.html
           put asesor.html $stage/asesor.html
           put asesor-leads.html $stage/asesor-leads.html
           put api/index.php $stage/api/index.php
@@ -264,6 +267,7 @@ jobs:
           rename $stage/perfil.html perfil.html
           rename $stage/publicar.html publicar.html
           rename $stage/hub.html hub.html
+          rename $stage/vehiculo-nuevo.html vehiculo-nuevo.html
           rename $stage/asesor.html asesor.html
           rename $stage/asesor-leads.html asesor-leads.html
           rename api/index.php api/index.php.seo-backup-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
