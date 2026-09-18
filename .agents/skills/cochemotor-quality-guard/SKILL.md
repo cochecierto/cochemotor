@@ -26,6 +26,7 @@ Debe activarse antes de:
 5. Para cambios visuales, comprobar tamaños, MIME, transparencia, contraste, responsive y coherencia de las variantes claro/oscuro.
 6. Para flujos B2B/B2C, comprobar validación, estados, persistencia, duplicados, errores, privacidad y aislamiento por cuenta.
 7. Para despliegues, distinguir claramente entre commit local, `origin/main`, sincronización de Hostinger y verificación real de la URL publicada.
+8. Para copy, buscar mojibake (`Ã`, `Â`, `â€`), términos no es-ES, placeholders visibles y claims sin evidencia; comprobar que textos comerciales, UX y legales tengan el revisor adecuado.
 
 ## Reglas de decisión
 - `PASS`: todos los criterios comprobados y evidencia disponible.

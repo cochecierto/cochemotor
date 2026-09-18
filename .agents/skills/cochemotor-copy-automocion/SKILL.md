@@ -30,6 +30,15 @@ La capa B2C se comunica como **Coche Ideal**: el particular publica lo que busca
 - En copy SEO, responde a la intención de búsqueda sin repetir palabras clave artificialmente. En UX, explica qué ocurrirá al pulsar, qué datos se solicitan y cómo corregir un error.
 - No atribuyas a una variante mejora de conversión sin experimento o medición válida. Define hipótesis, métrica primaria, límites de privacidad y condición para detener la prueba antes de proponer un A/B.
 
+## Español peninsular y revisión editorial
+
+- El idioma por defecto es español de España (es-ES), con vocabulario peninsular y términos aprobados en `references/es-es-glossary.md`.
+- Usa «coche», «matrícula», «kilómetros», «maletero», «capó», «neumáticos», «correo electrónico», «contraseña», «sesión», «municipio» y «comunidad autónoma».
+- No uses «carro», «placa», «millas», «baúl», «cofre», «llantas» como término principal, «correo» cuando se requiera precisión, ni traducciones latinoamericanas sin una variante regional explícita.
+- Antes de entregar copy, ejecuta una revisión de codificación UTF-8, términos prohibidos, placeholders, mensajes con datos y consistencia con la superficie.
+- Separa tres capas: copy comercial (persuasión), UX writing (acción y estado) y legal/técnico (precisión). El editor puede simplificar, pero no alterar obligaciones, cifras, condiciones ni nombres oficiales.
+- La revisión devuelve siempre: texto original, propuesta, superficie, audiencia, intención, claims que requieren evidencia y agente revisor recomendado.
+
 ## Tareas
 
 1. Auditar menús, titulares, formularios, ayudas, CTAs, estados, errores y confirmaciones.

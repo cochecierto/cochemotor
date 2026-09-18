@@ -29,6 +29,15 @@ A diferencia de plantillas SaaS genéricas o portales de clasificados saturados,
 
 ## Reglas de Arquitectura
 
+## Revisión de copy y localización
+
+- Todo texto visible debe pasar por `cochemotor-copy-automocion` cuando sea comercial o de producto, y por `cochemotor-dgt-legal` cuando incluya DGT, garantía, contrato, privacidad o condiciones.
+- El idioma de publicación por defecto es español peninsular (`es-ES`). Mantener un glosario único y detectar mojibake (`Ã`, `Â`, `â€`) antes de revisar el tono.
+- No usar claims de ventas, verificaciones, garantías, disponibilidad o rendimiento sin evidencia en el repositorio o una fuente aprobada.
+- Separar titulares, ayudas, estados, errores, CTAs y textos legales; cada uno debe indicar una acción o una condición comprensible.
+- En páginas para compradores, hablar de «coches» y «solicitudes»; en el panel profesional, de «vehículos», «contactos» y «publicar».
+- La revisión editorial no modifica datos técnicos, marcas, cifras, URLs ni textos legales sin el handoff correspondiente.
+
 - **Centralización Absoluta**: Todo el copy, rutas de imagen, datos de stock, colores, teléfonos de WhatsApp y textos de FAQ viven en `site.config.js`. Ningún componente visual contiene texto o datos *hardcodeados*.
 - **Mobile-First Real**: Diseñado desde 320 px de ancho, con áreas táctiles mínimas de $44 \times 44\text{ px}$ y contraste accesible WCAG AA.
 - **Cero Estética Barata**: Prohibido el abuso de cajas translúcidas, sombras difusas o gradientes estridentes; el impacto se logra mediante tipografía limpia (*Plus Jakarta Sans / Inter*), espacio negativo y fotografía automotriz de calidad.
