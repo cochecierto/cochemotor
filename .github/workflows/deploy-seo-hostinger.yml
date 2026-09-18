@@ -288,15 +288,15 @@ jobs:
               exit 1
             fi
             page="$RUNNER_TEMP/$route"
-            curl --fail --silent --show-error --retry 4 --retry-delay 2 "https://cochemotor.es/$route" -o "$page"
+            curl --fail --silent --show-error --location --retry 4 --retry-delay 2 "https://cochemotor.es/$route" -o "$page"
             grep -Eiq '<meta name="robots" content="noindex,follow">' "$page"
           done
           curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/sitemap.xml -o "$RUNNER_TEMP/cochemotor-sitemap.xml"
           python3 -c "import xml.etree.ElementTree as ET; root=ET.parse(r'$RUNNER_TEMP/cochemotor-sitemap.xml').getroot(); urls=[e.text for e in root.iter() if e.tag.endswith('loc')]; excluded=('/publicar.html','/acceso.html','/hub.html','/asesor.html','/asesor-leads.html'); assert any(u.endswith('/guias/comprar-coche-usado.html') for u in urls); assert not any(u.endswith(excluded) for u in urls)"
-          curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/ -o "$RUNNER_TEMP/cochemotor-home.html"
+          curl --fail --silent --show-error --location --retry 4 --retry-delay 2 https://cochemotor.es/ -o "$RUNNER_TEMP/cochemotor-home.html"
           grep -F '<link rel="canonical" href="https://cochemotor.es/">' "$RUNNER_TEMP/cochemotor-home.html"
           grep -F 'application/ld+json' "$RUNNER_TEMP/cochemotor-home.html"
-          curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/guias/comprar-coche-usado.html -o "$RUNNER_TEMP/cochemotor-guide.html"
+          curl --fail --silent --show-error --location --retry 4 --retry-delay 2 https://cochemotor.es/guias/comprar-coche-usado.html -o "$RUNNER_TEMP/cochemotor-guide.html"
           grep -F "Cómo revisar un coche de segunda mano antes de comprar" "$RUNNER_TEMP/cochemotor-guide.html"
 
       - name: Verificar que los activos publicados coinciden con este commit
