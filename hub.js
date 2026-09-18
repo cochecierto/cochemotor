@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const MAX_VEHICLE_IMAGES = 10;
 const VEHICLE_PHOTO_SLOTS = ['front-right','left-side','right-side','rear','front-interior','rear-interior','trunk','engine','dashboard-km','tire'];
+const UPCOMING_ENTRY_IMAGE = 'assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png';
 const vehiclePhotoFiles = new Map();
 const vehiclePhotoUrls = new Map();
 
@@ -60,9 +61,23 @@ function initPublishProgress() {
   ['up-price','up-cost','up-downpayment'].forEach(id => document.getElementById(id)?.addEventListener('input', updatePriceAssistant));
   document.getElementById('up-apply-recommended-price')?.addEventListener('click', () => { const recommendation = document.getElementById('up-price-recommendation')?.dataset.value; if (recommendation) { document.getElementById('up-price').value = recommendation; update(); updatePriceAssistant(); } });
   document.getElementById('up-contact-consent')?.addEventListener('change', update);
+  document.getElementById('up-publication-status')?.addEventListener('change', () => { updateUpcomingEntryPreview(); update(); });
   document.addEventListener('vehicle-photos-updated', update);
   update();
   updatePriceAssistant();
+}
+
+function updateUpcomingEntryPreview() {
+  const status = document.getElementById('up-publication-status')?.value;
+  const image = document.querySelector('.photo-slot-card .photo-slot-thumb');
+  if (!image || vehiclePhotoFiles.has('front-right')) return;
+  if (status === 'proxima_entrada') {
+    image.src = UPCOMING_ENTRY_IMAGE;
+    image.alt = 'Imagen informativa de próxima entrada';
+  } else if (image.dataset.reference) {
+    image.src = image.dataset.reference;
+    image.alt = 'Ejemplo de foto frontal tres cuartos';
+  }
 }
 
 function updatePriceAssistant() {
@@ -133,6 +148,7 @@ function initVehiclePhotoGuide() {
   });
   function updatePhotoCount() { count.textContent = `${vehiclePhotoFiles.size}/${MAX_VEHICLE_IMAGES} fotos añadidas · La primera será la portada.`; count.style.color = 'var(--cm-text-secondary)'; document.dispatchEvent(new Event('vehicle-photos-updated')); }
   updatePhotoCount();
+  updateUpcomingEntryPreview();
 }
 
 async function logoutLocalSession() {
@@ -355,8 +371,16 @@ async function handleCreateVehicle(event) {
   const badge = document.getElementById('up-badge').value;
   const price = Number(document.getElementById('up-price').value);
   const cost = parseFloat(document.getElementById('up-cost').value) || (price * 0.82);
+  const publicationStatus = document.getElementById('up-publication-status')?.value || 'disponible';
+  if (!vehiclePhotoFiles.size && publicationStatus === 'proxima_entrada') {
+    try {
+      const response = await fetch(UPCOMING_ENTRY_IMAGE);
+      if (!response.ok) throw new Error('No se pudo cargar la imagen informativa de próxima entrada.');
+      vehiclePhotoFiles.set('front-right', await response.blob());
+    } catch (error) { status.textContent = error instanceof Error ? error.message : 'No se pudo preparar la imagen de próxima entrada.'; return; }
+  }
   const imageFiles = VEHICLE_PHOTO_SLOTS.map(slot => vehiclePhotoFiles.get(slot)).filter(Boolean);
-  if (!imageFiles.length) { status.textContent='Añade al menos una foto real del vehículo.'; return; }
+  if (!imageFiles.length) { status.textContent='Añade al menos una foto real del vehículo o selecciona “Próxima entrada”.'; return; }
   if (imageFiles.length > MAX_VEHICLE_IMAGES) { status.textContent=`Un anuncio puede tener como máximo ${MAX_VEHICLE_IMAGES} fotos.`; return; }
   const highlightsText = document.getElementById('up-highlights').value.trim();
   const communitySelect = document.getElementById('up-community');
@@ -418,6 +442,7 @@ async function handleCreateVehicle(event) {
     clicksCount: 0,
     leadsCount: 0,
     estimatedMarketPrice: price,
+    publicationStatus,
   };
 
   const location=municipalitySelect?.selectedOptions[0]?.textContent?.trim()||'';

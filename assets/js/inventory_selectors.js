@@ -23,7 +23,7 @@ function versionLabel(code, brand, model, fuel) {
 }
 
 function resetVehicleFrom(level) {
-  const order = ['up-model', 'up-version', 'up-year', 'up-fuel'];
+  const order = ['up-model', 'up-fuel', 'up-version', 'up-year'];
   const index = order.indexOf(level);
   order.slice(index).forEach(id => fill($(id), [], 'Selecciona una opción', true));
 }
@@ -41,7 +41,7 @@ function initVehicleSelectors() {
     fill(model, getModels(brand.value), 'Selecciona modelo', false);
   });
   model.addEventListener('change', () => {
-    resetVehicleFrom('up-version');
+    resetVehicleFrom('up-fuel');
     const fuels = getFuels(brand.value, model.value);
     const normalizedFuels = Array.from(new Map(fuels.map(value => [fuelLabel(value), { id:value, name:fuelLabel(value) }])).values());
     fill(fuel, normalizedFuels, 'Selecciona combustible', false);
@@ -55,7 +55,9 @@ function initVehicleSelectors() {
     }
   });
   version.addEventListener('change', () => {
-    fill(year, getYears(brand.value, model.value), 'Selecciona año', false);
+    const currentYear = new Date().getFullYear() + 1;
+    const years = Array.from({length: currentYear - 2000 + 1}, (_, index) => currentYear - index);
+    fill(year, years, 'Selecciona año', false);
     const id = buildVehicleCatalogId(brand.value, model.value, '', fuel.value, version.value);
     version.dataset.catalogId = id;
   });
