@@ -393,7 +393,7 @@ try {
             exit;
         }
 
-        $stateData = bin2hex(random_bytes(16)) . '.' . base64_encode((string)json_encode(['provider' => $provider, 'audience' => $audience, 'return' => $return]));
+        $stateData = bin2hex(random_bytes(16)) . '.' . base64_encode((string)json_encode(['provider' => $provider, 'audience' => $audience, 'return' => $return, 'redirect_uri' => $redirectUri]));
         setcookie('cm_oauth_state', $stateData, [
             'expires' => time() + 900,
             'path' => '/',
@@ -439,6 +439,7 @@ try {
         $provider = $matches[1];
         $apiBase = rtrim(oauthConfig('COCHEMOTOR_OAUTH_REDIRECT_BASE', 'https://cochemotor.es'), '/');
         $webBase = rtrim(oauthConfig('COCHEMOTOR_FRONTEND_URL', 'https://cochemotor.es'), '/');
+        $baseUrl = $webBase;
         $redirectUri = $apiBase . '/api/auth/callback/' . $provider;
 
         $state = (string)($_REQUEST['state'] ?? '');
@@ -450,6 +451,9 @@ try {
             $parts = explode('.', $state, 2);
             $decoded = json_decode(base64_decode($parts[1]), true);
             if (is_array($decoded)) $stateMeta = $decoded;
+        }
+        if (!empty($stateMeta['redirect_uri'])) {
+            $redirectUri = (string)$stateMeta['redirect_uri'];
         }
         $audience = ($stateMeta['audience'] ?? 'buyer') === 'professional' ? 'professional' : 'buyer';
         $return = preg_replace('/[^a-zA-Z0-9_\-\/]/', '', (string)($stateMeta['return'] ?? 'hub'));
@@ -475,7 +479,6 @@ try {
             exit;
         }
 
-        $redirectUri = $baseUrl . '/api/auth/callback/' . $provider;
         $oauthUser = null;
 
         if ($provider === 'google') {
@@ -487,39 +490,88 @@ try {
                 exit;
             }
 
-            $ch = curl_init('https://oauth2.googleapis.com/token');
-            curl_setopt_array($ch, [
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => http_build_query([
-                    'code' => $code,
-                    'client_id' => $clientId,
-                    'client_secret' => $clientSecret,
-                    'redirect_uri' => $redirectUri,
-                    'grant_type' => 'authorization_code'
-                ]),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_TIMEOUT => 10,
-                CURLOPT_HTTPHEADER => ['Accept: application/json']
-            ]);
-            $res = curl_exec($ch);
-            curl_close($ch);
+            $tokenParams = [
+                'code' => $code,
+                'client_id' => $clientId,
+                'client_secret' => $clientSecret,
+                'redirect_uri' => $redirectUri,
+                'grant_type' => 'authorization_code'
+            ];
+            $tokenPost = http_build_query($tokenParams);
+            $res = false;
+            $curlErr = '';
+            if (function_exists('curl_init')) {
+                $ch = curl_init('https://oauth2.googleapis.com/token');
+                curl_setopt_array($ch, [
+                    CURLOPT_POST => true,
+                    CURLOPT_POSTFIELDS => $tokenPost,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_TIMEOUT => 15,
+                    CURLOPT_SSL_VERIFYPEER => true,
+                    CURLOPT_SSL_VERIFYHOST => 2,
+                    CURLOPT_HTTPHEADER => [
+                        'Content-Type: application/x-www-form-urlencoded',
+                        'Accept: application/json',
+                        'User-Agent: CocheMotor/1.0'
+                    ]
+                ]);
+                $res = curl_exec($ch);
+                $curlErr = curl_error($ch);
+                curl_close($ch);
+            }
+            if ($res === false || $res === '') {
+                $opts = [
+                    'http' => [
+                        'method' => 'POST',
+                        'header' => "Content-Type: application/x-www-form-urlencoded\r\nAccept: application/json\r\nUser-Agent: CocheMotor/1.0\r\n",
+                        'content' => $tokenPost,
+                        'timeout' => 15,
+                        'ignore_errors' => true
+                    ]
+                ];
+                $res = @file_get_contents('https://oauth2.googleapis.com/token', false, stream_context_create($opts));
+            }
+
             $tokenData = json_decode((string)$res, true);
             $accessToken = $tokenData['access_token'] ?? '';
             if ($accessToken === '') {
-                $msg = rawurlencode('No se pudo validar el acceso con Google.');
+                $errDesc = $tokenData['error_description'] ?? $tokenData['error'] ?? $curlErr ?? 'Error de validación';
+                $msg = rawurlencode("No se pudo validar el acceso con Google ({$errDesc}).");
                 header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
                 exit;
             }
 
-            $ch = curl_init('https://www.googleapis.com/oauth2/v3/userinfo');
-            curl_setopt_array($ch, [
-                CURLOPT_HTTPHEADER => ['Authorization: Bearer ' . $accessToken, 'Accept: application/json'],
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_TIMEOUT => 10
-            ]);
-            $res = curl_exec($ch);
-            curl_close($ch);
-            $info = json_decode((string)$res, true);
+            $info = null;
+            if (function_exists('curl_init')) {
+                $ch = curl_init('https://www.googleapis.com/oauth2/v3/userinfo');
+                curl_setopt_array($ch, [
+                    CURLOPT_HTTPHEADER => [
+                        'Authorization: Bearer ' . $accessToken,
+                        'Accept: application/json',
+                        'User-Agent: CocheMotor/1.0'
+                    ],
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_TIMEOUT => 15,
+                    CURLOPT_SSL_VERIFYPEER => true,
+                    CURLOPT_SSL_VERIFYHOST => 2
+                ]);
+                $res = curl_exec($ch);
+                curl_close($ch);
+                $info = json_decode((string)$res, true);
+            }
+            if (!is_array($info) || empty($info['sub'])) {
+                $opts = [
+                    'http' => [
+                        'method' => 'GET',
+                        'header' => "Authorization: Bearer {$accessToken}\r\nAccept: application/json\r\nUser-Agent: CocheMotor/1.0\r\n",
+                        'timeout' => 15,
+                        'ignore_errors' => true
+                    ]
+                ];
+                $res = @file_get_contents('https://www.googleapis.com/oauth2/v3/userinfo', false, stream_context_create($opts));
+                $info = json_decode((string)$res, true);
+            }
+
             if (is_array($info) && !empty($info['sub']) && !empty($info['email'])) {
                 $oauthUser = [
                     'provider_uid' => (string)$info['sub'],
