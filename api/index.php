@@ -7,6 +7,7 @@ declare(strict_types=1);
 $privateConfigCandidates = [
     dirname(__DIR__, 2) . '/cochemotor-private/config.php',
     dirname(__DIR__, 3) . '/cochemotor-private/config.php',
+    dirname(__DIR__, 4) . '/cochemotor-private/config.php',
     dirname(__DIR__) . '/../cochemotor-private/config.php'
 ];
 $privateConfigLoaded = false;
