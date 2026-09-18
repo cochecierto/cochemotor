@@ -98,6 +98,13 @@ function initProgressiveVehicleForm() {
     for (const selector of fields) {
       const field = form.querySelector(selector);
       if (!field || !field.required) continue;
+      if (field.disabled) {
+        const label = field.closest('.form-group')?.querySelector('label')?.textContent?.replace('*', '').trim() || 'este campo';
+        const status = document.getElementById('vehicle-submit-status');
+        if (status) status.textContent = `Completa ${label} para continuar.`;
+        field.closest('.form-group')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+      }
       if (!field.checkValidity()) {
         field.reportValidity();
         field.focus({ preventScroll: true });
@@ -123,6 +130,7 @@ function initProgressiveVehicleForm() {
     nav.querySelector('[data-progressive-prev]').disabled = current === 1; nav.querySelector('[data-progressive-next]').textContent = current === 4 ? 'Revisar anuncio' : 'Continuar'; nav.querySelector('[data-progressive-label]').textContent = `Paso ${current} de 4 · ${steps[current - 1]}`; document.querySelectorAll('.upload-stepper li').forEach((item,index)=>item.classList.toggle('is-current', index === current - 1)); form.dispatchEvent(new CustomEvent('progressive-step-change'));
   };
   form._setProgressiveStep = setStep;
+  form._validateProgressiveStep = validateStep;
   nav.querySelector('[data-progressive-prev]').addEventListener('click', () => setStep(Number(form.dataset.progressiveStep) - 1));
   nav.querySelector('[data-progressive-next]').addEventListener('click', () => {
     const current = Number(form.dataset.progressiveStep);
@@ -475,15 +483,27 @@ async function compressVehicleImage(file) {
 async function handleCreateVehicle(event) {
   event.preventDefault();
   const form=event.currentTarget, status=document.getElementById('vehicle-submit-status'), submit=form.querySelector('button[type="submit"]');
+  const currentProgressiveStep = Number(form.dataset.progressiveStep || 4);
+  if (currentProgressiveStep < 4) {
+    if (typeof form._validateProgressiveStep === 'function' && form._validateProgressiveStep(currentProgressiveStep)) {
+      form._setProgressiveStep?.(currentProgressiveStep + 1);
+    }
+    return;
+  }
   const localSession=getProfessionalSession();
   if (!localSession?.verified || !localSession.sessionToken) { window.location.href='/acceso?audience=professional&return=hub&mode=login'; return; }
   if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) { window.location.href='/perfil'; return; }
-  const invalidField = Array.from(form.querySelectorAll('input, select, textarea')).find(field => field.required && !field.checkValidity());
+  const invalidField = Array.from(form.querySelectorAll('input, select, textarea')).find(field => field.required && (field.disabled || !field.checkValidity()));
   if (invalidField) {
     const fieldStep = ['up-brand','up-model','up-fuel','up-version','up-year','up-km'].includes(invalidField.id) ? 1
       : ['up-community','up-province','up-municipality'].includes(invalidField.id) ? 2
       : ['up-price','up-cost'].includes(invalidField.id) ? 3 : 4;
     if (fieldStep && typeof form._setProgressiveStep === 'function') form._setProgressiveStep(Number(fieldStep));
+    if (invalidField.disabled) {
+      status.textContent = 'Completa los campos dependientes antes de enviar el anuncio.';
+      invalidField.closest('.form-group')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
     invalidField.reportValidity(); invalidField.focus(); return;
   }
 
