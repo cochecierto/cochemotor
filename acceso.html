@@ -16,15 +16,15 @@
 
   <main class="auth-card" aria-labelledby="auth-title">
 
-    <div class="auth-head"><a href="/" class="auth-brand" aria-label="Volver a CocheMotor"><img src="assets/brand/logos/cochemotor-horizontal-light.png" alt="CocheMotor" class="auth-logo"></a><a href="/" class="auth-close" aria-label="Cerrar acceso">Ã—</a></div>
+    <div class="auth-head"><a href="/" class="auth-brand" aria-label="Volver a CocheMotor"><img src="assets/brand/logos/cochemotor-horizontal-light.png" alt="CocheMotor" class="auth-logo"></a><a href="/" class="auth-close" aria-label="Cerrar acceso">&times;</a></div>
 
     <div class="auth-eyebrow"><span></span> ACCESO A COCHEMOTOR</div>
 
-    <h1 id="auth-title">Entra y continÃºa donde lo dejaste</h1>
+    <h1 id="auth-title">Entra y continúa donde lo dejaste</h1>
 
-    <p class="auth-intro" id="auth-intro">Accede para publicar coches, guardar bÃºsquedas o hablar con un vendedor.</p>
+    <p class="auth-intro" id="auth-intro">Accede para publicar coches, guardar búsquedas o hablar con un vendedor.</p>
 
-    <div class="auth-audience" role="group" aria-label="QuÃ© quieres hacer">
+    <div class="auth-audience" role="group" aria-label="Qué quieres hacer">
 
       <button type="button" class="auth-audience-option" data-audience="buyer">Buscar un coche</button>
 
@@ -36,7 +36,7 @@
 
     <div class="auth-tabs" role="tablist" aria-label="Acceso a CocheMotor">
 
-      <button type="button" class="auth-tab active" id="login-tab" role="tab" aria-selected="true" aria-controls="login-panel">Iniciar sesiÃ³n</button>
+      <button type="button" class="auth-tab active" id="login-tab" role="tab" aria-selected="true" aria-controls="login-panel">Iniciar sesión</button>
 
       <button type="button" class="auth-tab" id="register-tab" role="tab" aria-selected="false" aria-controls="register-panel">Crear cuenta</button>
 
@@ -46,16 +46,16 @@
 
     <form id="login-form">
 
-      <label for="login-email">Correo electrÃ³nico</label><input id="login-email" type="email" autocomplete="email" required>
+      <label for="login-email">Correo electrónico</label><input id="login-email" type="email" autocomplete="email" required>
 
-      <div class="auth-label-row"><label for="login-password">ContraseÃ±a</label><a href="mailto:hola@cochemotor.es?subject=Recuperar%20acceso">Â¿Has olvidado tu contraseÃ±a?</a></div><input id="login-password" type="password" autocomplete="current-password" minlength="10" required>
+      <div class="auth-label-row"><label for="login-password">Contraseña</label><a href="mailto:hola@cochemotor.es?subject=Recuperar%20acceso">¿Has olvidado tu contraseña?</a></div><input id="login-password" type="password" autocomplete="current-password" minlength="10" required>
 
       <button class="btn btn-navy" type="submit">Continuar</button>
 
     </form>
 
     <button type="button" id="resend-verification" hidden>Reenviar correo de verificación</button>
-    <p class="auth-switch">Â¿AÃºn no tienes cuenta? <button type="button" data-show-auth="register">Crear cuenta gratis</button></p>
+    <p class="auth-switch">¿Aún no tienes cuenta? <button type="button" data-show-auth="register">Crear cuenta gratis</button></p>
 
     </section>
 
@@ -65,13 +65,13 @@
 
       <label for="register-name">Nombre o nombre comercial</label><input id="register-name" autocomplete="organization" required>
 
-      <label for="register-email">Correo electrÃ³nico</label><input id="register-email" type="email" autocomplete="email" required>
+      <label for="register-email">Correo electrónico</label><input id="register-email" type="email" autocomplete="email" required>
 
-      <label for="register-password">ContraseÃ±a</label><input id="register-password" type="password" autocomplete="new-password" minlength="10" required>
+      <label for="register-password">Contraseña</label><input id="register-password" type="password" autocomplete="new-password" minlength="10" required>
 
-      <label class="auth-consent"><input id="register-privacy-read" type="checkbox" required> He leÃ­do la <a href="/privacidad" target="_blank" rel="noopener">PolÃ­tica de privacidad</a>.</label>
+      <label class="auth-consent"><input id="register-privacy-read" type="checkbox" required> He leído la <a href="/privacidad" target="_blank" rel="noopener">Política de privacidad</a>.</label>
 
-      <label class="auth-consent"><input id="register-terms-accepted" type="checkbox" required> Acepto los <a href="/terminos" target="_blank" rel="noopener">TÃ©rminos del Servicio</a>.</label>
+      <label class="auth-consent"><input id="register-terms-accepted" type="checkbox" required> Acepto los <a href="/terminos" target="_blank" rel="noopener">Términos del Servicio</a>.</label>
 
       <button class="btn btn-red" type="submit">Crear cuenta gratis</button>
 
@@ -79,7 +79,7 @@
 
     <p class="auth-note">Empieza gratis durante la beta. Te explicaremos cualquier plan antes de activar un coste.</p>
 
-    <p class="auth-switch">Â¿Ya tienes cuenta? <button type="button" data-show-auth="login">Iniciar sesiÃ³n</button></p>
+    <p class="auth-switch">¿Ya tienes cuenta? <button type="button" data-show-auth="login">Iniciar sesión</button></p>
 
     </section>
 
@@ -103,13 +103,13 @@
 
     function showAuth(mode) { const login = mode === 'login'; document.getElementById('login-panel').hidden = !login; document.getElementById('register-panel').hidden = login; document.querySelectorAll('.auth-tab').forEach(tab => { const active = tab.id === (login ? 'login-tab' : 'register-tab'); tab.classList.toggle('active', active); tab.setAttribute('aria-selected', String(active)); }); }
 
-    function setAudience(next) { document.querySelectorAll('[data-audience]').forEach(button => button.classList.toggle('active', button.dataset.audience === next)); document.getElementById('auth-intro').textContent = next === 'professional' ? 'Accede para publicar coches, organizar tus contactos y seguir cada oportunidad.' : 'Accede para guardar bÃºsquedas, pedir ayuda o hablar con un vendedor.'; }
+    function setAudience(next) { document.querySelectorAll('[data-audience]').forEach(button => button.classList.toggle('active', button.dataset.audience === next)); document.getElementById('auth-intro').textContent = next === 'professional' ? 'Accede para publicar coches, organizar tus contactos y seguir cada oportunidad.' : 'Accede para guardar búsquedas, pedir ayuda o hablar con un vendedor.'; }
 
     setAudience(audience);
 
     if (params.get('mode') === 'register' || params.get('mode') === 'login') showAuth(params.get('mode'));
 
-    if (params.get('verified') === '1') { showAuth('login'); show('Correo verificado. Ya puedes iniciar sesiÃ³n.', 'success'); }
+    if (params.get('verified') === '1') { showAuth('login'); show('Correo verificado. Ya puedes iniciar sesión.', 'success'); }
 
     document.querySelectorAll('[data-audience]').forEach(button => button.addEventListener('click', () => setAudience(button.dataset.audience)));
 
@@ -119,11 +119,11 @@
 
     document.getElementById('register-tab').addEventListener('click', () => showAuth('register'));
 
-    async function send(payload) { const response = await fetch((window.COCHEMOTOR_API_BASE || '') + '/api/auth', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)}); const contentType = response.headers.get('content-type') || ''; const raw = await response.text(); let data; try { data = contentType.includes('application/json') ? JSON.parse(raw) : null; } catch (_) { data = null; } if (!response.ok) throw new Error(data?.error || (data ? 'No se pudo completar la operaciÃ³n' : 'El servicio de acceso no estÃ¡ disponible en este dominio.')); if (!data) throw new Error('El servicio de acceso no estÃ¡ disponible en este dominio.'); return data; }
+    async function send(payload) { const response = await fetch((window.COCHEMOTOR_API_BASE || '') + '/api/auth', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)}); const contentType = response.headers.get('content-type') || ''; const raw = await response.text(); let data; try { data = contentType.includes('application/json') ? JSON.parse(raw) : null; } catch (_) { data = null; } if (!response.ok) throw new Error(data?.error || (data ? 'No se pudo completar la operación' : 'El servicio de acceso no está disponible en este dominio.')); if (!data) throw new Error('El servicio de acceso no está disponible en este dominio.'); return data; }
 
     document.querySelectorAll('.auth-password-toggle').forEach(button => button.addEventListener('click', () => { const input=document.getElementById(button.dataset.target); input.type=input.type==='password'?'text':'password'; button.textContent=input.type==='password'?'Mostrar':'Ocultar'; }));
 
-    document.getElementById('register-form').addEventListener('submit', async event => { event.preventDefault(); const form=event.currentTarget; if(document.getElementById('register-password').value!==document.getElementById('register-password-confirm').value){ show('Las contraseñas no coinciden.','error'); return; } const submit=form.querySelector('button[type="submit"]'); submit.disabled=true; submit.textContent='Enviandoâ€¦'; try { const d = await send({action:'register', name:document.getElementById('register-name').value, email:document.getElementById('register-email').value, password:document.getElementById('register-password').value, privacy_notice_read:document.getElementById('register-privacy-read').checked, privacy_notice_version:'privacy-v1', terms_accepted:document.getElementById('register-terms-accepted').checked, terms_version:'beta-terms-v1'}); show(d.message || 'Te enviamos un enlace para verificar tu correo. Revisa tambiÃ©n la carpeta de correo no deseado.', 'success'); form.reset(); } catch (error) { show(error.message, 'error'); } finally { submit.disabled=false; submit.textContent='Crear cuenta gratis'; } });
+    document.getElementById('register-form').addEventListener('submit', async event => { event.preventDefault(); const form=event.currentTarget; if(document.getElementById('register-password').value!==document.getElementById('register-password-confirm').value){ show('Las contraseñas no coinciden.','error'); return; } const submit=form.querySelector('button[type="submit"]'); submit.disabled=true; submit.textContent='Enviando...'; try { const d = await send({action:'register', name:document.getElementById('register-name').value, email:document.getElementById('register-email').value, password:document.getElementById('register-password').value, privacy_notice_read:document.getElementById('register-privacy-read').checked, privacy_notice_version:'privacy-v1', terms_accepted:document.getElementById('register-terms-accepted').checked, terms_version:'beta-terms-v1'}); show(d.message || 'Te enviamos un enlace para verificar tu correo. Revisa también la carpeta de correo no deseado.', 'success'); form.reset(); } catch (error) { show(error.message, 'error'); } finally { submit.disabled=false; submit.textContent='Crear cuenta gratis'; } });
 
     document.getElementById('resend-verification').addEventListener('click', async () => { try { const d=await send({action:'resend_verification',email:document.getElementById('login-email').value}); show(d.message,'success'); } catch(error) { show(error.message,'error'); } });
 
