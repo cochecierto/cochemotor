@@ -48,7 +48,11 @@
 
       <label for="login-email">Correo electrónico</label><input id="login-email" type="email" autocomplete="email" required>
 
-      <div class="auth-label-row"><label for="login-password">Contraseña</label><a href="mailto:hola@cochemotor.es?subject=Recuperar%20acceso">¿Has olvidado tu contraseña?</a></div><input id="login-password" type="password" autocomplete="current-password" minlength="10" required>
+      <div class="auth-label-row"><label for="login-password">Contraseña</label><a href="mailto:hola@cochemotor.es?subject=Recuperar%20acceso">¿Has olvidado tu contraseña?</a></div>
+      <div class="auth-password-wrapper">
+        <input id="login-password" type="password" autocomplete="current-password" minlength="10" required>
+        <button type="button" class="auth-password-toggle" data-target="login-password" aria-label="Mostrar u ocultar contraseña">Mostrar</button>
+      </div>
 
       <button class="btn btn-navy" type="submit">Continuar</button>
 
@@ -67,7 +71,22 @@
 
       <label for="register-email">Correo electrónico</label><input id="register-email" type="email" autocomplete="email" required>
 
-      <label for="register-password">Contraseña</label><input id="register-password" type="password" autocomplete="new-password" minlength="10" required>
+      <label for="register-password">Contraseña</label>
+      <div class="auth-password-wrapper">
+        <input id="register-password" type="password" autocomplete="new-password" minlength="10" required>
+        <button type="button" class="auth-password-toggle" data-target="register-password" aria-label="Mostrar u ocultar contraseña">Mostrar</button>
+      </div>
+      <div class="auth-password-strength" id="password-strength-container" aria-live="polite">
+        <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+        <span class="strength-text" id="strength-text">Mínimo 10 caracteres</span>
+      </div>
+
+      <label for="register-password-confirm">Confirmar contraseña</label>
+      <div class="auth-password-wrapper">
+        <input id="register-password-confirm" type="password" autocomplete="new-password" minlength="10" required>
+        <button type="button" class="auth-password-toggle" data-target="register-password-confirm" aria-label="Mostrar u ocultar confirmación de contraseña">Mostrar</button>
+      </div>
+      <div id="password-match-hint" class="auth-field-hint" aria-live="polite"></div>
 
       <label class="auth-consent"><input id="register-privacy-read" type="checkbox" required> He leído la <a href="/privacidad" target="_blank" rel="noopener">Política de privacidad</a>.</label>
 
@@ -121,9 +140,107 @@
 
     async function send(payload) { const response = await fetch((window.COCHEMOTOR_API_BASE || '') + '/api/auth', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)}); const contentType = response.headers.get('content-type') || ''; const raw = await response.text(); let data; try { data = contentType.includes('application/json') ? JSON.parse(raw) : null; } catch (_) { data = null; } if (!response.ok) throw new Error(data?.error || (data ? 'No se pudo completar la operación' : 'El servicio de acceso no está disponible en este dominio.')); if (!data) throw new Error('El servicio de acceso no está disponible en este dominio.'); return data; }
 
-    document.querySelectorAll('.auth-password-toggle').forEach(button => button.addEventListener('click', () => { const input=document.getElementById(button.dataset.target); input.type=input.type==='password'?'text':'password'; button.textContent=input.type==='password'?'Mostrar':'Ocultar'; }));
+    document.querySelectorAll('.auth-password-toggle').forEach(button => button.addEventListener('click', () => { const input=document.getElementById(button.dataset.target); if(!input)return; const isPassword=input.type==='password'; input.type=isPassword?'text':'password'; button.textContent=isPassword?'Ocultar':'Mostrar'; button.setAttribute('aria-label', isPassword?'Ocultar contraseña':'Mostrar contraseña'); }));
 
-    document.getElementById('register-form').addEventListener('submit', async event => { event.preventDefault(); const form=event.currentTarget; if(document.getElementById('register-password').value!==document.getElementById('register-password-confirm').value){ show('Las contraseñas no coinciden.','error'); return; } const submit=form.querySelector('button[type="submit"]'); submit.disabled=true; submit.textContent='Enviando...'; try { const d = await send({action:'register', name:document.getElementById('register-name').value, email:document.getElementById('register-email').value, password:document.getElementById('register-password').value, privacy_notice_read:document.getElementById('register-privacy-read').checked, privacy_notice_version:'privacy-v1', terms_accepted:document.getElementById('register-terms-accepted').checked, terms_version:'beta-terms-v1'}); show(d.message || 'Te enviamos un enlace para verificar tu correo. Revisa también la carpeta de correo no deseado.', 'success'); form.reset(); } catch (error) { show(error.message, 'error'); } finally { submit.disabled=false; submit.textContent='Crear cuenta gratis'; } });
+    const regPass = document.getElementById('register-password');
+    const regPassConfirm = document.getElementById('register-password-confirm');
+    const strengthFill = document.getElementById('strength-fill');
+    const strengthText = document.getElementById('strength-text');
+    const matchHint = document.getElementById('password-match-hint');
+
+    function evaluateStrength(val) {
+      if (!val || val.length === 0) {
+        if (strengthFill) { strengthFill.style.width = '0%'; strengthFill.style.backgroundColor = '#cbd5e1'; }
+        if (strengthText) strengthText.textContent = 'Mínimo 10 caracteres';
+        return;
+      }
+      let score = 0;
+      if (val.length >= 10) score++;
+      if (/[0-9]/.test(val) && /[a-zA-Z]/.test(val)) score++;
+      if (val.length >= 14 || /[^a-zA-Z0-9]/.test(val)) score++;
+
+      if (val.length < 10) {
+        if (strengthFill) { strengthFill.style.width = '20%'; strengthFill.style.backgroundColor = '#ef4444'; }
+        if (strengthText) strengthText.textContent = 'Demasiado corta (mínimo 10)';
+      } else if (score === 1) {
+        if (strengthFill) { strengthFill.style.width = '40%'; strengthFill.style.backgroundColor = '#f59e0b'; }
+        if (strengthText) strengthText.textContent = 'Seguridad básica (combina letras y números)';
+      } else if (score === 2) {
+        if (strengthFill) { strengthFill.style.width = '75%'; strengthFill.style.backgroundColor = '#3b82f6'; }
+        if (strengthText) strengthText.textContent = 'Seguridad buena';
+      } else {
+        if (strengthFill) { strengthFill.style.width = '100%'; strengthFill.style.backgroundColor = '#10b981'; }
+        if (strengthText) strengthText.textContent = 'Seguridad óptima';
+      }
+    }
+
+    function checkMatch() {
+      if (!regPassConfirm || !matchHint) return;
+      if (!regPassConfirm.value) {
+        matchHint.textContent = '';
+        matchHint.className = 'auth-field-hint';
+        return;
+      }
+      if (regPass.value === regPassConfirm.value) {
+        matchHint.textContent = '✓ Las contraseñas coinciden';
+        matchHint.className = 'auth-field-hint success';
+      } else {
+        matchHint.textContent = '✗ Las contraseñas no coinciden';
+        matchHint.className = 'auth-field-hint error';
+      }
+    }
+
+    if (regPass) {
+      regPass.addEventListener('input', () => {
+        evaluateStrength(regPass.value);
+        if (regPassConfirm && regPassConfirm.value) checkMatch();
+      });
+    }
+    if (regPassConfirm) {
+      regPassConfirm.addEventListener('input', checkMatch);
+    }
+
+    document.getElementById('register-form').addEventListener('submit', async event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const pass = document.getElementById('register-password').value;
+      const confirm = document.getElementById('register-password-confirm').value;
+      if (pass !== confirm) {
+        show('Las contraseñas no coinciden.', 'error');
+        document.getElementById('register-password-confirm').focus();
+        return;
+      }
+      if (pass.length < 10) {
+        show('La contraseña debe tener al menos 10 caracteres.', 'error');
+        document.getElementById('register-password').focus();
+        return;
+      }
+      const submit = form.querySelector('button[type="submit"]');
+      submit.disabled = true;
+      submit.textContent = 'Enviando...';
+      try {
+        const d = await send({
+          action: 'register',
+          name: document.getElementById('register-name').value,
+          email: document.getElementById('register-email').value,
+          password: pass,
+          password_confirm: confirm,
+          privacy_notice_read: document.getElementById('register-privacy-read').checked,
+          privacy_notice_version: 'privacy-v1',
+          terms_accepted: document.getElementById('register-terms-accepted').checked,
+          terms_version: 'beta-terms-v1'
+        });
+        show(d.message || 'Te enviamos un enlace para verificar tu correo. Revisa también la carpeta de correo no deseado.', 'success');
+        form.reset();
+        evaluateStrength('');
+        if (matchHint) { matchHint.textContent = ''; matchHint.className = 'auth-field-hint'; }
+      } catch (error) {
+        show(error.message, 'error');
+      } finally {
+        submit.disabled = false;
+        submit.textContent = 'Crear cuenta gratis';
+      }
+    });
 
     document.getElementById('resend-verification').addEventListener('click', async () => { try { const d=await send({action:'resend_verification',email:document.getElementById('login-email').value}); show(d.message,'success'); } catch(error) { show(error.message,'error'); } });
 

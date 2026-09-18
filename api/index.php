@@ -372,6 +372,7 @@ try {
             $privacyNoticeRead=($data['privacy_notice_read']??null)===true;
             $termsAccepted=($data['terms_accepted']??null)===true;
             if ($nameLength === false || $nameLength < 2 || $nameLength > 120 || !filter_var($email,FILTER_VALIDATE_EMAIL) || strlen($password)<10 || !$privacyNoticeRead || !$termsAccepted || ($data['privacy_notice_version']??null)!=='privacy-v1' || ($data['terms_version']??null)!=='beta-terms-v1') fail(400,'Revisa tus datos y confirma la Política de privacidad y los Términos del Servicio.');
+            if (isset($data['password_confirm']) && (string)$data['password_confirm'] !== $password) fail(400, 'Las contraseñas no coinciden.');
             $id='usr-'.bin2hex(random_bytes(8)); $verify=bin2hex(random_bytes(32));
             try { $q=$pdo->prepare("INSERT INTO professional_users(user_id,name,email,password_hash,verification_token,verification_token_hash,verification_expires_at,email_status,email_last_sent_at,email_send_attempts,privacy_notice_version,terms_version,notice_acknowledged_at) VALUES(?,?,?,?,NULL,?,NULL,'pending',UTC_TIMESTAMP(),1,?,?,UTC_TIMESTAMP())"); $q->execute([$id,$name,$email,password_hash($password,PASSWORD_DEFAULT),hash('sha256',$verify),'privacy-v1','beta-terms-v1']); }
             catch (PDOException $e) { if ($e->getCode()==='23000') fail(409,'Ya existe una cuenta con ese correo'); throw $e; }
