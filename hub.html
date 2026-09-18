@@ -219,56 +219,65 @@
       </div>
 
       <!-- Menú Vertical de Herramientas -->
-      <div class="hub-nav-section-label">Ruta operativa</div>
-      <nav class="hub-sidebar-nav">
-        <button class="hub-nav-item active" onclick="switchHubTab('tab-home')"><span class="hub-nav-item-icon" aria-hidden="true">⌂</span><span>Inicio</span></button>
+      <nav class="hub-sidebar-nav" aria-label="Navegación del panel profesional">
+        <div class="hub-nav-section-label">Panel Principal</div>
+        <button class="hub-nav-item active" onclick="switchHubTab('tab-home')">
+          <span class="hub-nav-item-icon" aria-hidden="true">⌂</span>
+          <span>Inicio y Resumen</span>
+        </button>
+
+        <div class="hub-nav-section-label">Vehículos e Inventario</div>
         <button class="hub-nav-item" onclick="switchHubTab('tab-upload')">
           <span class="hub-nav-item-icon" aria-hidden="true">+</span>
-          <span>1. Añadir coche</span>
-        </button>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-pipeline')">
-          <span class="hub-nav-item-icon" aria-hidden="true">▥</span>
-          <span>2. Seguimiento de contactos</span>
-        </button>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-generator')">
-          <span class="hub-nav-item-icon" aria-hidden="true">A</span>
-          <span>3. Generador con IA</span>
-        </button>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-copilot')">
-          <span class="hub-nav-item-icon" aria-hidden="true">●</span>
-          <span>4. Copiloto de Precios</span>
-        </button>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-orders')">
-          <span class="hub-nav-item-icon" aria-hidden="true">◎</span>
-          <span>5. Solicitudes de compradores</span>
-        </button>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-calculator')">
-          <span class="hub-nav-item-icon" aria-hidden="true">€</span>
-          <span>6. Cuotas y margen</span>
+          <span>Añadir vehículo</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-qr')">
           <span class="hub-nav-item-icon" aria-hidden="true">▤</span>
-          <span>7. Cartel Parabrisas QR</span>
-        </button>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-deal-room')">
-          <span class="hub-nav-item-icon" aria-hidden="true">□</span>
-          <span>8. Documentación de operaciones</span>
-        </button>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-social')">
-          <span class="hub-nav-item-icon" aria-hidden="true">▦</span>
-          <span>9. Publicar en redes y grupos</span>
-        </button>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-warranty')">
-          <span class="hub-nav-item-icon" aria-hidden="true">◇</span>
-          <span>10. Garantías y seguimiento posventa</span>
-        </button>
-        <button class="hub-nav-item" onclick="switchHubTab('tab-referrals')">
-          <span class="hub-nav-item-icon" aria-hidden="true">↗</span>
-          <span>11. Afiliados B2B</span>
+          <span>Cartel Parabrisas QR</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-dealer-web')">
           <span class="hub-nav-item-icon" aria-hidden="true">○</span>
-          <span>12. Mi página profesional</span>
+          <span>Mi página profesional</span>
+        </button>
+
+        <div class="hub-nav-section-label">Ventas y Clientes</div>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-pipeline')">
+          <span class="hub-nav-item-icon" aria-hidden="true">▥</span>
+          <span>Contactos interesados</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-orders')">
+          <span class="hub-nav-item-icon" aria-hidden="true">◎</span>
+          <span>Coche Ideal · Demandas</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-copilot')">
+          <span class="hub-nav-item-icon" aria-hidden="true">●</span>
+          <span>Asesor de precios</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-calculator')">
+          <span class="hub-nav-item-icon" aria-hidden="true">€</span>
+          <span>Cuotas y margen</span>
+        </button>
+
+        <div class="hub-nav-section-label">Herramientas y Operaciones</div>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-generator')">
+          <span class="hub-nav-item-icon" aria-hidden="true">A</span>
+          <span>Generador de textos IA</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-deal-room')">
+          <span class="hub-nav-item-icon" aria-hidden="true">□</span>
+          <span>Documentación de operaciones</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-social')">
+          <span class="hub-nav-item-icon" aria-hidden="true">▦</span>
+          <span>Publicar en redes</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-warranty')">
+          <span class="hub-nav-item-icon" aria-hidden="true">◇</span>
+          <span>Garantías y posventa</span>
+        </button>
+        <button class="hub-nav-item" onclick="switchHubTab('tab-referrals')">
+          <span class="hub-nav-item-icon" aria-hidden="true">↗</span>
+          <span>Afiliados B2B</span>
         </button>
       </nav>
 

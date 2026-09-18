@@ -78,11 +78,57 @@ function sendVerificationEmail(string $email, string $name, string $token): bool
     $message = "Hola {$safeName},\r\n\r\n" .
         "Para activar tu cuenta de CocheMotor y acceder a tu espacio profesional, abre este enlace:\r\n" .
         $verificationUrl . "\r\n\r\n" .
-        "El enlace solo puede utilizarse una vez. Una vez verificada, tu cuenta conservarÃ¡ esta condiciÃ³n mientras permanezca activa.\r\n\r\n" .
+        "El enlace solo puede utilizarse una vez. Una vez verificada, tu cuenta conservará esta condición mientras permanezca activa.\r\n\r\n" .
         "Si no has solicitado esta cuenta, puedes ignorar este mensaje.\r\n\r\n" .
         "CocheMotor\r\nhttps://cochemotor.es";
-    $html = '<p>Hola '.htmlspecialchars($safeName,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8').',</p><p>Activa tu cuenta profesional de CocheMotor:</p><p><a href="'.htmlspecialchars($verificationUrl,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8').'">Verificar mi correo</a></p><p>El enlace solo puede utilizarse una vez. La verificaciÃ³n permanecerÃ¡ activa mientras tu cuenta exista.</p><p>Si no lo has solicitado, ignora este mensaje.</p>';
+    $html = '<p>Hola '.htmlspecialchars($safeName,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8').',</p><p>Activa tu cuenta profesional de CocheMotor:</p><p><a href="'.htmlspecialchars($verificationUrl,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8').'">Verificar mi correo</a></p><p>El enlace solo puede utilizarse una vez. La verificación permanecerá activa mientras tu cuenta exista.</p><p>Si no lo has solicitado, ignora este mensaje.</p>';
     return smtpSend($email,$subject,$message,$html);
+}
+function sendLeadNotificationEmail(string $sellerEmail, string $sellerName, string $buyerName, string $buyerPhone, string $paymentMethod, string $brand, string $model): bool {
+    $safeSeller = trim((string)preg_replace('/[\r\n]+/u', ' ', $sellerName));
+    $safeBuyer = trim((string)preg_replace('/[\r\n]+/u', ' ', $buyerName));
+    $safeVehicle = trim($brand . ' ' . $model);
+    $cleanPhone = preg_replace('/[^\d+]/', '', $buyerPhone);
+    $waUrl = 'https://wa.me/' . ltrim($cleanPhone, '+') . '?text=' . rawurlencode("Hola {$safeBuyer}, te contacto de CocheMotor respecto a tu consulta sobre el {$safeVehicle}.");
+    $hubUrl = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL','https://cochemotor.es'),'/') . '/hub.html';
+    $paymentLabels = [
+        'cash' => 'Al contado',
+        'finance' => 'Financiación',
+        'trade_cash' => 'Entrega de vehículo + al contado',
+        'trade_finance' => 'Entrega de vehículo + financiación'
+    ];
+    $paymentText = $paymentLabels[$paymentMethod] ?? 'No especificado';
+    $subject = "Nuevo contacto para tu {$safeVehicle} en CocheMotor";
+    $message = "Hola {$safeSeller},\r\n\r\n" .
+        "Has recibido una nueva consulta de un comprador interesado:\r\n\r\n" .
+        "Vehículo: {$safeVehicle}\r\n" .
+        "Nombre: {$safeBuyer}\r\n" .
+        "Teléfono: {$buyerPhone}\r\n" .
+        "Preferencia de pago: {$paymentText}\r\n\r\n" .
+        "Contactar por WhatsApp: {$waUrl}\r\n\r\n" .
+        "Puedes gestionar este contacto y tu inventario en tu panel profesional:\r\n" .
+        $hubUrl . "\r\n\r\n" .
+        "CocheMotor\r\nhttps://cochemotor.es";
+    $html = '<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b;">' .
+        '<div style="background: #002D62; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">' .
+        '<h2 style="color: #ffffff; margin: 0; font-size: 20px;">Nuevo contacto interesado</h2>' .
+        '</div>' .
+        '<div style="padding: 24px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 8px 8px; background: #ffffff;">' .
+        '<p style="font-size: 15px;">Hola <strong>' . htmlspecialchars($safeSeller, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8') . '</strong>,</p>' .
+        '<p style="font-size: 15px;">Un comprador ha solicitado información sobre tu vehículo <strong>' . htmlspecialchars($safeVehicle, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8') . '</strong>:</p>' .
+        '<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 16px; margin: 20px 0;">' .
+        '<p style="margin: 0 0 8px 0;"><strong>Nombre:</strong> ' . htmlspecialchars($safeBuyer, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8') . '</p>' .
+        '<p style="margin: 0 0 8px 0;"><strong>Teléfono:</strong> <a href="tel:' . htmlspecialchars($cleanPhone, ENT_QUOTES, 'UTF-8') . '" style="color: #002D62; font-weight: bold;">' . htmlspecialchars($buyerPhone, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8') . '</a></p>' .
+        '<p style="margin: 0;"><strong>Preferencia de pago:</strong> ' . htmlspecialchars($paymentText, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8') . '</p>' .
+        '</div>' .
+        '<div style="text-align: center; margin: 28px 0;">' .
+        '<a href="' . htmlspecialchars($waUrl, ENT_QUOTES, 'UTF-8') . '" style="display: inline-block; background: #18A66A; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none; margin-right: 10px;">Contactar por WhatsApp</a> ' .
+        '<a href="' . htmlspecialchars($hubUrl, ENT_QUOTES, 'UTF-8') . '" style="display: inline-block; background: #002D62; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: bold; text-decoration: none;">Ver en el Panel</a>' .
+        '</div>' .
+        '<p style="font-size: 13px; color: #64748b; margin-top: 24px;">Te recomendamos responder lo antes posible. Los profesionales que contestan en menos de 30 minutos multiplican sus opciones de venta.</p>' .
+        '</div>' .
+        '</div>';
+    return smtpSend($sellerEmail, $subject, $message, $html);
 }
 function token(): string { $header=$_SERVER['HTTP_AUTHORIZATION'] ?? ''; return str_starts_with($header,'Bearer ') ? trim(substr($header,7)) : ''; }
 function user(): ?array { $t=token(); if (!$t) return null; $q=db()->prepare('SELECT u.user_id,u.name,u.email,u.email_verified,u.phone,u.professional_type,s.expires_at FROM professional_sessions s JOIN professional_users u ON u.user_id=s.user_id WHERE s.token=? AND s.expires_at>UTC_TIMESTAMP()'); $q->execute([$t]); $u=$q->fetch(); return $u ?: null; }
@@ -442,6 +488,12 @@ try {
         $id='lead-'.bin2hex(random_bytes(6));
         $q=$pdo->prepare('INSERT INTO leads(lead_id,tenant_id,vehicle_id,buyer_name,phone,payment_method,contact_requested_at,privacy_notice_version) VALUES(?,?,?,?,?,?,UTC_TIMESTAMP(),?)');
         $q->execute([$id,$tenantId,$vehicleId,$buyerName,$phone,$paymentMethod?:null,$noticeVersion]);
+        $sellerQuery=$pdo->prepare("SELECT u.name AS seller_name, u.email AS seller_email, v.brand, v.model FROM vehicles v JOIN professional_users u ON u.user_id=v.tenant_id WHERE v.vehicle_id=? LIMIT 1");
+        $sellerQuery->execute([$vehicleId]);
+        $seller=$sellerQuery->fetch();
+        if($seller && !empty($seller['seller_email'])) {
+            @sendLeadNotificationEmail((string)$seller['seller_email'], (string)$seller['seller_name'], $buyerName, $phone, $paymentMethod, (string)$seller['brand'], (string)$seller['model']);
+        }
         jsonResponse(['ok'=>true,'id'=>$id],201);
     }
     fail(404,'Ruta no encontrada');
