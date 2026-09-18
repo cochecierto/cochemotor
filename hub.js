@@ -76,8 +76,21 @@ function initPublishProgress() {
     });
     step.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); step.click(); } });
   });
+  initProgressiveVehicleForm();
   update();
   updatePriceAssistant();
+}
+
+function initProgressiveVehicleForm() {
+  const form = document.getElementById('form-upload-vehicle'); if (!form || form.dataset.progressiveReady) return;
+  form.dataset.progressiveReady = 'true'; form.dataset.progressiveStep = '1';
+  const nav = document.createElement('div'); nav.className = 'progressive-form-nav'; nav.innerHTML = '<button type="button" class="btn btn-outline" data-progressive-prev>Anterior</button><span data-progressive-label>Paso 1 de 4 · Datos del vehículo</span><button type="button" class="btn btn-red" data-progressive-next>Continuar</button>';
+  form.parentNode.insertBefore(nav, form);
+  const steps = ['Datos del vehículo','Ubicación y documentación','Precio y rentabilidad','Fotos y revisión'];
+  const setStep = step => { const current = Math.max(1, Math.min(4, step)); form.dataset.progressiveStep = String(current); nav.querySelector('[data-progressive-prev]').disabled = current === 1; nav.querySelector('[data-progressive-next]').textContent = current === 4 ? 'Revisar anuncio' : 'Continuar'; nav.querySelector('[data-progressive-label]').textContent = `Paso ${current} de 4 · ${steps[current - 1]}`; document.querySelectorAll('.upload-stepper li').forEach((item,index)=>item.classList.toggle('is-current', index === current - 1)); form.dispatchEvent(new CustomEvent('progressive-step-change')); };
+  nav.querySelector('[data-progressive-prev]').addEventListener('click', () => setStep(Number(form.dataset.progressiveStep) - 1));
+  nav.querySelector('[data-progressive-next]').addEventListener('click', () => { const current = Number(form.dataset.progressiveStep); if (current < 4) setStep(current + 1); else document.getElementById('vehicle-submit-status')?.scrollIntoView({behavior:'smooth',block:'center'}); });
+  setStep(1);
 }
 
 const VEHICLE_DRAFT_KEY = 'cochemotor_vehicle_draft_v2';
