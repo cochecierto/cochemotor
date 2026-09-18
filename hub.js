@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 const MAX_VEHICLE_IMAGES = 10;
+const VEHICLE_PHOTO_SLOTS = ['front-right','left-side','right-side','rear','front-interior','rear-interior','trunk','engine','dashboard-km','tire'];
+const vehiclePhotoFiles = new Map();
+const vehiclePhotoUrls = new Map();
 
 function initPublishProgress() {
   const ids = ['up-brand','up-model','up-version','up-year','up-community','up-province','up-municipality','up-price','up-km','up-fuel','up-cost','up-badge'];
@@ -40,7 +43,7 @@ function initPublishProgress() {
     const value = id => document.getElementById(id)?.value?.trim() || '';
     const basic = ['up-brand','up-model','up-version','up-year'].filter(id => value(id)).length;
     const location = ['up-community','up-province','up-municipality'].filter(id => value(id)).length;
-    const photos = document.getElementById('up-image-file')?.files?.length || 0;
+    const photos = vehiclePhotoFiles.size;
     const consent = document.getElementById('up-contact-consent')?.checked;
     const progress = document.getElementById('publish-progress');
     const margin = document.getElementById('up-margin-preview');
@@ -56,8 +59,8 @@ function initPublishProgress() {
   ['up-brand','up-model','up-year','up-price','up-cost','up-downpayment','up-months'].forEach(id => document.getElementById(id)?.addEventListener('change', updatePriceAssistant));
   ['up-price','up-cost','up-downpayment'].forEach(id => document.getElementById(id)?.addEventListener('input', updatePriceAssistant));
   document.getElementById('up-apply-recommended-price')?.addEventListener('click', () => { const recommendation = document.getElementById('up-price-recommendation')?.dataset.value; if (recommendation) { document.getElementById('up-price').value = recommendation; update(); updatePriceAssistant(); } });
-  document.getElementById('up-image-file')?.addEventListener('change', () => { update(); updatePriceAssistant(); });
   document.getElementById('up-contact-consent')?.addEventListener('change', update);
+  document.addEventListener('vehicle-photos-updated', update);
   update();
   updatePriceAssistant();
 }
@@ -66,7 +69,7 @@ function updatePriceAssistant() {
   const year = Number(document.getElementById('up-year')?.value || 0), cost = Number(document.getElementById('up-cost')?.value || 0), price = Number(document.getElementById('up-price')?.value || 0), recommendation = document.getElementById('up-price-recommendation');
   if (recommendation) { const value = year ? Math.max(6500, Math.round((cost || 18000) * (year >= 2021 ? 1.22 : year >= 2018 ? 1.12 : 1.02) / 100) * 100) : 0; recommendation.dataset.value = value || ''; recommendation.textContent = value ? `${value.toLocaleString('es-ES')} € · estimación inicial según año y coste` : 'Completa marca, modelo y año para estimarlo.'; }
   const monthly = document.getElementById('up-monthly-preview'); if (monthly) { const base = price || (cost ? Math.round(cost * 1.12) : 0), down = Number(document.getElementById('up-downpayment')?.value || 0), months = Number(document.getElementById('up-months')?.value || 48), financed = Math.max(0, base - down), rate = 0.079 / 12; monthly.textContent = financed ? `${Math.round((financed * rate) / (1 - Math.pow(1 + rate, -months))).toLocaleString('es-ES')} €/mes aprox.` : 'Completa precio y entrada'; }
-  const score = document.getElementById('up-quality-score'); if (score) { const checks = [year > 0, price > 0, cost > 0, !!document.getElementById('up-km')?.value, !!document.getElementById('up-community')?.value, (document.getElementById('up-image-file')?.files?.length || 0) >= 5]; const points = Math.round(checks.filter(Boolean).length / checks.length * 100); score.textContent = `${points}/100 · ${points >= 80 ? 'Listo para revisión' : 'Completa datos y añade 5 fotos'}`; }
+  const score = document.getElementById('up-quality-score'); if (score) { const checks = [year > 0, price > 0, cost > 0, !!document.getElementById('up-km')?.value, !!document.getElementById('up-community')?.value, vehiclePhotoFiles.size >= 5]; const points = Math.round(checks.filter(Boolean).length / checks.length * 100); score.textContent = `${points}/100 · ${points >= 80 ? 'Listo para revisión' : 'Completa datos y añade 5 fotos'}`; }
 }
 
 function getProfessionalSession() {
@@ -113,20 +116,23 @@ async function loadProfessionalLeads() {
 }
 
 function initVehiclePhotoGuide() {
-  const input = document.getElementById('up-image-file');
   const count = document.getElementById('up-image-count');
-  if (!input || !count) return;
-  input.addEventListener('change', () => {
-    const selected = Array.from(input.files || []);
-    if (selected.length > MAX_VEHICLE_IMAGES) {
-      input.value = '';
-      count.textContent = `Has seleccionado demasiadas fotos. El máximo es ${MAX_VEHICLE_IMAGES}.`;
-      count.style.color = 'var(--cm-red)';
-      return;
-    }
-    count.textContent = `${selected.length}/${MAX_VEHICLE_IMAGES} fotos seleccionadas. La primera será la portada.`;
-    count.style.color = 'var(--cm-text-secondary)';
+  const cards = Array.from(document.querySelectorAll('.photo-slot-card'));
+  if (!count || !cards.length) return;
+  cards.forEach((card, index) => {
+    const slot = VEHICLE_PHOTO_SLOTS[index];
+    const image = card.querySelector('.photo-slot-thumb');
+    if (!image.dataset.reference) image.dataset.reference = image.src;
+    const actions = document.createElement('div'); actions.className = 'photo-slot-actions';
+    const label = document.createElement('label'); label.className = 'photo-slot-add'; label.append('Añadir foto');
+    const input = document.createElement('input'); input.type = 'file'; input.accept = 'image/jpeg,image/png,image/webp'; input.className = 'photo-slot-input'; input.setAttribute('aria-label', `Añadir foto: ${card.querySelector('.photo-slot-title')?.textContent || slot}`); label.appendChild(input); actions.appendChild(label); card.appendChild(actions);
+    input.addEventListener('change', async () => {
+      const file = input.files?.[0]; input.value = ''; if (!file) return;
+      try { const blob = await compressVehicleImage(file); vehiclePhotoFiles.set(slot, blob); if (vehiclePhotoUrls.has(slot)) URL.revokeObjectURL(vehiclePhotoUrls.get(slot)); const url = URL.createObjectURL(blob); vehiclePhotoUrls.set(slot, url); image.src = url; image.alt = `Foto añadida: ${card.querySelector('.photo-slot-title')?.textContent || slot}`; card.classList.add('has-photo'); label.firstChild.textContent = 'Cambiar foto'; if (!actions.querySelector('[data-remove-photo]')) { const remove = document.createElement('button'); remove.type = 'button'; remove.dataset.removePhoto = slot; remove.textContent = 'Quitar'; actions.appendChild(remove); remove.addEventListener('click', () => { vehiclePhotoFiles.delete(slot); URL.revokeObjectURL(vehiclePhotoUrls.get(slot)); vehiclePhotoUrls.delete(slot); image.src = image.dataset.reference; card.classList.remove('has-photo'); label.firstChild.textContent = 'Añadir foto'; remove.remove(); updatePhotoCount(); }); } updatePhotoCount(); } catch (error) { count.textContent = error.message || 'No se pudo añadir la foto.'; count.style.color = 'var(--cm-red)'; }
+    });
   });
+  function updatePhotoCount() { count.textContent = `${vehiclePhotoFiles.size}/${MAX_VEHICLE_IMAGES} fotos añadidas · La primera será la portada.`; count.style.color = 'var(--cm-text-secondary)'; document.dispatchEvent(new Event('vehicle-photos-updated')); }
+  updatePhotoCount();
 }
 
 async function logoutLocalSession() {
@@ -311,7 +317,7 @@ function autoCalculateBadge() {
 async function compressVehicleImage(file) {
   if (!file) return '';
   if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) throw new Error('Selecciona una foto JPG, PNG o WebP.');
-  if (file.size > 8 * 1024 * 1024) throw new Error('La imagen supera el máximo recomendado de 8 MB.');
+  if (file.size > 30 * 1024 * 1024) throw new Error('La foto original supera el límite de 30 MB.');
   const source = await new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => { const image = new Image(); image.onload = () => resolve(image); image.onerror = () => reject(new Error('No se pudo leer la imagen.')); image.src = reader.result; };
@@ -324,7 +330,11 @@ async function compressVehicleImage(file) {
   canvas.width = Math.max(1, Math.round(source.width * scale));
   canvas.height = Math.max(1, Math.round(source.height * scale));
   canvas.getContext('2d').drawImage(source, 0, 0, canvas.width, canvas.height);
-  return await new Promise((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('No se pudo preparar una de las fotos.')), 'image/webp', 0.78));
+  return await new Promise((resolve, reject) => canvas.toBlob(blob => {
+    if (!blob) return reject(new Error('No se pudo preparar una de las fotos.'));
+    if (blob.size > 8 * 1024 * 1024) return reject(new Error('La foto sigue siendo demasiado grande después de comprimirla.'));
+    resolve(blob);
+  }, 'image/webp', 0.78));
 }
 
 async function handleCreateVehicle(event) {
@@ -345,7 +355,7 @@ async function handleCreateVehicle(event) {
   const badge = document.getElementById('up-badge').value;
   const price = Number(document.getElementById('up-price').value);
   const cost = parseFloat(document.getElementById('up-cost').value) || (price * 0.82);
-  const imageFiles = Array.from(document.getElementById('up-image-file')?.files || []);
+  const imageFiles = VEHICLE_PHOTO_SLOTS.map(slot => vehiclePhotoFiles.get(slot)).filter(Boolean);
   if (!imageFiles.length) { status.textContent='Añade al menos una foto real del vehículo.'; return; }
   if (imageFiles.length > MAX_VEHICLE_IMAGES) { status.textContent=`Un anuncio puede tener como máximo ${MAX_VEHICLE_IMAGES} fotos.`; return; }
   const highlightsText = document.getElementById('up-highlights').value.trim();
@@ -353,7 +363,7 @@ async function handleCreateVehicle(event) {
   const provinceSelect = document.getElementById('up-province');
   const municipalitySelect = document.getElementById('up-municipality');
 
-  const vehicleImages = await Promise.all(imageFiles.map(compressVehicleImage));
+  const vehicleImages = imageFiles;
 
   const highlights = highlightsText 
     ? highlightsText.split('\n').map(h => h.trim()).filter(Boolean)
@@ -414,8 +424,8 @@ async function handleCreateVehicle(event) {
   const contact={name:localSession.name,email:localSession.email,phone:localSession.phone,consent:document.getElementById('up-contact-consent').checked};
   const payload={...newVehicle,km,location,contact};
   const body=new FormData(); body.append('vehicle',JSON.stringify(payload));
-  const slotKeys=['front-right','left-side','right-side','rear','front-interior','dashboard-km','engine','trunk','rear-interior','tire'];
-  vehicleImages.forEach((photo,index)=>{body.append('images[]',photo,`${slotKeys[index]}.webp`);body.append('slots[]',JSON.stringify({key:slotKeys[index],sort_order:index}));});
+  const slotKeys=VEHICLE_PHOTO_SLOTS;
+  vehiclePhotoFiles.forEach((photo,slot)=>{const index=slotKeys.indexOf(slot);body.append('images[]',photo,`${slot}.webp`);body.append('slots[]',JSON.stringify({key:slot,sort_order:index<0?vehiclePhotoFiles.size:index}));});
   submit.disabled=true; status.textContent='Enviando el anuncio y las fotos a revisión…';
   try {
     const response=await fetch('/api/vehicles',{method:'POST',headers:professionalAuthHeaders(),body});
@@ -425,7 +435,10 @@ async function handleCreateVehicle(event) {
     newVehicle.id=result.id;newVehicle.stage=result.status;newVehicle.status='pendiente_revision';newVehicle.location=location;newVehicle.km=`${km.toLocaleString('es-ES')} km`;
     CocheMotorStorage.saveVehicle(newVehicle);updateKpis();initVehicleDropdowns();
     status.dataset.kind='success';status.textContent='Anuncio recibido. Revisaremos el contacto antes de publicarlo; todavía no está visible para compradores.';
-    form.reset();
+    form.reset(); vehiclePhotoFiles.clear(); vehiclePhotoUrls.forEach(url=>URL.revokeObjectURL(url)); vehiclePhotoUrls.clear();
+    document.querySelectorAll('.photo-slot-actions').forEach(actions => actions.remove());
+    document.querySelectorAll('.photo-slot-card').forEach(card => { const image = card.querySelector('.photo-slot-thumb'); if (image?.dataset.reference) image.src = image.dataset.reference; card.classList.remove('has-photo'); });
+    initVehiclePhotoGuide();
   } catch(error) {
     status.dataset.kind='error';status.textContent=error instanceof Error?error.message:'No se pudo enviar el anuncio. Conservamos los datos del formulario para que puedas reintentarlo.';
   } finally {submit.disabled=false;}
