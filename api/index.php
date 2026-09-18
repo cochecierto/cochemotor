@@ -51,6 +51,7 @@ function publicSlug(string $label, string $suffix): string {
     return substr($base,0,110).'-'.$tail;
 }
 function mailConfig(string $key, string $fallback=''): string { $value=getenv($key); if($value!==false&&$value!=='')return (string)$value; return defined($key)?(string)constant($key):$fallback; }
+function oauthConfig(string $key, string $fallback=''): string { $value=getenv($key); if($value!==false&&$value!=='')return (string)$value; if(isset($_ENV[$key])&&$_ENV[$key]!=='')return (string)$_ENV[$key]; if(isset($_SERVER[$key])&&$_SERVER[$key]!=='')return (string)$_SERVER[$key]; return defined($key)?(string)constant($key):$fallback; }
 function smtpCommand($socket, string $command, array $accepted): bool {
     fwrite($socket, $command."\r\n"); $reply=''; while (($line=fgets($socket,512))!==false) { $reply.=$line; if (strlen($line)<4||$line[3]===' ') break; }
     $code=(int)substr($reply,0,3); return in_array($code,$accepted,true);
@@ -362,6 +363,276 @@ try {
         $q=db()->prepare("UPDATE professional_users SET email_verified=1,verification_token=NULL,verification_used_at=UTC_TIMESTAMP(),email_status='verified' WHERE verification_token_hash=? AND email_verified=0 AND verification_used_at IS NULL"); $q->execute([hash('sha256',$verificationToken)]);
         if ($q->rowCount()!==1) fail(400,'El enlace ya se ha utilizado o no es válido.');
         header('Location: https://cochemotor.es/acceso.html?audience=professional&return=hub&verified=1', true, 303);
+        exit;
+    }
+    if (preg_match('#^/api/auth/oauth/(google|apple|facebook)$#', $route, $matches) && $method === 'GET') {
+        $provider = $matches[1];
+        $audience = ($_GET['audience'] ?? 'buyer') === 'professional' ? 'professional' : 'buyer';
+        $return = preg_replace('/[^a-zA-Z0-9_\-\/]/', '', (string)($_GET['return'] ?? 'hub'));
+        if ($return === '') $return = 'hub';
+
+        $baseUrl = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL', 'https://cochemotor.es'), '/');
+        $redirectUri = $baseUrl . '/api/auth/callback/' . $provider;
+
+        $clientId = '';
+        if ($provider === 'google') $clientId = oauthConfig('GOOGLE_CLIENT_ID');
+        elseif ($provider === 'apple') $clientId = oauthConfig('APPLE_CLIENT_ID');
+        elseif ($provider === 'facebook') $clientId = oauthConfig('FACEBOOK_CLIENT_ID', oauthConfig('FACEBOOK_APP_ID'));
+
+        if ($clientId === '') {
+            $names = ['google' => 'Google', 'apple' => 'Apple', 'facebook' => 'Facebook'];
+            $providerName = $names[$provider] ?? $provider;
+            $msg = rawurlencode("El acceso con {$providerName} requiere configurar las credenciales en el servidor. Por favor, usa tu correo electrónico.");
+            header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
+            exit;
+        }
+
+        $stateData = bin2hex(random_bytes(16)) . '.' . base64_encode((string)json_encode(['provider' => $provider, 'audience' => $audience, 'return' => $return]));
+        setcookie('cm_oauth_state', $stateData, [
+            'expires' => time() + 900,
+            'path' => '/',
+            'domain' => '',
+            'secure' => true,
+            'httponly' => true,
+            'samesite' => 'Lax'
+        ]);
+
+        $authUrl = '';
+        if ($provider === 'google') {
+            $authUrl = 'https://accounts.google.com/o/oauth2/v2/auth?' . http_build_query([
+                'client_id' => $clientId,
+                'redirect_uri' => $redirectUri,
+                'response_type' => 'code',
+                'scope' => 'openid email profile',
+                'state' => $stateData,
+                'prompt' => 'select_account'
+            ]);
+        } elseif ($provider === 'apple') {
+            $authUrl = 'https://appleid.apple.com/auth/authorize?' . http_build_query([
+                'client_id' => $clientId,
+                'redirect_uri' => $redirectUri,
+                'response_type' => 'code id_token',
+                'response_mode' => 'form_post',
+                'scope' => 'name email',
+                'state' => $stateData
+            ]);
+        } elseif ($provider === 'facebook') {
+            $authUrl = 'https://www.facebook.com/v19.0/dialog/oauth?' . http_build_query([
+                'client_id' => $clientId,
+                'redirect_uri' => $redirectUri,
+                'response_type' => 'code',
+                'scope' => 'email,public_profile',
+                'state' => $stateData
+            ]);
+        }
+
+        header("Location: {$authUrl}", true, 302);
+        exit;
+    }
+    if (preg_match('#^/api/auth/callback/(google|apple|facebook)$#', $route, $matches) && ($method === 'GET' || $method === 'POST')) {
+        $provider = $matches[1];
+        $baseUrl = rtrim(mailConfig('COCHEMOTOR_PUBLIC_BASE_URL', 'https://cochemotor.es'), '/');
+
+        $state = (string)($_REQUEST['state'] ?? '');
+        $savedState = (string)($_COOKIE['cm_oauth_state'] ?? '');
+        setcookie('cm_oauth_state', '', ['expires' => time() - 3600, 'path' => '/', 'secure' => true, 'httponly' => true, 'samesite' => 'Lax']);
+
+        $stateMeta = [];
+        if ($state !== '' && strpos($state, '.') !== false) {
+            $parts = explode('.', $state, 2);
+            $decoded = json_decode(base64_decode($parts[1]), true);
+            if (is_array($decoded)) $stateMeta = $decoded;
+        }
+        $audience = ($stateMeta['audience'] ?? 'buyer') === 'professional' ? 'professional' : 'buyer';
+        $return = preg_replace('/[^a-zA-Z0-9_\-\/]/', '', (string)($stateMeta['return'] ?? 'hub'));
+        if ($return === '') $return = 'hub';
+
+        $err = (string)($_REQUEST['error'] ?? $_REQUEST['error_description'] ?? '');
+        if ($err !== '') {
+            $msg = rawurlencode('Acceso cancelado por el usuario o rechazado por el proveedor.');
+            header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
+            exit;
+        }
+
+        if ($state === '' || $savedState === '' || !hash_equals($savedState, $state)) {
+            $msg = rawurlencode('La sesión de autorización expiró o no es válida. Por favor, inténtalo de nuevo.');
+            header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
+            exit;
+        }
+
+        $code = (string)($_REQUEST['code'] ?? '');
+        if ($code === '') {
+            $msg = rawurlencode('No se recibió el código de autorización del proveedor.');
+            header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
+            exit;
+        }
+
+        $redirectUri = $baseUrl . '/api/auth/callback/' . $provider;
+        $oauthUser = null;
+
+        if ($provider === 'google') {
+            $clientId = oauthConfig('GOOGLE_CLIENT_ID');
+            $clientSecret = oauthConfig('GOOGLE_CLIENT_SECRET');
+            if ($clientId === '' || $clientSecret === '') {
+                $msg = rawurlencode('Credenciales de Google no configuradas.');
+                header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
+                exit;
+            }
+
+            $ch = curl_init('https://oauth2.googleapis.com/token');
+            curl_setopt_array($ch, [
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => http_build_query([
+                    'code' => $code,
+                    'client_id' => $clientId,
+                    'client_secret' => $clientSecret,
+                    'redirect_uri' => $redirectUri,
+                    'grant_type' => 'authorization_code'
+                ]),
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 10,
+                CURLOPT_HTTPHEADER => ['Accept: application/json']
+            ]);
+            $res = curl_exec($ch);
+            curl_close($ch);
+            $tokenData = json_decode((string)$res, true);
+            $accessToken = $tokenData['access_token'] ?? '';
+            if ($accessToken === '') {
+                $msg = rawurlencode('No se pudo validar el acceso con Google.');
+                header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
+                exit;
+            }
+
+            $ch = curl_init('https://www.googleapis.com/oauth2/v3/userinfo');
+            curl_setopt_array($ch, [
+                CURLOPT_HTTPHEADER => ['Authorization: Bearer ' . $accessToken, 'Accept: application/json'],
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 10
+            ]);
+            $res = curl_exec($ch);
+            curl_close($ch);
+            $info = json_decode((string)$res, true);
+            if (is_array($info) && !empty($info['sub']) && !empty($info['email'])) {
+                $oauthUser = [
+                    'provider_uid' => (string)$info['sub'],
+                    'email' => strtolower(trim((string)$info['email'])),
+                    'name' => trim((string)($info['name'] ?? explode('@', (string)$info['email'])[0]))
+                ];
+            }
+        } elseif ($provider === 'facebook') {
+            $appId = oauthConfig('FACEBOOK_CLIENT_ID', oauthConfig('FACEBOOK_APP_ID'));
+            $appSecret = oauthConfig('FACEBOOK_CLIENT_SECRET');
+            if ($appId === '' || $appSecret === '') {
+                $msg = rawurlencode('Credenciales de Facebook no configuradas.');
+                header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
+                exit;
+            }
+
+            $tokenUrl = 'https://graph.facebook.com/v19.0/oauth/access_token?' . http_build_query([
+                'client_id' => $appId,
+                'client_secret' => $appSecret,
+                'redirect_uri' => $redirectUri,
+                'code' => $code
+            ]);
+            $ch = curl_init($tokenUrl);
+            curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10]);
+            $res = curl_exec($ch);
+            curl_close($ch);
+            $tokenData = json_decode((string)$res, true);
+            $accessToken = $tokenData['access_token'] ?? '';
+            if ($accessToken !== '') {
+                $meUrl = 'https://graph.facebook.com/v19.0/me?fields=id,name,email&access_token=' . urlencode($accessToken);
+                $ch = curl_init($meUrl);
+                curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 10]);
+                $info = json_decode((string)curl_exec($ch), true);
+                curl_close($ch);
+                if (is_array($info) && !empty($info['id'])) {
+                    $email = strtolower(trim((string)($info['email'] ?? '')));
+                    if ($email === '') $email = 'fb_' . $info['id'] . '@cochemotor.es';
+                    $oauthUser = [
+                        'provider_uid' => (string)$info['id'],
+                        'email' => $email,
+                        'name' => trim((string)($info['name'] ?? 'Usuario Facebook'))
+                    ];
+                }
+            }
+        } elseif ($provider === 'apple') {
+            $idToken = (string)($_REQUEST['id_token'] ?? '');
+            if ($idToken !== '') {
+                $parts = explode('.', $idToken);
+                if (count($parts) >= 2) {
+                    $payload = json_decode(base64_decode(str_replace(['-','_'], ['+','/'], $parts[1])), true);
+                    if (is_array($payload) && !empty($payload['sub'])) {
+                        $email = strtolower(trim((string)($payload['email'] ?? '')));
+                        if ($email === '') $email = 'apple_' . $payload['sub'] . '@cochemotor.es';
+                        $oauthUser = [
+                            'provider_uid' => (string)$payload['sub'],
+                            'email' => $email,
+                            'name' => 'Usuario Apple'
+                        ];
+                    }
+                }
+            }
+        }
+
+        if (!$oauthUser) {
+            $msg = rawurlencode('No se pudo verificar la identidad con el proveedor.');
+            header("Location: {$baseUrl}/acceso?audience={$audience}&return={$return}&oauth_error={$msg}", true, 303);
+            exit;
+        }
+
+        $pdo = db();
+        $user = null;
+
+        try {
+            $q = $pdo->prepare('SELECT u.* FROM oauth_identities o JOIN professional_users u ON o.user_id = u.user_id WHERE o.provider = ? AND o.provider_user_id = ? LIMIT 1');
+            $q->execute([$provider, $oauthUser['provider_uid']]);
+            $user = $q->fetch();
+        } catch (Throwable $e) {
+            $user = null;
+        }
+
+        if (!$user) {
+            $q = $pdo->prepare('SELECT * FROM professional_users WHERE email = ? LIMIT 1');
+            $q->execute([$oauthUser['email']]);
+            $user = $q->fetch();
+
+            if ($user) {
+                $pdo->prepare("UPDATE professional_users SET email_verified = 1, email_status = 'verified' WHERE user_id = ?")->execute([$user['user_id']]);
+            } else {
+                $userId = 'usr-' . bin2hex(random_bytes(8));
+                $userName = $oauthUser['name'] !== '' ? $oauthUser['name'] : 'Usuario CocheMotor';
+                $q = $pdo->prepare("INSERT INTO professional_users(user_id, name, email, password_hash, verification_token, verification_token_hash, verification_expires_at, email_status, email_last_sent_at, email_send_attempts, privacy_notice_version, terms_version, notice_acknowledged_at) VALUES (?, ?, ?, NULL, '', '', NULL, 'verified', UTC_TIMESTAMP(), 1, 'privacy-v1', 'beta-terms-v1', UTC_TIMESTAMP())");
+                $q->execute([$userId, $userName, $oauthUser['email']]);
+                $user = [
+                    'user_id' => $userId,
+                    'name' => $userName,
+                    'email' => $oauthUser['email'],
+                    'phone' => '',
+                    'professional_type' => ''
+                ];
+            }
+
+            try {
+                $pdo->prepare('INSERT IGNORE INTO oauth_identities(user_id, provider, provider_user_id, email) VALUES (?, ?, ?, ?)')->execute([$user['user_id'], $provider, $oauthUser['provider_uid'], $oauthUser['email']]);
+            } catch (Throwable $e) {}
+        }
+
+        $token = bin2hex(random_bytes(32));
+        $pdo->prepare('INSERT INTO professional_sessions(token, user_id, expires_at) VALUES (?, ?, DATE_ADD(UTC_TIMESTAMP(), INTERVAL 8 HOUR))')->execute([$token, $user['user_id']]);
+
+        $hashParams = http_build_query([
+            'session_token' => $token,
+            'user_id' => $user['user_id'],
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'phone' => (string)($user['phone'] ?? ''),
+            'professional_type' => (string)($user['professional_type'] ?? ''),
+            'audience' => $audience,
+            'return' => $return
+        ]);
+
+        header("Location: {$baseUrl}/acceso#{$hashParams}", true, 303);
         exit;
     }
     if ($route==='/api/auth' && $method==='POST') {

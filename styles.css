@@ -2389,6 +2389,20 @@ button {
 .auth-status { min-height: 24px; margin: 14px 0; line-height: 1.45; overflow-wrap: anywhere; }
 .auth-status[data-kind="error"] { color: #a61b1b; }
 .auth-status[data-kind="success"] { color: #087443; }
+.auth-social-group { display: flex; flex-direction: column; gap: 8px; margin: 12px 0 14px; }
+.btn-social { display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 11px 14px; border-radius: 11px; font-family: inherit; font-size: .86rem; font-weight: 700; text-decoration: none; cursor: pointer; box-sizing: border-box; transition: transform .12s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease; }
+.btn-social:active { transform: scale(.99); }
+.btn-google { background: #ffffff; color: #1f2937; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.btn-google:hover { background: #f8fafc; border-color: #94a3b8; }
+.auth-social-secondary { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.btn-apple { background: #000000; color: #ffffff; border: 1px solid #000000; }
+.btn-apple:hover { background: #1f2937; }
+.btn-facebook { background: #1877f2; color: #ffffff; border: 1px solid #1877f2; }
+.btn-facebook:hover { background: #0d65d9; }
+.social-icon { flex-shrink: 0; display: block; }
+.auth-divider { display: flex; align-items: center; text-align: center; margin: 14px 0 12px; color: #94a3b8; font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.auth-divider::before, .auth-divider::after { content: ''; flex: 1; border-bottom: 1px solid #e2e8f0; }
+.auth-divider span { padding: 0 10px; }
 @media (max-width: 420px) { .auth-card { padding:20px 18px 18px; } .auth-logo { width:128px; } }
 .auth-choice-overlay { z-index: 30; }
 .auth-choice-card { width:min(100% - 32px, 420px); padding:28px; }
