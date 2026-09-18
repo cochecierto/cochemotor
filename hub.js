@@ -87,7 +87,20 @@ function initProgressiveVehicleForm() {
   const nav = document.createElement('div'); nav.className = 'progressive-form-nav'; nav.innerHTML = '<button type="button" class="btn btn-outline" data-progressive-prev>Anterior</button><span data-progressive-label>Paso 1 de 4 · Datos del vehículo</span><button type="button" class="btn btn-red" data-progressive-next>Continuar</button>';
   form.parentNode.insertBefore(nav, form);
   const steps = ['Datos del vehículo','Ubicación y documentación','Precio y rentabilidad','Fotos y revisión'];
-  const setStep = step => { const current = Math.max(1, Math.min(4, step)); form.dataset.progressiveStep = String(current); nav.querySelector('[data-progressive-prev]').disabled = current === 1; nav.querySelector('[data-progressive-next]').textContent = current === 4 ? 'Revisar anuncio' : 'Continuar'; nav.querySelector('[data-progressive-label]').textContent = `Paso ${current} de 4 · ${steps[current - 1]}`; document.querySelectorAll('.upload-stepper li').forEach((item,index)=>item.classList.toggle('is-current', index === current - 1)); form.dispatchEvent(new CustomEvent('progressive-step-change')); };
+  const setStep = step => {
+    const current = Math.max(1, Math.min(4, step)); form.dataset.progressiveStep = String(current);
+    const grid = form.querySelector(':scope > div'); const left = grid?.children[0]; const right = grid?.children[1];
+    if (grid) grid.style.gridTemplateColumns = 'minmax(0, 1fr)';
+    if (left && right) { left.style.display = current === 4 ? 'none' : 'block'; right.style.display = current === 4 ? 'block' : 'none'; }
+    const container = element => element.closest('.form-group') || element.closest('details') || element;
+    const hide = selector => form.querySelectorAll(selector).forEach(element => { container(element).style.display = 'none'; });
+    const show = selector => form.querySelectorAll(selector).forEach(element => { container(element).style.display = ''; });
+    if (current === 1) { hide('#up-community, #up-province, #up-municipality, #up-gearbox, #up-badge, #up-price, #up-cost, #pricing-analysis, .real-photos-details'); show('#up-brand, #up-model, #up-fuel, #up-version, #up-year, #up-km'); }
+    if (current === 2) { hide('#up-brand, #up-model, #up-fuel, #up-version, #up-year, #up-km, #up-price, #up-cost, #pricing-analysis, .real-photos-details'); show('#up-community, #up-province, #up-municipality, #up-gearbox, #up-badge'); }
+    if (current === 3) { hide('#up-brand, #up-model, #up-fuel, #up-version, #up-year, #up-km, #up-community, #up-province, #up-municipality, #up-gearbox, #up-badge, .real-photos-details'); show('#up-price, #up-cost, #pricing-analysis'); }
+    if (current === 4) { show('.photo-guide-grid, #up-highlights, #up-contact-consent, #vehicle-submit-status'); }
+    nav.querySelector('[data-progressive-prev]').disabled = current === 1; nav.querySelector('[data-progressive-next]').textContent = current === 4 ? 'Revisar anuncio' : 'Continuar'; nav.querySelector('[data-progressive-label]').textContent = `Paso ${current} de 4 · ${steps[current - 1]}`; document.querySelectorAll('.upload-stepper li').forEach((item,index)=>item.classList.toggle('is-current', index === current - 1)); form.dispatchEvent(new CustomEvent('progressive-step-change'));
+  };
   nav.querySelector('[data-progressive-prev]').addEventListener('click', () => setStep(Number(form.dataset.progressiveStep) - 1));
   nav.querySelector('[data-progressive-next]').addEventListener('click', () => { const current = Number(form.dataset.progressiveStep); if (current < 4) setStep(current + 1); else document.getElementById('vehicle-submit-status')?.scrollIntoView({behavior:'smooth',block:'center'}); });
   setStep(1);

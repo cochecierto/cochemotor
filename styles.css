@@ -1753,6 +1753,7 @@ button {
 #tab-upload .photo-slot-card { border-radius: 8px; }
 #tab-upload .photo-slot-copy { padding: 7px 8px 9px; }
 #tab-upload .photo-slot-desc { font-size: .68rem; }
+#tab-upload .upload-stepper { display:none; }
 @media (max-width: 760px) { #tab-upload.hub-tool-card { padding: 20px 16px 28px; } #tab-upload > form > div { grid-template-columns: 1fr !important; } }
 .hub-nav-section-label { padding: 12px 12px 5px; color: #93c5fd; font-size: .67rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .hub-next-action { display:flex; align-items:center; justify-content:space-between; gap:18px; margin:22px 0 24px; padding:18px 20px; border:1px solid #cfe0f1; border-radius:14px; background:linear-gradient(115deg,#f1f8ff,#fff); box-shadow:0 5px 16px rgba(0,45,98,.06); }
