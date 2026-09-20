@@ -102,6 +102,13 @@ function initIntakeSummary() {
   document.querySelectorAll('[data-intake-mode]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-intake-mode]').forEach(item=>item.classList.remove('is-selected'));button.classList.add('is-selected');const select=document.getElementById('up-publication-status');if(select)select.value=button.dataset.intakeMode;document.querySelector(`[data-publication-choice="${button.dataset.intakeMode}"]`)?.click();updateUpcomingEntryPreview();update();}));
   update();
   initPublicationChoice();
+  document.getElementById('generate-listing-copy')?.addEventListener('click', () => {
+    const title=document.getElementById('up-listing-title'), copy=document.getElementById('up-listing-copy');
+    const brand=document.getElementById('up-brand')?.value.trim()||'Vehículo'; const model=document.getElementById('up-model')?.value.trim()||'';
+    if(title) title.value=`${brand} ${model} · ${document.getElementById('up-year')?.value||''}`.trim();
+    if(copy&&!copy.value) copy.value=`${brand} ${model} con ${document.getElementById('up-km')?.value||'kilometraje indicado'}. Combustible ${document.getElementById('up-fuel')?.value||'por confirmar'} y cambio ${document.getElementById('up-gearbox')?.value||'por confirmar'}. Consulta la documentación, el estado y las condiciones de garantía con el vendedor.`;
+  });
+  document.querySelectorAll('[data-pricing-mode]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-pricing-mode]').forEach(item=>item.classList.remove('is-selected'));button.classList.add('is-selected');const advanced=document.getElementById('pricing-analysis');if(advanced)advanced.open=button.dataset.pricingMode==='professional';}));
 }
 
 function initPublicationChoice() {
@@ -118,10 +125,10 @@ function initProgressiveVehicleForm() {
     form.parentElement?.querySelectorAll('.progressive-form-nav').forEach(node => node.remove());
     form.dataset.progressiveReady = 'true'; form.dataset.progressiveStep = '1';
     const nav=form.querySelector('.listing-nav'), stages=[...form.querySelectorAll('.listing-stage')], steps=[...document.querySelectorAll('.listing-steps li')];
-    const fields={1:['#up-brand','#up-model','#up-version','#up-year','#up-km','#up-fuel','#up-gearbox','#up-badge'],2:['#up-price'],3:['#up-community','#up-province','#up-municipality'],4:[],5:['#up-contact-consent']};
-    const check=step=>{for(const selector of (fields[step]||[])){const field=form.querySelector(selector);if(field&&!field.checkValidity()){field.reportValidity();field.focus();return false;}}if(step===4&&!vehiclePhotoFiles.size&&document.getElementById('up-publication-status')?.value!=='proxima_entrada'){document.getElementById('vehicle-submit-status').textContent='Añade una foto real o selecciona Próxima entrada.';return false;}return true;};
-    const set=step=>{const current=Math.max(1,Math.min(5,step));form.dataset.progressiveStep=String(current);stages.forEach((panel,index)=>panel.classList.toggle('is-active',index===current-1));steps.forEach((item,index)=>item.classList.toggle('is-current',index===current-1));nav.querySelector('[data-progressive-prev]').disabled=current===1;nav.querySelector('[data-progressive-next]').textContent=current===5?'Ver ficha previa':'Continuar';nav.querySelector('[data-progressive-label]').textContent=`Paso ${current} de 5 · ${['Datos del vehículo','Precio y rentabilidad','Ubicación','Checklist fotográfico','Notas y revisión'][current-1]}`;form.dispatchEvent(new CustomEvent('progressive-step-change'));};
-    form._setProgressiveStep=set; form._validateProgressiveStep=check; nav.querySelector('[data-progressive-prev]').onclick=()=>set(Number(form.dataset.progressiveStep)-1); nav.querySelector('[data-progressive-next]').onclick=()=>{const current=Number(form.dataset.progressiveStep);if(check(current)){if(current<5)set(current+1);else document.getElementById('vehicle-submit-status')?.scrollIntoView({behavior:'smooth'});}}; set(1); return;
+    const fields={1:['#up-brand','#up-model','#up-version','#up-year','#up-km','#up-fuel','#up-gearbox','#up-badge'],2:['#up-price'],3:['#up-community','#up-province','#up-municipality'],4:[],5:[],6:[],7:['#up-contact-consent']};
+    const check=step=>{for(const selector of (fields[step]||[])){const field=form.querySelector(selector);if(field&&!field.checkValidity()){field.reportValidity();field.focus();return false;}}if(step===4&&!vehiclePhotoFiles.size&&document.getElementById('up-publication-status')?.value!=='proxima_entrada'){document.getElementById('vehicle-submit-status').textContent='Añade una foto real o selecciona Próxima entrada.';return false;}if(step===7){const required=['check-data','check-price','check-location','check-photos','check-trust','check-copy','check-contact'];const missing=required.find(id=>!document.getElementById(id)?.checked);if(missing){document.getElementById(missing).focus();return false;}}return true;};
+    const set=step=>{const current=Math.max(1,Math.min(7,step));form.dataset.progressiveStep=String(current);stages.forEach((panel,index)=>panel.classList.toggle('is-active',index===current-1));steps.forEach((item,index)=>item.classList.toggle('is-current',index===current-1));nav.querySelector('[data-progressive-prev]').disabled=current===1;nav.querySelector('[data-progressive-next]').textContent=current===7?'Ver ficha previa':'Continuar';nav.querySelector('[data-progressive-label]').textContent=`Paso ${current} de 7 · ${['Datos del vehículo','Precio y rentabilidad','Ubicación','Checklist fotográfico','Información de confianza','Texto del anuncio','Revisión final'][current-1]}`;form.dispatchEvent(new CustomEvent('progressive-step-change'));};
+    form._setProgressiveStep=set; form._validateProgressiveStep=check; nav.querySelector('[data-progressive-prev]').onclick=()=>set(Number(form.dataset.progressiveStep)-1); nav.querySelector('[data-progressive-next]').onclick=()=>{const current=Number(form.dataset.progressiveStep);if(check(current)){if(current<7)set(current+1);else document.getElementById('vehicle-submit-status')?.scrollIntoView({behavior:'smooth'});}}; set(1); return;
   }
   form.dataset.progressiveReady = 'true'; form.dataset.progressiveStep = '1';
   const nav = document.createElement('div'); nav.className = 'progressive-form-nav'; nav.innerHTML = '<button type="button" class="btn btn-outline" data-progressive-prev>Anterior</button><span data-progressive-label>Paso 1 de 4 · Datos del vehículo</span><button type="button" class="btn btn-red" data-progressive-next>Continuar</button>';
@@ -213,13 +220,14 @@ function getPricingAnalysis() {
   const riskCosts = number('up-risk-costs');
   const minProfit = number('up-min-profit');
   const optimalSalePrice = number('up-price') || Math.round((purchasePrice + acquisitionCosts + preparationCosts + riskCosts + minProfit) * 1.12);
-  const totalAcquisitionCost = purchasePrice + auctionFee + acquisitionCosts + preparationCosts + riskCosts;
+  const extraCosts = ['up-gestoria-cost','up-itv-cost','up-tyres-cost','up-cleaning-cost','up-warranty-cost','up-finance-cost'].reduce((sum,id)=>sum+number(id),0);
+  const totalAcquisitionCost = purchasePrice + auctionFee + acquisitionCosts + preparationCosts + riskCosts + extraCosts;
   const quickSalePrice = Math.round(optimalSalePrice * 0.94 / 100) * 100;
   const premiumSalePrice = Math.round(optimalSalePrice * 1.06 / 100) * 100;
   const maximumPurchasePrice = Math.max(0, optimalSalePrice - auctionFee - acquisitionCosts - preparationCosts - riskCosts - minProfit);
   const maximumAuctionBid = Math.max(0, maximumPurchasePrice - auctionFee);
   const source = document.getElementById('up-purchase-source')?.value || 'particular';
-  return { purchaseSource: source, taxMode: document.getElementById('up-tax-mode')?.value || 'pendiente', purchasePrice, auctionFee, acquisitionCosts, preparationCosts, riskCosts, minimumProfit: minProfit, totalAcquisitionCost, quickSalePrice, optimalSalePrice, premiumSalePrice, maximumPurchasePrice, maximumAuctionBid, recommendedStrategy: 'optimal', estimatedRotationDays: source === 'subasta' ? 45 : 60, riskLevel: source === 'subasta' ? 'medium' : 'low' };
+  return { purchaseSource: source, taxMode: document.getElementById('up-tax-mode')?.value || 'pendiente', purchasePrice, auctionFee, acquisitionCosts, preparationCosts, riskCosts, extraCosts, maximumStockDays: number('up-max-stock-days') || 60, minimumProfit: minProfit, totalAcquisitionCost, quickSalePrice, optimalSalePrice, premiumSalePrice, maximumPurchasePrice, maximumAuctionBid, recommendedStrategy: 'optimal', estimatedRotationDays: source === 'subasta' ? 45 : 60, riskLevel: source === 'subasta' ? 'medium' : 'low' };
 }
 
 function calculatePricingAnalysis() {
@@ -534,8 +542,10 @@ function renderVehiclePreview(form) {
   document.getElementById('vehicle-preview')?.remove();
   const value = id => document.getElementById(id)?.value?.trim() || 'No indicado';
   const preview = document.createElement('div'); preview.id = 'vehicle-preview'; preview.className = 'vehicle-preview-overlay'; preview.setAttribute('role','dialog'); preview.setAttribute('aria-modal','true');
-  preview.innerHTML = `<div class="vehicle-preview-card"><div class="vehicle-preview-head"><div><span class="chapter-badge">REVISIÓN ANTES DE PUBLICAR</span><h2>Ficha previa del anuncio</h2><p>Comprueba los datos. Todavía no se ha publicado.</p></div><button type="button" class="vehicle-preview-close" aria-label="Cerrar ficha previa">×</button></div><div class="vehicle-preview-grid"><div><h3>${value('up-brand')} ${value('up-model')}</h3><p>${value('up-version')} · ${value('up-fuel')} · ${value('up-year')} · ${value('up-km')}</p><p>${value('up-gearbox')} · Distintivo ${value('up-badge')}</p><p><strong>${Number(value('up-price')) ? Number(value('up-price')).toLocaleString('es-ES') + ' €' : 'Precio pendiente'}</strong> · ${value('up-publication-status') === 'proxima_entrada' ? 'Próxima entrada' : 'Disponible'}</p></div><div><h3>Ubicación</h3><p>${value('up-community')} · ${value('up-province')} · ${value('up-municipality')}</p><h3>Fotos y notas</h3><p>${vehiclePhotoFiles.size} foto(s) añadida(s)</p><p>${value('up-highlights')}</p></div></div><div class="vehicle-preview-actions"><button type="button" class="btn btn-outline" data-preview-edit>Editar datos</button><button type="button" class="btn btn-outline" data-preview-save>Guardar borrador</button><button type="button" class="btn btn-outline preview-delete" data-preview-delete>Eliminar borrador</button><button type="button" class="btn btn-red" data-preview-submit>Enviar a revisión</button></div><p class="vehicle-preview-status" role="status"></p></div>`;
+  preview.innerHTML = `<div class="vehicle-preview-card"><div class="vehicle-preview-head"><div><span class="chapter-badge">REVISIÓN ANTES DE PUBLICAR</span><h2>Ficha previa del anuncio</h2><p>Comprueba los datos. Todavía no se ha publicado.</p></div><button type="button" class="vehicle-preview-close" aria-label="Cerrar ficha previa">×</button></div><div class="copy-preview-toggle"><button type="button" class="btn btn-outline" data-preview-desktop>Vista escritorio</button><button type="button" class="btn btn-outline" data-preview-mobile>Vista móvil</button></div><div class="vehicle-preview-grid"><div><h3>${value('up-brand')} ${value('up-model')}</h3><p>${value('up-version')} · ${value('up-fuel')} · ${value('up-year')} · ${value('up-km')}</p><p>${value('up-gearbox')} · Distintivo ${value('up-badge')}</p><p><strong>${Number(value('up-price')) ? Number(value('up-price')).toLocaleString('es-ES') + ' €' : 'Precio pendiente'}</strong> · ${value('up-publication-status') === 'proxima_entrada' ? 'Próxima entrada' : 'Disponible'}</p></div><div><h3>Ubicación</h3><p>${value('up-community')} · ${value('up-province')} · ${value('up-municipality')}</p><h3>Fotos y notas</h3><p>${vehiclePhotoFiles.size} foto(s) añadida(s)</p><p>${value('up-highlights')}</p></div></div><div class="vehicle-preview-actions"><button type="button" class="btn btn-outline" data-preview-edit>Editar datos</button><button type="button" class="btn btn-outline" data-preview-save>Guardar borrador</button><button type="button" class="btn btn-outline preview-delete" data-preview-delete>Eliminar borrador</button><button type="button" class="btn btn-red" data-preview-submit>Enviar a revisión</button></div><p class="vehicle-preview-status" role="status"></p></div>`;
   document.body.appendChild(preview);
+  preview.querySelector('[data-preview-mobile]').onclick=()=>preview.querySelector('.vehicle-preview-card').classList.add('preview-mobile');
+  preview.querySelector('[data-preview-desktop]').onclick=()=>preview.querySelector('.vehicle-preview-card').classList.remove('preview-mobile');
   preview.querySelector('.vehicle-preview-close').onclick = () => preview.remove();
   preview.querySelector('[data-preview-edit]').onclick = () => { preview.remove(); form._setProgressiveStep?.(1); document.getElementById('up-brand')?.focus(); };
   preview.querySelector('[data-preview-save]').onclick = () => { saveVehicleDraft(); preview.querySelector('.vehicle-preview-status').textContent = 'Borrador guardado en este dispositivo.'; };
@@ -546,15 +556,13 @@ function renderVehiclePreview(form) {
 async function handleCreateVehicle(event) {
   event.preventDefault();
   const form=event.currentTarget, status=document.getElementById('vehicle-submit-status'), submit=form.querySelector('button[type="submit"]');
-  const currentProgressiveStep = Number(form.dataset.progressiveStep || 5);
-  if (currentProgressiveStep < 5) {
+  const currentProgressiveStep = Number(form.dataset.progressiveStep || 7);
+  if (currentProgressiveStep < 7) {
     if (typeof form._validateProgressiveStep === 'function' && form._validateProgressiveStep(currentProgressiveStep)) {
       form._setProgressiveStep?.(currentProgressiveStep + 1);
     }
     return;
   }
-  if (form.dataset.previewApproved !== 'true') { renderVehiclePreview(form); return; }
-  delete form.dataset.previewApproved;
   const localSession=getProfessionalSession();
   if (!localSession?.verified || !localSession.sessionToken) { window.location.href='/acceso?audience=professional&return=hub&mode=login'; return; }
   if (!localSession.phone || !localSession.professionalType || !localSession.profileComplete) { window.location.href='/perfil'; return; }
@@ -571,6 +579,11 @@ async function handleCreateVehicle(event) {
     }
     invalidField.reportValidity(); invalidField.focus(); return;
   }
+  const finalReview = ['check-data','check-price','check-location','check-photos','check-trust','check-copy','check-contact'];
+  const missingReview = finalReview.find(id => !document.getElementById(id)?.checked);
+  if (missingReview) { document.getElementById(missingReview)?.focus(); status.textContent='Completa la revisión final antes de abrir la ficha previa.'; return; }
+  if (form.dataset.previewApproved !== 'true') { renderVehiclePreview(form); return; }
+  delete form.dataset.previewApproved;
 
   const brand = document.getElementById('up-brand').value.trim();
   const model = document.getElementById('up-model').value.trim();
@@ -610,6 +623,8 @@ async function handleCreateVehicle(event) {
 
   const evidenceSelect = document.getElementById('up-evidence-level');
   const evidenceLevel = evidenceSelect ? evidenceSelect.value : 'verificado_obd';
+  const trustSignals = ['itv','history','book','owner','warranty','dgt','inspection','defects'].reduce((result,key)=>{result[key]=Boolean(document.getElementById(`trust-${key}`)?.checked);return result;},{});
+  const listingCopy = { title: document.getElementById('up-listing-title')?.value.trim() || '', description: document.getElementById('up-listing-copy')?.value.trim() || '' };
   const vehicleId = `pub-${crypto.randomUUID().replace(/-/g, '')}`;
 
   const newVehicle = {
@@ -655,6 +670,8 @@ async function handleCreateVehicle(event) {
     estimatedMarketPrice: price,
     publicationStatus,
     pricingAnalysis,
+    trustSignals,
+    listingCopy,
   };
 
   const location=municipalitySelect?.selectedOptions[0]?.textContent?.trim()||'';
