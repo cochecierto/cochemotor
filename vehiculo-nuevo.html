@@ -12,7 +12,6 @@
         <ol class="upload-stepper" aria-label="Progreso del alta del vehículo">
           <li class="is-current"><span>1</span><strong>Datos del vehículo</strong></li><li><span>2</span><strong>Precio</strong></li><li><span>3</span><strong>Ubicación</strong></li><li><span>4</span><strong>Fotos</strong></li><li><span>5</span><strong>Notas y revisión</strong></li>
         </ol>
-        <div class="publish-progress" id="publish-progress" role="status">Datos básicos 0/4 · Ubicación 0/3 · Fotos 0/10 · Consentimiento pendiente</div>
         <div class="form-flow-tools"><span>Completa una etapa cada vez; tus datos se guardan como borrador en este dispositivo.</span><button type="button" class="btn btn-outline" id="save-vehicle-draft">Guardar borrador</button><span id="vehicle-draft-status" role="status"></span></div>
 
         <div class="intake-workspace"><form id="form-upload-vehicle" onsubmit="handleCreateVehicle(event)">
@@ -20,7 +19,7 @@
             <!-- Columna A: Datos Técnicos -->
             <div>
                 <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin-bottom: 16px;">1. Datos del vehículo</h3>
-              
+
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                 <div class="form-group">
                   <label class="form-label">Marca *</label>
@@ -39,7 +38,7 @@
 
               <div class="form-group">
                 <label class="form-label">Versión y Motorización *</label>
-                <small class="form-help">Selecciona el combustible para mostrar las motorizaciones compatibles.</small>
+
                 <input id="up-version" class="form-control" placeholder="Ej.: 1.8 Hybrid 140H e-CVT" required>
               </div>
 
@@ -61,7 +60,7 @@
                 <div class="form-group"><label class="form-label">Municipio *</label><select id="up-municipality" class="form-control" required disabled></select></div>
               </div>
 
-              <div id="pricing-fields" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div id="technical-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                 <div class="form-group">
                   <label class="form-label">Caja de Cambios</label>
                   <select id="up-gearbox" class="form-control">
@@ -83,7 +82,7 @@
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                <div class="form-group">
+                <div id="pricing-fields" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;"><div class="form-group">
                   <label class="form-label">Precio al Contado (€) *</label>
                   <input type="number" id="up-price" class="form-control" placeholder="Ej: 17500" required>
                 </div>
