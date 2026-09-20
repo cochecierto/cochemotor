@@ -128,7 +128,7 @@ function initProgressiveVehicleForm() {
     form.parentElement?.querySelectorAll('.progressive-form-nav').forEach(node => node.remove());
     form.dataset.progressiveReady = 'true'; form.dataset.progressiveStep = '1';
     const nav=form.querySelector('.listing-nav'), stages=[...form.querySelectorAll('.listing-stage')], steps=[...document.querySelectorAll('.listing-steps li')];
-    const fields={1:['#up-brand','#up-model','#up-version','#up-year','#up-km','#up-fuel','#up-gearbox','#up-badge'],2:['#up-price'],3:['#up-community','#up-province','#up-municipality'],4:[],5:[],6:[],7:['#up-contact-consent']};
+    const fields={1:['#up-brand','#up-model','#up-version','#up-year','#up-km','#up-fuel','#up-gearbox','#up-badge','#up-itv-status'],2:['#up-price'],3:['#up-community','#up-province','#up-municipality'],4:[],5:[],6:[],7:['#up-contact-consent']};
     const check=step=>{for(const selector of (fields[step]||[])){const field=form.querySelector(selector);if(field&&!field.checkValidity()){field.reportValidity();field.focus();return false;}}if(step===4&&!vehiclePhotoFiles.size&&document.getElementById('up-publication-status')?.value!=='proxima_entrada'){document.getElementById('vehicle-submit-status').textContent='Añade una foto real o selecciona Próxima entrada.';return false;}if(step===7){const required=['check-data','check-price','check-location','check-photos','check-trust','check-copy','check-contact'];const missing=required.find(id=>!document.getElementById(id)?.checked);if(missing){document.getElementById(missing).focus();return false;}}return true;};
     const set=step=>{const current=Math.max(1,Math.min(7,step));form.dataset.progressiveStep=String(current);stages.forEach((panel,index)=>panel.classList.toggle('is-active',index===current-1));steps.forEach((item,index)=>item.classList.toggle('is-current',index===current-1));nav.querySelector('[data-progressive-prev]').disabled=current===1;nav.querySelector('[data-progressive-next]').textContent=current===7?'Ver ficha previa':'Continuar';nav.querySelector('[data-progressive-label]').textContent=`Paso ${current} de 7 · ${['Datos del vehículo','Precio y rentabilidad','Ubicación','Checklist fotográfico','Información de confianza','Texto del anuncio','Revisión final'][current-1]}`;form.dispatchEvent(new CustomEvent('progressive-step-change'));};
     form._setProgressiveStep=set; form._validateProgressiveStep=check; nav.querySelector('[data-progressive-prev]').onclick=()=>set(Number(form.dataset.progressiveStep)-1); nav.querySelector('[data-progressive-next]').onclick=()=>{const current=Number(form.dataset.progressiveStep);if(check(current)){if(current<7)set(current+1);else document.getElementById('vehicle-submit-status')?.scrollIntoView({behavior:'smooth'});}}; set(1); return;
@@ -644,6 +644,7 @@ async function handleCreateVehicle(event) {
     gearbox,
     badge,
     badgeClass: badge === 'ECO' ? 'badge-eco' : badge === '0' ? 'badge-zero' : badge === 'B' ? 'badge-b' : 'badge-c',
+    itvStatus: document.getElementById('up-itv-status')?.value || 'pendiente',
     price,
     monthlyPrice: `${Math.round(price * 0.0135)} €/mes`,
     cost,
