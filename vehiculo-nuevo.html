@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Añadir vehículo | CocheMotor</title><link rel="stylesheet" href="/styles.css?v=20260918"><style>body{background:#f4f7fb}.intake-shell{max-width:1180px;margin:0 auto;padding:24px 18px 64px}.intake-back{display:inline-flex;margin-bottom:16px;color:#002d62;font-weight:750;text-decoration:none}.intake-shell .hub-tool-card{display:block!important;margin:0}</style><link rel="stylesheet" href="/cookie-consent.css?v=1"><script src="/cookie-consent.js?v=1" defer></script></head><body><main class="intake-shell"><a class="intake-back" href="/panel">← Volver al panel</a><section id="tab-upload" class="hub-tool-card" style="display: none;">
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Añadir vehículo | CocheMotor</title><link rel="stylesheet" href="/styles.css?v=20260918"><style>body{background:#f4f7fb}.intake-shell{max-width:1180px;margin:0 auto;padding:24px 18px 64px}.intake-back{display:inline-flex;margin-bottom:16px;color:#002d62;font-weight:750;text-decoration:none}.intake-shell .hub-tool-card{display:block!important;margin:0}</style><link rel="stylesheet" href="/cookie-consent.css?v=2"><script src="/cookie-consent.js?v=1" defer></script></head><body><main class="intake-shell"><a class="intake-back" href="/panel">← Volver al panel</a><section id="tab-upload" class="hub-tool-card" style="display: none;">
         <div class="chapter-badge">AÑADIR UN COCHE AL INVENTARIO</div>
         <h2 class="hub-tool-title">Añade un vehículo al inventario</h2>
         <p class="hub-tool-desc">
           Completa los datos imprescindibles y guarda un borrador. Al terminar la revisión podrás decidir cuándo publicar el anuncio.
         </p>
         <ol class="upload-stepper" aria-label="Progreso del alta del vehículo">
-          <li class="is-current"><span>1</span><strong>Datos</strong></li><li><span>2</span><strong>Ubicación</strong></li><li><span>3</span><strong>Precio</strong></li><li><span>4</span><strong>Fotos y revisión</strong></li>
+          <li class="is-current"><span>1</span><strong>Datos del vehículo</strong></li><li><span>2</span><strong>Precio</strong></li><li><span>3</span><strong>Ubicación</strong></li><li><span>4</span><strong>Fotos</strong></li><li><span>5</span><strong>Notas y revisión</strong></li>
         </ol>
         <div class="publish-progress" id="publish-progress" role="status">Datos básicos 0/4 · Ubicación 0/3 · Fotos 0/10 · Consentimiento pendiente</div>
         <div class="form-flow-tools"><span>Completa una etapa cada vez; tus datos se guardan como borrador en este dispositivo.</span><button type="button" class="btn btn-outline" id="save-vehicle-draft">Guardar borrador</button><span id="vehicle-draft-status" role="status"></span></div>
@@ -20,29 +20,29 @@
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                 <div class="form-group">
                   <label class="form-label">Marca *</label>
-                  <select id="up-brand" class="form-control" required></select>
+                  <input id="up-brand" class="form-control" placeholder="Ej.: Toyota" autocomplete="organization" required>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Modelo *</label>
-                  <select id="up-model" class="form-control" required disabled></select>
+                  <input id="up-model" class="form-control" placeholder="Ej.: Corolla" required>
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="form-label">Combustible *</label>
-                <select id="up-fuel" class="form-control" onchange="autoCalculateBadge()" required disabled></select>
+                <select id="up-fuel" class="form-control" onchange="autoCalculateBadge()" required><option value="">Selecciona combustible</option><option>Gasolina</option><option>Diésel</option><option>Híbrido gasolina</option><option>Híbrido diésel</option><option>Eléctrico</option><option>GLP (autogás)</option><option>GNC (gas natural)</option></select>
               </div>
 
               <div class="form-group">
                 <label class="form-label">Versión y Motorización *</label>
                 <small class="form-help">Selecciona el combustible para mostrar las motorizaciones compatibles.</small>
-                <select id="up-version" class="form-control" required disabled></select>
+                <input id="up-version" class="form-control" placeholder="Ej.: 1.8 Hybrid 140H e-CVT" required>
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                 <div class="form-group">
                   <label class="form-label">Año de matriculación *</label>
-                  <select id="up-year" class="form-control" required disabled></select>
+                  <input id="up-year" class="form-control" type="number" min="2000" max="2030" placeholder="Ej.: 2020" required>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Kilómetros *</label>
@@ -50,7 +50,7 @@
                 </div>
               </div>
 
-              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin: 22px 0 16px;">2. Ubicación del inventario</h3>
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--cm-navy); margin: 22px 0 16px;">3. Ubicación del inventario</h3>
               <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
                 <div class="form-group"><label class="form-label">CCAA *</label><select id="up-community" class="form-control" required></select></div>
                 <div class="form-group"><label class="form-label">Provincia *</label><select id="up-province" class="form-control" required disabled></select></div>
@@ -98,7 +98,7 @@
               </div>
 
               <details id="pricing-analysis" class="pricing-analysis">
-                <summary>4. Análisis de precio y margen</summary>
+                <summary>2. Análisis de precio y margen</summary>
                 <p class="form-help">Calcula la rentabilidad real de la operación antes de publicar. Este análisis solo lo verá tu equipo.</p>
                 <div class="pricing-analysis-fields">
                   <label>Origen del vehículo<select id="up-purchase-source" class="form-control"><option value="particular">Particular</option><option value="profesional">Otro profesional</option><option value="subasta">Subasta</option><option value="renting">Renting o financiera</option><option value="importacion">Importación</option><option value="parte_pago">Parte de pago</option></select></label>
@@ -169,8 +169,8 @@
               </div>
 
               <div class="form-group" style="margin-top: 18px;">
-                <label class="form-label">Puntos Fuertes de Taller (1 por línea)</label>
-                <textarea id="up-highlights" class="form-control" rows="3" placeholder="Kit de distribución recién cambiado&#10;Neumáticos al 90%&#10;ITV en vigor hasta 2026&#10;1 Solo propietario con libro"></textarea>
+                <label class="form-label">Puntos fuertes y notas generales</label>
+                <textarea id="up-highlights" class="form-control" rows="5" placeholder="Mantenimiento, equipamiento, ITV, estado, defectos o cualquier información relevante."></textarea>
               </div>
 
               <label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:.9rem"><input id="up-contact-consent" type="checkbox" required><span>Autorizo el uso de estos datos de contacto para revisar y gestionar la publicación. Consulta la <a href="/privacidad" target="_blank" rel="noopener">Política de privacidad</a>.</span></label>
@@ -181,4 +181,4 @@
             </div>
           </div>
         </form>
-      </section></main><script src="/site-config.js?v=20260917.1"></script><script type="module" src="/assets/js/inventory_selectors.js?v=5"></script><script src="/hub.js?v=20260918.2"></script><script>window.addEventListener('DOMContentLoaded',()=>{if(typeof initVehiclePhotoGuide==='function')initVehiclePhotoGuide();if(typeof initPublishProgress==='function')initPublishProgress();});</script></body></html>
+      </section></main><script src="/site-config.js?v=20260917.1"></script><script type="module" src="/assets/js/inventory_selectors.js?v=6"></script><script src="/hub.js?v=20260918.3"></script><script>window.addEventListener('DOMContentLoaded',()=>{if(typeof initVehiclePhotoGuide==='function')initVehiclePhotoGuide();if(typeof initPublishProgress==='function')initPublishProgress();});</script></body></html>

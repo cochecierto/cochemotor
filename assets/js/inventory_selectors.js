@@ -34,7 +34,7 @@ function initVehicleSelectors() {
   const version = $('up-version');
   const year = $('up-year');
   const fuel = $('up-fuel');
-  if (!brand) return;
+  if (!brand || brand.tagName !== 'SELECT' || !model || model.tagName !== 'SELECT') return;
   fill(brand, getBrands(), 'Selecciona marca');
   brand.addEventListener('change', () => {
     resetVehicleFrom('up-model');
