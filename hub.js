@@ -115,6 +115,7 @@ function initPublicationChoice() {
 function initProgressiveVehicleForm() {
   const form = document.getElementById('form-upload-vehicle'); if (!form || form.dataset.progressiveReady) return;
   if (form.querySelector('.listing-stage')) {
+    form.parentElement?.querySelectorAll('.progressive-form-nav').forEach(node => node.remove());
     form.dataset.progressiveReady = 'true'; form.dataset.progressiveStep = '1';
     const nav=form.querySelector('.listing-nav'), stages=[...form.querySelectorAll('.listing-stage')], steps=[...document.querySelectorAll('.listing-steps li')];
     const fields={1:['#up-brand','#up-model','#up-version','#up-year','#up-km','#up-fuel','#up-gearbox','#up-badge'],2:['#up-price'],3:['#up-community','#up-province','#up-municipality'],4:[],5:['#up-contact-consent']};
