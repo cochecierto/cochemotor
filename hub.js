@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const MAX_VEHICLE_IMAGES = 10;
 const VEHICLE_PHOTO_SLOTS = ['front-right','left-side','right-side','rear','front-interior','rear-interior','trunk','engine','dashboard-km','tire'];
-const UPCOMING_ENTRY_IMAGE = 'assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png';
+const UPCOMING_ENTRY_IMAGE = '/assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png';
 const vehiclePhotoFiles = new Map();
 const vehiclePhotoUrls = new Map();
 
@@ -99,8 +99,17 @@ function initIntakeSummary() {
   };
   form.addEventListener('input',update); form.addEventListener('change',update); document.addEventListener('vehicle-photos-updated',update);
   document.getElementById('intake-summary-save')?.addEventListener('click',saveVehicleDraft);
-  document.querySelectorAll('[data-intake-mode]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-intake-mode]').forEach(item=>item.classList.remove('is-selected'));button.classList.add('is-selected');const select=document.getElementById('up-publication-status');if(select)select.value=button.dataset.intakeMode;updateUpcomingEntryPreview();update();}));
+  document.querySelectorAll('[data-intake-mode]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-intake-mode]').forEach(item=>item.classList.remove('is-selected'));button.classList.add('is-selected');const select=document.getElementById('up-publication-status');if(select)select.value=button.dataset.intakeMode;document.querySelector(`[data-publication-choice="${button.dataset.intakeMode}"]`)?.click();updateUpcomingEntryPreview();update();}));
   update();
+  initPublicationChoice();
+}
+
+function initPublicationChoice() {
+  const select=document.getElementById('up-publication-status'); if(!select || select.dataset.choiceReady) return;
+  select.dataset.choiceReady='true';
+  const sync=mode=>{ select.value=mode; document.querySelectorAll('[data-publication-choice]').forEach(button=>button.classList.toggle('is-selected',button.dataset.publicationChoice===mode)); document.querySelectorAll('[data-photo-mode]').forEach(panel=>{panel.hidden=panel.dataset.photoMode!==mode;}); updateUpcomingEntryPreview?.(); document.dispatchEvent(new CustomEvent('vehicle-photos-updated')); };
+  document.querySelectorAll('[data-publication-choice]').forEach(button=>button.addEventListener('click',()=>sync(button.dataset.publicationChoice)));
+  sync(select.value||'disponible');
 }
 
 function initProgressiveVehicleForm() {
