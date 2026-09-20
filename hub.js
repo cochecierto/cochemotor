@@ -77,8 +77,30 @@ function initPublishProgress() {
     step.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); step.click(); } });
   });
   initProgressiveVehicleForm();
+  initIntakeSummary();
   update();
   updatePriceAssistant();
+}
+
+function initIntakeSummary() {
+  const form = document.getElementById('form-upload-vehicle'); if (!form || form.dataset.summaryReady) return;
+  form.dataset.summaryReady = 'true';
+  const value = id => document.getElementById(id)?.value?.trim() || '';
+  const update = () => {
+    const brand=value('up-brand'), model=value('up-model');
+    const title=document.getElementById('intake-summary-title'); if(title) title.textContent=brand||model ? `${brand} ${model}`.trim() : 'Tu vehículo';
+    const data=document.getElementById('intake-summary-data'); if(data) data.textContent=[brand,model,value('up-year')].every(Boolean)?'Completa':'Pendientes';
+    const price=document.getElementById('intake-summary-price'); if(price) price.textContent=Number(value('up-price'))?`${Number(value('up-price')).toLocaleString('es-ES')} €`:'Pendiente';
+    const location=document.getElementById('intake-summary-location'); if(location) location.textContent=[value('up-province'),value('up-municipality')].filter(Boolean).join(' · ')||'Pendiente';
+    const photos=document.getElementById('intake-summary-photos'); if(photos) photos.textContent=`${vehiclePhotoFiles.size}/${MAX_VEHICLE_IMAGES}`;
+    const completed=[['up-brand','up-model','up-fuel','up-version','up-year','up-km'],['up-price'],['up-community','up-province','up-municipality'],[],['up-highlights']].filter(group=>group.length && group.every(id=>value(id))).length;
+    const bar=document.getElementById('intake-summary-progress-bar'); if(bar) bar.style.width=`${Math.round((completed/5)*100)}%`;
+    const state=document.getElementById('intake-summary-state'); if(state) state.textContent=`Paso ${Number(form.dataset.progressiveStep||1)} de 5 · Guardado localmente`;
+  };
+  form.addEventListener('input',update); form.addEventListener('change',update); document.addEventListener('vehicle-photos-updated',update);
+  document.getElementById('intake-summary-save')?.addEventListener('click',saveVehicleDraft);
+  document.querySelectorAll('[data-intake-mode]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-intake-mode]').forEach(item=>item.classList.remove('is-selected'));button.classList.add('is-selected');const select=document.getElementById('up-publication-status');if(select)select.value=button.dataset.intakeMode;updateUpcomingEntryPreview();update();}));
+  update();
 }
 
 function initProgressiveVehicleForm() {

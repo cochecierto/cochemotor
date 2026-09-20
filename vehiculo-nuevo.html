@@ -1,17 +1,21 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Añadir vehículo | CocheMotor</title><link rel="stylesheet" href="/styles.css?v=20260918"><style>body{background:#f4f7fb}.intake-shell{max-width:1180px;margin:0 auto;padding:24px 18px 64px}.intake-back{display:inline-flex;margin-bottom:16px;color:#002d62;font-weight:750;text-decoration:none}.intake-shell .hub-tool-card{display:block!important;margin:0}</style><link rel="stylesheet" href="/cookie-consent.css?v=2"><script src="/cookie-consent.js?v=1" defer></script></head><body><main class="intake-shell"><a class="intake-back" href="/panel">← Volver al panel</a><section id="tab-upload" class="hub-tool-card" style="display: none;">
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Añadir vehículo | CocheMotor</title><link rel="stylesheet" href="/styles.css?v=20260920"><style>body{background:#f4f7fb}.intake-shell{max-width:1180px;margin:0 auto;padding:24px 18px 64px}.intake-back{display:inline-flex;margin-bottom:16px;color:#002d62;font-weight:750;text-decoration:none}.intake-shell .hub-tool-card{display:block!important;margin:0}</style><link rel="stylesheet" href="/cookie-consent.css?v=2"><script src="/cookie-consent.js?v=1" defer></script></head><body><main class="intake-shell"><a class="intake-back" href="/panel">← Volver al panel</a><section id="tab-upload" class="hub-tool-card" style="display: none;">
         <div class="chapter-badge">AÑADIR UN COCHE AL INVENTARIO</div>
         <h2 class="hub-tool-title">Añade un vehículo al inventario</h2>
         <p class="hub-tool-desc">
-          Completa los datos imprescindibles y guarda un borrador. Al terminar la revisión podrás decidir cuándo publicar el anuncio.
+          Crea una ficha fiable y rentable en unos minutos. Puedes guardar el borrador y revisar cómo lo verá el comprador antes de enviarlo.
         </p>
+        <div class="intake-start-choice" role="group" aria-label="Tipo de anuncio">
+          <button type="button" class="intake-choice is-selected" data-intake-mode="disponible"><strong>Coche disponible</strong><span>Listo para recibir contactos y visitas.</span></button>
+          <button type="button" class="intake-choice" data-intake-mode="proxima_entrada"><strong>Próxima entrada</strong><span>Recibe reservas antes de que llegue.</span></button>
+        </div>
         <ol class="upload-stepper" aria-label="Progreso del alta del vehículo">
           <li class="is-current"><span>1</span><strong>Datos del vehículo</strong></li><li><span>2</span><strong>Precio</strong></li><li><span>3</span><strong>Ubicación</strong></li><li><span>4</span><strong>Fotos</strong></li><li><span>5</span><strong>Notas y revisión</strong></li>
         </ol>
         <div class="publish-progress" id="publish-progress" role="status">Datos básicos 0/4 · Ubicación 0/3 · Fotos 0/10 · Consentimiento pendiente</div>
         <div class="form-flow-tools"><span>Completa una etapa cada vez; tus datos se guardan como borrador en este dispositivo.</span><button type="button" class="btn btn-outline" id="save-vehicle-draft">Guardar borrador</button><span id="vehicle-draft-status" role="status"></span></div>
 
-        <form id="form-upload-vehicle" onsubmit="handleCreateVehicle(event)">
+        <div class="intake-workspace"><form id="form-upload-vehicle" onsubmit="handleCreateVehicle(event)">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
             <!-- Columna A: Datos Técnicos -->
             <div>
@@ -180,5 +184,5 @@
               </button>
             </div>
           </div>
-        </form>
-      </section></main><script src="/site-config.js?v=20260917.1"></script><script type="module" src="/assets/js/inventory_selectors.js?v=6"></script><script src="/hub.js?v=20260918.3"></script><script>window.addEventListener('DOMContentLoaded',()=>{if(typeof initVehiclePhotoGuide==='function')initVehiclePhotoGuide();if(typeof initPublishProgress==='function')initPublishProgress();});</script></body></html>
+        </form><aside class="intake-summary" aria-live="polite"><span class="chapter-badge">RESUMEN DEL ANUNCIO</span><h3 id="intake-summary-title">Tu vehículo</h3><p id="intake-summary-state">Borrador sin completar</p><div class="intake-summary-progress"><span id="intake-summary-progress-bar"></span></div><dl><div><dt>Datos</dt><dd id="intake-summary-data">Pendientes</dd></div><div><dt>Precio</dt><dd id="intake-summary-price">Pendiente</dd></div><div><dt>Ubicación</dt><dd id="intake-summary-location">Pendiente</dd></div><div><dt>Fotos</dt><dd id="intake-summary-photos">0/10</dd></div></dl><button type="button" class="btn btn-outline" id="intake-summary-save">Guardar borrador</button></aside></div>
+      </section></main><script src="/site-config.js?v=20260917.1"></script><script type="module" src="/assets/js/inventory_selectors.js?v=6"></script><script src="/hub.js?v=20260920.1"></script><script>window.addEventListener('DOMContentLoaded',()=>{if(typeof initVehiclePhotoGuide==='function')initVehiclePhotoGuide();if(typeof initPublishProgress==='function')initPublishProgress();});</script></body></html>
