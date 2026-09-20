@@ -105,6 +105,14 @@ function initIntakeSummary() {
 
 function initProgressiveVehicleForm() {
   const form = document.getElementById('form-upload-vehicle'); if (!form || form.dataset.progressiveReady) return;
+  if (form.querySelector('.listing-stage')) {
+    form.dataset.progressiveReady = 'true'; form.dataset.progressiveStep = '1';
+    const nav=form.querySelector('.listing-nav'), stages=[...form.querySelectorAll('.listing-stage')], steps=[...document.querySelectorAll('.listing-steps li')];
+    const fields={1:['#up-brand','#up-model','#up-version','#up-year','#up-km','#up-fuel','#up-gearbox','#up-badge'],2:['#up-price'],3:['#up-community','#up-province','#up-municipality'],4:[],5:['#up-contact-consent']};
+    const check=step=>{for(const selector of (fields[step]||[])){const field=form.querySelector(selector);if(field&&!field.checkValidity()){field.reportValidity();field.focus();return false;}}if(step===4&&!vehiclePhotoFiles.size&&document.getElementById('up-publication-status')?.value!=='proxima_entrada'){document.getElementById('vehicle-submit-status').textContent='Añade una foto real o selecciona Próxima entrada.';return false;}return true;};
+    const set=step=>{const current=Math.max(1,Math.min(5,step));form.dataset.progressiveStep=String(current);stages.forEach((panel,index)=>panel.classList.toggle('is-active',index===current-1));steps.forEach((item,index)=>item.classList.toggle('is-current',index===current-1));nav.querySelector('[data-progressive-prev]').disabled=current===1;nav.querySelector('[data-progressive-next]').textContent=current===5?'Ver ficha previa':'Continuar';nav.querySelector('[data-progressive-label]').textContent=`Paso ${current} de 5 · ${['Datos del vehículo','Precio y rentabilidad','Ubicación','Checklist fotográfico','Notas y revisión'][current-1]}`;form.dispatchEvent(new CustomEvent('progressive-step-change'));};
+    form._setProgressiveStep=set; form._validateProgressiveStep=check; nav.querySelector('[data-progressive-prev]').onclick=()=>set(Number(form.dataset.progressiveStep)-1); nav.querySelector('[data-progressive-next]').onclick=()=>{const current=Number(form.dataset.progressiveStep);if(check(current)){if(current<5)set(current+1);else document.getElementById('vehicle-submit-status')?.scrollIntoView({behavior:'smooth'});}}; set(1); return;
+  }
   form.dataset.progressiveReady = 'true'; form.dataset.progressiveStep = '1';
   const nav = document.createElement('div'); nav.className = 'progressive-form-nav'; nav.innerHTML = '<button type="button" class="btn btn-outline" data-progressive-prev>Anterior</button><span data-progressive-label>Paso 1 de 4 · Datos del vehículo</span><button type="button" class="btn btn-red" data-progressive-next>Continuar</button>';
   form.parentNode.insertBefore(nav, form);
