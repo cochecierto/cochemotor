@@ -30,6 +30,8 @@ on:
       - "asesor.html"
       - "asesor-leads.html"
       - "styles.css"
+      - "cookie-consent.js"
+      - "cookie-consent.css"
       - "assets/js/home_catalog.js"
       - "assets/js/public-lead-form.js"
       - "assets/data/vehicles_catalog.js"
@@ -69,6 +71,8 @@ on:
       - "asesor.html"
       - "asesor-leads.html"
       - "styles.css"
+      - "cookie-consent.js"
+      - "cookie-consent.css"
       - "assets/js/home_catalog.js"
       - "assets/js/public-lead-form.js"
       - "assets/data/vehicles_catalog.js"
@@ -213,6 +217,8 @@ jobs:
           put seo-legacy-redirect.php $stage/seo-legacy-redirect.php
           put index.html $stage/index.html
           put styles.css $stage/styles.css
+          put cookie-consent.js $stage/cookie-consent.js
+          put cookie-consent.css $stage/cookie-consent.css
           put site-config.js $stage/site-config.js
           put hub.js $stage/hub.js
           put acceso.html $stage/acceso.html
@@ -252,6 +258,8 @@ jobs:
           rename $stage/sitemap.xml sitemap.xml
           rename $stage/index.html index.html
           rename $stage/styles.css styles.css
+          rename $stage/cookie-consent.js cookie-consent.js
+          rename $stage/cookie-consent.css cookie-consent.css
           rename $stage/site-config.js site-config.js
           rename $stage/hub.js hub.js
           rename $stage/acceso.html acceso.html
