@@ -239,11 +239,13 @@ function calculatePricingAnalysis() {
 function updateUpcomingEntryPreview() {
   const status = document.getElementById('up-publication-status')?.value;
   const image = document.querySelector('.photo-slot-card .photo-slot-thumb');
-  if (!image || vehiclePhotoFiles.has('front-right')) return;
+  if (!image) return;
+  if (!image.dataset.reference) image.dataset.reference = image.getAttribute('src') || '/assets/brand/photo-guide/front-right.webp';
+  if (vehiclePhotoFiles.has('front-right')) return;
   if (status === 'proxima_entrada') {
     image.src = UPCOMING_ENTRY_IMAGE;
     image.alt = 'Imagen informativa de próxima entrada';
-  } else if (image.dataset.reference) {
+  } else {
     image.src = image.dataset.reference;
     image.alt = 'Ejemplo de foto frontal tres cuartos';
   }
