@@ -198,3 +198,20 @@ class PublicSeoFoundationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LegacyRouteRegressionTests(unittest.TestCase):
+    def test_unpublished_legacy_pages_return_not_found_instead_of_demo_content(self):
+        root = Path(__file__).resolve().parents[1]
+        redirects = (root / "seo-legacy-redirect.php").read_text(encoding="utf-8")
+        rules = (root / ".htaccess").read_text(encoding="utf-8")
+        self.assertIn("http_response_code(404)", redirects)
+        self.assertIn("$_GET['slug']", redirects)
+        self.assertIn("El anuncio solicitado ya no está disponible.", redirects)
+        self.assertIn("El perfil solicitado ya no está disponible.", redirects)
+        self.assertNotIn("readfile(__DIR__", redirects)
+        self.assertNotIn("ficha.html", redirects)
+        self.assertNotIn("dealer.html", redirects)
+        self.assertIn("RewriteRule ^ficha(?:\\.html)?/?$ seo-legacy-redirect.php?kind=vehicle [QSA,L,NC]", rules)
+        self.assertIn("RewriteRule ^dealer(?:\\.html)?/?$ seo-legacy-redirect.php?kind=dealer [QSA,L,NC]", rules)
+        self.assertLess(rules.index("RewriteRule ^dealer(?:"), rules.index("RewriteRule ^([a-z0-9]"))
