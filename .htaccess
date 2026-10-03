@@ -32,8 +32,6 @@ RewriteRule ^panel/?$ hub.html [END]
 RewriteRule ^panel/vehiculo/nuevo/?$ vehiculo-nuevo.html [END]
 RewriteRule ^acceso/?$ acceso.html [END]
 RewriteRule ^perfil/?$ perfil.html [END]
-RewriteRule ^dealer/?$ dealer.html [END]
-RewriteRule ^ficha/?$ ficha.html [END]
 RewriteRule ^aviso-legal/?$ aviso-legal.html [END]
 RewriteRule ^privacidad/?$ privacidad.html [END]
 RewriteRule ^terminos/?$ terminos.html [END]
@@ -57,16 +55,14 @@ RewriteRule ^acceso\.html$ /acceso [R=301,END,NE]
 RewriteRule ^sitemap\.xml$ sitemap-public.php [L]
 RewriteRule ^vehiculos/([a-z0-9][a-z0-9-]{2,179})/?$ seo-public.php?kind=vehicle&slug=$1 [QSA,L,NC]
 RewriteRule ^profesionales/([a-z0-9][a-z0-9-]{2,179})/?$ seo-public.php?kind=dealer&slug=$1 [QSA,L,NC]
+# Las rutas antiguas siempre pasan por el resolver: nunca servir las fichas demo
+# como fallback y conservar el ID para redirigir solo recursos publicables.
+RewriteRule ^ficha(?:\.html)?/?$ seo-legacy-redirect.php?kind=vehicle [QSA,L,NC]
+RewriteRule ^dealer(?:\.html)?/?$ seo-legacy-redirect.php?kind=dealer [QSA,L,NC]
 # Alias de marca para la web propia del profesional: /juan-gomez
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([a-z0-9][a-z0-9-]{2,179})/?$ seo-public.php?kind=dealer&slug=$1 [QSA,L,NC]
-RewriteCond %{QUERY_STRING} (^|&)id=([A-Za-z0-9_-]{1,80})(&|$)
-RewriteRule ^ficha\.html$ seo-legacy-redirect.php?kind=vehicle&id=%2 [L,NC]
-RewriteCond %{QUERY_STRING} (^|&)slug=([A-Za-z0-9_-]{1,180})(&|$)
-RewriteRule ^dealer\.html$ seo-legacy-redirect.php?kind=dealer&id=%2 [L,NC]
-RewriteCond %{QUERY_STRING} (^|&)id=([A-Za-z0-9_-]{1,80})(&|$)
-RewriteRule ^dealer\.html$ seo-legacy-redirect.php?kind=dealer&id=%2 [L,NC]
 RewriteRule ^api/auth/verify$ api/index.php [L,QSA]
 RewriteRule ^api/(.*)$ api/index.php [L,QSA]
 
