@@ -94,7 +94,7 @@ class PublicSeoFoundationTests(unittest.TestCase):
         self.assertIn("'@type'=>['Product','Car']", self.page)
         redirects = (ROOT / "seo-legacy-redirect.php").read_text(encoding="utf-8")
         self.assertIn("true,301", redirects)
-        self.assertIn("X-Robots-Tag: noindex, follow", redirects)
+        self.assertIn("X-Robots-Tag: noindex, nofollow", redirects)
 
     def test_root_level_seo_routes_load_private_config_from_domain_parent(self):
         expected = "dirname(__DIR__) . '/cochemotor-private/config.php'"
