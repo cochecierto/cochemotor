@@ -20,3 +20,4 @@ def test_access_offers_resend():
     assert "register-password-confirm" in UI
     assert "Las contraseñas no coinciden" in UI
     assert "auth-password-toggle" in UI
+    assert "error.message === 'Verifica tu correo antes de iniciar sesión.'" in UI

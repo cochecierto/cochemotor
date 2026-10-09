@@ -389,6 +389,9 @@
         localStorage.setItem('cochemotor_local_session', JSON.stringify({userId:d.user.user_id, email:d.user.email, name:d.user.name, phone, professionalType, profileComplete:Boolean(phone&&professionalType), verified:true, sessionToken:d.session_token, audience:document.querySelector('.auth-audience-option.active')?.dataset.audience || audience, createdAt:Date.now()}));
         window.location.href = returnTo;
       } catch (error) {
+        if (error.message === 'Verifica tu correo antes de iniciar sesión.') {
+          document.getElementById('resend-verification').hidden = false;
+        }
         show(error.message, 'error');
       }
     });
