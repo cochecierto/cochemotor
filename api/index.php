@@ -66,7 +66,12 @@ function smtpSend(string $to, string $subject, string $text, string $html): bool
         if($port!==465){ if(!smtpCommand($socket,'STARTTLS',[220])||!@stream_socket_enable_crypto($socket,true,STREAM_CRYPTO_METHOD_TLS_CLIENT)||!smtpCommand($socket,'EHLO cochemotor.es',[250]))return false; }
         if(!smtpCommand($socket,'AUTH LOGIN',[334])||!smtpCommand($socket,base64_encode($user),[334])||!smtpCommand($socket,base64_encode($password),[235]))return false;
         if(!smtpCommand($socket,'MAIL FROM:<'.$from.'>',[250])||!smtpCommand($socket,'RCPT TO:<'.$to.'>',[250,251])||!smtpCommand($socket,'DATA',[354]))return false;
-        $boundary='=_cm_'.bin2hex(random_bytes(8)); $headers='From: CocheMotor <'.$from.'>\r\nTo: '.$to.'\r\nSubject: =?UTF-8?B?'.base64_encode($subject)."?=\r\nMIME-Version: 1.0\r\nContent-Type: multipart/alternative; boundary=\"$boundary\"\r\n\r\n";
+        $boundary = '=_cm_' . bin2hex(random_bytes(8));
+        $headers = "From: CocheMotor <{$from}>\r\n" .
+            "To: {$to}\r\n" .
+            "Subject: =?UTF-8?B?" . base64_encode($subject) . "?=\r\n" .
+            "MIME-Version: 1.0\r\n" .
+            "Content-Type: multipart/alternative; boundary=\"{$boundary}\"\r\n\r\n";
         $body=$headers.'--'.$boundary."\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n".$text."\r\n--$boundary\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n".$html."\r\n--$boundary--\r\n.";
         $ok=smtpCommand($socket,$body,[250]); @fwrite($socket,"QUIT\r\n"); return $ok;
     } finally { fclose($socket); }

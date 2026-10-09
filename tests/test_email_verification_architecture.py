@@ -13,6 +13,7 @@ def test_secure_delivery_contract():
     assert "send_failed" in API and "resend_verification" in API
     assert "verification_used_at IS NULL" in API
     assert "verification_expires_at>UTC_TIMESTAMP()" not in API
+    assert '"From: CocheMotor <{$from}>\\r\\n"' in API
 
 def test_access_offers_resend():
     assert "resend_verification" in UI
