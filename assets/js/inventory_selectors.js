@@ -1,5 +1,11 @@
-import { getBrands, getModels, getYears, getFuels, getVersions, buildVehicleCatalogId } from '../data/vehicles_catalog.js';
 import { getCommunities, getProvinces, getMunicipalities } from '../data/spain_territory.js';
+
+let vehicleCatalogPromise;
+
+function loadVehicleCatalog() {
+  vehicleCatalogPromise ??= import('../data/vehicles_catalog.js');
+  return vehicleCatalogPromise;
+}
 
 const $ = (id) => document.getElementById(id);
 
@@ -28,13 +34,20 @@ function resetVehicleFrom(level) {
   order.slice(index).forEach(id => fill($(id), [], 'Selecciona una opción', true));
 }
 
-function initVehicleSelectors() {
+async function initVehicleSelectors() {
   const brand = $('up-brand');
   const model = $('up-model');
   const version = $('up-version');
   const year = $('up-year');
   const fuel = $('up-fuel');
   if (!brand || brand.tagName !== 'SELECT' || !model || model.tagName !== 'SELECT') return;
+  let catalog;
+  try {
+    catalog = await loadVehicleCatalog();
+  } catch {
+    return;
+  }
+  const { getBrands, getModels, getFuels, getVersions, buildVehicleCatalogId } = catalog;
   fill(brand, getBrands(), 'Selecciona marca');
   brand.addEventListener('change', () => {
     resetVehicleFrom('up-model');
