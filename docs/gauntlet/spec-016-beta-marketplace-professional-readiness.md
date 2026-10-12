@@ -10,7 +10,7 @@
 - Incluye: portada, marketplace, ficha, páginas de acceso, demo profesional, panel económico, guards de API y workflow de publicación Hostinger.
 - Excluye: activar alta real, DDL/migraciones, datos reales y decidir la política final de retención de futuras cuentas.
 - Usuarios/flujo: comprador que consulta el catálogo; profesional que revisa capacidades y prueba la demo efímera.
-- Rama: integración sobre `main` 89622cab; se preparará una rama/PR nueva porque el checkout local estaba atrasado y divergido.
+- Integración: PR #6 fusionado en `main`; merge commit `652d2aaf8b75235b6f77c9313cc712465122274b` (2026-10-12).
 - Fecha: 2026-10-12. Implementador: agente principal. Árbitro independiente: subagente autorizado.
 
 ## Matriz RF y evidencia
@@ -49,3 +49,14 @@ Ver resultados y límites RF-1..RF-12 en [`validation.md`](../../specs/016-beta-
 ## Dictamen
 
 `APROBADO` localmente: RF cubiertos con validación explícita, 89 pruebas pasan localmente (5 Bash omitidas por Windows), JS/PHP y diff checks pasan, recorrido UI observado y el árbitro independiente confirmó la resolución de G-01..G-03. Persisten límites declarados: no se usó API/BD de ensayo, catálogo vacío disponible ni inventario real; no se validó producción. El árbitro da PASS técnico; CI Linux sigue pendiente para ejecutar pruebas Bash antes del merge. El usuario ya autorizó publicación y despliegue; esta autorización no equivale a evidencia de que se hayan realizado.
+
+## Seguimiento posterior — publicación y caché de catálogo vacío, 2026-10-12
+
+- La primera publicación mediante Hostinger #126 permitió observar la portada real; los filtros aparecían aunque el código asignaba `hidden`. La causa era la caché prolongada de la URL CSS sin versión nueva.
+- G-01 de esta ronda: actualizar la referencia a `styles.css?v=20261012.1` y reforzar `[hidden]` para la búsqueda y filtros. PR #7 se integró como `5eed5d255445c417970ac0810c090e5dfac152e5` después de 90 pruebas CI Linux exitosas.
+- Veredicto independiente Gauntlet: PASS. El agente árbitro confirmó que el cache-busting fuerza a navegadores con la URL anterior a descargar la hoja actualizada y que las reglas específicas ocultan controles sin impedir que aparezcan si se retira el atributo `hidden`.
+- Hostinger workflow #129 finalizó con éxito. Verificó snapshot rollback `.cochemotor-backup-38270769178-1-5eed5d255445`, guardas 403 para rutas privadas/escrituras, smoke de portada/rutas y hashes SHA-256 de los activos descargados por SFTP. No hubo DDL ni escrituras reales.
+- Inspección real posterior: la portada usa el nuevo URL CSS, comunica que no hay vehículos reales y mantiene búsqueda/filtros ocultos. El inventario real y las respuestas de filtros con anuncios quedan pendientes hasta contar con publicaciones legítimas; las altas reales siguen bloqueadas hasta decidir ciclo de vida de datos.
+
+**Estado vigente:** `PUBLICADA — BETA INFORMATIVA`, con limitaciones anteriores pendientes para una futura apertura de cuentas reales.
+

@@ -1,6 +1,6 @@
 # Spec 016 — Transparencia de stock y recorrido profesional de beta
 
-**Estado:** aprobada por Dirección el 2026-10-12 tras responder las aclaraciones; implementación local autorizada. Sin autorización de publicación o despliegue.
+**Estado:** aprobada por Dirección; publicación informativa y despliegue en Hostinger completados el 2026-10-12. Cuentas reales, escrituras y DDL continúan fuera de alcance.
 
 ## Contexto y objetivo
 
@@ -81,3 +81,4 @@ La experiencia pública muestra registros sintéticos junto al inventario public
 - Hasta contar con profesionales suscritos, el sitio será informativo y no captará solicitudes de compradores ni altas reales. La verificación del recorrido será local y sintética, sin correo, publicación pública ni integraciones externas.
 - No se promete una política de conservación, exportación o borrado al terminar la beta; deberá decidirse antes de habilitar cuentas reales.
 - El simulador conservará un TIN editable del 7,9 % inicial y mostrará solo un equivalente matemático teórico sin costes, claramente distinguido de la TAE.
+

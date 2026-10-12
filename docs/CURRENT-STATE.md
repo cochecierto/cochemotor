@@ -223,10 +223,14 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
 - La tarjeta «Checklist Fotográfico de Confianza» de `hub.html` muestra ahora las diez imágenes de referencia de «PUBLICA TU COCHE», con miniaturas responsivas, textos alternativos y carga diferida.
 - Se mantiene el flujo de selección múltiple y se sincroniza también la copia `local-broker/static`.
 
-## Actualización CocheMotor — beta transparente y recorrido local, Spec 016, 2026-10-12
+## Actualización CocheMotor — release beta informativa, Spec 016, 2026-10-12
 
-- La portada y el marketplace separan fixtures sintéticos del catálogo público, ofrecen los tramos de precio hasta más de 25.000 € y comunican por separado ausencia de stock, filtros sin coincidencias e indisponibilidad de la API.
-- Hasta contar con profesionales suscritos, el sitio permanece informativo: altas, solicitudes de compradores, leads y escritura de inventario real se bloquean o presentan como no disponibles. La demo profesional opera en memoria de pestaña, con datos sintéticos, sin persistencia, publicación ni mensajes externos.
-- La demo declara el estado de las capacidades; el generador es una plantilla local sin IA, las consultas son ficticias y los módulos desconectados se etiquetan como ilustrativos/en desarrollo. El simulador usa TIN editable inicial del 7,9 % y distingue el equivalente matemático teórico de una TAE; el margen hace visibles los costes excluidos.
-- La política de ciclo de vida de datos al final de la beta sigue pendiente y debe decidirse antes de habilitar cuentas reales. Los cambios de Spec 016 siguen siendo locales; publicación a GitHub y despliegue requieren aprobación posterior.
-- Evidencia de implementación/validación en `specs/016-beta-marketplace-professional-readiness/validation.md` y del arbitraje en `docs/gauntlet/spec-016-beta-marketplace-professional-readiness.md`.
+- La beta informativa está integrada en `main` mediante PR #6, commit `652d2aaf8b75235b6f77c9313cc712465122274b`.
+- La corrección de catálogo vacío y caché CSS está integrada mediante PR #7, commit `5eed5d255445c417970ac0810c090e5dfac152e5`. CI Linux pasó 90 pruebas, incluidas las cinco de transacción/rollback Bash; sintaxis JS, PHP, shell y sitemap correctos. Arbitraje Gauntlet independiente: PASS.
+- El release bloquea altas y escrituras públicas, no aplica DDL/migraciones, distingue catálogo vacío/no disponible y conserva el recorrido profesional sintético en memoria.
+- Hostinger publicó y verificó el commit `5eed5d255445c417970ac0810c090e5dfac152e5` con el workflow #129 (`38270769178`), finalizado correctamente el 2026-10-12 a las 15:33 UTC. La transacción conserva el snapshot `.cochemotor-backup-38270769178-1-5eed5d255445` para rollback; la CI verificó hashes SFTP, rutas y respuestas 403 de acceso/escrituras privadas.
+- La copia de la base `u560645602_cochemotor` comprobada en hPanel era del 2026-10-12 15:16; el despliegue no ejecutó DDL ni habilitó altas o escrituras.
+- Verificación visual posterior: la portada de `https://cochemotor.es/` cargó `styles.css?v=20261012.1`, informó que no hay vehículos reales y ocultó los filtros y la búsqueda. Los controles quedan listos para mostrarse cuando haya inventario real.
+- No se generaron cuentas, leads ni inventario real; la política de ciclo de vida de datos futuros sigue pendiente antes de habilitar altas reales.
+- Evidencia: `specs/016-beta-marketplace-professional-readiness/validation.md` y `docs/gauntlet/spec-016-beta-marketplace-professional-readiness.md`.
+
