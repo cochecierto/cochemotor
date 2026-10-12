@@ -1,9 +1,28 @@
 <?php
 declare(strict_types=1);
 
+header('Content-Type: application/json; charset=utf-8');
+header('Cache-Control: no-store');
+header('X-Content-Type-Options: nosniff');
+header('Access-Control-Allow-Origin: https://cochemotor.es');
+header('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
+
+$path=parse_url($_SERVER['REQUEST_URI'] ?? '/',PHP_URL_PATH);
+$route=preg_replace('#^.*/api#','/api',$path);
+$method=$_SERVER['REQUEST_METHOD'];
+// Reject disabled account and write routes before loading private configuration
+// or reading/parsing a request body that may contain personal information.
+if ($route === '/api/auth' || str_starts_with($route, '/api/auth/')) fail(403, 'El acceso y la gestión de cuentas están desactivados durante la beta informativa.');
+if ($route === '/api/vehicles' && in_array($method, ['POST', 'PATCH'], true)) fail(403, 'La gestión de inventario real está desactivada mientras se prepara la beta.');
+if ($method === 'POST' && $route === '/api/coche-ideal') fail(403, 'La recepción de solicitudes está desactivada mientras se prepara la beta.');
+if ($method === 'POST' && $route === '/api/leads') fail(403, 'La recepción de consultas reales está desactivada mientras se prepara la beta.');
+if ($method === 'POST' && $route === '/api/report') fail(403, 'La recepción de informes está desactivada durante la beta informativa.');
+if (in_array($method, ['POST', 'PUT', 'PATCH', 'DELETE'], true)) fail(403, 'Las escrituras están desactivadas durante la beta informativa.');
+
 // La configuración real se guarda fuera de public_html y nunca se versiona.
-// Hostinger puede servir el repositorio desde /domains/<dominio>/public_html;
-// probamos ambos niveles sin incluir nunca credenciales en el repositorio.
+// Solo las rutas de lectura pública llegan a cargarla durante la beta.
 $privateConfigCandidates = [
     dirname(__DIR__, 2) . '/cochemotor-private/config.php',
     dirname(__DIR__, 3) . '/cochemotor-private/config.php',
@@ -15,14 +34,6 @@ $privateConfigLoaded = false;
 foreach ($privateConfigCandidates as $privateConfig) {
     if (is_file($privateConfig)) { require_once $privateConfig; $privateConfigLoaded = true; break; }
 }
-
-header('Content-Type: application/json; charset=utf-8');
-header('Cache-Control: no-store');
-header('X-Content-Type-Options: nosniff');
-header('Access-Control-Allow-Origin: https://cochemotor.es');
-header('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
 
 final class ApiFailure extends RuntimeException { public function __construct(public int $status,string $message){parent::__construct($message);} }
 function fail(int $status, string $message): never { http_response_code($status); echo json_encode(['ok'=>false,'error'=>$message], JSON_UNESCAPED_UNICODE); exit; }
@@ -138,7 +149,7 @@ function sendLeadNotificationEmail(string $sellerEmail, string $sellerName, stri
 }
 function token(): string { $header=$_SERVER['HTTP_AUTHORIZATION'] ?? ''; return str_starts_with($header,'Bearer ') ? trim(substr($header,7)) : ''; }
 function user(): ?array { $t=token(); if (!$t) return null; $q=db()->prepare('SELECT u.user_id,u.name,u.email,u.email_verified,u.phone,u.professional_type,s.expires_at FROM professional_sessions s JOIN professional_users u ON u.user_id=s.user_id WHERE s.token=? AND s.expires_at>UTC_TIMESTAMP()'); $q->execute([$t]); $u=$q->fetch(); return $u ?: null; }
-function requireUser(): array { $u=user(); if (!$u) fail(401,'Sesión no válida'); return $u; }
+function requireUser(): array { fail(403,'El acceso a cuentas profesionales está desactivado durante la beta informativa.'); }
 function configValue(string $key): string { $value=getenv($key); if($value!==false&&$value!=='')return (string)$value; return defined($key)?(string)constant($key):''; }
 function requireModerator(): string {
     $secret=configValue('COCHEMOTOR_MODERATION_TOKEN');
@@ -169,14 +180,12 @@ function storeVehiclePhoto(array $file, string $directory): string {
     return $filename;
 }
 
-$path=parse_url($_SERVER['REQUEST_URI'] ?? '/',PHP_URL_PATH); $route=preg_replace('#^.*/api#','/api',$path); $method=$_SERVER['REQUEST_METHOD'];
 $contentType=strtolower($_SERVER['CONTENT_TYPE']??'');
 $data=str_starts_with($contentType,'multipart/form-data')?[]:body();
-// No write operations on professional inventory while beta accounts are closed.
-if ($route === '/api/vehicles' && in_array($method, ['POST', 'PATCH'], true)) fail(403, 'La gestión de inventario real está desactivada mientras se prepara la beta.');
+// Production is informational until professionals subscribe: keep all public
+// writes, account actions and private account data closed without touching DB.
 if($method==='POST'&&$route==='/api/vehicles'&&str_starts_with($contentType,'multipart/form-data')&&(int)($_SERVER['CONTENT_LENGTH']??0)>0&&!$_POST&&!$_FILES)fail(413,'La carga supera el límite del servidor. Prueba con menos fotos o imágenes más pequeñas.');
 // Beta previa a profesionales suscritos: no capturar PII ni crear solicitudes reales.
-if ($method === 'POST' && $route === '/api/coche-ideal') fail(403, 'La recepción de solicitudes está desactivada mientras se prepara la beta.');
 if ($method === 'POST' && $route === '/api/coche-ideal') {
     $length = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
     if ($length < 2 || $length > 16000) fail($length > 16000 ? 413 : 400, 'No se pudieron leer los datos de la búsqueda.');
@@ -509,6 +518,7 @@ function ensureOAuthSchema(PDO $pdo): void {
         exit;
     }
     if (preg_match('#^/api/auth/callback/(google|apple|facebook)$#', $route, $matches) && ($method === 'GET' || $method === 'POST')) {
+        fail(403, 'El acceso mediante proveedores externos está desactivado durante la preparación de la beta.');
         $provider = $matches[1];
         $apiBase = rtrim(oauthConfig('COCHEMOTOR_OAUTH_REDIRECT_BASE', 'https://cochemotor.es'), '/');
         $webBase = rtrim(oauthConfig('COCHEMOTOR_FRONTEND_URL', 'https://cochemotor.es'), '/');

@@ -185,6 +185,7 @@ function renderChapter6Catalog() {
     .then(function(response) { if (!response.ok) throw new Error('unavailable'); return response.json(); })
     .then(function(data) {
       var allStock = Array.isArray(data.vehicles) ? data.vehicles.filter(function(v) { return v && v.status === 'disponible' && v.publicationState !== 'proxima_entrada' && v.isDemo !== true; }) : [];
+      updateHomeCatalogState(allStock.length ? 'available' : 'empty');
       var homeSearch = document.querySelector('.hero-search-box');
       var homeFilters = document.querySelector('.catalog-filters');
       if (homeSearch) homeSearch.hidden = allStock.length === 0;
@@ -208,10 +209,42 @@ function renderChapter6Catalog() {
 }
 
 function renderStockUnavailable() {
+  updateHomeCatalogState('unavailable');
   var grid = document.getElementById('stock-grid');
   if (grid) grid.innerHTML = '<p role="status" style="grid-column:1/-1;text-align:center;padding:32px;color:var(--cm-text-secondary);">El catálogo no está disponible ahora. No mostramos vehículos de ejemplo como ofertas.</p>';
+  var homeSearch = document.querySelector('.hero-search-box');
+  var homeFilters = document.querySelector('.catalog-filters');
+  if (homeSearch) homeSearch.hidden = true;
+  if (homeFilters) homeFilters.hidden = true;
   var status = document.getElementById('home-catalog-status');
   if (status) { status.hidden = false; status.textContent = 'No pudimos consultar el inventario real. Prueba de nuevo más tarde.'; }
+}
+
+function updateHomeCatalogState(state) {
+  var copy = {
+    available: {
+      headline: 'Vehículos reales publicados',
+      subhead: 'Consulta anuncios disponibles de profesionales. La beta no guarda búsquedas ni solicitudes.',
+      catalog: 'Hay anuncios reales disponibles. Revisa cada ficha y sus condiciones.'
+    },
+    empty: {
+      headline: 'El catálogo aún no tiene stock real.',
+      subhead: 'Todavía no hay vehículos reales publicados. La demo profesional usa datos sintéticos y temporales.',
+      catalog: 'Todavía no hay vehículos reales publicados. Los ejemplos sintéticos aparecen únicamente en la demo profesional.'
+    },
+    unavailable: {
+      headline: 'No podemos consultar el catálogo ahora.',
+      subhead: 'El servicio de inventario no responde en este momento. No podemos confirmar si hay anuncios disponibles; inténtalo más tarde.',
+      catalog: 'No se pudo comprobar el estado del catálogo. No mostramos vehículos de ejemplo como ofertas.'
+    }
+  }[state];
+  if (!copy) return;
+  var headline = document.getElementById('hero-headline');
+  var subhead = document.getElementById('hero-subhead');
+  var catalog = document.getElementById('catalog-subtitle');
+  if (headline) headline.textContent = copy.headline;
+  if (subhead) subhead.textContent = copy.subhead;
+  if (catalog) catalog.textContent = copy.catalog;
 }
 
 function renderStockGrid(vehicles, options) {

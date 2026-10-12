@@ -1,6 +1,6 @@
 # Validación — Spec 016
 
-**Estado:** validación local completa y árbitro independiente PASS; navegador en servidor estático de localhost, sin API PHP ni catálogo real conectado.
+**Estado:** código validado localmente y con arbitraje Gauntlet PASS el 2026-10-12. CI Linux y despliegue/observación de producción siguen pendientes. Navegador localhost usa servidor estático, sin API PHP ni catálogo real conectado.
 
 ## Matriz requisito → evidencia
 
@@ -17,31 +17,34 @@
 | RF-9 | `test_vehicle_sheet_finance_uses_editable_tin_not_tae`; revisión de ficha y demo | PASS por código/UI | Ficha y demo usan TIN editable inicial 7,9 %, cuota TIN/12, entrada y plazo; equivalente teórico sin costes descrito, no TAE ni oferta. |
 | RF-10 | `updateMargin()` y prueba estática | PASS | Venta menos adquisición; no es margen neto y lista impuestos, preparación, garantía, reparaciones, financiación y otros costes excluidos. |
 | RF-11 | Inspección de copy de demo, landing, panel y ficha | PASS por inspección | Cálculos como orientativos/ejemplo; acciones de contacto de ficha pública ocultas. |
-| RF-12 | `test_beta_trust`; revisión de rutas | PASS con límite | Demo sin APIs externas ni almacenamiento persistente; altas, Coche Ideal, escritura de inventario y leads bloqueados en API. No se inspeccionó tráfico en API desplegada. |
+| RF-12 | `test_beta_trust`; revisión de rutas y guardas previas al parser/configuración | PASS en código | Demo sin APIs externas ni almacenamiento persistente; la página de acceso no contiene formularios ni cliente de autenticación y las rutas de escritura reciben 403 antes de leer el cuerpo o cargar configuración privada. No se inspeccionó tráfico en API desplegada. |
 
 ## Criterios de finalización
 
 - [x] RF-1–RF-12 tienen evidencia y resultado con límites indicados.
-- [x] Checks locales pertinentes pasan.
+- [x] Checks locales pertinentes pasan; integración Bash queda pendiente de CI Linux.
 - [x] Flujos comprador y profesional inspeccionados en navegador local; comprador en estado API no disponible del servidor estático.
 - [x] Supuestos económicos visibles y verificados.
 - [x] Ciclo de vida de datos pendiente explicitado como condición de alta real.
-- [x] Árbitro independiente confirma correcciones G-01..G-03.
+- [ ] Árbitro independiente confirma la última corrección del corte SSH y el rollback serializado.
 - [x] Preview disponible en `http://127.0.0.1:8000/demo-profesional.html`.
 
 ## Comprobaciones ejecutadas
 
 | Comando/flujo | Resultado | Evidencia |
 |---|---|---|
-| `python -m unittest discover -s tests -p 'test_*.py'` | PASS | 78 pruebas. |
+| `python -m unittest discover -s tests -p 'test_*.py'` | PASS | 89 pruebas; 5 pruebas Bash omitidas porque el entorno local Windows no tiene Bash. |
 | `node --check app.js demo-profesional.js hub.js` (individualmente) | PASS | Sin errores de sintaxis. |
 | `php -l api/index.php` | PASS | No syntax errors. |
-| `git diff --check` | PASS | Sin errores de whitespace. |
+| `node --check app.js demo-profesional.js hub.js site-config.js` | PASS | Sin errores de sintaxis. |
+| `git diff --check` | PASS con aviso | No hay errores; un workflow legado tiene una línea en blanco final que se limpiará antes del commit. |
 | Recorrido UI localhost | PASS con límite | Alta sintética, selección y miniatura SVG de prueba, vehículo, revisión local, inventario y contactos. No se probaron formatos/tamaños adicionales. |
 | Catálogo vacío con API disponible | NO EJECUTADO | Servidor HTTP estático no sirve endpoint PHP. |
 | Inventario real publicado / filtros reales | NO EJECUTADO | No se usaron datos ni API de producción. |
 | Solicitudes reales/API de producción | NO EJECUTADO | Bloqueadas intencionalmente por alcance. |
 
-## Veredicto
+## Arbitraje y dictamen
 
-`PASS local` — 78 pruebas y checks de sintaxis pasan; árbitro independiente confirma correcciones G-01..G-03 sin hallazgos obligatorios abiertos. Límites ambientales y comprobaciones no ejecutadas siguen declarados. No implica permiso de publicar, fusionar o desplegar.
+La primera revisión local de RF corrigió G-01..G-03. La revisión de preparación de release detectó después (a) promoción SFTP secuencial sin rollback probado y rutas de captura todavía habilitadas, y (b) que una caída SSH durante una promoción parcial no activaba el rollback del workflow. Las rutas de captura se bloquearon antes de procesar el cuerpo o cargar configuración privada; se retiraron los formularios/clientes de autenticación de la página; el cliente arma recuperación antes de SSH y el promotor serializa recuperación con `flock`. Se agregaron pruebas para fallo parcial, recuperación solicitada desde cliente y lock.
+
+El árbitro señaló el smoke de portada que esperaba copy dinámico dentro del HTML estático y luego detectó la sangría YAML de su sustitución. Ambos puntos se corrigieron; el smoke descarga `site-config.js`, busca el mensaje inicial allí y el árbitro confirmó que el comando sigue dentro de `run: |`. Dictamen Gauntlet final: PASS. Los cinco tests con Bash no corrieron en Windows; CI Ubuntu debe ejecutarlos antes de merge y despliegue. Producción aún no se actualiza por esta release.

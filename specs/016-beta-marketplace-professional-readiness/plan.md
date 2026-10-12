@@ -1,15 +1,18 @@
 # Plan técnico — Spec 016
 
-**Estado:** aprobado para implementación local el 2026-10-12, según las aclaraciones de Dirección.
+**Estado:** aprobado para implementación local y release informativa en producción el 2026-10-12, según aclaraciones y enmienda de Dirección.
 
 ## Decisiones y restricciones
 
-- Base: rama local `codex/016-beta-trust-workflow`. No se publicará ni desplegará esta iniciativa.
+- Base: rama local `codex/016-beta-trust-workflow`, que debe actualizarse respecto a `main` antes de crear un PR.
 - Se parte de la regla del usuario: datos sintéticos hasta que haya profesionales suscritos. No crear datos reales ni efectos externos durante la verificación local.
 - La UI pública consumirá solo el endpoint/fuente pública de vehículos reales autorizados. Los fixtures `siteConfig.stock` seguirán disponibles para la demo aislada, no como fallback del marketplace público.
 - El CTA sin stock es informativo, sin captura. No se habilita alta real; beta y recorrido de prueba local usan datos sintéticos. Explicar almacenamiento/acceso comprobados y señalar que la política de fin de beta se decidirá antes de cuentas reales.
 - Usar TIN editable de 7,9 % inicial. Si se muestra equivalente anual, presentarlo como cálculo teórico mensual compuesto, sin costes; nunca como TAE.
-- No desplegar ni publicar esta iniciativa como parte del plan técnico local.
+- Dirección autorizó publicar el cambio por PR y desplegar la versión informativa en Hostinger cuando pase validación y Gauntlet.
+- El despliegue no ejecuta migraciones ni DDL. Exige backup verificado y comprobación explícita de que todas las rutas públicas de alta/escritura, incluido OAuth callback, responden con bloqueo 403.
+- El paquete de release incluye `app.js`, HTML/CSS/JS afectados, API, robots/sitemap, reglas de hosting y activos; smoke tests públicos y hashes SFTP comprueban que la versión desplegada corresponde al commit.
+- Solo el workflow unificado de SEO publica en Hostinger; el workflow profesional se limita a validar para impedir despliegues parciales que evadan sus guardas.
 
 ## Componentes y responsabilidades
 
@@ -36,7 +39,7 @@
 - No enviar correo, notificaciones, WhatsApp, publicación social, solicitudes reales ni solicitudes HTTP a integraciones externas desde pruebas. El recorrido sintético será localhost-only y no publicará páginas indexables.
 - No añadir bypass de autenticación al bundle de producción; cualquier facilitador de prueba debe quedar aislado y ser imposible de activar en producción.
 - No mostrar fixtures en rutas indexables ni generar sitemap/URLs públicas para ellos.
-- Revertir por commit de la rama local o rollback de los archivos afectados; sin cambios de esquema remoto.
+- El promotor de release serializa promoción y rollback con un lock del kernel, conserva una copia completa del estado previo fuera de `public_html` y permite al cliente pedir rollback aunque la sesión SSH falle. No ejecutar DDL ni cambiar el esquema remoto.
 
 ## Decisiones técnicas
 
@@ -65,4 +68,5 @@
 - Cálculos: casos de entrada cero, cuota positiva, término/plazo, tasa y costes excluidos; comparar fórmulas verificadas con valores exactos.
 - UX: responsive, teclado, lector de pantalla, mensajes accesibles y páginas/fichas de demo.
 - Revisión independiente Gauntlet tras implementar y validar; hasta tres rondas según política.
+- La prueba de integración del promotor requiere Bash/Linux y corre en CI; el entorno Windows local sin Bash solo valida la estructura y debe declarar ese límite.
 - No ejecutar pruebas, migraciones, envíos de correo ni acciones de producción antes de aprobar el plan y la clarificación.
