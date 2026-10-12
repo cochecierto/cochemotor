@@ -87,24 +87,17 @@ class ProfessionalDemoTests(unittest.TestCase):
         self.assertIn("prefers-reduced-motion: reduce", self.styles)
         self.assertIn(":focus-visible", self.styles)
 
-    def test_production_deploy_is_manual_scoped_and_uses_pinned_sftp_trust(self):
+    def test_professional_workflow_only_validates_and_cannot_bypass_release_gate(self):
         workflow = self.workflow
-        self.assertIn("workflow_dispatch:", workflow)
-        self.assertIn("if: github.event_name == 'workflow_dispatch'", workflow)
-        self.assertIn("needs: validate", workflow)
-        self.assertIn("sftp -b - -P 65002", workflow)
-        self.assertIn("StrictHostKeyChecking=yes", workflow)
-        self.assertIn("ssh-keygen -F", workflow)
-        self.assertIn("HOSTINGER_SSH_PRIVATE_KEY", workflow)
-        self.assertIn("HOSTINGER_SSH_KNOWN_HOSTS", workflow)
+        self.assertNotIn("workflow_dispatch:", workflow)
+        self.assertNotIn("sftp -b -", workflow)
+        self.assertNotIn("HOSTINGER_SSH_PRIVATE_KEY", workflow)
         self.assertIn("demo-profesional.html", workflow)
         self.assertIn("demo-profesional.css", workflow)
         self.assertIn("demo-profesional.js", workflow)
         self.assertIn("profesionales.html", workflow)
         self.assertIn("profesionales.css", workflow)
-        self.assertNotIn("FTP-Deploy-Action", workflow)
-        self.assertNotIn("--delete", workflow)
-        self.assertNotIn("rm -rf", workflow)
+        self.assertIn("python3 -m unittest discover", workflow)
 
 
 if __name__ == "__main__":

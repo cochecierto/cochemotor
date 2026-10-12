@@ -45,3 +45,7 @@ Revisión de alcance basada en el resumen de Dirección recibido el 2026-10-12. 
 ## Veredicto
 
 `GO` para implementar localmente el alcance de `spec.md`, sujeto a las restricciones anteriores. La solicitud previa de versión local para verificar el proceso autoriza el recorrido de prueba sintético. No hay autorización para publicar a GitHub, fusionar ni desplegar.
+
+## Enmienda de Dirección — release informativa, 2026-10-12
+
+Dirección sustituye la restricción anterior de no publicar/desplegar para esta iniciativa y autoriza continuar hasta publicar en GitHub y desplegar en Hostinger la versión informativa de la beta. La autorización no permite habilitar altas/cuentas reales, solicitudes, leads, OAuth, escrituras de inventario, mensajería ni aplicar DDL. La publicación queda condicionada a backup reciente verificado, revisión Gauntlet independiente, validación automatizada y verificación en producción de los activos y flujos del release.

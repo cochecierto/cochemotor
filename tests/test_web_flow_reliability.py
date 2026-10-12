@@ -57,11 +57,12 @@ class WebFlowReliabilityTests(unittest.TestCase):
         self.assertIn("contact_requested_at", lead_post)
 
     def test_registration_requires_privacy_acknowledgement_and_links_current_notices(self):
-        form = self.access.split('id="register-form"', 1)[1].split("</form>", 1)[0]
-        self.assertRegex(form, r'(?:/privacidad|privacidad\.html)')
-        self.assertRegex(form, r'(?:/terminos|terminos\.html)')
-        self.assertRegex(form, r"type=['\"]checkbox['\"]")
-        self.assertIn("privacy_notice_version", self.api)
+        self.assertNotIn("<form", self.access)
+        self.assertNotIn("register-password", self.access)
+        self.assertNotIn("/api/auth", self.access)
+        auth_guard = self.api.index("if ($route === '/api/auth' || str_starts_with($route, '/api/auth/')")
+        account_insert = self.api.index("INSERT INTO professional_users(")
+        self.assertLess(auth_guard, account_insert)
 
     def test_home_catalog_is_loaded_on_demand_not_as_initial_static_import(self):
         self.assertNotRegex(self.home_catalog, r"^import\s+\{[^}]+\}\s+from\s+['\"]\.\./data/vehicles_catalog\.js['\"]")

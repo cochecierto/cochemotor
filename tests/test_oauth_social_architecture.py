@@ -14,14 +14,13 @@ class TestOAuthSocialArchitecture(unittest.TestCase):
         self.assertIn('provider_user_id', MIGRATION)
         self.assertIn('uq_provider_uid', MIGRATION)
 
-    def test_ui_includes_social_login_buttons(self):
-        self.assertIn('oauth-google', UI)
-        self.assertNotIn('oauth-apple', UI)
-        self.assertNotIn('oauth-facebook', UI)
-        self.assertIn('Continuar con Google', UI)
-        self.assertIn('auth-divider', UI)
-        self.assertIn('session_token', UI)
-        self.assertIn('updateSocialLinks', UI)
+    def test_beta_access_ui_does_not_collect_account_credentials(self):
+        self.assertNotIn('<form', UI)
+        self.assertNotIn('oauth-google', UI)
+        self.assertNotIn('Continuar con Google', UI)
+        self.assertNotIn('session_token', UI)
+        self.assertNotIn('localStorage', UI)
+        self.assertIn('beta informativa', UI)
 
     def test_css_includes_social_button_styling(self):
         self.assertIn('.btn-social', CSS)

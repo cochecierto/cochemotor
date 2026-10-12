@@ -1,4 +1,4 @@
-name: CocheMotor · Validación y despliegue SFTP
+name: CocheMotor · Validación del flujo profesional
 
 on:
   push:
@@ -25,18 +25,17 @@ on:
       - "docs/CURRENT-STATE.md"
       - "tests/**"
       - ".github/workflows/deploy-hostinger.yml"
-  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: cochemotor-demo-production
+  group: cochemotor-hostinger-production
   cancel-in-progress: false
 
 jobs:
   validate:
-    name: Validar demo antes de publicar
+    name: Validar recorrido profesional
     runs-on: ubuntu-latest
     steps:
       - name: Obtener código
@@ -50,88 +49,3 @@ jobs:
 
       - name: Comprobar sintaxis PHP de la API
         run: php -l api/index.php
-
-  deploy:
-    name: Publicar demo, acceso profesional y API por SFTP
-    if: github.event_name == 'workflow_dispatch'
-    needs: validate
-    runs-on: ubuntu-latest
-    steps:
-      - name: Obtener código
-        uses: actions/checkout@v5
-
-      - name: Validar configuración y preparar cliente SFTP
-        shell: bash
-        env:
-          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
-          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
-          SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
-          SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_SSH_KNOWN_HOSTS }}
-          SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
-        run: |
-          missing=()
-          for name in SSH_HOST SSH_USER SSH_PRIVATE_KEY SSH_KNOWN_HOSTS SSH_WEB_ROOT; do
-            if [[ -z "${!name}" ]]; then missing+=("$name"); fi
-          done
-          if (( ${#missing[@]} )); then
-            echo "::error::Faltan secretos de despliegue: ${missing[*]}. Configúralos en GitHub Actions antes de ejecutar el despliegue."
-            exit 1
-          fi
-          if [[ ! "$SSH_WEB_ROOT" =~ ^[A-Za-z0-9_./-]+$ || "$SSH_WEB_ROOT" == /* || "$SSH_WEB_ROOT" == *..* ]]; then
-            echo "::error::HOSTINGER_SSH_WEB_ROOT debe ser una ruta relativa segura, sin espacios ni segmentos '..'."
-            exit 1
-          fi
-          mkdir -m 700 -p "$RUNNER_TEMP/cochemotor-ssh"
-          printf '%s\n' "$SSH_PRIVATE_KEY" > "$RUNNER_TEMP/cochemotor-ssh/id_ed25519"
-          printf '%s\n' "$SSH_KNOWN_HOSTS" > "$RUNNER_TEMP/cochemotor-ssh/known_hosts"
-          chmod 600 "$RUNNER_TEMP/cochemotor-ssh/id_ed25519" "$RUNNER_TEMP/cochemotor-ssh/known_hosts"
-          ssh-keygen -F "[$SSH_HOST]:65002" -f "$RUNNER_TEMP/cochemotor-ssh/known_hosts" >/dev/null || {
-            echo "::error::HOSTINGER_SSH_KNOWN_HOSTS no contiene la clave fijada para este host y puerto."
-            exit 1
-          }
-
-      - name: Publicar demo, acceso y endpoint de registro por SFTP
-        shell: bash
-        env:
-          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
-          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
-          SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
-        run: |
-          set -euo pipefail
-          stage=".cochemotor-deploy-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          sftp -b - -P 65002 \
-            -i "$RUNNER_TEMP/cochemotor-ssh/id_ed25519" \
-            -o IdentitiesOnly=yes \
-            -o BatchMode=yes \
-            -o StrictHostKeyChecking=yes \
-            -o "UserKnownHostsFile=$RUNNER_TEMP/cochemotor-ssh/known_hosts" \
-            "$SSH_USER@$SSH_HOST" <<SFTP
-          cd $SSH_WEB_ROOT
-          mkdir $stage
-          cd $stage
-          put demo-profesional.css
-          put demo-profesional.js
-          put profesionales.css
-          put demo-profesional.html
-          put profesionales.html
-          put api/index.php index.php
-          cd ..
-          rename $stage/demo-profesional.css demo-profesional.css
-          rename $stage/demo-profesional.js demo-profesional.js
-          rename $stage/profesionales.css profesionales.css
-          rename $stage/demo-profesional.html demo-profesional.html
-          rename $stage/profesionales.html profesionales.html
-          rename api/index.php api/index.php.backup-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
-          rename $stage/index.php api/index.php
-          rmdir $stage
-          SFTP
-
-      - name: Smoke test de producción
-        shell: bash
-        run: |
-          set -euo pipefail
-          page="$(curl --fail --silent --show-error --retry 5 --retry-delay 2 https://cochemotor.es/demo-profesional.html)"
-          grep -q "Demo profesional | CocheMotor" <<< "$page"
-          curl --fail --silent --show-error --retry 5 --retry-delay 2 --output /dev/null https://cochemotor.es/demo-profesional.css
-          curl --fail --silent --show-error --retry 5 --retry-delay 2 --output /dev/null https://cochemotor.es/demo-profesional.js
-          echo "Demo, estilos y script responden correctamente en producción."

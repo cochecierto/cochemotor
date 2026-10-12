@@ -14,6 +14,10 @@ on:
       - "acceso.html"
       - "seo-legacy-redirect.php"
       - "index.html"
+      - "app.js"
+      - "demo-profesional.html"
+      - "demo-profesional.css"
+      - "demo-profesional.js"
       - "marketplace.html"
       - "demanda.html"
       - "profesionales.html"
@@ -39,6 +43,7 @@ on:
       - "assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png"
       - "database/migrations/007_lead_and_registration_notice_mysql.sql"
       - "api/index.php"
+      - "scripts/hostinger-release-transaction.sh"
       - "guias/comprar-coche-usado.html"
       - "tests/**"
       - ".github/workflows/deploy-seo-hostinger.yml"
@@ -55,6 +60,10 @@ on:
       - "acceso.html"
       - "seo-legacy-redirect.php"
       - "index.html"
+      - "app.js"
+      - "demo-profesional.html"
+      - "demo-profesional.css"
+      - "demo-profesional.js"
       - "marketplace.html"
       - "demanda.html"
       - "profesionales.html"
@@ -80,6 +89,7 @@ on:
       - "assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png"
       - "database/migrations/007_lead_and_registration_notice_mysql.sql"
       - "api/index.php"
+      - "scripts/hostinger-release-transaction.sh"
       - "guias/comprar-coche-usado.html"
       - "tests/**"
       - ".github/workflows/deploy-seo-hostinger.yml"
@@ -90,13 +100,13 @@ on:
         required: true
         type: boolean
         default: false
-      seo_migrations_ready:
-        description: "He confirmado en producción que 004–007 están aplicadas, public_slug no tiene duplicados y existen sus campos e índices. Este despliegue no aplica DDL."
+      seo_no_ddl:
+        description: "Confirmo que este release no aplica migraciones ni cambios de esquema a la base de datos."
         required: true
         type: boolean
         default: false
       seo_beta_writes_disabled:
-        description: "Confirmo que el release mantiene bloqueadas por 403 las escrituras públicas de registro, vehículos, Coche Ideal y consultas."
+        description: "Confirmo que el release bloquea por 403 el acceso y toda escritura/captura pública: inventario, Coche Ideal, informes y consultas."
         required: true
         type: boolean
         default: false
@@ -105,7 +115,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: cochemotor-seo-production
+  group: cochemotor-hostinger-production
   cancel-in-progress: false
 
 jobs:
@@ -121,6 +131,8 @@ jobs:
 
       - name: Comprobar sintaxis JavaScript
         run: |
+          node --check app.js
+          node --check demo-profesional.js
           node --check hub.js
           node --check site-config.js
           node --check assets/js/home_catalog.js
@@ -133,6 +145,9 @@ jobs:
           php -l sitemap-public.php
           php -l seo-legacy-redirect.php
 
+      - name: Comprobar sintaxis del promotor transaccional
+        run: bash -n scripts/hostinger-release-transaction.sh
+
       - name: Validar sitemap estático
         run: python3 -c "import xml.etree.ElementTree as ET; root=ET.parse('sitemap.xml').getroot(); assert root.tag.endswith('urlset') and len(root)>0"
 
@@ -142,24 +157,25 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     steps:
-      - name: Confirmar migraciones aplicadas antes de tocar producción
+      - name: Confirmar backup y release beta sin DDL
         env:
           SEO_BACKUP_READY: ${{ inputs.seo_backup_ready }}
-          SEO_MIGRATIONS_READY: ${{ inputs.seo_migrations_ready }}
+          SEO_NO_DDL: ${{ inputs.seo_no_ddl }}
           SEO_BETA_WRITES_DISABLED: ${{ inputs.seo_beta_writes_disabled }}
         run: |
           if [[ "$SEO_BACKUP_READY" != "true" ]]; then
-            echo "::error::Despliegue detenido. Crea y verifica una copia reciente de la base antes de aplicar cambios de esquema o publicar."
+            echo "::error::Despliegue detenido. Crea y verifica un backup reciente de la base antes de publicar."
             exit 1
           fi
-          if [[ "$SEO_MIGRATIONS_READY" != "true" ]]; then
-            echo "::error::Despliegue detenido. Confirma el esquema de producción 004–007, los slugs sin duplicados y los campos e índices requeridos."
+          if [[ "$SEO_NO_DDL" != "true" ]]; then
+            echo "::error::Despliegue detenido. Este release debe confirmar que no aplica migraciones ni DDL."
             exit 1
           fi
           if [[ "$SEO_BETA_WRITES_DISABLED" != "true" ]]; then
-            echo "::error::Despliegue detenido. La validación automática debe confirmar que las escrituras públicas siguen bloqueadas en esta release."
+            echo "::error::Despliegue detenido. El release debe mantener bloqueadas las escrituras de beta."
             exit 1
           fi
+
 
       - name: Obtener código
         uses: actions/checkout@v5
@@ -194,7 +210,8 @@ jobs:
             exit 1
           }
 
-      - name: Subir a staging y promover solo archivos SEO permitidos
+      - name: Subir el paquete íntegro a staging privado
+        id: stage
         shell: bash
         env:
           SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
@@ -202,15 +219,20 @@ jobs:
           SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
         run: |
           set -euo pipefail
-          stage=".cochemotor-seo-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          release=$GITHUB_SHA
+          stage=".cochemotor-stage-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${release:0:12}"
+          backup=".cochemotor-backup-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${release:0:12}"
+          assets=(.htaccess robots.txt sitemap.xml sitemap-public.php seo-public.php seo-legacy-redirect.php index.html app.js demo-profesional.html demo-profesional.css demo-profesional.js styles.css cookie-consent.js cookie-consent.css site-config.js hub.js acceso.html marketplace.html demanda.html profesionales.html profesionales.css aviso-legal.html privacidad.html terminos.html ficha.html dealer.html perfil.html publicar.html hub.html vehiculo-nuevo.html asesor.html asesor-leads.html api/index.php assets/js/home_catalog.js assets/js/public-lead-form.js assets/data/vehicles_catalog.js assets/js/inventory_selectors.js assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png guias/comprar-coche-usado.html assets/images/inspeccion-taller-cochemotor.png)
+          sha256sum "${assets[@]}" > "$RUNNER_TEMP/cochemotor-release.sha256"
+          script_hash="$(sha256sum scripts/hostinger-release-transaction.sh | cut -d' ' -f1)"
+          printf '%s  promote.sh\n' "$script_hash" >> "$RUNNER_TEMP/cochemotor-release.sha256"
           sftp -b - -P 65002 \
             -i "$RUNNER_TEMP/cochemotor-seo-ssh/id_ed25519" \
-            -o IdentitiesOnly=yes \
-            -o BatchMode=yes \
-            -o StrictHostKeyChecking=yes \
+            -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
             -o "UserKnownHostsFile=$RUNNER_TEMP/cochemotor-seo-ssh/known_hosts" \
             "$SSH_USER@$SSH_HOST" <<SFTP
           cd $SSH_WEB_ROOT
+          cd ..
           mkdir $stage
           mkdir $stage/api
           mkdir $stage/guias
@@ -226,6 +248,10 @@ jobs:
           put seo-public.php $stage/seo-public.php
           put seo-legacy-redirect.php $stage/seo-legacy-redirect.php
           put index.html $stage/index.html
+          put app.js $stage/app.js
+          put demo-profesional.html $stage/demo-profesional.html
+          put demo-profesional.css $stage/demo-profesional.css
+          put demo-profesional.js $stage/demo-profesional.js
           put styles.css $stage/styles.css
           put cookie-consent.js $stage/cookie-consent.js
           put cookie-consent.css $stage/cookie-consent.css
@@ -255,71 +281,55 @@ jobs:
           put assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png $stage/assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png
           put guias/comprar-coche-usado.html $stage/guias/comprar-coche-usado.html
           put assets/images/inspeccion-taller-cochemotor.png $stage/assets/images/inspeccion-taller-cochemotor.png
-          -mkdir guias
-          -mkdir assets
-          -mkdir assets/images
-          -mkdir assets/js
-          -mkdir assets/data
-          -mkdir assets/brand
-          rename $stage/sitemap-public.php sitemap-public.php
-          rename $stage/seo-public.php seo-public.php
-          rename $stage/seo-legacy-redirect.php seo-legacy-redirect.php
-          rename $stage/robots.txt robots.txt
-          rename $stage/sitemap.xml sitemap.xml
-          rename $stage/index.html index.html
-          rename $stage/styles.css styles.css
-          rename $stage/cookie-consent.js cookie-consent.js
-          rename $stage/cookie-consent.css cookie-consent.css
-          rename $stage/site-config.js site-config.js
-          rename $stage/hub.js hub.js
-          rename $stage/acceso.html acceso.html
-          rename $stage/marketplace.html marketplace.html
-          rename $stage/demanda.html demanda.html
-          rename $stage/profesionales.html profesionales.html
-          rename $stage/profesionales.css profesionales.css
-          rename $stage/aviso-legal.html aviso-legal.html
-          rename $stage/privacidad.html privacidad.html
-          rename $stage/terminos.html terminos.html
-          rename $stage/ficha.html ficha.html
-          rename $stage/dealer.html dealer.html
-          rename $stage/perfil.html perfil.html
-          rename $stage/publicar.html publicar.html
-          rename $stage/hub.html hub.html
-          rename $stage/vehiculo-nuevo.html vehiculo-nuevo.html
-          rename $stage/asesor.html asesor.html
-          rename $stage/asesor-leads.html asesor-leads.html
-          rename api/index.php api/index.php.seo-backup-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}
-          rename $stage/api/index.php api/index.php
-          rename $stage/assets/js/home_catalog.js assets/js/home_catalog.js
-          rename $stage/assets/js/public-lead-form.js assets/js/public-lead-form.js
-          rename $stage/assets/data/vehicles_catalog.js assets/data/vehicles_catalog.js
-          rename $stage/assets/js/inventory_selectors.js assets/js/inventory_selectors.js
-          rename $stage/assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png
-          rename $stage/guias/comprar-coche-usado.html guias/comprar-coche-usado.html
-          rename $stage/assets/images/inspeccion-taller-cochemotor.png assets/images/inspeccion-taller-cochemotor.png
-          rename $stage/.htaccess .htaccess
-          rmdir $stage/api
-          rmdir $stage/guias
-          rmdir $stage/assets/images
-          rmdir $stage/assets/js
-          rmdir $stage/assets/data
-          rmdir $stage/assets/brand
-          rmdir $stage/assets
-          rmdir $stage
+          put scripts/hostinger-release-transaction.sh $stage/promote.sh
+          put $RUNNER_TEMP/cochemotor-release.sha256 $stage/release.sha256
           SFTP
+          echo "stage=$stage" >> "$GITHUB_OUTPUT"
+          echo "backup=$backup" >> "$GITHUB_OUTPUT"
 
-      - name: Verificar sitemap, robots y guía en producción
+      - name: Promover release y verificar producción con rollback automático
+        id: release
         shell: bash
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
+          STAGE: ${{ steps.stage.outputs.stage }}
+          BACKUP: ${{ steps.stage.outputs.backup }}
         run: |
           set -euo pipefail
+          release=$GITHUB_SHA
+          web_root_name=${SSH_WEB_ROOT##*/}
+          promotion_attempted=0
+          verified=0
+          remote() {
+            ssh -p 65002 \
+              -i "$RUNNER_TEMP/cochemotor-seo-ssh/id_ed25519" \
+              -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
+              -o "UserKnownHostsFile=$RUNNER_TEMP/cochemotor-seo-ssh/known_hosts" \
+              "$SSH_USER@$SSH_HOST" "$1"
+          }
+          rollback_on_exit() {
+            status=$?
+            trap - EXIT
+            if (( promotion_attempted && ! verified )); then
+              command="cd '$SSH_WEB_ROOT/..' && bash '$STAGE/promote.sh' rollback '$web_root_name' '$STAGE' '$BACKUP' '$release'"
+              if remote "$command"; then echo "Release reverted after failed production verification."; else echo "::error::Automatic rollback failed; preserve $BACKUP for manual recovery."; fi
+            fi
+            exit "$status"
+          }
+          trap rollback_on_exit EXIT
+          # Arm client-side recovery before SSH: a disconnect may happen after
+          # the remote script has moved only part of the release.
+          promotion_attempted=1
+          command="cd '$SSH_WEB_ROOT/..' && bash '$STAGE/promote.sh' promote '$web_root_name' '$STAGE' '$BACKUP' '$release'"
+          remote "$command"
+
           curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/robots.txt -o "$RUNNER_TEMP/cochemotor-robots.txt"
           grep -F "Sitemap: https://cochemotor.es/sitemap.xml" "$RUNNER_TEMP/cochemotor-robots.txt"
           grep -F "Disallow: /api/" "$RUNNER_TEMP/cochemotor-robots.txt"
           for route in acceso.html hub.html asesor.html asesor-leads.html; do
-            if grep -F "Disallow: /$route" "$RUNNER_TEMP/cochemotor-robots.txt"; then
-              echo "::error::/$route no debe bloquearse en robots.txt; Google necesita leer noindex."
-              exit 1
-            fi
+            if grep -F "Disallow: /$route" "$RUNNER_TEMP/cochemotor-robots.txt"; then echo "::error::/$route no debe bloquearse en robots.txt; Google necesita leer noindex."; exit 1; fi
             page="$RUNNER_TEMP/$route"
             curl --fail --silent --show-error --location --retry 4 --retry-delay 2 "https://cochemotor.es/$route" -o "$page"
             grep -Eiq '<meta name="robots" content="noindex,follow">' "$page"
@@ -329,26 +339,41 @@ jobs:
           curl --fail --silent --show-error --location --retry 4 --retry-delay 2 https://cochemotor.es/ -o "$RUNNER_TEMP/cochemotor-home.html"
           grep -F '<link rel="canonical" href="https://cochemotor.es/">' "$RUNNER_TEMP/cochemotor-home.html"
           grep -F 'application/ld+json' "$RUNNER_TEMP/cochemotor-home.html"
+          curl --fail --silent --show-error --location --retry 4 --retry-delay 2 https://cochemotor.es/site-config.js -o "$RUNNER_TEMP/cochemotor-site-config.js"
+          grep -F 'Consulta el estado del catálogo real.' "$RUNNER_TEMP/cochemotor-site-config.js"
+          curl --fail --silent --show-error --location --retry 4 --retry-delay 2 https://cochemotor.es/acceso.html -o "$RUNNER_TEMP/cochemotor-access.html"
+          grep -F 'No introduzcas datos personales' "$RUNNER_TEMP/cochemotor-access.html"
+          curl --fail --silent --show-error --retry 4 --retry-delay 2 https://cochemotor.es/api/public/vehicles -o "$RUNNER_TEMP/cochemotor-public-vehicles.json"
+          python3 -c "import json; data=json.load(open(r'$RUNNER_TEMP/cochemotor-public-vehicles.json', encoding='utf-8')); vehicles=data.get('vehicles'); assert isinstance(vehicles,list); assert all(v.get('status')=='disponible' and not v.get('isDemo') for v in vehicles)"
+          for endpoint in \
+            "https://cochemotor.es/api/auth/oauth/google" \
+            "https://cochemotor.es/api/auth/callback/google" \
+            "https://cochemotor.es/api/auth/verify?token=synthetic-only"; do
+            status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "$endpoint")"
+            if [[ "$status" != "403" ]]; then echo "::error::Las rutas de acceso deben responder 403 ($endpoint: $status)."; exit 1; fi
+          done
+          for endpoint in \
+            "https://cochemotor.es/api/auth" \
+            "https://cochemotor.es/api/vehicles" \
+            "https://cochemotor.es/api/coche-ideal" \
+            "https://cochemotor.es/api/leads" \
+            "https://cochemotor.es/api/report" \
+            "https://cochemotor.es/api/moderation/vehicles"; do
+            status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' --request POST --header 'Content-Type: application/json' --data '{}' "$endpoint")"
+            if [[ "$status" != "403" ]]; then echo "::error::La API informativa debe rechazar escrituras con 403 ($endpoint: $status)."; exit 1; fi
+          done
+          private_status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' https://cochemotor.es/api/vehicles)"
+          if [[ "$private_status" != "403" ]]; then echo "::error::Los endpoints de cuenta deben seguir cerrados ($private_status)."; exit 1; fi
           curl --fail --silent --show-error --location --retry 4 --retry-delay 2 https://cochemotor.es/guias/comprar-coche-usado.html -o "$RUNNER_TEMP/cochemotor-guide.html"
           grep -F "Cómo revisar un coche de segunda mano antes de comprar" "$RUNNER_TEMP/cochemotor-guide.html"
 
-      - name: Verificar que los activos en Hostinger coinciden con este commit
-        shell: bash
-        env:
-          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
-          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
-          SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
-        run: |
-          set -euo pipefail
           remote_dir="$RUNNER_TEMP/hostinger-assets"
-          assets=(site-config.js hub.js styles.css assets/js/home_catalog.js assets/js/public-lead-form.js assets/js/inventory_selectors.js assets/data/vehicles_catalog.js assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png)
+          assets=(index.html app.js acceso.html site-config.js hub.js styles.css demo-profesional.html demo-profesional.css demo-profesional.js api/index.php assets/js/home_catalog.js assets/js/public-lead-form.js assets/js/inventory_selectors.js assets/data/vehicles_catalog.js assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png)
           for asset in "${assets[@]}"; do
             mkdir -p "$remote_dir/$(dirname "$asset")"
             sftp -b - -P 65002 \
               -i "$RUNNER_TEMP/cochemotor-seo-ssh/id_ed25519" \
-              -o IdentitiesOnly=yes \
-              -o BatchMode=yes \
-              -o StrictHostKeyChecking=yes \
+              -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
               -o "UserKnownHostsFile=$RUNNER_TEMP/cochemotor-seo-ssh/known_hosts" \
               "$SSH_USER@$SSH_HOST" <<SFTP
           cd $SSH_WEB_ROOT
@@ -356,8 +381,8 @@ jobs:
           SFTP
             local_hash="$(sha256sum "$asset" | cut -d' ' -f1)"
             remote_hash="$(sha256sum "$remote_dir/$asset" | cut -d' ' -f1)"
-            if [[ "$local_hash" != "$remote_hash" ]]; then
-              echo "::error::El archivo en Hostinger no coincide con el commit para $asset (local=$local_hash remoto=$remote_hash)."
-              exit 1
-            fi
+            if [[ "$local_hash" != "$remote_hash" ]]; then echo "::error::El archivo en Hostinger no coincide con el commit para $asset."; exit 1; fi
           done
+          verified=1
+          trap - EXIT
+          echo "Release $release verificado en Hostinger; backup de rollback: $BACKUP"

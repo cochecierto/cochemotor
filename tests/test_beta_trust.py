@@ -30,16 +30,30 @@ class BetaTrustTests(unittest.TestCase):
     def test_beta_intake_and_writes_are_disabled_in_ui_and_api(self):
         access = (ROOT / "acceso.html").read_text(encoding="utf-8")
         api = (ROOT / "api" / "index.php").read_text(encoding="utf-8")
-        self.assertIn('id="register-form" hidden', access)
+        self.assertNotIn("<form", access)
+        self.assertNotIn("api-config.js", access)
+        self.assertNotIn("localStorage", access)
+        self.assertNotIn("/api/auth", access)
+        self.assertIn('class="beta-access-notice"', access)
+        self.assertIn("No introduzcas datos personales", access)
         for route in ("/api/coche-ideal", "/api/vehicles", "/api/leads"):
             self.assertIn(route, api)
-        self.assertIn("El alta de cuentas reales está desactivada", access)
+        self.assertIn("El acceso y la gestión de cuentas están desactivados", api)
+
+    def test_disabled_writes_are_rejected_before_config_or_request_body_read(self):
+        api = (ROOT / "api" / "index.php").read_text(encoding="utf-8")
+        write_guard = api.index("if (in_array($method, ['POST', 'PUT', 'PATCH', 'DELETE'], true))")
+        private_config = api.index("$privateConfigCandidates = [")
+        body_reader = api.index("$data=str_starts_with($contentType")
+        self.assertLess(write_guard, private_config)
+        self.assertLess(write_guard, body_reader)
 
     def test_public_beta_write_guards_precede_database_inserts(self):
         api = (ROOT / "api" / "index.php").read_text(encoding="utf-8")
         guarded_writes = (
             ("if ($method === 'POST' && $route === '/api/coche-ideal') fail(403,", "INSERT INTO coche_ideal_requests"),
             ("if ($route === '/api/vehicles' && in_array($method, ['POST', 'PATCH'], true)) fail(403,", "INSERT INTO vehicles("),
+            ("if ($method === 'POST' && $route === '/api/report') fail(403,", "INSERT INTO ad_reports"),
             ("if ($action==='register') {", "INSERT INTO professional_users("),
             ("if ($route==='/api/leads' && $method==='POST') {", "INSERT INTO leads("),
         )
@@ -52,6 +66,30 @@ class BetaTrustTests(unittest.TestCase):
                     self.assertGreaterEqual(guard_index, 0, f"Missing 403 inside: {guard}")
                 insert_index = api.find(insert, guard_index)
                 self.assertGreater(insert_index, guard_index, f"Database write precedes guard: {insert}")
+
+    def test_login_report_and_private_reads_are_closed_without_database_access(self):
+        api = (ROOT / "api" / "index.php").read_text(encoding="utf-8")
+        routes = api.index("$path=parse_url")
+        auth_guard = api.index("if ($route === '/api/auth' || str_starts_with($route, '/api/auth/'))", routes)
+        generic_write_guard = api.index("if (in_array($method, ['POST', 'PUT', 'PATCH', 'DELETE'], true))", routes)
+        private_guard = api.index("function requireUser(): array")
+        for marker in ("if ($action==='login')", "INSERT INTO ad_reports"):
+            self.assertGreater(api.find(marker), auth_guard)
+        self.assertGreater(generic_write_guard, auth_guard)
+        private_handler = api[private_guard:api.index("function requireModerator", private_guard)]
+        self.assertIn("fail(403,", private_handler)
+        self.assertNotIn("user();", private_handler)
+
+    def test_oauth_callback_is_blocked_before_provider_or_database_access(self):
+        api = (ROOT / "api" / "index.php").read_text(encoding="utf-8")
+        callback_index = api.index("callback/(google|apple|facebook)")
+        callback_start = api.rfind("if (preg_match(", 0, callback_index)
+        callback_end = api.index("$err =", callback_index)
+        callback_block = api[callback_start:callback_end]
+        self.assertIn("fail(403,", callback_block)
+        self.assertLess(callback_block.index("fail(403,"), callback_block.index("$provider = $matches[1]"))
+        self.assertNotIn("curl_init(", callback_block)
+        self.assertNotIn("db()", callback_block)
 
     def test_demo_is_ephemeral_and_finance_margin_assumptions_are_explicit(self):
         page = (ROOT / "demo-profesional.html").read_text(encoding="utf-8")
@@ -79,6 +117,34 @@ class BetaTrustTests(unittest.TestCase):
         self.assertIn("var allStock = Array.isArray(data.vehicles)", app)
         self.assertNotIn("function initStockFilters()", app)
 
+
+    def test_home_hides_search_controls_when_catalog_api_is_unavailable(self):
+        app = (ROOT / "app.js").read_text(encoding="utf-8")
+        config = (ROOT / "site-config.js").read_text(encoding="utf-8")
+        unavailable = app.split("function renderStockUnavailable()", 1)[1].split("function renderStockGrid", 1)[0]
+        self.assertIn(".hero-search-box", unavailable)
+        self.assertIn(".catalog-filters", unavailable)
+        self.assertIn("no pudimos consultar el inventario real", unavailable.lower())
+        self.assertIn("updateHomeCatalogState('unavailable')", unavailable)
+        self.assertIn("No podemos confirmar si hay anuncios disponibles", app)
+        self.assertIn("Consulta el estado del catálogo real.", config)
+        self.assertNotIn("El catálogo aún no tiene stock real", config)
+
+    def test_production_release_deploys_homepage_script_and_serializes_api_writes(self):
+        seo = (ROOT / ".github" / "workflows" / "deploy-seo-hostinger.yml").read_text(encoding="utf-8")
+        demo = (ROOT / ".github" / "workflows" / "deploy-hostinger.yml").read_text(encoding="utf-8")
+        self.assertIn('"app.js"', seo)
+        self.assertIn("put app.js $stage/app.js", seo)
+        self.assertIn("scripts/hostinger-release-transaction.sh", seo)
+        self.assertRegex(seo, r"assets=\([^\n]*app\.js")
+        self.assertIn("seo_no_ddl:", seo)
+        self.assertNotIn("seo_migrations_ready:", seo)
+        self.assertIn("no aplica migraciones ni DDL", seo)
+        self.assertIn("group: cochemotor-hostinger-production", seo)
+        self.assertNotIn("workflow_dispatch:", demo)
+        self.assertNotIn("sftp -b -", demo)
+        self.assertIn("promote.sh' rollback", seo)
+        self.assertIn("rollback_on_exit", seo)
 
 if __name__ == "__main__":
     unittest.main()

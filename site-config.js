@@ -25,7 +25,7 @@ const siteConfig = {
 
   metadata: {
     title: "CocheMotor — Compra claro. Vende mejor.",
-    description: "Beta informativa de CocheMotor. El catálogo aún no tiene stock real; la demo profesional funciona con datos sintéticos y temporales.",
+    description: "Beta informativa de CocheMotor. Consulta el estado del catálogo real y prueba el recorrido profesional con datos sintéticos y temporales.",
     canonical: "https://cochemotor.es",
     domain: "cochemotor.es",
     language: "es-ES",
@@ -162,8 +162,8 @@ const siteConfig = {
   chapters: {
     chapter1_hero: {
       eyebrow: "BETA INFORMATIVA · DATOS SINTÉTICOS EN DEMO",
-      headline: ["CocheMotor está preparando su beta", "El catálogo aún no tiene stock real."],
-      subhead: "Consulta el estado de las herramientas profesionales y explora su recorrido sintético. No recogemos solicitudes de compra ni altas reales.",
+      headline: ["CocheMotor está preparando su beta", "Consulta el estado del catálogo real."],
+      subhead: "El catálogo se comprobará en cuanto cargue el servicio. No recogemos solicitudes de compra ni altas reales.",
       ctaLabel: "Ver estado del catálogo",
       ctaTarget: "/marketplace",
       ctaHubLabel: "Explorar demo profesional",
@@ -217,13 +217,13 @@ const siteConfig = {
     chapter5_experience: {
       number: "CAPÍTULO 04",
       title: "Cuando haya vehículos publicados",
-      subtitle: "Podrás consultar la ficha del anuncio y contactar con el profesional. La beta todavía no tiene stock real.",
+      subtitle: "Cuando el catálogo esté disponible, podrás consultar las fichas de los anuncios reales publicados.",
     },
 
     chapter6_catalog: {
       number: "CAPÍTULO 05",
       title: "Vehículos publicados por profesionales",
-      subtitle: "Todavía no hay vehículos reales publicados. Los ejemplos sintéticos aparecen únicamente en la demo profesional.",
+      subtitle: "Estamos comprobando la disponibilidad del inventario real. Los ejemplos sintéticos aparecen únicamente en la demo profesional.",
     },
 
     chapter7_faq: {
