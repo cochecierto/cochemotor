@@ -16,15 +16,16 @@ const siteConfig = {
   priceSearchRanges: [
     { value: "all", label: "Sin límite de precio" },
     { value: "5000", label: "Hasta 5.000 €" },
-    { value: "10000", label: "Hasta 10.000 €" },
-    { value: "15000", label: "Hasta 15.000 €" },
-    { value: "20000", label: "Hasta 20.000 €" },
+    { value: "5000-10000", label: "5.001–10.000 €" },
+    { value: "10000-15000", label: "10.001–15.000 €" },
+    { value: "15000-20000", label: "15.001–20.000 €" },
+    { value: "20000-25000", label: "20.001–25.000 €" },
     { value: "over25000", label: "Más de 25.000 €" }
   ],
 
   metadata: {
     title: "CocheMotor — Compra claro. Vende mejor.",
-    description: "Marketplace y plataforma digital para encontrar vehículos de ocasión, conectar con profesionales y comprar con más información, confianza y seguridad.",
+    description: "Beta informativa de CocheMotor. El catálogo aún no tiene stock real; la demo profesional funciona con datos sintéticos y temporales.",
     canonical: "https://cochemotor.es",
     domain: "cochemotor.es",
     language: "es-ES",
@@ -53,9 +54,9 @@ const siteConfig = {
 
   navigation: [
     { label: "Coches de ocasión", href: "/marketplace" },
-    { label: "Publica qué coche buscas", href: "/demanda" },
+    { label: "Estado del catálogo", href: "/marketplace" },
     { label: "Soy profesional", href: "/profesionales" },
-    { label: "Publicar un coche", href: "/publicar" },
+    { label: "Demo profesional", href: "/demo-profesional.html" },
   ],
 
   // Cuentas de Profesionales Sintéticas con soporte para Web Propia / Subdominio
@@ -160,13 +161,13 @@ const siteConfig = {
 
   chapters: {
     chapter1_hero: {
-      eyebrow: "COCHES DE OCASIÓN Y HERRAMIENTAS PARA PROFESIONALES",
-      headline: ["Compra o vende coches de ocasión", "con más información y confianza."],
-      subhead: "Encuentra coches anunciados por profesionales y revisa la información disponible antes de decidir. Si gestionas stock, conoce las herramientas profesionales.",
-      ctaLabel: "Buscar coches",
+      eyebrow: "BETA INFORMATIVA · DATOS SINTÉTICOS EN DEMO",
+      headline: ["CocheMotor está preparando su beta", "El catálogo aún no tiene stock real."],
+      subhead: "Consulta el estado de las herramientas profesionales y explora su recorrido sintético. No recogemos solicitudes de compra ni altas reales.",
+      ctaLabel: "Ver estado del catálogo",
       ctaTarget: "/marketplace",
-      ctaHubLabel: "Crear cuenta beta gratis",
-      ctaHubTarget: "/acceso?audience=professional&return=hub&mode=register",
+      ctaHubLabel: "Explorar demo profesional",
+      ctaHubTarget: "/demo-profesional.html",
       stats: [
         { value: "DGT", label: "Acceso a fuentes oficiales" },
         { value: "Por anuncio", label: "Información indicada por el vendedor" },
@@ -215,14 +216,14 @@ const siteConfig = {
 
     chapter5_experience: {
       number: "CAPÍTULO 04",
-      title: "Consulta la información desde el móvil",
-      subtitle: "Contacta con el vendedor, solicita la información que necesites y acuerda una visita antes de decidir.",
+      title: "Cuando haya vehículos publicados",
+      subtitle: "Podrás consultar la ficha del anuncio y contactar con el profesional. La beta todavía no tiene stock real.",
     },
 
     chapter6_catalog: {
       number: "CAPÍTULO 05",
       title: "Vehículos publicados por profesionales",
-      subtitle: "Consulta disponibilidad y confirma el distintivo ambiental en la DGT.",
+      subtitle: "Todavía no hay vehículos reales publicados. Los ejemplos sintéticos aparecen únicamente en la demo profesional.",
     },
 
     chapter7_faq: {
@@ -243,7 +244,7 @@ const siteConfig = {
         },
         {
           q: "¿Puedo entregar mi coche actual como parte de pago?",
-          a: "Puedes enviar una solicitud desde Coche Ideal. La solicitud no es una tasación garantizada ni una oferta de compra; un profesional debe revisar la información y confirmar si puede atenderla.",
+          a: "Coche Ideal aún no acepta solicitudes. La beta no tiene profesionales suscritos para atenderlas; no introduzcas datos de contacto.",
         },
         {
           q: "¿Cómo se formaliza la compra y el cambio de titularidad?",
@@ -606,6 +607,8 @@ function matchesPriceSearchRange(price, range) {
   if (!Number.isFinite(amount)) return false;
   if (range === "all" || range === "") return true;
   if (range === "over25000") return amount > 25000;
+  const band = String(range).match(/^(\d+)-(\d+)$/);
+  if (band) return amount > Number(band[1]) && amount <= Number(band[2]);
   const maximum = Number(range);
   return Number.isFinite(maximum) && maximum > 0 && amount <= maximum;
 }

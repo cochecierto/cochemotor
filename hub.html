@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex,follow">
   <title>Panel profesional — Panel SaaS para Profesionales del Motor</title>
   <link rel="icon" href="assets/brand/favicons/favicon.ico?v=10.0" sizes="any"><link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicons/favicon-16x16.png?v=10.0"><link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicons/favicon-32x32.png?v=10.0"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-light.png?v=10.0" media="(prefers-color-scheme: light)"><link rel="icon" type="image/png" href="assets/brand/icons/cochemotor-icon-dark.png?v=10.0" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" sizes="180x180" href="assets/brand/icons/apple-touch-icon.png?v=10.0"><link rel="manifest" href="site.webmanifest?v=10.0">
-  <meta name="description" content="Suite operativa para compraventas y talleres: Subida asistida de stock, Embudo de ventas Kanban, Generador con IA, Copiloto de precios y Bolsa de pedidos.">
+  <meta name="description" content="Vista del espacio profesional CocheMotor. La beta está en preparación; consulta el estado de sus funciones antes de solicitar acceso.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -189,8 +189,15 @@
   </style>
 <link rel="stylesheet" href="/cookie-consent.css?v=2"><script src="/cookie-consent.js?v=1" defer></script></head>
 <body style="background: #f1f5f9; overflow-x: hidden;">
+  <main role="status" aria-labelledby="beta-panel-disabled-title" style="max-width:760px;margin:10vh auto;padding:32px;background:#fff;border:1px solid #cbd5e1;border-radius:16px;line-height:1.6">
+    <p class="chapter-badge">BETA EN PREPARACIÓN</p>
+    <h1 id="beta-panel-disabled-title">El panel con cuentas reales todavía no está disponible</h1>
+    <p>Para proteger los datos, el alta y la gestión real de inventario, fotos y consultas están desactivadas. La política de conservación al finalizar la beta se decidirá antes de habilitar cuentas reales.</p>
+    <p>La demo usa una cuenta ficticia, datos sintéticos y cambios temporales en esta pestaña. No envía información ni publica anuncios.</p>
+    <p><a class="btn btn-red" href="/demo-profesional.html">Explorar el recorrido sintético</a> <a class="btn btn-outline" href="/profesionales#capacidades">Consultar estado de funciones</a></p>
+  </main>
 
-  <div class="hub-app-shell">
+  <div class="hub-app-shell" hidden>
     
     <!-- =========================================================================================
          SIDEBAR LATERAL IZQUIERDA (NAVEGACIÓN PRINCIPAL)
@@ -261,7 +268,7 @@
         <div class="hub-nav-section-label">Herramientas y Operaciones</div>
         <button class="hub-nav-item" onclick="switchHubTab('tab-generator')">
           <span class="hub-nav-item-icon" aria-hidden="true">A</span>
-          <span>Generador de textos IA</span>
+          <span>Borrador por plantilla (sin IA)</span>
         </button>
         <button class="hub-nav-item" onclick="switchHubTab('tab-deal-room')">
           <span class="hub-nav-item-icon" aria-hidden="true">□</span>
@@ -571,7 +578,7 @@
       </section>
 
       <!-- =====================================================================================
-           PESTAÑA 3: GENERADOR MULTICANAL IA
+           PESTAÑA 3: BORRADOR LOCAL POR PLANTILLA
            ===================================================================================== -->
       <section id="tab-generator" class="hub-tool-card" style="display: none;">
         <div class="chapter-badge">MOTOR DE REDACCIÓN COMERCIAL</div>
@@ -618,7 +625,7 @@
 
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 0.85rem; font-weight: 700; color: var(--cm-navy); text-transform: uppercase;">Texto Generado con IA:</span>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--cm-navy); text-transform: uppercase;">Borrador por plantilla local (sin IA):</span>
               <button class="copy-output-btn" onclick="copyGeneratedText()">📋 Copiar Texto</button>
             </div>
             <div id="gen-output-text" class="copy-output-box" style="min-height: 380px;">
@@ -629,13 +636,13 @@
       </section>
 
       <!-- =====================================================================================
-           PESTAÑA 4: COPILOTO IA (PRECIOS Y ROTACIÓN)
+           PESTAÑA 4: VISTA ILUSTRATIVA DE PRECIOS Y ROTACIÓN
            ===================================================================================== -->
       <section id="tab-copilot" class="hub-tool-card" style="display: none;">
         <div class="chapter-badge">INTELIGENCIA DE PRECIOS & VELOCIDAD DE VENTA</div>
-        <h2 class="hub-tool-title">Copiloto IA: Diagnóstico de Rotación & Precios</h2>
+        <h2 class="hub-tool-title">Vista ilustrativa de precios y rotación</h2>
         <p class="hub-tool-desc">
-          Detecta a tiempo coches con más de 72h sin clics o estancados a los 30 días para proteger tu margen comercial.
+          Muestra una regla local de ejemplo; no analiza datos de mercado ni recomienda precios de venta.
         </p>
 
         <div id="copilot-cards-container">
@@ -650,7 +657,7 @@
         <div class="chapter-badge">DEMANDA ACTIVA DE COMPRADORES</div>
             <h2 class="hub-tool-title">Solicitudes de compradores</h2>
         <p class="hub-tool-desc">
-          Particulares con presupuesto real buscando coche en España. Postula una unidad de tu stock con un solo clic.
+          Solicitudes de muestra sintéticas. No hay compradores ni contactos reales; no envíes propuestas desde esta vista.
         </p>
 
         <div id="demand-orders-container">
@@ -664,7 +671,7 @@
       <section id="tab-calculator" class="hub-tool-card" style="display: none;">
         <div class="chapter-badge">SIMULADOR ECONÓMICO</div>
           <h2 class="hub-tool-title">Cuotas y margen de la operación</h2>
-        <p class="hub-tool-desc">Calcula la cuota mensual para tu cliente y el margen neto estimado para tu negocio.</p>
+        <p class="hub-tool-desc">Simulador orientativo local: la cuota usa el TIN editable y el margen resta solo precio de compra al de venta.</p>
 
         <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px;">
           <div>
@@ -705,14 +712,16 @@
             <div id="calc-result-monthly" style="font-family: var(--font-family-display); font-size: 3.2rem; font-weight: 800; color: white; line-height: 1.1; margin: 8px 0;">
               242 €/mes
             </div>
-            <p style="font-size: 0.85rem; color: #94a3b8;">Impuestos, formalización e intereses calculados.</p>
+            <p style="font-size: 0.85rem; color: #94a3b8;">Estimación con TIN/12, cuota mensual y capitalización teórica. No es TAE ni oferta; no incluye comisiones ni costes.</p>
+            <p style="font-size: 0.85rem; color: #cbd5e1;">Equivalente anual teórico sin costes: <strong id="calc-result-equivalent">—</strong></p>
 
             <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.15);">
               <div style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--badge-eco-bg); font-weight: 800; text-transform: uppercase;">MARGEN COMERCIAL DE LA VENTA</div>
               <div id="calc-result-margin" style="font-family: var(--font-family-display); font-size: 2.2rem; font-weight: 800; color: var(--cm-navy); line-height: 1;">
                 3.700 €
               </div>
-              <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px;">Retorno sobre Coste: <span id="calc-result-roi" style="color: var(--badge-eco-bg); font-weight: 700;">28.0%</span></p>
+              <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px;">Sobre coste de adquisición: <span id="calc-result-roi" style="color: var(--badge-eco-bg); font-weight: 700;">28.0%</span>. No es margen neto.</p>
+              <p style="font-size: 0.8rem; color: #cbd5e1; margin-top: 6px;">Excluye impuestos, preparación, garantía, reparaciones, financiación y otros costes.</p>
             </div>
 
             <button class="btn btn-red" style="width: 100%; margin-top: 24px;" onclick="copyFinancialQuote()">

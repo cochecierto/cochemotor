@@ -55,12 +55,12 @@
       <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Abrir menú de navegación">☰</button>
       <nav class="nav-desktop" id="site-navigation" aria-label="Navegación principal">
         <a href="/marketplace" class="nav-link" aria-current="page">Coches de ocasión</a>
-        <a href="/demanda" class="nav-link">Publica qué coche buscas</a>
+        <a href="/marketplace#marketplace-filters" class="nav-link">Buscar vehículos</a>
         <a href="/profesionales" class="nav-link">Soy profesional</a>
-        <a href="/publicar" class="nav-link">Vender mi coche</a>
+        <a href="/demo-profesional.html" class="nav-link">Demo profesional</a>
       </nav>
       <div class="header-actions">
-        <a href="/publicar" data-auth-entry="publish" class="btn btn-navy">Publicar un coche</a>
+        <a href="/profesionales#capacidades" class="btn btn-navy">Estado de la beta</a>
         <a href="/acceso?audience=professional&amp;return=hub" class="btn btn-red">Acceso profesional</a>
       </div>
     </div>
@@ -72,9 +72,9 @@
       <div class="marketplace-hero-copy">
         <span class="marketplace-kicker">ANUNCIOS DE PROFESIONALES · ESPAÑA</span>
         <h1 id="marketplace-title">Encuentra un coche que encaje contigo.</h1>
-        <p>Compara opciones y consulta la información que aporta cada vendedor antes de contactar.</p>
-        <a class="btn btn-red" href="#marketplace-filters">Explorar coches <span aria-hidden="true">↓</span></a>
-        <p class="marketplace-hero-note">¿No aparece el que buscas? <a href="/demanda">Publica tu búsqueda gratis <span aria-hidden="true">→</span></a></p>
+        <p>El catálogo todavía no tiene anuncios reales disponibles. Los ejemplos de la demo profesional no son ofertas de compra.</p>
+        <a class="btn btn-red" href="/profesionales#capacidades">Conoce el estado del proyecto <span aria-hidden="true">→</span></a>
+        <p class="marketplace-hero-note">La búsqueda de vehículos estará disponible cuando haya anuncios de profesionales suscritos.</p>
       </div>
     </section>
 
@@ -181,8 +181,8 @@
     <!-- Barra de Conteo de Resultados -->
     <div class="results-count-bar">
       <div>
-        <span style="font-weight: 800; color: var(--cm-navy); font-size: 1.1rem;" id="results-count-text">
-          Vehículos disponibles
+        <span role="status" aria-live="polite" style="font-weight: 800; color: var(--cm-navy); font-size: 1.1rem;" id="results-count-text">
+          Consultando catálogo real…
         </span>
       </div>
       <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--cm-text-secondary);">
@@ -204,13 +204,11 @@
     <!-- Banner si no encuentra el coche buscado -->
     <div class="marketplace-cta" style="background: linear-gradient(135deg, #002D62 0%, #0a3a78 100%); border-radius: var(--cm-radius-lg); padding: 36px; color: white; margin-top: 48px; text-align: center;">
       <span class="chapter-badge" style="background: rgba(0, 191, 255, 0.2); color: var(--cm-navy); margin-bottom: 8px;">SERVICIO A MEDIDA</span>
-      <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;">¿No has encontrado el coche exacto que buscas?</h3>
+      <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;">Aún no hay stock real disponible</h3>
       <p style="color: #cbd5e1; max-width: 650px; margin: 0 auto 20px auto; font-size: 0.95rem;">
-        Cuéntanos qué coche necesitas, cuánto quieres gastar y dónde lo buscas. Los profesionales con opciones adecuadas podrán enviarte una propuesta.
+        CocheMotor está en preparación. Por ahora esta web es informativa: no recoge solicitudes de compra ni datos de contacto.
       </p>
-      <a href="/demanda" class="btn btn-red" style="font-weight: 800; padding: 12px 28px;">
-        🎯 Publicar mi búsqueda gratis
-      </a>
+      <a href="/profesionales#capacidades" class="btn btn-red" style="font-weight: 800; padding: 12px 28px;">Ver qué está disponible</a>
     </div>
 
   </main>
@@ -221,8 +219,9 @@
     </div>
   </footer>
 
-  <script src="site-config.js?v=20260914.1"></script>
-  <script>
+  <script src="site-config.js?v=20261012.1"></script>
+    <script>
+    let catalogStatus = 'loading';
     let publishedVehicles = [];
     document.addEventListener('DOMContentLoaded', () => {
       const menuButton = document.querySelector('.nav-menu-toggle');
@@ -262,10 +261,35 @@
       if (queryParam) document.getElementById('filter-free-text').value = queryParam;
       try {
         const response=await fetch('/api/public/vehicles',{headers:{'Accept':'application/json'},credentials:'same-origin'});
-        if(response.ok){const data=await response.json();publishedVehicles=Array.isArray(data.vehicles)?data.vehicles:[];}
-      } catch (_) { /* El catálogo de demostración sigue disponible si el servicio público no responde. */ }
+        if(!response.ok) throw new Error('catalog-unavailable');
+        const data=await response.json();publishedVehicles=Array.isArray(data.vehicles)?data.vehicles.filter(vehicle => vehicle && vehicle.status === 'disponible' && vehicle.publicationState !== 'proxima_entrada' && vehicle.isDemo !== true):[];
+        catalogStatus='available';
+        populateCatalogFacet('filter-community', publishedVehicles.map(vehicle => vehicle.community), 'Todas las comunidades');
+        populateCatalogFacet('filter-province', publishedVehicles.map(vehicle => vehicle.province), 'Todas las provincias');
+        populateCatalogFacet('filter-brand', publishedVehicles.map(vehicle => vehicle.brand), 'Todas las marcas');
+        populateCatalogFacet('filter-badge', publishedVehicles.map(vehicle => vehicle.badge), 'Todos');
+      } catch (_) {
+        catalogStatus='unavailable';
+        populateCatalogFacet('filter-community', [], 'Todas las comunidades');
+        populateCatalogFacet('filter-province', [], 'Todas las provincias');
+        populateCatalogFacet('filter-brand', [], 'Todas las marcas');
+        populateCatalogFacet('filter-badge', [], 'Todos');
+      }
+      const hasCatalogVehicles = catalogStatus === 'available' && publishedVehicles.length > 0;
+      document.querySelectorAll('#marketplace-filters select, #marketplace-filters input, #marketplace-filters .market-search button, #marketplace-filters .quick-filter').forEach(control => { control.disabled = !hasCatalogVehicles; });
       applyFilters();
     });
+
+    function populateCatalogFacet(id, values, allLabel) {
+      const select = document.getElementById(id);
+      if (!select) return;
+      const selected = select.value;
+      const unique = [...new Set(values.filter(value => typeof value === 'string' && value.trim()).map(value => value.trim()))].sort((a,b) => a.localeCompare(b, 'es'));
+      select.replaceChildren(new Option(allLabel, 'all'));
+      unique.forEach(value => select.add(new Option(value, value)));
+      select.value = unique.includes(selected) ? selected : 'all';
+      select.disabled = unique.length === 0;
+    }
 
     function handleCommunityChange() {
       const comm = document.getElementById('filter-community').value;
@@ -310,8 +334,7 @@
       const query = document.getElementById('filter-free-text').value.trim().toLowerCase();
       const quick = new Set([...document.querySelectorAll('.quick-filter.active')].map(b => b.dataset.quick));
 
-      const demoStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getAllPublicStock() : siteConfig.stock.map(vehicle => ({ ...vehicle, isDemo: true }));
-      const allStock = [...publishedVehicles, ...demoStock.filter(demo=>!publishedVehicles.some(vehicle=>vehicle.id===demo.id))];
+      const allStock = publishedVehicles;
 
       let filtered = allStock.filter(v => {
         const haystack = [v.brand,v.model,v.version,v.fuel,v.gearbox,v.bodyType,v.location,v.province].filter(Boolean).join(' ').toLowerCase();
@@ -353,11 +376,13 @@
       if (!grid) return;
 
       if (!cars.length) {
+        const hasFilters = document.getElementById('filter-community').value !== 'all' || document.getElementById('filter-province').value !== 'all' || document.getElementById('filter-brand').value !== 'all' || document.getElementById('filter-badge').value !== 'all' || document.getElementById('filter-price').value !== 'all' || document.getElementById('filter-score').value !== 'all' || document.getElementById('filter-free-text').value.trim() !== '' || document.querySelector('.quick-filter.active');
+        const unavailable = catalogStatus === 'unavailable';
         grid.innerHTML = `
           <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: white; border-radius: var(--cm-radius-md); border: 1px solid var(--cm-border);">
-            <h3>No se encontraron vehículos con estos criterios</h3>
-            <p style="color: var(--cm-text-secondary); margin-top: 8px;">Prueba a ampliar los filtros de provincia o precio, o solicita tu Coche Ideal.</p>
-            <button class="btn btn-navy" style="margin-top: 16px;" onclick="resetAllFilters()">Ver todos los coches</button>
+            <h3>${unavailable ? 'No podemos consultar el catálogo ahora' : hasFilters ? 'Ningún anuncio coincide con esos filtros' : 'Todavía no hay vehículos reales publicados'}</h3>
+            <p style="color: var(--cm-text-secondary); margin-top: 8px;">${unavailable ? 'El servicio de inventario no está disponible. Inténtalo más tarde.' : hasFilters ? 'Amplía o restablece los filtros. No almacenamos búsquedas ni datos de contacto.' : 'Los anuncios de ejemplo solo aparecen en la demo profesional y no están disponibles para compra.'}</p>
+            ${hasFilters ? '<button class="btn btn-navy" style="margin-top: 16px;" onclick="resetAllFilters()">Restablecer filtros</button>' : '<a class="btn btn-navy" style="margin-top:16px" href="/profesionales#capacidades">Ver estado de la beta</a>'}
           </div>
         `;
         return;

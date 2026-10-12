@@ -66,7 +66,7 @@
 
       <button type="button" class="auth-tab active" id="login-tab" role="tab" aria-selected="true" aria-controls="login-panel">Iniciar sesión</button>
 
-      <button type="button" class="auth-tab" id="register-tab" role="tab" aria-selected="false" aria-controls="register-panel">Crear cuenta</button>
+      <button type="button" class="auth-tab" id="register-tab" role="tab" aria-selected="false" aria-controls="register-panel">Alta no disponible</button>
 
     </div>
 
@@ -100,13 +100,15 @@
     </form>
 
     <button type="button" id="resend-verification" hidden>Reenviar correo de verificación</button>
-    <p class="auth-switch">¿Aún no tienes cuenta? <button type="button" data-show-auth="register">Crear cuenta gratis</button></p>
+    <p class="auth-switch">¿Aún no tienes cuenta? El alta estará disponible cuando se abra la beta.</p>
 
     </section>
 
     <section id="register-panel" role="tabpanel" aria-labelledby="register-tab" hidden>
+    <div role="status" class="auth-status" style="display:block">La beta está en preparación. Por ahora no se crean cuentas ni se recogen datos reales. Puedes explorar el recorrido sintético local en la demo profesional.</div>
 
-    <div class="auth-social-group">
+    <p role="status">El alta real está desactivada durante la preparación de la beta. No introduzcas datos personales. Puedes explorar el recorrido sintético local.</p>
+    <div class="auth-social-group" hidden>
       <a href="/api/auth/oauth/google" class="btn-social btn-google" id="oauth-google" role="button">
         <svg class="social-icon" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
           <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
@@ -120,7 +122,7 @@
 
     <div class="auth-divider"><span>o con correo electrónico</span></div>
 
-    <form id="register-form">
+    <form id="register-form" hidden>
 
       <label for="register-name">Nombre o nombre comercial</label><input id="register-name" autocomplete="organization" required>
 
@@ -151,7 +153,7 @@
 
     </form>
 
-    <p class="auth-note">Empieza gratis durante la beta. Te explicaremos cualquier plan antes de activar un coste.</p>
+    <p class="auth-note">No se crean cuentas reales durante esta fase informativa.</p>
 
     <p class="auth-switch">¿Ya tienes cuenta? <button type="button" data-show-auth="login">Iniciar sesión</button></p>
 
@@ -255,17 +257,18 @@
       }
     }
 
-    if (params.get('mode') === 'register' || params.get('mode') === 'login') showAuth(params.get('mode'));
+    if (params.get('mode') === 'register') { showAuth('login'); show('El alta real está desactivada mientras se prepara la beta. No se han solicitado tus datos.', 'info'); }
+    else if (params.get('mode') === 'login') showAuth('login');
 
     if (params.get('verified') === '1') { showAuth('login'); show('Correo verificado. Ya puedes iniciar sesión.', 'success'); }
 
     document.querySelectorAll('[data-audience]').forEach(button => button.addEventListener('click', () => setAudience(button.dataset.audience)));
 
-    document.querySelectorAll('[data-show-auth]').forEach(button => button.addEventListener('click', () => showAuth(button.dataset.showAuth)));
+    document.querySelectorAll('[data-show-auth]').forEach(button => button.addEventListener('click', () => { if (button.dataset.showAuth === 'register') { show('El alta real está desactivada durante la preparación de la beta.', 'info'); return; } showAuth(button.dataset.showAuth); }));
 
     document.getElementById('login-tab').addEventListener('click', () => showAuth('login'));
 
-    document.getElementById('register-tab').addEventListener('click', () => showAuth('register'));
+    document.getElementById('register-tab').addEventListener('click', () => show('El alta real está desactivada durante la preparación de la beta.', 'info'));
 
     async function send(payload) { const response = await fetch((window.COCHEMOTOR_API_BASE || '') + '/api/auth', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)}); const contentType = response.headers.get('content-type') || ''; const raw = await response.text(); let data; try { data = contentType.includes('application/json') ? JSON.parse(raw) : null; } catch (_) { data = null; } if (!response.ok) throw new Error(data?.error || (data ? 'No se pudo completar la operación' : 'El servicio de acceso no está disponible en este dominio.')); if (!data) throw new Error('El servicio de acceso no está disponible en este dominio.'); return data; }
 
@@ -331,6 +334,8 @@
 
     document.getElementById('register-form').addEventListener('submit', async event => {
       event.preventDefault();
+      show('El alta de cuentas reales está desactivada mientras preparamos la beta. No se han enviado ni guardado tus datos.', 'info');
+      return;
       const form = event.currentTarget;
       const pass = document.getElementById('register-password').value;
       const confirm = document.getElementById('register-password-confirm').value;

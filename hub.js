@@ -1147,7 +1147,8 @@ function runFinancialCalculation() {
   const cost = parseFloat(document.getElementById('calc-cost').value) || 13200;
   const downpayment = parseFloat(document.getElementById('calc-downpayment').value) || 0;
   const months = parseInt(document.getElementById('calc-months').value) || 72;
-  const tin = parseFloat(document.getElementById('calc-tin').value) || 7.9;
+  const tinValue = parseFloat(document.getElementById('calc-tin').value);
+  const tin = Number.isFinite(tinValue) ? Math.min(100, Math.max(0, tinValue)) : 7.9;
 
   const financedAmount = Math.max(0, price - downpayment);
   const monthlyRate = (tin / 100) / 12;
@@ -1165,10 +1166,12 @@ function runFinancialCalculation() {
   const resMonthly = document.getElementById('calc-result-monthly');
   const resMargin = document.getElementById('calc-result-margin');
   const resRoi = document.getElementById('calc-result-roi');
+  const resEquivalent = document.getElementById('calc-result-equivalent');
 
   if (resMonthly) resMonthly.innerText = `${Math.round(monthlyPayment).toLocaleString('es-ES')} €/mes`;
   if (resMargin) resMargin.innerText = `${Math.round(margin).toLocaleString('es-ES')} €`;
   if (resRoi) resRoi.innerText = `${roi.toFixed(1)}%`;
+  if (resEquivalent) resEquivalent.innerText = `${((Math.pow(1 + monthlyRate, 12) - 1) * 100).toLocaleString('es-ES', { maximumFractionDigits: 2 })} %`;
 }
 
 function copyFinancialQuote() {
@@ -1181,8 +1184,9 @@ function copyFinancialQuote() {
 • Precio del coche: ${Number(price).toLocaleString('es-ES')} €
 • Entrada: ${Number(downpayment).toLocaleString('es-ES')} €
 • Plazo: ${months} cuotas
-• Cuota orientativa: ${monthly} (simulación no vinculante; gastos, garantía y transferencia no incluidos salvo indicación expresa).
-Para una oferta formal, solicita condiciones directamente a la entidad financiera. No compartas DNI ni nóminas por este mensaje.`;
+• TIN anual ilustrativo: ${document.getElementById('calc-tin').value}% (TIN/12; sin comisiones ni costes)
+• Cuota orientativa: ${monthly} (no es una oferta de financiación).
+Margen mostrado: precio de venta menos coste de adquisición; excluye impuestos, preparación, garantía, reparaciones, financiación y otros gastos.`;
 
   navigator.clipboard.writeText(msg).then(() => {
     alert("📋 ¡Propuesta de financiación copiada para WhatsApp!");

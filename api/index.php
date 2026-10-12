@@ -172,7 +172,11 @@ function storeVehiclePhoto(array $file, string $directory): string {
 $path=parse_url($_SERVER['REQUEST_URI'] ?? '/',PHP_URL_PATH); $route=preg_replace('#^.*/api#','/api',$path); $method=$_SERVER['REQUEST_METHOD'];
 $contentType=strtolower($_SERVER['CONTENT_TYPE']??'');
 $data=str_starts_with($contentType,'multipart/form-data')?[]:body();
+// No write operations on professional inventory while beta accounts are closed.
+if ($route === '/api/vehicles' && in_array($method, ['POST', 'PATCH'], true)) fail(403, 'La gestión de inventario real está desactivada mientras se prepara la beta.');
 if($method==='POST'&&$route==='/api/vehicles'&&str_starts_with($contentType,'multipart/form-data')&&(int)($_SERVER['CONTENT_LENGTH']??0)>0&&!$_POST&&!$_FILES)fail(413,'La carga supera el límite del servidor. Prueba con menos fotos o imágenes más pequeñas.');
+// Beta previa a profesionales suscritos: no capturar PII ni crear solicitudes reales.
+if ($method === 'POST' && $route === '/api/coche-ideal') fail(403, 'La recepción de solicitudes está desactivada mientras se prepara la beta.');
 if ($method === 'POST' && $route === '/api/coche-ideal') {
     $length = (int)($_SERVER['CONTENT_LENGTH'] ?? 0);
     if ($length < 2 || $length > 16000) fail($length > 16000 ? 413 : 400, 'No se pudieron leer los datos de la búsqueda.');
@@ -434,6 +438,7 @@ function ensureOAuthSchema(PDO $pdo): void {
 }
 
     if (preg_match('#^/api/auth/oauth/(google|apple|facebook)$#', $route, $matches) && $method === 'GET') {
+        fail(403, 'El alta y acceso OAuth están desactivados durante la preparación de la beta.');
         $provider = $matches[1];
         $audience = ($_GET['audience'] ?? 'buyer') === 'professional' ? 'professional' : 'buyer';
         $return = preg_replace('/[^a-zA-Z0-9_\-\/]/', '', (string)($_GET['return'] ?? 'hub'));
@@ -820,6 +825,7 @@ function ensureOAuthSchema(PDO $pdo): void {
             jsonResponse(['ok'=>true, 'ip'=>$clientIp, 'recognized'=>$isKnown]);
         }
         if ($action==='register') {
+            fail(403,'El alta de cuentas reales está desactivada mientras se prepara la beta.');
             $name=trim((string)($data['name']??'')); $email=strtolower(trim((string)($data['email']??''))); $password=(string)($data['password']??'');
             $nameLength = preg_match_all('/./us', $name);
             $privacyNoticeRead=($data['privacy_notice_read']??null)===true;
@@ -944,6 +950,7 @@ function ensureOAuthSchema(PDO $pdo): void {
     if ($route==='/api/report' && $method==='POST') { if (empty($data['listing_reference'])||empty($data['reason'])||empty($data['description'])||$data['privacy_consent']!==true) fail(400,'Faltan datos obligatorios'); $id='rep-'.bin2hex(random_bytes(6)); $q=db()->prepare('INSERT INTO ad_reports(report_id,listing_reference,reason,description,reporter_email,privacy_consent) VALUES(?,?,?,?,?,1)'); $q->execute([$id,$data['listing_reference'],$data['reason'],$data['description'],$data['email']??null]); jsonResponse(['ok'=>true,'id'=>$id],201); }
     if ($route==='/api/leads' && $method==='GET') { $u=requireUser(); $q=db()->prepare('SELECT lead_id,tenant_id,vehicle_id,buyer_name,phone,payment_method,created_at FROM leads WHERE tenant_id=? ORDER BY created_at DESC LIMIT 100'); $q->execute([$u['user_id']]); jsonResponse(['leads'=>$q->fetchAll()]); }
     if ($route==='/api/leads' && $method==='POST') {
+        fail(403,'La recepción de consultas reales está desactivada mientras se prepara la beta.');
         $contentLength=(int)($_SERVER['CONTENT_LENGTH']??0);
         if($contentLength<2||$contentLength>4096)fail($contentLength>4096?413:400,'No se pudieron leer los datos de contacto.');
         if(trim((string)($data['website']??''))!=='')fail(400,'No se pudo enviar la solicitud.');
