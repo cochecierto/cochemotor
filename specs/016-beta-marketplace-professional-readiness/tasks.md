@@ -24,7 +24,7 @@ Enmienda 2026-10-12: Dirección autoriza publicación a GitHub y despliegue en H
   (RF: RF-2, RF-8, RF-12) Hecho cuando: callback OAuth devuelve 403 antes de red/DB/creación de cuentas y controles de búsqueda se ocultan en indisponibilidad.
 - [x] T10. Preparar release completo, compatible con solo lectura, y actualizarlo respecto a main.
   (RF: RF-1–RF-12) Hecho cuando: SFTP incluye cada activo permitido; el promotor conserva snapshot, serializa promoción/rollback y restaura si falla la promoción o el smoke test; guardia confirma backup y no DDL; solo existe un workflow de publicación.
-- [ ] T11. Publicar PR y desplegar tras Gauntlet independiente.
+- [x] T11. PR #6 y PR #7 fusionados; despliegue Hostinger verificado por workflow manual #129.
   (RF: RF-1–RF-12) Hecho cuando: PR integrado en main, GitHub Actions concluye con éxito y producción muestra beta informativa, no stock sintético y endpoints de escritura cerrados.
 
 ## Reglas de ejecución
@@ -33,3 +33,4 @@ Enmienda 2026-10-12: Dirección autoriza publicación a GitHub y despliegue en H
 - Implementar una tarea cada vez y cubrir los cambios de comportamiento con pruebas antes de modificar código cuando aplique.
 - La demo local no crea credenciales ni escribe datos; no introducir excepciones de autenticación en producción.
 - Si aparece una decisión sobre retención, fiscalidad, precios o captura real no aprobada, detener solo la parte dependiente y actualizar spec/clarificación.
+
