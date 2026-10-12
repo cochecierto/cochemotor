@@ -179,16 +179,57 @@ function renderChapter6Catalog() {
   var subEl = document.getElementById('catalog-subtitle');
   if (subEl) subEl.textContent = ch.subtitle;
 
-  var stock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getStock() : siteConfig.stock.map(function(v) { return Object.assign({}, v, { isDemo: true }); });
-  renderStockGrid(stock);
+  var grid = document.getElementById('stock-grid');
+  if (grid) grid.setAttribute('aria-live', 'polite');
+  fetch('/api/public/vehicles', { headers: { Accept: 'application/json' }, credentials: 'same-origin' })
+    .then(function(response) { if (!response.ok) throw new Error('unavailable'); return response.json(); })
+    .then(function(data) {
+      var allStock = Array.isArray(data.vehicles) ? data.vehicles.filter(function(v) { return v && v.status === 'disponible' && v.publicationState !== 'proxima_entrada' && v.isDemo !== true; }) : [];
+      var homeSearch = document.querySelector('.hero-search-box');
+      var homeFilters = document.querySelector('.catalog-filters');
+      if (homeSearch) homeSearch.hidden = allStock.length === 0;
+      if (homeFilters) homeFilters.hidden = allStock.length === 0;
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(function(item) { item.classList.remove('active'); });
+          btn.classList.add('active');
+          var filterType = btn.getAttribute('data-filter');
+          var stock = allStock.slice();
+          if (filterType === 'eco') stock = stock.filter(function(v) { return v.badge === 'ECO' || v.badge === '0'; });
+          if (filterType === 'c') stock = stock.filter(function(v) { return v.badge === 'C'; });
+          if (filterType === 'under20k') stock = stock.filter(function(v) { return Number(v.price) <= 20000; });
+          renderStockGrid(stock, { filtered: filterType !== 'all' });
+        });
+      });
+      renderStockGrid(allStock);
+    })
+    .catch(function() { renderStockUnavailable(); });
 }
 
-function renderStockGrid(vehicles) {
+function renderStockUnavailable() {
+  var grid = document.getElementById('stock-grid');
+  if (grid) grid.innerHTML = '<p role="status" style="grid-column:1/-1;text-align:center;padding:32px;color:var(--cm-text-secondary);">El catálogo no está disponible ahora. No mostramos vehículos de ejemplo como ofertas.</p>';
+  var status = document.getElementById('home-catalog-status');
+  if (status) { status.hidden = false; status.textContent = 'No pudimos consultar el inventario real. Prueba de nuevo más tarde.'; }
+}
+
+function renderStockGrid(vehicles, options) {
   var grid = document.getElementById('stock-grid');
   if (!grid) return;
+  var status = document.getElementById('home-catalog-status');
+  if (status) status.hidden = true;
 
   if (vehicles.length === 0) {
-    grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--cm-text-secondary);">No hay vehículos con los filtros seleccionados.</p>';
+    var hasFilters = Boolean(options && options.filtered);
+    grid.innerHTML = hasFilters
+      ? '<div role="status" style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--cm-text-secondary);"><strong>Ningún vehículo coincide con este filtro.</strong><p>Prueba otro filtro para revisar el catálogo real disponible.</p><button type="button" class="btn btn-navy" id="home-reset-filters">Restablecer filtros</button></div>'
+      : '<div role="status" style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--cm-text-secondary);"><strong>Todavía no hay vehículos reales publicados.</strong><p>Los datos sintéticos solo están disponibles en la demo profesional.</p></div>';
+    var reset = document.getElementById('home-reset-filters');
+    if (reset) reset.addEventListener('click', function() {
+      var allFilter = document.querySelector('.filter-btn[data-filter="all"]');
+      if (allFilter) allFilter.click();
+    });
     return;
   }
 
@@ -231,28 +272,6 @@ function renderStockGrid(vehicles) {
       '</div>' +
     '</article>';
   }).join('');
-}
-
-function initStockFilters() {
-  var filterBtns = document.querySelectorAll('.filter-btn');
-  filterBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      filterBtns.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-
-      var currentStock = (typeof CocheMotorStorage !== 'undefined') ? CocheMotorStorage.getStock() : siteConfig.stock.map(function(v) { return Object.assign({}, v, { isDemo: true }); });
-      var filterType = btn.getAttribute('data-filter');
-      if (filterType === 'all') {
-        renderStockGrid(currentStock);
-      } else if (filterType === 'eco') {
-        renderStockGrid(currentStock.filter(function(v) { return v.badge === 'ECO' || v.badge === '0'; }));
-      } else if (filterType === 'c') {
-        renderStockGrid(currentStock.filter(function(v) { return v.badge === 'C'; }));
-      } else if (filterType === 'under20k') {
-        renderStockGrid(currentStock.filter(function(v) { return v.price < 20000; }));
-      }
-    });
-  });
 }
 
 function renderChapter7Faq() {

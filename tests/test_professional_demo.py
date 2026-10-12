@@ -20,8 +20,8 @@ class ProfessionalDemoTests(unittest.TestCase):
         self.assertRegex(self.page, r'<meta\s+name="robots"\s+content="noindex,\s*follow"')
         self.assertIn('assets/brand/logos/cochemotor-horizontal-light.png', self.page)
 
-    def test_demo_routes_only_to_beta_registration_or_professional_landing(self):
-        self.assertIn("/acceso?audience=professional&amp;return=hub&amp;mode=register", self.page)
+    def test_demo_routes_only_to_local_demo_or_professional_landing(self):
+        self.assertNotIn("/acceso?audience=professional&amp;return=hub&amp;mode=register", self.page)
         self.assertRegex(self.page, r'href="(?:/)?profesionales(?:\.html)?"')
         self.assertNotRegex(self.page, r'href="https?://')
         self.assertNotRegex(self.page, r'href="(?:hub|dealer|ficha)\.html')
@@ -49,18 +49,18 @@ class ProfessionalDemoTests(unittest.TestCase):
 
     def test_demo_exposes_real_hub_modules_and_marks_unimplemented_previews(self):
         labels = (
-            "Añadir coche", "Seguimiento de contactos", "Generador con IA",
+            "Añadir coche", "Seguimiento de contactos", "Borrador por plantilla",
             "Copiloto de Precios", "Solicitudes de compradores", "Cuotas y margen",
             "Cartel Parabrisas QR", "Documentación de operaciones",
-            "Publicar en redes y grupos", "Garantías y seguimiento posventa",
+            "Compartir texto manualmente", "Garantías y seguimiento posventa",
             "Afiliados B2B", "Mi página profesional",
         )
         for label in labels:
             self.assertIn(label, self.page)
         self.assertIn("No conectada en la demo", self.page)
         self.assertIn("modulePreviews", self.script)
-        self.assertIn("no se consultan anuncios ni datos de mercado en directo", self.script)
-        self.assertIn("no se conecta a redes sociales", self.script)
+        self.assertIn("No consulta anuncios ni datos de mercado en directo", self.script)
+        self.assertIn("no tiene conexión con cuentas sociales", self.script)
         self.assertIn("Esta vista no utiliza IA ni ofrece financiación", self.page)
         self.assertIn("id=\"demo-margin-output\"", self.page)
         self.assertIn("function updateMargin()", self.script)

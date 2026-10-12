@@ -4,6 +4,8 @@
    Brand Identity: Deep Navy #002D62, Automotive Red #D02828, Deep Burgundy #8F1D2C, Verification Green #18A66A, White #FFFFFF, Cool Gray #F3F5F7, Graphite #3C3F41
    ========================================================================== */
 
+[hidden] { display: none !important; }
+
 :root {
   /* Brand Official Tokens (CocheMotor — Compra claro. Vende mejor.) */
   --cm-navy: #002D62;

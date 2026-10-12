@@ -14,7 +14,12 @@
     <a class="publish-back-link" href="/"><span aria-hidden="true">←</span> Volver al inicio</a>
   </header>
   <main class="publish-shell">
-    <section class="publish-hero" aria-labelledby="publish-title">
+    <section role="status" style="padding:28px;border:1px solid #cbd5e1;border-radius:14px;background:#fff">
+      <h1>Publicación todavía no disponible</h1>
+      <p>La beta se está preparando y todavía no acepta anuncios ni datos de contacto. Puedes explorar el recorrido profesional con información sintética.</p>
+      <a class="btn btn-red" href="/demo-profesional.html">Abrir demo profesional</a>
+    </section>
+    <section class="publish-hero" aria-labelledby="publish-title" hidden>
       <div class="publish-hero-copy">
         <span class="publish-eyebrow"><span aria-hidden="true"></span> PUBLICA TU COCHE</span>
         <h1 id="publish-title">Prepara tu anuncio <span>paso a paso.</span></h1>
@@ -26,7 +31,7 @@
         <li><span>03</span> Contacto</li>
       </ol>
     </section>
-    <form id="public-listing-form" class="publish-form">
+    <form id="public-listing-form" class="publish-form" hidden>
       <section class="publish-step-section" aria-labelledby="vehicle-details-title">
         <div class="publish-section-heading"><span class="publish-section-number" aria-hidden="true">01</span><div><h2 id="vehicle-details-title">Datos del coche</h2><p>Lo básico para que la gente sepa qué estás vendiendo.</p></div></div>
         <div class="publish-fields-grid">

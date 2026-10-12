@@ -13,7 +13,7 @@ class BetaFeedbackReadinessTests(unittest.TestCase):
         styles = (ROOT / "profesionales.css").read_text(encoding="utf-8")
         self.assertRegex(page, r'<details[^>]*class="[^"]*pro-plan-disclosure')
         self.assertIn("propuesta de planes", page.lower())
-        self.assertIn("beta es gratuita", page.lower())
+        self.assertIn("alta de cuentas reales está cerrada", page.lower())
         self.assertNotIn("Ver planes y precios", page)
         self.assertNotIn("pro-cost-", page + script + styles)
         self.assertNotIn("updateCostScenario", script)

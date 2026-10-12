@@ -441,3 +441,11 @@ Todas las decisiones de esta versión están fechadas el 2026-08-27.
 - Decisión: implementar RF-1..RF-8 de Spec 014 para corregir autenticación, filtros del marketplace, solicitud de contacto persistida, información de alta, carga del catálogo, respuestas de rutas inexistentes y consistencia verificable de los activos de release.
 - Límites: no crear datos reales ni inventario sintético presentado como real; no reutilizar credenciales de producción; no publicar a GitHub, ejecutar migraciones o desplegar a Hostinger bajo esta aprobación.
 - Evidencia: solicitud explícita de Dirección y aprobación del 2026-09-14 en la conversación; Spec 014, clarificación y plan.
+
+## D-048 — Transparencia de beta, stock y recorrido sintético (Spec 016)
+
+- Estado: aprobado para implementación y revisión local el 2026-10-12. Sin publicación a GitHub ni despliegue en esta iniciativa.
+- Decisión: hasta contar con profesionales suscritos, mantener el sitio informativo, no aceptar altas ni solicitudes reales, separar los ejemplos del inventario comprable y ofrecer solo un recorrido profesional local sintético y temporal.
+- Datos: la demo mantiene cambios únicamente en memoria de la pestaña y los descarta al recargar. La política de conservación/exportación/borrado al finalizar la beta se resolverá antes de habilitar cuentas reales; no se promete hoy.
+- Cálculos: simulador con TIN editable inicial de 7,9 % y equivalente anual matemático teórico sin costes, nunca etiquetado como TAE u oferta. El margen expone los costes que no incluye.
+- Evidencia: respuestas aprobadas por Dirección el 2026-10-12, Spec 016, aclaración `GO`, plan técnico y tareas en `specs/016-beta-marketplace-professional-readiness/`.

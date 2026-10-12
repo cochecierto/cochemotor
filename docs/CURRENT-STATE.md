@@ -222,3 +222,11 @@ siguiente paso y todavía no existe orquestación BROKER implementada.
 
 - La tarjeta «Checklist Fotográfico de Confianza» de `hub.html` muestra ahora las diez imágenes de referencia de «PUBLICA TU COCHE», con miniaturas responsivas, textos alternativos y carga diferida.
 - Se mantiene el flujo de selección múltiple y se sincroniza también la copia `local-broker/static`.
+
+## Actualización CocheMotor — beta transparente y recorrido local, Spec 016, 2026-10-12
+
+- La portada y el marketplace separan fixtures sintéticos del catálogo público, ofrecen los tramos de precio hasta más de 25.000 € y comunican por separado ausencia de stock, filtros sin coincidencias e indisponibilidad de la API.
+- Hasta contar con profesionales suscritos, el sitio permanece informativo: altas, solicitudes de compradores, leads y escritura de inventario real se bloquean o presentan como no disponibles. La demo profesional opera en memoria de pestaña, con datos sintéticos, sin persistencia, publicación ni mensajes externos.
+- La demo declara el estado de las capacidades; el generador es una plantilla local sin IA, las consultas son ficticias y los módulos desconectados se etiquetan como ilustrativos/en desarrollo. El simulador usa TIN editable inicial del 7,9 % y distingue el equivalente matemático teórico de una TAE; el margen hace visibles los costes excluidos.
+- La política de ciclo de vida de datos al final de la beta sigue pendiente y debe decidirse antes de habilitar cuentas reales. Los cambios de Spec 016 siguen siendo locales; publicación a GitHub y despliegue requieren aprobación posterior.
+- Evidencia de implementación/validación en `specs/016-beta-marketplace-professional-readiness/validation.md` y del arbitraje en `docs/gauntlet/spec-016-beta-marketplace-professional-readiness.md`.
