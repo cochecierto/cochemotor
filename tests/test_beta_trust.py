@@ -35,6 +35,24 @@ class BetaTrustTests(unittest.TestCase):
             self.assertIn(route, api)
         self.assertIn("El alta de cuentas reales está desactivada", access)
 
+    def test_public_beta_write_guards_precede_database_inserts(self):
+        api = (ROOT / "api" / "index.php").read_text(encoding="utf-8")
+        guarded_writes = (
+            ("if ($method === 'POST' && $route === '/api/coche-ideal') fail(403,", "INSERT INTO coche_ideal_requests"),
+            ("if ($route === '/api/vehicles' && in_array($method, ['POST', 'PATCH'], true)) fail(403,", "INSERT INTO vehicles("),
+            ("if ($action==='register') {", "INSERT INTO professional_users("),
+            ("if ($route==='/api/leads' && $method==='POST') {", "INSERT INTO leads("),
+        )
+        for guard, insert in guarded_writes:
+            with self.subTest(route=guard):
+                guard_index = api.find(guard)
+                self.assertGreaterEqual(guard_index, 0, f"Missing write guard: {guard}")
+                if guard.endswith("{"):
+                    guard_index = api.find("fail(403,", guard_index)
+                    self.assertGreaterEqual(guard_index, 0, f"Missing 403 inside: {guard}")
+                insert_index = api.find(insert, guard_index)
+                self.assertGreater(insert_index, guard_index, f"Database write precedes guard: {insert}")
+
     def test_demo_is_ephemeral_and_finance_margin_assumptions_are_explicit(self):
         page = (ROOT / "demo-profesional.html").read_text(encoding="utf-8")
         script = (ROOT / "demo-profesional.js").read_text(encoding="utf-8")
