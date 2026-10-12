@@ -21,7 +21,7 @@
 - [x] Política, plantilla y enlaces añadidos.
 - [ ] Todos los RF tienen evidencia final (RF-10 depende de la publicación en GitHub).
 - [x] Checks documentales y `git diff --cached --check` completados.
-- [x] Árbitro independiente revisó la versión final candidata; G-01, G-02 y G-03 están resueltos y no quedan defectos sustantivos abiertos.
+- [x] Árbitro independiente confirmó la corrección G-04; G-01–G-04 están resueltos y no quedan hallazgos sustantivos abiertos.
 - [ ] GitHub PR creado desde rama aislada, sin incluir cambios locales ajenos.
 - [ ] Dictamen final registrado.
 
@@ -31,7 +31,7 @@
 |---|---|---|
 | `git diff --cached --check` | PASS | Sin errores de whitespace en los 12 archivos staged de Spec 015. Git avisó que LF se normalizará a CRLF conforme a la configuración del repositorio. |
 | Comprobación de rutas documentales (`Test-Path`) | PASS | Los nueve documentos referenciados por la validación existen. |
-| Revisión adversarial independiente, tres rondas | PASS | Subagente confirmó resolución de G-01, G-02 y G-03; sin hallazgos sustantivos abiertos en el snapshot revisado. |
+| Revisión adversarial independiente, tres rondas y revalidación puntual | PASS | Subagente confirmó resolución de G-01–G-04; sin hallazgos sustantivos abiertos. |
 | Suites de producto | NO EJECUTADAS | El cambio es solo documental y no altera código del producto. |
 
 ## Dictamen
