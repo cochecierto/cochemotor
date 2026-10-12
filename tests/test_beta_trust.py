@@ -130,6 +130,14 @@ class BetaTrustTests(unittest.TestCase):
         self.assertIn("Consulta el estado del catálogo real.", config)
         self.assertNotIn("El catálogo aún no tiene stock real", config)
 
+    def test_empty_catalog_controls_remain_hidden_after_loading_site_styles(self):
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        styles = (ROOT / "styles.css").read_text(encoding="utf-8")
+        self.assertIn('styles.css?v=20261012.1', home)
+        self.assertIn('[hidden] { display: none !important; }', styles)
+        self.assertIn('.catalog-filters[hidden]', styles)
+        self.assertIn('.hero-search-box[hidden]', styles)
+
     def test_production_release_deploys_homepage_script_and_serializes_api_writes(self):
         seo = (ROOT / ".github" / "workflows" / "deploy-seo-hostinger.yml").read_text(encoding="utf-8")
         demo = (ROOT / ".github" / "workflows" / "deploy-hostinger.yml").read_text(encoding="utf-8")
