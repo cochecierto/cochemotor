@@ -71,7 +71,8 @@ class WebFlowReliabilityTests(unittest.TestCase):
         for asset in ("hub.js", "site-config.js", "acceso.html", "ficha.html", "marketplace.html", "assets/js/home_catalog.js", "assets/data/vehicles_catalog.js", "assets/js/public-lead-form.js", "007_lead_and_registration_notice_mysql.sql"):
             self.assertIn(asset, self.deploy)
         self.assertIn("sha256sum", self.deploy)
-        self.assertIn("release=$GITHUB_SHA", self.deploy)
+        self.assertIn("sftp -b - -P 65002", self.deploy)
+        self.assertIn("get $asset $remote_dir/$asset", self.deploy)
 
 
 if __name__ == "__main__":

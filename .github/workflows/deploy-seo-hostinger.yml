@@ -332,15 +332,32 @@ jobs:
           curl --fail --silent --show-error --location --retry 4 --retry-delay 2 https://cochemotor.es/guias/comprar-coche-usado.html -o "$RUNNER_TEMP/cochemotor-guide.html"
           grep -F "Cómo revisar un coche de segunda mano antes de comprar" "$RUNNER_TEMP/cochemotor-guide.html"
 
-      - name: Verificar que los activos publicados coinciden con este commit
+      - name: Verificar que los activos en Hostinger coinciden con este commit
         shell: bash
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          SSH_WEB_ROOT: ${{ secrets.HOSTINGER_SSH_WEB_ROOT }}
         run: |
           set -euo pipefail
-          for asset in site-config.js hub.js styles.css assets/js/home_catalog.js assets/js/public-lead-form.js assets/js/inventory_selectors.js assets/data/vehicles_catalog.js assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png; do
+          remote_dir="$RUNNER_TEMP/hostinger-assets"
+          assets=(site-config.js hub.js styles.css assets/js/home_catalog.js assets/js/public-lead-form.js assets/js/inventory_selectors.js assets/data/vehicles_catalog.js assets/brand/category-02-compacto-proxima-entrada-cochemotor-branded-v2.png)
+          for asset in "${assets[@]}"; do
+            mkdir -p "$remote_dir/$(dirname "$asset")"
+            sftp -b - -P 65002 \
+              -i "$RUNNER_TEMP/cochemotor-seo-ssh/id_ed25519" \
+              -o IdentitiesOnly=yes \
+              -o BatchMode=yes \
+              -o StrictHostKeyChecking=yes \
+              -o "UserKnownHostsFile=$RUNNER_TEMP/cochemotor-seo-ssh/known_hosts" \
+              "$SSH_USER@$SSH_HOST" <<SFTP
+          cd $SSH_WEB_ROOT
+          get $asset $remote_dir/$asset
+          SFTP
             local_hash="$(sha256sum "$asset" | cut -d' ' -f1)"
-            remote_hash="$(curl --fail --silent --show-error --retry 4 --retry-delay 2 "https://cochemotor.es/$asset?release=$GITHUB_SHA" | sha256sum | cut -d' ' -f1)"
+            remote_hash="$(sha256sum "$remote_dir/$asset" | cut -d' ' -f1)"
             if [[ "$local_hash" != "$remote_hash" ]]; then
-              echo "::error::El activo publicado no coincide con el commit para $asset (local=$local_hash remoto=$remote_hash)."
+              echo "::error::El archivo en Hostinger no coincide con el commit para $asset (local=$local_hash remoto=$remote_hash)."
               exit 1
             fi
           done
