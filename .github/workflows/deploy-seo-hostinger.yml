@@ -86,12 +86,17 @@ on:
   workflow_dispatch:
     inputs:
       seo_backup_ready:
-        description: "He creado y verificado una copia de seguridad reciente de la base de CocheMotor antes de aplicar DDL."
+        description: "He verificado una copia reciente de la base de CocheMotor anterior a este despliegue."
         required: true
         type: boolean
         default: false
       seo_migrations_ready:
-        description: "He aplicado 004–007 en CocheMotor, revisado duplicados de public_slug y probado registro, vehículos y leads contra el esquema actualizado."
+        description: "He confirmado en producción que 004–007 están aplicadas, public_slug no tiene duplicados y existen sus campos e índices. Este despliegue no aplica DDL."
+        required: true
+        type: boolean
+        default: false
+      seo_beta_writes_disabled:
+        description: "Confirmo que el release mantiene bloqueadas por 403 las escrituras públicas de registro, vehículos, Coche Ideal y consultas."
         required: true
         type: boolean
         default: false
@@ -141,13 +146,18 @@ jobs:
         env:
           SEO_BACKUP_READY: ${{ inputs.seo_backup_ready }}
           SEO_MIGRATIONS_READY: ${{ inputs.seo_migrations_ready }}
+          SEO_BETA_WRITES_DISABLED: ${{ inputs.seo_beta_writes_disabled }}
         run: |
           if [[ "$SEO_BACKUP_READY" != "true" ]]; then
             echo "::error::Despliegue detenido. Crea y verifica una copia reciente de la base antes de aplicar cambios de esquema o publicar."
             exit 1
           fi
           if [[ "$SEO_MIGRATIONS_READY" != "true" ]]; then
-            echo "::error::Despliegue detenido. Aplica y verifica las migraciones 004–007, incluidos los slugs duplicados, los consentimientos versionados y los campos de solicitudes de contacto, y vuelve a ejecutar confirmando la casilla."
+            echo "::error::Despliegue detenido. Confirma el esquema de producción 004–007, los slugs sin duplicados y los campos e índices requeridos."
+            exit 1
+          fi
+          if [[ "$SEO_BETA_WRITES_DISABLED" != "true" ]]; then
+            echo "::error::Despliegue detenido. La validación automática debe confirmar que las escrituras públicas siguen bloqueadas en esta release."
             exit 1
           fi
 
