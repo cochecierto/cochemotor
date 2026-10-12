@@ -21,6 +21,8 @@
 - [Criterios de selección de IA](governance/ai-provider-selection.md)
 - [Permisos de acciones de IA](governance/ai-action-permissions.md)
 - [Metodología SDD](governance/sdd-methodology.md)
+- [Gauntlet de calidad de desarrollo](governance/gauntlet.md)
+- [Informes Gauntlet](gauntlet/README.md)
 
 ## Producto y negocio
 

@@ -30,6 +30,7 @@ validación aporta evidencia requisito por requisito.
 
 ## CocheMotor
 
+- [Spec 015 — Gauntlet de calidad para cambios de desarrollo](015-development-gauntlet/spec.md)
 - [Spec 004 — Coche Ideal: búsqueda por necesidad y categorías](004-coche-ideal/spec.md)
 - [Spec 005 — Referencias DGT y trazabilidad del catálogo](005-dgt-reference-and-catalogue/spec.md)
 - [Spec 006 — Publicación guiada de fotografías del vehículo](006-guided-vehicle-photo-publishing/spec.md)

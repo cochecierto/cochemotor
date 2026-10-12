@@ -30,6 +30,12 @@ Esta base documental y técnica define la plataforma digital y SaaS para el sect
 - Trabajar una tarea cada vez, con pruebas antes del código cuando aplique.
 - Ante un cambio de alcance, actualizar primero la spec y detener la implementación hasta obtener aprobación.
 
+## Gauntlet de calidad
+
+- Aplicar `docs/governance/gauntlet.md` a cambios relevantes de producto, seguridad, datos, integraciones, permisos o despliegue. Para cambios documentales o correcciones pequeñas de bajo riesgo, usar el flujo reducido definido allí.
+- Gauntlet complementa SDD: no sustituye la aprobación de la spec, las validaciones EARS ni las autorizaciones de merge, publicación o despliegue.
+- En el flujo completo, exigir matriz de evidencias, revisión adversarial independiente, corrección y repetición de comprobaciones (máximo tres rondas por defecto) e informe en `docs/gauntlet/`.
+
 ## Ámbito conocido
 
 - Proyecto: CocheMotor (AutoTech Marketplace & SaaS B2B2C).
