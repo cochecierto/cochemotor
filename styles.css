@@ -713,6 +713,11 @@ button {
   align-items: center;
 }
 
+.catalog-filters[hidden],
+.hero-search-box[hidden] {
+  display: none !important;
+}
+
 .filter-btn {
   font-family: var(--font-family-display);
   font-size: 0.88rem;
