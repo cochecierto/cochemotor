@@ -8,5 +8,5 @@
   (RF: RF-8) Hecho cuando: existe plantilla completa y `docs/00-INDEX.md` y `specs/README.md` enlazan la iniciativa.
 - [x] T4. Revisar coherencia, diff y resultados con árbitro independiente.
   (RF: RF-1–RF-10) Hecho cuando: evidencia registrada en `validation.md`, hallazgos corregidos o declarados, y revisión final documentada.
-- [ ] T5. Publicar los cambios aislados en GitHub.
+- [ ] T5. Publicar los cambios aislados en GitHub. BLOQUEADA: GitHub denegó el permiso de escritura (HTTP 403) a la cuenta autenticada.
   (RF: RF-10) Hecho cuando: la rama se basa en `origin/main`, contiene solo archivos de Spec 015 y hay PR creado sin fusión ni despliegue.

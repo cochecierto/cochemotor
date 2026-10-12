@@ -13,17 +13,17 @@
 | RF-7 | Política, sección “Dictamen de aceptación” | PASS | Tres estados y umbral independiente definidos. |
 | RF-8 | `docs/gauntlet/_template.md` y `docs/gauntlet/README.md` | PASS | Plantilla y ubicación de informe creadas. |
 | RF-9 | Política, sección “Dictamen de aceptación” | PASS | El dictamen no autoriza release. |
-| RF-10 | Plan 015; rama/PR en GitHub | PENDIENTE GitHub | Se publicará después de la revisión final; no fusionar ni desplegar. |
+| RF-10 | Plan 015; push de rama de trabajo | BLOQUEADO | Push y creación de rama por conector rechazados con HTTP 403: la cuenta autenticada `inmobia360` no tiene permiso de escritura. No se creó rama/PR remoto. |
 
 ## Criterios de finalización
 
 - [x] Spec aprobada y clarificación `GO`.
 - [x] Política, plantilla y enlaces añadidos.
-- [ ] Todos los RF tienen evidencia final (RF-10 depende de la publicación en GitHub).
+- [x] Todos los RF tienen evidencia final; RF-10 tiene evidencia del intento de publicación y bloqueo 403, sin considerarse satisfecho.
 - [x] Checks documentales y `git diff --cached --check` completados.
 - [x] Árbitro independiente confirmó la corrección G-04; G-01–G-04 están resueltos y no quedan hallazgos sustantivos abiertos.
-- [ ] GitHub PR creado desde rama aislada, sin incluir cambios locales ajenos.
-- [ ] Dictamen final registrado.
+- [ ] GitHub PR creado desde rama aislada, sin incluir cambios locales ajenos (bloqueado por permisos 403).
+- [x] Dictamen final `BLOQUEADO` registrado.
 
 ## Verificaciones ejecutadas
 
@@ -36,4 +36,4 @@
 
 ## Dictamen
 
-`BLOQUEADO` hasta publicar la rama y crear el PR autorizado. Las validaciones documentales y el arbitraje independiente están completos; RF-10 sigue pendiente.
+`BLOQUEADO`: las validaciones documentales y el arbitraje independiente están completos, pero RF-10 no pudo publicarse porque GitHub rechazó la escritura con HTTP 403. Se requiere conceder acceso de escritura a la cuenta autenticada o conectar una cuenta con esos permisos.

@@ -2,20 +2,20 @@
 
 ## Estado
 
-`BLOQUEADO` (pendiente la publicación de la rama y el PR de GitHub).
+`BLOQUEADO` (GitHub rechazó la publicación de la rama con HTTP 403).
 
 ## Resumen
 
 - Objetivo: integrar el procedimiento Gauntlet como complemento del flujo SDD de CocheMotor.
 - Alcance incluido: política operativa, regla en `AGENTS.md`, plantilla de informe, navegación y documentos SDD de Spec 015.
 - Alcance excluido: cambios de producto, CI, protecciones GitHub, fusión, despliegue a Hostinger.
-- Rama / PR / commit evaluado: rama local `codex/015-development-gauntlet`; PR pendiente.
+- Rama / PR / commit evaluado: rama local `codex/015-development-gauntlet`, commit `38583e9`; no se creó rama ni PR remoto.
 - Implementador: Codex.
 - Árbitro: subagente independiente.
 
 ## Matriz de requisitos y evidencia
 
-Consultar `specs/015-development-gauntlet/validation.md`; los requisitos RF-1–RF-9, las comprobaciones documentales y el arbitraje independiente están completos. Solo RF-10 (rama/PR en GitHub) sigue pendiente.
+Consultar `specs/015-development-gauntlet/validation.md`; los requisitos RF-1–RF-9, las comprobaciones documentales y el arbitraje independiente están completos. RF-10 quedó bloqueado por falta de permisos de escritura en GitHub.
 
 ## Rondas y hallazgos
 
@@ -34,15 +34,15 @@ Consultar `specs/015-development-gauntlet/validation.md`; los requisitos RF-1–
 | Comprobación de rutas documentales (`Test-Path`) | PASS | Los nueve documentos de la matriz de validación existen. |
 | Suites de producto | NO EJECUTADAS | No hay código de producto afectado. |
 | Revisión independiente, tres rondas y revalidación puntual | PASS | G-01–G-04 resueltos; sin hallazgos sustantivos abiertos. |
-| GitHub PR | PENDIENTE | `git fetch` falló por DNS en shell; se publicará usando la conexión GitHub autorizada. |
+| Publicar rama en GitHub | FAIL / BLOQUEADO | `git push --set-upstream origin codex/015-development-gauntlet` devolvió HTTP 403: permiso denegado a la cuenta autenticada `inmobia360`. La creación de rama mediante GitHub connector también devolvió 403 “Resource not accessible by integration”. No se creó PR remoto. |
 
 ## Baseline y riesgos
 
 - Baseline Git local: `main` está un commit por delante de `origin/main`; existen archivos locales sin seguimiento ajenos a esta tarea.
-- Riesgo de publicación: no incluir el commit ni archivos locales preexistentes; se usará rama de trabajo basada en `origin/main`.
+- Riesgo de publicación: no incluir el commit ni archivos locales preexistentes; se preparó la rama local desde `origin/main`. El push está bloqueado hasta que se habilite acceso de escritura.
 - Riesgo de release: no fusionar a `main` ni desplegar a Hostinger.
-- Limitación: `git fetch origin main` no pudo resolver conexión desde el shell (`getaddrinfo`); la publicación remota sigue sin comprobar.
+- Limitación: el shell pudo contactar GitHub pero el servidor rechazó la escritura (HTTP 403); el conector de GitHub tampoco dispone de permiso para crear ramas. La rama local y sus dos commits siguen disponibles para publicar cuando se corrijan permisos.
 
 ## Dictamen
 
-`BLOQUEADO` solo por el PR pendiente. La revisión independiente y las verificaciones documentales pasaron. El informe no autoriza merge ni despliegue.
+`BLOQUEADO` por falta de permiso de escritura en GitHub. La revisión independiente y las verificaciones documentales pasaron. El informe no autoriza merge ni despliegue.
