@@ -41,7 +41,7 @@ Consultar `specs/015-development-gauntlet/validation.md`; los requisitos RF-1–
 - Baseline Git local: `main` está un commit por delante de `origin/main`; existen archivos locales sin seguimiento ajenos a esta tarea.
 - Riesgo de publicación: no incluir el commit ni archivos locales preexistentes; se preparó la rama local desde `origin/main`. El push está bloqueado hasta que se habilite acceso de escritura.
 - Riesgo de release: no fusionar a `main` ni desplegar a Hostinger.
-- Limitación: el shell pudo contactar GitHub pero el servidor rechazó la escritura (HTTP 403); el conector de GitHub tampoco dispone de permiso para crear ramas. La rama local y sus dos commits siguen disponibles para publicar cuando se corrijan permisos.
+- Limitación: el shell pudo contactar GitHub pero el servidor rechazó la escritura (HTTP 403); el conector de GitHub tampoco dispone de permiso para crear ramas. La rama local y sus commits de integración siguen disponibles para publicar cuando se corrijan permisos.
 
 ## Dictamen
 
